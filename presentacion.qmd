@@ -15,3 +15,17 @@ Ambos libros pueden estudiarse de manera independiente. No obstante, su utilizac
 3. su implementación computacional con datos reales.
 
 El contenido se presenta de forma gradual. Cada capítulo comienza con una explicación conceptual del problema, seguida de la notación matemática necesaria, definiciones formales, proposiciones, teoremas, demostraciones y derivaciones. Posteriormente se desarrollan ejemplos numéricos manuales y se establece la conexión con los algoritmos estudiados en el volumen práctico.
+
+
+## Organización de la obra
+
+La obra se organiza en seis partes:
+
+1. fundamentos matemáticos;
+2. fundamentos del aprendizaje automático;
+3. modelos de regresión;
+4. métodos de clasificación;
+5. aprendizaje no supervisado;
+6. temas avanzados.
+
+Cada capítulo incluye referencias académicas específicas, mientras que la bibliografía consolidada aparece al final del libro.

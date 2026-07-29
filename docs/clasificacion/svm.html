@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -658,6 +677,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-selección" id="toc-ejercicio-de-selección" class="nav-link" data-scroll-target="#ejercicio-de-selección"><span class="header-section-number">19.73</span> Ejercicio de selección</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">19.74</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">19.75</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -2064,10 +2084,22 @@ b=-4.
 <p>Se estudió el hiperplano separador, el margen geométrico, el problema de margen máximo y los vectores de soporte. También se derivaron las formulaciones primal y dual, las condiciones KKT y el margen suave mediante variables de holgura.</p>
 <p>Posteriormente se introdujeron la pérdida hinge, el parámetro de costo, el truco kernel, los kernels lineal, polinomial y radial, así como la selección de hiperparámetros.</p>
 <p>Finalmente, se analizaron clasificación multiclase, SVR, escalamiento, calibración, desbalance de clases, complejidad computacional y comparación con regresión logística y Random Forest.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="cortes1995support">Cortes y Vapnik (<a href="../referencias.html#ref-cortes1995support" role="doc-biblioref">1995</a>)</span>; <span class="citation" data-cites="vapnik1998statistical">Vapnik (<a href="../referencias.html#ref-vapnik1998statistical" role="doc-biblioref">1998</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-cortes1995support" class="csl-entry" role="listitem">
+Cortes, Corinna, y Vladimir Vapnik. 1995. <span>«Support-Vector Networks»</span>. <em>Machine Learning</em> 20: 273-97. <a href="https://doi.org/10.1007/BF00994018">https://doi.org/10.1007/BF00994018</a>.
+</div>
+<div id="ref-vapnik1998statistical" class="csl-entry" role="listitem">
+Vapnik, Vladimir N. 1998. <em>Statistical Learning Theory</em>. Wiley.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -4055,6 +4087,10 @@ b=-4.
 <span id="cb2-1508"><a href="#cb2-1508" aria-hidden="true" tabindex="-1"></a>Posteriormente se introdujeron la pérdida hinge, el parámetro de costo, el truco kernel, los kernels lineal, polinomial y radial, así como la selección de hiperparámetros.</span>
 <span id="cb2-1509"><a href="#cb2-1509" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1510"><a href="#cb2-1510" aria-hidden="true" tabindex="-1"></a>Finalmente, se analizaron clasificación multiclase, SVR, escalamiento, calibración, desbalance de clases, complejidad computacional y comparación con regresión logística y Random Forest.</span>
+<span id="cb2-1511"><a href="#cb2-1511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1512"><a href="#cb2-1512" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1513"><a href="#cb2-1513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1514"><a href="#cb2-1514" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @cortes1995support; @vapnik1998statistical.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

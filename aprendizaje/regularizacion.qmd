@@ -1225,3 +1225,8 @@ En este capítulo se estudió la regularización como mecanismo para controlar c
 Se derivó el estimador ridge y se analizó su efecto espectral. También se formuló LASSO mediante penalización $L_1$, se introdujeron subgradientes y soft-thresholding, y se explicó su capacidad de selección de variables.
 
 Finalmente, se desarrolló elastic net, la interpretación bayesiana, los caminos de regularización, la selección de $\lambda$ y extensiones como group LASSO. Estos conceptos serán fundamentales en regresión, clasificación y redes neuronales.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @bishop2006pattern.
+

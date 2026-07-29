@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -112,6 +131,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../estilos/styles.css">
 </head>
@@ -549,8 +597,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">24.1</span> Introducción</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos"><span class="header-section-number">24.2</span> Objetivos</a></li>
+  <li><a href="#base-transaccional" id="toc-base-transaccional" class="nav-link" data-scroll-target="#base-transaccional"><span class="header-section-number">24.3</span> Base transaccional</a></li>
+  <li><a href="#itemset" id="toc-itemset" class="nav-link" data-scroll-target="#itemset"><span class="header-section-number">24.4</span> Itemset</a></li>
+  <li><a href="#regla-de-asociación" id="toc-regla-de-asociación" class="nav-link" data-scroll-target="#regla-de-asociación"><span class="header-section-number">24.5</span> Regla de asociación</a></li>
+  <li><a href="#soporte-de-un-itemset" id="toc-soporte-de-un-itemset" class="nav-link" data-scroll-target="#soporte-de-un-itemset"><span class="header-section-number">24.6</span> Soporte de un itemset</a></li>
+  <li><a href="#soporte-de-una-regla" id="toc-soporte-de-una-regla" class="nav-link" data-scroll-target="#soporte-de-una-regla"><span class="header-section-number">24.7</span> Soporte de una regla</a></li>
+  <li><a href="#confianza" id="toc-confianza" class="nav-link" data-scroll-target="#confianza"><span class="header-section-number">24.8</span> Confianza</a></li>
+  <li><a href="#limitación-de-la-confianza" id="toc-limitación-de-la-confianza" class="nav-link" data-scroll-target="#limitación-de-la-confianza"><span class="header-section-number">24.9</span> Limitación de la confianza</a></li>
+  <li><a href="#lift" id="toc-lift" class="nav-link" data-scroll-target="#lift"><span class="header-section-number">24.10</span> Lift</a></li>
+  <li><a href="#leverage" id="toc-leverage" class="nav-link" data-scroll-target="#leverage"><span class="header-section-number">24.11</span> Leverage</a></li>
+  <li><a href="#conviction" id="toc-conviction" class="nav-link" data-scroll-target="#conviction"><span class="header-section-number">24.12</span> Conviction</a></li>
+  <li><a href="#cobertura" id="toc-cobertura" class="nav-link" data-scroll-target="#cobertura"><span class="header-section-number">24.13</span> Cobertura</a></li>
+  <li><a href="#ejemplo-básico" id="toc-ejemplo-básico" class="nav-link" data-scroll-target="#ejemplo-básico"><span class="header-section-number">24.14</span> Ejemplo básico</a></li>
+  <li><a href="#conjuntos-frecuentes" id="toc-conjuntos-frecuentes" class="nav-link" data-scroll-target="#conjuntos-frecuentes"><span class="header-section-number">24.15</span> Conjuntos frecuentes</a></li>
+  <li><a href="#explosión-combinatoria" id="toc-explosión-combinatoria" class="nav-link" data-scroll-target="#explosión-combinatoria"><span class="header-section-number">24.16</span> Explosión combinatoria</a></li>
+  <li><a href="#propiedad-apriori" id="toc-propiedad-apriori" class="nav-link" data-scroll-target="#propiedad-apriori"><span class="header-section-number">24.17</span> Propiedad Apriori</a></li>
+  <li><a href="#demostración" id="toc-demostración" class="nav-link" data-scroll-target="#demostración"><span class="header-section-number">24.18</span> Demostración</a></li>
+  <li><a href="#algoritmo-apriori" id="toc-algoritmo-apriori" class="nav-link" data-scroll-target="#algoritmo-apriori"><span class="header-section-number">24.19</span> Algoritmo Apriori</a></li>
+  <li><a href="#generación-de-candidatos" id="toc-generación-de-candidatos" class="nav-link" data-scroll-target="#generación-de-candidatos"><span class="header-section-number">24.20</span> Generación de candidatos</a></li>
+  <li><a href="#pseudocódigo-de-apriori" id="toc-pseudocódigo-de-apriori" class="nav-link" data-scroll-target="#pseudocódigo-de-apriori"><span class="header-section-number">24.21</span> Pseudocódigo de Apriori</a></li>
+  <li><a href="#generación-de-reglas" id="toc-generación-de-reglas" class="nav-link" data-scroll-target="#generación-de-reglas"><span class="header-section-number">24.22</span> Generación de reglas</a></li>
+  <li><a href="#monotonicidad-de-la-confianza" id="toc-monotonicidad-de-la-confianza" class="nav-link" data-scroll-target="#monotonicidad-de-la-confianza"><span class="header-section-number">24.23</span> Monotonicidad de la confianza</a></li>
+  <li><a href="#eclat" id="toc-eclat" class="nav-link" data-scroll-target="#eclat"><span class="header-section-number">24.24</span> Eclat</a></li>
+  <li><a href="#fp-growth" id="toc-fp-growth" class="nav-link" data-scroll-target="#fp-growth"><span class="header-section-number">24.25</span> FP-growth</a></li>
+  <li><a href="#reglas-redundantes" id="toc-reglas-redundantes" class="nav-link" data-scroll-target="#reglas-redundantes"><span class="header-section-number">24.26</span> Reglas redundantes</a></li>
+  <li><a href="#itemsets-cerrados" id="toc-itemsets-cerrados" class="nav-link" data-scroll-target="#itemsets-cerrados"><span class="header-section-number">24.27</span> Itemsets cerrados</a></li>
+  <li><a href="#itemsets-maximales" id="toc-itemsets-maximales" class="nav-link" data-scroll-target="#itemsets-maximales"><span class="header-section-number">24.28</span> Itemsets maximales</a></li>
+  <li><a href="#restricciones" id="toc-restricciones" class="nav-link" data-scroll-target="#restricciones"><span class="header-section-number">24.29</span> Restricciones</a></li>
+  <li><a href="#discretización" id="toc-discretización" class="nav-link" data-scroll-target="#discretización"><span class="header-section-number">24.30</span> Discretización</a></li>
+  <li><a href="#significancia-estadística" id="toc-significancia-estadística" class="nav-link" data-scroll-target="#significancia-estadística"><span class="header-section-number">24.31</span> Significancia estadística</a></li>
+  <li><a href="#tabla-de-contingencia" id="toc-tabla-de-contingencia" class="nav-link" data-scroll-target="#tabla-de-contingencia"><span class="header-section-number">24.32</span> Tabla de contingencia</a></li>
+  <li><a href="#múltiples-comparaciones" id="toc-múltiples-comparaciones" class="nav-link" data-scroll-target="#múltiples-comparaciones"><span class="header-section-number">24.33</span> Múltiples comparaciones</a></li>
+  <li><a href="#asociación-no-es-causalidad" id="toc-asociación-no-es-causalidad" class="nav-link" data-scroll-target="#asociación-no-es-causalidad"><span class="header-section-number">24.34</span> Asociación no es causalidad</a></li>
+  <li><a href="#reglas-negativas" id="toc-reglas-negativas" class="nav-link" data-scroll-target="#reglas-negativas"><span class="header-section-number">24.35</span> Reglas negativas</a></li>
+  <li><a href="#reglas-secuenciales" id="toc-reglas-secuenciales" class="nav-link" data-scroll-target="#reglas-secuenciales"><span class="header-section-number">24.36</span> Reglas secuenciales</a></li>
+  <li><a href="#reglas-ponderadas" id="toc-reglas-ponderadas" class="nav-link" data-scroll-target="#reglas-ponderadas"><span class="header-section-number">24.37</span> Reglas ponderadas</a></li>
+  <li><a href="#evaluación-práctica" id="toc-evaluación-práctica" class="nav-link" data-scroll-target="#evaluación-práctica"><span class="header-section-number">24.38</span> Evaluación práctica</a></li>
+  <li><a href="#reglas-y-predicción" id="toc-reglas-y-predicción" class="nav-link" data-scroll-target="#reglas-y-predicción"><span class="header-section-number">24.39</span> Reglas y predicción</a></li>
+  <li><a href="#complejidad" id="toc-complejidad" class="nav-link" data-scroll-target="#complejidad"><span class="header-section-number">24.40</span> Complejidad</a></li>
+  <li><a href="#conexión-con-r" id="toc-conexión-con-r" class="nav-link" data-scroll-target="#conexión-con-r"><span class="header-section-number">24.41</span> Conexión con R</a></li>
+  <li><a href="#aplicación-ambiental" id="toc-aplicación-ambiental" class="nav-link" data-scroll-target="#aplicación-ambiental"><span class="header-section-number">24.42</span> Aplicación ambiental</a></li>
+  <li><a href="#ventajas" id="toc-ventajas" class="nav-link" data-scroll-target="#ventajas"><span class="header-section-number">24.43</span> Ventajas</a></li>
+  <li><a href="#limitaciones" id="toc-limitaciones" class="nav-link" data-scroll-target="#limitaciones"><span class="header-section-number">24.44</span> Limitaciones</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">24.45</span> Errores frecuentes</a></li>
+  <li><a href="#ejercicios-conceptuales" id="toc-ejercicios-conceptuales" class="nav-link" data-scroll-target="#ejercicios-conceptuales"><span class="header-section-number">24.46</span> Ejercicios conceptuales</a></li>
+  <li><a href="#ejercicio-de-medidas" id="toc-ejercicio-de-medidas" class="nav-link" data-scroll-target="#ejercicio-de-medidas"><span class="header-section-number">24.47</span> Ejercicio de medidas</a></li>
+  <li><a href="#ejercicio-apriori" id="toc-ejercicio-apriori" class="nav-link" data-scroll-target="#ejercicio-apriori"><span class="header-section-number">24.48</span> Ejercicio Apriori</a></li>
+  <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">24.49</span> Ejercicio aplicado</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">24.50</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -558,7 +662,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../no-supervisado/pca.html">V. Aprendizaje no supervisado</a></li><li class="breadcrumb-item"><a href="../no-supervisado/reglas-asociacion.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reglas de asociación</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reglas de asociación</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-reglas-asociacion" class="quarto-section-identifier"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reglas de asociación</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar todo el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Ocultar todo el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código fuente</a></li></ul></div></div>
 </div>
 
 
@@ -575,11 +679,754 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><em>Capítulo en desarrollo.</em></p>
+<section id="introducción" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">24.1</span> Introducción</h2>
+<p>Las reglas de asociación permiten descubrir relaciones de coocurrencia en bases de datos transaccionales. Su formulación clásica surgió en el análisis de compras, pero se aplica también a diagnósticos, navegación web, incidentes, síntomas, fallas y patrones ambientales.</p>
+<p>Una regla tiene la forma</p>
+<p><span class="math display">\[
+X\Rightarrow Y,
+\]</span></p>
+<p>donde <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> son conjuntos de elementos disjuntos. La regla no expresa causalidad; indica que las transacciones que contienen <span class="math inline">\(X\)</span> tienden a contener también <span class="math inline">\(Y\)</span>.</p>
+<p>El algoritmo Apriori explota una propiedad de antimonotonicidad para evitar evaluar todos los subconjuntos posibles <span class="citation" data-cites="agrawal1994fast">(<a href="../referencias.html#ref-agrawal1994fast" role="doc-biblioref">Agrawal y Srikant 1994</a>)</span>. Otros métodos, como FP-growth, eliminan la generación explícita de candidatos mediante una estructura comprimida <span class="citation" data-cites="han2000mining">(<a href="../referencias.html#ref-han2000mining" role="doc-biblioref">Han et&nbsp;al. 2000</a>)</span>.</p>
+</section>
+<section id="objetivos" class="level2" data-number="24.2">
+<h2 data-number="24.2" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">24.2</span> Objetivos</h2>
+<p>Al finalizar el capítulo, el lector podrá:</p>
+<ol type="1">
+<li>representar una base transaccional;</li>
+<li>definir itemsets y reglas;</li>
+<li>calcular soporte, confianza y lift;</li>
+<li>interpretar leverage y conviction;</li>
+<li>comprender la propiedad Apriori;</li>
+<li>generar conjuntos frecuentes;</li>
+<li>producir reglas a partir de itemsets;</li>
+<li>distinguir reglas redundantes;</li>
+<li>aplicar restricciones;</li>
+<li>comprender Apriori, Eclat y FP-growth;</li>
+<li>evaluar significancia y utilidad;</li>
+<li>aplicar reglas de asociación en R.</li>
+</ol>
+</section>
+<section id="base-transaccional" class="level2" data-number="24.3">
+<h2 data-number="24.3" class="anchored" data-anchor-id="base-transaccional"><span class="header-section-number">24.3</span> Base transaccional</h2>
+<p>Sea</p>
+<p><span class="math display">\[
+\mathcal{I}
+=
+\{i_1,\ldots,i_m\}
+\]</span></p>
+<p>el universo de elementos.</p>
+<p>Una transacción es un subconjunto</p>
+<p><span class="math display">\[
+T_r\subseteq\mathcal{I}.
+\]</span></p>
+<p>La base de datos es</p>
+<p><span class="math display">\[
+\mathcal{D}
+=
+\{T_1,\ldots,T_n\}.
+\]</span></p>
+</section>
+<section id="itemset" class="level2" data-number="24.4">
+<h2 data-number="24.4" class="anchored" data-anchor-id="itemset"><span class="header-section-number">24.4</span> Itemset</h2>
+<p>Un itemset es cualquier subconjunto</p>
+<p><span class="math display">\[
+X\subseteq\mathcal{I}.
+\]</span></p>
+<p>Su tamaño es</p>
+<p><span class="math display">\[
+|X|.
+\]</span></p>
+<p>Si <span class="math inline">\(|X|=k\)</span>, se denomina <span class="math inline">\(k\)</span>-itemset.</p>
+</section>
+<section id="regla-de-asociación" class="level2" data-number="24.5">
+<h2 data-number="24.5" class="anchored" data-anchor-id="regla-de-asociación"><span class="header-section-number">24.5</span> Regla de asociación</h2>
+<p>Una regla es una implicación</p>
+<p><span class="math display">\[
+X\Rightarrow Y,
+\]</span></p>
+<p>con</p>
+<p><span class="math display">\[
+X\cap Y=\varnothing.
+\]</span></p>
+<p><span class="math inline">\(X\)</span> es el antecedente y <span class="math inline">\(Y\)</span> el consecuente.</p>
+</section>
+<section id="soporte-de-un-itemset" class="level2" data-number="24.6">
+<h2 data-number="24.6" class="anchored" data-anchor-id="soporte-de-un-itemset"><span class="header-section-number">24.6</span> Soporte de un itemset</h2>
+<p>El soporte absoluto es</p>
+<p><span class="math display">\[
+\sigma(X)
+=
+\left|
+\{T_r:X\subseteq T_r\}
+\right|.
+\]</span></p>
+<p>El soporte relativo es</p>
+<p><span class="math display">\[
+supp(X)
+=
+\frac{\sigma(X)}{n}.
+\]</span></p>
+<p>Puede interpretarse como una probabilidad empírica:</p>
+<p><span class="math display">\[
+supp(X)
+=
+\widehat{P}(X).
+\]</span></p>
+</section>
+<section id="soporte-de-una-regla" class="level2" data-number="24.7">
+<h2 data-number="24.7" class="anchored" data-anchor-id="soporte-de-una-regla"><span class="header-section-number">24.7</span> Soporte de una regla</h2>
+<p>El soporte de</p>
+<p><span class="math display">\[
+X\Rightarrow Y
+\]</span></p>
+<p>es</p>
+<p><span class="math display">\[
+supp(X\Rightarrow Y)
+=
+supp(X\cup Y).
+\]</span></p>
+<p>Mide la frecuencia conjunta del antecedente y el consecuente.</p>
+</section>
+<section id="confianza" class="level2" data-number="24.8">
+<h2 data-number="24.8" class="anchored" data-anchor-id="confianza"><span class="header-section-number">24.8</span> Confianza</h2>
+<p>La confianza es</p>
+<p><span class="math display">\[
+conf(X\Rightarrow Y)
+=
+\frac{supp(X\cup Y)}{supp(X)}.
+\]</span></p>
+<p>Equivale a la probabilidad condicional empírica:</p>
+<p><span class="math display">\[
+conf(X\Rightarrow Y)
+=
+\widehat{P}(Y\mid X).
+\]</span></p>
+</section>
+<section id="limitación-de-la-confianza" class="level2" data-number="24.9">
+<h2 data-number="24.9" class="anchored" data-anchor-id="limitación-de-la-confianza"><span class="header-section-number">24.9</span> Limitación de la confianza</h2>
+<p>Una confianza alta puede deberse simplemente a que <span class="math inline">\(Y\)</span> es muy frecuente.</p>
+<p>Por ello, debe compararse con el soporte marginal del consecuente.</p>
+</section>
+<section id="lift" class="level2" data-number="24.10">
+<h2 data-number="24.10" class="anchored" data-anchor-id="lift"><span class="header-section-number">24.10</span> Lift</h2>
+<p>El lift es</p>
+<p><span class="math display">\[
+lift(X\Rightarrow Y)
+=
+\frac{conf(X\Rightarrow Y)}{supp(Y)}.
+\]</span></p>
+<p>Equivalentemente,</p>
+<p><span class="math display">\[
+lift(X\Rightarrow Y)
+=
+\frac{supp(X\cup Y)}
+{supp(X)supp(Y)}.
+\]</span></p>
+<p>Interpretación:</p>
+<ul>
+<li><span class="math inline">\(lift&gt;1\)</span>: asociación positiva;</li>
+<li><span class="math inline">\(lift=1\)</span>: independencia empírica;</li>
+<li><span class="math inline">\(lift&lt;1\)</span>: asociación negativa.</li>
+</ul>
+</section>
+<section id="leverage" class="level2" data-number="24.11">
+<h2 data-number="24.11" class="anchored" data-anchor-id="leverage"><span class="header-section-number">24.11</span> Leverage</h2>
+<p>El leverage es</p>
+<p><span class="math display">\[
+lev(X\Rightarrow Y)
+=
+supp(X\cup Y)
+-
+supp(X)supp(Y).
+\]</span></p>
+<p>Mide la diferencia absoluta respecto de la independencia.</p>
+</section>
+<section id="conviction" class="level2" data-number="24.12">
+<h2 data-number="24.12" class="anchored" data-anchor-id="conviction"><span class="header-section-number">24.12</span> Conviction</h2>
+<p>La conviction se define como</p>
+<p><span class="math display">\[
+conv(X\Rightarrow Y)
+=
+\frac{1-supp(Y)}
+{1-conf(X\Rightarrow Y)}.
+\]</span></p>
+<p>Valores grandes indican que la regla comete menos errores de los esperados bajo independencia.</p>
+</section>
+<section id="cobertura" class="level2" data-number="24.13">
+<h2 data-number="24.13" class="anchored" data-anchor-id="cobertura"><span class="header-section-number">24.13</span> Cobertura</h2>
+<p>La cobertura de la regla es</p>
+<p><span class="math display">\[
+coverage(X\Rightarrow Y)
+=
+supp(X).
+\]</span></p>
+<p>Mide qué proporción de transacciones satisface el antecedente.</p>
+</section>
+<section id="ejemplo-básico" class="level2" data-number="24.14">
+<h2 data-number="24.14" class="anchored" data-anchor-id="ejemplo-básico"><span class="header-section-number">24.14</span> Ejemplo básico</h2>
+<p>Considérese:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Transacción</th>
+<th>Elementos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>pan, leche</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>pan, pañales, cerveza</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>leche, pañales, cerveza</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>pan, leche, pañales, cerveza</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>pan, leche, pañales</td>
+</tr>
+</tbody>
+</table>
+<p>Para la regla</p>
+<p><span class="math display">\[
+\{\text{pañales}\}
+\Rightarrow
+\{\text{cerveza}\},
+\]</span></p>
+<p>el antecedente aparece en 4 transacciones y la unión en 3.</p>
+<p>Entonces</p>
+<p><span class="math display">\[
+supp=\frac{3}{5}=0.6,
+\]</span></p>
+<p><span class="math display">\[
+conf=\frac{3}{4}=0.75.
+\]</span></p>
+<p>Como la cerveza aparece en 3 de 5 transacciones,</p>
+<p><span class="math display">\[
+lift
+=
+\frac{0.75}{0.6}
+=
+1.25.
+\]</span></p>
+</section>
+<section id="conjuntos-frecuentes" class="level2" data-number="24.15">
+<h2 data-number="24.15" class="anchored" data-anchor-id="conjuntos-frecuentes"><span class="header-section-number">24.15</span> Conjuntos frecuentes</h2>
+<p>Dado un umbral mínimo</p>
+<p><span class="math display">\[
+s_{min},
+\]</span></p>
+<p>un itemset es frecuente si</p>
+<p><span class="math display">\[
+supp(X)\geq s_{min}.
+\]</span></p>
+<p>El problema central consiste en encontrar todos los itemsets frecuentes.</p>
+</section>
+<section id="explosión-combinatoria" class="level2" data-number="24.16">
+<h2 data-number="24.16" class="anchored" data-anchor-id="explosión-combinatoria"><span class="header-section-number">24.16</span> Explosión combinatoria</h2>
+<p>Con <span class="math inline">\(m\)</span> elementos existen</p>
+<p><span class="math display">\[
+2^m-1
+\]</span></p>
+<p>itemsets no vacíos.</p>
+<p>Una búsqueda exhaustiva se vuelve inviable cuando <span class="math inline">\(m\)</span> es grande.</p>
+</section>
+<section id="propiedad-apriori" class="level2" data-number="24.17">
+<h2 data-number="24.17" class="anchored" data-anchor-id="propiedad-apriori"><span class="header-section-number">24.17</span> Propiedad Apriori</h2>
+<div id="thm-propiedad-apriori" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 24.1</strong></span> Si un itemset es frecuente, todos sus subconjuntos también son frecuentes.</p>
+</div>
+<p>Equivalentemente, si un itemset no es frecuente, ninguno de sus superconjuntos puede ser frecuente.</p>
+</section>
+<section id="demostración" class="level2" data-number="24.18">
+<h2 data-number="24.18" class="anchored" data-anchor-id="demostración"><span class="header-section-number">24.18</span> Demostración</h2>
+<p>Si</p>
+<p><span class="math display">\[
+A\subseteq B,
+\]</span></p>
+<p>toda transacción que contiene <span class="math inline">\(B\)</span> contiene también <span class="math inline">\(A\)</span>. Por tanto,</p>
+<p><span class="math display">\[
+\sigma(B)\leq\sigma(A),
+\]</span></p>
+<p>y</p>
+<p><span class="math display">\[
+supp(B)\leq supp(A).
+\]</span></p>
+<p>Si <span class="math inline">\(A\)</span> no alcanza el soporte mínimo, ningún superconjunto <span class="math inline">\(B\)</span> puede alcanzarlo.</p>
+</section>
+<section id="algoritmo-apriori" class="level2" data-number="24.19">
+<h2 data-number="24.19" class="anchored" data-anchor-id="algoritmo-apriori"><span class="header-section-number">24.19</span> Algoritmo Apriori</h2>
+<p>Apriori procede por niveles:</p>
+<ol type="1">
+<li>encontrar itemsets frecuentes de tamaño 1;</li>
+<li>generar candidatos de tamaño 2;</li>
+<li>podar candidatos con subconjuntos infrecuentes;</li>
+<li>contar soportes;</li>
+<li>repetir para tamaños sucesivos.</li>
+</ol>
+</section>
+<section id="generación-de-candidatos" class="level2" data-number="24.20">
+<h2 data-number="24.20" class="anchored" data-anchor-id="generación-de-candidatos"><span class="header-section-number">24.20</span> Generación de candidatos</h2>
+<p>A partir de</p>
+<p><span class="math display">\[
+L_{k-1},
+\]</span></p>
+<p>el conjunto de itemsets frecuentes de tamaño <span class="math inline">\(k-1\)</span>, se construye</p>
+<p><span class="math display">\[
+C_k.
+\]</span></p>
+<p>Después se eliminan candidatos que contienen algún subconjunto no frecuente.</p>
+</section>
+<section id="pseudocódigo-de-apriori" class="level2" data-number="24.21">
+<h2 data-number="24.21" class="anchored" data-anchor-id="pseudocódigo-de-apriori"><span class="header-section-number">24.21</span> Pseudocódigo de Apriori</h2>
+<ol type="1">
+<li>calcular <span class="math inline">\(L_1\)</span>;</li>
+<li>para <span class="math inline">\(k=2,3,\ldots\)</span>:
+<ul>
+<li>generar <span class="math inline">\(C_k\)</span> mediante unión de elementos de <span class="math inline">\(L_{k-1}\)</span>;</li>
+<li>podar candidatos;</li>
+<li>recorrer las transacciones y contar soportes;</li>
+<li>conservar itemsets con soporte mínimo;</li>
+</ul></li>
+<li>detener cuando <span class="math inline">\(L_k\)</span> sea vacío.</li>
+</ol>
+</section>
+<section id="generación-de-reglas" class="level2" data-number="24.22">
+<h2 data-number="24.22" class="anchored" data-anchor-id="generación-de-reglas"><span class="header-section-number">24.22</span> Generación de reglas</h2>
+<p>Para cada itemset frecuente <span class="math inline">\(Z\)</span> y cada subconjunto no vacío</p>
+<p><span class="math display">\[
+X\subset Z,
+\]</span></p>
+<p>se forma</p>
+<p><span class="math display">\[
+X\Rightarrow Z\setminus X.
+\]</span></p>
+<p>La regla se conserva si alcanza la confianza mínima.</p>
+</section>
+<section id="monotonicidad-de-la-confianza" class="level2" data-number="24.23">
+<h2 data-number="24.23" class="anchored" data-anchor-id="monotonicidad-de-la-confianza"><span class="header-section-number">24.23</span> Monotonicidad de la confianza</h2>
+<p>La confianza no es antimonótona en general. Sin embargo, durante la generación de reglas puede aprovecharse que, para un itemset fijo, ampliar el consecuente no aumenta la confianza.</p>
+</section>
+<section id="eclat" class="level2" data-number="24.24">
+<h2 data-number="24.24" class="anchored" data-anchor-id="eclat"><span class="header-section-number">24.24</span> Eclat</h2>
+<p>Eclat utiliza una representación vertical.</p>
+<p>Para cada elemento se almacena el conjunto de identificadores de transacción:</p>
+<p><span class="math display">\[
+TID(X).
+\]</span></p>
+<p>El soporte de una unión se obtiene mediante intersección:</p>
+<p><span class="math display">\[
+TID(X\cup Y)
+=
+TID(X)\cap TID(Y).
+\]</span></p>
+</section>
+<section id="fp-growth" class="level2" data-number="24.25">
+<h2 data-number="24.25" class="anchored" data-anchor-id="fp-growth"><span class="header-section-number">24.25</span> FP-growth</h2>
+<p>FP-growth comprime la base en un árbol de patrones frecuentes y extrae itemsets sin generar candidatos explícitos <span class="citation" data-cites="han2000mining">(<a href="../referencias.html#ref-han2000mining" role="doc-biblioref">Han et&nbsp;al. 2000</a>)</span>.</p>
+<p>Sus pasos generales son:</p>
+<ol type="1">
+<li>contar frecuencias;</li>
+<li>eliminar elementos infrecuentes;</li>
+<li>ordenar elementos;</li>
+<li>construir el FP-tree;</li>
+<li>extraer bases condicionales;</li>
+<li>generar patrones frecuentes.</li>
+</ol>
+</section>
+<section id="reglas-redundantes" class="level2" data-number="24.26">
+<h2 data-number="24.26" class="anchored" data-anchor-id="reglas-redundantes"><span class="header-section-number">24.26</span> Reglas redundantes</h2>
+<p>Una regla puede ser redundante si otra regla más general tiene igual o mejor desempeño.</p>
+<p>Por ejemplo, si</p>
+<p><span class="math display">\[
+A\Rightarrow C
+\]</span></p>
+<p>y</p>
+<p><span class="math display">\[
+A,B\Rightarrow C
+\]</span></p>
+<p>tienen la misma confianza, añadir <span class="math inline">\(B\)</span> no aporta información predictiva.</p>
+</section>
+<section id="itemsets-cerrados" class="level2" data-number="24.27">
+<h2 data-number="24.27" class="anchored" data-anchor-id="itemsets-cerrados"><span class="header-section-number">24.27</span> Itemsets cerrados</h2>
+<p>Un itemset frecuente <span class="math inline">\(X\)</span> es cerrado si no existe un superconjunto con el mismo soporte.</p>
+<p>Los itemsets cerrados proporcionan una representación más compacta.</p>
+</section>
+<section id="itemsets-maximales" class="level2" data-number="24.28">
+<h2 data-number="24.28" class="anchored" data-anchor-id="itemsets-maximales"><span class="header-section-number">24.28</span> Itemsets maximales</h2>
+<p>Un itemset frecuente es maximal si ningún superconjunto suyo es frecuente.</p>
+<p>Los maximales son aún más compactos, pero pierden información exacta de soportes de subconjuntos.</p>
+</section>
+<section id="restricciones" class="level2" data-number="24.29">
+<h2 data-number="24.29" class="anchored" data-anchor-id="restricciones"><span class="header-section-number">24.29</span> Restricciones</h2>
+<p>El espacio de búsqueda puede reducirse imponiendo:</p>
+<ul>
+<li>elementos obligatorios;</li>
+<li>elementos excluidos;</li>
+<li>longitud mínima o máxima;</li>
+<li>consecuente fijo;</li>
+<li>soporte o confianza mínimos;</li>
+<li>restricciones de categorías.</li>
+</ul>
+</section>
+<section id="discretización" class="level2" data-number="24.30">
+<h2 data-number="24.30" class="anchored" data-anchor-id="discretización"><span class="header-section-number">24.30</span> Discretización</h2>
+<p>Variables numéricas deben convertirse normalmente en intervalos:</p>
+<p><span class="math display">\[
+X_j\in[a,b).
+\]</span></p>
+<p>La discretización puede ser:</p>
+<ul>
+<li>por amplitud;</li>
+<li>por frecuencia;</li>
+<li>basada en conocimiento;</li>
+<li>supervisada.</li>
+</ul>
+<p>Los resultados dependen fuertemente de los cortes.</p>
+</section>
+<section id="significancia-estadística" class="level2" data-number="24.31">
+<h2 data-number="24.31" class="anchored" data-anchor-id="significancia-estadística"><span class="header-section-number">24.31</span> Significancia estadística</h2>
+<p>Lift alto no garantiza significancia, especialmente con soporte bajo.</p>
+<p>Puede utilizarse una tabla <span class="math inline">\(2\times2\)</span> y aplicar:</p>
+<ul>
+<li>prueba chi-cuadrada;</li>
+<li>prueba exacta de Fisher;</li>
+<li>intervalos;</li>
+<li>corrección por comparaciones múltiples.</li>
+</ul>
+</section>
+<section id="tabla-de-contingencia" class="level2" data-number="24.32">
+<h2 data-number="24.32" class="anchored" data-anchor-id="tabla-de-contingencia"><span class="header-section-number">24.32</span> Tabla de contingencia</h2>
+<p>Para dos eventos <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><span class="math inline">\(Y\)</span></th>
+<th style="text-align: right;">no <span class="math inline">\(Y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n_{11}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n_{10}\)</span></td>
+</tr>
+<tr class="even">
+<td>no <span class="math inline">\(X\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n_{01}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n_{00}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Las medidas de asociación se derivan de estas frecuencias.</p>
+</section>
+<section id="múltiples-comparaciones" class="level2" data-number="24.33">
+<h2 data-number="24.33" class="anchored" data-anchor-id="múltiples-comparaciones"><span class="header-section-number">24.33</span> Múltiples comparaciones</h2>
+<p>La minería puede producir miles de reglas. Evaluar cada una al nivel usual genera falsos positivos.</p>
+<p>Deben considerarse:</p>
+<ul>
+<li>Bonferroni;</li>
+<li>Holm;</li>
+<li>control de FDR;</li>
+<li>validación en una muestra independiente.</li>
+</ul>
+</section>
+<section id="asociación-no-es-causalidad" class="level2" data-number="24.34">
+<h2 data-number="24.34" class="anchored" data-anchor-id="asociación-no-es-causalidad"><span class="header-section-number">24.34</span> Asociación no es causalidad</h2>
+<p>La regla</p>
+<p><span class="math display">\[
+X\Rightarrow Y
+\]</span></p>
+<p>no implica que <span class="math inline">\(X\)</span> cause <span class="math inline">\(Y\)</span>.</p>
+<p>La coocurrencia puede deberse a:</p>
+<ul>
+<li>variables confusoras;</li>
+<li>selección;</li>
+<li>temporalidad;</li>
+<li>patrones de consumo;</li>
+<li>artefactos de discretización.</li>
+</ul>
+</section>
+<section id="reglas-negativas" class="level2" data-number="24.35">
+<h2 data-number="24.35" class="anchored" data-anchor-id="reglas-negativas"><span class="header-section-number">24.35</span> Reglas negativas</h2>
+<p>También pueden estudiarse reglas como</p>
+<p><span class="math display">\[
+X\Rightarrow \neg Y.
+\]</span></p>
+<p>Su análisis requiere considerar cuidadosamente soportes y universo de elementos.</p>
+</section>
+<section id="reglas-secuenciales" class="level2" data-number="24.36">
+<h2 data-number="24.36" class="anchored" data-anchor-id="reglas-secuenciales"><span class="header-section-number">24.36</span> Reglas secuenciales</h2>
+<p>Las reglas de asociación tradicionales ignoran el orden temporal.</p>
+<p>Cuando interesa la secuencia se utilizan patrones secuenciales, por ejemplo:</p>
+<p><span class="math display">\[
+A\to B\to C.
+\]</span></p>
+</section>
+<section id="reglas-ponderadas" class="level2" data-number="24.37">
+<h2 data-number="24.37" class="anchored" data-anchor-id="reglas-ponderadas"><span class="header-section-number">24.37</span> Reglas ponderadas</h2>
+<p>En algunos problemas los elementos tienen importancia, utilidad o costo diferentes.</p>
+<p>Las reglas ponderadas incorporan:</p>
+<ul>
+<li>cantidad;</li>
+<li>precio;</li>
+<li>riesgo;</li>
+<li>utilidad;</li>
+<li>severidad.</li>
+</ul>
+</section>
+<section id="evaluación-práctica" class="level2" data-number="24.38">
+<h2 data-number="24.38" class="anchored" data-anchor-id="evaluación-práctica"><span class="header-section-number">24.38</span> Evaluación práctica</h2>
+<p>Una buena regla debe equilibrar:</p>
+<ul>
+<li>frecuencia;</li>
+<li>precisión;</li>
+<li>novedad;</li>
+<li>utilidad;</li>
+<li>simplicidad;</li>
+<li>estabilidad;</li>
+<li>posibilidad de acción.</li>
+</ul>
+</section>
+<section id="reglas-y-predicción" class="level2" data-number="24.39">
+<h2 data-number="24.39" class="anchored" data-anchor-id="reglas-y-predicción"><span class="header-section-number">24.39</span> Reglas y predicción</h2>
+<p>Las reglas pueden utilizarse como características o como clasificadores.</p>
+<p>En clasificación asociativa, el consecuente es una clase:</p>
+<p><span class="math display">\[
+X\Rightarrow Y=c.
+\]</span></p>
+</section>
+<section id="complejidad" class="level2" data-number="24.40">
+<h2 data-number="24.40" class="anchored" data-anchor-id="complejidad"><span class="header-section-number">24.40</span> Complejidad</h2>
+<p>El costo depende de:</p>
+<ul>
+<li>número de elementos;</li>
+<li>longitud de transacciones;</li>
+<li>soporte mínimo;</li>
+<li>densidad;</li>
+<li>número de patrones frecuentes.</li>
+</ul>
+<p>Un soporte demasiado bajo puede generar una explosión de resultados.</p>
+</section>
+<section id="conexión-con-r" class="level2" data-number="24.41">
+<h2 data-number="24.41" class="anchored" data-anchor-id="conexión-con-r"><span class="header-section-number">24.41</span> Conexión con R</h2>
+<p>El paquete <code>arules</code> proporciona infraestructura para transacciones, itemsets y reglas <span class="citation" data-cites="hahsler2005arules">(<a href="../referencias.html#ref-hahsler2005arules" role="doc-biblioref">Hahsler et&nbsp;al. 2005</a>)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arules)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>transacciones <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"pan"</span>, <span class="st">"leche"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"pan"</span>, <span class="st">"pañales"</span>, <span class="st">"cerveza"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"leche"</span>, <span class="st">"pañales"</span>, <span class="st">"cerveza"</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"pan"</span>, <span class="st">"leche"</span>, <span class="st">"pañales"</span>, <span class="st">"cerveza"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"pan"</span>, <span class="st">"leche"</span>, <span class="st">"pañales"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>tr <span class="ot">&lt;-</span> <span class="fu">as</span>(transacciones, <span class="st">"transactions"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>reglas <span class="ot">&lt;-</span> <span class="fu">apriori</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  tr,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">parameter =</span> <span class="fu">list</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">supp =</span> <span class="fl">0.40</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">conf =</span> <span class="fl">0.60</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">minlen =</span> <span class="dv">2</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    reglas,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"lift"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">decreasing =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>reglas_filtradas <span class="ot">&lt;-</span> <span class="fu">subset</span>(</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  reglas,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  lift <span class="sc">&gt;</span> <span class="fl">1.1</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="aplicación-ambiental" class="level2" data-number="24.42">
+<h2 data-number="24.42" class="anchored" data-anchor-id="aplicación-ambiental"><span class="header-section-number">24.42</span> Aplicación ambiental</h2>
+<p>Una transacción puede representar un día o una estación. Los elementos podrían ser:</p>
+<ul>
+<li>PM10_alto;</li>
+<li>temperatura_alta;</li>
+<li>humedad_baja;</li>
+<li>viento_bajo;</li>
+<li>ozono_alto.</li>
+</ul>
+<p>Una regla posible sería</p>
+<p><span class="math display">\[
+\{\text{temperatura alta, viento bajo}\}
+\Rightarrow
+\{\text{ozono alto}\}.
+\]</span></p>
+<p>Debe interpretarse como asociación empírica, no como mecanismo causal probado.</p>
+</section>
+<section id="ventajas" class="level2" data-number="24.43">
+<h2 data-number="24.43" class="anchored" data-anchor-id="ventajas"><span class="header-section-number">24.43</span> Ventajas</h2>
+<ol type="1">
+<li>produce patrones fáciles de comunicar;</li>
+<li>no requiere variable objetivo;</li>
+<li>permite explorar interacciones;</li>
+<li>funciona con datos transaccionales;</li>
+<li>ofrece medidas intuitivas;</li>
+<li>admite restricciones de dominio.</li>
+</ol>
+</section>
+<section id="limitaciones" class="level2" data-number="24.44">
+<h2 data-number="24.44" class="anchored" data-anchor-id="limitaciones"><span class="header-section-number">24.44</span> Limitaciones</h2>
+<ol type="1">
+<li>explosión combinatoria;</li>
+<li>muchas reglas triviales;</li>
+<li>sensibilidad a umbrales;</li>
+<li>discretización subjetiva;</li>
+<li>soporte bajo produce inestabilidad;</li>
+<li>asociación no implica causalidad;</li>
+<li>múltiples comparaciones;</li>
+<li>dificultad para evaluar utilidad real.</li>
+</ol>
+</section>
+<section id="errores-frecuentes" class="level2" data-number="24.45">
+<h2 data-number="24.45" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">24.45</span> Errores frecuentes</h2>
+<ol type="1">
+<li>interpretar confianza sin considerar soporte;</li>
+<li>ignorar el soporte del consecuente;</li>
+<li>usar lift como prueba causal;</li>
+<li>fijar soporte demasiado bajo;</li>
+<li>no eliminar reglas redundantes;</li>
+<li>discretizar arbitrariamente;</li>
+<li>reportar miles de reglas sin síntesis;</li>
+<li>no validar estabilidad;</li>
+<li>ignorar múltiples comparaciones;</li>
+<li>confundir coocurrencia con secuencia temporal.</li>
+</ol>
+</section>
+<section id="ejercicios-conceptuales" class="level2" data-number="24.46">
+<h2 data-number="24.46" class="anchored" data-anchor-id="ejercicios-conceptuales"><span class="header-section-number">24.46</span> Ejercicios conceptuales</h2>
+<ol type="1">
+<li>Defina transacción, itemset y regla.</li>
+<li>Compare soporte y confianza.</li>
+<li>¿Por qué se utiliza lift?</li>
+<li>Demuestre la propiedad Apriori.</li>
+<li>Compare Apriori, Eclat y FP-growth.</li>
+<li>Distinga itemset cerrado y maximal.</li>
+<li>¿Por qué una regla frecuente puede ser trivial?</li>
+<li>¿Cómo afecta la discretización?</li>
+<li>¿Por qué deben corregirse múltiples comparaciones?</li>
+<li>Explique por qué asociación no es causalidad.</li>
+</ol>
+</section>
+<section id="ejercicio-de-medidas" class="level2" data-number="24.47">
+<h2 data-number="24.47" class="anchored" data-anchor-id="ejercicio-de-medidas"><span class="header-section-number">24.47</span> Ejercicio de medidas</h2>
+<p>En 1,000 transacciones:</p>
+<ul>
+<li><span class="math inline">\(X\)</span> aparece en 300;</li>
+<li><span class="math inline">\(Y\)</span> aparece en 400;</li>
+<li><span class="math inline">\(X\cup Y\)</span> aparece en 180.</li>
+</ul>
+<p>Calcule:</p>
+<ol type="1">
+<li>soporte de <span class="math inline">\(X\)</span>;</li>
+<li>soporte de <span class="math inline">\(Y\)</span>;</li>
+<li>soporte de la regla;</li>
+<li>confianza;</li>
+<li>lift;</li>
+<li>leverage.</li>
+</ol>
+</section>
+<section id="ejercicio-apriori" class="level2" data-number="24.48">
+<h2 data-number="24.48" class="anchored" data-anchor-id="ejercicio-apriori"><span class="header-section-number">24.48</span> Ejercicio Apriori</h2>
+<p>Considere:</p>
+<p><span class="math display">\[
+T_1=\{A,B,C\},
+\]</span></p>
+<p><span class="math display">\[
+T_2=\{A,B\},
+\]</span></p>
+<p><span class="math display">\[
+T_3=\{A,C\},
+\]</span></p>
+<p><span class="math display">\[
+T_4=\{B,C\},
+\]</span></p>
+<p><span class="math display">\[
+T_5=\{A,B,C\}.
+\]</span></p>
+<p>Con soporte mínimo 0.4:</p>
+<ol type="1">
+<li>determine <span class="math inline">\(L_1\)</span>;</li>
+<li>genere <span class="math inline">\(C_2\)</span>;</li>
+<li>determine <span class="math inline">\(L_2\)</span>;</li>
+<li>genere <span class="math inline">\(C_3\)</span>;</li>
+<li>obtenga las reglas con confianza mínima 0.7.</li>
+</ol>
+</section>
+<section id="ejercicio-aplicado" class="level2" data-number="24.49">
+<h2 data-number="24.49" class="anchored" data-anchor-id="ejercicio-aplicado"><span class="header-section-number">24.49</span> Ejercicio aplicado</h2>
+<p>Diseñe un análisis de reglas para accidentes de tránsito donde cada accidente se represente por elementos como:</p>
+<ul>
+<li>nocturno;</li>
+<li>lluvia;</li>
+<li>velocidad_alta;</li>
+<li>motocicleta;</li>
+<li>peatón;</li>
+<li>accidente_severo.</li>
+</ul>
+<p>Incluya:</p>
+<ol type="1">
+<li>transformación transaccional;</li>
+<li>discretización;</li>
+<li>soporte mínimo;</li>
+<li>confianza;</li>
+<li>lift;</li>
+<li>consecuente severidad;</li>
+<li>poda de redundancia;</li>
+<li>significancia;</li>
+<li>validación;</li>
+<li>limitaciones causales.</li>
+</ol>
+</section>
+<section id="resumen" class="level2" data-number="24.50">
+<h2 data-number="24.50" class="anchored" data-anchor-id="resumen"><span class="header-section-number">24.50</span> Resumen</h2>
+<p>En este capítulo se desarrollaron los fundamentos matemáticos de las reglas de asociación.</p>
+<p>Se definieron transacciones, itemsets, soporte, confianza, lift, leverage y conviction. Se demostró la propiedad Apriori y se explicó la generación de conjuntos frecuentes y reglas.</p>
+<p>También se estudiaron Eclat, FP-growth, itemsets cerrados y maximales, restricciones, discretización, significancia, múltiples comparaciones y aplicaciones predictivas.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos históricos y algorítmicos se apoyan en <span class="citation" data-cites="agrawal1994fast">Agrawal y Srikant (<a href="../referencias.html#ref-agrawal1994fast" role="doc-biblioref">1994</a>)</span>, <span class="citation" data-cites="han2000mining">Han et&nbsp;al. (<a href="../referencias.html#ref-han2000mining" role="doc-biblioref">2000</a>)</span> y <span class="citation" data-cites="hahsler2005arules">Hahsler et&nbsp;al. (<a href="../referencias.html#ref-hahsler2005arules" role="doc-biblioref">2005</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-agrawal1994fast" class="csl-entry" role="listitem">
+Agrawal, Rakesh, y Ramakrishnan Srikant. 1994. <span>«Fast Algorithms for Mining Association Rules in Large Databases»</span>. <em>Proceedings of the 20th International Conference on Very Large Data Bases</em>, 487-99.
+</div>
+<div id="ref-hahsler2005arules" class="csl-entry" role="listitem">
+Hahsler, Michael, Bettina Grün, y Kurt Hornik. 2005. <span>«arules: A Computational Environment for Mining Association Rules and Frequent Item Sets»</span>. <em>Journal of Statistical Software</em> 14 (15): 1-25. <a href="https://doi.org/10.18637/jss.v014.i15">https://doi.org/10.18637/jss.v014.i15</a>.
+</div>
+<div id="ref-han2000mining" class="csl-entry" role="listitem">
+Han, Jiawei, Jian Pei, y Yiwen Yin. 2000. <span>«Mining Frequent Patterns without Candidate Generation»</span>. <em>Proceedings of the 2000 ACM SIGMOD International Conference on Management of Data</em>, 1-12. <a href="https://doi.org/10.1145/335191.335372">https://doi.org/10.1145/335191.335372</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1058,9 +1905,786 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reglas de asociación</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>*Capítulo en desarrollo.*</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reglas de asociación {#sec-reglas-asociacion}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Las reglas de asociación permiten descubrir relaciones de coocurrencia en bases de datos transaccionales. Su formulación clásica surgió en el análisis de compras, pero se aplica también a diagnósticos, navegación web, incidentes, síntomas, fallas y patrones ambientales.</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Una regla tiene la forma</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>X\Rightarrow Y,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>donde $X$ y $Y$ son conjuntos de elementos disjuntos. La regla no expresa causalidad; indica que las transacciones que contienen $X$ tienden a contener también $Y$.</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>El algoritmo Apriori explota una propiedad de antimonotonicidad para evitar evaluar todos los subconjuntos posibles <span class="co">[</span><span class="ot">@agrawal1994fast</span><span class="co">]</span>. Otros métodos, como FP-growth, eliminan la generación explícita de candidatos mediante una estructura comprimida <span class="co">[</span><span class="ot">@han2000mining</span><span class="co">]</span>.</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>Al finalizar el capítulo, el lector podrá:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>representar una base transaccional;</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>definir itemsets y reglas;</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>calcular soporte, confianza y lift;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>interpretar leverage y conviction;</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>comprender la propiedad Apriori;</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>generar conjuntos frecuentes;</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>producir reglas a partir de itemsets;</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>distinguir reglas redundantes;</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>aplicar restricciones;</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>comprender Apriori, Eclat y FP-growth;</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>evaluar significancia y utilidad;</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="ss">12. </span>aplicar reglas de asociación en R.</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Base transaccional</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>Sea</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>\mathcal{I}</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>i_1,\ldots,i_m<span class="sc">\}</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>el universo de elementos.</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>Una transacción es un subconjunto</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>T_r\subseteq\mathcal{I}.</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>La base de datos es</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>\mathcal{D}</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>T_1,\ldots,T_n<span class="sc">\}</span>.</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Itemset</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>Un itemset es cualquier subconjunto</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>X\subseteq\mathcal{I}.</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>Su tamaño es</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>X<span class="pp">|</span>.</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>Si $|X|=k$, se denomina $k$-itemset.</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regla de asociación</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>Una regla es una implicación</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>X\Rightarrow Y,</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>con</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>X\cap Y=\varnothing.</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>$X$ es el antecedente y $Y$ el consecuente.</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Soporte de un itemset</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>El soporte absoluto es</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>\sigma(X)</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>\left|</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>T_r:X\subseteq T_r<span class="sc">\}</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>\right|.</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>El soporte relativo es</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>supp(X)</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>\frac{\sigma(X)}{n}.</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>Puede interpretarse como una probabilidad empírica:</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>supp(X)</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>\widehat{P}(X).</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Soporte de una regla</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>El soporte de</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>X\Rightarrow Y</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>es</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>supp(X\Rightarrow Y)</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>supp(X\cup Y).</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>Mide la frecuencia conjunta del antecedente y el consecuente.</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="fu">## Confianza</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>La confianza es</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>conf(X\Rightarrow Y)</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>\frac{supp(X\cup Y)}{supp(X)}.</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>Equivale a la probabilidad condicional empírica:</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>conf(X\Rightarrow Y)</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>\widehat{P}(Y\mid X).</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="fu">## Limitación de la confianza</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>Una confianza alta puede deberse simplemente a que $Y$ es muy frecuente.</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>Por ello, debe compararse con el soporte marginal del consecuente.</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lift</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>El lift es</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>lift(X\Rightarrow Y)</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>\frac{conf(X\Rightarrow Y)}{supp(Y)}.</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>Equivalentemente,</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>lift(X\Rightarrow Y)</span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>\frac{supp(X\cup Y)}</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>{supp(X)supp(Y)}.</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>Interpretación:</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$lift&gt;1$: asociación positiva;</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$lift=1$: independencia empírica;</span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$lift&lt;1$: asociación negativa.</span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a><span class="fu">## Leverage</span></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>El leverage es</span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>lev(X\Rightarrow Y)</span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>supp(X\cup Y)</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>-</span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>supp(X)supp(Y).</span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>Mide la diferencia absoluta respecto de la independencia.</span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conviction</span></span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>La conviction se define como</span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>conv(X\Rightarrow Y)</span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>\frac{1-supp(Y)}</span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>{1-conf(X\Rightarrow Y)}.</span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>Valores grandes indican que la regla comete menos errores de los esperados bajo independencia.</span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cobertura</span></span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>La cobertura de la regla es</span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a>coverage(X\Rightarrow Y)</span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>supp(X).</span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>Mide qué proporción de transacciones satisface el antecedente.</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejemplo básico</span></span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>Considérese:</span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Transacción <span class="pp">|</span> Elementos <span class="pp">|</span></span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> pan, leche <span class="pp">|</span></span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> pan, pañales, cerveza <span class="pp">|</span></span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> leche, pañales, cerveza <span class="pp">|</span></span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> pan, leche, pañales, cerveza <span class="pp">|</span></span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> pan, leche, pañales <span class="pp">|</span></span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>Para la regla</span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>\text{pañales}<span class="sc">\}</span></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>\Rightarrow</span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>\text{cerveza}<span class="sc">\}</span>,</span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a>el antecedente aparece en 4 transacciones y la unión en 3.</span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>Entonces</span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>supp=\frac{3}{5}=0.6,</span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>conf=\frac{3}{4}=0.75.</span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>Como la cerveza aparece en 3 de 5 transacciones,</span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>lift</span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>\frac{0.75}{0.6}</span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>1.25.</span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conjuntos frecuentes</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>Dado un umbral mínimo</span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>s_{min},</span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>un itemset es frecuente si</span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>supp(X)\geq s_{min}.</span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>El problema central consiste en encontrar todos los itemsets frecuentes.</span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a><span class="fu">## Explosión combinatoria</span></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>Con $m$ elementos existen</span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>2^m-1</span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a>itemsets no vacíos.</span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>Una búsqueda exhaustiva se vuelve inviable cuando $m$ es grande.</span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a><span class="fu">## Propiedad Apriori</span></span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>::: {#thm-propiedad-apriori}</span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>Si un itemset es frecuente, todos sus subconjuntos también son frecuentes.</span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a>Equivalentemente, si un itemset no es frecuente, ninguno de sus superconjuntos puede ser frecuente.</span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demostración</span></span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>Si</span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>A\subseteq B,</span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>toda transacción que contiene $B$ contiene también $A$. Por tanto,</span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>\sigma(B)\leq\sigma(A),</span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a>supp(B)\leq supp(A).</span>
+<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a>Si $A$ no alcanza el soporte mínimo, ningún superconjunto $B$ puede alcanzarlo.</span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## Algoritmo Apriori</span></span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a>Apriori procede por niveles:</span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>encontrar itemsets frecuentes de tamaño 1;</span>
+<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>generar candidatos de tamaño 2;</span>
+<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>podar candidatos con subconjuntos infrecuentes;</span>
+<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>contar soportes;</span>
+<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>repetir para tamaños sucesivos.</span>
+<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a><span class="fu">## Generación de candidatos</span></span>
+<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a>A partir de</span>
+<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a>L_{k-1},</span>
+<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a>el conjunto de itemsets frecuentes de tamaño $k-1$, se construye</span>
+<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a>C_k.</span>
+<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a>Después se eliminan candidatos que contienen algún subconjunto no frecuente.</span>
+<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pseudocódigo de Apriori</span></span>
+<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>calcular $L_1$;</span>
+<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>para $k=2,3,\ldots$:</span>
+<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>generar $C_k$ mediante unión de elementos de $L_{k-1}$;</span>
+<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>podar candidatos;</span>
+<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>recorrer las transacciones y contar soportes;</span>
+<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>conservar itemsets con soporte mínimo;</span>
+<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>detener cuando $L_k$ sea vacío.</span>
+<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a><span class="fu">## Generación de reglas</span></span>
+<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a>Para cada itemset frecuente $Z$ y cada subconjunto no vacío</span>
+<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a>X\subset Z,</span>
+<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a>se forma</span>
+<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a>X\Rightarrow Z\setminus X.</span>
+<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a>La regla se conserva si alcanza la confianza mínima.</span>
+<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a><span class="fu">## Monotonicidad de la confianza</span></span>
+<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a>La confianza no es antimonótona en general. Sin embargo, durante la generación de reglas puede aprovecharse que, para un itemset fijo, ampliar el consecuente no aumenta la confianza.</span>
+<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a><span class="fu">## Eclat</span></span>
+<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a>Eclat utiliza una representación vertical.</span>
+<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a>Para cada elemento se almacena el conjunto de identificadores de transacción:</span>
+<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a>TID(X).</span>
+<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a>El soporte de una unión se obtiene mediante intersección:</span>
+<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a>TID(X\cup Y)</span>
+<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a>TID(X)\cap TID(Y).</span>
+<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-399"><a href="#cb2-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a><span class="fu">## FP-growth</span></span>
+<span id="cb2-401"><a href="#cb2-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a>FP-growth comprime la base en un árbol de patrones frecuentes y extrae itemsets sin generar candidatos explícitos <span class="co">[</span><span class="ot">@han2000mining</span><span class="co">]</span>.</span>
+<span id="cb2-403"><a href="#cb2-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a>Sus pasos generales son:</span>
+<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>contar frecuencias;</span>
+<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>eliminar elementos infrecuentes;</span>
+<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>ordenar elementos;</span>
+<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>construir el FP-tree;</span>
+<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>extraer bases condicionales;</span>
+<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>generar patrones frecuentes.</span>
+<span id="cb2-412"><a href="#cb2-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reglas redundantes</span></span>
+<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a>Una regla puede ser redundante si otra regla más general tiene igual o mejor desempeño.</span>
+<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a>Por ejemplo, si</span>
+<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a>A\Rightarrow C</span>
+<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-422"><a href="#cb2-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb2-424"><a href="#cb2-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-426"><a href="#cb2-426" aria-hidden="true" tabindex="-1"></a>A,B\Rightarrow C</span>
+<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-428"><a href="#cb2-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a>tienen la misma confianza, añadir $B$ no aporta información predictiva.</span>
+<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a><span class="fu">## Itemsets cerrados</span></span>
+<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a>Un itemset frecuente $X$ es cerrado si no existe un superconjunto con el mismo soporte.</span>
+<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a>Los itemsets cerrados proporcionan una representación más compacta.</span>
+<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a><span class="fu">## Itemsets maximales</span></span>
+<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a>Un itemset frecuente es maximal si ningún superconjunto suyo es frecuente.</span>
+<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a>Los maximales son aún más compactos, pero pierden información exacta de soportes de subconjuntos.</span>
+<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a><span class="fu">## Restricciones</span></span>
+<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-445"><a href="#cb2-445" aria-hidden="true" tabindex="-1"></a>El espacio de búsqueda puede reducirse imponiendo:</span>
+<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>elementos obligatorios;</span>
+<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>elementos excluidos;</span>
+<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>longitud mínima o máxima;</span>
+<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>consecuente fijo;</span>
+<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>soporte o confianza mínimos;</span>
+<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>restricciones de categorías.</span>
+<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discretización</span></span>
+<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a>Variables numéricas deben convertirse normalmente en intervalos:</span>
+<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a>X_j\in[a,b).</span>
+<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a>La discretización puede ser:</span>
+<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>por amplitud;</span>
+<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>por frecuencia;</span>
+<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>basada en conocimiento;</span>
+<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>supervisada.</span>
+<span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a>Los resultados dependen fuertemente de los cortes.</span>
+<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a><span class="fu">## Significancia estadística</span></span>
+<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a>Lift alto no garantiza significancia, especialmente con soporte bajo.</span>
+<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-475"><a href="#cb2-475" aria-hidden="true" tabindex="-1"></a>Puede utilizarse una tabla $2\times2$ y aplicar:</span>
+<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>prueba chi-cuadrada;</span>
+<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>prueba exacta de Fisher;</span>
+<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>intervalos;</span>
+<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>corrección por comparaciones múltiples.</span>
+<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tabla de contingencia</span></span>
+<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a>Para dos eventos $X$ y $Y$:</span>
+<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> $Y$ <span class="pp">|</span> no $Y$ <span class="pp">|</span></span>
+<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---:|---:|</span></span>
+<span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $X$ <span class="pp">|</span> $n_{11}$ <span class="pp">|</span> $n_{10}$ <span class="pp">|</span></span>
+<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> no $X$ <span class="pp">|</span> $n_{01}$ <span class="pp">|</span> $n_{00}$ <span class="pp">|</span></span>
+<span id="cb2-490"><a href="#cb2-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a>Las medidas de asociación se derivan de estas frecuencias.</span>
+<span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-493"><a href="#cb2-493" aria-hidden="true" tabindex="-1"></a><span class="fu">## Múltiples comparaciones</span></span>
+<span id="cb2-494"><a href="#cb2-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-495"><a href="#cb2-495" aria-hidden="true" tabindex="-1"></a>La minería puede producir miles de reglas. Evaluar cada una al nivel usual genera falsos positivos.</span>
+<span id="cb2-496"><a href="#cb2-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-497"><a href="#cb2-497" aria-hidden="true" tabindex="-1"></a>Deben considerarse:</span>
+<span id="cb2-498"><a href="#cb2-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-499"><a href="#cb2-499" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bonferroni;</span>
+<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Holm;</span>
+<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>control de FDR;</span>
+<span id="cb2-502"><a href="#cb2-502" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>validación en una muestra independiente.</span>
+<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-504"><a href="#cb2-504" aria-hidden="true" tabindex="-1"></a><span class="fu">## Asociación no es causalidad</span></span>
+<span id="cb2-505"><a href="#cb2-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-506"><a href="#cb2-506" aria-hidden="true" tabindex="-1"></a>La regla</span>
+<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a>X\Rightarrow Y</span>
+<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-512"><a href="#cb2-512" aria-hidden="true" tabindex="-1"></a>no implica que $X$ cause $Y$.</span>
+<span id="cb2-513"><a href="#cb2-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-514"><a href="#cb2-514" aria-hidden="true" tabindex="-1"></a>La coocurrencia puede deberse a:</span>
+<span id="cb2-515"><a href="#cb2-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-516"><a href="#cb2-516" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>variables confusoras;</span>
+<span id="cb2-517"><a href="#cb2-517" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>selección;</span>
+<span id="cb2-518"><a href="#cb2-518" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>temporalidad;</span>
+<span id="cb2-519"><a href="#cb2-519" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>patrones de consumo;</span>
+<span id="cb2-520"><a href="#cb2-520" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>artefactos de discretización.</span>
+<span id="cb2-521"><a href="#cb2-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-522"><a href="#cb2-522" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reglas negativas</span></span>
+<span id="cb2-523"><a href="#cb2-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-524"><a href="#cb2-524" aria-hidden="true" tabindex="-1"></a>También pueden estudiarse reglas como</span>
+<span id="cb2-525"><a href="#cb2-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-526"><a href="#cb2-526" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-527"><a href="#cb2-527" aria-hidden="true" tabindex="-1"></a>X\Rightarrow \neg Y.</span>
+<span id="cb2-528"><a href="#cb2-528" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-529"><a href="#cb2-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-530"><a href="#cb2-530" aria-hidden="true" tabindex="-1"></a>Su análisis requiere considerar cuidadosamente soportes y universo de elementos.</span>
+<span id="cb2-531"><a href="#cb2-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-532"><a href="#cb2-532" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reglas secuenciales</span></span>
+<span id="cb2-533"><a href="#cb2-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-534"><a href="#cb2-534" aria-hidden="true" tabindex="-1"></a>Las reglas de asociación tradicionales ignoran el orden temporal.</span>
+<span id="cb2-535"><a href="#cb2-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-536"><a href="#cb2-536" aria-hidden="true" tabindex="-1"></a>Cuando interesa la secuencia se utilizan patrones secuenciales, por ejemplo:</span>
+<span id="cb2-537"><a href="#cb2-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-538"><a href="#cb2-538" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-539"><a href="#cb2-539" aria-hidden="true" tabindex="-1"></a>A\to B\to C.</span>
+<span id="cb2-540"><a href="#cb2-540" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-541"><a href="#cb2-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-542"><a href="#cb2-542" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reglas ponderadas</span></span>
+<span id="cb2-543"><a href="#cb2-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-544"><a href="#cb2-544" aria-hidden="true" tabindex="-1"></a>En algunos problemas los elementos tienen importancia, utilidad o costo diferentes.</span>
+<span id="cb2-545"><a href="#cb2-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-546"><a href="#cb2-546" aria-hidden="true" tabindex="-1"></a>Las reglas ponderadas incorporan:</span>
+<span id="cb2-547"><a href="#cb2-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-548"><a href="#cb2-548" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>cantidad;</span>
+<span id="cb2-549"><a href="#cb2-549" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>precio;</span>
+<span id="cb2-550"><a href="#cb2-550" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>riesgo;</span>
+<span id="cb2-551"><a href="#cb2-551" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>utilidad;</span>
+<span id="cb2-552"><a href="#cb2-552" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>severidad.</span>
+<span id="cb2-553"><a href="#cb2-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-554"><a href="#cb2-554" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evaluación práctica</span></span>
+<span id="cb2-555"><a href="#cb2-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-556"><a href="#cb2-556" aria-hidden="true" tabindex="-1"></a>Una buena regla debe equilibrar:</span>
+<span id="cb2-557"><a href="#cb2-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-558"><a href="#cb2-558" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>frecuencia;</span>
+<span id="cb2-559"><a href="#cb2-559" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>precisión;</span>
+<span id="cb2-560"><a href="#cb2-560" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>novedad;</span>
+<span id="cb2-561"><a href="#cb2-561" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>utilidad;</span>
+<span id="cb2-562"><a href="#cb2-562" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>simplicidad;</span>
+<span id="cb2-563"><a href="#cb2-563" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>estabilidad;</span>
+<span id="cb2-564"><a href="#cb2-564" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>posibilidad de acción.</span>
+<span id="cb2-565"><a href="#cb2-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-566"><a href="#cb2-566" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reglas y predicción</span></span>
+<span id="cb2-567"><a href="#cb2-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-568"><a href="#cb2-568" aria-hidden="true" tabindex="-1"></a>Las reglas pueden utilizarse como características o como clasificadores.</span>
+<span id="cb2-569"><a href="#cb2-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-570"><a href="#cb2-570" aria-hidden="true" tabindex="-1"></a>En clasificación asociativa, el consecuente es una clase:</span>
+<span id="cb2-571"><a href="#cb2-571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-572"><a href="#cb2-572" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-573"><a href="#cb2-573" aria-hidden="true" tabindex="-1"></a>X\Rightarrow Y=c.</span>
+<span id="cb2-574"><a href="#cb2-574" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-575"><a href="#cb2-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-576"><a href="#cb2-576" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complejidad</span></span>
+<span id="cb2-577"><a href="#cb2-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-578"><a href="#cb2-578" aria-hidden="true" tabindex="-1"></a>El costo depende de:</span>
+<span id="cb2-579"><a href="#cb2-579" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-580"><a href="#cb2-580" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>número de elementos;</span>
+<span id="cb2-581"><a href="#cb2-581" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>longitud de transacciones;</span>
+<span id="cb2-582"><a href="#cb2-582" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>soporte mínimo;</span>
+<span id="cb2-583"><a href="#cb2-583" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>densidad;</span>
+<span id="cb2-584"><a href="#cb2-584" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>número de patrones frecuentes.</span>
+<span id="cb2-585"><a href="#cb2-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-586"><a href="#cb2-586" aria-hidden="true" tabindex="-1"></a>Un soporte demasiado bajo puede generar una explosión de resultados.</span>
+<span id="cb2-587"><a href="#cb2-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-588"><a href="#cb2-588" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conexión con R</span></span>
+<span id="cb2-589"><a href="#cb2-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-590"><a href="#cb2-590" aria-hidden="true" tabindex="-1"></a>El paquete <span class="in">`arules`</span> proporciona infraestructura para transacciones, itemsets y reglas <span class="co">[</span><span class="ot">@hahsler2005arules</span><span class="co">]</span>.</span>
+<span id="cb2-591"><a href="#cb2-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-594"><a href="#cb2-594" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-595"><a href="#cb2-595" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-596"><a href="#cb2-596" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-597"><a href="#cb2-597" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arules)</span>
+<span id="cb2-598"><a href="#cb2-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-599"><a href="#cb2-599" aria-hidden="true" tabindex="-1"></a>transacciones <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-600"><a href="#cb2-600" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"pan"</span>, <span class="st">"leche"</span>),</span>
+<span id="cb2-601"><a href="#cb2-601" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"pan"</span>, <span class="st">"pañales"</span>, <span class="st">"cerveza"</span>),</span>
+<span id="cb2-602"><a href="#cb2-602" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"leche"</span>, <span class="st">"pañales"</span>, <span class="st">"cerveza"</span>),</span>
+<span id="cb2-603"><a href="#cb2-603" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"pan"</span>, <span class="st">"leche"</span>, <span class="st">"pañales"</span>, <span class="st">"cerveza"</span>),</span>
+<span id="cb2-604"><a href="#cb2-604" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"pan"</span>, <span class="st">"leche"</span>, <span class="st">"pañales"</span>)</span>
+<span id="cb2-605"><a href="#cb2-605" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-606"><a href="#cb2-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-607"><a href="#cb2-607" aria-hidden="true" tabindex="-1"></a>tr <span class="ot">&lt;-</span> <span class="fu">as</span>(transacciones, <span class="st">"transactions"</span>)</span>
+<span id="cb2-608"><a href="#cb2-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-609"><a href="#cb2-609" aria-hidden="true" tabindex="-1"></a>reglas <span class="ot">&lt;-</span> <span class="fu">apriori</span>(</span>
+<span id="cb2-610"><a href="#cb2-610" aria-hidden="true" tabindex="-1"></a>  tr,</span>
+<span id="cb2-611"><a href="#cb2-611" aria-hidden="true" tabindex="-1"></a>  <span class="at">parameter =</span> <span class="fu">list</span>(</span>
+<span id="cb2-612"><a href="#cb2-612" aria-hidden="true" tabindex="-1"></a>    <span class="at">supp =</span> <span class="fl">0.40</span>,</span>
+<span id="cb2-613"><a href="#cb2-613" aria-hidden="true" tabindex="-1"></a>    <span class="at">conf =</span> <span class="fl">0.60</span>,</span>
+<span id="cb2-614"><a href="#cb2-614" aria-hidden="true" tabindex="-1"></a>    <span class="at">minlen =</span> <span class="dv">2</span></span>
+<span id="cb2-615"><a href="#cb2-615" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-616"><a href="#cb2-616" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-617"><a href="#cb2-617" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-618"><a href="#cb2-618" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(</span>
+<span id="cb2-619"><a href="#cb2-619" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>(</span>
+<span id="cb2-620"><a href="#cb2-620" aria-hidden="true" tabindex="-1"></a>    reglas,</span>
+<span id="cb2-621"><a href="#cb2-621" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"lift"</span>,</span>
+<span id="cb2-622"><a href="#cb2-622" aria-hidden="true" tabindex="-1"></a>    <span class="at">decreasing =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-623"><a href="#cb2-623" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-624"><a href="#cb2-624" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-625"><a href="#cb2-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-626"><a href="#cb2-626" aria-hidden="true" tabindex="-1"></a>reglas_filtradas <span class="ot">&lt;-</span> <span class="fu">subset</span>(</span>
+<span id="cb2-627"><a href="#cb2-627" aria-hidden="true" tabindex="-1"></a>  reglas,</span>
+<span id="cb2-628"><a href="#cb2-628" aria-hidden="true" tabindex="-1"></a>  lift <span class="sc">&gt;</span> <span class="fl">1.1</span></span>
+<span id="cb2-629"><a href="#cb2-629" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-630"><a href="#cb2-630" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-631"><a href="#cb2-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-632"><a href="#cb2-632" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aplicación ambiental</span></span>
+<span id="cb2-633"><a href="#cb2-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-634"><a href="#cb2-634" aria-hidden="true" tabindex="-1"></a>Una transacción puede representar un día o una estación. Los elementos podrían ser:</span>
+<span id="cb2-635"><a href="#cb2-635" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-636"><a href="#cb2-636" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>PM10_alto;</span>
+<span id="cb2-637"><a href="#cb2-637" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>temperatura_alta;</span>
+<span id="cb2-638"><a href="#cb2-638" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>humedad_baja;</span>
+<span id="cb2-639"><a href="#cb2-639" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>viento_bajo;</span>
+<span id="cb2-640"><a href="#cb2-640" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ozono_alto.</span>
+<span id="cb2-641"><a href="#cb2-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-642"><a href="#cb2-642" aria-hidden="true" tabindex="-1"></a>Una regla posible sería</span>
+<span id="cb2-643"><a href="#cb2-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-644"><a href="#cb2-644" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-645"><a href="#cb2-645" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>\text{temperatura alta, viento bajo}<span class="sc">\}</span></span>
+<span id="cb2-646"><a href="#cb2-646" aria-hidden="true" tabindex="-1"></a>\Rightarrow</span>
+<span id="cb2-647"><a href="#cb2-647" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>\text{ozono alto}<span class="sc">\}</span>.</span>
+<span id="cb2-648"><a href="#cb2-648" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-649"><a href="#cb2-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-650"><a href="#cb2-650" aria-hidden="true" tabindex="-1"></a>Debe interpretarse como asociación empírica, no como mecanismo causal probado.</span>
+<span id="cb2-651"><a href="#cb2-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-652"><a href="#cb2-652" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ventajas</span></span>
+<span id="cb2-653"><a href="#cb2-653" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-654"><a href="#cb2-654" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>produce patrones fáciles de comunicar;</span>
+<span id="cb2-655"><a href="#cb2-655" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>no requiere variable objetivo;</span>
+<span id="cb2-656"><a href="#cb2-656" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>permite explorar interacciones;</span>
+<span id="cb2-657"><a href="#cb2-657" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>funciona con datos transaccionales;</span>
+<span id="cb2-658"><a href="#cb2-658" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>ofrece medidas intuitivas;</span>
+<span id="cb2-659"><a href="#cb2-659" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>admite restricciones de dominio.</span>
+<span id="cb2-660"><a href="#cb2-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-661"><a href="#cb2-661" aria-hidden="true" tabindex="-1"></a><span class="fu">## Limitaciones</span></span>
+<span id="cb2-662"><a href="#cb2-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-663"><a href="#cb2-663" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>explosión combinatoria;</span>
+<span id="cb2-664"><a href="#cb2-664" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>muchas reglas triviales;</span>
+<span id="cb2-665"><a href="#cb2-665" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>sensibilidad a umbrales;</span>
+<span id="cb2-666"><a href="#cb2-666" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>discretización subjetiva;</span>
+<span id="cb2-667"><a href="#cb2-667" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>soporte bajo produce inestabilidad;</span>
+<span id="cb2-668"><a href="#cb2-668" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>asociación no implica causalidad;</span>
+<span id="cb2-669"><a href="#cb2-669" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>múltiples comparaciones;</span>
+<span id="cb2-670"><a href="#cb2-670" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>dificultad para evaluar utilidad real.</span>
+<span id="cb2-671"><a href="#cb2-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-672"><a href="#cb2-672" aria-hidden="true" tabindex="-1"></a><span class="fu">## Errores frecuentes</span></span>
+<span id="cb2-673"><a href="#cb2-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-674"><a href="#cb2-674" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>interpretar confianza sin considerar soporte;</span>
+<span id="cb2-675"><a href="#cb2-675" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>ignorar el soporte del consecuente;</span>
+<span id="cb2-676"><a href="#cb2-676" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>usar lift como prueba causal;</span>
+<span id="cb2-677"><a href="#cb2-677" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>fijar soporte demasiado bajo;</span>
+<span id="cb2-678"><a href="#cb2-678" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>no eliminar reglas redundantes;</span>
+<span id="cb2-679"><a href="#cb2-679" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>discretizar arbitrariamente;</span>
+<span id="cb2-680"><a href="#cb2-680" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>reportar miles de reglas sin síntesis;</span>
+<span id="cb2-681"><a href="#cb2-681" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>no validar estabilidad;</span>
+<span id="cb2-682"><a href="#cb2-682" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>ignorar múltiples comparaciones;</span>
+<span id="cb2-683"><a href="#cb2-683" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>confundir coocurrencia con secuencia temporal.</span>
+<span id="cb2-684"><a href="#cb2-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-685"><a href="#cb2-685" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicios conceptuales</span></span>
+<span id="cb2-686"><a href="#cb2-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-687"><a href="#cb2-687" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Defina transacción, itemset y regla.</span>
+<span id="cb2-688"><a href="#cb2-688" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Compare soporte y confianza.</span>
+<span id="cb2-689"><a href="#cb2-689" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>¿Por qué se utiliza lift?</span>
+<span id="cb2-690"><a href="#cb2-690" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Demuestre la propiedad Apriori.</span>
+<span id="cb2-691"><a href="#cb2-691" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Compare Apriori, Eclat y FP-growth.</span>
+<span id="cb2-692"><a href="#cb2-692" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Distinga itemset cerrado y maximal.</span>
+<span id="cb2-693"><a href="#cb2-693" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>¿Por qué una regla frecuente puede ser trivial?</span>
+<span id="cb2-694"><a href="#cb2-694" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>¿Cómo afecta la discretización?</span>
+<span id="cb2-695"><a href="#cb2-695" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>¿Por qué deben corregirse múltiples comparaciones?</span>
+<span id="cb2-696"><a href="#cb2-696" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Explique por qué asociación no es causalidad.</span>
+<span id="cb2-697"><a href="#cb2-697" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-698"><a href="#cb2-698" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicio de medidas</span></span>
+<span id="cb2-699"><a href="#cb2-699" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-700"><a href="#cb2-700" aria-hidden="true" tabindex="-1"></a>En 1,000 transacciones:</span>
+<span id="cb2-701"><a href="#cb2-701" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-702"><a href="#cb2-702" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$X$ aparece en 300;</span>
+<span id="cb2-703"><a href="#cb2-703" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$Y$ aparece en 400;</span>
+<span id="cb2-704"><a href="#cb2-704" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$X\cup Y$ aparece en 180.</span>
+<span id="cb2-705"><a href="#cb2-705" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-706"><a href="#cb2-706" aria-hidden="true" tabindex="-1"></a>Calcule:</span>
+<span id="cb2-707"><a href="#cb2-707" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-708"><a href="#cb2-708" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>soporte de $X$;</span>
+<span id="cb2-709"><a href="#cb2-709" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>soporte de $Y$;</span>
+<span id="cb2-710"><a href="#cb2-710" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>soporte de la regla;</span>
+<span id="cb2-711"><a href="#cb2-711" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>confianza;</span>
+<span id="cb2-712"><a href="#cb2-712" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>lift;</span>
+<span id="cb2-713"><a href="#cb2-713" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>leverage.</span>
+<span id="cb2-714"><a href="#cb2-714" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-715"><a href="#cb2-715" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicio Apriori</span></span>
+<span id="cb2-716"><a href="#cb2-716" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-717"><a href="#cb2-717" aria-hidden="true" tabindex="-1"></a>Considere:</span>
+<span id="cb2-718"><a href="#cb2-718" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-719"><a href="#cb2-719" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-720"><a href="#cb2-720" aria-hidden="true" tabindex="-1"></a>T_1=<span class="sc">\{</span>A,B,C<span class="sc">\}</span>,</span>
+<span id="cb2-721"><a href="#cb2-721" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-722"><a href="#cb2-722" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-723"><a href="#cb2-723" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-724"><a href="#cb2-724" aria-hidden="true" tabindex="-1"></a>T_2=<span class="sc">\{</span>A,B<span class="sc">\}</span>,</span>
+<span id="cb2-725"><a href="#cb2-725" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-726"><a href="#cb2-726" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-727"><a href="#cb2-727" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-728"><a href="#cb2-728" aria-hidden="true" tabindex="-1"></a>T_3=<span class="sc">\{</span>A,C<span class="sc">\}</span>,</span>
+<span id="cb2-729"><a href="#cb2-729" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-730"><a href="#cb2-730" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-731"><a href="#cb2-731" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-732"><a href="#cb2-732" aria-hidden="true" tabindex="-1"></a>T_4=<span class="sc">\{</span>B,C<span class="sc">\}</span>,</span>
+<span id="cb2-733"><a href="#cb2-733" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-734"><a href="#cb2-734" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-735"><a href="#cb2-735" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-736"><a href="#cb2-736" aria-hidden="true" tabindex="-1"></a>T_5=<span class="sc">\{</span>A,B,C<span class="sc">\}</span>.</span>
+<span id="cb2-737"><a href="#cb2-737" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-738"><a href="#cb2-738" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-739"><a href="#cb2-739" aria-hidden="true" tabindex="-1"></a>Con soporte mínimo 0.4:</span>
+<span id="cb2-740"><a href="#cb2-740" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-741"><a href="#cb2-741" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>determine $L_1$;</span>
+<span id="cb2-742"><a href="#cb2-742" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>genere $C_2$;</span>
+<span id="cb2-743"><a href="#cb2-743" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>determine $L_2$;</span>
+<span id="cb2-744"><a href="#cb2-744" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>genere $C_3$;</span>
+<span id="cb2-745"><a href="#cb2-745" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>obtenga las reglas con confianza mínima 0.7.</span>
+<span id="cb2-746"><a href="#cb2-746" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-747"><a href="#cb2-747" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicio aplicado</span></span>
+<span id="cb2-748"><a href="#cb2-748" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-749"><a href="#cb2-749" aria-hidden="true" tabindex="-1"></a>Diseñe un análisis de reglas para accidentes de tránsito donde cada accidente se represente por elementos como:</span>
+<span id="cb2-750"><a href="#cb2-750" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-751"><a href="#cb2-751" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>nocturno;</span>
+<span id="cb2-752"><a href="#cb2-752" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>lluvia;</span>
+<span id="cb2-753"><a href="#cb2-753" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>velocidad_alta;</span>
+<span id="cb2-754"><a href="#cb2-754" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>motocicleta;</span>
+<span id="cb2-755"><a href="#cb2-755" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>peatón;</span>
+<span id="cb2-756"><a href="#cb2-756" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>accidente_severo.</span>
+<span id="cb2-757"><a href="#cb2-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-758"><a href="#cb2-758" aria-hidden="true" tabindex="-1"></a>Incluya:</span>
+<span id="cb2-759"><a href="#cb2-759" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-760"><a href="#cb2-760" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>transformación transaccional;</span>
+<span id="cb2-761"><a href="#cb2-761" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>discretización;</span>
+<span id="cb2-762"><a href="#cb2-762" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>soporte mínimo;</span>
+<span id="cb2-763"><a href="#cb2-763" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>confianza;</span>
+<span id="cb2-764"><a href="#cb2-764" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>lift;</span>
+<span id="cb2-765"><a href="#cb2-765" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>consecuente severidad;</span>
+<span id="cb2-766"><a href="#cb2-766" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>poda de redundancia;</span>
+<span id="cb2-767"><a href="#cb2-767" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>significancia;</span>
+<span id="cb2-768"><a href="#cb2-768" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>validación;</span>
+<span id="cb2-769"><a href="#cb2-769" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>limitaciones causales.</span>
+<span id="cb2-770"><a href="#cb2-770" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-771"><a href="#cb2-771" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resumen</span></span>
+<span id="cb2-772"><a href="#cb2-772" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-773"><a href="#cb2-773" aria-hidden="true" tabindex="-1"></a>En este capítulo se desarrollaron los fundamentos matemáticos de las reglas de asociación.</span>
+<span id="cb2-774"><a href="#cb2-774" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-775"><a href="#cb2-775" aria-hidden="true" tabindex="-1"></a>Se definieron transacciones, itemsets, soporte, confianza, lift, leverage y conviction. Se demostró la propiedad Apriori y se explicó la generación de conjuntos frecuentes y reglas.</span>
+<span id="cb2-776"><a href="#cb2-776" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-777"><a href="#cb2-777" aria-hidden="true" tabindex="-1"></a>También se estudiaron Eclat, FP-growth, itemsets cerrados y maximales, restricciones, discretización, significancia, múltiples comparaciones y aplicaciones predictivas.</span>
+<span id="cb2-778"><a href="#cb2-778" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-779"><a href="#cb2-779" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-780"><a href="#cb2-780" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-781"><a href="#cb2-781" aria-hidden="true" tabindex="-1"></a>Los fundamentos históricos y algorítmicos se apoyan en @agrawal1994fast, @han2000mining y @hahsler2005arules.</span>
+</code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

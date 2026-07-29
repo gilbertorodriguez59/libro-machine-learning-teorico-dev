@@ -967,3 +967,8 @@ $$
 $$
 
 y se distinguieron formalmente los problemas de regresión y clasificación. Esta notación será utilizada en todos los capítulos posteriores.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @bishop2006pattern.
+

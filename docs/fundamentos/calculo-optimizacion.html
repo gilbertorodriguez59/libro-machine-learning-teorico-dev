@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -646,6 +665,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-lagrange" id="toc-ejercicio-de-lagrange" class="nav-link" data-scroll-target="#ejercicio-de-lagrange"><span class="header-section-number">8.55</span> Ejercicio de Lagrange</a></li>
   <li><a href="#ejercicio-aplicado-a-regresión" id="toc-ejercicio-aplicado-a-regresión" class="nav-link" data-scroll-target="#ejercicio-aplicado-a-regresión"><span class="header-section-number">8.56</span> Ejercicio aplicado a regresión</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">8.57</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -2027,10 +2047,22 @@ J(\boldsymbol{\beta})
 <p>En este capítulo se estudiaron funciones de varias variables, derivadas parciales, gradientes, Jacobianas, Hessianas, diferenciales y regla de la cadena.</p>
 <p>También se desarrollaron aproximaciones de Taylor, puntos críticos, clasificación mediante la Hessiana, convexidad, descenso por gradiente, métodos de Newton y problemas restringidos mediante multiplicadores de Lagrange y condiciones KKT.</p>
 <p>Finalmente, se relacionaron estas herramientas con regresión lineal, regresión logística, PCA, SVM y redes neuronales. Estos conceptos permitirán derivar formalmente los algoritmos de los capítulos posteriores.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="bishop2006pattern">Bishop (<a href="../referencias.html#ref-bishop2006pattern" role="doc-biblioref">2006</a>)</span>; <span class="citation" data-cites="hastie2009elements">Hastie et&nbsp;al. (<a href="../referencias.html#ref-hastie2009elements" role="doc-biblioref">2009</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bishop2006pattern" class="csl-entry" role="listitem">
+Bishop, Christopher M. 2006. <em>Pattern Recognition and Machine Learning</em>. Springer.
+</div>
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2.ª ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -4106,6 +4138,10 @@ J(\boldsymbol{\beta})
 <span id="cb2-1596"><a href="#cb2-1596" aria-hidden="true" tabindex="-1"></a>También se desarrollaron aproximaciones de Taylor, puntos críticos, clasificación mediante la Hessiana, convexidad, descenso por gradiente, métodos de Newton y problemas restringidos mediante multiplicadores de Lagrange y condiciones KKT.</span>
 <span id="cb2-1597"><a href="#cb2-1597" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1598"><a href="#cb2-1598" aria-hidden="true" tabindex="-1"></a>Finalmente, se relacionaron estas herramientas con regresión lineal, regresión logística, PCA, SVM y redes neuronales. Estos conceptos permitirán derivar formalmente los algoritmos de los capítulos posteriores.</span>
+<span id="cb2-1599"><a href="#cb2-1599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1600"><a href="#cb2-1600" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1601"><a href="#cb2-1601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1602"><a href="#cb2-1602" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @bishop2006pattern; @hastie2009elements.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

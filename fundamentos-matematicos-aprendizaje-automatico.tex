@@ -138,6 +138,39 @@
 \makeatother
 
 
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \ifLuaTeX
 \usepackage[bidi=basic,shorthands=off]{babel}
@@ -214,12 +247,12 @@
 \floatname{codelisting}{Listado}
 \newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
 \usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[chapter]
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{remark}
 \AtBeginDocument{\renewcommand*{\proofname}{Demostración}}
 \newtheorem*{remark}{Observación}
@@ -385,6 +418,30 @@ matemática necesaria, definiciones formales, proposiciones, teoremas,
 demostraciones y derivaciones. Posteriormente se desarrollan ejemplos
 numéricos manuales y se establece la conexión con los algoritmos
 estudiados en el volumen práctico.
+
+\section{Organización de la obra}\label{organizaciuxf3n-de-la-obra}
+
+La obra se organiza en seis partes:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  fundamentos matemáticos;
+\item
+  fundamentos del aprendizaje automático;
+\item
+  modelos de regresión;
+\item
+  métodos de clasificación;
+\item
+  aprendizaje no supervisado;
+\item
+  temas avanzados.
+\end{enumerate}
+
+Cada capítulo incluye referencias académicas específicas, mientras que
+la bibliografía consolidada aparece al final del libro.
 
 \bookmarksetup{startatroot}
 
@@ -1599,6 +1656,14 @@ Finalmente, se formuló un conjunto de datos supervisado como
 y se distinguieron formalmente los problemas de regresión y
 clasificación. Esta notación será utilizada en todos los capítulos
 posteriores.
+
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Hastie et~al. (2009); Bishop (2006).
 
 \chapter{Álgebra lineal para aprendizaje
 automático}\label{sec-algebra-lineal}
@@ -3583,6 +3648,14 @@ algoritmos de aprendizaje automático, entre ellos regresión lineal, PCA,
 máquinas de vectores de soporte, redes neuronales, agrupamiento y
 métodos de reducción de dimensionalidad.
 
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-1}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Mardia et~al. (1979); Bishop (2006).
+
 \chapter{Probabilidad y estadística para aprendizaje
 automático}\label{sec-probabilidad-estadistica}
 
@@ -5458,6 +5531,14 @@ Estos elementos serán utilizados posteriormente en regresión logística,
 clasificación bayesiana, árboles de decisión, PCA, validación y teoría
 de generalización.
 
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-2}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Murphy (2022); Bishop (2006).
+
 \chapter{Cálculo multivariable y
 optimización}\label{sec-calculo-optimizacion}
 
@@ -7257,6 +7338,14 @@ regresión logística, PCA, SVM y redes neuronales. Estos conceptos
 permitirán derivar formalmente los algoritmos de los capítulos
 posteriores.
 
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-3}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Bishop (2006); Hastie et~al. (2009).
+
 \part{II. Fundamentos del aprendizaje automático}
 
 \chapter{Formulación matemática del aprendizaje
@@ -8816,6 +8905,14 @@ modelos. Estos conceptos servirán como base para la teoría de
 clasificación y para los algoritmos específicos de los capítulos
 posteriores.
 
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-4}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Vapnik (1998); Murphy (2022).
+
 \chapter{Teoría matemática de la
 clasificación}\label{sec-teoria-clasificacion}
 
@@ -10362,6 +10459,14 @@ Finalmente, se desarrollaron curvas ROC, AUC, calibración y
 clasificación multiclase. Estos conceptos serán esenciales para evaluar
 y comparar los algoritmos de clasificación de los capítulos posteriores.
 
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-5}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Duda et~al. (2001); Bishop (2006).
+
 \chapter{Evaluación, validación y selección de
 modelos}\label{sec-evaluacion-modelos}
 
@@ -11879,6 +11984,14 @@ comparación de modelos y reproducibilidad. Estas herramientas son
 indispensables para obtener evaluaciones confiables y evitar
 conclusiones optimistas.
 
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-6}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Hastie et~al. (2009); James et~al. (2021).
+
 \chapter{Regularización y control de la
 complejidad}\label{sec-regularizacion}
 
@@ -13387,6 +13500,14 @@ Finalmente, se desarrolló elastic net, la interpretación bayesiana, los
 caminos de regularización, la selección de \(\lambda\) y extensiones
 como group LASSO. Estos conceptos serán fundamentales en regresión,
 clasificación y redes neuronales.
+
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-7}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Hastie et~al. (2009); Bishop (2006).
 
 \part{III. Modelos de regresión}
 
@@ -15187,6 +15308,14 @@ determinación, análisis de residuos, apalancamiento e influencia.
 La regresión lineal simple constituye la base para la regresión
 múltiple, la regularización y numerosos modelos de aprendizaje
 supervisado.
+
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-8}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Hastie et~al. (2009); James et~al. (2021).
 
 \chapter{Regresión lineal múltiple}\label{sec-regresion-lineal-multiple}
 
@@ -17202,6 +17331,14 @@ variables, apalancamiento, influencia y diagnóstico. Estos fundamentos
 preparan el estudio de regresión logística y modelos lineales más
 avanzados.
 
+\section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-9}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Hastie et~al. (2009); Mardia et~al. (1979).
+
 \chapter{Regresión logística}\label{sec-regresion-logistica}
 
 \section{Introducción}\label{introducciuxf3n-11}
@@ -18623,6 +18760,15 @@ Finalmente, se presentaron inferencia, deviance, pseudo-\(R^2\),
 predicción, selección de umbral, discriminación, calibración,
 separación, influencia, regularización y extensión multinomial.
 
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-10}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Bishop (2006); James et~al. (2021).
+
 \part{IV. Métodos de clasificación}
 
 \chapter{Vecinos más cercanos, k-NN}\label{sec-knn}
@@ -19823,6 +19969,15 @@ Finalmente, se estudiaron sus costos computacionales, su relación con la
 regla de Bayes, con celdas de Voronoi y con estimadores locales. Estos
 fundamentos preparan el estudio de árboles de decisión, métodos de
 margen y otros clasificadores no lineales.
+
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-11}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Cover y Hart (1967); Stone (1977); Duda et~al. (2001).
 
 \chapter{Árboles de decisión}\label{sec-arboles-decision}
 
@@ -21249,6 +21404,15 @@ de costo, validación, probabilidades en hojas, clases desbalanceadas,
 importancia de variables, inestabilidad y relación con random forest y
 boosting.
 
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-12}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Breiman et~al. (1984); Quinlan (1986).
+
 \chapter{Random Forest}\label{sec-random-forest}
 
 \section{Introducción}\label{introducciuxf3n-14}
@@ -22199,6 +22363,15 @@ complejidad computacional y selección de hiperparámetros.
 
 Finalmente, se comparó Random Forest con árboles individuales, \(k\)-NN
 y boosting.
+
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-13}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Breiman (2001); Hastie et~al. (2009).
 
 \chapter{Máquinas de vectores de soporte, SVM}\label{sec-svm}
 
@@ -24042,6 +24215,15 @@ selección de hiperparámetros.
 Finalmente, se analizaron clasificación multiclase, SVR, escalamiento,
 calibración, desbalance de clases, complejidad computacional y
 comparación con regresión logística y Random Forest.
+
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-14}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Cortes y Vapnik (1995); Vapnik (1998).
 
 \chapter{Redes neuronales artificiales}\label{sec-redes-neuronales}
 
@@ -25922,6 +26104,15 @@ normalización por lotes, parada temprana, capacidad, aproximación
 universal, interpretabilidad y conexión con regresión logística, SVM y
 aprendizaje profundo.
 
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-15}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Rumelhart et~al. (1986); Bishop (2006).
+
 \part{V. Aprendizaje no supervisado}
 
 \chapter{Análisis de Componentes Principales, PCA}\label{sec-pca}
@@ -27293,6 +27484,16 @@ aproximación y formulación mediante SVD.
 Finalmente, se analizaron estandarización, valores atípicos, fuga de
 información, PCA probabilístico, kernel PCA, aplicaciones predictivas y
 limitaciones interpretativas.
+
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-16}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Pearson (1901); Hotelling (1933); Mardia et~al.
+(1979).
 
 \chapter{Agrupamiento mediante K-means}\label{sec-kmeans}
 
@@ -28677,6 +28878,15 @@ Finalmente, se estudiaron sensibilidad a escala, valores atípicos,
 grupos no esféricos, relación con mezclas gaussianas, cuantización
 vectorial y variantes para datos grandes o mixtos.
 
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-17}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Lloyd (1982); Arthur y Vassilvitskii (2007).
+
 \chapter{Agrupamiento jerárquico}\label{sec-agrupamiento-jerarquico}
 
 \section{Introducción}\label{introducciuxf3n-19}
@@ -29618,9 +29828,1082 @@ También se analizaron dendrogramas, alturas, cortes, distancias
 cofenéticas, fórmula de Lance-Williams, estabilidad, valores atípicos,
 complejidad y comparación con K-means.
 
-\chapter{Reglas de asociación}\label{reglas-de-asociaciuxf3n}
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-18}
+\addcontentsline{toc}{section}{Referencias del capítulo}
 
-\emph{Capítulo en desarrollo.}
+\markright{Referencias del capítulo}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan
+principalmente en Ward (1963); Mardia et~al. (1979).
+
+\chapter{Reglas de asociación}\label{sec-reglas-asociacion}
+
+\section{Introducción}\label{introducciuxf3n-20}
+
+Las reglas de asociación permiten descubrir relaciones de coocurrencia
+en bases de datos transaccionales. Su formulación clásica surgió en el
+análisis de compras, pero se aplica también a diagnósticos, navegación
+web, incidentes, síntomas, fallas y patrones ambientales.
+
+Una regla tiene la forma
+
+\[
+X\Rightarrow Y,
+\]
+
+donde \(X\) y \(Y\) son conjuntos de elementos disjuntos. La regla no
+expresa causalidad; indica que las transacciones que contienen \(X\)
+tienden a contener también \(Y\).
+
+El algoritmo Apriori explota una propiedad de antimonotonicidad para
+evitar evaluar todos los subconjuntos posibles (Agrawal y Srikant 1994).
+Otros métodos, como FP-growth, eliminan la generación explícita de
+candidatos mediante una estructura comprimida (Han et~al. 2000).
+
+\section{Objetivos}\label{objetivos-19}
+
+Al finalizar el capítulo, el lector podrá:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  representar una base transaccional;
+\item
+  definir itemsets y reglas;
+\item
+  calcular soporte, confianza y lift;
+\item
+  interpretar leverage y conviction;
+\item
+  comprender la propiedad Apriori;
+\item
+  generar conjuntos frecuentes;
+\item
+  producir reglas a partir de itemsets;
+\item
+  distinguir reglas redundantes;
+\item
+  aplicar restricciones;
+\item
+  comprender Apriori, Eclat y FP-growth;
+\item
+  evaluar significancia y utilidad;
+\item
+  aplicar reglas de asociación en R.
+\end{enumerate}
+
+\section{Base transaccional}\label{base-transaccional}
+
+Sea
+
+\[
+\mathcal{I}
+=
+\{i_1,\ldots,i_m\}
+\]
+
+el universo de elementos.
+
+Una transacción es un subconjunto
+
+\[
+T_r\subseteq\mathcal{I}.
+\]
+
+La base de datos es
+
+\[
+\mathcal{D}
+=
+\{T_1,\ldots,T_n\}.
+\]
+
+\section{Itemset}\label{itemset}
+
+Un itemset es cualquier subconjunto
+
+\[
+X\subseteq\mathcal{I}.
+\]
+
+Su tamaño es
+
+\[
+|X|.
+\]
+
+Si \(|X|=k\), se denomina \(k\)-itemset.
+
+\section{Regla de asociación}\label{regla-de-asociaciuxf3n}
+
+Una regla es una implicación
+
+\[
+X\Rightarrow Y,
+\]
+
+con
+
+\[
+X\cap Y=\varnothing.
+\]
+
+\(X\) es el antecedente y \(Y\) el consecuente.
+
+\section{Soporte de un itemset}\label{soporte-de-un-itemset}
+
+El soporte absoluto es
+
+\[
+\sigma(X)
+=
+\left|
+\{T_r:X\subseteq T_r\}
+\right|.
+\]
+
+El soporte relativo es
+
+\[
+supp(X)
+=
+\frac{\sigma(X)}{n}.
+\]
+
+Puede interpretarse como una probabilidad empírica:
+
+\[
+supp(X)
+=
+\widehat{P}(X).
+\]
+
+\section{Soporte de una regla}\label{soporte-de-una-regla}
+
+El soporte de
+
+\[
+X\Rightarrow Y
+\]
+
+es
+
+\[
+supp(X\Rightarrow Y)
+=
+supp(X\cup Y).
+\]
+
+Mide la frecuencia conjunta del antecedente y el consecuente.
+
+\section{Confianza}\label{confianza}
+
+La confianza es
+
+\[
+conf(X\Rightarrow Y)
+=
+\frac{supp(X\cup Y)}{supp(X)}.
+\]
+
+Equivale a la probabilidad condicional empírica:
+
+\[
+conf(X\Rightarrow Y)
+=
+\widehat{P}(Y\mid X).
+\]
+
+\section{Limitación de la
+confianza}\label{limitaciuxf3n-de-la-confianza}
+
+Una confianza alta puede deberse simplemente a que \(Y\) es muy
+frecuente.
+
+Por ello, debe compararse con el soporte marginal del consecuente.
+
+\section{Lift}\label{lift}
+
+El lift es
+
+\[
+lift(X\Rightarrow Y)
+=
+\frac{conf(X\Rightarrow Y)}{supp(Y)}.
+\]
+
+Equivalentemente,
+
+\[
+lift(X\Rightarrow Y)
+=
+\frac{supp(X\cup Y)}
+{supp(X)supp(Y)}.
+\]
+
+Interpretación:
+
+\begin{itemize}
+\tightlist
+\item
+  \(lift>1\): asociación positiva;
+\item
+  \(lift=1\): independencia empírica;
+\item
+  \(lift<1\): asociación negativa.
+\end{itemize}
+
+\section{Leverage}\label{leverage}
+
+El leverage es
+
+\[
+lev(X\Rightarrow Y)
+=
+supp(X\cup Y)
+-
+supp(X)supp(Y).
+\]
+
+Mide la diferencia absoluta respecto de la independencia.
+
+\section{Conviction}\label{conviction}
+
+La conviction se define como
+
+\[
+conv(X\Rightarrow Y)
+=
+\frac{1-supp(Y)}
+{1-conf(X\Rightarrow Y)}.
+\]
+
+Valores grandes indican que la regla comete menos errores de los
+esperados bajo independencia.
+
+\section{Cobertura}\label{cobertura}
+
+La cobertura de la regla es
+
+\[
+coverage(X\Rightarrow Y)
+=
+supp(X).
+\]
+
+Mide qué proporción de transacciones satisface el antecedente.
+
+\section{Ejemplo básico}\label{ejemplo-buxe1sico}
+
+Considérese:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Transacción & Elementos \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & pan, leche \\
+2 & pan, pañales, cerveza \\
+3 & leche, pañales, cerveza \\
+4 & pan, leche, pañales, cerveza \\
+5 & pan, leche, pañales \\
+\end{longtable}
+}
+
+Para la regla
+
+\[
+\{\text{pañales}\}
+\Rightarrow
+\{\text{cerveza}\},
+\]
+
+el antecedente aparece en 4 transacciones y la unión en 3.
+
+Entonces
+
+\[
+supp=\frac{3}{5}=0.6,
+\]
+
+\[
+conf=\frac{3}{4}=0.75.
+\]
+
+Como la cerveza aparece en 3 de 5 transacciones,
+
+\[
+lift
+=
+\frac{0.75}{0.6}
+=
+1.25.
+\]
+
+\section{Conjuntos frecuentes}\label{conjuntos-frecuentes}
+
+Dado un umbral mínimo
+
+\[
+s_{min},
+\]
+
+un itemset es frecuente si
+
+\[
+supp(X)\geq s_{min}.
+\]
+
+El problema central consiste en encontrar todos los itemsets frecuentes.
+
+\section{Explosión combinatoria}\label{explosiuxf3n-combinatoria}
+
+Con \(m\) elementos existen
+
+\[
+2^m-1
+\]
+
+itemsets no vacíos.
+
+Una búsqueda exhaustiva se vuelve inviable cuando \(m\) es grande.
+
+\section{Propiedad Apriori}\label{propiedad-apriori}
+
+\begin{theorem}[]\protect\hypertarget{thm-propiedad-apriori}{}\label{thm-propiedad-apriori}
+
+Si un itemset es frecuente, todos sus subconjuntos también son
+frecuentes.
+
+\end{theorem}
+
+Equivalentemente, si un itemset no es frecuente, ninguno de sus
+superconjuntos puede ser frecuente.
+
+\section{Demostración}\label{demostraciuxf3n}
+
+Si
+
+\[
+A\subseteq B,
+\]
+
+toda transacción que contiene \(B\) contiene también \(A\). Por tanto,
+
+\[
+\sigma(B)\leq\sigma(A),
+\]
+
+y
+
+\[
+supp(B)\leq supp(A).
+\]
+
+Si \(A\) no alcanza el soporte mínimo, ningún superconjunto \(B\) puede
+alcanzarlo.
+
+\section{Algoritmo Apriori}\label{algoritmo-apriori}
+
+Apriori procede por niveles:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  encontrar itemsets frecuentes de tamaño 1;
+\item
+  generar candidatos de tamaño 2;
+\item
+  podar candidatos con subconjuntos infrecuentes;
+\item
+  contar soportes;
+\item
+  repetir para tamaños sucesivos.
+\end{enumerate}
+
+\section{Generación de candidatos}\label{generaciuxf3n-de-candidatos}
+
+A partir de
+
+\[
+L_{k-1},
+\]
+
+el conjunto de itemsets frecuentes de tamaño \(k-1\), se construye
+
+\[
+C_k.
+\]
+
+Después se eliminan candidatos que contienen algún subconjunto no
+frecuente.
+
+\section{Pseudocódigo de Apriori}\label{pseudocuxf3digo-de-apriori}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  calcular \(L_1\);
+\item
+  para \(k=2,3,\ldots\):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    generar \(C_k\) mediante unión de elementos de \(L_{k-1}\);
+  \item
+    podar candidatos;
+  \item
+    recorrer las transacciones y contar soportes;
+  \item
+    conservar itemsets con soporte mínimo;
+  \end{itemize}
+\item
+  detener cuando \(L_k\) sea vacío.
+\end{enumerate}
+
+\section{Generación de reglas}\label{generaciuxf3n-de-reglas}
+
+Para cada itemset frecuente \(Z\) y cada subconjunto no vacío
+
+\[
+X\subset Z,
+\]
+
+se forma
+
+\[
+X\Rightarrow Z\setminus X.
+\]
+
+La regla se conserva si alcanza la confianza mínima.
+
+\section{Monotonicidad de la
+confianza}\label{monotonicidad-de-la-confianza}
+
+La confianza no es antimonótona en general. Sin embargo, durante la
+generación de reglas puede aprovecharse que, para un itemset fijo,
+ampliar el consecuente no aumenta la confianza.
+
+\section{Eclat}\label{eclat}
+
+Eclat utiliza una representación vertical.
+
+Para cada elemento se almacena el conjunto de identificadores de
+transacción:
+
+\[
+TID(X).
+\]
+
+El soporte de una unión se obtiene mediante intersección:
+
+\[
+TID(X\cup Y)
+=
+TID(X)\cap TID(Y).
+\]
+
+\section{FP-growth}\label{fp-growth}
+
+FP-growth comprime la base en un árbol de patrones frecuentes y extrae
+itemsets sin generar candidatos explícitos (Han et~al. 2000).
+
+Sus pasos generales son:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  contar frecuencias;
+\item
+  eliminar elementos infrecuentes;
+\item
+  ordenar elementos;
+\item
+  construir el FP-tree;
+\item
+  extraer bases condicionales;
+\item
+  generar patrones frecuentes.
+\end{enumerate}
+
+\section{Reglas redundantes}\label{reglas-redundantes}
+
+Una regla puede ser redundante si otra regla más general tiene igual o
+mejor desempeño.
+
+Por ejemplo, si
+
+\[
+A\Rightarrow C
+\]
+
+y
+
+\[
+A,B\Rightarrow C
+\]
+
+tienen la misma confianza, añadir \(B\) no aporta información
+predictiva.
+
+\section{Itemsets cerrados}\label{itemsets-cerrados}
+
+Un itemset frecuente \(X\) es cerrado si no existe un superconjunto con
+el mismo soporte.
+
+Los itemsets cerrados proporcionan una representación más compacta.
+
+\section{Itemsets maximales}\label{itemsets-maximales}
+
+Un itemset frecuente es maximal si ningún superconjunto suyo es
+frecuente.
+
+Los maximales son aún más compactos, pero pierden información exacta de
+soportes de subconjuntos.
+
+\section{Restricciones}\label{restricciones}
+
+El espacio de búsqueda puede reducirse imponiendo:
+
+\begin{itemize}
+\tightlist
+\item
+  elementos obligatorios;
+\item
+  elementos excluidos;
+\item
+  longitud mínima o máxima;
+\item
+  consecuente fijo;
+\item
+  soporte o confianza mínimos;
+\item
+  restricciones de categorías.
+\end{itemize}
+
+\section{Discretización}\label{discretizaciuxf3n}
+
+Variables numéricas deben convertirse normalmente en intervalos:
+
+\[
+X_j\in[a,b).
+\]
+
+La discretización puede ser:
+
+\begin{itemize}
+\tightlist
+\item
+  por amplitud;
+\item
+  por frecuencia;
+\item
+  basada en conocimiento;
+\item
+  supervisada.
+\end{itemize}
+
+Los resultados dependen fuertemente de los cortes.
+
+\section{Significancia estadística}\label{significancia-estaduxedstica}
+
+Lift alto no garantiza significancia, especialmente con soporte bajo.
+
+Puede utilizarse una tabla \(2\times2\) y aplicar:
+
+\begin{itemize}
+\tightlist
+\item
+  prueba chi-cuadrada;
+\item
+  prueba exacta de Fisher;
+\item
+  intervalos;
+\item
+  corrección por comparaciones múltiples.
+\end{itemize}
+
+\section{Tabla de contingencia}\label{tabla-de-contingencia}
+
+Para dos eventos \(X\) y \(Y\):
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrr@{}}
+\toprule\noalign{}
+& \(Y\) & no \(Y\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(X\) & \(n_{11}\) & \(n_{10}\) \\
+no \(X\) & \(n_{01}\) & \(n_{00}\) \\
+\end{longtable}
+}
+
+Las medidas de asociación se derivan de estas frecuencias.
+
+\section{Múltiples comparaciones}\label{muxfaltiples-comparaciones}
+
+La minería puede producir miles de reglas. Evaluar cada una al nivel
+usual genera falsos positivos.
+
+Deben considerarse:
+
+\begin{itemize}
+\tightlist
+\item
+  Bonferroni;
+\item
+  Holm;
+\item
+  control de FDR;
+\item
+  validación en una muestra independiente.
+\end{itemize}
+
+\section{Asociación no es
+causalidad}\label{asociaciuxf3n-no-es-causalidad}
+
+La regla
+
+\[
+X\Rightarrow Y
+\]
+
+no implica que \(X\) cause \(Y\).
+
+La coocurrencia puede deberse a:
+
+\begin{itemize}
+\tightlist
+\item
+  variables confusoras;
+\item
+  selección;
+\item
+  temporalidad;
+\item
+  patrones de consumo;
+\item
+  artefactos de discretización.
+\end{itemize}
+
+\section{Reglas negativas}\label{reglas-negativas}
+
+También pueden estudiarse reglas como
+
+\[
+X\Rightarrow \neg Y.
+\]
+
+Su análisis requiere considerar cuidadosamente soportes y universo de
+elementos.
+
+\section{Reglas secuenciales}\label{reglas-secuenciales}
+
+Las reglas de asociación tradicionales ignoran el orden temporal.
+
+Cuando interesa la secuencia se utilizan patrones secuenciales, por
+ejemplo:
+
+\[
+A\to B\to C.
+\]
+
+\section{Reglas ponderadas}\label{reglas-ponderadas}
+
+En algunos problemas los elementos tienen importancia, utilidad o costo
+diferentes.
+
+Las reglas ponderadas incorporan:
+
+\begin{itemize}
+\tightlist
+\item
+  cantidad;
+\item
+  precio;
+\item
+  riesgo;
+\item
+  utilidad;
+\item
+  severidad.
+\end{itemize}
+
+\section{Evaluación práctica}\label{evaluaciuxf3n-pruxe1ctica}
+
+Una buena regla debe equilibrar:
+
+\begin{itemize}
+\tightlist
+\item
+  frecuencia;
+\item
+  precisión;
+\item
+  novedad;
+\item
+  utilidad;
+\item
+  simplicidad;
+\item
+  estabilidad;
+\item
+  posibilidad de acción.
+\end{itemize}
+
+\section{Reglas y predicción}\label{reglas-y-predicciuxf3n}
+
+Las reglas pueden utilizarse como características o como clasificadores.
+
+En clasificación asociativa, el consecuente es una clase:
+
+\[
+X\Rightarrow Y=c.
+\]
+
+\section{Complejidad}\label{complejidad}
+
+El costo depende de:
+
+\begin{itemize}
+\tightlist
+\item
+  número de elementos;
+\item
+  longitud de transacciones;
+\item
+  soporte mínimo;
+\item
+  densidad;
+\item
+  número de patrones frecuentes.
+\end{itemize}
+
+Un soporte demasiado bajo puede generar una explosión de resultados.
+
+\section{Conexión con R}\label{conexiuxf3n-con-r-19}
+
+El paquete \texttt{arules} proporciona infraestructura para
+transacciones, itemsets y reglas (Hahsler et~al. 2005).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(arules)}
+
+\NormalTok{transacciones }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"pan"}\NormalTok{, }\StringTok{"leche"}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"pan"}\NormalTok{, }\StringTok{"pañales"}\NormalTok{, }\StringTok{"cerveza"}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"leche"}\NormalTok{, }\StringTok{"pañales"}\NormalTok{, }\StringTok{"cerveza"}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"pan"}\NormalTok{, }\StringTok{"leche"}\NormalTok{, }\StringTok{"pañales"}\NormalTok{, }\StringTok{"cerveza"}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"pan"}\NormalTok{, }\StringTok{"leche"}\NormalTok{, }\StringTok{"pañales"}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{tr }\OtherTok{\textless{}{-}} \FunctionTok{as}\NormalTok{(transacciones, }\StringTok{"transactions"}\NormalTok{)}
+
+\NormalTok{reglas }\OtherTok{\textless{}{-}} \FunctionTok{apriori}\NormalTok{(}
+\NormalTok{  tr,}
+  \AttributeTok{parameter =} \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{supp =} \FloatTok{0.40}\NormalTok{,}
+    \AttributeTok{conf =} \FloatTok{0.60}\NormalTok{,}
+    \AttributeTok{minlen =} \DecValTok{2}
+\NormalTok{  )}
+\NormalTok{)}
+
+\FunctionTok{inspect}\NormalTok{(}
+  \FunctionTok{sort}\NormalTok{(}
+\NormalTok{    reglas,}
+    \AttributeTok{by =} \StringTok{"lift"}\NormalTok{,}
+    \AttributeTok{decreasing =} \ConstantTok{TRUE}
+\NormalTok{  )}
+\NormalTok{)}
+
+\NormalTok{reglas\_filtradas }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(}
+\NormalTok{  reglas,}
+\NormalTok{  lift }\SpecialCharTok{\textgreater{}} \FloatTok{1.1}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Aplicación ambiental}\label{aplicaciuxf3n-ambiental}
+
+Una transacción puede representar un día o una estación. Los elementos
+podrían ser:
+
+\begin{itemize}
+\tightlist
+\item
+  PM10\_alto;
+\item
+  temperatura\_alta;
+\item
+  humedad\_baja;
+\item
+  viento\_bajo;
+\item
+  ozono\_alto.
+\end{itemize}
+
+Una regla posible sería
+
+\[
+\{\text{temperatura alta, viento bajo}\}
+\Rightarrow
+\{\text{ozono alto}\}.
+\]
+
+Debe interpretarse como asociación empírica, no como mecanismo causal
+probado.
+
+\section{Ventajas}\label{ventajas-7}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  produce patrones fáciles de comunicar;
+\item
+  no requiere variable objetivo;
+\item
+  permite explorar interacciones;
+\item
+  funciona con datos transaccionales;
+\item
+  ofrece medidas intuitivas;
+\item
+  admite restricciones de dominio.
+\end{enumerate}
+
+\section{Limitaciones}\label{limitaciones-7}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  explosión combinatoria;
+\item
+  muchas reglas triviales;
+\item
+  sensibilidad a umbrales;
+\item
+  discretización subjetiva;
+\item
+  soporte bajo produce inestabilidad;
+\item
+  asociación no implica causalidad;
+\item
+  múltiples comparaciones;
+\item
+  dificultad para evaluar utilidad real.
+\end{enumerate}
+
+\section{Errores frecuentes}\label{errores-frecuentes-19}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  interpretar confianza sin considerar soporte;
+\item
+  ignorar el soporte del consecuente;
+\item
+  usar lift como prueba causal;
+\item
+  fijar soporte demasiado bajo;
+\item
+  no eliminar reglas redundantes;
+\item
+  discretizar arbitrariamente;
+\item
+  reportar miles de reglas sin síntesis;
+\item
+  no validar estabilidad;
+\item
+  ignorar múltiples comparaciones;
+\item
+  confundir coocurrencia con secuencia temporal.
+\end{enumerate}
+
+\section{Ejercicios conceptuales}\label{ejercicios-conceptuales-19}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Defina transacción, itemset y regla.
+\item
+  Compare soporte y confianza.
+\item
+  ¿Por qué se utiliza lift?
+\item
+  Demuestre la propiedad Apriori.
+\item
+  Compare Apriori, Eclat y FP-growth.
+\item
+  Distinga itemset cerrado y maximal.
+\item
+  ¿Por qué una regla frecuente puede ser trivial?
+\item
+  ¿Cómo afecta la discretización?
+\item
+  ¿Por qué deben corregirse múltiples comparaciones?
+\item
+  Explique por qué asociación no es causalidad.
+\end{enumerate}
+
+\section{Ejercicio de medidas}\label{ejercicio-de-medidas}
+
+En 1,000 transacciones:
+
+\begin{itemize}
+\tightlist
+\item
+  \(X\) aparece en 300;
+\item
+  \(Y\) aparece en 400;
+\item
+  \(X\cup Y\) aparece en 180.
+\end{itemize}
+
+Calcule:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  soporte de \(X\);
+\item
+  soporte de \(Y\);
+\item
+  soporte de la regla;
+\item
+  confianza;
+\item
+  lift;
+\item
+  leverage.
+\end{enumerate}
+
+\section{Ejercicio Apriori}\label{ejercicio-apriori}
+
+Considere:
+
+\[
+T_1=\{A,B,C\},
+\]
+
+\[
+T_2=\{A,B\},
+\]
+
+\[
+T_3=\{A,C\},
+\]
+
+\[
+T_4=\{B,C\},
+\]
+
+\[
+T_5=\{A,B,C\}.
+\]
+
+Con soporte mínimo 0.4:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  determine \(L_1\);
+\item
+  genere \(C_2\);
+\item
+  determine \(L_2\);
+\item
+  genere \(C_3\);
+\item
+  obtenga las reglas con confianza mínima 0.7.
+\end{enumerate}
+
+\section{Ejercicio aplicado}\label{ejercicio-aplicado-17}
+
+Diseñe un análisis de reglas para accidentes de tránsito donde cada
+accidente se represente por elementos como:
+
+\begin{itemize}
+\tightlist
+\item
+  nocturno;
+\item
+  lluvia;
+\item
+  velocidad\_alta;
+\item
+  motocicleta;
+\item
+  peatón;
+\item
+  accidente\_severo.
+\end{itemize}
+
+Incluya:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  transformación transaccional;
+\item
+  discretización;
+\item
+  soporte mínimo;
+\item
+  confianza;
+\item
+  lift;
+\item
+  consecuente severidad;
+\item
+  poda de redundancia;
+\item
+  significancia;
+\item
+  validación;
+\item
+  limitaciones causales.
+\end{enumerate}
+
+\section{Resumen}\label{resumen-19}
+
+En este capítulo se desarrollaron los fundamentos matemáticos de las
+reglas de asociación.
+
+Se definieron transacciones, itemsets, soporte, confianza, lift,
+leverage y conviction. Se demostró la propiedad Apriori y se explicó la
+generación de conjuntos frecuentes y reglas.
+
+También se estudiaron Eclat, FP-growth, itemsets cerrados y maximales,
+restricciones, discretización, significancia, múltiples comparaciones y
+aplicaciones predictivas.
+
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-19}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos históricos y algorítmicos se apoyan en Agrawal y Srikant
+(1994), Han et~al. (2000) y Hahsler et~al. (2005).
 
 \part{VI. Temas avanzados}
 
@@ -29641,6 +30924,112 @@ automático}\label{series-de-tiempo-y-aprendizaje-automuxe1tico}
 \markboth{Referencias}{Referencias}
 
 \protect\phantomsection\label{refs}
+\begin{CSLReferences}{1}{1}
+\bibitem[\citeproctext]{ref-agrawal1994fast}
+Agrawal, Rakesh, y Ramakrishnan Srikant. 1994. {«Fast Algorithms for
+Mining Association Rules in Large Databases»}. \emph{Proceedings of the
+20th International Conference on Very Large Data Bases}, 487-99.
+
+\bibitem[\citeproctext]{ref-arthur2007kmeans}
+Arthur, David, y Sergei Vassilvitskii. 2007. {«K-means++: The Advantages
+of Careful Seeding»}. \emph{Proceedings of the Eighteenth Annual
+ACM-SIAM Symposium on Discrete Algorithms}, 1027-35.
+
+\bibitem[\citeproctext]{ref-bishop2006pattern}
+Bishop, Christopher M. 2006. \emph{Pattern Recognition and Machine
+Learning}. Springer.
+
+\bibitem[\citeproctext]{ref-breiman2001random}
+Breiman, Leo. 2001. {«Random Forests»}. \emph{Machine Learning} 45:
+5-32. \url{https://doi.org/10.1023/A:1010933404324}.
+
+\bibitem[\citeproctext]{ref-breiman1984cart}
+Breiman, Leo, Jerome H. Friedman, Richard A. Olshen, y Charles J. Stone.
+1984. \emph{Classification and Regression Trees}.
+
+\bibitem[\citeproctext]{ref-cortes1995support}
+Cortes, Corinna, y Vladimir Vapnik. 1995. {«Support-Vector Networks»}.
+\emph{Machine Learning} 20: 273-97.
+\url{https://doi.org/10.1007/BF00994018}.
+
+\bibitem[\citeproctext]{ref-cover1967nearest}
+Cover, Thomas M., y Peter E. Hart. 1967. {«Nearest Neighbor Pattern
+Classification»}. \emph{IEEE Transactions on Information Theory} 13 (1):
+21-27. \url{https://doi.org/10.1109/TIT.1967.1053964}.
+
+\bibitem[\citeproctext]{ref-duda2001pattern}
+Duda, Richard O., Peter E. Hart, y David G. Stork. 2001. \emph{Pattern
+Classification}. 2.ª ed. Wiley.
+
+\bibitem[\citeproctext]{ref-hahsler2005arules}
+Hahsler, Michael, Bettina Grün, y Kurt Hornik. 2005. {«arules: A
+Computational Environment for Mining Association Rules and Frequent Item
+Sets»}. \emph{Journal of Statistical Software} 14 (15): 1-25.
+\url{https://doi.org/10.18637/jss.v014.i15}.
+
+\bibitem[\citeproctext]{ref-han2000mining}
+Han, Jiawei, Jian Pei, y Yiwen Yin. 2000. {«Mining Frequent Patterns
+without Candidate Generation»}. \emph{Proceedings of the 2000 ACM SIGMOD
+International Conference on Management of Data}, 1-12.
+\url{https://doi.org/10.1145/335191.335372}.
+
+\bibitem[\citeproctext]{ref-hastie2009elements}
+Hastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. \emph{The
+Elements of Statistical Learning: Data Mining, Inference, and
+Prediction}. 2.ª ed. Springer.
+\url{https://doi.org/10.1007/978-0-387-84858-7}.
+
+\bibitem[\citeproctext]{ref-hotelling1933analysis}
+Hotelling, Harold. 1933. {«Analysis of a Complex of Statistical
+Variables into Principal Components»}. \emph{Journal of Educational
+Psychology} 24: 417-41. \url{https://doi.org/10.1037/h0071325}.
+
+\bibitem[\citeproctext]{ref-james2021introduction}
+James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021.
+\emph{An Introduction to Statistical Learning}. 2.ª ed. Springer.
+\url{https://doi.org/10.1007/978-1-0716-1418-1}.
+
+\bibitem[\citeproctext]{ref-lloyd1982least}
+Lloyd, Stuart P. 1982. {«Least Squares Quantization in PCM»}. \emph{IEEE
+Transactions on Information Theory} 28 (2): 129-37.
+\url{https://doi.org/10.1109/TIT.1982.1056489}.
+
+\bibitem[\citeproctext]{ref-mardia1979multivariate}
+Mardia, Kanti V., John T. Kent, y John M. Bibby. 1979.
+\emph{Multivariate Analysis}. Academic Press.
+
+\bibitem[\citeproctext]{ref-murphy2022probabilistic}
+Murphy, Kevin P. 2022. \emph{Probabilistic Machine Learning: An
+Introduction}. MIT Press.
+
+\bibitem[\citeproctext]{ref-pearson1901lines}
+Pearson, Karl. 1901. {«On Lines and Planes of Closest Fit to Systems of
+Points in Space»}. \emph{Philosophical Magazine} 2 (11): 559-72.
+\url{https://doi.org/10.1080/14786440109462720}.
+
+\bibitem[\citeproctext]{ref-quinlan1986induction}
+Quinlan, J. Ross. 1986. {«Induction of Decision Trees»}. \emph{Machine
+Learning} 1: 81-106. \url{https://doi.org/10.1007/BF00116251}.
+
+\bibitem[\citeproctext]{ref-rumelhart1986learning}
+Rumelhart, David E., Geoffrey E. Hinton, y Ronald J. Williams. 1986.
+{«Learning Representations by Back-Propagating Errors»}. \emph{Nature}
+323: 533-36. \url{https://doi.org/10.1038/323533a0}.
+
+\bibitem[\citeproctext]{ref-stone1977consistent}
+Stone, Charles J. 1977. {«Consistent Nonparametric Regression»}.
+\emph{The Annals of Statistics} 5 (4): 595-620.
+\url{https://doi.org/10.1214/aos/1176343886}.
+
+\bibitem[\citeproctext]{ref-vapnik1998statistical}
+Vapnik, Vladimir N. 1998. \emph{Statistical Learning Theory}. Wiley.
+
+\bibitem[\citeproctext]{ref-ward1963hierarchical}
+Ward, Joe H. 1963. {«Hierarchical Grouping to Optimize an Objective
+Function»}. \emph{Journal of the American Statistical Association} 58
+(301): 236-44. \url{https://doi.org/10.1080/01621459.1963.10500845}.
+
+\end{CSLReferences}
 
 
 

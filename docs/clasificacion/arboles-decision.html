@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -650,6 +669,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-poda" id="toc-ejercicio-de-poda" class="nav-link" data-scroll-target="#ejercicio-de-poda"><span class="header-section-number">17.65</span> Ejercicio de poda</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">17.66</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">17.67</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1627,10 +1647,22 @@ R_2=\{X&gt;10\}.
 <p>En este capítulo se desarrolló la teoría matemática de los árboles de decisión para clasificación y regresión.</p>
 <p>Se formalizó la partición recursiva del espacio, las reglas de predicción por hojas, los criterios de Gini, entropía, ganancia de información y suma de cuadrados. También se estudiaron ID3, C4.5 y CART.</p>
 <p>Finalmente, se analizaron profundidad, sobreajuste, poda por complejidad de costo, validación, probabilidades en hojas, clases desbalanceadas, importancia de variables, inestabilidad y relación con random forest y boosting.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="breiman1984cart">Breiman et&nbsp;al. (<a href="../referencias.html#ref-breiman1984cart" role="doc-biblioref">1984</a>)</span>; <span class="citation" data-cites="quinlan1986induction">Quinlan (<a href="../referencias.html#ref-quinlan1986induction" role="doc-biblioref">1986</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-breiman1984cart" class="csl-entry" role="listitem">
+Breiman, Leo, Jerome H. Friedman, Richard A. Olshen, y Charles J. Stone. 1984. <em>Classification and Regression Trees</em>.
+</div>
+<div id="ref-quinlan1986induction" class="csl-entry" role="listitem">
+Quinlan, J. Ross. 1986. <span>«Induction of Decision Trees»</span>. <em>Machine Learning</em> 1: 81-106. <a href="https://doi.org/10.1007/BF00116251">https://doi.org/10.1007/BF00116251</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -3138,6 +3170,10 @@ R_2=\{X&gt;10\}.
 <span id="cb2-1028"><a href="#cb2-1028" aria-hidden="true" tabindex="-1"></a>Se formalizó la partición recursiva del espacio, las reglas de predicción por hojas, los criterios de Gini, entropía, ganancia de información y suma de cuadrados. También se estudiaron ID3, C4.5 y CART.</span>
 <span id="cb2-1029"><a href="#cb2-1029" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1030"><a href="#cb2-1030" aria-hidden="true" tabindex="-1"></a>Finalmente, se analizaron profundidad, sobreajuste, poda por complejidad de costo, validación, probabilidades en hojas, clases desbalanceadas, importancia de variables, inestabilidad y relación con random forest y boosting.</span>
+<span id="cb2-1031"><a href="#cb2-1031" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1032"><a href="#cb2-1032" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1033"><a href="#cb2-1033" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1034"><a href="#cb2-1034" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @breiman1984cart; @quinlan1986induction.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -669,6 +688,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-interacción" id="toc-ejercicio-de-interacción" class="nav-link" data-scroll-target="#ejercicio-de-interacción"><span class="header-section-number">14.76</span> Ejercicio de interacción</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">14.77</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">14.78</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -2216,10 +2236,22 @@ Y
 <p>Se derivó el estimador de mínimos cuadrados, se estudiaron sus propiedades, su interpretación geométrica y la matriz sombrero.</p>
 <p>También se presentaron pruebas individuales y globales, comparación de modelos anidados, <span class="math inline">\(R^2\)</span>, <span class="math inline">\(R^2\)</span> ajustado, predicción, variables categóricas, interacciones y transformaciones.</p>
 <p>Finalmente, se analizaron multicolinealidad, VIF, selección de variables, apalancamiento, influencia y diagnóstico. Estos fundamentos preparan el estudio de regresión logística y modelos lineales más avanzados.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="hastie2009elements">Hastie et&nbsp;al. (<a href="../referencias.html#ref-hastie2009elements" role="doc-biblioref">2009</a>)</span>; <span class="citation" data-cites="mardia1979multivariate">Mardia et&nbsp;al. (<a href="../referencias.html#ref-mardia1979multivariate" role="doc-biblioref">1979</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2.ª ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+</div>
+<div id="ref-mardia1979multivariate" class="csl-entry" role="listitem">
+Mardia, Kanti V., John T. Kent, y John M. Bibby. 1979. <em>Multivariate Analysis</em>. Academic Press.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -4407,6 +4439,10 @@ Y
 <span id="cb2-1708"><a href="#cb2-1708" aria-hidden="true" tabindex="-1"></a>También se presentaron pruebas individuales y globales, comparación de modelos anidados, $R^2$, $R^2$ ajustado, predicción, variables categóricas, interacciones y transformaciones.</span>
 <span id="cb2-1709"><a href="#cb2-1709" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1710"><a href="#cb2-1710" aria-hidden="true" tabindex="-1"></a>Finalmente, se analizaron multicolinealidad, VIF, selección de variables, apalancamiento, influencia y diagnóstico. Estos fundamentos preparan el estudio de regresión logística y modelos lineales más avanzados.</span>
+<span id="cb2-1711"><a href="#cb2-1711" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1712"><a href="#cb2-1712" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1713"><a href="#cb2-1713" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1714"><a href="#cb2-1714" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @mardia1979multivariate.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

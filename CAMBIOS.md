@@ -269,3 +269,17 @@
 - Conexión con K-means, grafos y DBSCAN.
 - Nuevos ejemplos, código en R y ejercicios.
 - Se conserva el orden verificado de capítulos, la portada PDF y la descarga web.
+
+## Versión 0.24
+
+- Desarrollo completo del Capítulo 20: Reglas de asociación.
+- Inclusión de soporte, confianza, lift, leverage, conviction y cobertura.
+- Demostración de la propiedad Apriori.
+- Desarrollo de Apriori, Eclat y FP-growth.
+- Inclusión de itemsets cerrados, maximales y reglas redundantes.
+- Desarrollo de discretización, significancia y múltiples comparaciones.
+- Se amplió `referencias.bib` con fuentes fundacionales y textos generales.
+- Se agregaron referencias específicas al final de todos los capítulos desarrollados.
+- Se reforzó la portada como primer elemento visible de la web.
+- Se conserva la portada vertical como primera hoja real del PDF.
+- Se actualizó la presentación con la estructura verificada del libro.

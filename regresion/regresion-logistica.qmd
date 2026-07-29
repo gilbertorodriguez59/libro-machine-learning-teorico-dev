@@ -1221,3 +1221,8 @@ En este capítulo se desarrolló la regresión logística como modelo probabilí
 Se estudiaron función logística, odds, logit y odds ratios. También se derivaron verosimilitud, log-verosimilitud, gradiente y Hessiana, y se explicó Newton-Raphson mediante IRLS.
 
 Finalmente, se presentaron inferencia, deviance, pseudo-$R^2$, predicción, selección de umbral, discriminación, calibración, separación, influencia, regularización y extensión multinomial.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @bishop2006pattern; @james2021introduction.
+

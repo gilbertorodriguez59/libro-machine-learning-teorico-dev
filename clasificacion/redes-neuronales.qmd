@@ -1551,3 +1551,8 @@ Se formuló la neurona artificial, el perceptrón y las redes multicapa. Se estu
 También se derivó la retropropagación mediante la regla de la cadena, junto con los gradientes respecto de pesos y sesgos. Posteriormente se analizaron descenso por gradiente, mini-lotes, momentum, RMSProp y Adam.
 
 Finalmente, se estudiaron inicialización, regularización, dropout, normalización por lotes, parada temprana, capacidad, aproximación universal, interpretabilidad y conexión con regresión logística, SVM y aprendizaje profundo.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @rumelhart1986learning; @bishop2006pattern.
+

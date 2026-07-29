@@ -1007,3 +1007,8 @@ Se formuló la función objetivo, se derivó la media como centroide óptimo y s
 También se analizaron convergencia local, inicialización, K-means++, selección de $K$, método del codo, silueta, índice Gap, estabilidad y complejidad computacional.
 
 Finalmente, se estudiaron sensibilidad a escala, valores atípicos, grupos no esféricos, relación con mezclas gaussianas, cuantización vectorial y variantes para datos grandes o mixtos.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @lloyd1982least; @arthur2007kmeans.
+

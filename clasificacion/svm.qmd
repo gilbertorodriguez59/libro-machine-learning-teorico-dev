@@ -1506,3 +1506,8 @@ Se estudió el hiperplano separador, el margen geométrico, el problema de marge
 Posteriormente se introdujeron la pérdida hinge, el parámetro de costo, el truco kernel, los kernels lineal, polinomial y radial, así como la selección de hiperparámetros.
 
 Finalmente, se analizaron clasificación multiclase, SVR, escalamiento, calibración, desbalance de clases, complejidad computacional y comparación con regresión logística y Random Forest.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @cortes1995support; @vapnik1998statistical.
+

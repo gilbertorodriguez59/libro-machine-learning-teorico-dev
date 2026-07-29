@@ -46,3 +46,21 @@ table {
     width: 96%;
   }
 }
+
+.web-cover-first {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto 1.5rem auto;
+}
+
+#quarto-content main.content {
+  padding-top: 0.25rem;
+}
+
+@media (min-width: 992px) {
+  .web-cover-first {
+    width: 100%;
+  }
+}
+

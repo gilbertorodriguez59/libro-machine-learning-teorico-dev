@@ -716,3 +716,8 @@ En este capítulo se desarrolló el agrupamiento jerárquico como método para c
 Se estudiaron los enfoques aglomerativo y divisivo, las matrices de distancia, los enlaces simple, completo, promedio, por centroides y Ward.
 
 También se analizaron dendrogramas, alturas, cortes, distancias cofenéticas, fórmula de Lance-Williams, estabilidad, valores atípicos, complejidad y comparación con K-means.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @ward1963hierarchical; @mardia1979multivariate.
+

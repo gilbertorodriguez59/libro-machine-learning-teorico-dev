@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -668,6 +687,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-retropropagación" id="toc-ejercicio-de-retropropagación" class="nav-link" data-scroll-target="#ejercicio-de-retropropagación"><span class="header-section-number">20.83</span> Ejercicio de retropropagación</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">20.84</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">20.85</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -2088,10 +2108,22 @@ b=0.1.
 <p>Se formuló la neurona artificial, el perceptrón y las redes multicapa. Se estudiaron funciones de activación como sigmoidal, tanh, ReLU y softmax, así como pérdidas para regresión y clasificación.</p>
 <p>También se derivó la retropropagación mediante la regla de la cadena, junto con los gradientes respecto de pesos y sesgos. Posteriormente se analizaron descenso por gradiente, mini-lotes, momentum, RMSProp y Adam.</p>
 <p>Finalmente, se estudiaron inicialización, regularización, dropout, normalización por lotes, parada temprana, capacidad, aproximación universal, interpretabilidad y conexión con regresión logística, SVM y aprendizaje profundo.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="rumelhart1986learning">Rumelhart et&nbsp;al. (<a href="../referencias.html#ref-rumelhart1986learning" role="doc-biblioref">1986</a>)</span>; <span class="citation" data-cites="bishop2006pattern">Bishop (<a href="../referencias.html#ref-bishop2006pattern" role="doc-biblioref">2006</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bishop2006pattern" class="csl-entry" role="listitem">
+Bishop, Christopher M. 2006. <em>Pattern Recognition and Machine Learning</em>. Springer.
+</div>
+<div id="ref-rumelhart1986learning" class="csl-entry" role="listitem">
+Rumelhart, David E., Geoffrey E. Hinton, y Ronald J. Williams. 1986. <span>«Learning Representations by Back-Propagating Errors»</span>. <em>Nature</em> 323: 533-36. <a href="https://doi.org/10.1038/323533a0">https://doi.org/10.1038/323533a0</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -4124,6 +4156,10 @@ b=0.1.
 <span id="cb2-1553"><a href="#cb2-1553" aria-hidden="true" tabindex="-1"></a>También se derivó la retropropagación mediante la regla de la cadena, junto con los gradientes respecto de pesos y sesgos. Posteriormente se analizaron descenso por gradiente, mini-lotes, momentum, RMSProp y Adam.</span>
 <span id="cb2-1554"><a href="#cb2-1554" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1555"><a href="#cb2-1555" aria-hidden="true" tabindex="-1"></a>Finalmente, se estudiaron inicialización, regularización, dropout, normalización por lotes, parada temprana, capacidad, aproximación universal, interpretabilidad y conexión con regresión logística, SVM y aprendizaje profundo.</span>
+<span id="cb2-1556"><a href="#cb2-1556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1557"><a href="#cb2-1557" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1558"><a href="#cb2-1558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1559"><a href="#cb2-1559" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @rumelhart1986learning; @bishop2006pattern.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

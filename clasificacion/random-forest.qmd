@@ -684,3 +684,8 @@ Se explicó bagging, el error out-of-bag, el papel de `mtry`, la relación entre
 También se estudiaron importancia por impureza y por permutación, proximidades, desbalance de clases, calibración, dependencia parcial, complejidad computacional y selección de hiperparámetros.
 
 Finalmente, se comparó Random Forest con árboles individuales, $k$-NN y boosting.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @breiman2001random; @hastie2009elements.
+

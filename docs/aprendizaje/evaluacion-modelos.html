@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -659,6 +678,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-fuga-de-información" id="toc-ejercicio-de-fuga-de-información" class="nav-link" data-scroll-target="#ejercicio-de-fuga-de-información"><span class="header-section-number">11.59</span> Ejercicio de fuga de información</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">11.60</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">11.61</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1739,10 +1759,22 @@ CV_3
 <p>En este capítulo se desarrollaron los fundamentos de evaluación y selección de modelos. Se distinguieron error de entrenamiento, validación, prueba y generalización.</p>
 <p>También se estudiaron holdout, validación cruzada de <span class="math inline">\(K\)</span> pliegues, leave-one-out, validación repetida, validación agrupada y evaluación temporal.</p>
 <p>Finalmente, se introdujeron bootstrap, error out-of-bag, selección de hiperparámetros, validación anidada, fuga de información, pipelines, comparación de modelos y reproducibilidad. Estas herramientas son indispensables para obtener evaluaciones confiables y evitar conclusiones optimistas.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="hastie2009elements">Hastie et&nbsp;al. (<a href="../referencias.html#ref-hastie2009elements" role="doc-biblioref">2009</a>)</span>; <span class="citation" data-cites="james2021introduction">James et&nbsp;al. (<a href="../referencias.html#ref-james2021introduction" role="doc-biblioref">2021</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2.ª ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+</div>
+<div id="ref-james2021introduction" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning</em>. 2.ª ed. Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -3376,6 +3408,10 @@ CV_3
 <span id="cb2-1154"><a href="#cb2-1154" aria-hidden="true" tabindex="-1"></a>También se estudiaron holdout, validación cruzada de $K$ pliegues, leave-one-out, validación repetida, validación agrupada y evaluación temporal.</span>
 <span id="cb2-1155"><a href="#cb2-1155" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1156"><a href="#cb2-1156" aria-hidden="true" tabindex="-1"></a>Finalmente, se introdujeron bootstrap, error out-of-bag, selección de hiperparámetros, validación anidada, fuga de información, pipelines, comparación de modelos y reproducibilidad. Estas herramientas son indispensables para obtener evaluaciones confiables y evitar conclusiones optimistas.</span>
+<span id="cb2-1157"><a href="#cb2-1157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1158"><a href="#cb2-1158" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1159"><a href="#cb2-1159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1160"><a href="#cb2-1160" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @james2021introduction.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

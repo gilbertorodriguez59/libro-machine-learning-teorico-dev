@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -650,6 +669,7 @@ window.Quarto = {
   <li><a href="#ejercicio-multiclase" id="toc-ejercicio-multiclase" class="nav-link" data-scroll-target="#ejercicio-multiclase"><span class="header-section-number">10.65</span> Ejercicio multiclase</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">10.66</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">10.67</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1835,10 +1855,22 @@ P(C\mid\mathbf{x})=0.25.
 <p>En este capítulo se formuló la clasificación como una regla de decisión sobre el espacio de características. Se definieron regiones y fronteras de decisión, probabilidades posteriores, riesgo condicional y regla de Bayes.</p>
 <p>También se estudiaron pérdidas asimétricas, clasificación sensible al costo, matrices de confusión y métricas como exactitud, sensibilidad, especificidad, precisión, F1 y exactitud balanceada.</p>
 <p>Finalmente, se desarrollaron curvas ROC, AUC, calibración y clasificación multiclase. Estos conceptos serán esenciales para evaluar y comparar los algoritmos de clasificación de los capítulos posteriores.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="duda2001pattern">Duda et&nbsp;al. (<a href="../referencias.html#ref-duda2001pattern" role="doc-biblioref">2001</a>)</span>; <span class="citation" data-cites="bishop2006pattern">Bishop (<a href="../referencias.html#ref-bishop2006pattern" role="doc-biblioref">2006</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bishop2006pattern" class="csl-entry" role="listitem">
+Bishop, Christopher M. 2006. <em>Pattern Recognition and Machine Learning</em>. Springer.
+</div>
+<div id="ref-duda2001pattern" class="csl-entry" role="listitem">
+Duda, Richard O., Peter E. Hart, y David G. Stork. 2001. <em>Pattern Classification</em>. 2.ª ed. Wiley.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -3619,6 +3651,10 @@ P(C\mid\mathbf{x})=0.25.
 <span id="cb2-1301"><a href="#cb2-1301" aria-hidden="true" tabindex="-1"></a>También se estudiaron pérdidas asimétricas, clasificación sensible al costo, matrices de confusión y métricas como exactitud, sensibilidad, especificidad, precisión, F1 y exactitud balanceada.</span>
 <span id="cb2-1302"><a href="#cb2-1302" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1303"><a href="#cb2-1303" aria-hidden="true" tabindex="-1"></a>Finalmente, se desarrollaron curvas ROC, AUC, calibración y clasificación multiclase. Estos conceptos serán esenciales para evaluar y comparar los algoritmos de clasificación de los capítulos posteriores.</span>
+<span id="cb2-1304"><a href="#cb2-1304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1305"><a href="#cb2-1305" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1306"><a href="#cb2-1306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1307"><a href="#cb2-1307" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @duda2001pattern; @bishop2006pattern.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

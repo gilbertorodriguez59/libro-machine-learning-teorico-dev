@@ -1594,3 +1594,8 @@ En este capítulo se estudiaron funciones de varias variables, derivadas parcial
 También se desarrollaron aproximaciones de Taylor, puntos críticos, clasificación mediante la Hessiana, convexidad, descenso por gradiente, métodos de Newton y problemas restringidos mediante multiplicadores de Lagrange y condiciones KKT.
 
 Finalmente, se relacionaron estas herramientas con regresión lineal, regresión logística, PCA, SVM y redes neuronales. Estos conceptos permitirán derivar formalmente los algoritmos de los capítulos posteriores.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @bishop2006pattern; @hastie2009elements.
+

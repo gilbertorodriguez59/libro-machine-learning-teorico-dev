@@ -1152,3 +1152,8 @@ En este capítulo se desarrollaron los fundamentos de evaluación y selección d
 También se estudiaron holdout, validación cruzada de $K$ pliegues, leave-one-out, validación repetida, validación agrupada y evaluación temporal.
 
 Finalmente, se introdujeron bootstrap, error out-of-bag, selección de hiperparámetros, validación anidada, fuga de información, pipelines, comparación de modelos y reproducibilidad. Estas herramientas son indispensables para obtener evaluaciones confiables y evitar conclusiones optimistas.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @james2021introduction.
+

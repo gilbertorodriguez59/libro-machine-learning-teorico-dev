@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -659,6 +678,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-diagnóstico" id="toc-ejercicio-de-diagnóstico" class="nav-link" data-scroll-target="#ejercicio-de-diagnóstico"><span class="header-section-number">13.63</span> Ejercicio de diagnóstico</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">13.64</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">13.65</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -2108,10 +2128,22 @@ S_{xx}=200.
 <p>Se derivaron los estimadores de mínimos cuadrados, se estudiaron sus propiedades de insesgadez y varianza, y se presentó el teorema de Gauss-Markov.</p>
 <p>También se desarrollaron pruebas para la pendiente, intervalos de confianza y predicción, descomposición ANOVA, coeficiente de determinación, análisis de residuos, apalancamiento e influencia.</p>
 <p>La regresión lineal simple constituye la base para la regresión múltiple, la regularización y numerosos modelos de aprendizaje supervisado.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="hastie2009elements">Hastie et&nbsp;al. (<a href="../referencias.html#ref-hastie2009elements" role="doc-biblioref">2009</a>)</span>; <span class="citation" data-cites="james2021introduction">James et&nbsp;al. (<a href="../referencias.html#ref-james2021introduction" role="doc-biblioref">2021</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2.ª ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+</div>
+<div id="ref-james2021introduction" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning</em>. 2.ª ed. Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -4130,6 +4162,10 @@ S_{xx}=200.
 <span id="cb2-1539"><a href="#cb2-1539" aria-hidden="true" tabindex="-1"></a>También se desarrollaron pruebas para la pendiente, intervalos de confianza y predicción, descomposición ANOVA, coeficiente de determinación, análisis de residuos, apalancamiento e influencia.</span>
 <span id="cb2-1540"><a href="#cb2-1540" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1541"><a href="#cb2-1541" aria-hidden="true" tabindex="-1"></a>La regresión lineal simple constituye la base para la regresión múltiple, la regularización y numerosos modelos de aprendizaje supervisado.</span>
+<span id="cb2-1542"><a href="#cb2-1542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1543"><a href="#cb2-1543" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1544"><a href="#cb2-1544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1545"><a href="#cb2-1545" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @james2021introduction.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

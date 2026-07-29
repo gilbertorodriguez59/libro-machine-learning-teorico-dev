@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -644,6 +663,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-reconstrucción" id="toc-ejercicio-de-reconstrucción" class="nav-link" data-scroll-target="#ejercicio-de-reconstrucción"><span class="header-section-number">21.59</span> Ejercicio de reconstrucción</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">21.60</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">21.61</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1638,10 +1658,25 @@ t_1=2.
 <p>Se derivó la primera componente mediante maximización de varianza y multiplicadores de Lagrange. Se mostró que las direcciones principales son vectores propios de la matriz de covarianza y que sus varianzas son los valores propios correspondientes.</p>
 <p>También se estudiaron puntuaciones, cargas, varianza explicada, selección del número de componentes, reconstrucción, error de aproximación y formulación mediante SVD.</p>
 <p>Finalmente, se analizaron estandarización, valores atípicos, fuga de información, PCA probabilístico, kernel PCA, aplicaciones predictivas y limitaciones interpretativas.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="pearson1901lines">Pearson (<a href="../referencias.html#ref-pearson1901lines" role="doc-biblioref">1901</a>)</span>; <span class="citation" data-cites="hotelling1933analysis">Hotelling (<a href="../referencias.html#ref-hotelling1933analysis" role="doc-biblioref">1933</a>)</span>; <span class="citation" data-cites="mardia1979multivariate">Mardia et&nbsp;al. (<a href="../referencias.html#ref-mardia1979multivariate" role="doc-biblioref">1979</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hotelling1933analysis" class="csl-entry" role="listitem">
+Hotelling, Harold. 1933. <span>«Analysis of a Complex of Statistical Variables into Principal Components»</span>. <em>Journal of Educational Psychology</em> 24: 417-41. <a href="https://doi.org/10.1037/h0071325">https://doi.org/10.1037/h0071325</a>.
+</div>
+<div id="ref-mardia1979multivariate" class="csl-entry" role="listitem">
+Mardia, Kanti V., John T. Kent, y John M. Bibby. 1979. <em>Multivariate Analysis</em>. Academic Press.
+</div>
+<div id="ref-pearson1901lines" class="csl-entry" role="listitem">
+Pearson, Karl. 1901. <span>«On Lines and Planes of Closest Fit to Systems of Points in Space»</span>. <em>Philosophical Magazine</em> 2 (11): 559-72. <a href="https://doi.org/10.1080/14786440109462720">https://doi.org/10.1080/14786440109462720</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -3220,6 +3255,10 @@ t_1=2.
 <span id="cb2-1099"><a href="#cb2-1099" aria-hidden="true" tabindex="-1"></a>También se estudiaron puntuaciones, cargas, varianza explicada, selección del número de componentes, reconstrucción, error de aproximación y formulación mediante SVD.</span>
 <span id="cb2-1100"><a href="#cb2-1100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1101"><a href="#cb2-1101" aria-hidden="true" tabindex="-1"></a>Finalmente, se analizaron estandarización, valores atípicos, fuga de información, PCA probabilístico, kernel PCA, aplicaciones predictivas y limitaciones interpretativas.</span>
+<span id="cb2-1102"><a href="#cb2-1102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1103"><a href="#cb2-1103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1104"><a href="#cb2-1104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1105"><a href="#cb2-1105" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @pearson1901lines; @hotelling1933analysis; @mardia1979multivariate.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -24,7 +24,17 @@
     "href": "presentacion.html",
     "title": "2  Presentación",
     "section": "",
-    "text": "El aprendizaje automático se ha convertido en una de las áreas más importantes de la ciencia de datos, la inteligencia artificial, la estadística y la computación moderna. Sus métodos permiten construir sistemas capaces de identificar patrones, realizar predicciones, clasificar observaciones, descubrir estructuras ocultas y apoyar la toma de decisiones a partir de datos.\nSin embargo, el uso adecuado de estos métodos requiere algo más que aprender a ejecutar funciones en un lenguaje de programación. Detrás de cada algoritmo existen conceptos matemáticos que determinan su funcionamiento, sus alcances, sus limitaciones y las condiciones bajo las cuales sus resultados pueden considerarse confiables.\nEl presente libro tiene como propósito desarrollar, de manera rigurosa y progresiva, los fundamentos matemáticos de los principales métodos de aprendizaje automático. Se estudian los conceptos de álgebra lineal, probabilidad, estadística, cálculo multivariable y optimización que permiten formular y comprender los algoritmos de regresión, clasificación, reducción de dimensionalidad, agrupamiento y aprendizaje basado en reglas.\nLa obra ha sido concebida como el complemento teórico del libro Aprendizaje y Clasificación Automática con R. Mientras que aquel volumen se orienta principalmente a la aplicación de los algoritmos mediante datos reales, programación en R, visualización e interpretación de resultados, este segundo volumen se concentra en su formulación matemática, sus derivaciones, propiedades y fundamentos teóricos.\nAmbos libros pueden estudiarse de manera independiente. No obstante, su utilización conjunta permitirá al lector relacionar tres niveles fundamentales del aprendizaje automático:\n\nla formulación matemática del problema;\nel procedimiento algorítmico utilizado para resolverlo;\nsu implementación computacional con datos reales.\n\nEl contenido se presenta de forma gradual. Cada capítulo comienza con una explicación conceptual del problema, seguida de la notación matemática necesaria, definiciones formales, proposiciones, teoremas, demostraciones y derivaciones. Posteriormente se desarrollan ejemplos numéricos manuales y se establece la conexión con los algoritmos estudiados en el volumen práctico.",
+    "text": "2.1 Organización de la obra\nEl aprendizaje automático se ha convertido en una de las áreas más importantes de la ciencia de datos, la inteligencia artificial, la estadística y la computación moderna. Sus métodos permiten construir sistemas capaces de identificar patrones, realizar predicciones, clasificar observaciones, descubrir estructuras ocultas y apoyar la toma de decisiones a partir de datos.\nSin embargo, el uso adecuado de estos métodos requiere algo más que aprender a ejecutar funciones en un lenguaje de programación. Detrás de cada algoritmo existen conceptos matemáticos que determinan su funcionamiento, sus alcances, sus limitaciones y las condiciones bajo las cuales sus resultados pueden considerarse confiables.\nEl presente libro tiene como propósito desarrollar, de manera rigurosa y progresiva, los fundamentos matemáticos de los principales métodos de aprendizaje automático. Se estudian los conceptos de álgebra lineal, probabilidad, estadística, cálculo multivariable y optimización que permiten formular y comprender los algoritmos de regresión, clasificación, reducción de dimensionalidad, agrupamiento y aprendizaje basado en reglas.\nLa obra ha sido concebida como el complemento teórico del libro Aprendizaje y Clasificación Automática con R. Mientras que aquel volumen se orienta principalmente a la aplicación de los algoritmos mediante datos reales, programación en R, visualización e interpretación de resultados, este segundo volumen se concentra en su formulación matemática, sus derivaciones, propiedades y fundamentos teóricos.\nAmbos libros pueden estudiarse de manera independiente. No obstante, su utilización conjunta permitirá al lector relacionar tres niveles fundamentales del aprendizaje automático:\nEl contenido se presenta de forma gradual. Cada capítulo comienza con una explicación conceptual del problema, seguida de la notación matemática necesaria, definiciones formales, proposiciones, teoremas, demostraciones y derivaciones. Posteriormente se desarrollan ejemplos numéricos manuales y se establece la conexión con los algoritmos estudiados en el volumen práctico.\nLa obra se organiza en seis partes:\nCada capítulo incluye referencias académicas específicas, mientras que la bibliografía consolidada aparece al final del libro.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación</span>"
+    ]
+  },
+  {
+    "objectID": "presentacion.html#organización-de-la-obra",
+    "href": "presentacion.html#organización-de-la-obra",
+    "title": "2  Presentación",
+    "section": "",
+    "text": "fundamentos matemáticos;\nfundamentos del aprendizaje automático;\nmodelos de regresión;\nmétodos de clasificación;\naprendizaje no supervisado;\ntemas avanzados.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Presentación</span>"
     ]
@@ -341,6 +351,17 @@
     "title": "5  Lenguaje matemático, conjuntos y funciones",
     "section": "5.27 Resumen",
     "text": "5.27 Resumen\nEn este capítulo se estableció el lenguaje matemático básico del libro. Se definieron conjuntos, subconjuntos, operaciones entre conjuntos, productos cartesianos, relaciones y funciones. También se introdujeron dominio, codominio, imagen, composición y función indicadora.\nFinalmente, se formuló un conjunto de datos supervisado como\n\\[\n\\mathcal{D}\n=\n\\left\\{\n(\\mathbf{x}_i,y_i)\n\\right\\}_{i=1}^{n}\n\\subseteq\n\\mathcal{X}\\times\\mathcal{Y},\n\\]\ny se distinguieron formalmente los problemas de regresión y clasificación. Esta notación será utilizada en todos los capítulos posteriores.",
+    "crumbs": [
+      "I. Fundamentos matemáticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
+    ]
+  },
+  {
+    "objectID": "fundamentos/conjuntos-funciones.html#referencias-del-capítulo",
+    "href": "fundamentos/conjuntos-funciones.html#referencias-del-capítulo",
+    "title": "5  Lenguaje matemático, conjuntos y funciones",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Hastie et al. (2009); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -979,6 +1000,17 @@
     "title": "6  Álgebra lineal para aprendizaje automático",
     "section": "6.58 Resumen",
     "text": "6.58 Resumen\nEn este capítulo se desarrollaron los conceptos de escalares, vectores, matrices, combinaciones lineales, independencia, bases, espacios vectoriales, productos internos, normas, distancias y proyecciones.\nTambién se estudiaron sistemas lineales, inversas, rango, espacios columna y nulo, transformaciones lineales, formas cuadráticas, matrices definidas positivas, valores propios, descomposición espectral y descomposición en valores singulares.\nEstas herramientas constituyen la base matemática de numerosos algoritmos de aprendizaje automático, entre ellos regresión lineal, PCA, máquinas de vectores de soporte, redes neuronales, agrupamiento y métodos de reducción de dimensionalidad.",
+    "crumbs": [
+      "I. Fundamentos matemáticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "fundamentos/algebra-lineal.html#referencias-del-capítulo",
+    "href": "fundamentos/algebra-lineal.html#referencias-del-capítulo",
+    "title": "6  Álgebra lineal para aprendizaje automático",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Mardia et al. (1979); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nMardia, Kanti V., John T. Kent, y John M. Bibby. 1979. Multivariate Analysis. Academic Press.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -1733,6 +1765,17 @@
     ]
   },
   {
+    "objectID": "fundamentos/probabilidad-estadistica.html#referencias-del-capítulo",
+    "href": "fundamentos/probabilidad-estadistica.html#referencias-del-capítulo",
+    "title": "7  Probabilidad y estadística para aprendizaje automático",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Murphy (2022); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An Introduction. MIT Press.",
+    "crumbs": [
+      "I. Fundamentos matemáticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Probabilidad y estadística para aprendizaje automático</span>"
+    ]
+  },
+  {
     "objectID": "fundamentos/calculo-optimizacion.html",
     "href": "fundamentos/calculo-optimizacion.html",
     "title": "8  Cálculo multivariable y optimización",
@@ -2354,6 +2397,17 @@
     "title": "8  Cálculo multivariable y optimización",
     "section": "8.57 Resumen",
     "text": "8.57 Resumen\nEn este capítulo se estudiaron funciones de varias variables, derivadas parciales, gradientes, Jacobianas, Hessianas, diferenciales y regla de la cadena.\nTambién se desarrollaron aproximaciones de Taylor, puntos críticos, clasificación mediante la Hessiana, convexidad, descenso por gradiente, métodos de Newton y problemas restringidos mediante multiplicadores de Lagrange y condiciones KKT.\nFinalmente, se relacionaron estas herramientas con regresión lineal, regresión logística, PCA, SVM y redes neuronales. Estos conceptos permitirán derivar formalmente los algoritmos de los capítulos posteriores.",
+    "crumbs": [
+      "I. Fundamentos matemáticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
+    ]
+  },
+  {
+    "objectID": "fundamentos/calculo-optimizacion.html#referencias-del-capítulo",
+    "href": "fundamentos/calculo-optimizacion.html#referencias-del-capítulo",
+    "title": "8  Cálculo multivariable y optimización",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Bishop (2006); Hastie et al. (2009).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
@@ -3036,6 +3090,17 @@
     "title": "9  Formulación matemática del aprendizaje supervisado",
     "section": "9.62 Resumen",
     "text": "9.62 Resumen\nEn este capítulo se formuló matemáticamente el aprendizaje supervisado como un problema de selección de funciones. Se definieron espacios de entrada y salida, muestras de entrenamiento, hipótesis, espacios de hipótesis, parámetros e hiperparámetros.\nTambién se estudiaron funciones de pérdida, riesgo esperado, riesgo empírico, minimización del riesgo empírico y generalización.\nFinalmente, se analizaron sobreajuste, subajuste, complejidad, regularización, sesgo, varianza, ruido irreducible y selección de modelos. Estos conceptos servirán como base para la teoría de clasificación y para los algoritmos específicos de los capítulos posteriores.",
+    "crumbs": [
+      "II. Fundamentos del aprendizaje automático",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Formulación matemática del aprendizaje supervisado</span>"
+    ]
+  },
+  {
+    "objectID": "aprendizaje/aprendizaje-supervisado.html#referencias-del-capítulo",
+    "href": "aprendizaje/aprendizaje-supervisado.html#referencias-del-capítulo",
+    "title": "9  Formulación matemática del aprendizaje supervisado",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Vapnik (1998); Murphy (2022).\n\n\n\n\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An Introduction. MIT Press.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Formulación matemática del aprendizaje supervisado</span>"
@@ -3779,6 +3844,17 @@
     ]
   },
   {
+    "objectID": "aprendizaje/teoria-clasificacion.html#referencias-del-capítulo",
+    "href": "aprendizaje/teoria-clasificacion.html#referencias-del-capítulo",
+    "title": "10  Teoría matemática de la clasificación",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Duda et al. (2001); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nDuda, Richard O., Peter E. Hart, y David G. Stork. 2001. Pattern Classification. 2.ª ed. Wiley.",
+    "crumbs": [
+      "II. Fundamentos del aprendizaje automático",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Teoría matemática de la clasificación</span>"
+    ]
+  },
+  {
     "objectID": "aprendizaje/evaluacion-modelos.html",
     "href": "aprendizaje/evaluacion-modelos.html",
     "title": "11  Evaluación, validación y selección de modelos",
@@ -4450,6 +4526,17 @@
     ]
   },
   {
+    "objectID": "aprendizaje/evaluacion-modelos.html#referencias-del-capítulo",
+    "href": "aprendizaje/evaluacion-modelos.html#referencias-del-capítulo",
+    "title": "11  Evaluación, validación y selección de modelos",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Hastie et al. (2009); James et al. (2021).\n\n\n\n\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. An Introduction to Statistical Learning. 2.ª ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.",
+    "crumbs": [
+      "II. Fundamentos del aprendizaje automático",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Evaluación, validación y selección de modelos</span>"
+    ]
+  },
+  {
     "objectID": "aprendizaje/regularizacion.html",
     "href": "aprendizaje/regularizacion.html",
     "title": "12  Regularización y control de la complejidad",
@@ -5071,6 +5158,17 @@
     "title": "12  Regularización y control de la complejidad",
     "section": "12.56 Resumen",
     "text": "12.56 Resumen\nEn este capítulo se estudió la regularización como mecanismo para controlar complejidad, reducir varianza y mejorar estabilidad.\nSe derivó el estimador ridge y se analizó su efecto espectral. También se formuló LASSO mediante penalización \\(L_1\\), se introdujeron subgradientes y soft-thresholding, y se explicó su capacidad de selección de variables.\nFinalmente, se desarrolló elastic net, la interpretación bayesiana, los caminos de regularización, la selección de \\(\\lambda\\) y extensiones como group LASSO. Estos conceptos serán fundamentales en regresión, clasificación y redes neuronales.",
+    "crumbs": [
+      "II. Fundamentos del aprendizaje automático",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Regularización y control de la complejidad</span>"
+    ]
+  },
+  {
+    "objectID": "aprendizaje/regularizacion.html#referencias-del-capítulo",
+    "href": "aprendizaje/regularizacion.html#referencias-del-capítulo",
+    "title": "12  Regularización y control de la complejidad",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Hastie et al. (2009); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Regularización y control de la complejidad</span>"
@@ -5786,6 +5884,17 @@
     "title": "13  Regresión lineal simple",
     "section": "13.65 Resumen",
     "text": "13.65 Resumen\nEn este capítulo se desarrolló la regresión lineal simple desde su formulación probabilística hasta la inferencia y el diagnóstico.\nSe derivaron los estimadores de mínimos cuadrados, se estudiaron sus propiedades de insesgadez y varianza, y se presentó el teorema de Gauss-Markov.\nTambién se desarrollaron pruebas para la pendiente, intervalos de confianza y predicción, descomposición ANOVA, coeficiente de determinación, análisis de residuos, apalancamiento e influencia.\nLa regresión lineal simple constituye la base para la regresión múltiple, la regularización y numerosos modelos de aprendizaje supervisado.",
+    "crumbs": [
+      "III. Modelos de regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "regresion/regresion-lineal-simple.html#referencias-del-capítulo",
+    "href": "regresion/regresion-lineal-simple.html#referencias-del-capítulo",
+    "title": "13  Regresión lineal simple",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Hastie et al. (2009); James et al. (2021).\n\n\n\n\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. An Introduction to Statistical Learning. 2.ª ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.",
     "crumbs": [
       "III. Modelos de regresión",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Regresión lineal simple</span>"
@@ -6650,6 +6759,17 @@
     ]
   },
   {
+    "objectID": "regresion/regresion-lineal-multiple.html#referencias-del-capítulo",
+    "href": "regresion/regresion-lineal-multiple.html#referencias-del-capítulo",
+    "title": "14  Regresión lineal múltiple",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Hastie et al. (2009); Mardia et al. (1979).\n\n\n\n\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nMardia, Kanti V., John T. Kent, y John M. Bibby. 1979. Multivariate Analysis. Academic Press.",
+    "crumbs": [
+      "III. Modelos de regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Regresión lineal múltiple</span>"
+    ]
+  },
+  {
     "objectID": "regresion/regresion-logistica.html",
     "href": "regresion/regresion-logistica.html",
     "title": "15  Regresión logística",
@@ -7249,6 +7369,17 @@
     "title": "15  Regresión logística",
     "section": "15.55 Resumen",
     "text": "15.55 Resumen\nEn este capítulo se desarrolló la regresión logística como modelo probabilístico para clasificación binaria.\nSe estudiaron función logística, odds, logit y odds ratios. También se derivaron verosimilitud, log-verosimilitud, gradiente y Hessiana, y se explicó Newton-Raphson mediante IRLS.\nFinalmente, se presentaron inferencia, deviance, pseudo-\\(R^2\\), predicción, selección de umbral, discriminación, calibración, separación, influencia, regularización y extensión multinomial.",
+    "crumbs": [
+      "III. Modelos de regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Regresión logística</span>"
+    ]
+  },
+  {
+    "objectID": "regresion/regresion-logistica.html#referencias-del-capítulo",
+    "href": "regresion/regresion-logistica.html#referencias-del-capítulo",
+    "title": "15  Regresión logística",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Bishop (2006); James et al. (2021).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. An Introduction to Statistical Learning. 2.ª ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.",
     "crumbs": [
       "III. Modelos de regresión",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Regresión logística</span>"
@@ -7898,6 +8029,17 @@
     "title": "16  Vecinos más cercanos, k-NN",
     "section": "16.59 Resumen",
     "text": "16.59 Resumen\nEn este capítulo se desarrolló el método de vecinos más cercanos como un procedimiento no paramétrico y local para clasificación y regresión.\nSe formularon matemáticamente la noción de vecino, las reglas de voto y promedio, las distancias más utilizadas y la interpretación de \\(k\\) como parámetro de suavizamiento. También se analizó el compromiso entre sesgo y varianza, la consistencia, la maldición de la dimensionalidad, la necesidad de escalamiento y las variantes ponderadas.\nFinalmente, se estudiaron sus costos computacionales, su relación con la regla de Bayes, con celdas de Voronoi y con estimadores locales. Estos fundamentos preparan el estudio de árboles de decisión, métodos de margen y otros clasificadores no lineales.",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Vecinos más cercanos, k-NN</span>"
+    ]
+  },
+  {
+    "objectID": "clasificacion/knn.html#referencias-del-capítulo",
+    "href": "clasificacion/knn.html#referencias-del-capítulo",
+    "title": "16  Vecinos más cercanos, k-NN",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Cover y Hart (1967); Stone (1977); Duda et al. (2001).\n\n\n\n\n\n\nCover, Thomas M., y Peter E. Hart. 1967. «Nearest Neighbor Pattern Classification». IEEE Transactions on Information Theory 13 (1): 21-27. https://doi.org/10.1109/TIT.1967.1053964.\n\n\nDuda, Richard O., Peter E. Hart, y David G. Stork. 2001. Pattern Classification. 2.ª ed. Wiley.\n\n\nStone, Charles J. 1977. «Consistent Nonparametric Regression». The Annals of Statistics 5 (4): 595-620. https://doi.org/10.1214/aos/1176343886.",
     "crumbs": [
       "IV. Métodos de clasificación",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Vecinos más cercanos, k-NN</span>"
@@ -8641,6 +8783,17 @@
     ]
   },
   {
+    "objectID": "clasificacion/arboles-decision.html#referencias-del-capítulo",
+    "href": "clasificacion/arboles-decision.html#referencias-del-capítulo",
+    "title": "17  Árboles de decisión",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Breiman et al. (1984); Quinlan (1986).\n\n\n\n\n\n\nBreiman, Leo, Jerome H. Friedman, Richard A. Olshen, y Charles J. Stone. 1984. Classification and Regression Trees.\n\n\nQuinlan, J. Ross. 1986. «Induction of Decision Trees». Machine Learning 1: 81-106. https://doi.org/10.1007/BF00116251.",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Árboles de decisión</span>"
+    ]
+  },
+  {
     "objectID": "clasificacion/random-forest.html",
     "href": "clasificacion/random-forest.html",
     "title": "18  Random Forest",
@@ -9185,6 +9338,17 @@
     "title": "18  Random Forest",
     "section": "18.50 Resumen",
     "text": "18.50 Resumen\nEn este capítulo se desarrolló Random Forest como un ensamble de árboles basado en bootstrap y selección aleatoria de variables.\nSe explicó bagging, el error out-of-bag, el papel de mtry, la relación entre fuerza y correlación, y la reducción de varianza mediante promediación.\nTambién se estudiaron importancia por impureza y por permutación, proximidades, desbalance de clases, calibración, dependencia parcial, complejidad computacional y selección de hiperparámetros.\nFinalmente, se comparó Random Forest con árboles individuales, \\(k\\)-NN y boosting.",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Random Forest</span>"
+    ]
+  },
+  {
+    "objectID": "clasificacion/random-forest.html#referencias-del-capítulo",
+    "href": "clasificacion/random-forest.html#referencias-del-capítulo",
+    "title": "18  Random Forest",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Breiman (2001); Hastie et al. (2009).\n\n\n\n\n\n\nBreiman, Leo. 2001. «Random Forests». Machine Learning 45: 5-32. https://doi.org/10.1023/A:1010933404324.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
     "crumbs": [
       "IV. Métodos de clasificación",
       "<span class='chapter-number'>18</span>  <span class='chapter-title'>Random Forest</span>"
@@ -10010,6 +10174,17 @@
     "title": "19  Máquinas de vectores de soporte, SVM",
     "section": "19.75 Resumen",
     "text": "19.75 Resumen\nEn este capítulo se desarrolló la formulación matemática de las máquinas de vectores de soporte.\nSe estudió el hiperplano separador, el margen geométrico, el problema de margen máximo y los vectores de soporte. También se derivaron las formulaciones primal y dual, las condiciones KKT y el margen suave mediante variables de holgura.\nPosteriormente se introdujeron la pérdida hinge, el parámetro de costo, el truco kernel, los kernels lineal, polinomial y radial, así como la selección de hiperparámetros.\nFinalmente, se analizaron clasificación multiclase, SVR, escalamiento, calibración, desbalance de clases, complejidad computacional y comparación con regresión logística y Random Forest.",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Máquinas de vectores de soporte, SVM</span>"
+    ]
+  },
+  {
+    "objectID": "clasificacion/svm.html#referencias-del-capítulo",
+    "href": "clasificacion/svm.html#referencias-del-capítulo",
+    "title": "19  Máquinas de vectores de soporte, SVM",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Cortes y Vapnik (1995); Vapnik (1998).\n\n\n\n\n\n\nCortes, Corinna, y Vladimir Vapnik. 1995. «Support-Vector Networks». Machine Learning 20: 273-97. https://doi.org/10.1007/BF00994018.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.",
     "crumbs": [
       "IV. Métodos de clasificación",
       "<span class='chapter-number'>19</span>  <span class='chapter-title'>Máquinas de vectores de soporte, SVM</span>"
@@ -10951,6 +11126,17 @@
     ]
   },
   {
+    "objectID": "clasificacion/redes-neuronales.html#referencias-del-capítulo",
+    "href": "clasificacion/redes-neuronales.html#referencias-del-capítulo",
+    "title": "20  Redes neuronales artificiales",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Rumelhart et al. (1986); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nRumelhart, David E., Geoffrey E. Hinton, y Ronald J. Williams. 1986. «Learning Representations by Back-Propagating Errors». Nature 323: 533-36. https://doi.org/10.1038/323533a0.",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Redes neuronales artificiales</span>"
+    ]
+  },
+  {
     "objectID": "no-supervisado/pca.html",
     "href": "no-supervisado/pca.html",
     "title": "21  Análisis de Componentes Principales, PCA",
@@ -11616,6 +11802,17 @@
     "title": "21  Análisis de Componentes Principales, PCA",
     "section": "21.61 Resumen",
     "text": "21.61 Resumen\nEn este capítulo se desarrolló el Análisis de Componentes Principales como método lineal de reducción de dimensionalidad.\nSe derivó la primera componente mediante maximización de varianza y multiplicadores de Lagrange. Se mostró que las direcciones principales son vectores propios de la matriz de covarianza y que sus varianzas son los valores propios correspondientes.\nTambién se estudiaron puntuaciones, cargas, varianza explicada, selección del número de componentes, reconstrucción, error de aproximación y formulación mediante SVD.\nFinalmente, se analizaron estandarización, valores atípicos, fuga de información, PCA probabilístico, kernel PCA, aplicaciones predictivas y limitaciones interpretativas.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Análisis de Componentes Principales, PCA</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/pca.html#referencias-del-capítulo",
+    "href": "no-supervisado/pca.html#referencias-del-capítulo",
+    "title": "21  Análisis de Componentes Principales, PCA",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Pearson (1901); Hotelling (1933); Mardia et al. (1979).\n\n\n\n\n\n\nHotelling, Harold. 1933. «Analysis of a Complex of Statistical Variables into Principal Components». Journal of Educational Psychology 24: 417-41. https://doi.org/10.1037/h0071325.\n\n\nMardia, Kanti V., John T. Kent, y John M. Bibby. 1979. Multivariate Analysis. Academic Press.\n\n\nPearson, Karl. 1901. «On Lines and Planes of Closest Fit to Systems of Points in Space». Philosophical Magazine 2 (11): 559-72. https://doi.org/10.1080/14786440109462720.",
     "crumbs": [
       "V. Aprendizaje no supervisado",
       "<span class='chapter-number'>21</span>  <span class='chapter-title'>Análisis de Componentes Principales, PCA</span>"
@@ -12392,6 +12589,17 @@
     ]
   },
   {
+    "objectID": "no-supervisado/kmeans.html#referencias-del-capítulo",
+    "href": "no-supervisado/kmeans.html#referencias-del-capítulo",
+    "title": "22  Agrupamiento mediante K-means",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Lloyd (1982); Arthur y Vassilvitskii (2007).\n\n\n\n\n\n\nArthur, David, y Sergei Vassilvitskii. 2007. «K-means++: The Advantages of Careful Seeding». Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms, 1027-35.\n\n\nLloyd, Stuart P. 1982. «Least Squares Quantization in PCM». IEEE Transactions on Information Theory 28 (2): 129-37. https://doi.org/10.1109/TIT.1982.1056489.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Agrupamiento mediante K-means</span>"
+    ]
+  },
+  {
     "objectID": "no-supervisado/agrupamiento-jerarquico.html",
     "href": "no-supervisado/agrupamiento-jerarquico.html",
     "title": "23  Agrupamiento jerárquico",
@@ -12865,11 +13073,572 @@
     ]
   },
   {
+    "objectID": "no-supervisado/agrupamiento-jerarquico.html#referencias-del-capítulo",
+    "href": "no-supervisado/agrupamiento-jerarquico.html#referencias-del-capítulo",
+    "title": "23  Agrupamiento jerárquico",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Ward (1963); Mardia et al. (1979).\n\n\n\n\n\n\nMardia, Kanti V., John T. Kent, y John M. Bibby. 1979. Multivariate Analysis. Academic Press.\n\n\nWard, Joe H. 1963. «Hierarchical Grouping to Optimize an Objective Function». Journal of the American Statistical Association 58 (301): 236-44. https://doi.org/10.1080/01621459.1963.10500845.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Agrupamiento jerárquico</span>"
+    ]
+  },
+  {
     "objectID": "no-supervisado/reglas-asociacion.html",
     "href": "no-supervisado/reglas-asociacion.html",
     "title": "24  Reglas de asociación",
     "section": "",
-    "text": "Capítulo en desarrollo.",
+    "text": "24.1 Introducción\nLas reglas de asociación permiten descubrir relaciones de coocurrencia en bases de datos transaccionales. Su formulación clásica surgió en el análisis de compras, pero se aplica también a diagnósticos, navegación web, incidentes, síntomas, fallas y patrones ambientales.\nUna regla tiene la forma\n\\[\nX\\Rightarrow Y,\n\\]\ndonde \\(X\\) y \\(Y\\) son conjuntos de elementos disjuntos. La regla no expresa causalidad; indica que las transacciones que contienen \\(X\\) tienden a contener también \\(Y\\).\nEl algoritmo Apriori explota una propiedad de antimonotonicidad para evitar evaluar todos los subconjuntos posibles (Agrawal y Srikant 1994). Otros métodos, como FP-growth, eliminan la generación explícita de candidatos mediante una estructura comprimida (Han et al. 2000).",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#objetivos",
+    "href": "no-supervisado/reglas-asociacion.html#objetivos",
+    "title": "24  Reglas de asociación",
+    "section": "24.2 Objetivos",
+    "text": "24.2 Objetivos\nAl finalizar el capítulo, el lector podrá:\n\nrepresentar una base transaccional;\ndefinir itemsets y reglas;\ncalcular soporte, confianza y lift;\ninterpretar leverage y conviction;\ncomprender la propiedad Apriori;\ngenerar conjuntos frecuentes;\nproducir reglas a partir de itemsets;\ndistinguir reglas redundantes;\naplicar restricciones;\ncomprender Apriori, Eclat y FP-growth;\nevaluar significancia y utilidad;\naplicar reglas de asociación en R.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#base-transaccional",
+    "href": "no-supervisado/reglas-asociacion.html#base-transaccional",
+    "title": "24  Reglas de asociación",
+    "section": "24.3 Base transaccional",
+    "text": "24.3 Base transaccional\nSea\n\\[\n\\mathcal{I}\n=\n\\{i_1,\\ldots,i_m\\}\n\\]\nel universo de elementos.\nUna transacción es un subconjunto\n\\[\nT_r\\subseteq\\mathcal{I}.\n\\]\nLa base de datos es\n\\[\n\\mathcal{D}\n=\n\\{T_1,\\ldots,T_n\\}.\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#itemset",
+    "href": "no-supervisado/reglas-asociacion.html#itemset",
+    "title": "24  Reglas de asociación",
+    "section": "24.4 Itemset",
+    "text": "24.4 Itemset\nUn itemset es cualquier subconjunto\n\\[\nX\\subseteq\\mathcal{I}.\n\\]\nSu tamaño es\n\\[\n|X|.\n\\]\nSi \\(|X|=k\\), se denomina \\(k\\)-itemset.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#regla-de-asociación",
+    "href": "no-supervisado/reglas-asociacion.html#regla-de-asociación",
+    "title": "24  Reglas de asociación",
+    "section": "24.5 Regla de asociación",
+    "text": "24.5 Regla de asociación\nUna regla es una implicación\n\\[\nX\\Rightarrow Y,\n\\]\ncon\n\\[\nX\\cap Y=\\varnothing.\n\\]\n\\(X\\) es el antecedente y \\(Y\\) el consecuente.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#soporte-de-un-itemset",
+    "href": "no-supervisado/reglas-asociacion.html#soporte-de-un-itemset",
+    "title": "24  Reglas de asociación",
+    "section": "24.6 Soporte de un itemset",
+    "text": "24.6 Soporte de un itemset\nEl soporte absoluto es\n\\[\n\\sigma(X)\n=\n\\left|\n\\{T_r:X\\subseteq T_r\\}\n\\right|.\n\\]\nEl soporte relativo es\n\\[\nsupp(X)\n=\n\\frac{\\sigma(X)}{n}.\n\\]\nPuede interpretarse como una probabilidad empírica:\n\\[\nsupp(X)\n=\n\\widehat{P}(X).\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#soporte-de-una-regla",
+    "href": "no-supervisado/reglas-asociacion.html#soporte-de-una-regla",
+    "title": "24  Reglas de asociación",
+    "section": "24.7 Soporte de una regla",
+    "text": "24.7 Soporte de una regla\nEl soporte de\n\\[\nX\\Rightarrow Y\n\\]\nes\n\\[\nsupp(X\\Rightarrow Y)\n=\nsupp(X\\cup Y).\n\\]\nMide la frecuencia conjunta del antecedente y el consecuente.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#confianza",
+    "href": "no-supervisado/reglas-asociacion.html#confianza",
+    "title": "24  Reglas de asociación",
+    "section": "24.8 Confianza",
+    "text": "24.8 Confianza\nLa confianza es\n\\[\nconf(X\\Rightarrow Y)\n=\n\\frac{supp(X\\cup Y)}{supp(X)}.\n\\]\nEquivale a la probabilidad condicional empírica:\n\\[\nconf(X\\Rightarrow Y)\n=\n\\widehat{P}(Y\\mid X).\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#limitación-de-la-confianza",
+    "href": "no-supervisado/reglas-asociacion.html#limitación-de-la-confianza",
+    "title": "24  Reglas de asociación",
+    "section": "24.9 Limitación de la confianza",
+    "text": "24.9 Limitación de la confianza\nUna confianza alta puede deberse simplemente a que \\(Y\\) es muy frecuente.\nPor ello, debe compararse con el soporte marginal del consecuente.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#lift",
+    "href": "no-supervisado/reglas-asociacion.html#lift",
+    "title": "24  Reglas de asociación",
+    "section": "24.10 Lift",
+    "text": "24.10 Lift\nEl lift es\n\\[\nlift(X\\Rightarrow Y)\n=\n\\frac{conf(X\\Rightarrow Y)}{supp(Y)}.\n\\]\nEquivalentemente,\n\\[\nlift(X\\Rightarrow Y)\n=\n\\frac{supp(X\\cup Y)}\n{supp(X)supp(Y)}.\n\\]\nInterpretación:\n\n\\(lift&gt;1\\): asociación positiva;\n\\(lift=1\\): independencia empírica;\n\\(lift&lt;1\\): asociación negativa.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#leverage",
+    "href": "no-supervisado/reglas-asociacion.html#leverage",
+    "title": "24  Reglas de asociación",
+    "section": "24.11 Leverage",
+    "text": "24.11 Leverage\nEl leverage es\n\\[\nlev(X\\Rightarrow Y)\n=\nsupp(X\\cup Y)\n-\nsupp(X)supp(Y).\n\\]\nMide la diferencia absoluta respecto de la independencia.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#conviction",
+    "href": "no-supervisado/reglas-asociacion.html#conviction",
+    "title": "24  Reglas de asociación",
+    "section": "24.12 Conviction",
+    "text": "24.12 Conviction\nLa conviction se define como\n\\[\nconv(X\\Rightarrow Y)\n=\n\\frac{1-supp(Y)}\n{1-conf(X\\Rightarrow Y)}.\n\\]\nValores grandes indican que la regla comete menos errores de los esperados bajo independencia.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#cobertura",
+    "href": "no-supervisado/reglas-asociacion.html#cobertura",
+    "title": "24  Reglas de asociación",
+    "section": "24.13 Cobertura",
+    "text": "24.13 Cobertura\nLa cobertura de la regla es\n\\[\ncoverage(X\\Rightarrow Y)\n=\nsupp(X).\n\\]\nMide qué proporción de transacciones satisface el antecedente.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#ejemplo-básico",
+    "href": "no-supervisado/reglas-asociacion.html#ejemplo-básico",
+    "title": "24  Reglas de asociación",
+    "section": "24.14 Ejemplo básico",
+    "text": "24.14 Ejemplo básico\nConsidérese:\n\n\n\nTransacción\nElementos\n\n\n\n\n1\npan, leche\n\n\n2\npan, pañales, cerveza\n\n\n3\nleche, pañales, cerveza\n\n\n4\npan, leche, pañales, cerveza\n\n\n5\npan, leche, pañales\n\n\n\nPara la regla\n\\[\n\\{\\text{pañales}\\}\n\\Rightarrow\n\\{\\text{cerveza}\\},\n\\]\nel antecedente aparece en 4 transacciones y la unión en 3.\nEntonces\n\\[\nsupp=\\frac{3}{5}=0.6,\n\\]\n\\[\nconf=\\frac{3}{4}=0.75.\n\\]\nComo la cerveza aparece en 3 de 5 transacciones,\n\\[\nlift\n=\n\\frac{0.75}{0.6}\n=\n1.25.\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#conjuntos-frecuentes",
+    "href": "no-supervisado/reglas-asociacion.html#conjuntos-frecuentes",
+    "title": "24  Reglas de asociación",
+    "section": "24.15 Conjuntos frecuentes",
+    "text": "24.15 Conjuntos frecuentes\nDado un umbral mínimo\n\\[\ns_{min},\n\\]\nun itemset es frecuente si\n\\[\nsupp(X)\\geq s_{min}.\n\\]\nEl problema central consiste en encontrar todos los itemsets frecuentes.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#explosión-combinatoria",
+    "href": "no-supervisado/reglas-asociacion.html#explosión-combinatoria",
+    "title": "24  Reglas de asociación",
+    "section": "24.16 Explosión combinatoria",
+    "text": "24.16 Explosión combinatoria\nCon \\(m\\) elementos existen\n\\[\n2^m-1\n\\]\nitemsets no vacíos.\nUna búsqueda exhaustiva se vuelve inviable cuando \\(m\\) es grande.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#propiedad-apriori",
+    "href": "no-supervisado/reglas-asociacion.html#propiedad-apriori",
+    "title": "24  Reglas de asociación",
+    "section": "24.17 Propiedad Apriori",
+    "text": "24.17 Propiedad Apriori\n\nTeorema 24.1 Si un itemset es frecuente, todos sus subconjuntos también son frecuentes.\n\nEquivalentemente, si un itemset no es frecuente, ninguno de sus superconjuntos puede ser frecuente.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#demostración",
+    "href": "no-supervisado/reglas-asociacion.html#demostración",
+    "title": "24  Reglas de asociación",
+    "section": "24.18 Demostración",
+    "text": "24.18 Demostración\nSi\n\\[\nA\\subseteq B,\n\\]\ntoda transacción que contiene \\(B\\) contiene también \\(A\\). Por tanto,\n\\[\n\\sigma(B)\\leq\\sigma(A),\n\\]\ny\n\\[\nsupp(B)\\leq supp(A).\n\\]\nSi \\(A\\) no alcanza el soporte mínimo, ningún superconjunto \\(B\\) puede alcanzarlo.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#algoritmo-apriori",
+    "href": "no-supervisado/reglas-asociacion.html#algoritmo-apriori",
+    "title": "24  Reglas de asociación",
+    "section": "24.19 Algoritmo Apriori",
+    "text": "24.19 Algoritmo Apriori\nApriori procede por niveles:\n\nencontrar itemsets frecuentes de tamaño 1;\ngenerar candidatos de tamaño 2;\npodar candidatos con subconjuntos infrecuentes;\ncontar soportes;\nrepetir para tamaños sucesivos.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#generación-de-candidatos",
+    "href": "no-supervisado/reglas-asociacion.html#generación-de-candidatos",
+    "title": "24  Reglas de asociación",
+    "section": "24.20 Generación de candidatos",
+    "text": "24.20 Generación de candidatos\nA partir de\n\\[\nL_{k-1},\n\\]\nel conjunto de itemsets frecuentes de tamaño \\(k-1\\), se construye\n\\[\nC_k.\n\\]\nDespués se eliminan candidatos que contienen algún subconjunto no frecuente.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#pseudocódigo-de-apriori",
+    "href": "no-supervisado/reglas-asociacion.html#pseudocódigo-de-apriori",
+    "title": "24  Reglas de asociación",
+    "section": "24.21 Pseudocódigo de Apriori",
+    "text": "24.21 Pseudocódigo de Apriori\n\ncalcular \\(L_1\\);\npara \\(k=2,3,\\ldots\\):\n\ngenerar \\(C_k\\) mediante unión de elementos de \\(L_{k-1}\\);\npodar candidatos;\nrecorrer las transacciones y contar soportes;\nconservar itemsets con soporte mínimo;\n\ndetener cuando \\(L_k\\) sea vacío.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#generación-de-reglas",
+    "href": "no-supervisado/reglas-asociacion.html#generación-de-reglas",
+    "title": "24  Reglas de asociación",
+    "section": "24.22 Generación de reglas",
+    "text": "24.22 Generación de reglas\nPara cada itemset frecuente \\(Z\\) y cada subconjunto no vacío\n\\[\nX\\subset Z,\n\\]\nse forma\n\\[\nX\\Rightarrow Z\\setminus X.\n\\]\nLa regla se conserva si alcanza la confianza mínima.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#monotonicidad-de-la-confianza",
+    "href": "no-supervisado/reglas-asociacion.html#monotonicidad-de-la-confianza",
+    "title": "24  Reglas de asociación",
+    "section": "24.23 Monotonicidad de la confianza",
+    "text": "24.23 Monotonicidad de la confianza\nLa confianza no es antimonótona en general. Sin embargo, durante la generación de reglas puede aprovecharse que, para un itemset fijo, ampliar el consecuente no aumenta la confianza.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#eclat",
+    "href": "no-supervisado/reglas-asociacion.html#eclat",
+    "title": "24  Reglas de asociación",
+    "section": "24.24 Eclat",
+    "text": "24.24 Eclat\nEclat utiliza una representación vertical.\nPara cada elemento se almacena el conjunto de identificadores de transacción:\n\\[\nTID(X).\n\\]\nEl soporte de una unión se obtiene mediante intersección:\n\\[\nTID(X\\cup Y)\n=\nTID(X)\\cap TID(Y).\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#fp-growth",
+    "href": "no-supervisado/reglas-asociacion.html#fp-growth",
+    "title": "24  Reglas de asociación",
+    "section": "24.25 FP-growth",
+    "text": "24.25 FP-growth\nFP-growth comprime la base en un árbol de patrones frecuentes y extrae itemsets sin generar candidatos explícitos (Han et al. 2000).\nSus pasos generales son:\n\ncontar frecuencias;\neliminar elementos infrecuentes;\nordenar elementos;\nconstruir el FP-tree;\nextraer bases condicionales;\ngenerar patrones frecuentes.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#reglas-redundantes",
+    "href": "no-supervisado/reglas-asociacion.html#reglas-redundantes",
+    "title": "24  Reglas de asociación",
+    "section": "24.26 Reglas redundantes",
+    "text": "24.26 Reglas redundantes\nUna regla puede ser redundante si otra regla más general tiene igual o mejor desempeño.\nPor ejemplo, si\n\\[\nA\\Rightarrow C\n\\]\ny\n\\[\nA,B\\Rightarrow C\n\\]\ntienen la misma confianza, añadir \\(B\\) no aporta información predictiva.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#itemsets-cerrados",
+    "href": "no-supervisado/reglas-asociacion.html#itemsets-cerrados",
+    "title": "24  Reglas de asociación",
+    "section": "24.27 Itemsets cerrados",
+    "text": "24.27 Itemsets cerrados\nUn itemset frecuente \\(X\\) es cerrado si no existe un superconjunto con el mismo soporte.\nLos itemsets cerrados proporcionan una representación más compacta.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#itemsets-maximales",
+    "href": "no-supervisado/reglas-asociacion.html#itemsets-maximales",
+    "title": "24  Reglas de asociación",
+    "section": "24.28 Itemsets maximales",
+    "text": "24.28 Itemsets maximales\nUn itemset frecuente es maximal si ningún superconjunto suyo es frecuente.\nLos maximales son aún más compactos, pero pierden información exacta de soportes de subconjuntos.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#restricciones",
+    "href": "no-supervisado/reglas-asociacion.html#restricciones",
+    "title": "24  Reglas de asociación",
+    "section": "24.29 Restricciones",
+    "text": "24.29 Restricciones\nEl espacio de búsqueda puede reducirse imponiendo:\n\nelementos obligatorios;\nelementos excluidos;\nlongitud mínima o máxima;\nconsecuente fijo;\nsoporte o confianza mínimos;\nrestricciones de categorías.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#discretización",
+    "href": "no-supervisado/reglas-asociacion.html#discretización",
+    "title": "24  Reglas de asociación",
+    "section": "24.30 Discretización",
+    "text": "24.30 Discretización\nVariables numéricas deben convertirse normalmente en intervalos:\n\\[\nX_j\\in[a,b).\n\\]\nLa discretización puede ser:\n\npor amplitud;\npor frecuencia;\nbasada en conocimiento;\nsupervisada.\n\nLos resultados dependen fuertemente de los cortes.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#significancia-estadística",
+    "href": "no-supervisado/reglas-asociacion.html#significancia-estadística",
+    "title": "24  Reglas de asociación",
+    "section": "24.31 Significancia estadística",
+    "text": "24.31 Significancia estadística\nLift alto no garantiza significancia, especialmente con soporte bajo.\nPuede utilizarse una tabla \\(2\\times2\\) y aplicar:\n\nprueba chi-cuadrada;\nprueba exacta de Fisher;\nintervalos;\ncorrección por comparaciones múltiples.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#tabla-de-contingencia",
+    "href": "no-supervisado/reglas-asociacion.html#tabla-de-contingencia",
+    "title": "24  Reglas de asociación",
+    "section": "24.32 Tabla de contingencia",
+    "text": "24.32 Tabla de contingencia\nPara dos eventos \\(X\\) y \\(Y\\):\n\n\n\n\n\\(Y\\)\nno \\(Y\\)\n\n\n\n\n\\(X\\)\n\\(n_{11}\\)\n\\(n_{10}\\)\n\n\nno \\(X\\)\n\\(n_{01}\\)\n\\(n_{00}\\)\n\n\n\nLas medidas de asociación se derivan de estas frecuencias.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#múltiples-comparaciones",
+    "href": "no-supervisado/reglas-asociacion.html#múltiples-comparaciones",
+    "title": "24  Reglas de asociación",
+    "section": "24.33 Múltiples comparaciones",
+    "text": "24.33 Múltiples comparaciones\nLa minería puede producir miles de reglas. Evaluar cada una al nivel usual genera falsos positivos.\nDeben considerarse:\n\nBonferroni;\nHolm;\ncontrol de FDR;\nvalidación en una muestra independiente.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#asociación-no-es-causalidad",
+    "href": "no-supervisado/reglas-asociacion.html#asociación-no-es-causalidad",
+    "title": "24  Reglas de asociación",
+    "section": "24.34 Asociación no es causalidad",
+    "text": "24.34 Asociación no es causalidad\nLa regla\n\\[\nX\\Rightarrow Y\n\\]\nno implica que \\(X\\) cause \\(Y\\).\nLa coocurrencia puede deberse a:\n\nvariables confusoras;\nselección;\ntemporalidad;\npatrones de consumo;\nartefactos de discretización.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#reglas-negativas",
+    "href": "no-supervisado/reglas-asociacion.html#reglas-negativas",
+    "title": "24  Reglas de asociación",
+    "section": "24.35 Reglas negativas",
+    "text": "24.35 Reglas negativas\nTambién pueden estudiarse reglas como\n\\[\nX\\Rightarrow \\neg Y.\n\\]\nSu análisis requiere considerar cuidadosamente soportes y universo de elementos.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#reglas-secuenciales",
+    "href": "no-supervisado/reglas-asociacion.html#reglas-secuenciales",
+    "title": "24  Reglas de asociación",
+    "section": "24.36 Reglas secuenciales",
+    "text": "24.36 Reglas secuenciales\nLas reglas de asociación tradicionales ignoran el orden temporal.\nCuando interesa la secuencia se utilizan patrones secuenciales, por ejemplo:\n\\[\nA\\to B\\to C.\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#reglas-ponderadas",
+    "href": "no-supervisado/reglas-asociacion.html#reglas-ponderadas",
+    "title": "24  Reglas de asociación",
+    "section": "24.37 Reglas ponderadas",
+    "text": "24.37 Reglas ponderadas\nEn algunos problemas los elementos tienen importancia, utilidad o costo diferentes.\nLas reglas ponderadas incorporan:\n\ncantidad;\nprecio;\nriesgo;\nutilidad;\nseveridad.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#evaluación-práctica",
+    "href": "no-supervisado/reglas-asociacion.html#evaluación-práctica",
+    "title": "24  Reglas de asociación",
+    "section": "24.38 Evaluación práctica",
+    "text": "24.38 Evaluación práctica\nUna buena regla debe equilibrar:\n\nfrecuencia;\nprecisión;\nnovedad;\nutilidad;\nsimplicidad;\nestabilidad;\nposibilidad de acción.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#reglas-y-predicción",
+    "href": "no-supervisado/reglas-asociacion.html#reglas-y-predicción",
+    "title": "24  Reglas de asociación",
+    "section": "24.39 Reglas y predicción",
+    "text": "24.39 Reglas y predicción\nLas reglas pueden utilizarse como características o como clasificadores.\nEn clasificación asociativa, el consecuente es una clase:\n\\[\nX\\Rightarrow Y=c.\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#complejidad",
+    "href": "no-supervisado/reglas-asociacion.html#complejidad",
+    "title": "24  Reglas de asociación",
+    "section": "24.40 Complejidad",
+    "text": "24.40 Complejidad\nEl costo depende de:\n\nnúmero de elementos;\nlongitud de transacciones;\nsoporte mínimo;\ndensidad;\nnúmero de patrones frecuentes.\n\nUn soporte demasiado bajo puede generar una explosión de resultados.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#conexión-con-r",
+    "href": "no-supervisado/reglas-asociacion.html#conexión-con-r",
+    "title": "24  Reglas de asociación",
+    "section": "24.41 Conexión con R",
+    "text": "24.41 Conexión con R\nEl paquete arules proporciona infraestructura para transacciones, itemsets y reglas (Hahsler et al. 2005).\n\n\nCódigo\nlibrary(arules)\n\ntransacciones &lt;- list(\n  c(\"pan\", \"leche\"),\n  c(\"pan\", \"pañales\", \"cerveza\"),\n  c(\"leche\", \"pañales\", \"cerveza\"),\n  c(\"pan\", \"leche\", \"pañales\", \"cerveza\"),\n  c(\"pan\", \"leche\", \"pañales\")\n)\n\ntr &lt;- as(transacciones, \"transactions\")\n\nreglas &lt;- apriori(\n  tr,\n  parameter = list(\n    supp = 0.40,\n    conf = 0.60,\n    minlen = 2\n  )\n)\n\ninspect(\n  sort(\n    reglas,\n    by = \"lift\",\n    decreasing = TRUE\n  )\n)\n\nreglas_filtradas &lt;- subset(\n  reglas,\n  lift &gt; 1.1\n)",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#aplicación-ambiental",
+    "href": "no-supervisado/reglas-asociacion.html#aplicación-ambiental",
+    "title": "24  Reglas de asociación",
+    "section": "24.42 Aplicación ambiental",
+    "text": "24.42 Aplicación ambiental\nUna transacción puede representar un día o una estación. Los elementos podrían ser:\n\nPM10_alto;\ntemperatura_alta;\nhumedad_baja;\nviento_bajo;\nozono_alto.\n\nUna regla posible sería\n\\[\n\\{\\text{temperatura alta, viento bajo}\\}\n\\Rightarrow\n\\{\\text{ozono alto}\\}.\n\\]\nDebe interpretarse como asociación empírica, no como mecanismo causal probado.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#ventajas",
+    "href": "no-supervisado/reglas-asociacion.html#ventajas",
+    "title": "24  Reglas de asociación",
+    "section": "24.43 Ventajas",
+    "text": "24.43 Ventajas\n\nproduce patrones fáciles de comunicar;\nno requiere variable objetivo;\npermite explorar interacciones;\nfunciona con datos transaccionales;\nofrece medidas intuitivas;\nadmite restricciones de dominio.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#limitaciones",
+    "href": "no-supervisado/reglas-asociacion.html#limitaciones",
+    "title": "24  Reglas de asociación",
+    "section": "24.44 Limitaciones",
+    "text": "24.44 Limitaciones\n\nexplosión combinatoria;\nmuchas reglas triviales;\nsensibilidad a umbrales;\ndiscretización subjetiva;\nsoporte bajo produce inestabilidad;\nasociación no implica causalidad;\nmúltiples comparaciones;\ndificultad para evaluar utilidad real.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#errores-frecuentes",
+    "href": "no-supervisado/reglas-asociacion.html#errores-frecuentes",
+    "title": "24  Reglas de asociación",
+    "section": "24.45 Errores frecuentes",
+    "text": "24.45 Errores frecuentes\n\ninterpretar confianza sin considerar soporte;\nignorar el soporte del consecuente;\nusar lift como prueba causal;\nfijar soporte demasiado bajo;\nno eliminar reglas redundantes;\ndiscretizar arbitrariamente;\nreportar miles de reglas sin síntesis;\nno validar estabilidad;\nignorar múltiples comparaciones;\nconfundir coocurrencia con secuencia temporal.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#ejercicios-conceptuales",
+    "href": "no-supervisado/reglas-asociacion.html#ejercicios-conceptuales",
+    "title": "24  Reglas de asociación",
+    "section": "24.46 Ejercicios conceptuales",
+    "text": "24.46 Ejercicios conceptuales\n\nDefina transacción, itemset y regla.\nCompare soporte y confianza.\n¿Por qué se utiliza lift?\nDemuestre la propiedad Apriori.\nCompare Apriori, Eclat y FP-growth.\nDistinga itemset cerrado y maximal.\n¿Por qué una regla frecuente puede ser trivial?\n¿Cómo afecta la discretización?\n¿Por qué deben corregirse múltiples comparaciones?\nExplique por qué asociación no es causalidad.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#ejercicio-de-medidas",
+    "href": "no-supervisado/reglas-asociacion.html#ejercicio-de-medidas",
+    "title": "24  Reglas de asociación",
+    "section": "24.47 Ejercicio de medidas",
+    "text": "24.47 Ejercicio de medidas\nEn 1,000 transacciones:\n\n\\(X\\) aparece en 300;\n\\(Y\\) aparece en 400;\n\\(X\\cup Y\\) aparece en 180.\n\nCalcule:\n\nsoporte de \\(X\\);\nsoporte de \\(Y\\);\nsoporte de la regla;\nconfianza;\nlift;\nleverage.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#ejercicio-apriori",
+    "href": "no-supervisado/reglas-asociacion.html#ejercicio-apriori",
+    "title": "24  Reglas de asociación",
+    "section": "24.48 Ejercicio Apriori",
+    "text": "24.48 Ejercicio Apriori\nConsidere:\n\\[\nT_1=\\{A,B,C\\},\n\\]\n\\[\nT_2=\\{A,B\\},\n\\]\n\\[\nT_3=\\{A,C\\},\n\\]\n\\[\nT_4=\\{B,C\\},\n\\]\n\\[\nT_5=\\{A,B,C\\}.\n\\]\nCon soporte mínimo 0.4:\n\ndetermine \\(L_1\\);\ngenere \\(C_2\\);\ndetermine \\(L_2\\);\ngenere \\(C_3\\);\nobtenga las reglas con confianza mínima 0.7.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#ejercicio-aplicado",
+    "href": "no-supervisado/reglas-asociacion.html#ejercicio-aplicado",
+    "title": "24  Reglas de asociación",
+    "section": "24.49 Ejercicio aplicado",
+    "text": "24.49 Ejercicio aplicado\nDiseñe un análisis de reglas para accidentes de tránsito donde cada accidente se represente por elementos como:\n\nnocturno;\nlluvia;\nvelocidad_alta;\nmotocicleta;\npeatón;\naccidente_severo.\n\nIncluya:\n\ntransformación transaccional;\ndiscretización;\nsoporte mínimo;\nconfianza;\nlift;\nconsecuente severidad;\npoda de redundancia;\nsignificancia;\nvalidación;\nlimitaciones causales.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#resumen",
+    "href": "no-supervisado/reglas-asociacion.html#resumen",
+    "title": "24  Reglas de asociación",
+    "section": "24.50 Resumen",
+    "text": "24.50 Resumen\nEn este capítulo se desarrollaron los fundamentos matemáticos de las reglas de asociación.\nSe definieron transacciones, itemsets, soporte, confianza, lift, leverage y conviction. Se demostró la propiedad Apriori y se explicó la generación de conjuntos frecuentes y reglas.\nTambién se estudiaron Eclat, FP-growth, itemsets cerrados y maximales, restricciones, discretización, significancia, múltiples comparaciones y aplicaciones predictivas.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#referencias-del-capítulo",
+    "href": "no-supervisado/reglas-asociacion.html#referencias-del-capítulo",
+    "title": "24  Reglas de asociación",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos históricos y algorítmicos se apoyan en Agrawal y Srikant (1994), Han et al. (2000) y Hahsler et al. (2005).\n\n\n\n\n\n\nAgrawal, Rakesh, y Ramakrishnan Srikant. 1994. «Fast Algorithms for Mining Association Rules in Large Databases». Proceedings of the 20th International Conference on Very Large Data Bases, 487-99.\n\n\nHahsler, Michael, Bettina Grün, y Kurt Hornik. 2005. «arules: A Computational Environment for Mining Association Rules and Frequent Item Sets». Journal of Statistical Software 14 (15): 1-25. https://doi.org/10.18637/jss.v014.i15.\n\n\nHan, Jiawei, Jian Pei, y Yiwen Yin. 2000. «Mining Frequent Patterns without Candidate Generation». Proceedings of the 2000 ACM SIGMOD International Conference on Management of Data, 1-12. https://doi.org/10.1145/335191.335372.",
     "crumbs": [
       "V. Aprendizaje no supervisado",
       "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reglas de asociación</span>"
@@ -12895,6 +13664,16 @@
     "crumbs": [
       "VI. Temas avanzados",
       "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "referencias.html",
+    "href": "referencias.html",
+    "title": "Referencias",
+    "section": "",
+    "text": "Agrawal, Rakesh, and Ramakrishnan Srikant. 1994. “Fast Algorithms\nfor Mining Association Rules in Large Databases.” Proceedings\nof the 20th International Conference on Very Large Data Bases,\n487–99.\n\n\nArthur, David, and Sergei Vassilvitskii. 2007. “K-Means++: The\nAdvantages of Careful Seeding.” Proceedings of the Eighteenth\nAnnual ACM-SIAM Symposium on Discrete Algorithms, 1027–35.\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine\nLearning. Springer.\n\n\nBreiman, Leo. 2001. “Random Forests.” Machine\nLearning 45: 5–32. https://doi.org/10.1023/A:1010933404324.\n\n\nBreiman, Leo, Jerome H. Friedman, Richard A. Olshen, and Charles J.\nStone. 1984. Classification and Regression Trees.\n\n\nCortes, Corinna, and Vladimir Vapnik. 1995. “Support-Vector\nNetworks.” Machine Learning 20: 273–97. https://doi.org/10.1007/BF00994018.\n\n\nCover, Thomas M., and Peter E. Hart. 1967. “Nearest Neighbor\nPattern Classification.” IEEE Transactions on Information\nTheory 13 (1): 21–27. https://doi.org/10.1109/TIT.1967.1053964.\n\n\nDuda, Richard O., Peter E. Hart, and David G. Stork. 2001. Pattern\nClassification. 2nd ed. Wiley.\n\n\nHahsler, Michael, Bettina Grün, and Kurt Hornik. 2005. “Arules: A\nComputational Environment for Mining Association Rules and Frequent Item\nSets.” Journal of Statistical Software 14 (15): 1–25. https://doi.org/10.18637/jss.v014.i15.\n\n\nHan, Jiawei, Jian Pei, and Yiwen Yin. 2000. “Mining Frequent\nPatterns Without Candidate Generation.” Proceedings of the\n2000 ACM SIGMOD International Conference on Management of Data,\n1–12. https://doi.org/10.1145/335191.335372.\n\n\nHastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. The\nElements of Statistical Learning: Data Mining, Inference, and\nPrediction. 2nd ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nHotelling, Harold. 1933. “Analysis of a Complex of Statistical\nVariables into Principal Components.” Journal of Educational\nPsychology 24: 417–41. https://doi.org/10.1037/h0071325.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.\n2021. An Introduction to Statistical Learning. 2nd ed.\nSpringer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nLloyd, Stuart P. 1982. “Least Squares Quantization in PCM.”\nIEEE Transactions on Information Theory 28 (2): 129–37. https://doi.org/10.1109/TIT.1982.1056489.\n\n\nMardia, Kanti V., John T. Kent, and John M. Bibby. 1979.\nMultivariate Analysis. Academic Press.\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An\nIntroduction. MIT Press.\n\n\nPearson, Karl. 1901. “On Lines and Planes of Closest Fit to\nSystems of Points in Space.” Philosophical Magazine 2\n(11): 559–72. https://doi.org/10.1080/14786440109462720.\n\n\nQuinlan, J. Ross. 1986. “Induction of Decision Trees.”\nMachine Learning 1: 81–106. https://doi.org/10.1007/BF00116251.\n\n\nRumelhart, David E., Geoffrey E. Hinton, and Ronald J. Williams. 1986.\n“Learning Representations by Back-Propagating Errors.”\nNature 323: 533–36. https://doi.org/10.1038/323533a0.\n\n\nStone, Charles J. 1977. “Consistent Nonparametric\nRegression.” The Annals of Statistics 5 (4): 595–620. https://doi.org/10.1214/aos/1176343886.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.\n\n\nWard, Joe H. 1963. “Hierarchical Grouping to Optimize an Objective\nFunction.” Journal of the American Statistical\nAssociation 58 (301): 236–44. https://doi.org/10.1080/01621459.1963.10500845.",
+    "crumbs": [
+      "Referencias"
     ]
   }
 ]

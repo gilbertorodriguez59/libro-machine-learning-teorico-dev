@@ -1299,3 +1299,8 @@ En este capítulo se formuló la clasificación como una regla de decisión sobr
 También se estudiaron pérdidas asimétricas, clasificación sensible al costo, matrices de confusión y métricas como exactitud, sensibilidad, especificidad, precisión, F1 y exactitud balanceada.
 
 Finalmente, se desarrollaron curvas ROC, AUC, calibración y clasificación multiclase. Estos conceptos serán esenciales para evaluar y comparar los algoritmos de clasificación de los capítulos posteriores.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @duda2001pattern; @bishop2006pattern.
+

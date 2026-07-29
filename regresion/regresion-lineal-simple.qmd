@@ -1537,3 +1537,8 @@ Se derivaron los estimadores de mínimos cuadrados, se estudiaron sus propiedade
 También se desarrollaron pruebas para la pendiente, intervalos de confianza y predicción, descomposición ANOVA, coeficiente de determinación, análisis de residuos, apalancamiento e influencia.
 
 La regresión lineal simple constituye la base para la regresión múltiple, la regularización y numerosos modelos de aprendizaje supervisado.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @james2021introduction.
+

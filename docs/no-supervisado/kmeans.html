@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -653,6 +672,7 @@ window.Quarto = {
   <li><a href="#ejercicio-del-codo" id="toc-ejercicio-del-codo" class="nav-link" data-scroll-target="#ejercicio-del-codo"><span class="header-section-number">22.68</span> Ejercicio del codo</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">22.69</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">22.70</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1633,10 +1653,22 @@ b(i)=4.
 <p>Se formuló la función objetivo, se derivó la media como centroide óptimo y se explicó el algoritmo de Lloyd mediante pasos alternantes de asignación y actualización.</p>
 <p>También se analizaron convergencia local, inicialización, K-means++, selección de <span class="math inline">\(K\)</span>, método del codo, silueta, índice Gap, estabilidad y complejidad computacional.</p>
 <p>Finalmente, se estudiaron sensibilidad a escala, valores atípicos, grupos no esféricos, relación con mezclas gaussianas, cuantización vectorial y variantes para datos grandes o mixtos.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="lloyd1982least">Lloyd (<a href="../referencias.html#ref-lloyd1982least" role="doc-biblioref">1982</a>)</span>; <span class="citation" data-cites="arthur2007kmeans">Arthur y Vassilvitskii (<a href="../referencias.html#ref-arthur2007kmeans" role="doc-biblioref">2007</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-arthur2007kmeans" class="csl-entry" role="listitem">
+Arthur, David, y Sergei Vassilvitskii. 2007. <span>«K-means++: The Advantages of Careful Seeding»</span>. <em>Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms</em>, 1027-35.
+</div>
+<div id="ref-lloyd1982least" class="csl-entry" role="listitem">
+Lloyd, Stuart P. 1982. <span>«Least Squares Quantization in PCM»</span>. <em>IEEE Transactions on Information Theory</em> 28 (2): 129-37. <a href="https://doi.org/10.1109/TIT.1982.1056489">https://doi.org/10.1109/TIT.1982.1056489</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -3125,6 +3157,10 @@ b(i)=4.
 <span id="cb2-1009"><a href="#cb2-1009" aria-hidden="true" tabindex="-1"></a>También se analizaron convergencia local, inicialización, K-means++, selección de $K$, método del codo, silueta, índice Gap, estabilidad y complejidad computacional.</span>
 <span id="cb2-1010"><a href="#cb2-1010" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1011"><a href="#cb2-1011" aria-hidden="true" tabindex="-1"></a>Finalmente, se estudiaron sensibilidad a escala, valores atípicos, grupos no esféricos, relación con mezclas gaussianas, cuantización vectorial y variantes para datos grandes o mixtos.</span>
+<span id="cb2-1012"><a href="#cb2-1012" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1013"><a href="#cb2-1013" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1014"><a href="#cb2-1014" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1015"><a href="#cb2-1015" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @lloyd1982least; @arthur2007kmeans.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

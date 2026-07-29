@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -654,6 +673,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-sesgo-y-varianza" id="toc-ejercicio-de-sesgo-y-varianza" class="nav-link" data-scroll-target="#ejercicio-de-sesgo-y-varianza"><span class="header-section-number">9.60</span> Ejercicio de sesgo y varianza</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">9.61</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">9.62</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1799,10 +1819,22 @@ J(\boldsymbol{\beta})
 <p>En este capítulo se formuló matemáticamente el aprendizaje supervisado como un problema de selección de funciones. Se definieron espacios de entrada y salida, muestras de entrenamiento, hipótesis, espacios de hipótesis, parámetros e hiperparámetros.</p>
 <p>También se estudiaron funciones de pérdida, riesgo esperado, riesgo empírico, minimización del riesgo empírico y generalización.</p>
 <p>Finalmente, se analizaron sobreajuste, subajuste, complejidad, regularización, sesgo, varianza, ruido irreducible y selección de modelos. Estos conceptos servirán como base para la teoría de clasificación y para los algoritmos específicos de los capítulos posteriores.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="vapnik1998statistical">Vapnik (<a href="../referencias.html#ref-vapnik1998statistical" role="doc-biblioref">1998</a>)</span>; <span class="citation" data-cites="murphy2022probabilistic">Murphy (<a href="../referencias.html#ref-murphy2022probabilistic" role="doc-biblioref">2022</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-murphy2022probabilistic" class="csl-entry" role="listitem">
+Murphy, Kevin P. 2022. <em>Probabilistic Machine Learning: An Introduction</em>. MIT Press.
+</div>
+<div id="ref-vapnik1998statistical" class="csl-entry" role="listitem">
+Vapnik, Vladimir N. 1998. <em>Statistical Learning Theory</em>. Wiley.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -3527,6 +3559,10 @@ J(\boldsymbol{\beta})
 <span id="cb2-1245"><a href="#cb2-1245" aria-hidden="true" tabindex="-1"></a>También se estudiaron funciones de pérdida, riesgo esperado, riesgo empírico, minimización del riesgo empírico y generalización.</span>
 <span id="cb2-1246"><a href="#cb2-1246" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1247"><a href="#cb2-1247" aria-hidden="true" tabindex="-1"></a>Finalmente, se analizaron sobreajuste, subajuste, complejidad, regularización, sesgo, varianza, ruido irreducible y selección de modelos. Estos conceptos servirán como base para la teoría de clasificación y para los algoritmos específicos de los capítulos posteriores.</span>
+<span id="cb2-1248"><a href="#cb2-1248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1249"><a href="#cb2-1249" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1250"><a href="#cb2-1250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1251"><a href="#cb2-1251" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @vapnik1998statistical; @murphy2022probabilistic.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

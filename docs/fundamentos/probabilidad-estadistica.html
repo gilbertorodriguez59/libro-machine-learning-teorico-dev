@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -651,6 +670,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-máxima-verosimilitud" id="toc-ejercicio-de-máxima-verosimilitud" class="nav-link" data-scroll-target="#ejercicio-de-máxima-verosimilitud"><span class="header-section-number">7.66</span> Ejercicio de máxima verosimilitud</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">7.67</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">7.68</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -2028,10 +2048,22 @@ P(A\cap B)=0.25.
 <p>También se estudiaron variables aleatorias, funciones de masa y densidad, esperanza, varianza, covarianza, correlación, distribuciones conjuntas y vectores aleatorios.</p>
 <p>Finalmente, se introdujeron conceptos de inferencia estadística, como estimadores, sesgo, consistencia, error cuadrático medio, máxima verosimilitud, estimación bayesiana, intervalos de confianza y pruebas de hipótesis.</p>
 <p>Estos elementos serán utilizados posteriormente en regresión logística, clasificación bayesiana, árboles de decisión, PCA, validación y teoría de generalización.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="murphy2022probabilistic">Murphy (<a href="../referencias.html#ref-murphy2022probabilistic" role="doc-biblioref">2022</a>)</span>; <span class="citation" data-cites="bishop2006pattern">Bishop (<a href="../referencias.html#ref-bishop2006pattern" role="doc-biblioref">2006</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bishop2006pattern" class="csl-entry" role="listitem">
+Bishop, Christopher M. 2006. <em>Pattern Recognition and Machine Learning</em>. Springer.
+</div>
+<div id="ref-murphy2022probabilistic" class="csl-entry" role="listitem">
+Murphy, Kevin P. 2022. <em>Probabilistic Machine Learning: An Introduction</em>. MIT Press.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -4076,6 +4108,10 @@ P(A\cap B)=0.25.
 <span id="cb2-1565"><a href="#cb2-1565" aria-hidden="true" tabindex="-1"></a>Finalmente, se introdujeron conceptos de inferencia estadística, como estimadores, sesgo, consistencia, error cuadrático medio, máxima verosimilitud, estimación bayesiana, intervalos de confianza y pruebas de hipótesis.</span>
 <span id="cb2-1566"><a href="#cb2-1566" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-1567"><a href="#cb2-1567" aria-hidden="true" tabindex="-1"></a>Estos elementos serán utilizados posteriormente en regresión logística, clasificación bayesiana, árboles de decisión, PCA, validación y teoría de generalización.</span>
+<span id="cb2-1568"><a href="#cb2-1568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1569"><a href="#cb2-1569" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1570"><a href="#cb2-1570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-1571"><a href="#cb2-1571" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @murphy2022probabilistic; @bishop2006pattern.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -1706,3 +1706,8 @@ Se derivó el estimador de mínimos cuadrados, se estudiaron sus propiedades, su
 También se presentaron pruebas individuales y globales, comparación de modelos anidados, $R^2$, $R^2$ ajustado, predicción, variables categóricas, interacciones y transformaciones.
 
 Finalmente, se analizaron multicolinealidad, VIF, selección de variables, apalancamiento, influencia y diagnóstico. Estos fundamentos preparan el estudio de regresión logística y modelos lineales más avanzados.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @mardia1979multivariate.
+

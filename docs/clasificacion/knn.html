@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -650,6 +669,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-selección-de-k" id="toc-ejercicio-de-selección-de-k" class="nav-link" data-scroll-target="#ejercicio-de-selección-de-k"><span class="header-section-number">16.57</span> Ejercicio de selección de k</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">16.58</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">16.59</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1527,10 +1547,25 @@ O(np)
 <p>En este capítulo se desarrolló el método de vecinos más cercanos como un procedimiento no paramétrico y local para clasificación y regresión.</p>
 <p>Se formularon matemáticamente la noción de vecino, las reglas de voto y promedio, las distancias más utilizadas y la interpretación de <span class="math inline">\(k\)</span> como parámetro de suavizamiento. También se analizó el compromiso entre sesgo y varianza, la consistencia, la maldición de la dimensionalidad, la necesidad de escalamiento y las variantes ponderadas.</p>
 <p>Finalmente, se estudiaron sus costos computacionales, su relación con la regla de Bayes, con celdas de Voronoi y con estimadores locales. Estos fundamentos preparan el estudio de árboles de decisión, métodos de margen y otros clasificadores no lineales.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="cover1967nearest">Cover y Hart (<a href="../referencias.html#ref-cover1967nearest" role="doc-biblioref">1967</a>)</span>; <span class="citation" data-cites="stone1977consistent">Stone (<a href="../referencias.html#ref-stone1977consistent" role="doc-biblioref">1977</a>)</span>; <span class="citation" data-cites="duda2001pattern">Duda et&nbsp;al. (<a href="../referencias.html#ref-duda2001pattern" role="doc-biblioref">2001</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-cover1967nearest" class="csl-entry" role="listitem">
+Cover, Thomas M., y Peter E. Hart. 1967. <span>«Nearest Neighbor Pattern Classification»</span>. <em>IEEE Transactions on Information Theory</em> 13 (1): 21-27. <a href="https://doi.org/10.1109/TIT.1967.1053964">https://doi.org/10.1109/TIT.1967.1053964</a>.
+</div>
+<div id="ref-duda2001pattern" class="csl-entry" role="listitem">
+Duda, Richard O., Peter E. Hart, y David G. Stork. 2001. <em>Pattern Classification</em>. 2.ª ed. Wiley.
+</div>
+<div id="ref-stone1977consistent" class="csl-entry" role="listitem">
+Stone, Charles J. 1977. <span>«Consistent Nonparametric Regression»</span>. <em>The Annals of Statistics</em> 5 (4): 595-620. <a href="https://doi.org/10.1214/aos/1176343886">https://doi.org/10.1214/aos/1176343886</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -2841,6 +2876,10 @@ O(np)
 <span id="cb2-831"><a href="#cb2-831" aria-hidden="true" tabindex="-1"></a>Se formularon matemáticamente la noción de vecino, las reglas de voto y promedio, las distancias más utilizadas y la interpretación de $k$ como parámetro de suavizamiento. También se analizó el compromiso entre sesgo y varianza, la consistencia, la maldición de la dimensionalidad, la necesidad de escalamiento y las variantes ponderadas.</span>
 <span id="cb2-832"><a href="#cb2-832" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-833"><a href="#cb2-833" aria-hidden="true" tabindex="-1"></a>Finalmente, se estudiaron sus costos computacionales, su relación con la regla de Bayes, con celdas de Voronoi y con estimadores locales. Estos fundamentos preparan el estudio de árboles de decisión, métodos de margen y otros clasificadores no lineales.</span>
+<span id="cb2-834"><a href="#cb2-834" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-835"><a href="#cb2-835" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-836"><a href="#cb2-836" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-837"><a href="#cb2-837" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @cover1967nearest; @stone1977consistent; @duda2001pattern.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

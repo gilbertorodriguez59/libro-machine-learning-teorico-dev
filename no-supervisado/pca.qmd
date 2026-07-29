@@ -1097,3 +1097,8 @@ Se derivó la primera componente mediante maximización de varianza y multiplica
 También se estudiaron puntuaciones, cargas, varianza explicada, selección del número de componentes, reconstrucción, error de aproximación y formulación mediante SVD.
 
 Finalmente, se analizaron estandarización, valores atípicos, fuga de información, PCA probabilístico, kernel PCA, aplicaciones predictivas y limitaciones interpretativas.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @pearson1901lines; @hotelling1933analysis; @mardia1979multivariate.
+

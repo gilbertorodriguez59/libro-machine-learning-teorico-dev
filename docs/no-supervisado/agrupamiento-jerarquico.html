@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -636,6 +655,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-ward" id="toc-ejercicio-de-ward" class="nav-link" data-scroll-target="#ejercicio-de-ward"><span class="header-section-number">23.40</span> Ejercicio de Ward</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">23.41</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">23.42</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1352,10 +1372,22 @@ d_{\text{promedio}}(A,B)
 <p>En este capítulo se desarrolló el agrupamiento jerárquico como método para construir grupos anidados.</p>
 <p>Se estudiaron los enfoques aglomerativo y divisivo, las matrices de distancia, los enlaces simple, completo, promedio, por centroides y Ward.</p>
 <p>También se analizaron dendrogramas, alturas, cortes, distancias cofenéticas, fórmula de Lance-Williams, estabilidad, valores atípicos, complejidad y comparación con K-means.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="ward1963hierarchical">Ward (<a href="../referencias.html#ref-ward1963hierarchical" role="doc-biblioref">1963</a>)</span>; <span class="citation" data-cites="mardia1979multivariate">Mardia et&nbsp;al. (<a href="../referencias.html#ref-mardia1979multivariate" role="doc-biblioref">1979</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-mardia1979multivariate" class="csl-entry" role="listitem">
+Mardia, Kanti V., John T. Kent, y John M. Bibby. 1979. <em>Multivariate Analysis</em>. Academic Press.
+</div>
+<div id="ref-ward1963hierarchical" class="csl-entry" role="listitem">
+Ward, Joe H. 1963. <span>«Hierarchical Grouping to Optimize an Objective Function»</span>. <em>Journal of the American Statistical Association</em> 58 (301): 236-44. <a href="https://doi.org/10.1080/01621459.1963.10500845">https://doi.org/10.1080/01621459.1963.10500845</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -2553,6 +2585,10 @@ d_{\text{promedio}}(A,B)
 <span id="cb2-718"><a href="#cb2-718" aria-hidden="true" tabindex="-1"></a>Se estudiaron los enfoques aglomerativo y divisivo, las matrices de distancia, los enlaces simple, completo, promedio, por centroides y Ward.</span>
 <span id="cb2-719"><a href="#cb2-719" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-720"><a href="#cb2-720" aria-hidden="true" tabindex="-1"></a>También se analizaron dendrogramas, alturas, cortes, distancias cofenéticas, fórmula de Lance-Williams, estabilidad, valores atípicos, complejidad y comparación con K-means.</span>
+<span id="cb2-721"><a href="#cb2-721" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-722"><a href="#cb2-722" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-723"><a href="#cb2-723" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-724"><a href="#cb2-724" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @ward1963hierarchical; @mardia1979multivariate.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

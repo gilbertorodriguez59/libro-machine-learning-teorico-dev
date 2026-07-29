@@ -1243,3 +1243,8 @@ En este capítulo se formuló matemáticamente el aprendizaje supervisado como u
 También se estudiaron funciones de pérdida, riesgo esperado, riesgo empírico, minimización del riesgo empírico y generalización.
 
 Finalmente, se analizaron sobreajuste, subajuste, complejidad, regularización, sesgo, varianza, ruido irreducible y selección de modelos. Estos conceptos servirán como base para la teoría de clasificación y para los algoritmos específicos de los capítulos posteriores.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @vapnik1998statistical; @murphy2022probabilistic.
+

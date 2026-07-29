@@ -829,3 +829,8 @@ En este capítulo se desarrolló el método de vecinos más cercanos como un pro
 Se formularon matemáticamente la noción de vecino, las reglas de voto y promedio, las distancias más utilizadas y la interpretación de $k$ como parámetro de suavizamiento. También se analizó el compromiso entre sesgo y varianza, la consistencia, la maldición de la dimensionalidad, la necesidad de escalamiento y las variantes ponderadas.
 
 Finalmente, se estudiaron sus costos computacionales, su relación con la regla de Bayes, con celdas de Voronoi y con estimadores locales. Estos fundamentos preparan el estudio de árboles de decisión, métodos de margen y otros clasificadores no lineales.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @cover1967nearest; @stone1977consistent; @duda2001pattern.
+

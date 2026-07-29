@@ -7,7 +7,7 @@ title-block-style: none
 
 ::: {.content-visible when-format="html"}
 
-![](estilos/portadas/portada-teorico-web.png){.hero-portada-teorico fig-alt="Portada horizontal del libro Fundamentos Matemáticos del Aprendizaje Automático"}
+![](estilos/portadas/portada-teorico-web.png){.hero-portada-teorico .web-cover-first fig-alt="Portada horizontal del libro Fundamentos Matemáticos del Aprendizaje Automático"}
 
 :::
 

@@ -1658,3 +1658,8 @@ En este capítulo se desarrollaron los conceptos de escalares, vectores, matrice
 También se estudiaron sistemas lineales, inversas, rango, espacios columna y nulo, transformaciones lineales, formas cuadráticas, matrices definidas positivas, valores propios, descomposición espectral y descomposición en valores singulares.
 
 Estas herramientas constituyen la base matemática de numerosos algoritmos de aprendizaje automático, entre ellos regresión lineal, PCA, máquinas de vectores de soporte, redes neuronales, agrupamiento y métodos de reducción de dimensionalidad.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @mardia1979multivariate; @bishop2006pattern.
+

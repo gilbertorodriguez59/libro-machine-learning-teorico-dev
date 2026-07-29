@@ -1563,3 +1563,8 @@ También se estudiaron variables aleatorias, funciones de masa y densidad, esper
 Finalmente, se introdujeron conceptos de inferencia estadística, como estimadores, sesgo, consistencia, error cuadrático medio, máxima verosimilitud, estimación bayesiana, intervalos de confianza y pruebas de hipótesis.
 
 Estos elementos serán utilizados posteriormente en regresión logística, clasificación bayesiana, árboles de decisión, PCA, validación y teoría de generalización.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @murphy2022probabilistic; @bishop2006pattern.
+

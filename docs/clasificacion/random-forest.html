@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -633,6 +652,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-importancia" id="toc-ejercicio-de-importancia" class="nav-link" data-scroll-target="#ejercicio-de-importancia"><span class="header-section-number">18.48</span> Ejercicio de importancia</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">18.49</span> Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">18.50</span> Resumen</a></li>
+  <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -1315,10 +1335,22 @@ B=100.
 <p>Se explicó bagging, el error out-of-bag, el papel de <code>mtry</code>, la relación entre fuerza y correlación, y la reducción de varianza mediante promediación.</p>
 <p>También se estudiaron importancia por impureza y por permutación, proximidades, desbalance de clases, calibración, dependencia parcial, complejidad computacional y selección de hiperparámetros.</p>
 <p>Finalmente, se comparó Random Forest con árboles individuales, <span class="math inline">\(k\)</span>-NN y boosting.</p>
+</section>
+<section id="referencias-del-capítulo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
+<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="breiman2001random">Breiman (<a href="../referencias.html#ref-breiman2001random" role="doc-biblioref">2001</a>)</span>; <span class="citation" data-cites="hastie2009elements">Hastie et&nbsp;al. (<a href="../referencias.html#ref-hastie2009elements" role="doc-biblioref">2009</a>)</span>.</p>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-breiman2001random" class="csl-entry" role="listitem">
+Breiman, Leo. 2001. <span>«Random Forests»</span>. <em>Machine Learning</em> 45: 5-32. <a href="https://doi.org/10.1023/A:1010933404324">https://doi.org/10.1023/A:1010933404324</a>.
+</div>
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2.ª ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -2484,6 +2516,10 @@ B=100.
 <span id="cb2-686"><a href="#cb2-686" aria-hidden="true" tabindex="-1"></a>También se estudiaron importancia por impureza y por permutación, proximidades, desbalance de clases, calibración, dependencia parcial, complejidad computacional y selección de hiperparámetros.</span>
 <span id="cb2-687"><a href="#cb2-687" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-688"><a href="#cb2-688" aria-hidden="true" tabindex="-1"></a>Finalmente, se comparó Random Forest con árboles individuales, $k$-NN y boosting.</span>
+<span id="cb2-689"><a href="#cb2-689" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-690"><a href="#cb2-690" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-691"><a href="#cb2-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-692"><a href="#cb2-692" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @breiman2001random; @hastie2009elements.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -1026,3 +1026,8 @@ En este capítulo se desarrolló la teoría matemática de los árboles de decis
 Se formalizó la partición recursiva del espacio, las reglas de predicción por hojas, los criterios de Gini, entropía, ganancia de información y suma de cuadrados. También se estudiaron ID3, C4.5 y CART.
 
 Finalmente, se analizaron profundidad, sobreajuste, poda por complejidad de costo, validación, probabilidades en hojas, clases desbalanceadas, importancia de variables, inestabilidad y relación con random forest y boosting.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @breiman1984cart; @quinlan1986induction.
+

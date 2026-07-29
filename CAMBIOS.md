@@ -283,3 +283,28 @@
 - Se reforzó la portada como primer elemento visible de la web.
 - Se conserva la portada vertical como primera hoja real del PDF.
 - Se actualizó la presentación con la estructura verificada del libro.
+## Versión 0.25
+
+- Desarrollo completo del Capítulo 21: Teoría de generalización.
+- Inclusión de riesgo esperado, riesgo empírico y brecha de generalización.
+- Desarrollo de Hoeffding, aprendizaje PAC, dimensión VC y lema de Sauer.
+- Inclusión de complejidad de Rademacher, estabilidad y PAC-Bayes.
+- Desarrollo de regularización, margen, selección de modelos y cambio de distribución.
+- La portada vertical se fijó como página 1 real del PDF mediante `titlepage` sin márgenes.
+- Se eliminó cualquier bloque automático de título anterior.
+- Se añadieron referencias académicas específicas del capítulo.
+
+## Versión 0.26
+
+- Desarrollo completo del Capítulo 22: Series de tiempo y aprendizaje automático.
+- Inclusión de tendencia, estacionalidad, estacionariedad, ACF y PACF.
+- Desarrollo de procesos AR, MA, ARMA y ARIMA.
+- Inclusión de diferenciación y suavizamiento exponencial.
+- Desarrollo de métricas, pronósticos probabilísticos y validación temporal.
+- Inclusión de rezagos, ventanas móviles y variables exógenas.
+- Desarrollo de Random Forest, boosting, RNN, LSTM y transformers para series.
+- Se corrigió la portada PDF mediante `include-before-body`.
+- La portada se inserta antes de cualquier contenido del libro.
+- Se eliminó la portada PDF duplicada de `index.qmd`.
+- Se agregó el archivo `estilos/portadas/portada-pdf.tex`.
+- Se añadieron referencias académicas de series de tiempo.

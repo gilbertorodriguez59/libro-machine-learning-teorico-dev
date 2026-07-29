@@ -13649,7 +13649,260 @@
     "href": "avanzados/teoria-generalizacion.html",
     "title": "25  Teoría de generalización",
     "section": "",
-    "text": "Capítulo en desarrollo.",
+    "text": "25.1 Introducción\nLa finalidad del aprendizaje automático es construir modelos que funcionen con observaciones nuevas. La teoría de generalización estudia cuándo el desempeño observado en la muestra representa adecuadamente el riesgo sobre la población y cómo influyen el tamaño muestral, la complejidad del modelo y la regularización (Vapnik y Chervonenkis 1971; Valiant 1984; Shalev-Shwartz y Ben-David 2014).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#riesgo-esperado-y-riesgo-empírico",
+    "href": "avanzados/teoria-generalizacion.html#riesgo-esperado-y-riesgo-empírico",
+    "title": "25  Teoría de generalización",
+    "section": "25.2 Riesgo esperado y riesgo empírico",
+    "text": "25.2 Riesgo esperado y riesgo empírico\nPara una función \\(f\\) y una pérdida \\(L\\), el riesgo esperado es\n\\[\nR(f)=\\mathbb{E}[L(Y,f(\\mathbf{X}))].\n\\]\nDada una muestra de tamaño \\(n\\), el riesgo empírico es\n\\[\n\\widehat R_n(f)=\\frac{1}{n}\\sum_{i=1}^n L(y_i,f(\\mathbf{x}_i)).\n\\]\nLa diferencia\n\\[\nR(f)-\\widehat R_n(f)\n\\]\nse denomina brecha de generalización.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#minimización-del-riesgo-empírico",
+    "href": "avanzados/teoria-generalizacion.html#minimización-del-riesgo-empírico",
+    "title": "25  Teoría de generalización",
+    "section": "25.3 Minimización del riesgo empírico",
+    "text": "25.3 Minimización del riesgo empírico\nEl estimador ERM es\n\\[\n\\widehat f_{ERM}=\\operatorname*{arg\\,min}_{f\\in\\mathcal F}\\widehat R_n(f).\n\\]\nSi el riesgo empírico aproxima uniformemente al riesgo esperado, entonces ERM generaliza.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#exceso-de-riesgo",
+    "href": "avanzados/teoria-generalizacion.html#exceso-de-riesgo",
+    "title": "25  Teoría de generalización",
+    "section": "25.4 Exceso de riesgo",
+    "text": "25.4 Exceso de riesgo\nSea \\(f^*\\) el predictor óptimo y \\(f^*_{\\mathcal F}\\) el mejor predictor dentro de \\(\\mathcal F\\). Entonces\n\\[\nR(\\widehat f)-R(f^*)=\n[R(\\widehat f)-R(f^*_{\\mathcal F})]+[R(f^*_{\\mathcal F})-R(f^*)].\n\\]\nEl primer término es error de estimación y el segundo error de aproximación.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#convergencia-uniforme",
+    "href": "avanzados/teoria-generalizacion.html#convergencia-uniforme",
+    "title": "25  Teoría de generalización",
+    "section": "25.5 Convergencia uniforme",
+    "text": "25.5 Convergencia uniforme\nSe busca controlar\n\\[\n\\sup_{f\\in\\mathcal F}|R(f)-\\widehat R_n(f)|.\n\\]\nSi esta cantidad es menor que \\(\\varepsilon\\), entonces\n\\[\nR(\\widehat f_{ERM})\\le R(f^*_{\\mathcal F})+2\\varepsilon.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#desigualdad-de-hoeffding",
+    "href": "avanzados/teoria-generalizacion.html#desigualdad-de-hoeffding",
+    "title": "25  Teoría de generalización",
+    "section": "25.6 Desigualdad de Hoeffding",
+    "text": "25.6 Desigualdad de Hoeffding\nSi \\(0\\le L\\le1\\), para un predictor fijo,\n\\[\nP(|R(f)-\\widehat R_n(f)|\\ge\\varepsilon)\\le2e^{-2n\\varepsilon^2}.\n\\]\nCon probabilidad al menos \\(1-\\delta\\),\n\\[\nR(f)\\le\\widehat R_n(f)+\\sqrt{\\frac{\\log(2/\\delta)}{2n}}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#clases-finitas",
+    "href": "avanzados/teoria-generalizacion.html#clases-finitas",
+    "title": "25  Teoría de generalización",
+    "section": "25.7 Clases finitas",
+    "text": "25.7 Clases finitas\nSi \\(|\\mathcal F|=M\\), una unión de eventos produce\n\\[\nR(f)\\le\\widehat R_n(f)+\\sqrt{\\frac{\\log(2M/\\delta)}{2n}}\n\\]\nsimultáneamente para todos los modelos. La penalización aumenta con \\(\\log M\\) y disminuye con \\(n\\).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#aprendizaje-pac",
+    "href": "avanzados/teoria-generalizacion.html#aprendizaje-pac",
+    "title": "25  Teoría de generalización",
+    "section": "25.8 Aprendizaje PAC",
+    "text": "25.8 Aprendizaje PAC\nPAC significa Probably Approximately Correct. Un algoritmo aprende una clase si para todo \\(\\varepsilon&gt;0\\) y \\(\\delta&gt;0\\) devuelve, con probabilidad al menos \\(1-\\delta\\), un predictor cuyo error está a lo sumo \\(\\varepsilon\\) del objetivo.\nEn el caso realizable, la complejidad muestral para una clase finita es del orden de\n\\[\n\\frac{\\log M+\\log(1/\\delta)}{\\varepsilon}.\n\\]\nEn el caso agnóstico es del orden de\n\\[\n\\frac{\\log M+\\log(1/\\delta)}{\\varepsilon^2}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#dimensión-vc",
+    "href": "avanzados/teoria-generalizacion.html#dimensión-vc",
+    "title": "25  Teoría de generalización",
+    "section": "25.9 Dimensión VC",
+    "text": "25.9 Dimensión VC\nLa dimensión VC es el mayor número de puntos que una clase puede fragmentar, es decir, etiquetar de todas las formas binarias posibles.\n\numbrales en la recta: VC igual a 1;\nintervalos: VC igual a 2;\nhiperplanos en \\(\\mathbb R^p\\): VC igual a \\(p+1\\).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#función-de-crecimiento-y-lema-de-sauer",
+    "href": "avanzados/teoria-generalizacion.html#función-de-crecimiento-y-lema-de-sauer",
+    "title": "25  Teoría de generalización",
+    "section": "25.10 Función de crecimiento y lema de Sauer",
+    "text": "25.10 Función de crecimiento y lema de Sauer\nLa función de crecimiento \\(\\Pi_{\\mathcal F}(n)\\) cuenta el máximo número de etiquetaciones inducidas por la clase. Si la dimensión VC es \\(d\\),\n\\[\n\\Pi_{\\mathcal F}(n)\\le\\sum_{j=0}^{d}\\binom{n}{j}\\le\\left(\\frac{en}{d}\\right)^d.\n\\]\nUna cota típica es\n\\[\nR(f)\\le\\widehat R_n(f)+C\\sqrt{\\frac{d\\log(n/d)+\\log(1/\\delta)}{n}}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#complejidad-de-rademacher",
+    "href": "avanzados/teoria-generalizacion.html#complejidad-de-rademacher",
+    "title": "25  Teoría de generalización",
+    "section": "25.11 Complejidad de Rademacher",
+    "text": "25.11 Complejidad de Rademacher\nLa complejidad empírica es\n\\[\n\\widehat{\\mathfrak R}_n(\\mathcal F)=\\mathbb E_{\\boldsymbol\\sigma}\\left[\\sup_{f\\in\\mathcal F}\\frac1n\\sum_{i=1}^n\\sigma_i f(\\mathbf x_i)\\right],\n\\]\ndonde \\(\\sigma_i\\in\\{-1,+1\\}\\). Mide la capacidad de la clase para ajustarse a ruido aleatorio (Bartlett y Mendelson 2002).\nUna cota típica es\n\\[\nR(f)\\le\\widehat R_n(f)+2\\mathfrak R_n(\\mathcal F)+\\sqrt{\\frac{\\log(1/\\delta)}{2n}}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#regularización-norma-y-margen",
+    "href": "avanzados/teoria-generalizacion.html#regularización-norma-y-margen",
+    "title": "25  Teoría de generalización",
+    "section": "25.12 Regularización, norma y margen",
+    "text": "25.12 Regularización, norma y margen\nLa regularización restringe la clase efectiva. En modelos lineales, limitar \\(\\|\\mathbf w\\|_2\\) reduce capacidad. En SVM, un margen grande puede producir cotas que dependen aproximadamente de\n\\[\n\\frac{R^2}{\\gamma^2},\n\\]\ndonde \\(R\\) acota la norma de las entradas y \\(\\gamma\\) es el margen.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#estabilidad-algorítmica",
+    "href": "avanzados/teoria-generalizacion.html#estabilidad-algorítmica",
+    "title": "25  Teoría de generalización",
+    "section": "25.13 Estabilidad algorítmica",
+    "text": "25.13 Estabilidad algorítmica\nUn algoritmo es estable si reemplazar una observación cambia poco la pérdida. Si\n\\[\n|L(z,A(\\mathcal D_n))-L(z,A(\\mathcal D_n^{(i)}))|\\le\\beta_n,\n\\]\ny \\(\\beta_n\\to0\\), la influencia de una observación disminuye con \\(n\\). Los algoritmos regularizados suelen ser más estables.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#pac-bayes",
+    "href": "avanzados/teoria-generalizacion.html#pac-bayes",
+    "title": "25  Teoría de generalización",
+    "section": "25.14 PAC-Bayes",
+    "text": "25.14 PAC-Bayes\nLas cotas PAC-Bayes consideran una distribución previa \\(P\\) y una posterior \\(Q\\) sobre modelos. La penalización depende de\n\\[\n\\sqrt{\\frac{KL(Q\\|P)+\\log(1/\\delta)}{n}}.\n\\]\nUn posterior cercano a una prior simple puede obtener una mejor garantía (McAllester 1999).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#selección-de-modelos",
+    "href": "avanzados/teoria-generalizacion.html#selección-de-modelos",
+    "title": "25  Teoría de generalización",
+    "section": "25.15 Selección de modelos",
+    "text": "25.15 Selección de modelos\nComparar muchos modelos usando la misma validación puede sobreajustar el conjunto de validación. La validación cruzada anidada separa selección de hiperparámetros y estimación final del desempeño.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#cambio-de-distribución",
+    "href": "avanzados/teoria-generalizacion.html#cambio-de-distribución",
+    "title": "25  Teoría de generalización",
+    "section": "25.16 Cambio de distribución",
+    "text": "25.16 Cambio de distribución\nLas garantías clásicas suelen suponer\n\\[\nP_{train}=P_{test}.\n\\]\nCuando esta igualdad falla pueden aparecer covariate shift, concept drift o cambios estructurales. En esos casos se requieren validación temporal, reponderación, monitoreo y actualización.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#modelos-sobreparametrizados",
+    "href": "avanzados/teoria-generalizacion.html#modelos-sobreparametrizados",
+    "title": "25  Teoría de generalización",
+    "section": "25.17 Modelos sobreparametrizados",
+    "text": "25.17 Modelos sobreparametrizados\nLas redes modernas pueden tener más parámetros que observaciones y aun así generalizar. La complejidad efectiva depende también de normas, margen, optimización implícita, estructura de los datos y arquitectura.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#doble-descenso",
+    "href": "avanzados/teoria-generalizacion.html#doble-descenso",
+    "title": "25  Teoría de generalización",
+    "section": "25.18 Doble descenso",
+    "text": "25.18 Doble descenso\nEl error de prueba puede disminuir, aumentar cerca del umbral de interpolación y volver a disminuir en el régimen sobreparametrizado. Este comportamiento se denomina doble descenso.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#cotas-vacías",
+    "href": "avanzados/teoria-generalizacion.html#cotas-vacías",
+    "title": "25  Teoría de generalización",
+    "section": "25.19 Cotas vacías",
+    "text": "25.19 Cotas vacías\nUna cota puede ser matemáticamente válida pero numéricamente inútil si supera el máximo posible del riesgo. Deben distinguirse validez formal y utilidad práctica.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#conexión-con-los-algoritmos",
+    "href": "avanzados/teoria-generalizacion.html#conexión-con-los-algoritmos",
+    "title": "25  Teoría de generalización",
+    "section": "25.20 Conexión con los algoritmos",
+    "text": "25.20 Conexión con los algoritmos\n\nK-NN controla complejidad mediante \\(k\\).\nÁrboles mediante profundidad y poda.\nRandom Forest reduce varianza por promediación.\nSVM utiliza margen y norma.\nRedes neuronales emplean arquitectura, regularización, dropout y parada temprana.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#ejemplo-en-r",
+    "href": "avanzados/teoria-generalizacion.html#ejemplo-en-r",
+    "title": "25  Teoría de generalización",
+    "section": "25.21 Ejemplo en R",
+    "text": "25.21 Ejemplo en R\n\n\nCódigo\nset.seed(123)\nsimular &lt;- function(n, B=1000) {\n  mean(replicate(B, abs(mean(rbinom(n,1,0.3))-0.3)))\n}\nsapply(c(50,100,500,1000), simular)",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#ejercicios",
+    "href": "avanzados/teoria-generalizacion.html#ejercicios",
+    "title": "25  Teoría de generalización",
+    "section": "25.22 Ejercicios",
+    "text": "25.22 Ejercicios\n\nDistinga riesgo esperado y empírico.\nCalcule la cota de Hoeffding para \\(n=500\\) y \\(\\delta=0.05\\).\nExplique la diferencia entre caso realizable y agnóstico.\nDetermine la dimensión VC de umbrales, intervalos e hiperplanos.\nExplique qué mide la complejidad de Rademacher.\nAnalice cómo la regularización mejora estabilidad.\nDiseñe una validación anidada para comparar regresión logística, SVM, Random Forest y una red neuronal.\nExplique por qué una cota puede ser vacía.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#resumen",
+    "href": "avanzados/teoria-generalizacion.html#resumen",
+    "title": "25  Teoría de generalización",
+    "section": "25.23 Resumen",
+    "text": "25.23 Resumen\nSe estudiaron riesgo esperado, riesgo empírico, convergencia uniforme, Hoeffding, aprendizaje PAC, dimensión VC, complejidad de Rademacher, estabilidad y PAC-Bayes. También se analizaron regularización, selección de modelos, cambio de distribución y sobreparametrización.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/teoria-generalizacion.html#referencias-del-capítulo",
+    "href": "avanzados/teoria-generalizacion.html#referencias-del-capítulo",
+    "title": "25  Teoría de generalización",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Vapnik y Chervonenkis (1971), Valiant (1984), Vapnik (1998), Shalev-Shwartz y Ben-David (2014), Mohri et al. (2018), Bartlett y Mendelson (2002) y McAllester (1999).\n\n\n\n\n\n\nBartlett, Peter L., y Shahar Mendelson. 2002. «Rademacher and Gaussian Complexities: Risk Bounds and Structural Results». Journal of Machine Learning Research 3: 463-82.\n\n\nMcAllester, David A. 1999. «PAC-Bayesian Model Averaging». Proceedings of the Twelfth Annual Conference on Computational Learning Theory, 164-70.\n\n\nMohri, Mehryar, Afshin Rostamizadeh, y Ameet Talwalkar. 2018. Foundations of Machine Learning. 2.ª ed. MIT Press.\n\n\nShalev-Shwartz, Shai, y Shai Ben-David. 2014. Understanding Machine Learning: From Theory to Algorithms. Cambridge University Press.\n\n\nValiant, Leslie G. 1984. «A Theory of the Learnable». Communications of the ACM 27 (11): 1134-42.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.\n\n\nVapnik, Vladimir N., y Alexey Y. Chervonenkis. 1971. «On the Uniform Convergence of Relative Frequencies of Events to Their Probabilities». Theory of Probability and Its Applications 16 (2): 264-80.",
     "crumbs": [
       "VI. Temas avanzados",
       "<span class='chapter-number'>25</span>  <span class='chapter-title'>Teoría de generalización</span>"
@@ -13660,7 +13913,887 @@
     "href": "avanzados/series-tiempo.html",
     "title": "26  Series de tiempo y aprendizaje automático",
     "section": "",
-    "text": "Capítulo en desarrollo.",
+    "text": "26.1 Introducción\nUna serie de tiempo es una secuencia de observaciones ordenadas cronológicamente. A diferencia de una muestra transversal, el orden contiene información y las observaciones pueden presentar dependencia temporal.\nEl análisis de series de tiempo busca describir, modelar y pronosticar esta dependencia. Los enfoques clásicos utilizan estructuras como tendencia, estacionalidad, autocorrelación y modelos ARIMA. Los métodos de aprendizaje automático transforman la historia temporal en variables predictoras y utilizan árboles, ensambles, redes neuronales u otros algoritmos.\nLa evaluación correcta exige respetar el orden cronológico. Una partición aleatoria puede mezclar pasado y futuro, producir fuga de información y generar estimaciones excesivamente optimistas.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#objetivos",
+    "href": "avanzados/series-tiempo.html#objetivos",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.2 Objetivos",
+    "text": "26.2 Objetivos\nAl finalizar el capítulo, el lector podrá:\n\nrepresentar una serie temporal;\nidentificar tendencia y estacionalidad;\ndefinir estacionariedad;\ninterpretar autocovarianza y autocorrelación;\ncomprender procesos AR, MA y ARMA;\nformular modelos ARIMA;\ninterpretar diferenciación;\nconstruir variables rezagadas;\nevitar fuga temporal;\ndiseñar validación temporal;\nevaluar pronósticos;\ncomprender pronósticos probabilísticos;\naplicar árboles, Random Forest y redes neuronales;\ncomparar enfoques estadísticos y de aprendizaje automático.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#definición",
+    "href": "avanzados/series-tiempo.html#definición",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.3 Definición",
+    "text": "26.3 Definición\nUna serie de tiempo es una colección\n\\[\n\\{Y_t:t\\in\\mathcal{T}\\},\n\\]\ndonde \\(t\\) representa tiempo.\nEn tiempo discreto:\n\\[\nt=1,2,\\ldots,T.\n\\]\nUna realización observada es\n\\[\ny_1,y_2,\\ldots,y_T.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#componentes",
+    "href": "avanzados/series-tiempo.html#componentes",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.4 Componentes",
+    "text": "26.4 Componentes\nUna descomposición aditiva es\n\\[\nY_t=T_t+S_t+C_t+\\varepsilon_t,\n\\]\ndonde:\n\n\\(T_t\\): tendencia;\n\\(S_t\\): estacionalidad;\n\\(C_t\\): ciclo;\n\\(\\varepsilon_t\\): componente irregular.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#modelo-multiplicativo",
+    "href": "avanzados/series-tiempo.html#modelo-multiplicativo",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.5 Modelo multiplicativo",
+    "text": "26.5 Modelo multiplicativo\nCuando la amplitud estacional aumenta con el nivel:\n\\[\nY_t=T_tS_tC_t\\varepsilon_t.\n\\]\nAplicando logaritmos se obtiene una forma aditiva.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#tendencia",
+    "href": "avanzados/series-tiempo.html#tendencia",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.6 Tendencia",
+    "text": "26.6 Tendencia\nLa tendencia describe el comportamiento de largo plazo.\nPuede ser:\n\ncreciente;\ndecreciente;\nlineal;\nno lineal;\nlocalmente cambiante.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#estacionalidad",
+    "href": "avanzados/series-tiempo.html#estacionalidad",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.7 Estacionalidad",
+    "text": "26.7 Estacionalidad\nLa estacionalidad es un patrón que se repite con periodo conocido:\n\\[\nS_{t+m}=S_t.\n\\]\nEjemplos:\n\n12 meses;\n7 días;\n24 horas;\n4 trimestres.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#estacionariedad-débil",
+    "href": "avanzados/series-tiempo.html#estacionariedad-débil",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.8 Estacionariedad débil",
+    "text": "26.8 Estacionariedad débil\nUn proceso es débilmente estacionario si:\n\\[\n\\mathbb{E}(Y_t)=\\mu\n\\]\nes constante y\n\\[\n\\operatorname{Cov}(Y_t,Y_{t+h})\n=\n\\gamma(h)\n\\]\ndepende solo del rezago \\(h\\).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#autocovarianza",
+    "href": "avanzados/series-tiempo.html#autocovarianza",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.9 Autocovarianza",
+    "text": "26.9 Autocovarianza\n\\[\n\\gamma(h)\n=\n\\operatorname{Cov}(Y_t,Y_{t-h}).\n\\]\nPara \\(h=0\\):\n\\[\n\\gamma(0)=\\operatorname{Var}(Y_t).\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#autocorrelación",
+    "href": "avanzados/series-tiempo.html#autocorrelación",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.10 Autocorrelación",
+    "text": "26.10 Autocorrelación\n\\[\n\\rho(h)\n=\n\\frac{\\gamma(h)}{\\gamma(0)}.\n\\]\nSe cumple\n\\[\n-1\\leq\\rho(h)\\leq1.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#acf-muestral",
+    "href": "avanzados/series-tiempo.html#acf-muestral",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.11 ACF muestral",
+    "text": "26.11 ACF muestral\n\\[\n\\widehat{\\rho}(h)\n=\n\\frac{\n\\sum_{t=h+1}^{T}\n(y_t-\\overline{y})(y_{t-h}-\\overline{y})\n}{\n\\sum_{t=1}^{T}(y_t-\\overline{y})^2\n}.\n\\]\nLa ACF ayuda a detectar dependencia y estacionalidad.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ruido-blanco",
+    "href": "avanzados/series-tiempo.html#ruido-blanco",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.12 Ruido blanco",
+    "text": "26.12 Ruido blanco\nUn proceso de ruido blanco satisface:\n\\[\n\\mathbb{E}(\\varepsilon_t)=0,\n\\]\n\\[\n\\operatorname{Var}(\\varepsilon_t)=\\sigma^2,\n\\]\n\\[\n\\operatorname{Cov}(\\varepsilon_t,\\varepsilon_s)=0\n\\quad (t\\neq s).\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#caminata-aleatoria",
+    "href": "avanzados/series-tiempo.html#caminata-aleatoria",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.13 Caminata aleatoria",
+    "text": "26.13 Caminata aleatoria\n\\[\nY_t=Y_{t-1}+\\varepsilon_t.\n\\]\nNo es estacionaria porque su varianza crece con el tiempo.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#diferenciación",
+    "href": "avanzados/series-tiempo.html#diferenciación",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.14 Diferenciación",
+    "text": "26.14 Diferenciación\nLa primera diferencia es\n\\[\n\\nabla Y_t\n=\nY_t-Y_{t-1}.\n\\]\nLa diferencia estacional es\n\\[\n\\nabla_mY_t\n=\nY_t-Y_{t-m}.\n\\]\nSe utilizan para eliminar tendencia o estacionalidad.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#operador-rezago",
+    "href": "avanzados/series-tiempo.html#operador-rezago",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.15 Operador rezago",
+    "text": "26.15 Operador rezago\nDefínase\n\\[\nBY_t=Y_{t-1}.\n\\]\nEntonces\n\\[\n\\nabla Y_t=(1-B)Y_t.\n\\]\nLa diferencia de orden \\(d\\) es\n\\[\n\\nabla^dY_t=(1-B)^dY_t.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#modelo-autorregresivo-arp",
+    "href": "avanzados/series-tiempo.html#modelo-autorregresivo-arp",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.16 Modelo autorregresivo AR(p)",
+    "text": "26.16 Modelo autorregresivo AR(p)\n\\[\nY_t\n=\nc+\n\\phi_1Y_{t-1}\n+\\cdots+\n\\phi_pY_{t-p}\n+\\varepsilon_t.\n\\]\nEl valor presente depende de sus propios rezagos.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ar1",
+    "href": "avanzados/series-tiempo.html#ar1",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.17 AR(1)",
+    "text": "26.17 AR(1)\n\\[\nY_t=c+\\phi Y_{t-1}+\\varepsilon_t.\n\\]\nPara estacionariedad se requiere\n\\[\n|\\phi|&lt;1.\n\\]\nSu media es\n\\[\n\\mu=\\frac{c}{1-\\phi}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#modelo-maq",
+    "href": "avanzados/series-tiempo.html#modelo-maq",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.18 Modelo MA(q)",
+    "text": "26.18 Modelo MA(q)\n\\[\nY_t\n=\n\\mu+\n\\varepsilon_t+\n\\theta_1\\varepsilon_{t-1}\n+\\cdots+\n\\theta_q\\varepsilon_{t-q}.\n\\]\nEl valor depende de perturbaciones actuales y pasadas.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#modelo-armapq",
+    "href": "avanzados/series-tiempo.html#modelo-armapq",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.19 Modelo ARMA(p,q)",
+    "text": "26.19 Modelo ARMA(p,q)\n\\[\nY_t\n=\nc+\n\\sum_{i=1}^{p}\\phi_iY_{t-i}\n+\n\\varepsilon_t+\n\\sum_{j=1}^{q}\\theta_j\\varepsilon_{t-j}.\n\\]\nSe utiliza para series estacionarias.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#modelo-arimapdq",
+    "href": "avanzados/series-tiempo.html#modelo-arimapdq",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.20 Modelo ARIMA(p,d,q)",
+    "text": "26.20 Modelo ARIMA(p,d,q)\nUna serie se diferencia \\(d\\) veces y se ajusta un ARMA:\n\\[\n\\phi(B)(1-B)^dY_t\n=\nc+\\theta(B)\\varepsilon_t.\n\\]\nLos parámetros son:\n\n\\(p\\): orden autorregresivo;\n\\(d\\): diferenciación;\n\\(q\\): media móvil.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#arima-estacional",
+    "href": "avanzados/series-tiempo.html#arima-estacional",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.21 ARIMA estacional",
+    "text": "26.21 ARIMA estacional\n\\[\nARIMA(p,d,q)(P,D,Q)_m.\n\\]\nIncluye componentes estacionales con periodo \\(m\\).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#identificación",
+    "href": "avanzados/series-tiempo.html#identificación",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.22 Identificación",
+    "text": "26.22 Identificación\nSe utilizan:\n\ngráfica temporal;\nACF;\nPACF;\npruebas de raíz unitaria;\ncriterios AIC y BIC;\ndiagnóstico de residuos.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#pacf",
+    "href": "avanzados/series-tiempo.html#pacf",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.23 PACF",
+    "text": "26.23 PACF\nLa autocorrelación parcial en rezago \\(h\\) mide la relación entre \\(Y_t\\) y \\(Y_{t-h}\\) controlando rezagos intermedios.\nEs útil para identificar órdenes autorregresivos.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#prueba-de-raíz-unitaria",
+    "href": "avanzados/series-tiempo.html#prueba-de-raíz-unitaria",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.24 Prueba de raíz unitaria",
+    "text": "26.24 Prueba de raíz unitaria\nLa prueba Dickey-Fuller aumentada contrasta una raíz unitaria.\nNo rechazar no demuestra estacionariedad; indica evidencia insuficiente contra la raíz unitaria.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#suavizamiento-exponencial",
+    "href": "avanzados/series-tiempo.html#suavizamiento-exponencial",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.25 Suavizamiento exponencial",
+    "text": "26.25 Suavizamiento exponencial\nEl nivel simple se actualiza mediante\n\\[\n\\ell_t\n=\n\\alpha y_t+(1-\\alpha)\\ell_{t-1},\n\\]\ncon\n\\[\n0&lt;\\alpha&lt;1.\n\\]\nEl pronóstico es\n\\[\n\\widehat{y}_{t+h|t}=\\ell_t.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#método-de-holt",
+    "href": "avanzados/series-tiempo.html#método-de-holt",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.26 Método de Holt",
+    "text": "26.26 Método de Holt\nIncluye nivel y tendencia:\n\\[\n\\ell_t\n=\n\\alpha y_t\n+\n(1-\\alpha)(\\ell_{t-1}+b_{t-1}),\n\\]\n\\[\nb_t\n=\n\\beta(\\ell_t-\\ell_{t-1})\n+\n(1-\\beta)b_{t-1}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#holt-winters",
+    "href": "avanzados/series-tiempo.html#holt-winters",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.27 Holt-Winters",
+    "text": "26.27 Holt-Winters\nAñade una componente estacional y puede formularse en versión aditiva o multiplicativa.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#pronóstico-h-pasos-adelante",
+    "href": "avanzados/series-tiempo.html#pronóstico-h-pasos-adelante",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.28 Pronóstico h pasos adelante",
+    "text": "26.28 Pronóstico h pasos adelante\nSe denota por\n\\[\n\\widehat{Y}_{t+h|t},\n\\]\nla predicción de \\(Y_{t+h}\\) usando información disponible hasta \\(t\\).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#error-de-pronóstico",
+    "href": "avanzados/series-tiempo.html#error-de-pronóstico",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.29 Error de pronóstico",
+    "text": "26.29 Error de pronóstico\n\\[\ne_{t+h|t}\n=\nY_{t+h}\n-\n\\widehat{Y}_{t+h|t}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#mae",
+    "href": "avanzados/series-tiempo.html#mae",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.30 MAE",
+    "text": "26.30 MAE\n\\[\nMAE\n=\n\\frac{1}{n}\n\\sum_{i=1}^{n}|e_i|.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#rmse",
+    "href": "avanzados/series-tiempo.html#rmse",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.31 RMSE",
+    "text": "26.31 RMSE\n\\[\nRMSE\n=\n\\sqrt{\n\\frac{1}{n}\n\\sum_{i=1}^{n}e_i^2\n}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#mape",
+    "href": "avanzados/series-tiempo.html#mape",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.32 MAPE",
+    "text": "26.32 MAPE\n\\[\nMAPE\n=\n\\frac{100}{n}\n\\sum_{i=1}^{n}\n\\left|\n\\frac{e_i}{y_i}\n\\right|.\n\\]\nEs problemático si \\(y_i\\) es cero o cercano a cero.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#mase",
+    "href": "avanzados/series-tiempo.html#mase",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.33 MASE",
+    "text": "26.33 MASE\n\\[\nMASE\n=\n\\frac{\n\\frac{1}{n}\\sum|e_i|\n}{\n\\frac{1}{T-m}\n\\sum_{t=m+1}^{T}|y_t-y_{t-m}|\n}.\n\\]\nPermite comparación entre series.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#pronósticos-probabilísticos",
+    "href": "avanzados/series-tiempo.html#pronósticos-probabilísticos",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.34 Pronósticos probabilísticos",
+    "text": "26.34 Pronósticos probabilísticos\nUn pronóstico completo puede ser una distribución:\n\\[\nP(Y_{t+h}\\mid\\mathcal{F}_t).\n\\]\nPuede resumirse mediante:\n\nintervalos;\ncuantiles;\ndensidades;\nsimulaciones.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#cobertura-de-intervalos",
+    "href": "avanzados/series-tiempo.html#cobertura-de-intervalos",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.35 Cobertura de intervalos",
+    "text": "26.35 Cobertura de intervalos\nUn intervalo nominal del 95 por ciento debe contener aproximadamente el 95 por ciento de observaciones futuras bajo calibración correcta.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#variables-rezagadas",
+    "href": "avanzados/series-tiempo.html#variables-rezagadas",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.36 Variables rezagadas",
+    "text": "26.36 Variables rezagadas\nPara aprendizaje automático se construyen:\n\\[\nX_{t,1}=Y_{t-1},\n\\]\n\\[\nX_{t,2}=Y_{t-2},\n\\]\ny así sucesivamente.\nTambién pueden incluirse:\n\nmedias móviles;\nmáximos;\nmínimos;\ncalendario;\nvariables externas.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ventanas-móviles",
+    "href": "avanzados/series-tiempo.html#ventanas-móviles",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.37 Ventanas móviles",
+    "text": "26.37 Ventanas móviles\nUna media de ventana \\(w\\) es\n\\[\nM_t^{(w)}\n=\n\\frac{1}{w}\n\\sum_{j=1}^{w}Y_{t-j}.\n\\]\nDebe calcularse usando únicamente información anterior a \\(t\\).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#variables-de-calendario",
+    "href": "avanzados/series-tiempo.html#variables-de-calendario",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.38 Variables de calendario",
+    "text": "26.38 Variables de calendario\nPueden incluir:\n\nhora;\ndía de semana;\nmes;\ntrimestre;\nfestivos;\ntemporada.\n\nPara variables cíclicas puede utilizarse:\n\\[\n\\sin\n\\left(\n\\frac{2\\pi t}{m}\n\\right),\n\\qquad\n\\cos\n\\left(\n\\frac{2\\pi t}{m}\n\\right).\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#variables-exógenas",
+    "href": "avanzados/series-tiempo.html#variables-exógenas",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.39 Variables exógenas",
+    "text": "26.39 Variables exógenas\nUn modelo puede incluir\n\\[\n\\mathbf{X}_t.\n\\]\nPor ejemplo:\n\\[\nY_t\n=\nf\n\\left(\nY_{t-1},\\ldots,Y_{t-p},\n\\mathbf{X}_t\n\\right).\n\\]\nPara pronosticar se necesitan valores futuros o pronósticos de las variables exógenas.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#fuga-temporal",
+    "href": "avanzados/series-tiempo.html#fuga-temporal",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.40 Fuga temporal",
+    "text": "26.40 Fuga temporal\nExiste fuga si una variable usa información futura.\nEjemplos:\n\nmedia móvil centrada;\nescalamiento con toda la serie;\nimputación usando valores posteriores;\nselección de variables con el periodo de prueba;\npartición aleatoria.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#división-temporal",
+    "href": "avanzados/series-tiempo.html#división-temporal",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.41 División temporal",
+    "text": "26.41 División temporal\nLa partición correcta respeta:\n\\[\n\\text{entrenamiento}\n&lt;\n\\text{validación}\n&lt;\n\\text{prueba}.\n\\]\nEl futuro nunca debe utilizarse para construir el pasado.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#validación-con-origen-móvil",
+    "href": "avanzados/series-tiempo.html#validación-con-origen-móvil",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.42 Validación con origen móvil",
+    "text": "26.42 Validación con origen móvil\nEn cada iteración se entrena con información hasta un tiempo y se evalúa en periodos posteriores.\nPuede usarse:\n\nventana expansiva;\nventana deslizante.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ventana-expansiva",
+    "href": "avanzados/series-tiempo.html#ventana-expansiva",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.43 Ventana expansiva",
+    "text": "26.43 Ventana expansiva\nEl conjunto de entrenamiento crece:\n\\[\n\\{1,\\ldots,t\\}\n\\to\n\\{1,\\ldots,t+1\\}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ventana-deslizante",
+    "href": "avanzados/series-tiempo.html#ventana-deslizante",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.44 Ventana deslizante",
+    "text": "26.44 Ventana deslizante\nSe mantiene una longitud fija:\n\\[\n\\{t-w+1,\\ldots,t\\}.\n\\]\nEs útil cuando existe cambio de distribución.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#pronóstico-recursivo",
+    "href": "avanzados/series-tiempo.html#pronóstico-recursivo",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.45 Pronóstico recursivo",
+    "text": "26.45 Pronóstico recursivo\nPara múltiples pasos, la predicción anterior se utiliza como entrada:\n\\[\n\\widehat{Y}_{t+2|t}\n=\nf\n\\left(\n\\widehat{Y}_{t+1|t},Y_t,\\ldots\n\\right).\n\\]\nLos errores pueden acumularse.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#pronóstico-directo",
+    "href": "avanzados/series-tiempo.html#pronóstico-directo",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.46 Pronóstico directo",
+    "text": "26.46 Pronóstico directo\nSe entrena un modelo diferente para cada horizonte:\n\\[\nf_1,f_2,\\ldots,f_H.\n\\]\nReduce acumulación, pero requiere más modelos.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#estrategia-multioutput",
+    "href": "avanzados/series-tiempo.html#estrategia-multioutput",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.47 Estrategia multioutput",
+    "text": "26.47 Estrategia multioutput\nUn modelo produce simultáneamente:\n\\[\n(\\widehat{Y}_{t+1},\\ldots,\\widehat{Y}_{t+H}).\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#árboles-y-bosques",
+    "href": "avanzados/series-tiempo.html#árboles-y-bosques",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.48 Árboles y bosques",
+    "text": "26.48 Árboles y bosques\nRandom Forest puede usar:\n\nrezagos;\nestadísticas móviles;\nvariables calendario;\nvariables meteorológicas.\n\nVentajas:\n\nno linealidad;\ninteracciones;\npoca transformación.\n\nLimitación: extrapola mal tendencias fuera del rango de entrenamiento.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#gradient-boosting",
+    "href": "avanzados/series-tiempo.html#gradient-boosting",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.49 Gradient boosting",
+    "text": "26.49 Gradient boosting\nLos modelos boosting suelen ser muy competitivos en series tabulares con variables rezagadas.\nRequieren validación temporal y control de sobreajuste.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#redes-neuronales-recurrentes",
+    "href": "avanzados/series-tiempo.html#redes-neuronales-recurrentes",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.50 Redes neuronales recurrentes",
+    "text": "26.50 Redes neuronales recurrentes\nUna RNN actualiza un estado:\n\\[\n\\mathbf{h}_t\n=\n\\phi\n\\left(\n\\mathbf{W}_x\\mathbf{x}_t\n+\n\\mathbf{W}_h\\mathbf{h}_{t-1}\n+\n\\mathbf{b}\n\\right).\n\\]\nEl estado resume información pasada.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#gradientes-en-rnn",
+    "href": "avanzados/series-tiempo.html#gradientes-en-rnn",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.51 Gradientes en RNN",
+    "text": "26.51 Gradientes en RNN\nLa retropropagación a través del tiempo multiplica Jacobianas repetidamente, lo cual puede producir gradientes desvanecientes o explosivos.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#lstm",
+    "href": "avanzados/series-tiempo.html#lstm",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.52 LSTM",
+    "text": "26.52 LSTM\nLas redes LSTM introducen compuertas para controlar el flujo de información (Hochreiter y Schmidhuber 1997).\nIncluyen:\n\ncompuerta de olvido;\ncompuerta de entrada;\nestado de celda;\ncompuerta de salida.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#atención-y-transformers",
+    "href": "avanzados/series-tiempo.html#atención-y-transformers",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.53 Atención y transformers",
+    "text": "26.53 Atención y transformers\nLos transformers modelan dependencias mediante atención:\n\\[\nAttention(Q,K,V)\n=\nsoftmax\n\\left(\n\\frac{QK^{\\mathsf T}}{\\sqrt{d_k}}\n\\right)V.\n\\]\nPermiten relacionar posiciones distantes sin recurrencia estricta.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#modelos-híbridos",
+    "href": "avanzados/series-tiempo.html#modelos-híbridos",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.54 Modelos híbridos",
+    "text": "26.54 Modelos híbridos\nPuede combinarse:\n\nARIMA para estructura lineal;\naprendizaje automático para residuos;\ndescomposición estacional;\nmodelos separados por componentes.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#pronóstico-jerárquico",
+    "href": "avanzados/series-tiempo.html#pronóstico-jerárquico",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.55 Pronóstico jerárquico",
+    "text": "26.55 Pronóstico jerárquico\nEn datos agregados, los pronósticos deben ser coherentes:\n\\[\nY_{\\text{total}}\n=\n\\sum_jY_j.\n\\]\nSe emplean métodos de reconciliación.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#series-múltiples",
+    "href": "avanzados/series-tiempo.html#series-múltiples",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.56 Series múltiples",
+    "text": "26.56 Series múltiples\nUna colección de series puede compartir información.\nSe distinguen:\n\nmodelos locales: uno por serie;\nmodelos globales: un modelo común.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#concept-drift",
+    "href": "avanzados/series-tiempo.html#concept-drift",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.57 Concept drift",
+    "text": "26.57 Concept drift\nLa relación temporal puede cambiar.\nSe requiere monitorear:\n\nerror;\ndistribución;\nresiduos;\nimportancia de variables;\ncalibración.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#residuos",
+    "href": "avanzados/series-tiempo.html#residuos",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.58 Residuos",
+    "text": "26.58 Residuos\nUn modelo adecuado debe dejar residuos aproximadamente:\n\ncentrados en cero;\nsin autocorrelación;\ncon varianza estable;\nsin estructura sistemática.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#prueba-ljung-box",
+    "href": "avanzados/series-tiempo.html#prueba-ljung-box",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.59 Prueba Ljung-Box",
+    "text": "26.59 Prueba Ljung-Box\nContrasta autocorrelaciones conjuntas de residuos.\nRechazar sugiere dependencia temporal no modelada.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#selección-de-modelos",
+    "href": "avanzados/series-tiempo.html#selección-de-modelos",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.60 Selección de modelos",
+    "text": "26.60 Selección de modelos\nAIC:\n\\[\nAIC=-2\\log L+2k.\n\\]\nBIC:\n\\[\nBIC=-2\\log L+k\\log n.\n\\]\nEn aprendizaje automático debe priorizarse desempeño fuera de muestra mediante validación temporal.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#línea-base",
+    "href": "avanzados/series-tiempo.html#línea-base",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.61 Línea base",
+    "text": "26.61 Línea base\nTodo modelo debe compararse con referencias simples:\n\núltimo valor;\nmedia;\ntendencia;\npronóstico estacional ingenuo.\n\nUn modelo complejo que no supera la línea base no agrega valor.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#pronóstico-ingenuo",
+    "href": "avanzados/series-tiempo.html#pronóstico-ingenuo",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.62 Pronóstico ingenuo",
+    "text": "26.62 Pronóstico ingenuo\n\\[\n\\widehat{Y}_{t+h|t}=Y_t.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ingenuo-estacional",
+    "href": "avanzados/series-tiempo.html#ingenuo-estacional",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.63 Ingenuo estacional",
+    "text": "26.63 Ingenuo estacional\n\\[\n\\widehat{Y}_{t+h|t}=Y_{t+h-m}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#intervalos-y-aprendizaje-automático",
+    "href": "avanzados/series-tiempo.html#intervalos-y-aprendizaje-automático",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.64 Intervalos y aprendizaje automático",
+    "text": "26.64 Intervalos y aprendizaje automático\nPuede utilizarse:\n\nregresión cuantílica;\nconformal prediction;\nbootstrap temporal;\nensambles;\nmodelos probabilísticos.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#evaluación-por-horizonte",
+    "href": "avanzados/series-tiempo.html#evaluación-por-horizonte",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.65 Evaluación por horizonte",
+    "text": "26.65 Evaluación por horizonte\nEl error debe analizarse para cada horizonte:\n\\[\nMAE(h),\n\\qquad\nRMSE(h).\n\\]\nUn modelo puede ser bueno a corto plazo y malo a largo plazo.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#aplicación-ambiental",
+    "href": "avanzados/series-tiempo.html#aplicación-ambiental",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.66 Aplicación ambiental",
+    "text": "26.66 Aplicación ambiental\nPara pronosticar PM10 pueden utilizarse:\n\nPM10 rezagado;\ntemperatura;\nhumedad;\nviento;\nhora;\ndía;\nestacionalidad;\nvariables de otras estaciones.\n\nLa validación debe simular el uso operativo real.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#conexión-con-r",
+    "href": "avanzados/series-tiempo.html#conexión-con-r",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.67 Conexión con R",
+    "text": "26.67 Conexión con R\n\n\nCódigo\nlibrary(forecast)\n\nserie &lt;- ts(\n  c(45, 48, 50, 47, 55, 60, 58, 62, 65, 63, 68, 70),\n  frequency = 12\n)\n\nmodelo &lt;- auto.arima(serie)\n\npronostico &lt;- forecast(\n  modelo,\n  h = 6\n)\n\nplot(pronostico)\n\n# Variables rezagadas para aprendizaje automático\ncrear_rezagos &lt;- function(x, p = 3) {\n  resultado &lt;- data.frame(y = x)\n\n  for (j in seq_len(p)) {\n    resultado[[paste0(\"lag_\", j)]] &lt;- dplyr::lag(x, j)\n  }\n\n  na.omit(resultado)\n}",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ejemplo-ar1",
+    "href": "avanzados/series-tiempo.html#ejemplo-ar1",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.68 Ejemplo AR(1)",
+    "text": "26.68 Ejemplo AR(1)\nSea\n\\[\nY_t=2+0.7Y_{t-1}+\\varepsilon_t.\n\\]\nLa media estacionaria es\n\\[\n\\mu=\\frac{2}{1-0.7}\n=\n\\frac{20}{3}.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ejemplo-de-diferencia",
+    "href": "avanzados/series-tiempo.html#ejemplo-de-diferencia",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.69 Ejemplo de diferencia",
+    "text": "26.69 Ejemplo de diferencia\nPara:\n\\[\n100,\\;105,\\;111,\\;115,\n\\]\nlas primeras diferencias son:\n\\[\n5,\\;6,\\;4.\n\\]",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ejemplo-de-variable-rezagada",
+    "href": "avanzados/series-tiempo.html#ejemplo-de-variable-rezagada",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.70 Ejemplo de variable rezagada",
+    "text": "26.70 Ejemplo de variable rezagada\nPara predecir \\(Y_t\\) con tres rezagos:\n\\[\n\\mathbf{x}_t\n=\n(Y_{t-1},Y_{t-2},Y_{t-3}).\n\\]\nLa primera fila utilizable aparece en \\(t=4\\).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ventajas-de-los-enfoques-clásicos",
+    "href": "avanzados/series-tiempo.html#ventajas-de-los-enfoques-clásicos",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.71 Ventajas de los enfoques clásicos",
+    "text": "26.71 Ventajas de los enfoques clásicos\n\ninterpretación;\nintervalos probabilísticos;\nbuen desempeño con pocos datos;\nteoría desarrollada;\ndiagnóstico de residuos.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ventajas-del-aprendizaje-automático",
+    "href": "avanzados/series-tiempo.html#ventajas-del-aprendizaje-automático",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.72 Ventajas del aprendizaje automático",
+    "text": "26.72 Ventajas del aprendizaje automático\n\nno linealidad;\nnumerosas variables;\ninteracciones;\nseries múltiples;\nflexibilidad.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#limitaciones",
+    "href": "avanzados/series-tiempo.html#limitaciones",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.73 Limitaciones",
+    "text": "26.73 Limitaciones\n\ndependencia temporal;\nriesgo de fuga;\ncambio de distribución;\nincertidumbre futura;\nhorizontes múltiples;\nnecesidad de validación realista;\nextrapolación limitada en árboles.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#errores-frecuentes",
+    "href": "avanzados/series-tiempo.html#errores-frecuentes",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.74 Errores frecuentes",
+    "text": "26.74 Errores frecuentes\n\ndividir aleatoriamente;\ncalcular rezagos con información futura;\najustar escalamiento con toda la serie;\nevaluar solo un horizonte;\nomitir una línea base;\nusar MAPE con ceros;\nignorar autocorrelación residual;\nseleccionar modelos con prueba final;\nconfundir ajuste histórico con pronóstico;\nusar variables exógenas futuras desconocidas.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ejercicios-conceptuales",
+    "href": "avanzados/series-tiempo.html#ejercicios-conceptuales",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.75 Ejercicios conceptuales",
+    "text": "26.75 Ejercicios conceptuales\n\nDefina estacionariedad.\nDistinga tendencia y estacionalidad.\nInterprete ACF y PACF.\nCompare AR y MA.\nExplique ARIMA.\n¿Qué es fuga temporal?\nCompare ventana expansiva y deslizante.\nCompare pronóstico recursivo y directo.\n¿Por qué se necesitan líneas base?\nCompare modelos clásicos y aprendizaje automático.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ejercicio-ar1",
+    "href": "avanzados/series-tiempo.html#ejercicio-ar1",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.76 Ejercicio AR(1)",
+    "text": "26.76 Ejercicio AR(1)\nSea:\n\\[\nY_t=1+0.5Y_{t-1}+\\varepsilon_t.\n\\]\n\nVerifique estacionariedad.\nCalcule la media.\nPronostique un paso si \\(Y_t=10\\) y \\(\\mathbb{E}(\\varepsilon)=0\\).",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ejercicio-de-métricas",
+    "href": "avanzados/series-tiempo.html#ejercicio-de-métricas",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.77 Ejercicio de métricas",
+    "text": "26.77 Ejercicio de métricas\nObservados:\n\\[\n10,\\;12,\\;15,\\;20.\n\\]\nPronósticos:\n\\[\n11,\\;10,\\;14,\\;22.\n\\]\nCalcule:\n\nerrores;\nMAE;\nRMSE;\nMAPE.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ejercicio-de-validación",
+    "href": "avanzados/series-tiempo.html#ejercicio-de-validación",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.78 Ejercicio de validación",
+    "text": "26.78 Ejercicio de validación\nDiseñe una validación de origen móvil para 60 meses:\n\n36 meses iniciales;\nhorizonte de 3 meses;\nventana expansiva.\n\nIndique las particiones sucesivas.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#ejercicio-aplicado",
+    "href": "avanzados/series-tiempo.html#ejercicio-aplicado",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.79 Ejercicio aplicado",
+    "text": "26.79 Ejercicio aplicado\nDiseñe un sistema para pronosticar PM10 diario que incluya:\n\nlimpieza;\nimputación temporal;\ntendencia;\nestacionalidad;\nrezagos;\nvariables meteorológicas;\nlínea base;\nARIMA;\nRandom Forest;\nboosting;\nvalidación temporal;\nmétricas por horizonte;\nintervalos;\nmonitoreo de drift;\nlimitaciones ambientales.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#resumen",
+    "href": "avanzados/series-tiempo.html#resumen",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "26.80 Resumen",
+    "text": "26.80 Resumen\nEn este capítulo se desarrollaron los fundamentos de las series de tiempo y su relación con aprendizaje automático.\nSe estudiaron tendencia, estacionalidad, estacionariedad, autocorrelación, ruido blanco, diferenciación y modelos AR, MA, ARMA y ARIMA.\nTambién se analizaron suavizamiento exponencial, pronósticos probabilísticos, métricas, rezagos, ventanas móviles y variables exógenas.\nFinalmente, se desarrollaron validación temporal, estrategias multihorizonte, árboles, ensambles, RNN, LSTM, transformers, modelos híbridos, monitoreo y prevención de fuga temporal.",
+    "crumbs": [
+      "VI. Temas avanzados",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
+    ]
+  },
+  {
+    "objectID": "avanzados/series-tiempo.html#referencias-del-capítulo",
+    "href": "avanzados/series-tiempo.html#referencias-del-capítulo",
+    "title": "26  Series de tiempo y aprendizaje automático",
+    "section": "Referencias del capítulo",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Box et al. (2015), Hamilton (1994), Hyndman y Athanasopoulos (2021) y Hochreiter y Schmidhuber (1997).\n\n\n\n\n\n\nBox, George E. P., Gwilym M. Jenkins, Gregory C. Reinsel, y Greta M. Ljung. 2015. Time Series Analysis: Forecasting and Control. 5.ª ed. Wiley.\n\n\nHamilton, James D. 1994. Time Series Analysis. Princeton University Press.\n\n\nHochreiter, Sepp, y Jürgen Schmidhuber. 1997. «Long Short-Term Memory». Neural Computation 9 (8): 1735-80. https://doi.org/10.1162/neco.1997.9.8.1735.\n\n\nHyndman, Rob J., y George Athanasopoulos. 2021. Forecasting: Principles and Practice. 3.ª ed. OTexts.",
     "crumbs": [
       "VI. Temas avanzados",
       "<span class='chapter-number'>26</span>  <span class='chapter-title'>Series de tiempo y aprendizaje automático</span>"
@@ -13671,7 +14804,7 @@
     "href": "referencias.html",
     "title": "Referencias",
     "section": "",
-    "text": "Agrawal, Rakesh, and Ramakrishnan Srikant. 1994. “Fast Algorithms\nfor Mining Association Rules in Large Databases.” Proceedings\nof the 20th International Conference on Very Large Data Bases,\n487–99.\n\n\nArthur, David, and Sergei Vassilvitskii. 2007. “K-Means++: The\nAdvantages of Careful Seeding.” Proceedings of the Eighteenth\nAnnual ACM-SIAM Symposium on Discrete Algorithms, 1027–35.\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine\nLearning. Springer.\n\n\nBreiman, Leo. 2001. “Random Forests.” Machine\nLearning 45: 5–32. https://doi.org/10.1023/A:1010933404324.\n\n\nBreiman, Leo, Jerome H. Friedman, Richard A. Olshen, and Charles J.\nStone. 1984. Classification and Regression Trees.\n\n\nCortes, Corinna, and Vladimir Vapnik. 1995. “Support-Vector\nNetworks.” Machine Learning 20: 273–97. https://doi.org/10.1007/BF00994018.\n\n\nCover, Thomas M., and Peter E. Hart. 1967. “Nearest Neighbor\nPattern Classification.” IEEE Transactions on Information\nTheory 13 (1): 21–27. https://doi.org/10.1109/TIT.1967.1053964.\n\n\nDuda, Richard O., Peter E. Hart, and David G. Stork. 2001. Pattern\nClassification. 2nd ed. Wiley.\n\n\nHahsler, Michael, Bettina Grün, and Kurt Hornik. 2005. “Arules: A\nComputational Environment for Mining Association Rules and Frequent Item\nSets.” Journal of Statistical Software 14 (15): 1–25. https://doi.org/10.18637/jss.v014.i15.\n\n\nHan, Jiawei, Jian Pei, and Yiwen Yin. 2000. “Mining Frequent\nPatterns Without Candidate Generation.” Proceedings of the\n2000 ACM SIGMOD International Conference on Management of Data,\n1–12. https://doi.org/10.1145/335191.335372.\n\n\nHastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. The\nElements of Statistical Learning: Data Mining, Inference, and\nPrediction. 2nd ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nHotelling, Harold. 1933. “Analysis of a Complex of Statistical\nVariables into Principal Components.” Journal of Educational\nPsychology 24: 417–41. https://doi.org/10.1037/h0071325.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.\n2021. An Introduction to Statistical Learning. 2nd ed.\nSpringer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nLloyd, Stuart P. 1982. “Least Squares Quantization in PCM.”\nIEEE Transactions on Information Theory 28 (2): 129–37. https://doi.org/10.1109/TIT.1982.1056489.\n\n\nMardia, Kanti V., John T. Kent, and John M. Bibby. 1979.\nMultivariate Analysis. Academic Press.\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An\nIntroduction. MIT Press.\n\n\nPearson, Karl. 1901. “On Lines and Planes of Closest Fit to\nSystems of Points in Space.” Philosophical Magazine 2\n(11): 559–72. https://doi.org/10.1080/14786440109462720.\n\n\nQuinlan, J. Ross. 1986. “Induction of Decision Trees.”\nMachine Learning 1: 81–106. https://doi.org/10.1007/BF00116251.\n\n\nRumelhart, David E., Geoffrey E. Hinton, and Ronald J. Williams. 1986.\n“Learning Representations by Back-Propagating Errors.”\nNature 323: 533–36. https://doi.org/10.1038/323533a0.\n\n\nStone, Charles J. 1977. “Consistent Nonparametric\nRegression.” The Annals of Statistics 5 (4): 595–620. https://doi.org/10.1214/aos/1176343886.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.\n\n\nWard, Joe H. 1963. “Hierarchical Grouping to Optimize an Objective\nFunction.” Journal of the American Statistical\nAssociation 58 (301): 236–44. https://doi.org/10.1080/01621459.1963.10500845.",
+    "text": "Agrawal, Rakesh, and Ramakrishnan Srikant. 1994. “Fast Algorithms\nfor Mining Association Rules in Large Databases.” Proceedings\nof the 20th International Conference on Very Large Data Bases,\n487–99.\n\n\nArthur, David, and Sergei Vassilvitskii. 2007. “K-Means++: The\nAdvantages of Careful Seeding.” Proceedings of the Eighteenth\nAnnual ACM-SIAM Symposium on Discrete Algorithms, 1027–35.\n\n\nBartlett, Peter L., and Shahar Mendelson. 2002. “Rademacher and\nGaussian Complexities: Risk Bounds and Structural Results.”\nJournal of Machine Learning Research 3: 463–82.\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine\nLearning. Springer.\n\n\nBox, George E. P., Gwilym M. Jenkins, Gregory C. Reinsel, and Greta M.\nLjung. 2015. Time Series Analysis: Forecasting and Control. 5th\ned. Wiley.\n\n\nBreiman, Leo. 2001. “Random Forests.” Machine\nLearning 45: 5–32. https://doi.org/10.1023/A:1010933404324.\n\n\nBreiman, Leo, Jerome H. Friedman, Richard A. Olshen, and Charles J.\nStone. 1984. Classification and Regression Trees.\n\n\nCortes, Corinna, and Vladimir Vapnik. 1995. “Support-Vector\nNetworks.” Machine Learning 20: 273–97. https://doi.org/10.1007/BF00994018.\n\n\nCover, Thomas M., and Peter E. Hart. 1967. “Nearest Neighbor\nPattern Classification.” IEEE Transactions on Information\nTheory 13 (1): 21–27. https://doi.org/10.1109/TIT.1967.1053964.\n\n\nDuda, Richard O., Peter E. Hart, and David G. Stork. 2001. Pattern\nClassification. 2nd ed. Wiley.\n\n\nHahsler, Michael, Bettina Grün, and Kurt Hornik. 2005. “Arules: A\nComputational Environment for Mining Association Rules and Frequent Item\nSets.” Journal of Statistical Software 14 (15): 1–25. https://doi.org/10.18637/jss.v014.i15.\n\n\nHamilton, James D. 1994. Time Series Analysis. Princeton\nUniversity Press.\n\n\nHan, Jiawei, Jian Pei, and Yiwen Yin. 2000. “Mining Frequent\nPatterns Without Candidate Generation.” Proceedings of the\n2000 ACM SIGMOD International Conference on Management of Data,\n1–12. https://doi.org/10.1145/335191.335372.\n\n\nHastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. The\nElements of Statistical Learning: Data Mining, Inference, and\nPrediction. 2nd ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nHochreiter, Sepp, and Jürgen Schmidhuber. 1997. “Long Short-Term\nMemory.” Neural Computation 9 (8): 1735–80. https://doi.org/10.1162/neco.1997.9.8.1735.\n\n\nHotelling, Harold. 1933. “Analysis of a Complex of Statistical\nVariables into Principal Components.” Journal of Educational\nPsychology 24: 417–41. https://doi.org/10.1037/h0071325.\n\n\nHyndman, Rob J., and George Athanasopoulos. 2021. Forecasting:\nPrinciples and Practice. 3rd ed. OTexts.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.\n2021. An Introduction to Statistical Learning. 2nd ed.\nSpringer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nLloyd, Stuart P. 1982. “Least Squares Quantization in PCM.”\nIEEE Transactions on Information Theory 28 (2): 129–37. https://doi.org/10.1109/TIT.1982.1056489.\n\n\nMardia, Kanti V., John T. Kent, and John M. Bibby. 1979.\nMultivariate Analysis. Academic Press.\n\n\nMcAllester, David A. 1999. “PAC-Bayesian Model Averaging.”\nProceedings of the Twelfth Annual Conference on Computational\nLearning Theory, 164–70.\n\n\nMohri, Mehryar, Afshin Rostamizadeh, and Ameet Talwalkar. 2018.\nFoundations of Machine Learning. 2nd ed. MIT Press.\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An\nIntroduction. MIT Press.\n\n\nPearson, Karl. 1901. “On Lines and Planes of Closest Fit to\nSystems of Points in Space.” Philosophical Magazine 2\n(11): 559–72. https://doi.org/10.1080/14786440109462720.\n\n\nQuinlan, J. Ross. 1986. “Induction of Decision Trees.”\nMachine Learning 1: 81–106. https://doi.org/10.1007/BF00116251.\n\n\nRumelhart, David E., Geoffrey E. Hinton, and Ronald J. Williams. 1986.\n“Learning Representations by Back-Propagating Errors.”\nNature 323: 533–36. https://doi.org/10.1038/323533a0.\n\n\nShalev-Shwartz, Shai, and Shai Ben-David. 2014. Understanding\nMachine Learning: From Theory to Algorithms. Cambridge University\nPress.\n\n\nStone, Charles J. 1977. “Consistent Nonparametric\nRegression.” The Annals of Statistics 5 (4): 595–620. https://doi.org/10.1214/aos/1176343886.\n\n\nValiant, Leslie G. 1984. “A Theory of the Learnable.”\nCommunications of the ACM 27 (11): 1134–42.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.\n\n\nVapnik, Vladimir N., and Alexey Y. Chervonenkis. 1971. “On the\nUniform Convergence of Relative Frequencies of Events to Their\nProbabilities.” Theory of Probability and Its\nApplications 16 (2): 264–80.\n\n\nWard, Joe H. 1963. “Hierarchical Grouping to Optimize an Objective\nFunction.” Journal of the American Statistical\nAssociation 58 (301): 236–44. https://doi.org/10.1080/01621459.1963.10500845.",
     "crumbs": [
       "Referencias"
     ]

@@ -295,6 +295,18 @@ de regresión, clasificación y análisis de datos}
 \begin{document}
 \maketitle
 
+\begin{titlepage}
+\thispagestyle{empty}
+\newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
+\noindent
+\includegraphics[
+  width=\paperwidth,
+  height=\paperheight
+]{estilos/portadas/portada-teorico-pdf.png}
+\restoregeometry
+\end{titlepage}
+\clearpage
+
 \renewcommand*\contentsname{Tabla de contenidos}
 {
 \setcounter{tocdepth}{2}
@@ -310,17 +322,6 @@ Automático}\label{fundamentos-matemuxe1ticos-del-aprendizaje-automuxe1tico}
 Teoría, demostraciones y formulación rigurosa
 
 \hfill\break
-
-\begin{titlepage}
-\thispagestyle{empty}
-\newgeometry{margin=0cm}
-\noindent\includegraphics[
-  width=\paperwidth,
-  height=\paperheight,
-  keepaspectratio
-]{estilos/portadas/portada-teorico-pdf.png}
-\restoregeometry
-\end{titlepage}
 
 \bookmarksetup{startatroot}
 
@@ -30907,14 +30908,1669 @@ Los fundamentos históricos y algorítmicos se apoyan en Agrawal y Srikant
 
 \part{VI. Temas avanzados}
 
-\chapter{Teoría de generalización}\label{teoruxeda-de-generalizaciuxf3n}
+\chapter{Teoría de generalización}\label{sec-teoria-generalizacion}
 
-\emph{Capítulo en desarrollo.}
+\section{Introducción}\label{introducciuxf3n-21}
+
+La finalidad del aprendizaje automático es construir modelos que
+funcionen con observaciones nuevas. La teoría de generalización estudia
+cuándo el desempeño observado en la muestra representa adecuadamente el
+riesgo sobre la población y cómo influyen el tamaño muestral, la
+complejidad del modelo y la regularización (Vapnik y Chervonenkis 1971;
+Valiant 1984; Shalev-Shwartz y Ben-David 2014).
+
+\section{Riesgo esperado y riesgo
+empírico}\label{riesgo-esperado-y-riesgo-empuxedrico}
+
+Para una función \(f\) y una pérdida \(L\), el riesgo esperado es
+
+\[
+R(f)=\mathbb{E}[L(Y,f(\mathbf{X}))].
+\]
+
+Dada una muestra de tamaño \(n\), el riesgo empírico es
+
+\[
+\widehat R_n(f)=\frac{1}{n}\sum_{i=1}^n L(y_i,f(\mathbf{x}_i)).
+\]
+
+La diferencia
+
+\[
+R(f)-\widehat R_n(f)
+\]
+
+se denomina brecha de generalización.
+
+\section{Minimización del riesgo
+empírico}\label{minimizaciuxf3n-del-riesgo-empuxedrico-1}
+
+El estimador ERM es
+
+\[
+\widehat f_{ERM}=\operatorname*{arg\,min}_{f\in\mathcal F}\widehat R_n(f).
+\]
+
+Si el riesgo empírico aproxima uniformemente al riesgo esperado,
+entonces ERM generaliza.
+
+\section{Exceso de riesgo}\label{exceso-de-riesgo}
+
+Sea \(f^*\) el predictor óptimo y \(f^*_{\mathcal F}\) el mejor
+predictor dentro de \(\mathcal F\). Entonces
+
+\[
+R(\widehat f)-R(f^*)=
+[R(\widehat f)-R(f^*_{\mathcal F})]+[R(f^*_{\mathcal F})-R(f^*)].
+\]
+
+El primer término es error de estimación y el segundo error de
+aproximación.
+
+\section{Convergencia uniforme}\label{convergencia-uniforme}
+
+Se busca controlar
+
+\[
+\sup_{f\in\mathcal F}|R(f)-\widehat R_n(f)|.
+\]
+
+Si esta cantidad es menor que \(\varepsilon\), entonces
+
+\[
+R(\widehat f_{ERM})\le R(f^*_{\mathcal F})+2\varepsilon.
+\]
+
+\section{Desigualdad de Hoeffding}\label{desigualdad-de-hoeffding}
+
+Si \(0\le L\le1\), para un predictor fijo,
+
+\[
+P(|R(f)-\widehat R_n(f)|\ge\varepsilon)\le2e^{-2n\varepsilon^2}.
+\]
+
+Con probabilidad al menos \(1-\delta\),
+
+\[
+R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2/\delta)}{2n}}.
+\]
+
+\section{Clases finitas}\label{clases-finitas}
+
+Si \(|\mathcal F|=M\), una unión de eventos produce
+
+\[
+R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2M/\delta)}{2n}}
+\]
+
+simultáneamente para todos los modelos. La penalización aumenta con
+\(\log M\) y disminuye con \(n\).
+
+\section{Aprendizaje PAC}\label{aprendizaje-pac}
+
+PAC significa \emph{Probably Approximately Correct}. Un algoritmo
+aprende una clase si para todo \(\varepsilon>0\) y \(\delta>0\)
+devuelve, con probabilidad al menos \(1-\delta\), un predictor cuyo
+error está a lo sumo \(\varepsilon\) del objetivo.
+
+En el caso realizable, la complejidad muestral para una clase finita es
+del orden de
+
+\[
+\frac{\log M+\log(1/\delta)}{\varepsilon}.
+\]
+
+En el caso agnóstico es del orden de
+
+\[
+\frac{\log M+\log(1/\delta)}{\varepsilon^2}.
+\]
+
+\section{Dimensión VC}\label{dimensiuxf3n-vc}
+
+La dimensión VC es el mayor número de puntos que una clase puede
+fragmentar, es decir, etiquetar de todas las formas binarias posibles.
+
+\begin{itemize}
+\tightlist
+\item
+  umbrales en la recta: VC igual a 1;
+\item
+  intervalos: VC igual a 2;
+\item
+  hiperplanos en \(\mathbb R^p\): VC igual a \(p+1\).
+\end{itemize}
+
+\section{Función de crecimiento y lema de
+Sauer}\label{funciuxf3n-de-crecimiento-y-lema-de-sauer}
+
+La función de crecimiento \(\Pi_{\mathcal F}(n)\) cuenta el máximo
+número de etiquetaciones inducidas por la clase. Si la dimensión VC es
+\(d\),
+
+\[
+\Pi_{\mathcal F}(n)\le\sum_{j=0}^{d}\binom{n}{j}\le\left(\frac{en}{d}\right)^d.
+\]
+
+Una cota típica es
+
+\[
+R(f)\le\widehat R_n(f)+C\sqrt{\frac{d\log(n/d)+\log(1/\delta)}{n}}.
+\]
+
+\section{Complejidad de Rademacher}\label{complejidad-de-rademacher}
+
+La complejidad empírica es
+
+\[
+\widehat{\mathfrak R}_n(\mathcal F)=\mathbb E_{\boldsymbol\sigma}\left[\sup_{f\in\mathcal F}\frac1n\sum_{i=1}^n\sigma_i f(\mathbf x_i)\right],
+\]
+
+donde \(\sigma_i\in\{-1,+1\}\). Mide la capacidad de la clase para
+ajustarse a ruido aleatorio (Bartlett y Mendelson 2002).
+
+Una cota típica es
+
+\[
+R(f)\le\widehat R_n(f)+2\mathfrak R_n(\mathcal F)+\sqrt{\frac{\log(1/\delta)}{2n}}.
+\]
+
+\section{Regularización, norma y
+margen}\label{regularizaciuxf3n-norma-y-margen}
+
+La regularización restringe la clase efectiva. En modelos lineales,
+limitar \(\|\mathbf w\|_2\) reduce capacidad. En SVM, un margen grande
+puede producir cotas que dependen aproximadamente de
+
+\[
+\frac{R^2}{\gamma^2},
+\]
+
+donde \(R\) acota la norma de las entradas y \(\gamma\) es el margen.
+
+\section{Estabilidad algorítmica}\label{estabilidad-algoruxedtmica}
+
+Un algoritmo es estable si reemplazar una observación cambia poco la
+pérdida. Si
+
+\[
+|L(z,A(\mathcal D_n))-L(z,A(\mathcal D_n^{(i)}))|\le\beta_n,
+\]
+
+y \(\beta_n\to0\), la influencia de una observación disminuye con \(n\).
+Los algoritmos regularizados suelen ser más estables.
+
+\section{PAC-Bayes}\label{pac-bayes}
+
+Las cotas PAC-Bayes consideran una distribución previa \(P\) y una
+posterior \(Q\) sobre modelos. La penalización depende de
+
+\[
+\sqrt{\frac{KL(Q\|P)+\log(1/\delta)}{n}}.
+\]
+
+Un posterior cercano a una prior simple puede obtener una mejor garantía
+(McAllester 1999).
+
+\section{Selección de modelos}\label{selecciuxf3n-de-modelos-1}
+
+Comparar muchos modelos usando la misma validación puede sobreajustar el
+conjunto de validación. La validación cruzada anidada separa selección
+de hiperparámetros y estimación final del desempeño.
+
+\section{Cambio de distribución}\label{cambio-de-distribuciuxf3n}
+
+Las garantías clásicas suelen suponer
+
+\[
+P_{train}=P_{test}.
+\]
+
+Cuando esta igualdad falla pueden aparecer \emph{covariate shift},
+\emph{concept drift} o cambios estructurales. En esos casos se requieren
+validación temporal, reponderación, monitoreo y actualización.
+
+\section{Modelos sobreparametrizados}\label{modelos-sobreparametrizados}
+
+Las redes modernas pueden tener más parámetros que observaciones y aun
+así generalizar. La complejidad efectiva depende también de normas,
+margen, optimización implícita, estructura de los datos y arquitectura.
+
+\section{Doble descenso}\label{doble-descenso}
+
+El error de prueba puede disminuir, aumentar cerca del umbral de
+interpolación y volver a disminuir en el régimen sobreparametrizado.
+Este comportamiento se denomina doble descenso.
+
+\section{Cotas vacías}\label{cotas-vacuxedas}
+
+Una cota puede ser matemáticamente válida pero numéricamente inútil si
+supera el máximo posible del riesgo. Deben distinguirse validez formal y
+utilidad práctica.
+
+\section{Conexión con los
+algoritmos}\label{conexiuxf3n-con-los-algoritmos}
+
+\begin{itemize}
+\tightlist
+\item
+  K-NN controla complejidad mediante \(k\).
+\item
+  Árboles mediante profundidad y poda.
+\item
+  Random Forest reduce varianza por promediación.
+\item
+  SVM utiliza margen y norma.
+\item
+  Redes neuronales emplean arquitectura, regularización, dropout y
+  parada temprana.
+\end{itemize}
+
+\section{Ejemplo en R}\label{ejemplo-en-r}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{simular }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(n, }\AttributeTok{B=}\DecValTok{1000}\NormalTok{) \{}
+  \FunctionTok{mean}\NormalTok{(}\FunctionTok{replicate}\NormalTok{(B, }\FunctionTok{abs}\NormalTok{(}\FunctionTok{mean}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(n,}\DecValTok{1}\NormalTok{,}\FloatTok{0.3}\NormalTok{))}\SpecialCharTok{{-}}\FloatTok{0.3}\NormalTok{)))}
+\NormalTok{\}}
+\FunctionTok{sapply}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{,}\DecValTok{100}\NormalTok{,}\DecValTok{500}\NormalTok{,}\DecValTok{1000}\NormalTok{), simular)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Ejercicios}\label{ejercicios-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Distinga riesgo esperado y empírico.
+\item
+  Calcule la cota de Hoeffding para \(n=500\) y \(\delta=0.05\).
+\item
+  Explique la diferencia entre caso realizable y agnóstico.
+\item
+  Determine la dimensión VC de umbrales, intervalos e hiperplanos.
+\item
+  Explique qué mide la complejidad de Rademacher.
+\item
+  Analice cómo la regularización mejora estabilidad.
+\item
+  Diseñe una validación anidada para comparar regresión logística, SVM,
+  Random Forest y una red neuronal.
+\item
+  Explique por qué una cota puede ser vacía.
+\end{enumerate}
+
+\section{Resumen}\label{resumen-20}
+
+Se estudiaron riesgo esperado, riesgo empírico, convergencia uniforme,
+Hoeffding, aprendizaje PAC, dimensión VC, complejidad de Rademacher,
+estabilidad y PAC-Bayes. También se analizaron regularización, selección
+de modelos, cambio de distribución y sobreparametrización.
+
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-20}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos se apoyan en Vapnik y Chervonenkis (1971), Valiant
+(1984), Vapnik (1998), Shalev-Shwartz y Ben-David (2014), Mohri et~al.
+(2018), Bartlett y Mendelson (2002) y McAllester (1999).
 
 \chapter{Series de tiempo y aprendizaje
-automático}\label{series-de-tiempo-y-aprendizaje-automuxe1tico}
+automático}\label{sec-series-tiempo}
 
-\emph{Capítulo en desarrollo.}
+\section{Introducción}\label{introducciuxf3n-22}
+
+Una serie de tiempo es una secuencia de observaciones ordenadas
+cronológicamente. A diferencia de una muestra transversal, el orden
+contiene información y las observaciones pueden presentar dependencia
+temporal.
+
+El análisis de series de tiempo busca describir, modelar y pronosticar
+esta dependencia. Los enfoques clásicos utilizan estructuras como
+tendencia, estacionalidad, autocorrelación y modelos ARIMA. Los métodos
+de aprendizaje automático transforman la historia temporal en variables
+predictoras y utilizan árboles, ensambles, redes neuronales u otros
+algoritmos.
+
+La evaluación correcta exige respetar el orden cronológico. Una
+partición aleatoria puede mezclar pasado y futuro, producir fuga de
+información y generar estimaciones excesivamente optimistas.
+
+\section{Objetivos}\label{objetivos-20}
+
+Al finalizar el capítulo, el lector podrá:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  representar una serie temporal;
+\item
+  identificar tendencia y estacionalidad;
+\item
+  definir estacionariedad;
+\item
+  interpretar autocovarianza y autocorrelación;
+\item
+  comprender procesos AR, MA y ARMA;
+\item
+  formular modelos ARIMA;
+\item
+  interpretar diferenciación;
+\item
+  construir variables rezagadas;
+\item
+  evitar fuga temporal;
+\item
+  diseñar validación temporal;
+\item
+  evaluar pronósticos;
+\item
+  comprender pronósticos probabilísticos;
+\item
+  aplicar árboles, Random Forest y redes neuronales;
+\item
+  comparar enfoques estadísticos y de aprendizaje automático.
+\end{enumerate}
+
+\section{Definición}\label{definiciuxf3n}
+
+Una serie de tiempo es una colección
+
+\[
+\{Y_t:t\in\mathcal{T}\},
+\]
+
+donde \(t\) representa tiempo.
+
+En tiempo discreto:
+
+\[
+t=1,2,\ldots,T.
+\]
+
+Una realización observada es
+
+\[
+y_1,y_2,\ldots,y_T.
+\]
+
+\section{Componentes}\label{componentes}
+
+Una descomposición aditiva es
+
+\[
+Y_t=T_t+S_t+C_t+\varepsilon_t,
+\]
+
+donde:
+
+\begin{itemize}
+\tightlist
+\item
+  \(T_t\): tendencia;
+\item
+  \(S_t\): estacionalidad;
+\item
+  \(C_t\): ciclo;
+\item
+  \(\varepsilon_t\): componente irregular.
+\end{itemize}
+
+\section{Modelo multiplicativo}\label{modelo-multiplicativo}
+
+Cuando la amplitud estacional aumenta con el nivel:
+
+\[
+Y_t=T_tS_tC_t\varepsilon_t.
+\]
+
+Aplicando logaritmos se obtiene una forma aditiva.
+
+\section{Tendencia}\label{tendencia}
+
+La tendencia describe el comportamiento de largo plazo.
+
+Puede ser:
+
+\begin{itemize}
+\tightlist
+\item
+  creciente;
+\item
+  decreciente;
+\item
+  lineal;
+\item
+  no lineal;
+\item
+  localmente cambiante.
+\end{itemize}
+
+\section{Estacionalidad}\label{estacionalidad}
+
+La estacionalidad es un patrón que se repite con periodo conocido:
+
+\[
+S_{t+m}=S_t.
+\]
+
+Ejemplos:
+
+\begin{itemize}
+\tightlist
+\item
+  12 meses;
+\item
+  7 días;
+\item
+  24 horas;
+\item
+  4 trimestres.
+\end{itemize}
+
+\section{Estacionariedad débil}\label{estacionariedad-duxe9bil}
+
+Un proceso es débilmente estacionario si:
+
+\[
+\mathbb{E}(Y_t)=\mu
+\]
+
+es constante y
+
+\[
+\operatorname{Cov}(Y_t,Y_{t+h})
+=
+\gamma(h)
+\]
+
+depende solo del rezago \(h\).
+
+\section{Autocovarianza}\label{autocovarianza}
+
+\[
+\gamma(h)
+=
+\operatorname{Cov}(Y_t,Y_{t-h}).
+\]
+
+Para \(h=0\):
+
+\[
+\gamma(0)=\operatorname{Var}(Y_t).
+\]
+
+\section{Autocorrelación}\label{autocorrelaciuxf3n}
+
+\[
+\rho(h)
+=
+\frac{\gamma(h)}{\gamma(0)}.
+\]
+
+Se cumple
+
+\[
+-1\leq\rho(h)\leq1.
+\]
+
+\section{ACF muestral}\label{acf-muestral}
+
+\[
+\widehat{\rho}(h)
+=
+\frac{
+\sum_{t=h+1}^{T}
+(y_t-\overline{y})(y_{t-h}-\overline{y})
+}{
+\sum_{t=1}^{T}(y_t-\overline{y})^2
+}.
+\]
+
+La ACF ayuda a detectar dependencia y estacionalidad.
+
+\section{Ruido blanco}\label{ruido-blanco}
+
+Un proceso de ruido blanco satisface:
+
+\[
+\mathbb{E}(\varepsilon_t)=0,
+\]
+
+\[
+\operatorname{Var}(\varepsilon_t)=\sigma^2,
+\]
+
+\[
+\operatorname{Cov}(\varepsilon_t,\varepsilon_s)=0
+\quad (t\neq s).
+\]
+
+\section{Caminata aleatoria}\label{caminata-aleatoria}
+
+\[
+Y_t=Y_{t-1}+\varepsilon_t.
+\]
+
+No es estacionaria porque su varianza crece con el tiempo.
+
+\section{Diferenciación}\label{diferenciaciuxf3n}
+
+La primera diferencia es
+
+\[
+\nabla Y_t
+=
+Y_t-Y_{t-1}.
+\]
+
+La diferencia estacional es
+
+\[
+\nabla_mY_t
+=
+Y_t-Y_{t-m}.
+\]
+
+Se utilizan para eliminar tendencia o estacionalidad.
+
+\section{Operador rezago}\label{operador-rezago}
+
+Defínase
+
+\[
+BY_t=Y_{t-1}.
+\]
+
+Entonces
+
+\[
+\nabla Y_t=(1-B)Y_t.
+\]
+
+La diferencia de orden \(d\) es
+
+\[
+\nabla^dY_t=(1-B)^dY_t.
+\]
+
+\section{Modelo autorregresivo AR(p)}\label{modelo-autorregresivo-arp}
+
+\[
+Y_t
+=
+c+
+\phi_1Y_{t-1}
++\cdots+
+\phi_pY_{t-p}
++\varepsilon_t.
+\]
+
+El valor presente depende de sus propios rezagos.
+
+\section{AR(1)}\label{ar1}
+
+\[
+Y_t=c+\phi Y_{t-1}+\varepsilon_t.
+\]
+
+Para estacionariedad se requiere
+
+\[
+|\phi|<1.
+\]
+
+Su media es
+
+\[
+\mu=\frac{c}{1-\phi}.
+\]
+
+\section{Modelo MA(q)}\label{modelo-maq}
+
+\[
+Y_t
+=
+\mu+
+\varepsilon_t+
+\theta_1\varepsilon_{t-1}
++\cdots+
+\theta_q\varepsilon_{t-q}.
+\]
+
+El valor depende de perturbaciones actuales y pasadas.
+
+\section{Modelo ARMA(p,q)}\label{modelo-armapq}
+
+\[
+Y_t
+=
+c+
+\sum_{i=1}^{p}\phi_iY_{t-i}
++
+\varepsilon_t+
+\sum_{j=1}^{q}\theta_j\varepsilon_{t-j}.
+\]
+
+Se utiliza para series estacionarias.
+
+\section{Modelo ARIMA(p,d,q)}\label{modelo-arimapdq}
+
+Una serie se diferencia \(d\) veces y se ajusta un ARMA:
+
+\[
+\phi(B)(1-B)^dY_t
+=
+c+\theta(B)\varepsilon_t.
+\]
+
+Los parámetros son:
+
+\begin{itemize}
+\tightlist
+\item
+  \(p\): orden autorregresivo;
+\item
+  \(d\): diferenciación;
+\item
+  \(q\): media móvil.
+\end{itemize}
+
+\section{ARIMA estacional}\label{arima-estacional}
+
+\[
+ARIMA(p,d,q)(P,D,Q)_m.
+\]
+
+Incluye componentes estacionales con periodo \(m\).
+
+\section{Identificación}\label{identificaciuxf3n}
+
+Se utilizan:
+
+\begin{itemize}
+\tightlist
+\item
+  gráfica temporal;
+\item
+  ACF;
+\item
+  PACF;
+\item
+  pruebas de raíz unitaria;
+\item
+  criterios AIC y BIC;
+\item
+  diagnóstico de residuos.
+\end{itemize}
+
+\section{PACF}\label{pacf}
+
+La autocorrelación parcial en rezago \(h\) mide la relación entre
+\(Y_t\) y \(Y_{t-h}\) controlando rezagos intermedios.
+
+Es útil para identificar órdenes autorregresivos.
+
+\section{Prueba de raíz unitaria}\label{prueba-de-rauxedz-unitaria}
+
+La prueba Dickey-Fuller aumentada contrasta una raíz unitaria.
+
+No rechazar no demuestra estacionariedad; indica evidencia insuficiente
+contra la raíz unitaria.
+
+\section{Suavizamiento exponencial}\label{suavizamiento-exponencial}
+
+El nivel simple se actualiza mediante
+
+\[
+\ell_t
+=
+\alpha y_t+(1-\alpha)\ell_{t-1},
+\]
+
+con
+
+\[
+0<\alpha<1.
+\]
+
+El pronóstico es
+
+\[
+\widehat{y}_{t+h|t}=\ell_t.
+\]
+
+\section{Método de Holt}\label{muxe9todo-de-holt}
+
+Incluye nivel y tendencia:
+
+\[
+\ell_t
+=
+\alpha y_t
++
+(1-\alpha)(\ell_{t-1}+b_{t-1}),
+\]
+
+\[
+b_t
+=
+\beta(\ell_t-\ell_{t-1})
++
+(1-\beta)b_{t-1}.
+\]
+
+\section{Holt-Winters}\label{holt-winters}
+
+Añade una componente estacional y puede formularse en versión aditiva o
+multiplicativa.
+
+\section{Pronóstico h pasos
+adelante}\label{pronuxf3stico-h-pasos-adelante}
+
+Se denota por
+
+\[
+\widehat{Y}_{t+h|t},
+\]
+
+la predicción de \(Y_{t+h}\) usando información disponible hasta \(t\).
+
+\section{Error de pronóstico}\label{error-de-pronuxf3stico}
+
+\[
+e_{t+h|t}
+=
+Y_{t+h}
+-
+\widehat{Y}_{t+h|t}.
+\]
+
+\section{MAE}\label{mae}
+
+\[
+MAE
+=
+\frac{1}{n}
+\sum_{i=1}^{n}|e_i|.
+\]
+
+\section{RMSE}\label{rmse}
+
+\[
+RMSE
+=
+\sqrt{
+\frac{1}{n}
+\sum_{i=1}^{n}e_i^2
+}.
+\]
+
+\section{MAPE}\label{mape}
+
+\[
+MAPE
+=
+\frac{100}{n}
+\sum_{i=1}^{n}
+\left|
+\frac{e_i}{y_i}
+\right|.
+\]
+
+Es problemático si \(y_i\) es cero o cercano a cero.
+
+\section{MASE}\label{mase}
+
+\[
+MASE
+=
+\frac{
+\frac{1}{n}\sum|e_i|
+}{
+\frac{1}{T-m}
+\sum_{t=m+1}^{T}|y_t-y_{t-m}|
+}.
+\]
+
+Permite comparación entre series.
+
+\section{Pronósticos
+probabilísticos}\label{pronuxf3sticos-probabiluxedsticos}
+
+Un pronóstico completo puede ser una distribución:
+
+\[
+P(Y_{t+h}\mid\mathcal{F}_t).
+\]
+
+Puede resumirse mediante:
+
+\begin{itemize}
+\tightlist
+\item
+  intervalos;
+\item
+  cuantiles;
+\item
+  densidades;
+\item
+  simulaciones.
+\end{itemize}
+
+\section{Cobertura de intervalos}\label{cobertura-de-intervalos}
+
+Un intervalo nominal del 95 por ciento debe contener aproximadamente el
+95 por ciento de observaciones futuras bajo calibración correcta.
+
+\section{Variables rezagadas}\label{variables-rezagadas}
+
+Para aprendizaje automático se construyen:
+
+\[
+X_{t,1}=Y_{t-1},
+\]
+
+\[
+X_{t,2}=Y_{t-2},
+\]
+
+y así sucesivamente.
+
+También pueden incluirse:
+
+\begin{itemize}
+\tightlist
+\item
+  medias móviles;
+\item
+  máximos;
+\item
+  mínimos;
+\item
+  calendario;
+\item
+  variables externas.
+\end{itemize}
+
+\section{Ventanas móviles}\label{ventanas-muxf3viles}
+
+Una media de ventana \(w\) es
+
+\[
+M_t^{(w)}
+=
+\frac{1}{w}
+\sum_{j=1}^{w}Y_{t-j}.
+\]
+
+Debe calcularse usando únicamente información anterior a \(t\).
+
+\section{Variables de calendario}\label{variables-de-calendario}
+
+Pueden incluir:
+
+\begin{itemize}
+\tightlist
+\item
+  hora;
+\item
+  día de semana;
+\item
+  mes;
+\item
+  trimestre;
+\item
+  festivos;
+\item
+  temporada.
+\end{itemize}
+
+Para variables cíclicas puede utilizarse:
+
+\[
+\sin
+\left(
+\frac{2\pi t}{m}
+\right),
+\qquad
+\cos
+\left(
+\frac{2\pi t}{m}
+\right).
+\]
+
+\section{Variables exógenas}\label{variables-exuxf3genas}
+
+Un modelo puede incluir
+
+\[
+\mathbf{X}_t.
+\]
+
+Por ejemplo:
+
+\[
+Y_t
+=
+f
+\left(
+Y_{t-1},\ldots,Y_{t-p},
+\mathbf{X}_t
+\right).
+\]
+
+Para pronosticar se necesitan valores futuros o pronósticos de las
+variables exógenas.
+
+\section{Fuga temporal}\label{fuga-temporal}
+
+Existe fuga si una variable usa información futura.
+
+Ejemplos:
+
+\begin{itemize}
+\tightlist
+\item
+  media móvil centrada;
+\item
+  escalamiento con toda la serie;
+\item
+  imputación usando valores posteriores;
+\item
+  selección de variables con el periodo de prueba;
+\item
+  partición aleatoria.
+\end{itemize}
+
+\section{División temporal}\label{divisiuxf3n-temporal}
+
+La partición correcta respeta:
+
+\[
+\text{entrenamiento}
+<
+\text{validación}
+<
+\text{prueba}.
+\]
+
+El futuro nunca debe utilizarse para construir el pasado.
+
+\section{Validación con origen
+móvil}\label{validaciuxf3n-con-origen-muxf3vil}
+
+En cada iteración se entrena con información hasta un tiempo y se evalúa
+en periodos posteriores.
+
+Puede usarse:
+
+\begin{itemize}
+\tightlist
+\item
+  ventana expansiva;
+\item
+  ventana deslizante.
+\end{itemize}
+
+\section{Ventana expansiva}\label{ventana-expansiva}
+
+El conjunto de entrenamiento crece:
+
+\[
+\{1,\ldots,t\}
+\to
+\{1,\ldots,t+1\}.
+\]
+
+\section{Ventana deslizante}\label{ventana-deslizante-1}
+
+Se mantiene una longitud fija:
+
+\[
+\{t-w+1,\ldots,t\}.
+\]
+
+Es útil cuando existe cambio de distribución.
+
+\section{Pronóstico recursivo}\label{pronuxf3stico-recursivo}
+
+Para múltiples pasos, la predicción anterior se utiliza como entrada:
+
+\[
+\widehat{Y}_{t+2|t}
+=
+f
+\left(
+\widehat{Y}_{t+1|t},Y_t,\ldots
+\right).
+\]
+
+Los errores pueden acumularse.
+
+\section{Pronóstico directo}\label{pronuxf3stico-directo}
+
+Se entrena un modelo diferente para cada horizonte:
+
+\[
+f_1,f_2,\ldots,f_H.
+\]
+
+Reduce acumulación, pero requiere más modelos.
+
+\section{Estrategia multioutput}\label{estrategia-multioutput}
+
+Un modelo produce simultáneamente:
+
+\[
+(\widehat{Y}_{t+1},\ldots,\widehat{Y}_{t+H}).
+\]
+
+\section{Árboles y bosques}\label{uxe1rboles-y-bosques}
+
+Random Forest puede usar:
+
+\begin{itemize}
+\tightlist
+\item
+  rezagos;
+\item
+  estadísticas móviles;
+\item
+  variables calendario;
+\item
+  variables meteorológicas.
+\end{itemize}
+
+Ventajas:
+
+\begin{itemize}
+\tightlist
+\item
+  no linealidad;
+\item
+  interacciones;
+\item
+  poca transformación.
+\end{itemize}
+
+Limitación: extrapola mal tendencias fuera del rango de entrenamiento.
+
+\section{Gradient boosting}\label{gradient-boosting}
+
+Los modelos boosting suelen ser muy competitivos en series tabulares con
+variables rezagadas.
+
+Requieren validación temporal y control de sobreajuste.
+
+\section{Redes neuronales
+recurrentes}\label{redes-neuronales-recurrentes}
+
+Una RNN actualiza un estado:
+
+\[
+\mathbf{h}_t
+=
+\phi
+\left(
+\mathbf{W}_x\mathbf{x}_t
++
+\mathbf{W}_h\mathbf{h}_{t-1}
++
+\mathbf{b}
+\right).
+\]
+
+El estado resume información pasada.
+
+\section{Gradientes en RNN}\label{gradientes-en-rnn}
+
+La retropropagación a través del tiempo multiplica Jacobianas
+repetidamente, lo cual puede producir gradientes desvanecientes o
+explosivos.
+
+\section{LSTM}\label{lstm}
+
+Las redes LSTM introducen compuertas para controlar el flujo de
+información (Hochreiter y Schmidhuber 1997).
+
+Incluyen:
+
+\begin{itemize}
+\tightlist
+\item
+  compuerta de olvido;
+\item
+  compuerta de entrada;
+\item
+  estado de celda;
+\item
+  compuerta de salida.
+\end{itemize}
+
+\section{Atención y transformers}\label{atenciuxf3n-y-transformers}
+
+Los transformers modelan dependencias mediante atención:
+
+\[
+Attention(Q,K,V)
+=
+softmax
+\left(
+\frac{QK^{\mathsf T}}{\sqrt{d_k}}
+\right)V.
+\]
+
+Permiten relacionar posiciones distantes sin recurrencia estricta.
+
+\section{Modelos híbridos}\label{modelos-huxedbridos}
+
+Puede combinarse:
+
+\begin{itemize}
+\tightlist
+\item
+  ARIMA para estructura lineal;
+\item
+  aprendizaje automático para residuos;
+\item
+  descomposición estacional;
+\item
+  modelos separados por componentes.
+\end{itemize}
+
+\section{Pronóstico jerárquico}\label{pronuxf3stico-jeruxe1rquico}
+
+En datos agregados, los pronósticos deben ser coherentes:
+
+\[
+Y_{\text{total}}
+=
+\sum_jY_j.
+\]
+
+Se emplean métodos de reconciliación.
+
+\section{Series múltiples}\label{series-muxfaltiples}
+
+Una colección de series puede compartir información.
+
+Se distinguen:
+
+\begin{itemize}
+\tightlist
+\item
+  modelos locales: uno por serie;
+\item
+  modelos globales: un modelo común.
+\end{itemize}
+
+\section{Concept drift}\label{concept-drift}
+
+La relación temporal puede cambiar.
+
+Se requiere monitorear:
+
+\begin{itemize}
+\tightlist
+\item
+  error;
+\item
+  distribución;
+\item
+  residuos;
+\item
+  importancia de variables;
+\item
+  calibración.
+\end{itemize}
+
+\section{Residuos}\label{residuos-2}
+
+Un modelo adecuado debe dejar residuos aproximadamente:
+
+\begin{itemize}
+\tightlist
+\item
+  centrados en cero;
+\item
+  sin autocorrelación;
+\item
+  con varianza estable;
+\item
+  sin estructura sistemática.
+\end{itemize}
+
+\section{Prueba Ljung-Box}\label{prueba-ljung-box}
+
+Contrasta autocorrelaciones conjuntas de residuos.
+
+Rechazar sugiere dependencia temporal no modelada.
+
+\section{Selección de modelos}\label{selecciuxf3n-de-modelos-2}
+
+AIC:
+
+\[
+AIC=-2\log L+2k.
+\]
+
+BIC:
+
+\[
+BIC=-2\log L+k\log n.
+\]
+
+En aprendizaje automático debe priorizarse desempeño fuera de muestra
+mediante validación temporal.
+
+\section{Línea base}\label{luxednea-base}
+
+Todo modelo debe compararse con referencias simples:
+
+\begin{itemize}
+\tightlist
+\item
+  último valor;
+\item
+  media;
+\item
+  tendencia;
+\item
+  pronóstico estacional ingenuo.
+\end{itemize}
+
+Un modelo complejo que no supera la línea base no agrega valor.
+
+\section{Pronóstico ingenuo}\label{pronuxf3stico-ingenuo}
+
+\[
+\widehat{Y}_{t+h|t}=Y_t.
+\]
+
+\section{Ingenuo estacional}\label{ingenuo-estacional}
+
+\[
+\widehat{Y}_{t+h|t}=Y_{t+h-m}.
+\]
+
+\section{Intervalos y aprendizaje
+automático}\label{intervalos-y-aprendizaje-automuxe1tico}
+
+Puede utilizarse:
+
+\begin{itemize}
+\tightlist
+\item
+  regresión cuantílica;
+\item
+  conformal prediction;
+\item
+  bootstrap temporal;
+\item
+  ensambles;
+\item
+  modelos probabilísticos.
+\end{itemize}
+
+\section{Evaluación por horizonte}\label{evaluaciuxf3n-por-horizonte}
+
+El error debe analizarse para cada horizonte:
+
+\[
+MAE(h),
+\qquad
+RMSE(h).
+\]
+
+Un modelo puede ser bueno a corto plazo y malo a largo plazo.
+
+\section{Aplicación ambiental}\label{aplicaciuxf3n-ambiental-1}
+
+Para pronosticar PM10 pueden utilizarse:
+
+\begin{itemize}
+\tightlist
+\item
+  PM10 rezagado;
+\item
+  temperatura;
+\item
+  humedad;
+\item
+  viento;
+\item
+  hora;
+\item
+  día;
+\item
+  estacionalidad;
+\item
+  variables de otras estaciones.
+\end{itemize}
+
+La validación debe simular el uso operativo real.
+
+\section{Conexión con R}\label{conexiuxf3n-con-r-20}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(forecast)}
+
+\NormalTok{serie }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{45}\NormalTok{, }\DecValTok{48}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{47}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{58}\NormalTok{, }\DecValTok{62}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{63}\NormalTok{, }\DecValTok{68}\NormalTok{, }\DecValTok{70}\NormalTok{),}
+  \AttributeTok{frequency =} \DecValTok{12}
+\NormalTok{)}
+
+\NormalTok{modelo }\OtherTok{\textless{}{-}} \FunctionTok{auto.arima}\NormalTok{(serie)}
+
+\NormalTok{pronostico }\OtherTok{\textless{}{-}} \FunctionTok{forecast}\NormalTok{(}
+\NormalTok{  modelo,}
+  \AttributeTok{h =} \DecValTok{6}
+\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(pronostico)}
+
+\CommentTok{\# Variables rezagadas para aprendizaje automático}
+\NormalTok{crear\_rezagos }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, }\AttributeTok{p =} \DecValTok{3}\NormalTok{) \{}
+\NormalTok{  resultado }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y =}\NormalTok{ x)}
+
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(p)) \{}
+\NormalTok{    resultado[[}\FunctionTok{paste0}\NormalTok{(}\StringTok{"lag\_"}\NormalTok{, j)]] }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{lag}\NormalTok{(x, j)}
+\NormalTok{  \}}
+
+  \FunctionTok{na.omit}\NormalTok{(resultado)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Ejemplo AR(1)}\label{ejemplo-ar1}
+
+Sea
+
+\[
+Y_t=2+0.7Y_{t-1}+\varepsilon_t.
+\]
+
+La media estacionaria es
+
+\[
+\mu=\frac{2}{1-0.7}
+=
+\frac{20}{3}.
+\]
+
+\section{Ejemplo de diferencia}\label{ejemplo-de-diferencia}
+
+Para:
+
+\[
+100,\;105,\;111,\;115,
+\]
+
+las primeras diferencias son:
+
+\[
+5,\;6,\;4.
+\]
+
+\section{Ejemplo de variable
+rezagada}\label{ejemplo-de-variable-rezagada}
+
+Para predecir \(Y_t\) con tres rezagos:
+
+\[
+\mathbf{x}_t
+=
+(Y_{t-1},Y_{t-2},Y_{t-3}).
+\]
+
+La primera fila utilizable aparece en \(t=4\).
+
+\section{Ventajas de los enfoques
+clásicos}\label{ventajas-de-los-enfoques-cluxe1sicos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  interpretación;
+\item
+  intervalos probabilísticos;
+\item
+  buen desempeño con pocos datos;
+\item
+  teoría desarrollada;
+\item
+  diagnóstico de residuos.
+\end{enumerate}
+
+\section{Ventajas del aprendizaje
+automático}\label{ventajas-del-aprendizaje-automuxe1tico}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  no linealidad;
+\item
+  numerosas variables;
+\item
+  interacciones;
+\item
+  series múltiples;
+\item
+  flexibilidad.
+\end{enumerate}
+
+\section{Limitaciones}\label{limitaciones-8}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  dependencia temporal;
+\item
+  riesgo de fuga;
+\item
+  cambio de distribución;
+\item
+  incertidumbre futura;
+\item
+  horizontes múltiples;
+\item
+  necesidad de validación realista;
+\item
+  extrapolación limitada en árboles.
+\end{enumerate}
+
+\section{Errores frecuentes}\label{errores-frecuentes-20}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  dividir aleatoriamente;
+\item
+  calcular rezagos con información futura;
+\item
+  ajustar escalamiento con toda la serie;
+\item
+  evaluar solo un horizonte;
+\item
+  omitir una línea base;
+\item
+  usar MAPE con ceros;
+\item
+  ignorar autocorrelación residual;
+\item
+  seleccionar modelos con prueba final;
+\item
+  confundir ajuste histórico con pronóstico;
+\item
+  usar variables exógenas futuras desconocidas.
+\end{enumerate}
+
+\section{Ejercicios conceptuales}\label{ejercicios-conceptuales-20}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Defina estacionariedad.
+\item
+  Distinga tendencia y estacionalidad.
+\item
+  Interprete ACF y PACF.
+\item
+  Compare AR y MA.
+\item
+  Explique ARIMA.
+\item
+  ¿Qué es fuga temporal?
+\item
+  Compare ventana expansiva y deslizante.
+\item
+  Compare pronóstico recursivo y directo.
+\item
+  ¿Por qué se necesitan líneas base?
+\item
+  Compare modelos clásicos y aprendizaje automático.
+\end{enumerate}
+
+\section{Ejercicio AR(1)}\label{ejercicio-ar1}
+
+Sea:
+
+\[
+Y_t=1+0.5Y_{t-1}+\varepsilon_t.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Verifique estacionariedad.
+\item
+  Calcule la media.
+\item
+  Pronostique un paso si \(Y_t=10\) y \(\mathbb{E}(\varepsilon)=0\).
+\end{enumerate}
+
+\section{Ejercicio de métricas}\label{ejercicio-de-muxe9tricas}
+
+Observados:
+
+\[
+10,\;12,\;15,\;20.
+\]
+
+Pronósticos:
+
+\[
+11,\;10,\;14,\;22.
+\]
+
+Calcule:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  errores;
+\item
+  MAE;
+\item
+  RMSE;
+\item
+  MAPE.
+\end{enumerate}
+
+\section{Ejercicio de validación}\label{ejercicio-de-validaciuxf3n-1}
+
+Diseñe una validación de origen móvil para 60 meses:
+
+\begin{itemize}
+\tightlist
+\item
+  36 meses iniciales;
+\item
+  horizonte de 3 meses;
+\item
+  ventana expansiva.
+\end{itemize}
+
+Indique las particiones sucesivas.
+
+\section{Ejercicio aplicado}\label{ejercicio-aplicado-18}
+
+Diseñe un sistema para pronosticar PM10 diario que incluya:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  limpieza;
+\item
+  imputación temporal;
+\item
+  tendencia;
+\item
+  estacionalidad;
+\item
+  rezagos;
+\item
+  variables meteorológicas;
+\item
+  línea base;
+\item
+  ARIMA;
+\item
+  Random Forest;
+\item
+  boosting;
+\item
+  validación temporal;
+\item
+  métricas por horizonte;
+\item
+  intervalos;
+\item
+  monitoreo de drift;
+\item
+  limitaciones ambientales.
+\end{enumerate}
+
+\section{Resumen}\label{resumen-21}
+
+En este capítulo se desarrollaron los fundamentos de las series de
+tiempo y su relación con aprendizaje automático.
+
+Se estudiaron tendencia, estacionalidad, estacionariedad,
+autocorrelación, ruido blanco, diferenciación y modelos AR, MA, ARMA y
+ARIMA.
+
+También se analizaron suavizamiento exponencial, pronósticos
+probabilísticos, métricas, rezagos, ventanas móviles y variables
+exógenas.
+
+Finalmente, se desarrollaron validación temporal, estrategias
+multihorizonte, árboles, ensambles, RNN, LSTM, transformers, modelos
+híbridos, monitoreo y prevención de fuga temporal.
+
+\section*{Referencias del
+capítulo}\label{referencias-del-capuxedtulo-21}
+\addcontentsline{toc}{section}{Referencias del capítulo}
+
+\markright{Referencias del capítulo}
+
+Los fundamentos se apoyan en Box et~al. (2015), Hamilton (1994), Hyndman
+y Athanasopoulos (2021) y Hochreiter y Schmidhuber (1997).
 
 \bookmarksetup{startatroot}
 
@@ -30935,9 +32591,19 @@ Arthur, David, y Sergei Vassilvitskii. 2007. {«K-means++: The Advantages
 of Careful Seeding»}. \emph{Proceedings of the Eighteenth Annual
 ACM-SIAM Symposium on Discrete Algorithms}, 1027-35.
 
+\bibitem[\citeproctext]{ref-bartlett2002rademacher}
+Bartlett, Peter L., y Shahar Mendelson. 2002. {«Rademacher and Gaussian
+Complexities: Risk Bounds and Structural Results»}. \emph{Journal of
+Machine Learning Research} 3: 463-82.
+
 \bibitem[\citeproctext]{ref-bishop2006pattern}
 Bishop, Christopher M. 2006. \emph{Pattern Recognition and Machine
 Learning}. Springer.
+
+\bibitem[\citeproctext]{ref-box2015time}
+Box, George E. P., Gwilym M. Jenkins, Gregory C. Reinsel, y Greta M.
+Ljung. 2015. \emph{Time Series Analysis: Forecasting and Control}. 5.ª
+ed. Wiley.
 
 \bibitem[\citeproctext]{ref-breiman2001random}
 Breiman, Leo. 2001. {«Random Forests»}. \emph{Machine Learning} 45:
@@ -30967,6 +32633,10 @@ Computational Environment for Mining Association Rules and Frequent Item
 Sets»}. \emph{Journal of Statistical Software} 14 (15): 1-25.
 \url{https://doi.org/10.18637/jss.v014.i15}.
 
+\bibitem[\citeproctext]{ref-hamilton1994time}
+Hamilton, James D. 1994. \emph{Time Series Analysis}. Princeton
+University Press.
+
 \bibitem[\citeproctext]{ref-han2000mining}
 Han, Jiawei, Jian Pei, y Yiwen Yin. 2000. {«Mining Frequent Patterns
 without Candidate Generation»}. \emph{Proceedings of the 2000 ACM SIGMOD
@@ -30979,10 +32649,19 @@ Elements of Statistical Learning: Data Mining, Inference, and
 Prediction}. 2.ª ed. Springer.
 \url{https://doi.org/10.1007/978-0-387-84858-7}.
 
+\bibitem[\citeproctext]{ref-hochreiter1997long}
+Hochreiter, Sepp, y Jürgen Schmidhuber. 1997. {«Long Short-Term
+Memory»}. \emph{Neural Computation} 9 (8): 1735-80.
+\url{https://doi.org/10.1162/neco.1997.9.8.1735}.
+
 \bibitem[\citeproctext]{ref-hotelling1933analysis}
 Hotelling, Harold. 1933. {«Analysis of a Complex of Statistical
 Variables into Principal Components»}. \emph{Journal of Educational
 Psychology} 24: 417-41. \url{https://doi.org/10.1037/h0071325}.
+
+\bibitem[\citeproctext]{ref-hyndman2021forecasting}
+Hyndman, Rob J., y George Athanasopoulos. 2021. \emph{Forecasting:
+Principles and Practice}. 3.ª ed. OTexts.
 
 \bibitem[\citeproctext]{ref-james2021introduction}
 James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021.
@@ -30997,6 +32676,15 @@ Transactions on Information Theory} 28 (2): 129-37.
 \bibitem[\citeproctext]{ref-mardia1979multivariate}
 Mardia, Kanti V., John T. Kent, y John M. Bibby. 1979.
 \emph{Multivariate Analysis}. Academic Press.
+
+\bibitem[\citeproctext]{ref-mcallester1999pac}
+McAllester, David A. 1999. {«PAC-Bayesian Model Averaging»}.
+\emph{Proceedings of the Twelfth Annual Conference on Computational
+Learning Theory}, 164-70.
+
+\bibitem[\citeproctext]{ref-mohri2018foundations}
+Mohri, Mehryar, Afshin Rostamizadeh, y Ameet Talwalkar. 2018.
+\emph{Foundations of Machine Learning}. 2.ª ed. MIT Press.
 
 \bibitem[\citeproctext]{ref-murphy2022probabilistic}
 Murphy, Kevin P. 2022. \emph{Probabilistic Machine Learning: An
@@ -31016,13 +32704,27 @@ Rumelhart, David E., Geoffrey E. Hinton, y Ronald J. Williams. 1986.
 {«Learning Representations by Back-Propagating Errors»}. \emph{Nature}
 323: 533-36. \url{https://doi.org/10.1038/323533a0}.
 
+\bibitem[\citeproctext]{ref-shalev2014understanding}
+Shalev-Shwartz, Shai, y Shai Ben-David. 2014. \emph{Understanding
+Machine Learning: From Theory to Algorithms}. Cambridge University
+Press.
+
 \bibitem[\citeproctext]{ref-stone1977consistent}
 Stone, Charles J. 1977. {«Consistent Nonparametric Regression»}.
 \emph{The Annals of Statistics} 5 (4): 595-620.
 \url{https://doi.org/10.1214/aos/1176343886}.
 
+\bibitem[\citeproctext]{ref-valiant1984theory}
+Valiant, Leslie G. 1984. {«A Theory of the Learnable»}.
+\emph{Communications of the ACM} 27 (11): 1134-42.
+
 \bibitem[\citeproctext]{ref-vapnik1998statistical}
 Vapnik, Vladimir N. 1998. \emph{Statistical Learning Theory}. Wiley.
+
+\bibitem[\citeproctext]{ref-vapnik1971uniform}
+Vapnik, Vladimir N., y Alexey Y. Chervonenkis. 1971. {«On the Uniform
+Convergence of Relative Frequencies of Events to Their Probabilities»}.
+\emph{Theory of Probability and Its Applications} 16 (2): 264-80.
 
 \bibitem[\citeproctext]{ref-ward1963hierarchical}
 Ward, Joe H. 1963. {«Hierarchical Grouping to Optimize an Objective

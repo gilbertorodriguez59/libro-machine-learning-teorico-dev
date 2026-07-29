@@ -1,3 +1,234 @@
-# Teoría de generalización
+# Teoría de generalización {#sec-teoria-generalizacion}
 
-*Capítulo en desarrollo.*
+## Introducción
+
+La finalidad del aprendizaje automático es construir modelos que funcionen con observaciones nuevas. La teoría de generalización estudia cuándo el desempeño observado en la muestra representa adecuadamente el riesgo sobre la población y cómo influyen el tamaño muestral, la complejidad del modelo y la regularización [@vapnik1971uniform; @valiant1984theory; @shalev2014understanding].
+
+## Riesgo esperado y riesgo empírico
+
+Para una función $f$ y una pérdida $L$, el riesgo esperado es
+
+$$
+R(f)=\mathbb{E}[L(Y,f(\mathbf{X}))].
+$$
+
+Dada una muestra de tamaño $n$, el riesgo empírico es
+
+$$
+\widehat R_n(f)=\frac{1}{n}\sum_{i=1}^n L(y_i,f(\mathbf{x}_i)).
+$$
+
+La diferencia
+
+$$
+R(f)-\widehat R_n(f)
+$$
+
+se denomina brecha de generalización.
+
+## Minimización del riesgo empírico
+
+El estimador ERM es
+
+$$
+\widehat f_{ERM}=\operatorname*{arg\,min}_{f\in\mathcal F}\widehat R_n(f).
+$$
+
+Si el riesgo empírico aproxima uniformemente al riesgo esperado, entonces ERM generaliza.
+
+## Exceso de riesgo
+
+Sea $f^*$ el predictor óptimo y $f^*_{\mathcal F}$ el mejor predictor dentro de $\mathcal F$. Entonces
+
+$$
+R(\widehat f)-R(f^*)=
+[R(\widehat f)-R(f^*_{\mathcal F})]+[R(f^*_{\mathcal F})-R(f^*)].
+$$
+
+El primer término es error de estimación y el segundo error de aproximación.
+
+## Convergencia uniforme
+
+Se busca controlar
+
+$$
+\sup_{f\in\mathcal F}|R(f)-\widehat R_n(f)|.
+$$
+
+Si esta cantidad es menor que $\varepsilon$, entonces
+
+$$
+R(\widehat f_{ERM})\le R(f^*_{\mathcal F})+2\varepsilon.
+$$
+
+## Desigualdad de Hoeffding
+
+Si $0\le L\le1$, para un predictor fijo,
+
+$$
+P(|R(f)-\widehat R_n(f)|\ge\varepsilon)\le2e^{-2n\varepsilon^2}.
+$$
+
+Con probabilidad al menos $1-\delta$,
+
+$$
+R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2/\delta)}{2n}}.
+$$
+
+## Clases finitas
+
+Si $|\mathcal F|=M$, una unión de eventos produce
+
+$$
+R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2M/\delta)}{2n}}
+$$
+
+simultáneamente para todos los modelos. La penalización aumenta con $\log M$ y disminuye con $n$.
+
+## Aprendizaje PAC
+
+PAC significa *Probably Approximately Correct*. Un algoritmo aprende una clase si para todo $\varepsilon>0$ y $\delta>0$ devuelve, con probabilidad al menos $1-\delta$, un predictor cuyo error está a lo sumo $\varepsilon$ del objetivo.
+
+En el caso realizable, la complejidad muestral para una clase finita es del orden de
+
+$$
+\frac{\log M+\log(1/\delta)}{\varepsilon}.
+$$
+
+En el caso agnóstico es del orden de
+
+$$
+\frac{\log M+\log(1/\delta)}{\varepsilon^2}.
+$$
+
+## Dimensión VC
+
+La dimensión VC es el mayor número de puntos que una clase puede fragmentar, es decir, etiquetar de todas las formas binarias posibles.
+
+- umbrales en la recta: VC igual a 1;
+- intervalos: VC igual a 2;
+- hiperplanos en $\mathbb R^p$: VC igual a $p+1$.
+
+## Función de crecimiento y lema de Sauer
+
+La función de crecimiento $\Pi_{\mathcal F}(n)$ cuenta el máximo número de etiquetaciones inducidas por la clase. Si la dimensión VC es $d$,
+
+$$
+\Pi_{\mathcal F}(n)\le\sum_{j=0}^{d}\binom{n}{j}\le\left(\frac{en}{d}\right)^d.
+$$
+
+Una cota típica es
+
+$$
+R(f)\le\widehat R_n(f)+C\sqrt{\frac{d\log(n/d)+\log(1/\delta)}{n}}.
+$$
+
+## Complejidad de Rademacher
+
+La complejidad empírica es
+
+$$
+\widehat{\mathfrak R}_n(\mathcal F)=\mathbb E_{\boldsymbol\sigma}\left[\sup_{f\in\mathcal F}\frac1n\sum_{i=1}^n\sigma_i f(\mathbf x_i)\right],
+$$
+
+donde $\sigma_i\in\{-1,+1\}$. Mide la capacidad de la clase para ajustarse a ruido aleatorio [@bartlett2002rademacher].
+
+Una cota típica es
+
+$$
+R(f)\le\widehat R_n(f)+2\mathfrak R_n(\mathcal F)+\sqrt{\frac{\log(1/\delta)}{2n}}.
+$$
+
+## Regularización, norma y margen
+
+La regularización restringe la clase efectiva. En modelos lineales, limitar $\|\mathbf w\|_2$ reduce capacidad. En SVM, un margen grande puede producir cotas que dependen aproximadamente de
+
+$$
+\frac{R^2}{\gamma^2},
+$$
+
+donde $R$ acota la norma de las entradas y $\gamma$ es el margen.
+
+## Estabilidad algorítmica
+
+Un algoritmo es estable si reemplazar una observación cambia poco la pérdida. Si
+
+$$
+|L(z,A(\mathcal D_n))-L(z,A(\mathcal D_n^{(i)}))|\le\beta_n,
+$$
+
+y $\beta_n\to0$, la influencia de una observación disminuye con $n$. Los algoritmos regularizados suelen ser más estables.
+
+## PAC-Bayes
+
+Las cotas PAC-Bayes consideran una distribución previa $P$ y una posterior $Q$ sobre modelos. La penalización depende de
+
+$$
+\sqrt{\frac{KL(Q\|P)+\log(1/\delta)}{n}}.
+$$
+
+Un posterior cercano a una prior simple puede obtener una mejor garantía [@mcallester1999pac].
+
+## Selección de modelos
+
+Comparar muchos modelos usando la misma validación puede sobreajustar el conjunto de validación. La validación cruzada anidada separa selección de hiperparámetros y estimación final del desempeño.
+
+## Cambio de distribución
+
+Las garantías clásicas suelen suponer
+
+$$
+P_{train}=P_{test}.
+$$
+
+Cuando esta igualdad falla pueden aparecer *covariate shift*, *concept drift* o cambios estructurales. En esos casos se requieren validación temporal, reponderación, monitoreo y actualización.
+
+## Modelos sobreparametrizados
+
+Las redes modernas pueden tener más parámetros que observaciones y aun así generalizar. La complejidad efectiva depende también de normas, margen, optimización implícita, estructura de los datos y arquitectura.
+
+## Doble descenso
+
+El error de prueba puede disminuir, aumentar cerca del umbral de interpolación y volver a disminuir en el régimen sobreparametrizado. Este comportamiento se denomina doble descenso.
+
+## Cotas vacías
+
+Una cota puede ser matemáticamente válida pero numéricamente inútil si supera el máximo posible del riesgo. Deben distinguirse validez formal y utilidad práctica.
+
+## Conexión con los algoritmos
+
+- K-NN controla complejidad mediante $k$.
+- Árboles mediante profundidad y poda.
+- Random Forest reduce varianza por promediación.
+- SVM utiliza margen y norma.
+- Redes neuronales emplean arquitectura, regularización, dropout y parada temprana.
+
+## Ejemplo en R
+
+```{r}
+#| eval: false
+set.seed(123)
+simular <- function(n, B=1000) {
+  mean(replicate(B, abs(mean(rbinom(n,1,0.3))-0.3)))
+}
+sapply(c(50,100,500,1000), simular)
+```
+
+## Ejercicios
+
+1. Distinga riesgo esperado y empírico.
+2. Calcule la cota de Hoeffding para $n=500$ y $\delta=0.05$.
+3. Explique la diferencia entre caso realizable y agnóstico.
+4. Determine la dimensión VC de umbrales, intervalos e hiperplanos.
+5. Explique qué mide la complejidad de Rademacher.
+6. Analice cómo la regularización mejora estabilidad.
+7. Diseñe una validación anidada para comparar regresión logística, SVM, Random Forest y una red neuronal.
+8. Explique por qué una cota puede ser vacía.
+
+## Resumen
+
+Se estudiaron riesgo esperado, riesgo empírico, convergencia uniforme, Hoeffding, aprendizaje PAC, dimensión VC, complejidad de Rademacher, estabilidad y PAC-Bayes. También se analizaron regularización, selección de modelos, cambio de distribución y sobreparametrización.
+
+## Referencias del capítulo {.unnumbered}
+
+Los fundamentos se apoyan en @vapnik1971uniform, @valiant1984theory, @vapnik1998statistical, @shalev2014understanding, @mohri2018foundations, @bartlett2002rademacher y @mcallester1999pac.

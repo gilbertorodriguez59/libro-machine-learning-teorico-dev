@@ -92,6 +92,7 @@ format:
     code-tools: true
 
   pdf:
+    include-before-body: estilos/portadas/portada-pdf.tex
     documentclass: scrreprt
     toc: true
     number-sections: true

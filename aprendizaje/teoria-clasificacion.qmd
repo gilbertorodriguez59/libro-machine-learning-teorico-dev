@@ -1,0 +1,1301 @@
+# Teoría matemática de la clasificación {#sec-teoria-clasificacion}
+
+## Introducción
+
+La clasificación consiste en asignar una etiqueta discreta a una observación a partir de sus características. En un problema binario, la respuesta puede pertenecer a una de dos clases; en un problema multiclase, puede pertenecer a una de varias categorías.
+
+Desde el punto de vista matemático, un clasificador es una función que divide el espacio de características en regiones de decisión. Cada región se asocia con una clase. La teoría de clasificación estudia cómo construir estas regiones, cómo medir el costo de los errores y cuál es la mejor regla de decisión posible bajo una distribución probabilística dada.
+
+En este capítulo se desarrollan la regla de Bayes, el riesgo condicional, el error de Bayes, las fronteras de decisión y las principales métricas de evaluación.
+
+## Objetivos
+
+Al finalizar el capítulo, el lector podrá:
+
+1. formular un problema de clasificación binaria y multiclase;
+2. definir una regla de decisión;
+3. interpretar regiones y fronteras de decisión;
+4. calcular riesgo condicional;
+5. derivar la regla de Bayes;
+6. interpretar el error de Bayes;
+7. comprender pérdidas asimétricas;
+8. construir una matriz de confusión;
+9. calcular exactitud, error, sensibilidad, especificidad y precisión;
+10. interpretar valor predictivo positivo y negativo;
+11. comprender curvas ROC y área bajo la curva;
+12. analizar el efecto del umbral de decisión;
+13. extender la formulación al caso multiclase;
+14. relacionar estos conceptos con algoritmos concretos.
+
+## Formulación de un problema de clasificación
+
+Sea
+
+$$
+\mathbf{X}\in\mathcal{X}\subseteq\mathbb{R}^{p}
+$$
+
+un vector de características y sea
+
+$$
+Y\in\mathcal{Y}
+$$
+
+la etiqueta de clase.
+
+En clasificación binaria,
+
+$$
+\mathcal{Y}=\{0,1\}
+$$
+
+o
+
+$$
+\mathcal{Y}=\{-1,1\}.
+$$
+
+En clasificación multiclase,
+
+$$
+\mathcal{Y}
+=
+\{1,2,\ldots,K\}.
+$$
+
+## Clasificador
+
+::: {#def-clasificador}
+Un **clasificador** es una función
+
+$$
+f:\mathcal{X}\to\mathcal{Y}.
+$$
+:::
+
+Para una observación $\mathbf{x}$, la predicción es
+
+$$
+\widehat{y}
+=
+f(\mathbf{x}).
+$$
+
+## Regiones de decisión
+
+Para cada clase $k$, se define la región
+
+$$
+R_k
+=
+\{
+\mathbf{x}\in\mathcal{X}
+:
+f(\mathbf{x})=k
+\}.
+$$
+
+Las regiones satisfacen:
+
+$$
+R_i\cap R_j=\varnothing,
+\qquad
+i\neq j,
+$$
+
+y
+
+$$
+\bigcup_{k=1}^{K}R_k
+=
+\mathcal{X}.
+$$
+
+## Frontera de decisión
+
+::: {#def-frontera-decision}
+La frontera de decisión es el conjunto de puntos que separa dos o más regiones de clasificación.
+:::
+
+En clasificación binaria, si el clasificador se basa en una función discriminante $g(\mathbf{x})$, puede definirse como
+
+$$
+f(\mathbf{x})
+=
+\begin{cases}
+1, & g(\mathbf{x})\geq 0,\\
+0, & g(\mathbf{x})<0.
+\end{cases}
+$$
+
+La frontera de decisión es
+
+$$
+\{
+\mathbf{x}:g(\mathbf{x})=0
+\}.
+$$
+
+## Frontera lineal
+
+Si
+
+$$
+g(\mathbf{x})
+=
+\beta_0
++
+\boldsymbol{\beta}^{\mathsf T}\mathbf{x},
+$$
+
+entonces la frontera es el hiperplano
+
+$$
+\beta_0
++
+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}
+=
+0.
+$$
+
+## Frontera no lineal
+
+Si $g$ contiene términos polinomiales, funciones kernel o composiciones no lineales, la frontera puede ser curva o altamente compleja.
+
+## Probabilidades posteriores
+
+Para cada clase $k$, se define
+
+$$
+\eta_k(\mathbf{x})
+=
+P(Y=k\mid\mathbf{X}=\mathbf{x}).
+$$
+
+Estas probabilidades satisfacen
+
+$$
+\eta_k(\mathbf{x})\geq 0
+$$
+
+y
+
+$$
+\sum_{k=1}^{K}
+\eta_k(\mathbf{x})
+=
+1.
+$$
+
+## Regla de clasificación por máxima probabilidad posterior
+
+Una regla natural es seleccionar
+
+$$
+f(\mathbf{x})
+=
+\arg\max_{k}
+\eta_k(\mathbf{x}).
+$$
+
+Esta regla será óptima bajo pérdida 0-1.
+
+## Función de pérdida general
+
+Sea
+
+$$
+L(j,k)
+$$
+
+el costo de predecir la clase $j$ cuando la clase verdadera es $k$.
+
+En pérdida 0-1,
+
+$$
+L(j,k)
+=
+\begin{cases}
+0, & j=k,\\
+1, & j\neq k.
+\end{cases}
+$$
+
+## Riesgo condicional
+
+::: {#def-riesgo-condicional}
+El riesgo condicional de predecir la clase $j$ dado $\mathbf{x}$ es
+
+$$
+R(j\mid\mathbf{x})
+=
+\sum_{k=1}^{K}
+L(j,k)
+P(Y=k\mid\mathbf{X}=\mathbf{x}).
+$$
+:::
+
+La decisión óptima es
+
+$$
+f^{*}(\mathbf{x})
+=
+\arg\min_j
+R(j\mid\mathbf{x}).
+$$
+
+## Regla de Bayes bajo pérdida 0-1
+
+Con pérdida 0-1,
+
+$$
+R(j\mid\mathbf{x})
+=
+1-
+P(Y=j\mid\mathbf{X}=\mathbf{x}).
+$$
+
+Por tanto,
+
+$$
+f^{*}(\mathbf{x})
+=
+\arg\max_j
+P(Y=j\mid\mathbf{X}=\mathbf{x}).
+$$
+
+::: {#thm-regla-bayes}
+Bajo pérdida 0-1, la regla que asigna a cada observación la clase con mayor probabilidad posterior minimiza el riesgo esperado de clasificación.
+:::
+
+## Riesgo de Bayes
+
+El riesgo mínimo posible es
+
+$$
+R^{*}
+=
+P(
+f^{*}(\mathbf{X})\neq Y
+).
+$$
+
+También puede escribirse como
+
+$$
+R^{*}
+=
+\mathbb{E}
+\left[
+1-
+\max_k
+P(Y=k\mid\mathbf{X})
+\right].
+$$
+
+Este riesgo representa el error irreducible de clasificación.
+
+## Error de Bayes binario
+
+En clasificación binaria,
+
+$$
+\eta(\mathbf{x})
+=
+P(Y=1\mid\mathbf{X}=\mathbf{x}).
+$$
+
+La regla de Bayes es
+
+$$
+f^{*}(\mathbf{x})
+=
+\begin{cases}
+1, & \eta(\mathbf{x})\geq \frac{1}{2},\\
+0, & \eta(\mathbf{x})<\frac{1}{2}.
+\end{cases}
+$$
+
+El error condicional mínimo es
+
+$$
+\min
+\{
+\eta(\mathbf{x}),
+1-\eta(\mathbf{x})
+\}.
+$$
+
+## Regla de Bayes con densidades
+
+Por el teorema de Bayes,
+
+$$
+P(Y=k\mid\mathbf{x})
+=
+\frac{
+p(\mathbf{x}\mid Y=k)P(Y=k)
+}{
+p(\mathbf{x})
+}.
+$$
+
+Como el denominador es común a todas las clases,
+
+$$
+f^{*}(\mathbf{x})
+=
+\arg\max_k
+p(\mathbf{x}\mid Y=k)P(Y=k).
+$$
+
+## Funciones discriminantes
+
+Se pueden definir funciones
+
+$$
+g_k(\mathbf{x})
+=
+\log p(\mathbf{x}\mid Y=k)
++
+\log P(Y=k).
+$$
+
+Entonces,
+
+$$
+f^{*}(\mathbf{x})
+=
+\arg\max_k
+g_k(\mathbf{x}).
+$$
+
+El uso del logaritmo transforma productos en sumas.
+
+## Pérdidas asimétricas
+
+En muchos problemas, los errores no tienen el mismo costo.
+
+Sea clasificación binaria y considérese:
+
+- $C_{10}$: costo de predecir 1 cuando la clase verdadera es 0;
+- $C_{01}$: costo de predecir 0 cuando la clase verdadera es 1.
+
+La regla óptima predice 1 si
+
+$$
+C_{10}P(Y=0\mid\mathbf{x})
+<
+C_{01}P(Y=1\mid\mathbf{x}).
+$$
+
+Equivalentemente,
+
+$$
+P(Y=1\mid\mathbf{x})
+>
+\frac{
+C_{10}
+}{
+C_{10}+C_{01}
+}.
+$$
+
+Por tanto, el umbral óptimo no siempre es $0.5$.
+
+## Clasificación sensible al costo
+
+Este enfoque es importante cuando:
+
+- una enfermedad grave no debe pasar inadvertida;
+- detectar fraude es más importante que evitar falsas alarmas;
+- un accidente severo tiene un costo mucho mayor que uno leve;
+- las clases están desbalanceadas.
+
+## Clasificación binaria probabilística
+
+Un modelo probabilístico produce
+
+$$
+\widehat{\pi}(\mathbf{x})
+=
+\widehat{P}(Y=1\mid\mathbf{x}).
+$$
+
+Luego se define
+
+$$
+\widehat{y}
+=
+\begin{cases}
+1, & \widehat{\pi}(\mathbf{x})\geq t,\\
+0, & \widehat{\pi}(\mathbf{x})<t,
+\end{cases}
+$$
+
+donde $t$ es el umbral.
+
+## Efecto del umbral
+
+Al disminuir $t$:
+
+- aumenta el número de positivos predichos;
+- aumenta la sensibilidad;
+- puede disminuir la especificidad.
+
+Al aumentar $t$:
+
+- disminuyen los positivos predichos;
+- puede aumentar la especificidad;
+- puede disminuir la sensibilidad.
+
+## Matriz de confusión
+
+Para clasificación binaria:
+
+| Clase real / predicha | Positiva | Negativa |
+|---|---:|---:|
+| Positiva | Verdadero positivo (VP) | Falso negativo (FN) |
+| Negativa | Falso positivo (FP) | Verdadero negativo (VN) |
+
+La suma total es
+
+$$
+n
+=
+VP+VN+FP+FN.
+$$
+
+## Exactitud
+
+::: {#def-exactitud}
+La exactitud es
+
+$$
+\operatorname{Accuracy}
+=
+\frac{
+VP+VN
+}{
+VP+VN+FP+FN
+}.
+$$
+:::
+
+## Tasa de error
+
+$$
+\operatorname{Error}
+=
+\frac{
+FP+FN
+}{
+n
+}.
+$$
+
+Además,
+
+$$
+\operatorname{Error}
+=
+1-\operatorname{Accuracy}.
+$$
+
+## Sensibilidad
+
+::: {#def-sensibilidad}
+La sensibilidad o tasa de verdaderos positivos es
+
+$$
+\operatorname{Sensibilidad}
+=
+\frac{
+VP
+}{
+VP+FN
+}.
+$$
+:::
+
+Mide la proporción de positivos reales correctamente detectados.
+
+También se denomina:
+
+- recall;
+- true positive rate;
+- tasa de detección.
+
+## Especificidad
+
+::: {#def-especificidad}
+La especificidad o tasa de verdaderos negativos es
+
+$$
+\operatorname{Especificidad}
+=
+\frac{
+VN
+}{
+VN+FP
+}.
+$$
+:::
+
+## Tasa de falsos positivos
+
+$$
+\operatorname{FPR}
+=
+\frac{
+FP
+}{
+FP+VN
+}
+=
+1-
+\operatorname{Especificidad}.
+$$
+
+## Tasa de falsos negativos
+
+$$
+\operatorname{FNR}
+=
+\frac{
+FN
+}{
+FN+VP
+}
+=
+1-
+\operatorname{Sensibilidad}.
+$$
+
+## Precisión positiva
+
+::: {#def-precision}
+La precisión o valor predictivo positivo es
+
+$$
+\operatorname{Precision}
+=
+\frac{
+VP
+}{
+VP+FP
+}.
+$$
+:::
+
+Mide qué proporción de las predicciones positivas es correcta.
+
+## Valor predictivo negativo
+
+$$
+\operatorname{VPN}
+=
+\frac{
+VN
+}{
+VN+FN
+}.
+$$
+
+## Medida F1
+
+La medida F1 es la media armónica entre precisión y sensibilidad:
+
+$$
+F_1
+=
+2
+\frac{
+\operatorname{Precision}
+\cdot
+\operatorname{Sensibilidad}
+}{
+\operatorname{Precision}
++
+\operatorname{Sensibilidad}
+}.
+$$
+
+Equivalentemente,
+
+$$
+F_1
+=
+\frac{
+2VP
+}{
+2VP+FP+FN
+}.
+$$
+
+## Exactitud balanceada
+
+En clases desbalanceadas puede utilizarse
+
+$$
+\operatorname{Balanced\ Accuracy}
+=
+\frac{
+\operatorname{Sensibilidad}
++
+\operatorname{Especificidad}
+}{
+2
+}.
+$$
+
+## Prevalencia
+
+La prevalencia observada de la clase positiva es
+
+$$
+\operatorname{Prev}
+=
+\frac{
+VP+FN
+}{
+n
+}.
+$$
+
+Los valores predictivos dependen de la prevalencia.
+
+## Ejemplo de matriz de confusión
+
+Supóngase:
+
+$$
+VP=45,
+\qquad
+FN=5,
+\qquad
+FP=10,
+\qquad
+VN=40.
+$$
+
+Entonces,
+
+$$
+\operatorname{Accuracy}
+=
+\frac{45+40}{100}
+=
+0.85.
+$$
+
+La sensibilidad es
+
+$$
+\frac{45}{45+5}
+=
+0.90.
+$$
+
+La especificidad es
+
+$$
+\frac{40}{40+10}
+=
+0.80.
+$$
+
+La precisión es
+
+$$
+\frac{45}{45+10}
+\approx 0.818.
+$$
+
+## Limitaciones de la exactitud
+
+Considere una base con:
+
+- 990 observaciones negativas;
+- 10 observaciones positivas.
+
+Un clasificador que siempre predice negativo obtiene
+
+$$
+\operatorname{Accuracy}
+=
+\frac{990}{1000}
+=
+0.99.
+$$
+
+Sin embargo,
+
+$$
+\operatorname{Sensibilidad}=0.
+$$
+
+Por tanto, la exactitud puede ser engañosa en datos desbalanceados.
+
+## Curva ROC
+
+::: {#def-curva-roc}
+La curva ROC representa la tasa de verdaderos positivos frente a la tasa de falsos positivos para distintos umbrales.
+:::
+
+Sus ejes son:
+
+$$
+x=\operatorname{FPR},
+$$
+
+$$
+y=\operatorname{TPR}.
+$$
+
+Cada umbral produce un punto en la curva.
+
+## Interpretación de la curva ROC
+
+Un clasificador ideal se aproxima al punto
+
+$$
+(0,1).
+$$
+
+Un clasificador aleatorio se aproxima a la diagonal
+
+$$
+\operatorname{TPR}
+=
+\operatorname{FPR}.
+$$
+
+## Área bajo la curva
+
+::: {#def-auc}
+El área bajo la curva ROC se denota por AUC.
+:::
+
+Puede interpretarse como la probabilidad de que el clasificador asigne una puntuación mayor a una observación positiva que a una negativa elegidas al azar.
+
+Valores típicos:
+
+- $0.5$: discriminación aleatoria;
+- cercano a $1$: excelente discriminación;
+- menor que $0.5$: orden inverso sistemático.
+
+## Curva precisión-recall
+
+En problemas con fuerte desbalance, puede ser más informativa la curva precisión-recall.
+
+Esta curva representa:
+
+$$
+\operatorname{Precision}
+$$
+
+frente a
+
+$$
+\operatorname{Recall}.
+$$
+
+## Calibración
+
+Un clasificador está bien calibrado si, entre las observaciones con probabilidad predicha cercana a $p$, aproximadamente una proporción $p$ pertenece realmente a la clase positiva.
+
+Por ejemplo, entre observaciones con predicción $0.8$, cerca del $80\%$ debería ser positiva.
+
+## Discriminación y calibración
+
+Un modelo puede:
+
+- discriminar bien pero estar mal calibrado;
+- estar bien calibrado pero discriminar poco;
+- cumplir ambas propiedades;
+- no cumplir ninguna.
+
+La AUC mide discriminación, no calibración.
+
+## Función de pérdida logarítmica
+
+Para una observación binaria,
+
+$$
+L(y,\pi)
+=
+-
+\left[
+y\log\pi
++
+(1-y)\log(1-\pi)
+\right].
+$$
+
+La pérdida penaliza con fuerza probabilidades muy confiadas pero incorrectas.
+
+## Brier score
+
+El Brier score es
+
+$$
+\operatorname{Brier}
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+(
+y_i-\widehat{\pi}_i
+)^2.
+$$
+
+Evalúa predicciones probabilísticas y combina calibración con discriminación.
+
+## Clasificación multiclase
+
+Para $K$ clases,
+
+$$
+\mathcal{Y}
+=
+\{1,\ldots,K\}.
+$$
+
+El clasificador produce
+
+$$
+\widehat{y}
+=
+\arg\max_k
+\widehat{P}(Y=k\mid\mathbf{x}).
+$$
+
+## Matriz de confusión multiclase
+
+La matriz contiene $K\times K$ entradas.
+
+La posición $(i,j)$ representa el número de observaciones cuya clase real es $i$ y cuya clase predicha es $j$.
+
+## Métricas por clase
+
+Para cada clase $k$, puede considerarse:
+
+- clase $k$ como positiva;
+- todas las demás como negativas.
+
+Así se calculan sensibilidad, especificidad y precisión por clase.
+
+## Promedio macro
+
+El promedio macro asigna el mismo peso a cada clase:
+
+$$
+M_{\text{macro}}
+=
+\frac{1}{K}
+\sum_{k=1}^{K}
+M_k.
+$$
+
+## Promedio ponderado
+
+El promedio ponderado utiliza el tamaño de cada clase:
+
+$$
+M_{\text{ponderado}}
+=
+\sum_{k=1}^{K}
+w_kM_k,
+$$
+
+donde
+
+$$
+w_k
+=
+\frac{n_k}{n}.
+$$
+
+## Promedio micro
+
+El promedio micro agrega primero los conteos de todas las clases y después calcula la métrica.
+
+Es más sensible a las clases mayoritarias.
+
+## Estrategia uno contra el resto
+
+Para cada clase $k$ se entrena un clasificador binario:
+
+$$
+k
+\quad
+\text{contra}
+\quad
+\mathcal{Y}\setminus\{k\}.
+$$
+
+## Estrategia uno contra uno
+
+Se entrena un clasificador para cada par de clases.
+
+El número de clasificadores es
+
+$$
+\binom{K}{2}
+=
+\frac{K(K-1)}{2}.
+$$
+
+## Regiones de decisión multiclase
+
+Si se utilizan funciones discriminantes
+
+$$
+g_1(\mathbf{x}),\ldots,g_K(\mathbf{x}),
+$$
+
+la región de la clase $k$ es
+
+$$
+R_k
+=
+\{
+\mathbf{x}
+:
+g_k(\mathbf{x})
+\geq
+g_j(\mathbf{x})
+\text{ para todo }j
+\}.
+$$
+
+## Relación con regresión logística
+
+En regresión logística binaria,
+
+$$
+\widehat{\pi}(\mathbf{x})
+=
+\frac{
+e^{\beta_0+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}}
+}{
+1+
+e^{\beta_0+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}}
+}.
+$$
+
+La frontera con umbral $0.5$ satisface
+
+$$
+\beta_0
++
+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}
+=
+0.
+$$
+
+## Relación con el método de vecinos más cercanos
+
+En $k$-NN, las probabilidades posteriores pueden estimarse como
+
+$$
+\widehat{P}(Y=c\mid\mathbf{x})
+=
+\frac{1}{k}
+\sum_{i\in N_k(\mathbf{x})}
+\mathbb{I}(y_i=c).
+$$
+
+La clase predicha es la de mayor frecuencia local.
+
+## Relación con árboles de decisión
+
+En una hoja terminal,
+
+$$
+\widehat{P}(Y=c\mid\mathbf{x})
+=
+\frac{n_c}{n_{\text{hoja}}}.
+$$
+
+El árbol asigna la clase más frecuente.
+
+## Relación con SVM
+
+SVM produce una función de puntuación
+
+$$
+g(\mathbf{x})
+=
+\mathbf{w}^{\mathsf T}\mathbf{x}+b.
+$$
+
+La clasificación es
+
+$$
+f(\mathbf{x})
+=
+\operatorname{sign}
+(
+g(\mathbf{x})
+).
+$$
+
+La distancia a la frontera se relaciona con el margen.
+
+## Conexión con R
+
+```{r}
+#| eval: false
+
+real <- factor(
+  c(1, 1, 1, 0, 0, 0, 1, 0),
+  levels = c(0, 1)
+)
+
+pred <- factor(
+  c(1, 1, 0, 0, 1, 0, 1, 0),
+  levels = c(0, 1)
+)
+
+tabla <- table(
+  Real = real,
+  Predicha = pred
+)
+
+tabla
+
+VP <- tabla["1", "1"]
+FN <- tabla["1", "0"]
+FP <- tabla["0", "1"]
+VN <- tabla["0", "0"]
+
+accuracy <- (VP + VN) / sum(tabla)
+sensibilidad <- VP / (VP + FN)
+especificidad <- VN / (VN + FP)
+precision <- VP / (VP + FP)
+
+accuracy
+sensibilidad
+especificidad
+precision
+```
+
+## Ejemplo integrado
+
+Considere un modelo para identificar accidentes severos.
+
+La clase positiva es
+
+$$
+Y=1
+=
+\text{accidente severo}.
+$$
+
+Supóngase:
+
+$$
+VP=60,
+\quad
+FN=15,
+\quad
+FP=25,
+\quad
+VN=400.
+$$
+
+La exactitud es
+
+$$
+\frac{60+400}{500}
+=
+0.92.
+$$
+
+La sensibilidad es
+
+$$
+\frac{60}{60+15}
+=
+0.80.
+$$
+
+La especificidad es
+
+$$
+\frac{400}{400+25}
+\approx 0.941.
+$$
+
+La precisión es
+
+$$
+\frac{60}{60+25}
+\approx 0.706.
+$$
+
+Aunque la exactitud es alta, la sensibilidad indica que uno de cada cinco accidentes severos no es detectado.
+
+## Errores frecuentes
+
+1. Confundir sensibilidad con precisión.
+2. Interpretar exactitud alta como buen desempeño universal.
+3. Elegir el umbral únicamente por conveniencia.
+4. Ignorar costos distintos entre falsos positivos y falsos negativos.
+5. Interpretar AUC como exactitud.
+6. Suponer que una AUC alta implica buena calibración.
+7. Comparar métricas calculadas con particiones diferentes.
+8. Promediar métricas multiclase sin indicar el esquema.
+9. Evaluar el modelo final sobre los datos de entrenamiento.
+10. Ignorar la prevalencia al interpretar valores predictivos.
+
+## Ejercicios conceptuales
+
+1. Explique qué representa una frontera de decisión.
+2. ¿Qué diferencia existe entre una regla discriminante y una probabilidad posterior?
+3. ¿Por qué la regla de Bayes minimiza la pérdida 0-1?
+4. ¿Qué representa el error de Bayes?
+5. ¿Por qué el umbral óptimo puede ser distinto de $0.5$?
+6. Explique la diferencia entre sensibilidad y precisión.
+7. ¿Por qué la exactitud puede ser engañosa?
+8. ¿Qué mide la curva ROC?
+9. ¿Qué mide la AUC?
+10. Explique la diferencia entre discriminación y calibración.
+
+## Ejercicio de matriz de confusión
+
+Considere:
+
+$$
+VP=72,
+\qquad
+FN=18,
+\qquad
+FP=24,
+\qquad
+VN=186.
+$$
+
+Calcule:
+
+1. exactitud;
+2. tasa de error;
+3. sensibilidad;
+4. especificidad;
+5. precisión;
+6. valor predictivo negativo;
+7. F1;
+8. exactitud balanceada.
+
+## Ejercicio de pérdidas asimétricas
+
+Supóngase:
+
+$$
+C_{10}=1,
+$$
+
+$$
+C_{01}=4.
+$$
+
+1. Calcule el umbral óptimo.
+2. Explique qué tipo de error es más costoso.
+3. Determine la decisión para probabilidades posteriores:
+   - $0.15$;
+   - $0.30$;
+   - $0.60$.
+
+## Ejercicio de regla de Bayes
+
+Considere dos clases:
+
+$$
+P(C_1)=0.65,
+\qquad
+P(C_2)=0.35.
+$$
+
+Para una observación $\mathbf{x}$:
+
+$$
+p(\mathbf{x}\mid C_1)=0.12,
+$$
+
+$$
+p(\mathbf{x}\mid C_2)=0.25.
+$$
+
+1. Calcule las probabilidades posteriores.
+2. Determine la clase según la regla de Bayes.
+3. Explique el efecto de las probabilidades previas.
+
+## Ejercicio de umbral
+
+Un modelo produce las probabilidades:
+
+$$
+0.92,\ 0.81,\ 0.64,\ 0.48,\ 0.31,\ 0.12.
+$$
+
+1. Determine las clases con umbral $0.5$.
+2. Determine las clases con umbral $0.3$.
+3. Explique cómo cambia la sensibilidad esperada.
+4. Explique cómo cambia la especificidad esperada.
+
+## Ejercicio multiclase
+
+Un problema tiene tres clases:
+
+$$
+\mathcal{Y}
+=
+\{A,B,C\}.
+$$
+
+Para una observación,
+
+$$
+P(A\mid\mathbf{x})=0.20,
+$$
+
+$$
+P(B\mid\mathbf{x})=0.55,
+$$
+
+$$
+P(C\mid\mathbf{x})=0.25.
+$$
+
+1. Determine la clase de Bayes.
+2. Calcule el riesgo condicional bajo pérdida 0-1 para cada decisión.
+3. Verifique que la decisión óptima minimiza el riesgo.
+
+## Ejercicio aplicado
+
+Se desea clasificar la calidad del aire en:
+
+$$
+\{
+\text{buena},
+\text{regular},
+\text{mala}
+\}.
+$$
+
+1. Defina el espacio de salida.
+2. Proponga funciones discriminantes.
+3. Defina las regiones de decisión.
+4. Construya una matriz de confusión hipotética.
+5. Explique cómo calcularía sensibilidad por clase.
+6. Compare promedio macro y ponderado.
+7. Explique qué métrica usaría si la clase “mala” es poco frecuente pero crítica.
+
+## Resumen
+
+En este capítulo se formuló la clasificación como una regla de decisión sobre el espacio de características. Se definieron regiones y fronteras de decisión, probabilidades posteriores, riesgo condicional y regla de Bayes.
+
+También se estudiaron pérdidas asimétricas, clasificación sensible al costo, matrices de confusión y métricas como exactitud, sensibilidad, especificidad, precisión, F1 y exactitud balanceada.
+
+Finalmente, se desarrollaron curvas ROC, AUC, calibración y clasificación multiclase. Estos conceptos serán esenciales para evaluar y comparar los algoritmos de clasificación de los capítulos posteriores.

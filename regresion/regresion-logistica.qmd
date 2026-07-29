@@ -1,0 +1,1223 @@
+# Regresión logística {#sec-regresion-logistica}
+
+## Introducción
+
+La regresión logística es uno de los modelos fundamentales para clasificación binaria. La variable respuesta toma valores discretos,
+
+$$
+Y\in\{0,1\},
+$$
+
+y el modelo estima la probabilidad condicional
+
+$$
+P(Y=1\mid\mathbf{x}).
+$$
+
+Para garantizar que la predicción permanezca entre 0 y 1 se utiliza la función logística. Los parámetros se estiman por máxima verosimilitud mediante métodos iterativos.
+
+## Objetivos
+
+Al finalizar el capítulo, el lector podrá:
+
+1. formular un modelo de regresión logística;
+2. interpretar probabilidades, odds y logit;
+3. interpretar coeficientes y odds ratios;
+4. construir la verosimilitud Bernoulli;
+5. derivar gradiente y Hessiana;
+6. comprender Newton-Raphson e IRLS;
+7. formular pruebas de Wald y razón de verosimilitud;
+8. analizar deviance, discriminación y calibración;
+9. seleccionar umbrales;
+10. reconocer separación, multicolinealidad e influencia;
+11. extender el modelo al caso multiclase.
+
+## Variable respuesta binaria
+
+Se considera
+
+$$
+Y_i\in\{0,1\},
+\qquad i=1,\ldots,n.
+$$
+
+Condicionado al vector de características,
+
+$$
+Y_i\mid\mathbf{x}_i
+\sim
+\operatorname{Bernoulli}(\pi_i),
+$$
+
+donde
+
+$$
+\pi_i=P(Y_i=1\mid\mathbf{x}_i).
+$$
+
+## Función logística
+
+::: {#def-funcion-logistica}
+La función logística se define como
+
+$$
+\sigma(z)
+=
+\frac{1}{1+e^{-z}}
+=
+\frac{e^z}{1+e^z}.
+$$
+:::
+
+Se cumple
+
+$$
+0<\sigma(z)<1.
+$$
+
+Además,
+
+$$
+\sigma'(z)
+=
+\sigma(z)\left[1-\sigma(z)\right].
+$$
+
+## Modelo logístico
+
+Sea
+
+$$
+\eta_i
+=
+\beta_0+
+\sum_{j=1}^{p}\beta_j x_{ij}.
+$$
+
+Entonces
+
+$$
+\pi_i
+=
+\frac{e^{\eta_i}}{1+e^{\eta_i}}.
+$$
+
+Para cada observación se define
+
+$$
+\mathbf{x}_i
+=
+\begin{pmatrix}
+x_{i1}\\
+\vdots\\
+x_{ip}
+\end{pmatrix}
+\in\mathbb{R}^{p},
+$$
+
+y su versión aumentada
+
+$$
+\widetilde{\mathbf{x}}_i
+=
+\begin{pmatrix}
+1\\
+x_{i1}\\
+\vdots\\
+x_{ip}
+\end{pmatrix}
+\in\mathbb{R}^{p+1}.
+$$
+
+El vector de parámetros es
+
+$$
+\boldsymbol{\beta}
+=
+\begin{pmatrix}
+\beta_0\\
+\beta_1\\
+\vdots\\
+\beta_p
+\end{pmatrix}
+\in\mathbb{R}^{p+1}.
+$$
+
+Por tanto,
+
+$$
+\eta_i
+=
+\widetilde{\mathbf{x}}_i^{\mathsf T}
+\boldsymbol{\beta},
+$$
+
+y en forma matricial,
+
+$$
+\boldsymbol{\eta}
+=
+\mathbf{X}\boldsymbol{\beta}.
+$$
+
+## Odds
+
+::: {#def-odds}
+Los odds de un evento con probabilidad $\pi$ son
+
+$$
+\operatorname{odds}
+=
+\frac{\pi}{1-\pi}.
+$$
+:::
+
+Si $\pi=0.8$,
+
+$$
+\operatorname{odds}=4.
+$$
+
+Esto significa que el evento es cuatro veces más probable que su complemento.
+
+## Logit
+
+::: {#def-logit}
+La función logit es
+
+$$
+\operatorname{logit}(\pi)
+=
+\log\left(\frac{\pi}{1-\pi}\right).
+$$
+:::
+
+El modelo supone
+
+$$
+\operatorname{logit}(\pi_i)
+=
+\widetilde{\mathbf{x}}_i^{\mathsf T}
+\boldsymbol{\beta}
+=
+\beta_0+
+\sum_{j=1}^{p}\beta_j x_{ij}.
+$$
+
+Por tanto, el logaritmo de los odds es lineal en las características.
+
+## Interpretación de los coeficientes
+
+Si $x_j$ aumenta una unidad y las demás variables permanecen constantes,
+
+$$
+\operatorname{logit}(\pi)
+$$
+
+cambia en $\beta_j$.
+
+En términos de odds,
+
+$$
+\frac{
+\operatorname{odds}(\mathbf{x}+\mathbf{e}_j)
+}{
+\operatorname{odds}(\mathbf{x})
+}
+=
+e^{\beta_j},
+$$
+
+donde $\mathbf{e}_j$ incrementa únicamente la característica $j$ en una unidad. Por tanto,
+
+$$
+e^{\beta_j}
+$$
+
+es el odds ratio asociado a un incremento unitario de $x_j$.
+
+Si
+
+$$
+e^{\beta_j}=1.5,
+$$
+
+los odds aumentan 50 por ciento.
+
+Para un incremento de $c$ unidades,
+
+$$
+OR(c)=e^{c\beta_j}.
+$$
+
+## Variables indicadoras
+
+Sea
+
+$$
+D=
+\begin{cases}
+1, & \text{grupo expuesto},\\
+0, & \text{grupo de referencia}.
+\end{cases}
+$$
+
+En
+
+$$
+\operatorname{logit}(\pi)
+=
+\beta_0+\beta_1D,
+$$
+
+el valor
+
+$$
+e^{\beta_1}
+$$
+
+es el odds ratio del grupo expuesto respecto del grupo de referencia.
+
+## Interacciones
+
+Considere
+
+$$
+\operatorname{logit}(\pi)
+=
+\beta_0+\beta_1X_1+\beta_2X_2+\beta_3X_1X_2.
+$$
+
+El efecto de $X_1$ sobre el logit es
+
+$$
+\frac{\partial\operatorname{logit}(\pi)}
+{\partial X_1}
+=
+\beta_1+\beta_3X_2.
+$$
+
+Por tanto, el efecto depende de $X_2$.
+
+## Efecto marginal sobre la probabilidad
+
+El efecto sobre la probabilidad no es constante:
+
+$$
+\frac{\partial\pi}{\partial x_j}
+=
+\beta_j\pi(1-\pi).
+$$
+
+Por ello, $\beta_j$ no debe interpretarse como un cambio directo en probabilidad.
+
+## Verosimilitud Bernoulli
+
+Para una observación,
+
+$$
+P(Y_i=y_i\mid\mathbf{x}_i)
+=
+\pi_i^{y_i}(1-\pi_i)^{1-y_i}.
+$$
+
+Suponiendo independencia,
+
+$$
+L(\boldsymbol{\beta})
+=
+\prod_{i=1}^{n}
+\pi_i^{y_i}(1-\pi_i)^{1-y_i}.
+$$
+
+## Log-verosimilitud
+
+$$
+\ell(\boldsymbol{\beta})
+=
+\sum_{i=1}^{n}
+\left[
+y_i\log\pi_i
++
+(1-y_i)\log(1-\pi_i)
+\right].
+$$
+
+También puede escribirse como
+
+$$
+\ell(\boldsymbol{\beta})
+=
+\sum_{i=1}^{n}
+\left[
+y_i\eta_i
+-
+\log(1+e^{\eta_i})
+\right].
+$$
+
+## Gradiente
+
+Sea
+
+$$
+\boldsymbol{\pi}
+=
+\begin{pmatrix}
+\pi_1\\
+\vdots\\
+\pi_n
+\end{pmatrix}.
+$$
+
+Entonces
+
+$$
+\nabla\ell(\boldsymbol{\beta})
+=
+\mathbf{X}^{\mathsf T}
+(\mathbf{y}-\boldsymbol{\pi}).
+$$
+
+El estimador satisface
+
+$$
+\mathbf{X}^{\mathsf T}
+(\mathbf{y}-\widehat{\boldsymbol{\pi}})
+=
+\mathbf{0}.
+$$
+
+Estas ecuaciones no tienen una solución cerrada general.
+
+## Hessiana
+
+Defina
+
+$$
+\mathbf{W}
+=
+\operatorname{diag}
+\left[
+\pi_i(1-\pi_i)
+\right].
+$$
+
+Entonces
+
+$$
+\nabla^2\ell(\boldsymbol{\beta})
+=
+-\mathbf{X}^{\mathsf T}\mathbf{W}\mathbf{X}.
+$$
+
+La Hessiana es semidefinida negativa, por lo que la log-verosimilitud es cóncava.
+
+## Newton-Raphson
+
+La actualización es
+
+$$
+\boldsymbol{\beta}^{(t+1)}
+=
+\boldsymbol{\beta}^{(t)}
++
+\left(
+\mathbf{X}^{\mathsf T}
+\mathbf{W}^{(t)}
+\mathbf{X}
+\right)^{-1}
+\mathbf{X}^{\mathsf T}
+\left(
+\mathbf{y}
+-
+\boldsymbol{\pi}^{(t)}
+\right).
+$$
+
+## Mínimos cuadrados ponderados iterativos
+
+Newton-Raphson puede expresarse como IRLS.
+
+Defina
+
+$$
+\mathbf{z}^{(t)}
+=
+\mathbf{X}\boldsymbol{\beta}^{(t)}
++
+\left(
+\mathbf{W}^{(t)}
+\right)^{-1}
+\left(
+\mathbf{y}
+-
+\boldsymbol{\pi}^{(t)}
+\right).
+$$
+
+Entonces
+
+$$
+\boldsymbol{\beta}^{(t+1)}
+=
+\left(
+\mathbf{X}^{\mathsf T}
+\mathbf{W}^{(t)}
+\mathbf{X}
+\right)^{-1}
+\mathbf{X}^{\mathsf T}
+\mathbf{W}^{(t)}
+\mathbf{z}^{(t)}.
+$$
+
+## Convergencia
+
+El proceso puede detenerse cuando
+
+$$
+\left\|
+\boldsymbol{\beta}^{(t+1)}
+-
+\boldsymbol{\beta}^{(t)}
+\right\|_2
+<
+\varepsilon,
+$$
+
+o cuando el cambio en log-verosimilitud es pequeño.
+
+## Covarianza asintótica
+
+La matriz de información observada es
+
+$$
+\mathbf{I}
+(
+\widehat{\boldsymbol{\beta}}
+)
+=
+\mathbf{X}^{\mathsf T}
+\widehat{\mathbf{W}}
+\mathbf{X}.
+$$
+
+La covarianza aproximada es
+
+$$
+\operatorname{Var}
+(
+\widehat{\boldsymbol{\beta}}
+)
+\approx
+\left(
+\mathbf{X}^{\mathsf T}
+\widehat{\mathbf{W}}
+\mathbf{X}
+\right)^{-1}.
+$$
+
+## Prueba de Wald
+
+Para
+
+$$
+H_0:\beta_j=0,
+$$
+
+se utiliza
+
+$$
+z
+=
+\frac{\widehat{\beta}_j}
+{SE(\widehat{\beta}_j)}.
+$$
+
+Asintóticamente,
+
+$$
+z\sim N(0,1).
+$$
+
+## Intervalos de confianza
+
+Para el coeficiente,
+
+$$
+\widehat{\beta}_j
+\pm
+z_{\alpha/2}
+SE(\widehat{\beta}_j).
+$$
+
+Si el intervalo es $[L_j,U_j]$, el intervalo del odds ratio es
+
+$$
+[e^{L_j},e^{U_j}].
+$$
+
+## Razón de verosimilitud
+
+Para comparar un modelo reducido y uno completo,
+
+$$
+G^2
+=
+2(\ell_C-\ell_R).
+$$
+
+Bajo condiciones regulares,
+
+$$
+G^2\sim\chi^2_q,
+$$
+
+donde $q$ es la diferencia en número de parámetros.
+
+## Prueba score
+
+La prueba score evalúa el gradiente bajo el modelo restringido y no requiere ajustar el modelo completo.
+
+Las pruebas de Wald, razón de verosimilitud y score suelen ser semejantes en muestras grandes.
+
+## Deviance
+
+::: {#def-deviance-logistica}
+La deviance es
+
+$$
+D
+=
+-2
+\left[
+\ell(\widehat{\boldsymbol{\beta}})
+-
+\ell(\text{modelo saturado})
+\right].
+$$
+:::
+
+Una deviance menor indica mejor ajuste relativo.
+
+La deviance nula corresponde al modelo con solo intercepto.
+
+## Pseudo coeficientes de determinación
+
+En regresión logística no existe un $R^2$ idéntico al de regresión lineal.
+
+El de McFadden es
+
+$$
+R^2_{McF}
+=
+1-
+\frac{
+\ell(\widehat{\boldsymbol{\beta}})
+}{
+\ell(\widehat{\boldsymbol{\beta}}_0)
+}.
+$$
+
+No debe interpretarse como proporción de varianza explicada.
+
+## Predicción
+
+Para una observación nueva con características
+
+$$
+\mathbf{x}_0
+=
+\begin{pmatrix}
+x_{01}\\
+\vdots\\
+x_{0p}
+\end{pmatrix}
+\in\mathbb{R}^{p},
+$$
+
+se utiliza el vector aumentado
+
+$$
+\widetilde{\mathbf{x}}_0
+=
+\begin{pmatrix}
+1\\
+x_{01}\\
+\vdots\\
+x_{0p}
+\end{pmatrix}
+\in\mathbb{R}^{p+1}.
+$$
+
+El predictor lineal es
+
+$$
+\widehat{\eta}_0
+=
+\widetilde{\mathbf{x}}_0^{\mathsf T}
+\widehat{\boldsymbol{\beta}},
+$$
+
+y la probabilidad predicha es
+
+$$
+\widehat{\pi}_0
+=
+\frac{
+e^{\widehat{\eta}_0}
+}{
+1+e^{\widehat{\eta}_0}
+}.
+$$
+
+## Clasificación mediante umbral
+
+$$
+\widehat{y}
+=
+\begin{cases}
+1, & \widehat{\pi}\geq t,\\
+0, & \widehat{\pi}<t.
+\end{cases}
+$$
+
+El valor $t=0.5$ no siempre es óptimo.
+
+Puede seleccionarse según:
+
+- costo de errores;
+- sensibilidad mínima;
+- especificidad mínima;
+- F1;
+- índice de Youden.
+
+## Índice de Youden
+
+$$
+J
+=
+\operatorname{Sensibilidad}
++
+\operatorname{Especificidad}
+-
+1.
+$$
+
+## Discriminación
+
+La discriminación mide la capacidad de separar clases.
+
+Puede evaluarse mediante:
+
+- curva ROC;
+- AUC;
+- curva precisión-recall;
+- sensibilidad;
+- especificidad.
+
+## Calibración
+
+La calibración evalúa si las probabilidades predichas corresponden a las frecuencias observadas.
+
+Puede analizarse mediante:
+
+- gráfico de calibración;
+- Brier score;
+- pendiente de calibración;
+- intercepto de calibración.
+
+## Brier score
+
+$$
+\operatorname{Brier}
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+(y_i-\widehat{\pi}_i)^2.
+$$
+
+## Pérdida logarítmica
+
+$$
+\operatorname{LogLoss}
+=
+-
+\frac{1}{n}
+\sum_{i=1}^{n}
+\left[
+y_i\log\widehat{\pi}_i
++
+(1-y_i)\log(1-\widehat{\pi}_i)
+\right].
+$$
+
+## Residuos de Pearson
+
+$$
+r_i^{P}
+=
+\frac{
+y_i-\widehat{\pi}_i
+}{
+\sqrt{
+\widehat{\pi}_i
+(1-\widehat{\pi}_i)
+}
+}.
+$$
+
+## Residuos de deviance
+
+Para $y_i=1$,
+
+$$
+r_i^{D}
+=
+\sqrt{
+-2\log(\widehat{\pi}_i)
+}.
+$$
+
+Para $y_i=0$,
+
+$$
+r_i^{D}
+=
+-
+\sqrt{
+-2\log(1-\widehat{\pi}_i)
+}.
+$$
+
+## Apalancamiento e influencia
+
+La matriz sombrero ponderada es
+
+$$
+\mathbf{H}_W
+=
+\mathbf{W}^{1/2}
+\mathbf{X}
+\left(
+\mathbf{X}^{\mathsf T}
+\mathbf{W}
+\mathbf{X}
+\right)^{-1}
+\mathbf{X}^{\mathsf T}
+\mathbf{W}^{1/2}.
+$$
+
+Los elementos diagonales miden apalancamiento.
+
+La influencia puede estudiarse con distancia de Cook generalizada y DFBETAS.
+
+## Multicolinealidad
+
+Puede producir:
+
+- errores estándar grandes;
+- coeficientes inestables;
+- odds ratios extremos;
+- dificultad de convergencia.
+
+Se diagnostica mediante VIF, correlaciones y análisis de condición.
+
+## Separación completa
+
+::: {#def-separacion-completa}
+Existe separación completa cuando una combinación lineal de las variables separa perfectamente las dos clases.
+:::
+
+En ese caso, algunos coeficientes tienden a infinito y el estimador de máxima verosimilitud no existe como valor finito.
+
+## Estrategias frente a separación
+
+- combinar categorías escasas;
+- aumentar el tamaño de muestra;
+- utilizar ridge;
+- utilizar corrección de Firth;
+- emplear métodos bayesianos.
+
+## Clases desbalanceadas
+
+Cuando una clase es poco frecuente:
+
+- la exactitud puede ser engañosa;
+- el umbral 0.5 puede ser inadecuado;
+- la precisión puede ser baja;
+- debe evaluarse sensibilidad y calibración.
+
+Puede utilizarse ponderación:
+
+$$
+L
+=
+-
+\sum_{i=1}^{n}
+w_i
+\left[
+y_i\log\pi_i
++
+(1-y_i)\log(1-\pi_i)
+\right].
+$$
+
+## Regularización
+
+### Ridge
+
+$$
+J(\boldsymbol{\beta})
+=
+-\ell(\boldsymbol{\beta})
++
+\lambda
+\|\boldsymbol{\beta}\|_2^2.
+$$
+
+### LASSO
+
+$$
+J(\boldsymbol{\beta})
+=
+-\ell(\boldsymbol{\beta})
++
+\lambda
+\|\boldsymbol{\beta}\|_1.
+$$
+
+### Elastic net
+
+$$
+J(\boldsymbol{\beta})
+=
+-\ell(\boldsymbol{\beta})
++
+\lambda
+\left[
+\alpha
+\|\boldsymbol{\beta}\|_1
++
+(1-\alpha)
+\|\boldsymbol{\beta}\|_2^2
+\right].
+$$
+
+## Regresión logística multinomial
+
+Para $K$ clases y una categoría de referencia,
+
+$$
+\log
+\left(
+\frac{
+P(Y=k\mid\mathbf{x})
+}{
+P(Y=K\mid\mathbf{x})
+}
+\right)
+=
+\beta_{k0}
++
+\boldsymbol{\beta}_k^{\mathsf T}\mathbf{x}.
+$$
+
+La forma softmax es
+
+$$
+P(Y=k\mid\mathbf{x})
+=
+\frac{
+e^{\eta_k}
+}{
+\sum_{j=1}^{K}e^{\eta_j}
+}.
+$$
+
+## Frontera de decisión
+
+Con umbral 0.5,
+
+$$
+\widehat{\pi}(\mathbf{x})\geq 0.5
+$$
+
+equivale a
+
+$$
+\widetilde{\mathbf{x}}^{\mathsf T}\boldsymbol{\beta}\geq 0.
+$$
+
+Por tanto, la frontera es lineal:
+
+$$
+\widetilde{\mathbf{x}}^{\mathsf T}\boldsymbol{\beta}=0.
+$$
+
+## Relación con aprendizaje supervisado
+
+El espacio de hipótesis es
+
+$$
+\mathcal{F}
+=
+\left\{
+\pi(\mathbf{x})
+=
+\sigma
+\left(
+\widetilde{\mathbf{x}}^{\mathsf T}\boldsymbol{\beta}
+\right)
+\right\}.
+$$
+
+La pérdida es logarítmica y el ajuste minimiza el riesgo empírico correspondiente.
+
+## Conexión con R
+
+```{r}
+#| eval: false
+
+datos <- data.frame(
+  severo = c(0, 0, 0, 1, 0, 1, 1, 1),
+  velocidad = c(35, 42, 48, 70, 55, 80, 75, 90),
+  noche = c(0, 0, 1, 1, 0, 1, 0, 1)
+)
+
+modelo <- glm(
+  severo ~ velocidad + noche,
+  data = datos,
+  family = binomial(link = "logit")
+)
+
+summary(modelo)
+
+# Odds ratios
+exp(coef(modelo))
+
+# Intervalos de confianza
+exp(confint(modelo))
+
+# Probabilidades
+prob <- predict(modelo, type = "response")
+
+# Clases
+clase <- ifelse(prob >= 0.5, 1, 0)
+
+table(
+  Real = datos$severo,
+  Predicha = clase
+)
+
+deviance(modelo)
+AIC(modelo)
+```
+
+## Ejemplo numérico
+
+Considere
+
+$$
+\operatorname{logit}(\pi)
+=
+-4+0.08X_1+1.2X_2,
+$$
+
+donde $X_1$ es velocidad y $X_2$ indica conducción nocturna.
+
+Para velocidad 60 y conducción diurna,
+
+$$
+\eta=-4+0.08(60)=0.8.
+$$
+
+Entonces
+
+$$
+\pi
+=
+\frac{e^{0.8}}{1+e^{0.8}}
+\approx 0.690.
+$$
+
+El odds ratio por cada unidad adicional de velocidad es
+
+$$
+e^{0.08}\approx1.083.
+$$
+
+Por cada 10 unidades,
+
+$$
+e^{0.8}\approx2.226.
+$$
+
+Para conducción nocturna,
+
+$$
+e^{1.2}\approx3.320.
+$$
+
+Manteniendo constante la velocidad, los odds de severidad son aproximadamente 3.32 veces mayores durante la noche.
+
+## Errores frecuentes
+
+1. Interpretar $\beta_j$ como cambio directo en probabilidad.
+2. Confundir odds con probabilidad.
+3. Interpretar odds ratio como riesgo relativo.
+4. usar automáticamente un umbral de 0.5;
+5. evaluar únicamente exactitud;
+6. ignorar calibración;
+7. concluir causalidad por significancia;
+8. ignorar separación completa;
+9. interpretar pseudo-$R^2$ como varianza explicada;
+10. reportar odds ratios sin intervalos;
+11. ignorar multicolinealidad;
+12. confundir discriminación con calibración.
+
+## Ejercicios conceptuales
+
+1. ¿Por qué no se utiliza regresión lineal para probabilidades binarias?
+2. Defina odds y logit.
+3. ¿Cómo se interpreta $e^{\beta_j}$?
+4. ¿Por qué el efecto sobre la probabilidad no es constante?
+5. ¿Por qué no existe solución cerrada general?
+6. Explique IRLS.
+7. Compare Wald y razón de verosimilitud.
+8. ¿Qué representa la deviance?
+9. ¿Qué diferencia existe entre discriminación y calibración?
+10. ¿Qué es separación completa?
+11. ¿Por qué el umbral depende del objetivo?
+12. ¿Cómo se extiende el modelo a múltiples clases?
+
+## Ejercicio de odds y logit
+
+Calcule odds y logit para:
+
+1. $\pi=0.20$;
+2. $\pi=0.50$;
+3. $\pi=0.80$;
+4. $\pi=0.95$.
+
+## Ejercicio de interpretación
+
+Considere
+
+$$
+\operatorname{logit}(\pi)
+=
+-2.5+0.4X_1-0.7X_2.
+$$
+
+1. Interprete ambos coeficientes.
+2. Calcule sus odds ratios.
+3. Calcule la probabilidad para $X_1=3$ y $X_2=1$.
+
+## Ejercicio de verosimilitud
+
+Considere
+
+$$
+(y_1,y_2,y_3)=(1,0,1),
+$$
+
+y
+
+$$
+(\pi_1,\pi_2,\pi_3)=(0.8,0.3,0.6).
+$$
+
+Calcule:
+
+1. la verosimilitud;
+2. la log-verosimilitud;
+3. la pérdida logarítmica media.
+
+## Ejercicio de Newton-Raphson
+
+Supóngase:
+
+$$
+\ell'(\beta^{(t)})=2.4,
+$$
+
+$$
+\ell''(\beta^{(t)})=-5.0,
+$$
+
+$$
+\beta^{(t)}=0.8.
+$$
+
+Calcule la siguiente iteración.
+
+## Ejercicio de inferencia
+
+Supóngase:
+
+$$
+\widehat{\beta}_1=0.65,
+\qquad
+SE(\widehat{\beta}_1)=0.20.
+$$
+
+1. Calcule el estadístico de Wald.
+2. Construya un intervalo del 95 por ciento.
+3. Transforme el intervalo a odds ratio.
+4. Interprete.
+
+## Ejercicio de razón de verosimilitud
+
+Un modelo reducido tiene
+
+$$
+\ell_R=-120.5.
+$$
+
+El modelo completo tiene
+
+$$
+\ell_C=-114.0.
+$$
+
+La diferencia de parámetros es 2.
+
+1. Calcule $G^2$.
+2. Indique la distribución de referencia.
+3. Interprete.
+
+## Ejercicio aplicado
+
+Se desea clasificar accidentes severos usando:
+
+- velocidad;
+- hora nocturna;
+- lluvia;
+- tipo de vialidad;
+- interacción velocidad-lluvia.
+
+Diseñe el análisis incluyendo:
+
+1. formulación del modelo;
+2. codificación de variables;
+3. interpretación de coeficientes;
+4. estimación;
+5. pruebas;
+6. odds ratios;
+7. diagnóstico de multicolinealidad;
+8. análisis de separación;
+9. discriminación;
+10. calibración;
+11. selección de umbral;
+12. validación cruzada;
+13. regularización;
+14. limitaciones causales.
+
+## Resumen
+
+En este capítulo se desarrolló la regresión logística como modelo probabilístico para clasificación binaria.
+
+Se estudiaron función logística, odds, logit y odds ratios. También se derivaron verosimilitud, log-verosimilitud, gradiente y Hessiana, y se explicó Newton-Raphson mediante IRLS.
+
+Finalmente, se presentaron inferencia, deviance, pseudo-$R^2$, predicción, selección de umbral, discriminación, calibración, separación, influencia, regularización y extensión multinomial.

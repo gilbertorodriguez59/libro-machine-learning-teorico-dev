@@ -1,0 +1,969 @@
+# Lenguaje matemático, conjuntos y funciones {#sec-conjuntos-funciones}
+
+## Introducción
+
+El aprendizaje automático se construye sobre objetos matemáticos bien definidos: conjuntos de datos, espacios de características, funciones de predicción, reglas de decisión y medidas de error. Antes de estudiar algoritmos concretos, es necesario establecer un lenguaje común que permita expresar estos elementos con precisión.
+
+En este capítulo se revisan los conceptos de conjuntos, relaciones y funciones, y se muestra cómo aparecen de manera natural en la formulación de problemas de aprendizaje automático.
+
+## Objetivos
+
+Al finalizar el capítulo, el lector podrá:
+
+1. reconocer y utilizar la notación básica de conjuntos;
+2. distinguir entre elemento, subconjunto, unión, intersección y complemento;
+3. interpretar el producto cartesiano;
+4. definir formalmente una función;
+5. distinguir dominio, codominio e imagen;
+6. identificar funciones inyectivas, suprayectivas y biyectivas;
+7. utilizar funciones indicadoras;
+8. representar formalmente conjuntos de entrenamiento;
+9. distinguir matemáticamente entre regresión y clasificación.
+
+## Conjuntos numéricos
+
+Los conjuntos numéricos más utilizados son:
+
+$$
+\mathbb{N}=\{1,2,3,\ldots\},
+$$
+
+$$
+\mathbb{Z}=\{\ldots,-2,-1,0,1,2,\ldots\},
+$$
+
+$$
+\mathbb{Q}
+=
+\left\{
+\frac{a}{b}:a,b\in\mathbb{Z},\ b\neq 0
+\right\},
+$$
+
+y
+
+$$
+\mathbb{R},
+$$
+
+que representa el conjunto de los números reales.
+
+En aprendizaje automático también se utiliza frecuentemente el espacio
+
+$$
+\mathbb{R}^{p}
+=
+\left\{
+(x_1,\ldots,x_p):x_j\in\mathbb{R}
+\right\}.
+$$
+
+Cada elemento de $\mathbb{R}^{p}$ es un vector con $p$ componentes.
+
+::: {#exm-vector-caracteristicas}
+Una observación ambiental puede representarse mediante
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+42.3\\
+18.7\\
+61.0
+\end{pmatrix}
+\in\mathbb{R}^{3},
+$$
+
+donde las componentes podrían corresponder a concentración de partículas, temperatura y humedad.
+:::
+
+## Concepto de conjunto
+
+::: {#def-conjunto}
+Un **conjunto** es una colección bien definida de objetos. Los objetos que forman parte del conjunto se denominan elementos.
+:::
+
+Si $x$ pertenece a un conjunto $A$, se escribe
+
+$$
+x\in A.
+$$
+
+Si no pertenece, se escribe
+
+$$
+x\notin A.
+$$
+
+Por ejemplo, si
+
+$$
+A=\{2,4,6,8\},
+$$
+
+entonces
+
+$$
+4\in A
+$$
+
+y
+
+$$
+5\notin A.
+$$
+
+## Formas de especificar conjuntos
+
+Un conjunto puede describirse por extensión o por comprensión.
+
+### Por extensión
+
+Se enumeran sus elementos:
+
+$$
+A=\{1,2,3,4,5\}.
+$$
+
+### Por comprensión
+
+Se especifica una propiedad que deben satisfacer sus elementos:
+
+$$
+A=\{x\in\mathbb{N}:1\leq x\leq 5\}.
+$$
+
+La expresión después de los dos puntos se interpreta como “tal que”.
+
+## Igualdad de conjuntos
+
+Dos conjuntos $A$ y $B$ son iguales si contienen exactamente los mismos elementos:
+
+$$
+A=B
+\iff
+(\forall x)(x\in A\Leftrightarrow x\in B).
+$$
+
+El orden de los elementos no importa. Por ejemplo,
+
+$$
+\{1,2,3\}=\{3,1,2\}.
+$$
+
+La repetición tampoco modifica un conjunto:
+
+$$
+\{1,1,2,3\}=\{1,2,3\}.
+$$
+
+## Subconjuntos
+
+::: {#def-subconjunto}
+Se dice que $A$ es un subconjunto de $B$ si cada elemento de $A$ también pertenece a $B$.
+:::
+
+Formalmente,
+
+$$
+A\subseteq B
+\iff
+(\forall x)(x\in A\Rightarrow x\in B).
+$$
+
+Si además $A\neq B$, entonces $A$ es un subconjunto propio de $B$.
+
+::: {#exm-subconjunto}
+Sean
+
+$$
+A=\{1,2\},
+\qquad
+B=\{1,2,3,4\}.
+$$
+
+Entonces
+
+$$
+A\subseteq B.
+$$
+:::
+
+## Conjunto vacío
+
+El conjunto que no contiene elementos se denomina conjunto vacío y se denota por
+
+$$
+\varnothing.
+$$
+
+El conjunto vacío es subconjunto de todo conjunto:
+
+$$
+\varnothing\subseteq A.
+$$
+
+## Operaciones entre conjuntos
+
+### Unión
+
+La unión de $A$ y $B$ es el conjunto de elementos que pertenecen a $A$, a $B$ o a ambos:
+
+$$
+A\cup B
+=
+\{x:x\in A\ \text{o}\ x\in B\}.
+$$
+
+### Intersección
+
+La intersección contiene los elementos comunes:
+
+$$
+A\cap B
+=
+\{x:x\in A\ \text{y}\ x\in B\}.
+$$
+
+### Diferencia
+
+La diferencia $A\setminus B$ contiene los elementos de $A$ que no pertenecen a $B$:
+
+$$
+A\setminus B
+=
+\{x:x\in A\ \text{y}\ x\notin B\}.
+$$
+
+### Complemento
+
+Si $U$ es el conjunto universal, el complemento de $A$ es
+
+$$
+A^{c}=U\setminus A.
+$$
+
+::: {#exm-operaciones-conjuntos}
+Sean
+
+$$
+A=\{1,2,3,4\},
+\qquad
+B=\{3,4,5,6\}.
+$$
+
+Entonces
+
+$$
+A\cup B=\{1,2,3,4,5,6\},
+$$
+
+$$
+A\cap B=\{3,4\},
+$$
+
+$$
+A\setminus B=\{1,2\},
+$$
+
+y
+
+$$
+B\setminus A=\{5,6\}.
+$$
+:::
+
+## Propiedades fundamentales
+
+Para cualesquiera conjuntos $A$, $B$ y $C$ se cumplen:
+
+### Conmutatividad
+
+$$
+A\cup B=B\cup A,
+$$
+
+$$
+A\cap B=B\cap A.
+$$
+
+### Asociatividad
+
+$$
+(A\cup B)\cup C=A\cup(B\cup C),
+$$
+
+$$
+(A\cap B)\cap C=A\cap(B\cap C).
+$$
+
+### Distributividad
+
+$$
+A\cap(B\cup C)
+=
+(A\cap B)\cup(A\cap C),
+$$
+
+$$
+A\cup(B\cap C)
+=
+(A\cup B)\cap(A\cup C).
+$$
+
+### Leyes de De Morgan
+
+$$
+(A\cup B)^c=A^c\cap B^c,
+$$
+
+$$
+(A\cap B)^c=A^c\cup B^c.
+$$
+
+Estas propiedades serán importantes posteriormente en probabilidad, reglas de asociación y teoría de clasificación.
+
+## Producto cartesiano
+
+::: {#def-producto-cartesiano}
+El producto cartesiano de dos conjuntos $A$ y $B$ se define como
+
+$$
+A\times B
+=
+\{(a,b):a\in A,\ b\in B\}.
+$$
+:::
+
+Si
+
+$$
+A=\{1,2\},
+\qquad
+B=\{a,b\},
+$$
+
+entonces
+
+$$
+A\times B
+=
+\{(1,a),(1,b),(2,a),(2,b)\}.
+$$
+
+El producto cartesiano permite representar observaciones con varias características. En general,
+
+$$
+\mathbb{R}^{p}
+=
+\underbrace{
+\mathbb{R}\times\cdots\times\mathbb{R}
+}_{p\text{ veces}}.
+$$
+
+## Relaciones
+
+::: {#def-relacion}
+Una relación entre los conjuntos $A$ y $B$ es cualquier subconjunto de $A\times B$.
+:::
+
+Una relación $R$ puede escribirse como
+
+$$
+R\subseteq A\times B.
+$$
+
+Si $(a,b)\in R$, se dice que $a$ está relacionado con $b$.
+
+En clasificación, una muestra etiquetada puede verse como un conjunto de pares ordenados que relaciona cada observación con una clase.
+
+## Funciones
+
+::: {#def-funcion}
+Una función $f$ de un conjunto $A$ a un conjunto $B$ es una regla que asigna a cada elemento de $A$ exactamente un elemento de $B$.
+:::
+
+Se escribe
+
+$$
+f:A\longrightarrow B.
+$$
+
+El conjunto $A$ es el dominio y $B$ es el codominio.
+
+Si $x\in A$, el valor asignado se denota por $f(x)$.
+
+::: {#exm-funcion-real}
+Sea
+
+$$
+f:\mathbb{R}\longrightarrow\mathbb{R}
+$$
+
+definida por
+
+$$
+f(x)=2x+1.
+$$
+
+Entonces
+
+$$
+f(3)=7.
+$$
+:::
+
+## Dominio, codominio e imagen
+
+Para una función
+
+$$
+f:A\to B,
+$$
+
+el dominio es $A$ y el codominio es $B$.
+
+La imagen de $f$ es
+
+$$
+\operatorname{Im}(f)
+=
+\{f(x):x\in A\}.
+$$
+
+Siempre se cumple
+
+$$
+\operatorname{Im}(f)\subseteq B.
+$$
+
+El codominio y la imagen no necesariamente coinciden.
+
+## Imagen e imagen inversa de conjuntos
+
+Si $C\subseteq A$, la imagen de $C$ es
+
+$$
+f(C)
+=
+\{f(x):x\in C\}.
+$$
+
+Si $D\subseteq B$, la imagen inversa de $D$ es
+
+$$
+f^{-1}(D)
+=
+\{x\in A:f(x)\in D\}.
+$$
+
+La notación $f^{-1}(D)$ no exige que $f$ sea invertible.
+
+## Funciones inyectivas, suprayectivas y biyectivas
+
+### Función inyectiva
+
+::: {#def-inyectiva}
+Una función $f:A\to B$ es inyectiva si elementos distintos del dominio tienen imágenes distintas.
+:::
+
+Equivalentemente,
+
+$$
+f(x_1)=f(x_2)
+\Rightarrow
+x_1=x_2.
+$$
+
+### Función suprayectiva
+
+::: {#def-suprayectiva}
+Una función $f:A\to B$ es suprayectiva si cada elemento de $B$ es imagen de al menos un elemento de $A$.
+:::
+
+Formalmente,
+
+$$
+(\forall y\in B)(\exists x\in A)
+\quad
+f(x)=y.
+$$
+
+### Función biyectiva
+
+::: {#def-biyectiva}
+Una función es biyectiva si es simultáneamente inyectiva y suprayectiva.
+:::
+
+Las funciones biyectivas poseen una función inversa.
+
+## Composición de funciones
+
+Sean
+
+$$
+f:A\to B
+$$
+
+y
+
+$$
+g:B\to C.
+$$
+
+La composición de $g$ con $f$ se define como
+
+$$
+(g\circ f)(x)=g(f(x)).
+$$
+
+La composición es esencial en redes neuronales, donde cada capa aplica una transformación a la salida de la capa anterior.
+
+::: {#exm-composicion}
+Sean
+
+$$
+f(x)=2x+1,
+\qquad
+g(x)=x^2.
+$$
+
+Entonces
+
+$$
+(g\circ f)(x)
+=
+(2x+1)^2.
+$$
+
+En cambio,
+
+$$
+(f\circ g)(x)
+=
+2x^2+1.
+$$
+
+En general,
+
+$$
+g\circ f\neq f\circ g.
+$$
+:::
+
+## Función indicadora
+
+::: {#def-indicadora}
+Sea $A$ un conjunto. La función indicadora de $A$ se define por
+
+$$
+\mathbb{I}_{A}(x)
+=
+\begin{cases}
+1, & x\in A,\\
+0, & x\notin A.
+\end{cases}
+$$
+:::
+
+También se utiliza la notación
+
+$$
+\mathbb{I}(x\in A).
+$$
+
+En clasificación, la función indicadora permite contar observaciones de una clase:
+
+$$
+n_k
+=
+\sum_{i=1}^{n}
+\mathbb{I}(y_i=k).
+$$
+
+La proporción de observaciones de la clase $k$ es
+
+$$
+\widehat{p}_k
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+\mathbb{I}(y_i=k).
+$$
+
+Esta expresión aparecerá en árboles de decisión, matrices de confusión y medidas de evaluación.
+
+## Sumatorias y productorias
+
+La sumatoria
+
+$$
+\sum_{i=1}^{n}x_i
+$$
+
+representa
+
+$$
+x_1+x_2+\cdots+x_n.
+$$
+
+La productoria
+
+$$
+\prod_{i=1}^{n}x_i
+$$
+
+representa
+
+$$
+x_1x_2\cdots x_n.
+$$
+
+La media aritmética de una muestra es
+
+$$
+\bar{x}
+=
+\frac{1}{n}
+\sum_{i=1}^{n}x_i.
+$$
+
+La productoria será especialmente importante en funciones de verosimilitud.
+
+## Representación formal de datos
+
+Sea
+
+$$
+\mathcal{X}\subseteq\mathbb{R}^{p}
+$$
+
+el espacio de características y sea $\mathcal{Y}$ el espacio de respuestas.
+
+Un conjunto de datos supervisado se representa como
+
+$$
+\mathcal{D}
+=
+\left\{
+(\mathbf{x}_i,y_i)
+\right\}_{i=1}^{n}
+\subseteq
+\mathcal{X}\times\mathcal{Y}.
+$$
+
+Cada vector
+
+$$
+\mathbf{x}_i
+=
+\begin{pmatrix}
+x_{i1}\\
+x_{i2}\\
+\vdots\\
+x_{ip}
+\end{pmatrix}
+$$
+
+contiene los valores de las $p$ características de la observación $i$.
+
+La matriz de datos se representa como
+
+$$
+\mathbf{X}
+=
+\begin{pmatrix}
+x_{11} & x_{12} & \cdots & x_{1p}\\
+x_{21} & x_{22} & \cdots & x_{2p}\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{n1} & x_{n2} & \cdots & x_{np}
+\end{pmatrix}
+\in\mathbb{R}^{n\times p}.
+$$
+
+El vector de respuestas es
+
+$$
+\mathbf{y}
+=
+\begin{pmatrix}
+y_1\\
+y_2\\
+\vdots\\
+y_n
+\end{pmatrix}.
+$$
+
+## Regresión y clasificación
+
+### Regresión
+
+En un problema de regresión, la respuesta es numérica:
+
+$$
+\mathcal{Y}\subseteq\mathbb{R}.
+$$
+
+Se busca una función
+
+$$
+f:\mathcal{X}\to\mathbb{R}.
+$$
+
+Por ejemplo, estimar la concentración de un contaminante:
+
+$$
+f(\mathbf{x})
+=
+\widehat{y}.
+$$
+
+### Clasificación binaria
+
+En clasificación binaria,
+
+$$
+\mathcal{Y}=\{0,1\}
+$$
+
+o bien
+
+$$
+\mathcal{Y}=\{-1,1\}.
+$$
+
+La función de clasificación tiene la forma
+
+$$
+f:\mathcal{X}\to\{0,1\}.
+$$
+
+### Clasificación multiclase
+
+En clasificación multiclase,
+
+$$
+\mathcal{Y}
+=
+\{1,2,\ldots,K\}.
+$$
+
+Entonces
+
+$$
+f:\mathcal{X}\to\{1,\ldots,K\}.
+$$
+
+## Función objetivo desconocida
+
+En aprendizaje supervisado se supone que existe una relación entre las características y la respuesta. Puede representarse idealmente mediante una función desconocida
+
+$$
+f^{*}:\mathcal{X}\to\mathcal{Y}.
+$$
+
+Los datos satisfacen aproximadamente
+
+$$
+y_i=f^{*}(\mathbf{x}_i)+\varepsilon_i
+$$
+
+en regresión, donde $\varepsilon_i$ representa variación aleatoria o error.
+
+El objetivo del aprendizaje consiste en construir una aproximación
+
+$$
+\widehat{f}\approx f^{*}.
+$$
+
+## Ejemplo integrado
+
+Supóngase que se desea clasificar la calidad del aire utilizando tres variables:
+
+1. concentración de partículas PM10;
+2. temperatura;
+3. humedad relativa.
+
+El espacio de características es
+
+$$
+\mathcal{X}\subseteq\mathbb{R}^{3}.
+$$
+
+La respuesta puede definirse como
+
+$$
+\mathcal{Y}
+=
+\{\text{buena},\text{regular},\text{mala}\}.
+$$
+
+Una observación es
+
+$$
+\mathbf{x}_i
+=
+\begin{pmatrix}
+\text{PM10}_i\\
+\text{temperatura}_i\\
+\text{humedad}_i
+\end{pmatrix}.
+$$
+
+El conjunto de entrenamiento es
+
+$$
+\mathcal{D}
+=
+\left\{
+(\mathbf{x}_i,y_i)
+\right\}_{i=1}^{n}.
+$$
+
+El clasificador buscado es una función
+
+$$
+\widehat{f}:\mathbb{R}^{3}
+\to
+\{\text{buena},\text{regular},\text{mala}\}.
+$$
+
+## Conexión con R
+
+En R, una tabla de datos puede interpretarse como una representación computacional de la matriz $\mathbf{X}$ y del vector $\mathbf{y}$.
+
+```{r}
+#| eval: false
+
+datos <- data.frame(
+  pm10 = c(38, 75, 112, 46),
+  temperatura = c(19, 23, 27, 21),
+  humedad = c(64, 52, 43, 58),
+  calidad = c("buena", "regular", "mala", "buena")
+)
+
+X <- as.matrix(datos[, c("pm10", "temperatura", "humedad")])
+y <- datos$calidad
+```
+
+Matemáticamente,
+
+$$
+\mathbf{X}\in\mathbb{R}^{4\times 3}
+$$
+
+y
+
+$$
+\mathbf{y}
+=
+\begin{pmatrix}
+\text{buena}\\
+\text{regular}\\
+\text{mala}\\
+\text{buena}
+\end{pmatrix}.
+$$
+
+## Errores frecuentes
+
+1. Confundir un elemento con un subconjunto.
+2. Suponer que el codominio y la imagen siempre son iguales.
+3. Confundir $f^{-1}(D)$ con la función inversa.
+4. Olvidar que una función debe asignar exactamente una salida a cada entrada.
+5. Considerar que el orden de los elementos cambia un conjunto.
+6. Confundir una observación $\mathbf{x}_i$ con toda la matriz $\mathbf{X}$.
+7. Suponer que toda clasificación utiliza únicamente las etiquetas $0$ y $1$.
+
+## Ejercicios
+
+### Ejercicios conceptuales
+
+1. Explique la diferencia entre $x\in A$ y $\{x\}\subseteq A$.
+2. Explique la diferencia entre dominio, codominio e imagen.
+3. ¿Por qué una función de clasificación puede considerarse una regla de decisión?
+4. ¿Qué diferencia existe entre $\mathbb{R}^{p}$ y $\mathbb{R}^{n\times p}$?
+5. ¿Por qué el conjunto de entrenamiento es un subconjunto de $\mathcal{X}\times\mathcal{Y}$?
+
+### Ejercicios de conjuntos
+
+Sean
+
+$$
+A=\{1,2,3,4,5\}
+$$
+
+y
+
+$$
+B=\{4,5,6,7\}.
+$$
+
+Determine:
+
+1. $A\cup B$;
+2. $A\cap B$;
+3. $A\setminus B$;
+4. $B\setminus A$.
+
+### Ejercicios de funciones
+
+Sea
+
+$$
+f:\mathbb{R}\to\mathbb{R},
+\qquad
+f(x)=3x-2.
+$$
+
+1. Calcule $f(0)$, $f(2)$ y $f(-1)$.
+2. Determine la imagen del conjunto $\{0,1,2\}$.
+3. Determine $f^{-1}(\{1,4\})$.
+4. Analice si $f$ es inyectiva.
+5. Analice si $f$ es suprayectiva.
+
+### Ejercicio de clasificación
+
+Considere las observaciones:
+
+$$
+\mathbf{x}_1=(20,60),
+\qquad
+\mathbf{x}_2=(45,48),
+\qquad
+\mathbf{x}_3=(80,35),
+$$
+
+con etiquetas
+
+$$
+y_1=\text{baja},
+\qquad
+y_2=\text{media},
+\qquad
+y_3=\text{alta}.
+$$
+
+1. Identifique $\mathcal{X}$ y $\mathcal{Y}$.
+2. Escriba formalmente el conjunto de entrenamiento.
+3. Construya la matriz $\mathbf{X}$.
+4. Construya el vector $\mathbf{y}$.
+5. Escriba el tipo de función que representaría al clasificador.
+
+## Resumen
+
+En este capítulo se estableció el lenguaje matemático básico del libro. Se definieron conjuntos, subconjuntos, operaciones entre conjuntos, productos cartesianos, relaciones y funciones. También se introdujeron dominio, codominio, imagen, composición y función indicadora.
+
+Finalmente, se formuló un conjunto de datos supervisado como
+
+$$
+\mathcal{D}
+=
+\left\{
+(\mathbf{x}_i,y_i)
+\right\}_{i=1}^{n}
+\subseteq
+\mathcal{X}\times\mathcal{Y},
+$$
+
+y se distinguieron formalmente los problemas de regresión y clasificación. Esta notación será utilizada en todos los capítulos posteriores.

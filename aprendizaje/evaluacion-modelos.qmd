@@ -1,0 +1,1154 @@
+# Evaluación, validación y selección de modelos {#sec-evaluacion-modelos}
+
+## Introducción
+
+La evaluación de modelos tiene como propósito estimar qué tan bien funcionará un algoritmo sobre observaciones nuevas. Esta tarea es distinta del ajuste. Durante el entrenamiento, el modelo utiliza una muestra para estimar parámetros; durante la evaluación, se intenta medir su capacidad de generalización.
+
+Una evaluación incorrecta puede producir conclusiones engañosas. Si se utiliza la misma información para entrenar y evaluar, el error obtenido será optimista. Si el conjunto de prueba interviene en la selección de hiperparámetros, deja de ser una evaluación imparcial. Si el preprocesamiento se realiza antes de dividir los datos, puede existir fuga de información.
+
+En este capítulo se desarrollan formalmente la partición entrenamiento-validación-prueba, la validación cruzada, leave-one-out, bootstrap, validación anidada y selección de hiperparámetros.
+
+## Objetivos
+
+Al finalizar el capítulo, el lector podrá:
+
+1. distinguir entrenamiento, validación y prueba;
+2. definir un estimador del error de generalización;
+3. comprender el sesgo optimista del error de entrenamiento;
+4. aplicar particiones aleatorias y estratificadas;
+5. formular validación cruzada de $K$ pliegues;
+6. interpretar leave-one-out;
+7. comprender métodos bootstrap;
+8. comparar sesgo y varianza de estimadores de error;
+9. seleccionar hiperparámetros sin contaminar el conjunto de prueba;
+10. comprender validación cruzada anidada;
+11. detectar fuga de información;
+12. evaluar modelos en series de tiempo;
+13. comparar modelos de forma estadísticamente válida;
+14. diseñar un procedimiento reproducible de evaluación.
+
+## Error de generalización
+
+Sea $\widehat{f}_{D}$ un modelo ajustado con una muestra $D$.
+
+Su error de generalización es
+
+$$
+R(\widehat{f}_{\mathcal{D}})
+=
+\mathbb{E}
+\left[
+L
+\left(
+Y,
+\widehat{f}_{\mathcal{D}}(\mathbf{X})
+\right)
+\mid
+\mathcal{D}
+\right].
+$$
+
+La esperanza se toma respecto de una nueva observación $(\mathbf{X},Y)$ proveniente del mismo proceso generador.
+
+Este riesgo es desconocido porque la distribución $P_{\mathbf{X},Y}$ es desconocida.
+
+## Error de entrenamiento
+
+El error de entrenamiento es
+
+$$
+\widehat{R}_{train}
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+L
+\left(
+y_i,
+\widehat{f}_{\mathcal{D}}(\mathbf{x}_i)
+\right).
+$$
+
+Como el modelo fue ajustado usando esas mismas observaciones, suele cumplirse
+
+$$
+\widehat{R}_{train}
+<
+R(\widehat{f}_{\mathcal{D}}).
+$$
+
+Esta diferencia se denomina optimismo.
+
+## Optimismo de entrenamiento
+
+::: {#def-optimismo}
+El optimismo es la diferencia entre el error esperado sobre datos nuevos y el error observado sobre los datos de entrenamiento.
+:::
+
+Formalmente,
+
+$$
+\operatorname{Opt}
+=
+\mathbb{E}
+\left[
+R(\widehat{f}_{\mathcal{D}})
+-
+\widehat{R}_{train}
+\right].
+$$
+
+Los modelos más flexibles suelen presentar mayor optimismo.
+
+## Conjunto de prueba
+
+Sea
+
+$$
+\mathcal{D}_{test}
+=
+\left\{
+(\mathbf{x}^{test}_j,y^{test}_j)
+\right\}_{j=1}^{m}
+$$
+
+una muestra independiente del entrenamiento.
+
+El error de prueba es
+
+$$
+\widehat{R}_{test}
+=
+\frac{1}{m}
+\sum_{j=1}^{m}
+L
+\left(
+y^{test}_j,
+\widehat{f}_{\mathcal{D}}(\mathbf{x}^{test}_j)
+\right).
+$$
+
+Condicionado al modelo ajustado,
+
+$$
+\mathbb{E}
+\left[
+\widehat{R}_{test}
+\mid
+\mathcal{D}
+\right]
+=
+R(\widehat{f}_{\mathcal{D}}).
+$$
+
+Por tanto, el error de prueba es un estimador insesgado del riesgo del modelo fijo, siempre que el conjunto de prueba sea independiente y no intervenga en decisiones previas.
+
+## División entrenamiento-validación-prueba
+
+Una muestra puede dividirse en tres partes:
+
+$$
+\mathcal{D}
+=
+\mathcal{D}_{train}
+\cup
+\mathcal{D}_{val}
+\cup
+\mathcal{D}_{test},
+$$
+
+con intersecciones vacías.
+
+### Entrenamiento
+
+Se utiliza para estimar parámetros.
+
+### Validación
+
+Se utiliza para seleccionar:
+
+- hiperparámetros;
+- arquitectura;
+- variables;
+- umbrales;
+- intensidad de regularización.
+
+### Prueba
+
+Se utiliza una sola vez para estimar el desempeño final.
+
+## Proporciones de partición
+
+No existe una proporción universal. Algunas opciones son:
+
+- $60\%-20\%-20\%$;
+- $70\%-15\%-15\%$;
+- $80\%-20\%$, usando validación cruzada dentro del entrenamiento.
+
+La elección depende de:
+
+- tamaño total;
+- complejidad del modelo;
+- cantidad de hiperparámetros;
+- prevalencia de clases;
+- costo de obtener datos.
+
+## Partición aleatoria
+
+En una partición aleatoria, cada observación tiene probabilidad de ser asignada a cada subconjunto.
+
+Este procedimiento supone intercambiabilidad de las observaciones.
+
+No debe utilizarse sin cuidado cuando existen:
+
+- series de tiempo;
+- datos agrupados;
+- mediciones repetidas;
+- pacientes con varias observaciones;
+- dependencia espacial.
+
+## Partición estratificada
+
+::: {#def-particion-estratificada}
+Una partición estratificada conserva aproximadamente la proporción de clases en cada subconjunto.
+:::
+
+Si
+
+$$
+\widehat{p}_k
+=
+\frac{n_k}{n},
+$$
+
+se busca que
+
+$$
+\widehat{p}_{k,train}
+\approx
+\widehat{p}_{k,val}
+\approx
+\widehat{p}_{k,test}.
+$$
+
+Es especialmente importante en clases desbalanceadas.
+
+## Partición por grupos
+
+Si varias observaciones pertenecen al mismo individuo, estación, empresa o unidad experimental, todas deben mantenerse dentro del mismo subconjunto.
+
+De lo contrario, el modelo puede aprender características específicas del grupo y producir una evaluación artificialmente optimista.
+
+## Método holdout
+
+El método holdout utiliza una sola partición:
+
+$$
+\mathcal{D}
+=
+\mathcal{D}_{train}
+\cup
+\mathcal{D}_{test}.
+$$
+
+Ventajas:
+
+- simple;
+- rápido;
+- útil con muestras grandes.
+
+Desventajas:
+
+- alta dependencia de una sola partición;
+- puede tener alta varianza;
+- utiliza menos datos para entrenar.
+
+## Validación cruzada de K pliegues
+
+::: {#def-validacion-cruzada}
+La validación cruzada de $K$ pliegues divide la muestra en subconjuntos
+
+$$
+I_1,\ldots,I_K
+$$
+
+aproximadamente del mismo tamaño.
+:::
+
+Para cada pliegue $k$:
+
+1. se ajusta el modelo sin $I_k$;
+2. se evalúa sobre $I_k$.
+
+Sea
+
+$$
+\widehat{f}^{(-k)}
+$$
+
+el modelo entrenado sin el pliegue $k$.
+
+El error es
+
+$$
+CV_K
+=
+\frac{1}{n}
+\sum_{k=1}^{K}
+\sum_{i\in I_k}
+L
+\left(
+y_i,
+\widehat{f}^{(-k)}(\mathbf{x}_i)
+\right).
+$$
+
+Si los pliegues tienen igual tamaño,
+
+$$
+CV_K
+=
+\frac{1}{K}
+\sum_{k=1}^{K}
+\widehat{R}_k.
+$$
+
+## Interpretación
+
+Cada observación se utiliza:
+
+- una vez para validación;
+- $K-1$ veces como parte del entrenamiento.
+
+Los valores habituales son
+
+$$
+K=5
+$$
+
+o
+
+$$
+K=10.
+$$
+
+## Sesgo de validación cruzada
+
+Cada modelo se entrena con
+
+$$
+\frac{K-1}{K}n
+$$
+
+observaciones.
+
+Por tanto, $CV_K$ estima el error de un modelo entrenado con menos observaciones que el modelo final.
+
+Esto puede introducir un sesgo ligeramente pesimista.
+
+## Varianza de validación cruzada
+
+Los errores de los pliegues no son independientes porque los conjuntos de entrenamiento se superponen.
+
+Por ello, calcular la varianza como si fueran observaciones independientes puede subestimar la incertidumbre.
+
+## Validación cruzada repetida
+
+Se repite la creación de pliegues $B$ veces:
+
+$$
+CV_{K,B}
+=
+\frac{1}{B}
+\sum_{b=1}^{B}
+CV_K^{(b)}.
+$$
+
+La repetición reduce la dependencia respecto de una sola división.
+
+## Leave-one-out
+
+::: {#def-loocv}
+Leave-one-out cross-validation corresponde a
+
+$$
+K=n.
+$$
+:::
+
+Cada modelo se entrena con $n-1$ observaciones y se evalúa en una sola.
+
+El estimador es
+
+$$
+CV_{LOO}
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+L
+\left(
+y_i,
+\widehat{f}^{(-i)}(\mathbf{x}_i)
+\right).
+$$
+
+## Ventajas y limitaciones de LOOCV
+
+Ventajas:
+
+- casi toda la muestra se usa para entrenar;
+- bajo sesgo.
+
+Limitaciones:
+
+- puede tener alta varianza;
+- alto costo computacional;
+- los modelos ajustados son muy similares;
+- no siempre supera a $K=5$ o $K=10$.
+
+## Validación cruzada estratificada
+
+En clasificación, los pliegues deben preservar la proporción de clases.
+
+Esto evita que algún pliegue carezca de observaciones de una clase minoritaria.
+
+## Validación cruzada agrupada
+
+Cuando existen grupos, se dividen grupos completos, no observaciones individuales.
+
+Se utiliza, por ejemplo, cuando hay:
+
+- múltiples mediciones por paciente;
+- observaciones por escuela;
+- registros por estación;
+- datos por empresa.
+
+## Validación cruzada para series de tiempo
+
+En series temporales no debe mezclarse aleatoriamente pasado y futuro.
+
+Una estrategia es la ventana creciente.
+
+Para tiempos
+
+$$
+1,\ldots,T,
+$$
+
+se realizan ajustes como:
+
+$$
+\{1,\ldots,t\}
+\to
+\{t+1\}.
+$$
+
+El error temporal es
+
+$$
+CV_{time}
+=
+\frac{1}{M}
+\sum_{m=1}^{M}
+L
+\left(
+y_{t_m+1},
+\widehat{f}_{1:t_m}(\mathbf{x}_{t_m+1})
+\right).
+$$
+
+## Ventana deslizante
+
+Se entrena con una ventana de longitud fija $w$:
+
+$$
+\{t-w+1,\ldots,t\}
+\to
+\{t+1\}.
+$$
+
+Es útil cuando el proceso cambia con el tiempo.
+
+## Bootstrap
+
+::: {#def-bootstrap}
+Una muestra bootstrap se obtiene seleccionando $n$ observaciones con reemplazo de la muestra original.
+:::
+
+Se denota por
+
+$$
+\mathcal{D}^{*(b)}.
+$$
+
+Cada muestra bootstrap contiene observaciones repetidas y deja fuera algunas observaciones originales.
+
+## Probabilidad de exclusión
+
+La probabilidad de que una observación no sea seleccionada en una muestra bootstrap es
+
+$$
+\left(
+1-\frac{1}{n}
+\right)^n.
+$$
+
+Cuando $n$ es grande,
+
+$$
+\left(
+1-\frac{1}{n}
+\right)^n
+\approx
+e^{-1}
+\approx
+0.368.
+$$
+
+Por tanto, aproximadamente el $36.8\%$ de las observaciones queda fuera de cada muestra bootstrap.
+
+## Error out-of-bag
+
+Las observaciones no seleccionadas forman el conjunto out-of-bag.
+
+El modelo bootstrap se evalúa sobre esas observaciones.
+
+Este principio se utiliza en random forest.
+
+## Estimador bootstrap del error
+
+Para $B$ muestras bootstrap,
+
+$$
+\widehat{R}_{boot}
+=
+\frac{1}{B}
+\sum_{b=1}^{B}
+\widehat{R}_{OOB}^{(b)}.
+$$
+
+## Estimador .632
+
+El estimador .632 combina error de entrenamiento y error out-of-bag:
+
+$$
+\widehat{R}_{.632}
+=
+0.368
+\widehat{R}_{train}
++
+0.632
+\widehat{R}_{OOB}.
+$$
+
+La ponderación se relaciona con la proporción esperada de observaciones distintas presentes en una muestra bootstrap.
+
+## Bootstrap para incertidumbre
+
+Además de estimar error, bootstrap puede aproximar la distribución de un estadístico.
+
+Sea
+
+$$
+T=T(\mathcal{D}).
+$$
+
+Se calculan
+
+$$
+T^{*(1)},\ldots,T^{*(B)}.
+$$
+
+La varianza bootstrap es
+
+$$
+\widehat{\operatorname{Var}}_{boot}(T)
+=
+\frac{1}{B-1}
+\sum_{b=1}^{B}
+\left(
+T^{*(b)}
+-
+\overline{T}^{*}
+\right)^2.
+$$
+
+## Selección de hiperparámetros
+
+Sea $\lambda\in\Lambda$ un hiperparámetro.
+
+Para cada valor se estima
+
+$$
+CV_K(\lambda).
+$$
+
+Se selecciona
+
+$$
+\widehat{\lambda}
+=
+\arg\min_{\lambda\in\Lambda}
+CV_K(\lambda).
+$$
+
+Después se reajusta el modelo usando toda la muestra de entrenamiento con $\widehat{\lambda}$.
+
+## Búsqueda en rejilla
+
+Se define una rejilla
+
+$$
+\Lambda
+=
+\{
+\lambda_1,\ldots,\lambda_M
+\}.
+$$
+
+Se evalúa cada combinación.
+
+Ventajas:
+
+- sistemática;
+- reproducible.
+
+Desventajas:
+
+- costosa en espacios grandes;
+- ineficiente si muchos valores son irrelevantes.
+
+## Búsqueda aleatoria
+
+Se seleccionan combinaciones aleatorias de hiperparámetros.
+
+Puede ser más eficiente cuando solo algunas dimensiones tienen gran influencia.
+
+## Optimización bayesiana
+
+Construye un modelo sustituto de la función
+
+$$
+\lambda
+\mapsto
+CV(\lambda)
+$$
+
+y utiliza una función de adquisición para elegir nuevas evaluaciones.
+
+Es útil cuando cada entrenamiento es costoso.
+
+## Fuga de información
+
+::: {#def-fuga-informacion}
+Existe fuga de información cuando el proceso de entrenamiento utiliza información que no estaría disponible al momento de realizar una predicción real.
+:::
+
+Ejemplos:
+
+- normalizar antes de dividir;
+- imputar usando toda la base;
+- seleccionar variables con todo el conjunto;
+- usar el conjunto de prueba para ajustar el umbral;
+- incluir variables creadas después del evento objetivo;
+- mezclar observaciones del mismo paciente entre entrenamiento y prueba.
+
+## Preprocesamiento correcto
+
+Toda transformación debe aprenderse únicamente en entrenamiento.
+
+Por ejemplo, para estandarizar:
+
+$$
+\widetilde{x}_{ij}
+=
+\frac{
+x_{ij}-\widehat{\mu}_{j,train}
+}{
+\widehat{\sigma}_{j,train}
+}.
+$$
+
+Los valores de validación y prueba se transforman usando las estadísticas del entrenamiento.
+
+No deben recalcularse con cada conjunto.
+
+## Pipeline
+
+Un pipeline integra:
+
+1. imputación;
+2. transformación;
+3. selección de variables;
+4. ajuste del modelo;
+5. predicción.
+
+Durante validación cruzada, todo el pipeline debe reajustarse dentro de cada pliegue.
+
+## Selección de variables dentro de la validación
+
+Si la selección de variables se realiza antes de validar, el estimador del error queda sesgado.
+
+El procedimiento correcto para cada pliegue es:
+
+1. seleccionar variables usando solo entrenamiento interno;
+2. ajustar el modelo;
+3. evaluar en el pliegue retenido.
+
+## Validación cruzada anidada
+
+::: {#def-validacion-anidada}
+La validación cruzada anidada utiliza un ciclo externo para estimar desempeño y un ciclo interno para seleccionar hiperparámetros.
+:::
+
+### Ciclo externo
+
+Divide los datos en pliegues de evaluación.
+
+### Ciclo interno
+
+Dentro del entrenamiento externo, selecciona hiperparámetros.
+
+El error anidado es
+
+$$
+CV_{nested}
+=
+\frac{1}{K_{ext}}
+\sum_{k=1}^{K_{ext}}
+\widehat{R}^{ext}_k.
+$$
+
+Este procedimiento reduce el sesgo de selección.
+
+## Sesgo por selección
+
+Si se prueban muchos modelos y se reporta el mejor valor de validación, el resultado tiende a ser optimista.
+
+Esto ocurre porque se selecciona el mínimo entre estimaciones ruidosas:
+
+$$
+\min_m
+\widehat{R}_m.
+$$
+
+La validación anidada separa selección y evaluación.
+
+## Regla de un error estándar
+
+Supóngase que $\lambda_{min}$ minimiza el error medio.
+
+La regla de un error estándar selecciona el modelo más simple cuyo error satisface
+
+$$
+CV(\lambda)
+\leq
+CV(\lambda_{min})
++
+SE(\lambda_{min}).
+$$
+
+Esta regla favorece modelos más parsimoniosos.
+
+## Comparación de modelos
+
+Supóngase que se comparan modelos $A$ y $B$.
+
+En cada pliegue se calcula
+
+$$
+d_k
+=
+R_{A,k}
+-
+R_{B,k}.
+$$
+
+Una diferencia promedio negativa favorece a $A$:
+
+$$
+\overline{d}
+=
+\frac{1}{K}
+\sum_{k=1}^{K}d_k.
+$$
+
+Sin embargo, los pliegues no son independientes, por lo que las pruebas estadísticas deben interpretarse con cautela.
+
+## Prueba de McNemar
+
+Para dos clasificadores evaluados sobre las mismas observaciones, se consideran:
+
+- $n_{01}$: $A$ falla y $B$ acierta;
+- $n_{10}$: $A$ acierta y $B$ falla.
+
+El estadístico aproximado es
+
+$$
+\chi^2
+=
+\frac{
+(|n_{01}-n_{10}|-1)^2
+}{
+n_{01}+n_{10}
+}.
+$$
+
+Esta prueba analiza si los patrones de error difieren.
+
+## Intervalo para error de clasificación
+
+Si el error observado es
+
+$$
+\widehat{p}
+=
+\frac{e}{m},
+$$
+
+una aproximación del error estándar es
+
+$$
+SE(\widehat{p})
+=
+\sqrt{
+\frac{
+\widehat{p}(1-\widehat{p})
+}{
+m
+}
+}.
+$$
+
+Una aproximación normal es
+
+$$
+\widehat{p}
+\pm
+z_{\alpha/2}
+SE(\widehat{p}).
+$$
+
+Para muestras pequeñas o proporciones extremas son preferibles métodos como Wilson.
+
+## Incertidumbre del error cuadrático medio
+
+Para pérdidas
+
+$$
+\ell_1,\ldots,\ell_m,
+$$
+
+el error medio es
+
+$$
+\overline{\ell}
+=
+\frac{1}{m}
+\sum_{i=1}^{m}\ell_i.
+$$
+
+Su error estándar aproximado es
+
+$$
+SE(\overline{\ell})
+=
+\frac{s_\ell}{\sqrt{m}},
+$$
+
+si las observaciones de prueba son independientes.
+
+## Reproducibilidad
+
+Un proceso reproducible debe registrar:
+
+- semilla aleatoria;
+- particiones;
+- variables;
+- transformaciones;
+- hiperparámetros;
+- métrica principal;
+- software y versiones;
+- procedimiento de selección.
+
+## Métrica principal
+
+La métrica principal debe definirse antes de comparar modelos.
+
+Ejemplos:
+
+- RMSE en regresión;
+- sensibilidad en detección médica;
+- AUC en discriminación;
+- F1 en clases desbalanceadas;
+- pérdida logarítmica para probabilidades.
+
+Elegir la métrica después de observar resultados puede introducir sesgo.
+
+## Evaluación en regresión
+
+### Error cuadrático medio
+
+$$
+MSE
+=
+\frac{1}{m}
+\sum_{i=1}^{m}
+(
+y_i-\widehat{y}_i
+)^2.
+$$
+
+### Raíz del error cuadrático medio
+
+$$
+RMSE
+=
+\sqrt{MSE}.
+$$
+
+### Error absoluto medio
+
+$$
+MAE
+=
+\frac{1}{m}
+\sum_{i=1}^{m}
+|y_i-\widehat{y}_i|.
+$$
+
+### Coeficiente de determinación
+
+$$
+R^2
+=
+1-
+\frac{
+\sum_i(y_i-\widehat{y}_i)^2
+}{
+\sum_i(y_i-\overline{y})^2
+}.
+$$
+
+En prueba, $R^2$ puede ser negativo.
+
+## Evaluación en clasificación
+
+La selección de métricas depende de:
+
+- balance de clases;
+- costo de errores;
+- uso de probabilidades;
+- objetivo operativo;
+- umbral disponible.
+
+No debe evaluarse un clasificador exclusivamente mediante exactitud cuando las clases están desbalanceadas.
+
+## Conexión con R
+
+```{r}
+#| eval: false
+
+set.seed(123)
+
+n <- 150
+datos <- data.frame(
+  x1 = rnorm(n),
+  x2 = rnorm(n)
+)
+
+datos$y <- 2 + 1.5 * datos$x1 - datos$x2 + rnorm(n)
+
+# Partición holdout
+id_train <- sample(seq_len(n), size = 0.8 * n)
+
+train <- datos[id_train, ]
+test <- datos[-id_train, ]
+
+modelo <- lm(y ~ x1 + x2, data = train)
+
+pred <- predict(modelo, newdata = test)
+
+rmse <- sqrt(mean((test$y - pred)^2))
+mae <- mean(abs(test$y - pred))
+
+rmse
+mae
+```
+
+## Ejemplo manual de validación cruzada
+
+Considere seis observaciones divididas en tres pliegues:
+
+$$
+I_1=\{1,2\},
+\quad
+I_2=\{3,4\},
+\quad
+I_3=\{5,6\}.
+$$
+
+Los errores de validación son:
+
+$$
+\widehat{R}_1=2.0,
+\quad
+\widehat{R}_2=3.5,
+\quad
+\widehat{R}_3=2.5.
+$$
+
+Entonces,
+
+$$
+CV_3
+=
+\frac{2.0+3.5+2.5}{3}
+=
+\frac{8}{3}
+\approx
+2.67.
+$$
+
+## Ejemplo de fuga de información
+
+Supóngase que se estandariza una variable usando:
+
+$$
+\widehat{\mu}_{total}
+=
+\frac{1}{n}
+\sum_{i=1}^{n}x_i.
+$$
+
+Si esta media incluye observaciones de prueba, el entrenamiento utiliza indirectamente información futura.
+
+La transformación correcta usa:
+
+$$
+\widehat{\mu}_{train}
+=
+\frac{1}{n_{train}}
+\sum_{i\in train}x_i.
+$$
+
+## Diseño recomendado de evaluación
+
+Un procedimiento robusto puede ser:
+
+1. separar un conjunto de prueba final;
+2. definir una métrica principal;
+3. construir un pipeline;
+4. seleccionar hiperparámetros mediante validación cruzada;
+5. reajustar con todo el entrenamiento;
+6. evaluar una sola vez en prueba;
+7. reportar incertidumbre y métricas complementarias.
+
+## Errores frecuentes
+
+1. Reportar error de entrenamiento como desempeño final.
+2. Usar el conjunto de prueba para seleccionar modelos.
+3. Normalizar antes de dividir.
+4. Seleccionar variables con toda la base.
+5. Mezclar observaciones del mismo grupo entre entrenamiento y prueba.
+6. Aleatorizar series de tiempo.
+7. Comparar modelos usando particiones distintas.
+8. Probar muchas configuraciones y reportar solo la mejor sin validación anidada.
+9. Elegir la métrica después de ver resultados.
+10. Omitir la incertidumbre de las estimaciones.
+
+## Ejercicios conceptuales
+
+1. Explique la diferencia entre entrenamiento, validación y prueba.
+2. ¿Por qué el error de entrenamiento es optimista?
+3. ¿Qué ventaja ofrece la validación cruzada?
+4. ¿Qué diferencia existe entre $K$-fold y LOOCV?
+5. ¿Por qué debe utilizarse estratificación?
+6. ¿Qué es fuga de información?
+7. ¿Por qué el preprocesamiento debe realizarse dentro de cada pliegue?
+8. ¿Qué problema resuelve la validación anidada?
+9. ¿Qué significa la regla de un error estándar?
+10. ¿Por qué no debe aleatorizarse una serie temporal?
+
+## Ejercicio de holdout
+
+Una muestra contiene $1\,000$ observaciones.
+
+1. Calcule los tamaños para una división $70\%-15\%-15\%$.
+2. Explique el uso de cada subconjunto.
+3. Proponga una alternativa usando validación cruzada.
+4. Analice qué ocurriría si solo existen 40 observaciones positivas.
+
+## Ejercicio de validación cruzada
+
+Los errores de cinco pliegues son:
+
+$$
+0.18,\ 0.22,\ 0.20,\ 0.25,\ 0.15.
+$$
+
+Calcule:
+
+1. el error medio;
+2. la desviación estándar;
+3. el error estándar aproximado;
+4. un intervalo descriptivo de dos errores estándar.
+
+## Ejercicio bootstrap
+
+Para $n=100$:
+
+1. calcule aproximadamente la proporción esperada de observaciones no seleccionadas;
+2. calcule la cantidad esperada de observaciones out-of-bag;
+3. explique cómo se estima el error OOB;
+4. relacione este procedimiento con random forest.
+
+## Ejercicio de selección
+
+Se obtienen los siguientes errores:
+
+| $\lambda$ | Error CV | Error estándar |
+|---:|---:|---:|
+| 0.01 | 0.245 | 0.012 |
+| 0.10 | 0.228 | 0.010 |
+| 1.00 | 0.231 | 0.009 |
+| 10.00 | 0.260 | 0.011 |
+
+1. Seleccione el mínimo.
+2. Aplique la regla de un error estándar.
+3. Explique cuál modelo sería más simple si una penalización mayor implica mayor regularización.
+
+## Ejercicio de fuga de información
+
+Analice los siguientes procedimientos e indique si existe fuga:
+
+1. imputar antes de dividir;
+2. seleccionar variables antes de validación cruzada;
+3. ajustar el umbral usando prueba;
+4. dividir pacientes, pero no observaciones;
+5. calcular medias solo en entrenamiento y aplicarlas a prueba;
+6. usar registros posteriores al diagnóstico para predecir el diagnóstico.
+
+## Ejercicio aplicado
+
+Se desea comparar regresión logística, random forest y SVM para clasificar accidentes severos.
+
+Diseñe un procedimiento que incluya:
+
+1. partición;
+2. estratificación;
+3. métrica principal;
+4. preprocesamiento;
+5. selección de hiperparámetros;
+6. validación anidada;
+7. evaluación final;
+8. comparación de errores;
+9. reporte de incertidumbre;
+10. prevención de fuga de información.
+
+## Resumen
+
+En este capítulo se desarrollaron los fundamentos de evaluación y selección de modelos. Se distinguieron error de entrenamiento, validación, prueba y generalización.
+
+También se estudiaron holdout, validación cruzada de $K$ pliegues, leave-one-out, validación repetida, validación agrupada y evaluación temporal.
+
+Finalmente, se introdujeron bootstrap, error out-of-bag, selección de hiperparámetros, validación anidada, fuga de información, pipelines, comparación de modelos y reproducibilidad. Estas herramientas son indispensables para obtener evaluaciones confiables y evitar conclusiones optimistas.

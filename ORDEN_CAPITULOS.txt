@@ -1,0 +1,29 @@
+ORDEN VERIFICADO DE ARCHIVOS QMD
+
+01. index.qmd -> Bienvenida
+02. presentacion.qmd -> Presentación
+03. introduccion.qmd -> Introducción
+04. notacion.qmd -> Notación general
+05. fundamentos/conjuntos-funciones.qmd -> Lenguaje matemático, conjuntos y funciones
+06. fundamentos/algebra-lineal.qmd -> Álgebra lineal para aprendizaje automático
+07. fundamentos/probabilidad-estadistica.qmd -> Probabilidad y estadística para aprendizaje automático
+08. fundamentos/calculo-optimizacion.qmd -> Cálculo multivariable y optimización
+09. aprendizaje/aprendizaje-supervisado.qmd -> Formulación matemática del aprendizaje supervisado
+10. aprendizaje/teoria-clasificacion.qmd -> Teoría matemática de la clasificación
+11. aprendizaje/evaluacion-modelos.qmd -> Evaluación, validación y selección de modelos
+12. aprendizaje/regularizacion.qmd -> Regularización y control de la complejidad
+13. regresion/regresion-lineal-simple.qmd -> Regresión lineal simple
+14. regresion/regresion-lineal-multiple.qmd -> Regresión lineal múltiple
+15. regresion/regresion-logistica.qmd -> Regresión logística
+16. clasificacion/knn.qmd -> Vecinos más cercanos, k-NN
+17. clasificacion/arboles-decision.qmd -> Árboles de decisión
+18. clasificacion/random-forest.qmd -> Random Forest
+19. clasificacion/svm.qmd -> Máquinas de vectores de soporte, SVM
+20. clasificacion/redes-neuronales.qmd -> Redes neuronales artificiales
+21. no-supervisado/pca.qmd -> Análisis de Componentes Principales, PCA
+22. no-supervisado/kmeans.qmd -> Agrupamiento k-means
+23. no-supervisado/agrupamiento-jerarquico.qmd -> Agrupamiento jerárquico
+24. no-supervisado/reglas-asociacion.qmd -> Reglas de asociación
+25. avanzados/teoria-generalizacion.qmd -> Teoría de generalización
+26. avanzados/series-tiempo.qmd -> Series de tiempo y aprendizaje automático
+27. referencias.qmd -> Referencias

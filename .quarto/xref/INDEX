@@ -1,0 +1,83 @@
+{
+  "index.qmd": {
+    "index.html": "b355fd5a"
+  },
+  "presentacion.qmd": {
+    "presentacion.html": "fe985703"
+  },
+  "introduccion.qmd": {
+    "introduccion.html": "c6e3b16c"
+  },
+  "notacion.qmd": {
+    "notacion.html": "c48c3c0e"
+  },
+  "fundamentos/conjuntos-funciones.qmd": {
+    "conjuntos-funciones.html": "0a1ac5fa"
+  },
+  "fundamentos/algebra-lineal.qmd": {
+    "algebra-lineal.html": "190820f7"
+  },
+  "fundamentos/probabilidad-estadistica.qmd": {
+    "probabilidad-estadistica.html": "4e836b71"
+  },
+  "fundamentos/calculo-optimizacion.qmd": {
+    "calculo-optimizacion.html": "99f51e2d"
+  },
+  "aprendizaje/aprendizaje-supervisado.qmd": {
+    "aprendizaje-supervisado.html": "2daf7305"
+  },
+  "aprendizaje/teoria-clasificacion.qmd": {
+    "teoria-clasificacion.html": "8146563a"
+  },
+  "aprendizaje/evaluacion-modelos.qmd": {
+    "evaluacion-modelos.html": "a67346c7"
+  },
+  "aprendizaje/regularizacion.qmd": {
+    "regularizacion.html": "9bf355f6"
+  },
+  "regresion/regresion-lineal-simple.qmd": {
+    "regresion-lineal-simple.html": "3d097065"
+  },
+  "regresion/regresion-lineal-multiple.qmd": {
+    "regresion-lineal-multiple.html": "d3ed6c79"
+  },
+  "regresion/regresion-logistica.qmd": {
+    "regresion-logistica.html": "7f5b412a"
+  },
+  "clasificacion/knn.qmd": {
+    "knn.html": "7d22df98"
+  },
+  "clasificacion/arboles-decision.qmd": {
+    "arboles-decision.html": "17e48062"
+  },
+  "clasificacion/random-forest.qmd": {
+    "random-forest.html": "6ca058e8"
+  },
+  "clasificacion/svm.qmd": {
+    "svm.html": "d3d6f14a"
+  },
+  "clasificacion/redes-neuronales.qmd": {
+    "redes-neuronales.html": "68cb6641"
+  },
+  "no-supervisado/pca.qmd": {
+    "pca.html": "7138616b"
+  },
+  "no-supervisado/kmeans.qmd": {
+    "kmeans.html": "649d1c58"
+  },
+  "no-supervisado/agrupamiento-jerarquico.qmd": {
+    "agrupamiento-jerarquico.html": "35816967"
+  },
+  "no-supervisado/reglas-asociacion.qmd": {
+    "reglas-asociacion.html": "1ccee1ca"
+  },
+  "avanzados/teoria-generalizacion.qmd": {
+    "teoria-generalizacion.html": "73e02e0c"
+  },
+  "avanzados/series-tiempo.qmd": {
+    "series-tiempo.html": "8c07c0fd"
+  },
+  "referencias.qmd": {
+    "referencias.html": "bd5e8548"
+  }
+}

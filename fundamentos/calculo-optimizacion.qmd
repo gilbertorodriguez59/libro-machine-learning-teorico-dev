@@ -1,0 +1,1596 @@
+# Cálculo multivariable y optimización {#sec-calculo-optimizacion}
+
+## Introducción
+
+El cálculo multivariable y la optimización permiten describir cómo cambia una función cuando cambian varios parámetros al mismo tiempo. En aprendizaje automático, los modelos dependen de vectores o matrices de parámetros, y su entrenamiento consiste casi siempre en minimizar una función de pérdida.
+
+La regresión lineal minimiza una suma de errores cuadrados; la regresión logística maximiza una log-verosimilitud; las máquinas de vectores de soporte resuelven problemas de optimización convexa; las redes neuronales ajustan millones de parámetros mediante gradientes; y numerosos métodos utilizan restricciones, multiplicadores de Lagrange o aproximaciones de segundo orden.
+
+Este capítulo desarrolla las herramientas necesarias para formular y analizar estos procesos.
+
+## Objetivos
+
+Al finalizar el capítulo, el lector podrá:
+
+1. interpretar funciones de varias variables;
+2. calcular derivadas parciales;
+3. construir gradientes y matrices Jacobianas;
+4. calcular e interpretar matrices Hessianas;
+5. aplicar la regla de la cadena multivariable;
+6. utilizar expansiones de Taylor;
+7. identificar puntos críticos;
+8. distinguir mínimos, máximos y puntos silla;
+9. comprender convexidad y funciones convexas;
+10. resolver problemas de optimización sin restricciones;
+11. formular problemas con restricciones;
+12. aplicar multiplicadores de Lagrange;
+13. comprender descenso por gradiente;
+14. interpretar métodos de Newton y aproximaciones de segundo orden;
+15. relacionar estos conceptos con algoritmos de aprendizaje automático.
+
+## Funciones de varias variables
+
+::: {#def-funcion-multivariable}
+Una función de varias variables es una aplicación
+
+$$
+f:\mathbb{R}^{p}\to\mathbb{R}.
+$$
+:::
+
+Para
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_p
+\end{pmatrix},
+$$
+
+se escribe
+
+$$
+f(\mathbf{x})
+=
+f(x_1,\ldots,x_p).
+$$
+
+::: {#exm-funcion-cuadratica}
+Considere
+
+$$
+f(x_1,x_2)
+=
+x_1^2+2x_1x_2+3x_2^2.
+$$
+
+Esta función asigna un número real a cada punto de $\mathbb{R}^{2}$.
+:::
+
+## Superficies de nivel
+
+Para una constante $c$, el conjunto de nivel de $f$ es
+
+$$
+L_c
+=
+\{
+\mathbf{x}\in\mathbb{R}^{p}
+:
+f(\mathbf{x})=c
+\}.
+$$
+
+En dos variables, los conjuntos de nivel pueden representarse mediante curvas de nivel.
+
+En optimización, estas curvas ayudan a visualizar la geometría de la función objetivo.
+
+## Derivadas parciales
+
+::: {#def-derivada-parcial}
+La derivada parcial de $f$ respecto de $x_j$ se define como
+
+$$
+\frac{\partial f}{\partial x_j}
+=
+\lim_{h\to 0}
+\frac{
+f(x_1,\ldots,x_j+h,\ldots,x_p)
+-
+f(x_1,\ldots,x_j,\ldots,x_p)
+}{
+h
+},
+$$
+
+si el límite existe.
+:::
+
+La derivada parcial mide la tasa de cambio de $f$ respecto de una variable, manteniendo las demás constantes.
+
+::: {#exm-derivadas-parciales}
+Sea
+
+$$
+f(x_1,x_2)
+=
+x_1^2+3x_1x_2+2x_2^2.
+$$
+
+Entonces
+
+$$
+\frac{\partial f}{\partial x_1}
+=
+2x_1+3x_2,
+$$
+
+y
+
+$$
+\frac{\partial f}{\partial x_2}
+=
+3x_1+4x_2.
+$$
+:::
+
+## Derivadas parciales de orden superior
+
+Las segundas derivadas parciales son
+
+$$
+\frac{\partial^2 f}{\partial x_i^2}
+$$
+
+y las derivadas cruzadas son
+
+$$
+\frac{\partial^2 f}
+{\partial x_i\partial x_j}.
+$$
+
+Si $f$ es suficientemente suave, se cumple el teorema de Clairaut:
+
+$$
+\frac{\partial^2 f}
+{\partial x_i\partial x_j}
+=
+\frac{\partial^2 f}
+{\partial x_j\partial x_i}.
+$$
+
+## Gradiente
+
+::: {#def-gradiente}
+El gradiente de una función
+
+$$
+f:\mathbb{R}^{p}\to\mathbb{R}
+$$
+
+es el vector
+
+$$
+\nabla f(\mathbf{x})
+=
+\begin{pmatrix}
+\frac{\partial f}{\partial x_1}\\
+\frac{\partial f}{\partial x_2}\\
+\vdots\\
+\frac{\partial f}{\partial x_p}
+\end{pmatrix}.
+$$
+:::
+
+El gradiente apunta en la dirección de máximo crecimiento local de la función.
+
+La dirección opuesta,
+
+$$
+-\nabla f(\mathbf{x}),
+$$
+
+apunta en la dirección de máximo decrecimiento local.
+
+::: {#exm-gradiente}
+Para
+
+$$
+f(x_1,x_2)
+=
+x_1^2+3x_1x_2+2x_2^2,
+$$
+
+el gradiente es
+
+$$
+\nabla f(x_1,x_2)
+=
+\begin{pmatrix}
+2x_1+3x_2\\
+3x_1+4x_2
+\end{pmatrix}.
+$$
+:::
+
+## Derivada direccional
+
+Sea $\mathbf{u}$ un vector unitario. La derivada direccional de $f$ en la dirección $\mathbf{u}$ es
+
+$$
+D_{\mathbf{u}}f(\mathbf{x})
+=
+\nabla f(\mathbf{x})^{\mathsf T}\mathbf{u}.
+$$
+
+Por la desigualdad de Cauchy-Schwarz,
+
+$$
+D_{\mathbf{u}}f(\mathbf{x})
+\leq
+\|\nabla f(\mathbf{x})\|_2.
+$$
+
+La igualdad se alcanza cuando
+
+$$
+\mathbf{u}
+=
+\frac{
+\nabla f(\mathbf{x})
+}{
+\|\nabla f(\mathbf{x})\|_2
+}.
+$$
+
+## Funciones vectoriales
+
+Una función vectorial tiene la forma
+
+$$
+\mathbf{f}:\mathbb{R}^{p}\to\mathbb{R}^{m}.
+$$
+
+Se escribe
+
+$$
+\mathbf{f}(\mathbf{x})
+=
+\begin{pmatrix}
+f_1(\mathbf{x})\\
+\vdots\\
+f_m(\mathbf{x})
+\end{pmatrix}.
+$$
+
+## Matriz Jacobiana
+
+::: {#def-jacobiana}
+La matriz Jacobiana de
+
+$$
+\mathbf{f}:\mathbb{R}^{p}\to\mathbb{R}^{m}
+$$
+
+es
+
+$$
+\mathbf{J}_{\mathbf{f}}(\mathbf{x})
+=
+\begin{pmatrix}
+\frac{\partial f_1}{\partial x_1}
+&
+\cdots
+&
+\frac{\partial f_1}{\partial x_p}
+\\
+\vdots
+&
+\ddots
+&
+\vdots
+\\
+\frac{\partial f_m}{\partial x_1}
+&
+\cdots
+&
+\frac{\partial f_m}{\partial x_p}
+\end{pmatrix}.
+$$
+:::
+
+Si $m=1$, la Jacobiana coincide con el gradiente transpuesto.
+
+## Matriz Hessiana
+
+::: {#def-hessiana}
+La matriz Hessiana de una función escalar
+
+$$
+f:\mathbb{R}^{p}\to\mathbb{R}
+$$
+
+es
+
+$$
+\mathbf{H}_f(\mathbf{x})
+=
+\nabla^2f(\mathbf{x})
+=
+\begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1^2}
+&
+\cdots
+&
+\frac{\partial^2 f}{\partial x_1\partial x_p}
+\\
+\vdots
+&
+\ddots
+&
+\vdots
+\\
+\frac{\partial^2 f}{\partial x_p\partial x_1}
+&
+\cdots
+&
+\frac{\partial^2 f}{\partial x_p^2}
+\end{pmatrix}.
+$$
+:::
+
+La Hessiana describe la curvatura local de la función.
+
+::: {#exm-hessiana}
+Para
+
+$$
+f(x_1,x_2)
+=
+x_1^2+3x_1x_2+2x_2^2,
+$$
+
+se tiene
+
+$$
+\mathbf{H}_f
+=
+\begin{pmatrix}
+2 & 3\\
+3 & 4
+\end{pmatrix}.
+$$
+:::
+
+## Diferenciales
+
+La diferencial total de $f$ es
+
+$$
+df
+=
+\sum_{j=1}^{p}
+\frac{\partial f}{\partial x_j}
+dx_j.
+$$
+
+En forma vectorial,
+
+$$
+df
+=
+\nabla f(\mathbf{x})^{\mathsf T}
+d\mathbf{x}.
+$$
+
+## Regla de la cadena
+
+Sea
+
+$$
+\mathbf{z}
+=
+\mathbf{g}(\mathbf{x})
+$$
+
+y
+
+$$
+\mathbf{y}
+=
+\mathbf{f}(\mathbf{z}).
+$$
+
+Entonces
+
+$$
+\mathbf{J}_{\mathbf{f}\circ\mathbf{g}}(\mathbf{x})
+=
+\mathbf{J}_{\mathbf{f}}(\mathbf{g}(\mathbf{x}))
+\mathbf{J}_{\mathbf{g}}(\mathbf{x}).
+$$
+
+Esta regla es la base matemática de la retropropagación en redes neuronales.
+
+## Ejemplo de regla de la cadena
+
+Sea
+
+$$
+z=x_1^2+x_2^2,
+$$
+
+y
+
+$$
+f(z)=e^z.
+$$
+
+Entonces
+
+$$
+\frac{\partial f}{\partial x_1}
+=
+\frac{df}{dz}
+\frac{\partial z}{\partial x_1}
+=
+e^z(2x_1).
+$$
+
+Por tanto,
+
+$$
+\frac{\partial f}{\partial x_1}
+=
+2x_1e^{x_1^2+x_2^2}.
+$$
+
+Análogamente,
+
+$$
+\frac{\partial f}{\partial x_2}
+=
+2x_2e^{x_1^2+x_2^2}.
+$$
+
+## Derivación matricial básica
+
+En aprendizaje automático, conviene utilizar identidades de cálculo matricial.
+
+Si
+
+$$
+f(\mathbf{x})
+=
+\mathbf{a}^{\mathsf T}\mathbf{x},
+$$
+
+entonces
+
+$$
+\nabla_{\mathbf{x}}f
+=
+\mathbf{a}.
+$$
+
+Si
+
+$$
+f(\mathbf{x})
+=
+\mathbf{x}^{\mathsf T}\mathbf{x},
+$$
+
+entonces
+
+$$
+\nabla_{\mathbf{x}}f
+=
+2\mathbf{x}.
+$$
+
+Si
+
+$$
+f(\mathbf{x})
+=
+\mathbf{x}^{\mathsf T}
+\mathbf{A}
+\mathbf{x},
+$$
+
+entonces
+
+$$
+\nabla_{\mathbf{x}}f
+=
+(\mathbf{A}+\mathbf{A}^{\mathsf T})\mathbf{x}.
+$$
+
+Si $\mathbf{A}$ es simétrica,
+
+$$
+\nabla_{\mathbf{x}}f
+=
+2\mathbf{A}\mathbf{x}.
+$$
+
+## Expansión de Taylor de primer orden
+
+Si $f$ es diferenciable, cerca de $\mathbf{x}_0$ se aproxima por
+
+$$
+f(\mathbf{x})
+\approx
+f(\mathbf{x}_0)
++
+\nabla f(\mathbf{x}_0)^{\mathsf T}
+(\mathbf{x}-\mathbf{x}_0).
+$$
+
+Esta es una aproximación lineal local.
+
+## Expansión de Taylor de segundo orden
+
+Si $f$ posee segundas derivadas,
+
+$$
+f(\mathbf{x})
+\approx
+f(\mathbf{x}_0)
++
+\nabla f(\mathbf{x}_0)^{\mathsf T}
+(\mathbf{x}-\mathbf{x}_0)
++
+\frac{1}{2}
+(\mathbf{x}-\mathbf{x}_0)^{\mathsf T}
+\mathbf{H}_f(\mathbf{x}_0)
+(\mathbf{x}-\mathbf{x}_0).
+$$
+
+Los métodos de Newton utilizan esta aproximación.
+
+## Puntos críticos
+
+::: {#def-punto-critico}
+Un punto $\mathbf{x}^{*}$ es crítico si
+
+$$
+\nabla f(\mathbf{x}^{*})
+=
+\mathbf{0}.
+$$
+:::
+
+Un punto crítico puede ser:
+
+- mínimo local;
+- máximo local;
+- punto silla.
+
+## Clasificación mediante la Hessiana
+
+Si
+
+$$
+\nabla f(\mathbf{x}^{*})=\mathbf{0},
+$$
+
+entonces:
+
+- si $\mathbf{H}_f(\mathbf{x}^{*})$ es definida positiva, $\mathbf{x}^{*}$ es mínimo local;
+- si es definida negativa, es máximo local;
+- si es indefinida, es punto silla;
+- si es semidefinida, la prueba puede ser inconclusa.
+
+## Ejemplo de mínimo
+
+Sea
+
+$$
+f(x_1,x_2)
+=
+(x_1-2)^2
++
+(x_2+1)^2.
+$$
+
+El gradiente es
+
+$$
+\nabla f
+=
+\begin{pmatrix}
+2(x_1-2)\\
+2(x_2+1)
+\end{pmatrix}.
+$$
+
+Igualando a cero:
+
+$$
+x_1=2,
+\qquad
+x_2=-1.
+$$
+
+La Hessiana es
+
+$$
+\mathbf{H}_f
+=
+\begin{pmatrix}
+2 & 0\\
+0 & 2
+\end{pmatrix},
+$$
+
+que es definida positiva. Por tanto,
+
+$$
+(2,-1)
+$$
+
+es un mínimo global.
+
+## Optimización sin restricciones
+
+Un problema de optimización sin restricciones tiene la forma
+
+$$
+\min_{\boldsymbol{\theta}\in\mathbb{R}^{p}}
+J(\boldsymbol{\theta}).
+$$
+
+Una condición necesaria de primer orden para un mínimo interior es
+
+$$
+\nabla J(\boldsymbol{\theta}^{*})=\mathbf{0}.
+$$
+
+Si además la Hessiana es definida positiva, el punto es un mínimo local estricto.
+
+## Funciones convexas
+
+::: {#def-convexidad}
+Una función
+
+$$
+f:\mathbb{R}^{p}\to\mathbb{R}
+$$
+
+es convexa si para todos $\mathbf{x},\mathbf{y}$ y todo $\lambda\in[0,1]$,
+
+$$
+f(
+\lambda\mathbf{x}
++
+(1-\lambda)\mathbf{y}
+)
+\leq
+\lambda f(\mathbf{x})
++
+(1-\lambda)f(\mathbf{y}).
+$$
+:::
+
+Geométricamente, el segmento entre dos puntos de la gráfica queda por encima de la gráfica.
+
+## Convexidad estricta
+
+La función es estrictamente convexa si la desigualdad es estricta para
+
+$$
+\mathbf{x}\neq\mathbf{y}
+$$
+
+y
+
+$$
+\lambda\in(0,1).
+$$
+
+Una función estrictamente convexa tiene a lo sumo un mínimo global.
+
+## Caracterización mediante el gradiente
+
+Si $f$ es diferenciable, es convexa si y solo si
+
+$$
+f(\mathbf{y})
+\geq
+f(\mathbf{x})
++
+\nabla f(\mathbf{x})^{\mathsf T}
+(\mathbf{y}-\mathbf{x})
+$$
+
+para todos $\mathbf{x},\mathbf{y}$.
+
+## Caracterización mediante la Hessiana
+
+Si $f$ es dos veces diferenciable, es convexa si
+
+$$
+\mathbf{H}_f(\mathbf{x})
+\succeq
+\mathbf{0}
+$$
+
+para todo $\mathbf{x}$.
+
+Es estrictamente convexa si la Hessiana es definida positiva.
+
+## Teorema del mínimo global
+
+::: {#thm-minimo-global-convexo}
+Si $f$ es convexa y diferenciable, cualquier punto $\mathbf{x}^{*}$ que satisface
+
+$$
+\nabla f(\mathbf{x}^{*})=\mathbf{0}
+$$
+
+es un mínimo global.
+:::
+
+Este resultado es fundamental en regresión lineal, regresión logística y SVM.
+
+## Funciones cóncavas
+
+Una función $f$ es cóncava si $-f$ es convexa.
+
+La maximización de una función cóncava equivale a la minimización de una función convexa.
+
+La log-verosimilitud de muchos modelos estadísticos es cóncava.
+
+## Descenso por gradiente
+
+::: {#def-descenso-gradiente}
+El descenso por gradiente genera una sucesión
+
+$$
+\boldsymbol{\theta}^{(t+1)}
+=
+\boldsymbol{\theta}^{(t)}
+-
+\eta_t
+\nabla J(
+\boldsymbol{\theta}^{(t)}
+),
+$$
+
+donde $\eta_t>0$ es la tasa de aprendizaje.
+:::
+
+El método avanza en dirección opuesta al gradiente.
+
+## Elección de la tasa de aprendizaje
+
+Si $\eta_t$ es demasiado grande, el algoritmo puede:
+
+- oscilar;
+- divergir;
+- saltar sobre el mínimo.
+
+Si es demasiado pequeña, la convergencia puede ser muy lenta.
+
+## Criterios de parada
+
+El algoritmo puede detenerse cuando:
+
+$$
+\|
+\nabla J(\boldsymbol{\theta}^{(t)})
+\|_2
+<
+\varepsilon,
+$$
+
+o cuando
+
+$$
+|
+J(\boldsymbol{\theta}^{(t+1)})
+-
+J(\boldsymbol{\theta}^{(t)})
+|
+<
+\varepsilon,
+$$
+
+o cuando se alcanza un número máximo de iteraciones.
+
+## Descenso por gradiente para una función cuadrática
+
+Considere
+
+$$
+J(\theta)
+=
+(\theta-3)^2.
+$$
+
+Entonces
+
+$$
+J'(\theta)
+=
+2(\theta-3).
+$$
+
+La actualización es
+
+$$
+\theta^{(t+1)}
+=
+\theta^{(t)}
+-
+2\eta
+(
+\theta^{(t)}-3
+).
+$$
+
+El mínimo se encuentra en
+
+$$
+\theta^{*}=3.
+$$
+
+## Descenso por gradiente por lotes
+
+En aprendizaje supervisado,
+
+$$
+J(\boldsymbol{\theta})
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+L_i(\boldsymbol{\theta}).
+$$
+
+El descenso por gradiente por lotes utiliza
+
+$$
+\nabla J(\boldsymbol{\theta})
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+\nabla L_i(\boldsymbol{\theta}).
+$$
+
+Cada actualización utiliza toda la muestra.
+
+## Descenso por gradiente estocástico
+
+El descenso estocástico utiliza una observación a la vez:
+
+$$
+\boldsymbol{\theta}^{(t+1)}
+=
+\boldsymbol{\theta}^{(t)}
+-
+\eta_t
+\nabla L_i(
+\boldsymbol{\theta}^{(t)}
+).
+$$
+
+Es más ruidoso, pero puede ser más eficiente para bases grandes.
+
+## Mini-lotes
+
+Una variante intermedia utiliza un subconjunto $B_t$:
+
+$$
+\boldsymbol{\theta}^{(t+1)}
+=
+\boldsymbol{\theta}^{(t)}
+-
+\eta_t
+\frac{1}{|B_t|}
+\sum_{i\in B_t}
+\nabla L_i(
+\boldsymbol{\theta}^{(t)}
+).
+$$
+
+Esta estrategia es habitual en redes neuronales.
+
+## Método de Newton
+
+El método de Newton utiliza la Hessiana:
+
+$$
+\boldsymbol{\theta}^{(t+1)}
+=
+\boldsymbol{\theta}^{(t)}
+-
+\mathbf{H}_J(
+\boldsymbol{\theta}^{(t)}
+)^{-1}
+\nabla J(
+\boldsymbol{\theta}^{(t)}
+).
+$$
+
+Puede converger más rápido que el descenso por gradiente, pero requiere calcular e invertir la Hessiana.
+
+## Método de Newton-Raphson
+
+En máxima verosimilitud, si se maximiza
+
+$$
+\ell(\boldsymbol{\theta}),
+$$
+
+la actualización es
+
+$$
+\boldsymbol{\theta}^{(t+1)}
+=
+\boldsymbol{\theta}^{(t)}
+-
+\mathbf{H}_{\ell}(
+\boldsymbol{\theta}^{(t)}
+)^{-1}
+\nabla\ell(
+\boldsymbol{\theta}^{(t)}
+).
+$$
+
+Este método se utiliza en regresión logística.
+
+## Problemas con restricciones
+
+Un problema restringido tiene la forma
+
+$$
+\min_{\mathbf{x}}
+f(\mathbf{x})
+$$
+
+sujeto a
+
+$$
+g_j(\mathbf{x})=0,
+\qquad
+j=1,\ldots,m.
+$$
+
+También pueden existir restricciones de desigualdad:
+
+$$
+h_k(\mathbf{x})\leq 0.
+$$
+
+## Multiplicadores de Lagrange
+
+::: {#def-lagrangiano}
+Para el problema
+
+$$
+\min_{\mathbf{x}}
+f(\mathbf{x})
+$$
+
+sujeto a
+
+$$
+g(\mathbf{x})=0,
+$$
+
+se define el Lagrangiano
+
+$$
+\mathcal{L}(
+\mathbf{x},\lambda
+)
+=
+f(\mathbf{x})
++
+\lambda g(\mathbf{x}).
+$$
+:::
+
+Las condiciones de primer orden son
+
+$$
+\nabla_{\mathbf{x}}
+\mathcal{L}
+=
+\mathbf{0},
+$$
+
+y
+
+$$
+g(\mathbf{x})=0.
+$$
+
+## Ejemplo de Lagrange
+
+Minimizar
+
+$$
+f(x_1,x_2)
+=
+x_1^2+x_2^2
+$$
+
+sujeto a
+
+$$
+x_1+x_2=1.
+$$
+
+El Lagrangiano es
+
+$$
+\mathcal{L}
+=
+x_1^2+x_2^2
++
+\lambda(x_1+x_2-1).
+$$
+
+Las condiciones son
+
+$$
+2x_1+\lambda=0,
+$$
+
+$$
+2x_2+\lambda=0,
+$$
+
+$$
+x_1+x_2=1.
+$$
+
+De las dos primeras,
+
+$$
+x_1=x_2.
+$$
+
+Por tanto,
+
+$$
+x_1=x_2=\frac{1}{2}.
+$$
+
+## Relación con PCA
+
+En PCA se resuelve
+
+$$
+\max_{\mathbf{a}}
+\mathbf{a}^{\mathsf T}
+\boldsymbol{\Sigma}
+\mathbf{a}
+$$
+
+sujeto a
+
+$$
+\mathbf{a}^{\mathsf T}\mathbf{a}=1.
+$$
+
+El Lagrangiano es
+
+$$
+\mathcal{L}
+=
+\mathbf{a}^{\mathsf T}
+\boldsymbol{\Sigma}
+\mathbf{a}
+-
+\lambda
+(
+\mathbf{a}^{\mathsf T}\mathbf{a}-1
+).
+$$
+
+Al derivar,
+
+$$
+2\boldsymbol{\Sigma}\mathbf{a}
+-
+2\lambda\mathbf{a}
+=
+\mathbf{0}.
+$$
+
+Por tanto,
+
+$$
+\boldsymbol{\Sigma}\mathbf{a}
+=
+\lambda\mathbf{a}.
+$$
+
+Así, las direcciones principales son vectores propios de la matriz de covarianza.
+
+## Restricciones de desigualdad y condiciones KKT
+
+Para un problema
+
+$$
+\min_{\mathbf{x}}
+f(\mathbf{x})
+$$
+
+sujeto a
+
+$$
+g_i(\mathbf{x})\leq 0,
+$$
+
+las condiciones de Karush-Kuhn-Tucker incluyen:
+
+1. estacionariedad;
+2. factibilidad primal;
+3. factibilidad dual;
+4. complementariedad.
+
+En forma simplificada:
+
+$$
+\nabla f(\mathbf{x})
++
+\sum_i
+\lambda_i
+\nabla g_i(\mathbf{x})
+=
+\mathbf{0},
+$$
+
+$$
+g_i(\mathbf{x})\leq 0,
+$$
+
+$$
+\lambda_i\geq 0,
+$$
+
+$$
+\lambda_i g_i(\mathbf{x})=0.
+$$
+
+Estas condiciones son fundamentales en máquinas de vectores de soporte.
+
+## Funciones de pérdida
+
+Una función de pérdida mide el error de una predicción.
+
+### Pérdida cuadrática
+
+$$
+L(y,\widehat{y})
+=
+(y-\widehat{y})^2.
+$$
+
+### Pérdida absoluta
+
+$$
+L(y,\widehat{y})
+=
+|y-\widehat{y}|.
+$$
+
+### Pérdida logística
+
+Para $y\in\{0,1\}$,
+
+$$
+L(y,\pi)
+=
+-
+\left[
+y\log\pi
++
+(1-y)\log(1-\pi)
+\right].
+$$
+
+### Pérdida hinge
+
+Para $y\in\{-1,1\}$,
+
+$$
+L(y,f(\mathbf{x}))
+=
+\max
+\{
+0,
+1-yf(\mathbf{x})
+\}.
+$$
+
+## Riesgo empírico
+
+La función objetivo habitual es
+
+$$
+\widehat{R}_n(f)
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+L(
+y_i,
+f(\mathbf{x}_i)
+).
+$$
+
+El entrenamiento consiste en resolver
+
+$$
+\widehat{f}
+=
+\arg\min_{f\in\mathcal{F}}
+\widehat{R}_n(f).
+$$
+
+## Regularización
+
+Para controlar la complejidad se añade una penalización:
+
+$$
+\widehat{\boldsymbol{\theta}}
+=
+\arg\min_{\boldsymbol{\theta}}
+\left\{
+J(\boldsymbol{\theta})
++
+\lambda
+\Omega(\boldsymbol{\theta})
+\right\}.
+$$
+
+Por ejemplo, con penalización cuadrática:
+
+$$
+\Omega(\boldsymbol{\theta})
+=
+\|\boldsymbol{\theta}\|_2^2.
+$$
+
+## Relación con regresión lineal
+
+La función de pérdida es
+
+$$
+J(\boldsymbol{\beta})
+=
+\|
+\mathbf{y}
+-
+\mathbf{X}\boldsymbol{\beta}
+\|_2^2.
+$$
+
+Equivalentemente,
+
+$$
+J(\boldsymbol{\beta})
+=
+(
+\mathbf{y}
+-
+\mathbf{X}\boldsymbol{\beta}
+)^{\mathsf T}
+(
+\mathbf{y}
+-
+\mathbf{X}\boldsymbol{\beta}
+).
+$$
+
+El gradiente es
+
+$$
+\nabla_{\boldsymbol{\beta}}J
+=
+-2
+\mathbf{X}^{\mathsf T}
+(
+\mathbf{y}
+-
+\mathbf{X}\boldsymbol{\beta}
+).
+$$
+
+Igualando a cero,
+
+$$
+\mathbf{X}^{\mathsf T}
+\mathbf{X}
+\widehat{\boldsymbol{\beta}}
+=
+\mathbf{X}^{\mathsf T}
+\mathbf{y}.
+$$
+
+## Relación con regresión logística
+
+La log-verosimilitud es
+
+$$
+\ell(\boldsymbol{\beta})
+=
+\sum_{i=1}^{n}
+\left[
+y_i\log\pi_i
++
+(1-y_i)\log(1-\pi_i)
+\right].
+$$
+
+Su gradiente es
+
+$$
+\nabla\ell(\boldsymbol{\beta})
+=
+\mathbf{X}^{\mathsf T}
+(
+\mathbf{y}
+-
+\boldsymbol{\pi}
+).
+$$
+
+La estimación se realiza mediante métodos iterativos.
+
+## Relación con redes neuronales
+
+Una red neuronal compone funciones:
+
+$$
+\mathbf{a}^{(l)}
+=
+\phi^{(l)}
+\left(
+\mathbf{W}^{(l)}
+\mathbf{a}^{(l-1)}
++
+\mathbf{b}^{(l)}
+\right).
+$$
+
+La retropropagación aplica repetidamente la regla de la cadena para calcular gradientes respecto de todos los parámetros.
+
+## Conexión con R
+
+```{r}
+#| eval: false
+
+# Función cuadrática
+f <- function(theta) {
+  (theta - 3)^2
+}
+
+# Derivada
+grad_f <- function(theta) {
+  2 * (theta - 3)
+}
+
+# Descenso por gradiente
+theta <- 0
+eta <- 0.1
+
+for (iter in 1:50) {
+  theta <- theta - eta * grad_f(theta)
+}
+
+theta
+
+# Optimización con optim()
+resultado <- optim(
+  par = 0,
+  fn = f,
+  method = "BFGS"
+)
+
+resultado$par
+```
+
+## Ejemplo integrado
+
+Considere
+
+$$
+J(\beta_0,\beta_1)
+=
+\sum_{i=1}^{n}
+(
+y_i-\beta_0-\beta_1x_i
+)^2.
+$$
+
+Las derivadas parciales son
+
+$$
+\frac{\partial J}{\partial\beta_0}
+=
+-2
+\sum_{i=1}^{n}
+(
+y_i-\beta_0-\beta_1x_i
+),
+$$
+
+y
+
+$$
+\frac{\partial J}{\partial\beta_1}
+=
+-2
+\sum_{i=1}^{n}
+x_i
+(
+y_i-\beta_0-\beta_1x_i
+).
+$$
+
+Igualando ambas expresiones a cero se obtienen las ecuaciones normales de regresión lineal simple.
+
+Este ejemplo muestra cómo una función de pérdida se transforma en un sistema de ecuaciones mediante cálculo diferencial.
+
+## Errores frecuentes
+
+1. Confundir derivada parcial con derivada total.
+2. Utilizar el gradiente con una orientación matricial incorrecta.
+3. Suponer que todo punto crítico es un mínimo.
+4. Confundir Hessiana semidefinida con definida positiva.
+5. Creer que una tasa de aprendizaje mayor siempre acelera la convergencia.
+6. Ignorar la escala de las variables en métodos de gradiente.
+7. Aplicar Newton cuando la Hessiana es singular o mal condicionada.
+8. Suponer que todo problema de aprendizaje es convexo.
+9. Confundir máximo de log-verosimilitud con mínimo de pérdida sin cambiar el signo.
+10. Ignorar las restricciones al utilizar multiplicadores de Lagrange.
+
+## Ejercicios conceptuales
+
+1. Explique la interpretación geométrica del gradiente.
+2. ¿Qué información proporciona la Hessiana?
+3. ¿Cuál es la diferencia entre una función convexa y una estrictamente convexa?
+4. ¿Por qué un punto estacionario de una función convexa es mínimo global?
+5. ¿Qué diferencia existe entre descenso por gradiente y método de Newton?
+6. ¿Por qué la regla de la cadena es esencial en redes neuronales?
+7. ¿Qué función cumplen los multiplicadores de Lagrange?
+8. ¿Qué relación existe entre PCA y un problema de optimización restringida?
+9. ¿Qué significa minimizar el riesgo empírico?
+10. ¿Qué función cumple la regularización?
+
+## Ejercicios de derivación
+
+Sea
+
+$$
+f(x_1,x_2)
+=
+3x_1^2
++
+2x_1x_2
++
+4x_2^2
+-
+6x_1
++
+2x_2.
+$$
+
+Calcule:
+
+1. $\frac{\partial f}{\partial x_1}$;
+2. $\frac{\partial f}{\partial x_2}$;
+3. $\nabla f$;
+4. $\mathbf{H}_f$;
+5. los puntos críticos;
+6. clasifique cada punto crítico.
+
+## Ejercicio de regla de la cadena
+
+Sean
+
+$$
+z_1=x_1+x_2,
+$$
+
+$$
+z_2=x_1x_2,
+$$
+
+y
+
+$$
+f(z_1,z_2)
+=
+z_1^2+e^{z_2}.
+$$
+
+Calcule:
+
+1. $\frac{\partial f}{\partial x_1}$;
+2. $\frac{\partial f}{\partial x_2}$;
+3. la Jacobiana de $(z_1,z_2)$;
+4. verifique el resultado mediante la regla de la cadena matricial.
+
+## Ejercicio de descenso por gradiente
+
+Considere
+
+$$
+J(\theta)
+=
+(\theta-5)^2.
+$$
+
+Use:
+
+$$
+\theta^{(0)}=0,
+$$
+
+y
+
+$$
+\eta=0.2.
+$$
+
+Calcule manualmente las primeras cinco iteraciones.
+
+## Ejercicio de Lagrange
+
+Minimice
+
+$$
+f(x_1,x_2)
+=
+x_1^2+4x_2^2
+$$
+
+sujeto a
+
+$$
+x_1+x_2=3.
+$$
+
+1. Construya el Lagrangiano.
+2. Obtenga las condiciones de primer orden.
+3. Resuelva el sistema.
+4. Verifique la naturaleza del punto obtenido.
+
+## Ejercicio aplicado a regresión
+
+Sea
+
+$$
+J(\boldsymbol{\beta})
+=
+\|
+\mathbf{y}
+-
+\mathbf{X}\boldsymbol{\beta}
+\|_2^2.
+$$
+
+1. Expanda la expresión.
+2. Calcule el gradiente respecto de $\boldsymbol{\beta}$.
+3. Obtenga las ecuaciones normales.
+4. Explique bajo qué condición existe una solución única.
+5. Interprete geométricamente la solución.
+
+## Resumen
+
+En este capítulo se estudiaron funciones de varias variables, derivadas parciales, gradientes, Jacobianas, Hessianas, diferenciales y regla de la cadena.
+
+También se desarrollaron aproximaciones de Taylor, puntos críticos, clasificación mediante la Hessiana, convexidad, descenso por gradiente, métodos de Newton y problemas restringidos mediante multiplicadores de Lagrange y condiciones KKT.
+
+Finalmente, se relacionaron estas herramientas con regresión lineal, regresión logística, PCA, SVM y redes neuronales. Estos conceptos permitirán derivar formalmente los algoritmos de los capítulos posteriores.

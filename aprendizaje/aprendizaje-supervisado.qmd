@@ -1,0 +1,1245 @@
+# Formulación matemática del aprendizaje supervisado {#sec-aprendizaje-supervisado}
+
+## Introducción
+
+El aprendizaje supervisado estudia métodos capaces de construir una regla de predicción a partir de observaciones etiquetadas. Cada observación contiene un conjunto de características y una respuesta conocida. El objetivo consiste en utilizar esa información para predecir correctamente la respuesta de nuevas observaciones.
+
+Desde el punto de vista matemático, el aprendizaje supervisado puede formularse como un problema de selección de funciones. Se dispone de una familia de modelos posibles y se busca aquel que minimice una medida de error, no solamente sobre los datos observados, sino también sobre datos futuros provenientes del mismo proceso generador.
+
+Esta distinción entre ajuste y generalización es central. Un modelo puede describir muy bien la muestra de entrenamiento y, sin embargo, producir predicciones deficientes fuera de ella. Por esta razón, la teoría del aprendizaje automático estudia funciones de pérdida, riesgo esperado, riesgo empírico, complejidad de modelos, regularización y validación.
+
+## Objetivos
+
+Al finalizar el capítulo, el lector podrá:
+
+1. formular matemáticamente un problema de aprendizaje supervisado;
+2. distinguir entre espacio de entrada y espacio de salida;
+3. interpretar una muestra de entrenamiento;
+4. definir una función objetivo desconocida;
+5. distinguir modelo, hipótesis y espacio de hipótesis;
+6. comprender funciones de pérdida;
+7. definir riesgo esperado y riesgo empírico;
+8. interpretar el principio de minimización del riesgo empírico;
+9. distinguir error de entrenamiento y error de generalización;
+10. comprender sobreajuste y subajuste;
+11. analizar el compromiso entre sesgo y varianza;
+12. comprender regularización y complejidad de modelos;
+13. interpretar ruido irreducible;
+14. relacionar estos conceptos con regresión y clasificación.
+
+## Espacio de entrada
+
+::: {#def-espacio-entrada}
+El **espacio de entrada** o espacio de características es el conjunto de todos los posibles vectores de atributos.
+:::
+
+Se denota por
+
+$$
+\mathcal{X}.
+$$
+
+Frecuentemente,
+
+$$
+\mathcal{X}\subseteq\mathbb{R}^{p}.
+$$
+
+Cada observación se representa mediante
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+x_1\\
+\vdots\\
+x_p
+\end{pmatrix}.
+$$
+
+Por ejemplo, en un problema ambiental:
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+\text{PM10}\\
+\text{temperatura}\\
+\text{humedad}\\
+\text{velocidad del viento}
+\end{pmatrix}.
+$$
+
+## Espacio de salida
+
+::: {#def-espacio-salida}
+El **espacio de salida** es el conjunto de posibles respuestas.
+:::
+
+Se denota por
+
+$$
+\mathcal{Y}.
+$$
+
+En regresión,
+
+$$
+\mathcal{Y}\subseteq\mathbb{R}.
+$$
+
+En clasificación binaria,
+
+$$
+\mathcal{Y}=\{0,1\}
+$$
+
+o
+
+$$
+\mathcal{Y}=\{-1,1\}.
+$$
+
+En clasificación multiclase,
+
+$$
+\mathcal{Y}
+=
+\{1,\ldots,K\}.
+$$
+
+## Variable aleatoria conjunta
+
+Se considera un par aleatorio
+
+$$
+(\mathbf{X},Y)
+$$
+
+con distribución conjunta desconocida
+
+$$
+P_{\mathbf{X},Y}.
+$$
+
+El vector $\mathbf{X}$ representa las características y $Y$ la respuesta.
+
+La distribución conjunta determina:
+
+- qué observaciones son más probables;
+- cómo se relacionan características y respuesta;
+- cuánto ruido existe;
+- cuál es la mejor regla de predicción posible.
+
+## Muestra de entrenamiento
+
+::: {#def-muestra-entrenamiento}
+Una muestra de entrenamiento es
+
+$$
+\mathcal{D}_n
+=
+\left\{
+(\mathbf{x}_i,y_i)
+\right\}_{i=1}^{n},
+$$
+
+donde cada par es una realización de $(\mathbf{X},Y)$.
+:::
+
+Bajo el supuesto iid,
+
+$$
+(\mathbf{x}_i,y_i)
+\overset{\text{iid}}{\sim}
+P_{\mathbf{X},Y}.
+$$
+
+La muestra contiene información parcial sobre la distribución verdadera.
+
+## Función objetivo desconocida
+
+Se supone que existe una relación subyacente entre entrada y salida. Idealmente puede representarse mediante una función
+
+$$
+f^{*}:\mathcal{X}\to\mathcal{Y}.
+$$
+
+Esta función no se conoce directamente.
+
+En regresión se suele escribir
+
+$$
+Y
+=
+f^{*}(\mathbf{X})
++
+\varepsilon,
+$$
+
+donde
+
+$$
+\mathbb{E}(\varepsilon\mid\mathbf{X})=0.
+$$
+
+El término $\varepsilon$ representa ruido o variabilidad no explicada.
+
+## Hipótesis
+
+::: {#def-hipotesis}
+Una **hipótesis** es una función candidata
+
+$$
+f:\mathcal{X}\to\mathcal{Y}
+$$
+
+que intenta aproximar la relación verdadera.
+:::
+
+Por ejemplo, en regresión lineal,
+
+$$
+f(\mathbf{x})
+=
+\beta_0
++
+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}.
+$$
+
+En clasificación mediante $k$-NN, la hipótesis se define a partir de las etiquetas de los vecinos más cercanos.
+
+## Espacio de hipótesis
+
+::: {#def-espacio-hipotesis}
+El **espacio de hipótesis** es la familia de funciones candidatas entre las cuales se seleccionará el modelo.
+:::
+
+Se denota por
+
+$$
+\mathcal{F}.
+$$
+
+Ejemplos:
+
+### Modelos lineales
+
+$$
+\mathcal{F}
+=
+\left\{
+f(\mathbf{x})
+=
+\beta_0
++
+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}
+:
+\boldsymbol{\beta}\in\mathbb{R}^{p}
+\right\}.
+$$
+
+### Árboles de decisión
+
+$$
+\mathcal{F}
+=
+\{
+\text{árboles con profundidad máxima }d
+\}.
+$$
+
+### Redes neuronales
+
+$$
+\mathcal{F}
+=
+\{
+\text{redes con una arquitectura determinada}
+\}.
+$$
+
+La elección de $\mathcal{F}$ determina la complejidad del problema.
+
+## Parámetros e hiperparámetros
+
+Los parámetros son cantidades aprendidas a partir de los datos:
+
+$$
+\boldsymbol{\theta}.
+$$
+
+Ejemplos:
+
+- coeficientes de regresión;
+- pesos de una red neuronal;
+- puntos de corte de un árbol.
+
+Los hiperparámetros controlan la estructura del aprendizaje:
+
+- número de vecinos $k$;
+- profundidad máxima de un árbol;
+- parámetro de regularización $\lambda$;
+- tasa de aprendizaje;
+- número de capas.
+
+Los hiperparámetros no se estiman directamente mediante el mismo criterio utilizado para los parámetros; suelen seleccionarse mediante validación.
+
+## Función de pérdida
+
+::: {#def-funcion-perdida}
+Una función de pérdida es una función
+
+$$
+L:\mathcal{Y}\times\mathcal{Y}\to[0,\infty)
+$$
+
+que cuantifica el costo de predecir $\widehat{y}$ cuando la respuesta verdadera es $y$.
+:::
+
+Se escribe
+
+$$
+L(y,\widehat{y}).
+$$
+
+## Pérdida cuadrática
+
+En regresión,
+
+$$
+L(y,\widehat{y})
+=
+(y-\widehat{y})^2.
+$$
+
+Penaliza con mayor intensidad los errores grandes.
+
+## Pérdida absoluta
+
+$$
+L(y,\widehat{y})
+=
+|y-\widehat{y}|.
+$$
+
+Es más robusta frente a valores extremos.
+
+## Pérdida 0-1
+
+En clasificación,
+
+$$
+L(y,\widehat{y})
+=
+\mathbb{I}(y\neq\widehat{y}).
+$$
+
+La pérdida vale cero si la clasificación es correcta y uno si es incorrecta.
+
+## Pérdida logística
+
+Para clasificación binaria,
+
+$$
+L(y,\pi)
+=
+-
+\left[
+y\log\pi
++
+(1-y)\log(1-\pi)
+\right].
+$$
+
+Esta pérdida surge de la distribución Bernoulli.
+
+## Pérdida hinge
+
+En SVM,
+
+$$
+L(y,f(\mathbf{x}))
+=
+\max
+\{
+0,
+1-yf(\mathbf{x})
+\}.
+$$
+
+Penaliza observaciones mal clasificadas o clasificadas con margen insuficiente.
+
+## Riesgo esperado
+
+::: {#def-riesgo-esperado}
+El riesgo esperado de una función $f$ es
+
+$$
+R(f)
+=
+\mathbb{E}_{(\mathbf{X},Y)}
+\left[
+L(
+Y,
+f(\mathbf{X})
+)
+\right].
+$$
+:::
+
+El riesgo esperado mide el error promedio sobre toda la distribución verdadera.
+
+En forma integral,
+
+$$
+R(f)
+=
+\int
+L(
+y,
+f(\mathbf{x})
+)
+\,dP_{\mathbf{X},Y}(\mathbf{x},y).
+$$
+
+El objetivo ideal es encontrar
+
+$$
+f^{*}_{\mathcal{F}}
+=
+\arg\min_{f\in\mathcal{F}}
+R(f).
+$$
+
+## Riesgo de Bayes
+
+Si se permite elegir entre todas las funciones medibles, el menor riesgo posible es el riesgo de Bayes:
+
+$$
+R^{*}
+=
+\inf_f R(f).
+$$
+
+Una función que alcanza ese riesgo se denomina regla de Bayes.
+
+## Riesgo empírico
+
+Como la distribución verdadera es desconocida, se utiliza la muestra.
+
+::: {#def-riesgo-empirico}
+El riesgo empírico es
+
+$$
+\widehat{R}_n(f)
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+L(
+y_i,
+f(\mathbf{x}_i)
+).
+$$
+:::
+
+Este riesgo puede calcularse directamente.
+
+## Minimización del riesgo empírico
+
+::: {#def-erm}
+El principio de minimización del riesgo empírico selecciona
+
+$$
+\widehat{f}_n
+=
+\arg\min_{f\in\mathcal{F}}
+\widehat{R}_n(f).
+$$
+:::
+
+Esta idea está detrás de numerosos algoritmos.
+
+### Regresión lineal
+
+$$
+\widehat{\boldsymbol{\beta}}
+=
+\arg\min_{\boldsymbol{\beta}}
+\frac{1}{n}
+\sum_{i=1}^{n}
+(
+y_i
+-
+\beta_0
+-
+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}_i
+)^2.
+$$
+
+### Clasificación
+
+$$
+\widehat{f}
+=
+\arg\min_f
+\frac{1}{n}
+\sum_{i=1}^{n}
+\mathbb{I}
+(
+y_i\neq f(\mathbf{x}_i)
+).
+$$
+
+## Error de entrenamiento
+
+El error de entrenamiento es el riesgo empírico evaluado sobre la muestra utilizada para ajustar el modelo:
+
+$$
+\operatorname{Err}_{train}
+=
+\widehat{R}_n(\widehat{f}).
+$$
+
+Un error de entrenamiento bajo no garantiza buen desempeño futuro.
+
+## Error de prueba
+
+El error de prueba se estima usando observaciones no utilizadas durante el ajuste:
+
+$$
+\operatorname{Err}_{test}
+=
+\frac{1}{m}
+\sum_{j=1}^{m}
+L(
+y_j^{test},
+\widehat{f}(\mathbf{x}_j^{test})
+).
+$$
+
+El error de prueba aproxima el error de generalización.
+
+## Generalización
+
+::: {#def-generalizacion}
+La **generalización** es la capacidad de un modelo para realizar predicciones adecuadas sobre observaciones nuevas.
+:::
+
+Un modelo generaliza bien cuando
+
+$$
+R(\widehat{f})
+$$
+
+es pequeño.
+
+## Brecha de generalización
+
+La diferencia
+
+$$
+R(\widehat{f})
+-
+\widehat{R}_n(\widehat{f})
+$$
+
+se denomina brecha de generalización.
+
+Una brecha grande indica que el desempeño observado en entrenamiento es demasiado optimista.
+
+## Sobreajuste
+
+::: {#def-sobreajuste}
+Existe sobreajuste cuando un modelo se adapta excesivamente a la muestra de entrenamiento y captura ruido o particularidades que no se repiten en datos nuevos.
+:::
+
+Características:
+
+- error de entrenamiento muy bajo;
+- error de prueba alto;
+- elevada complejidad;
+- alta sensibilidad a pequeñas variaciones de la muestra.
+
+## Subajuste
+
+::: {#def-subajuste}
+Existe subajuste cuando el modelo es demasiado simple para representar la relación subyacente.
+:::
+
+Características:
+
+- error de entrenamiento alto;
+- error de prueba alto;
+- incapacidad para capturar patrones importantes.
+
+## Complejidad del modelo
+
+La complejidad puede asociarse con:
+
+- número de parámetros;
+- profundidad de un árbol;
+- grado de un polinomio;
+- número de capas de una red;
+- flexibilidad del espacio de hipótesis;
+- dimensión VC;
+- norma de los parámetros.
+
+Un espacio de hipótesis demasiado amplio puede reducir el error de entrenamiento, pero aumentar el riesgo de sobreajuste.
+
+## Ejemplo polinomial
+
+Considere modelos
+
+$$
+f_d(x)
+=
+\beta_0+\beta_1x+\cdots+\beta_dx^d.
+$$
+
+Si $d$ es pequeño, puede existir subajuste.
+
+Si $d$ es muy grande, puede existir sobreajuste.
+
+El objetivo es seleccionar un nivel de complejidad que equilibre ajuste y generalización.
+
+## Regularización
+
+::: {#def-regularizacion}
+La regularización añade una penalización a la función objetivo para controlar la complejidad del modelo.
+:::
+
+La forma general es
+
+$$
+\widehat{f}
+=
+\arg\min_{f\in\mathcal{F}}
+\left\{
+\widehat{R}_n(f)
++
+\lambda\Omega(f)
+\right\}.
+$$
+
+Aquí:
+
+- $\Omega(f)$ mide complejidad;
+- $\lambda\geq 0$ controla la intensidad de la penalización.
+
+## Regularización L2
+
+Para un vector de parámetros,
+
+$$
+\Omega(\boldsymbol{\theta})
+=
+\|\boldsymbol{\theta}\|_2^2.
+$$
+
+Entonces,
+
+$$
+\widehat{\boldsymbol{\theta}}
+=
+\arg\min_{\boldsymbol{\theta}}
+\left\{
+\widehat{R}_n(\boldsymbol{\theta})
++
+\lambda
+\|\boldsymbol{\theta}\|_2^2
+\right\}.
+$$
+
+Esta penalización reduce la magnitud de los parámetros.
+
+## Regularización L1
+
+$$
+\Omega(\boldsymbol{\theta})
+=
+\|\boldsymbol{\theta}\|_1
+=
+\sum_{j=1}^{p}
+|\theta_j|.
+$$
+
+La penalización L1 puede producir parámetros exactamente iguales a cero y favorecer selección de variables.
+
+## Sesgo y varianza
+
+El error de predicción puede analizarse mediante sesgo, varianza y ruido irreducible.
+
+Supóngase
+
+$$
+Y=f^{*}(\mathbf{X})+\varepsilon,
+$$
+
+con
+
+$$
+\mathbb{E}(\varepsilon)=0,
+\qquad
+\operatorname{Var}(\varepsilon)=\sigma^2.
+$$
+
+Para una observación fija $\mathbf{x}_0$,
+
+$$
+\mathbb{E}
+\left[
+(
+Y-\widehat{f}(\mathbf{x}_0)
+)^2
+\right]
+=
+\operatorname{Bias}^2
++
+\operatorname{Var}
++
+\sigma^2.
+$$
+
+## Sesgo del modelo
+
+El sesgo se define como
+
+$$
+\operatorname{Bias}
+[
+\widehat{f}(\mathbf{x}_0)
+]
+=
+\mathbb{E}
+[
+\widehat{f}(\mathbf{x}_0)
+]
+-
+f^{*}(\mathbf{x}_0).
+$$
+
+Un modelo muy rígido suele tener sesgo alto.
+
+## Varianza del modelo
+
+La varianza es
+
+$$
+\operatorname{Var}
+[
+\widehat{f}(\mathbf{x}_0)
+]
+=
+\mathbb{E}
+\left[
+\left(
+\widehat{f}(\mathbf{x}_0)
+-
+\mathbb{E}
+[
+\widehat{f}(\mathbf{x}_0)
+]
+\right)^2
+\right].
+$$
+
+Un modelo muy flexible suele tener varianza alta.
+
+## Ruido irreducible
+
+El término
+
+$$
+\sigma^2
+$$
+
+representa variabilidad que no puede eliminarse mediante ningún modelo basado en las características disponibles.
+
+Puede deberse a:
+
+- errores de medición;
+- variables omitidas;
+- procesos inherentemente aleatorios;
+- etiquetas incorrectas.
+
+## Compromiso entre sesgo y varianza
+
+Al aumentar la complejidad:
+
+- el sesgo tiende a disminuir;
+- la varianza tiende a aumentar.
+
+Al reducir la complejidad:
+
+- el sesgo tiende a aumentar;
+- la varianza tiende a disminuir.
+
+La selección de modelos busca un equilibrio.
+
+## Error de aproximación
+
+Incluso con infinitos datos, puede ocurrir que
+
+$$
+f^{*}\notin\mathcal{F}.
+$$
+
+El error debido a la limitación del espacio de hipótesis se denomina error de aproximación.
+
+## Error de estimación
+
+La muestra es finita, por lo que la función seleccionada puede diferir del mejor elemento de $\mathcal{F}$.
+
+Este componente se denomina error de estimación.
+
+En términos conceptuales:
+
+$$
+\text{error total}
+=
+\text{error de aproximación}
++
+\text{error de estimación}
++
+\text{ruido}.
+$$
+
+## Selección de modelos
+
+La selección de modelos consiste en elegir:
+
+- una familia de hipótesis;
+- una estructura;
+- hiperparámetros;
+- intensidad de regularización.
+
+No debe hacerse utilizando el conjunto de prueba final.
+
+## División de datos
+
+Una estrategia común divide los datos en:
+
+1. entrenamiento;
+2. validación;
+3. prueba.
+
+El conjunto de entrenamiento ajusta parámetros.
+
+El conjunto de validación selecciona hiperparámetros.
+
+El conjunto de prueba evalúa el modelo final.
+
+## Validación cruzada
+
+Cuando los datos son limitados, puede emplearse validación cruzada.
+
+La muestra se divide en $K$ subconjuntos:
+
+$$
+I_1,\ldots,I_K.
+$$
+
+El error de validación cruzada es
+
+$$
+CV_K
+=
+\frac{1}{K}
+\sum_{k=1}^{K}
+\frac{1}{|I_k|}
+\sum_{i\in I_k}
+L
+\left(
+y_i,
+\widehat{f}^{(-k)}(\mathbf{x}_i)
+\right).
+$$
+
+## Clasificación óptima bajo pérdida 0-1
+
+En clasificación, para una observación $\mathbf{x}$, el riesgo condicional de predecir la clase $k$ es
+
+$$
+R(k\mid\mathbf{x})
+=
+P(Y\neq k\mid\mathbf{x}).
+$$
+
+Como
+
+$$
+P(Y\neq k\mid\mathbf{x})
+=
+1-P(Y=k\mid\mathbf{x}),
+$$
+
+la mejor decisión es
+
+$$
+f^{*}(\mathbf{x})
+=
+\arg\max_k
+P(Y=k\mid\mathbf{x}).
+$$
+
+Esta es la regla de Bayes.
+
+## Regresión óptima bajo pérdida cuadrática
+
+Para una observación fija $\mathbf{x}$, se desea minimizar
+
+$$
+\mathbb{E}
+\left[
+(
+Y-a
+)^2
+\mid
+\mathbf{X}=\mathbf{x}
+\right].
+$$
+
+La solución es
+
+$$
+a
+=
+\mathbb{E}
+[
+Y\mid\mathbf{X}=\mathbf{x}
+].
+$$
+
+Por tanto, la función óptima bajo pérdida cuadrática es
+
+$$
+f^{*}(\mathbf{x})
+=
+\mathbb{E}
+[
+Y\mid\mathbf{X}=\mathbf{x}
+].
+$$
+
+## Regresión óptima bajo pérdida absoluta
+
+Si se minimiza
+
+$$
+\mathbb{E}
+\left[
+|Y-a|
+\mid
+\mathbf{X}=\mathbf{x}
+\right],
+$$
+
+la solución es una mediana condicional de $Y$ dado $\mathbf{X}=\mathbf{x}$.
+
+Esto muestra que diferentes funciones de pérdida conducen a diferentes objetivos estadísticos.
+
+## Aprendizaje paramétrico
+
+En un modelo paramétrico,
+
+$$
+f_{\boldsymbol{\theta}}
+\in\mathcal{F}
+$$
+
+se describe mediante un número finito de parámetros.
+
+Ejemplo:
+
+$$
+f_{\boldsymbol{\beta}}(\mathbf{x})
+=
+\beta_0
++
+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}.
+$$
+
+## Aprendizaje no paramétrico
+
+Los métodos no paramétricos no fijan una forma funcional rígida.
+
+Ejemplos:
+
+- $k$-NN;
+- árboles;
+- estimadores kernel.
+
+La complejidad puede crecer con el tamaño de la muestra.
+
+## Aprendizaje determinista y probabilístico
+
+Un modelo determinista produce directamente
+
+$$
+\widehat{y}=f(\mathbf{x}).
+$$
+
+Un modelo probabilístico estima una distribución:
+
+$$
+P(Y\mid\mathbf{X}=\mathbf{x}).
+$$
+
+Por ejemplo, regresión logística estima
+
+$$
+P(Y=1\mid\mathbf{x}).
+$$
+
+## Relación con regresión lineal
+
+En regresión lineal se minimiza
+
+$$
+\widehat{R}_n(\boldsymbol{\beta})
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+(
+y_i
+-
+\beta_0
+-
+\boldsymbol{\beta}^{\mathsf T}\mathbf{x}_i
+)^2.
+$$
+
+El espacio de hipótesis es lineal en los parámetros.
+
+## Relación con regresión logística
+
+En regresión logística se minimiza la pérdida logarítmica:
+
+$$
+\widehat{R}_n(\boldsymbol{\beta})
+=
+-
+\frac{1}{n}
+\sum_{i=1}^{n}
+\left[
+y_i\log\pi_i
++
+(1-y_i)\log(1-\pi_i)
+\right].
+$$
+
+## Relación con el método de vecinos más cercanos
+
+En $k$-NN, el espacio de hipótesis depende directamente de la muestra. La complejidad se controla mediante $k$:
+
+- $k$ pequeño: baja sesgo, alta varianza;
+- $k$ grande: mayor sesgo, menor varianza.
+
+## Relación con árboles
+
+En árboles de decisión, la profundidad controla complejidad:
+
+- árboles profundos pueden sobreajustar;
+- árboles poco profundos pueden subajustar.
+
+La poda actúa como regularización estructural.
+
+## Relación con redes neuronales
+
+En redes neuronales, la complejidad depende de:
+
+- número de capas;
+- número de neuronas;
+- número de parámetros;
+- funciones de activación;
+- regularización;
+- cantidad de datos.
+
+## Conexión con R
+
+```{r}
+#| eval: false
+
+set.seed(123)
+
+# Datos simulados
+n <- 100
+x <- runif(n, -2, 2)
+y <- 1 + 2 * x + rnorm(n, sd = 1)
+
+datos <- data.frame(x = x, y = y)
+
+# División entrenamiento-prueba
+indices <- sample(seq_len(n), size = 0.8 * n)
+
+entrenamiento <- datos[indices, ]
+prueba <- datos[-indices, ]
+
+# Modelo
+modelo <- lm(y ~ x, data = entrenamiento)
+
+# Predicciones
+pred <- predict(modelo, newdata = prueba)
+
+# Error cuadrático medio de prueba
+mean((prueba$y - pred)^2)
+```
+
+## Ejemplo integrado
+
+Supóngase que se comparan tres modelos para predecir una variable continua:
+
+1. modelo constante;
+2. modelo lineal;
+3. polinomio de grado 12.
+
+Resultados hipotéticos:
+
+| Modelo | Error de entrenamiento | Error de prueba |
+|---|---:|---:|
+| Constante | 18.2 | 18.7 |
+| Lineal | 5.3 | 5.8 |
+| Polinomio grado 12 | 0.4 | 14.9 |
+
+Interpretación:
+
+- el modelo constante presenta subajuste;
+- el modelo lineal logra mejor equilibrio;
+- el polinomio de grado 12 presenta sobreajuste.
+
+## Errores frecuentes
+
+1. Suponer que menor error de entrenamiento implica mejor modelo.
+2. Utilizar el conjunto de prueba para seleccionar hiperparámetros.
+3. Confundir parámetros con hiperparámetros.
+4. Suponer que toda regularización mejora siempre el modelo.
+5. Ignorar el ruido irreducible.
+6. Confundir sesgo estadístico con error sistemático de medición.
+7. Evaluar un modelo con los mismos datos usados para ajustarlo.
+8. Elegir una función de pérdida sin considerar el objetivo real.
+9. Comparar modelos sin utilizar la misma partición o procedimiento de validación.
+10. Interpretar una brecha pequeña como garantía absoluta de buen desempeño.
+
+## Ejercicios conceptuales
+
+1. Explique la diferencia entre $\mathcal{X}$ y $\mathcal{Y}$.
+2. ¿Qué diferencia existe entre una hipótesis y el espacio de hipótesis?
+3. ¿Qué significa minimizar el riesgo esperado?
+4. ¿Por qué se utiliza el riesgo empírico?
+5. Explique la diferencia entre error de entrenamiento y error de prueba.
+6. ¿Qué es la brecha de generalización?
+7. Explique sobreajuste y subajuste.
+8. ¿Qué papel cumple la regularización?
+9. ¿Qué diferencia existe entre sesgo y varianza?
+10. ¿Qué representa el ruido irreducible?
+
+## Ejercicio de riesgo empírico
+
+Considere las respuestas verdaderas
+
+$$
+\mathbf{y}
+=
+\begin{pmatrix}
+2\\
+4\\
+5\\
+7
+\end{pmatrix}
+$$
+
+y las predicciones
+
+$$
+\widehat{\mathbf{y}}
+=
+\begin{pmatrix}
+3\\
+3\\
+6\\
+8
+\end{pmatrix}.
+$$
+
+Calcule:
+
+1. la pérdida cuadrática individual;
+2. el riesgo empírico cuadrático;
+3. la pérdida absoluta individual;
+4. el riesgo empírico absoluto.
+
+## Ejercicio de clasificación
+
+Sean las etiquetas verdaderas
+
+$$
+(1,0,1,1,0,0,1,0)
+$$
+
+y las predicciones
+
+$$
+(1,1,1,0,0,0,1,1).
+$$
+
+Calcule el riesgo empírico bajo pérdida 0-1.
+
+## Ejercicio de regularización
+
+Considere
+
+$$
+J(\boldsymbol{\beta})
+=
+\|
+\mathbf{y}
+-
+\mathbf{X}\boldsymbol{\beta}
+\|_2^2
++
+\lambda
+\|
+\boldsymbol{\beta}
+\|_2^2.
+$$
+
+1. Explique el papel de cada término.
+2. Analice qué ocurre cuando $\lambda=0$.
+3. Analice qué ocurre cuando $\lambda$ es muy grande.
+4. Derive el gradiente.
+5. Obtenga la solución formal.
+
+## Ejercicio de sesgo y varianza
+
+Compare conceptualmente:
+
+1. un modelo lineal;
+2. un árbol profundo;
+3. un $k$-NN con $k=1$;
+4. un $k$-NN con $k=n$.
+
+Indique cuáles tienden a tener mayor sesgo y cuáles mayor varianza.
+
+## Ejercicio aplicado
+
+Se desea predecir la concentración diaria de PM10 utilizando temperatura, humedad y velocidad del viento.
+
+1. Defina $\mathcal{X}$.
+2. Defina $\mathcal{Y}$.
+3. Escriba la muestra de entrenamiento.
+4. Proponga una función de pérdida.
+5. Defina el riesgo esperado.
+6. Defina el riesgo empírico.
+7. Explique cómo evaluaría la generalización.
+8. Describa una situación de sobreajuste.
+9. Describa una situación de subajuste.
+10. Proponga una estrategia de regularización o validación.
+
+## Resumen
+
+En este capítulo se formuló matemáticamente el aprendizaje supervisado como un problema de selección de funciones. Se definieron espacios de entrada y salida, muestras de entrenamiento, hipótesis, espacios de hipótesis, parámetros e hiperparámetros.
+
+También se estudiaron funciones de pérdida, riesgo esperado, riesgo empírico, minimización del riesgo empírico y generalización.
+
+Finalmente, se analizaron sobreajuste, subajuste, complejidad, regularización, sesgo, varianza, ruido irreducible y selección de modelos. Estos conceptos servirán como base para la teoría de clasificación y para los algoritmos específicos de los capítulos posteriores.

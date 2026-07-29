@@ -1,0 +1,34 @@
+# Introducción
+
+El aprendizaje automático estudia métodos capaces de construir reglas de predicción, clasificación o descripción a partir de datos. Desde el punto de vista matemático, aprender significa seleccionar una función dentro de una familia de modelos utilizando información contenida en una muestra.
+
+Sea un conjunto de datos
+
+$$
+\mathcal{D}
+=
+\left\{
+(\mathbf{x}_i,y_i)
+\right\}_{i=1}^{n},
+$$
+
+donde cada vector $\mathbf{x}_i\in\mathbb{R}^{p}$ contiene las características de la observación $i$ y $y_i$ representa su respuesta.
+
+El objetivo general del aprendizaje supervisado consiste en construir una función
+
+$$
+f:\mathcal{X}\longrightarrow\mathcal{Y}
+$$
+
+que produzca predicciones adecuadas para observaciones nuevas.
+
+La construcción de esta función requiere responder preguntas fundamentales:
+
+- ¿cómo se representa matemáticamente la información?
+- ¿qué significa que dos observaciones sean semejantes?
+- ¿cómo se mide el error de un modelo?
+- ¿cómo se determina el mejor conjunto de parámetros?
+- ¿qué condiciones permiten confiar en una predicción?
+- ¿cómo se evita que un modelo memorice los datos de entrenamiento?
+
+Estas preguntas requieren herramientas de álgebra lineal, probabilidad, estadística, cálculo y optimización. Los primeros capítulos del libro desarrollan dichas herramientas antes de aplicarlas a los principales algoritmos de aprendizaje automático.

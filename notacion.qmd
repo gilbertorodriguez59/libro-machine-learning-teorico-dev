@@ -1,0 +1,16 @@
+# Notación general
+
+En esta obra se utilizarán las siguientes convenciones:
+
+- Los escalares se representan mediante letras minúsculas: $x$, $y$, $\alpha$, $\beta$.
+- Los vectores se representan en negritas minúsculas: $\mathbf{x}$, $\mathbf{y}$, $\boldsymbol{\beta}$.
+- Las matrices se representan en negritas mayúsculas: $\mathbf{X}$, $\mathbf{A}$, $\boldsymbol{\Sigma}$.
+- Los conjuntos se representan mediante letras caligráficas o mayúsculas: $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{D}$.
+- El conjunto de los números reales se denota por $\mathbb{R}$.
+- El espacio vectorial real de dimensión $p$ se denota por $\mathbb{R}^{p}$.
+- La transpuesta de una matriz o vector se representa mediante el superíndice $\mathsf{T}$.
+- La esperanza matemática se denota por $\mathbb{E}$.
+- La varianza se denota por $\operatorname{Var}$.
+- La covarianza se denota por $\operatorname{Cov}$.
+- La norma euclidiana se denota por $\|\cdot\|_2$.
+- La función indicadora se denota por $\mathbb{I}(\cdot)$.

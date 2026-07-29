@@ -1,0 +1,17 @@
+# Presentación
+
+El aprendizaje automático se ha convertido en una de las áreas más importantes de la ciencia de datos, la inteligencia artificial, la estadística y la computación moderna. Sus métodos permiten construir sistemas capaces de identificar patrones, realizar predicciones, clasificar observaciones, descubrir estructuras ocultas y apoyar la toma de decisiones a partir de datos.
+
+Sin embargo, el uso adecuado de estos métodos requiere algo más que aprender a ejecutar funciones en un lenguaje de programación. Detrás de cada algoritmo existen conceptos matemáticos que determinan su funcionamiento, sus alcances, sus limitaciones y las condiciones bajo las cuales sus resultados pueden considerarse confiables.
+
+El presente libro tiene como propósito desarrollar, de manera rigurosa y progresiva, los fundamentos matemáticos de los principales métodos de aprendizaje automático. Se estudian los conceptos de álgebra lineal, probabilidad, estadística, cálculo multivariable y optimización que permiten formular y comprender los algoritmos de regresión, clasificación, reducción de dimensionalidad, agrupamiento y aprendizaje basado en reglas.
+
+La obra ha sido concebida como el complemento teórico del libro *Aprendizaje y Clasificación Automática con R*. Mientras que aquel volumen se orienta principalmente a la aplicación de los algoritmos mediante datos reales, programación en R, visualización e interpretación de resultados, este segundo volumen se concentra en su formulación matemática, sus derivaciones, propiedades y fundamentos teóricos.
+
+Ambos libros pueden estudiarse de manera independiente. No obstante, su utilización conjunta permitirá al lector relacionar tres niveles fundamentales del aprendizaje automático:
+
+1. la formulación matemática del problema;
+2. el procedimiento algorítmico utilizado para resolverlo;
+3. su implementación computacional con datos reales.
+
+El contenido se presenta de forma gradual. Cada capítulo comienza con una explicación conceptual del problema, seguida de la notación matemática necesaria, definiciones formales, proposiciones, teoremas, demostraciones y derivaciones. Posteriormente se desarrollan ejemplos numéricos manuales y se establece la conexión con los algoritmos estudiados en el volumen práctico.

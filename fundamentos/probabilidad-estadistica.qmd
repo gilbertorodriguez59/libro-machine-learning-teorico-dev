@@ -1,0 +1,1565 @@
+# Probabilidad y estadística para aprendizaje automático {#sec-probabilidad-estadistica}
+
+## Introducción
+
+La probabilidad y la estadística proporcionan el marco matemático para representar incertidumbre, variabilidad y aprendizaje a partir de datos. Los algoritmos de aprendizaje automático no trabajan con relaciones completamente deterministas: las observaciones contienen ruido, los patrones son incompletos y las predicciones siempre están sujetas a cierto grado de incertidumbre.
+
+La teoría de la probabilidad permite modelar fenómenos aleatorios, mientras que la estadística proporciona herramientas para inferir propiedades de una población a partir de una muestra. Ambas disciplinas son esenciales para comprender la clasificación probabilística, la regresión, la estimación de parámetros, la selección de modelos, la validación y la evaluación de predicciones.
+
+## Objetivos
+
+Al finalizar el capítulo, el lector podrá:
+
+1. definir un espacio de probabilidad;
+2. interpretar eventos y operaciones entre eventos;
+3. aplicar axiomas y propiedades de probabilidad;
+4. utilizar probabilidad condicional e independencia;
+5. comprender y aplicar el teorema de Bayes;
+6. definir variables aleatorias discretas y continuas;
+7. interpretar funciones de masa, densidad y distribución;
+8. calcular esperanza, varianza y covarianza;
+9. representar vectores aleatorios y matrices de covarianza;
+10. comprender distribuciones conjuntas, marginales y condicionales;
+11. interpretar la ley de los grandes números y el teorema central del límite;
+12. comprender estimación puntual y por intervalos;
+13. derivar estimadores por máxima verosimilitud;
+14. relacionar estos conceptos con algoritmos de aprendizaje automático.
+
+## Experimentos aleatorios
+
+::: {#def-experimento-aleatorio}
+Un **experimento aleatorio** es un procedimiento cuyo resultado no puede predecirse con certeza antes de realizarse, aunque sí puede describirse el conjunto de resultados posibles.
+:::
+
+Ejemplos:
+
+- observar si un paciente presenta o no una enfermedad;
+- registrar la concentración de un contaminante;
+- seleccionar una observación de una base de datos;
+- clasificar un correo como deseado o no deseado.
+
+## Espacio muestral
+
+::: {#def-espacio-muestral}
+El **espacio muestral** es el conjunto de todos los resultados posibles de un experimento aleatorio. Se denota por $\Omega$.
+:::
+
+Por ejemplo, para una clasificación binaria,
+
+$$
+\Omega=\{0,1\}.
+$$
+
+Para una medición continua,
+
+$$
+\Omega\subseteq\mathbb{R}.
+$$
+
+## Eventos
+
+::: {#def-evento}
+Un **evento** es cualquier subconjunto del espacio muestral.
+:::
+
+Si $A\subseteq\Omega$, entonces $A$ representa un evento.
+
+Las operaciones entre eventos se expresan mediante conjuntos:
+
+- unión: $A\cup B$;
+- intersección: $A\cap B$;
+- complemento: $A^c$;
+- diferencia: $A\setminus B$.
+
+## Sigma-álgebra
+
+::: {#def-sigma-algebra}
+Una **sigma-álgebra** $\mathcal{F}$ sobre $\Omega$ es una colección de subconjuntos de $\Omega$ que satisface:
+
+1. $\Omega\in\mathcal{F}$;
+2. si $A\in\mathcal{F}$, entonces $A^c\in\mathcal{F}$;
+3. si $A_1,A_2,\ldots\in\mathcal{F}$, entonces
+
+$$
+\bigcup_{i=1}^{\infty}A_i\in\mathcal{F}.
+$$
+:::
+
+La sigma-álgebra contiene los eventos a los que puede asignarse probabilidad.
+
+## Espacio de probabilidad
+
+::: {#def-espacio-probabilidad}
+Un **espacio de probabilidad** es una terna
+
+$$
+(\Omega,\mathcal{F},P),
+$$
+
+donde:
+
+- $\Omega$ es el espacio muestral;
+- $\mathcal{F}$ es una sigma-álgebra;
+- $P$ es una medida de probabilidad.
+:::
+
+## Axiomas de probabilidad
+
+La función
+
+$$
+P:\mathcal{F}\to[0,1]
+$$
+
+satisface:
+
+1. **No negatividad**
+
+$$
+P(A)\geq 0.
+$$
+
+2. **Normalización**
+
+$$
+P(\Omega)=1.
+$$
+
+3. **Aditividad numerable**
+
+Si $A_1,A_2,\ldots$ son mutuamente excluyentes, entonces
+
+$$
+P\left(
+\bigcup_{i=1}^{\infty}A_i
+\right)
+=
+\sum_{i=1}^{\infty}P(A_i).
+$$
+
+## Propiedades fundamentales
+
+De los axiomas se deduce:
+
+$$
+P(\varnothing)=0,
+$$
+
+$$
+P(A^c)=1-P(A),
+$$
+
+$$
+P(A\cup B)
+=
+P(A)+P(B)-P(A\cap B),
+$$
+
+y si $A\subseteq B$,
+
+$$
+P(A)\leq P(B).
+$$
+
+## Probabilidad condicional
+
+::: {#def-probabilidad-condicional}
+Si $P(B)>0$, la probabilidad condicional de $A$ dado $B$ se define como
+
+$$
+P(A\mid B)
+=
+\frac{P(A\cap B)}{P(B)}.
+$$
+:::
+
+La probabilidad condicional permite actualizar la incertidumbre cuando se dispone de nueva información.
+
+::: {#exm-probabilidad-condicional}
+Supóngase que:
+
+$$
+P(A)=0.30,
+\qquad
+P(B)=0.50,
+\qquad
+P(A\cap B)=0.20.
+$$
+
+Entonces
+
+$$
+P(A\mid B)
+=
+\frac{0.20}{0.50}
+=
+0.40.
+$$
+:::
+
+## Regla del producto
+
+De la definición anterior,
+
+$$
+P(A\cap B)
+=
+P(A\mid B)P(B).
+$$
+
+También,
+
+$$
+P(A\cap B)
+=
+P(B\mid A)P(A).
+$$
+
+Para varios eventos,
+
+$$
+P(A_1\cap\cdots\cap A_n)
+=
+P(A_1)
+\prod_{i=2}^{n}
+P(A_i\mid A_1\cap\cdots\cap A_{i-1}).
+$$
+
+## Independencia
+
+::: {#def-independencia-eventos}
+Dos eventos $A$ y $B$ son independientes si
+
+$$
+P(A\cap B)
+=
+P(A)P(B).
+$$
+:::
+
+Si $P(B)>0$, esta condición equivale a
+
+$$
+P(A\mid B)=P(A).
+$$
+
+La independencia significa que conocer la ocurrencia de un evento no modifica la probabilidad del otro.
+
+## Partición del espacio muestral
+
+Los eventos $B_1,\ldots,B_k$ forman una partición de $\Omega$ si:
+
+1. $B_i\cap B_j=\varnothing$ para $i\neq j$;
+2. $\bigcup_{j=1}^{k}B_j=\Omega$.
+
+## Teorema de probabilidad total
+
+::: {#thm-probabilidad-total}
+Si $B_1,\ldots,B_k$ forman una partición de $\Omega$, entonces para cualquier evento $A$,
+
+$$
+P(A)
+=
+\sum_{j=1}^{k}
+P(A\mid B_j)P(B_j).
+$$
+:::
+
+## Teorema de Bayes
+
+::: {#thm-bayes}
+Si $B_1,\ldots,B_k$ forman una partición y $P(A)>0$, entonces
+
+$$
+P(B_j\mid A)
+=
+\frac{
+P(A\mid B_j)P(B_j)
+}{
+\sum_{\ell=1}^{k}
+P(A\mid B_\ell)P(B_\ell)
+}.
+$$
+:::
+
+En clasificación, la regla de Bayes permite calcular la probabilidad posterior de una clase dado un vector de características.
+
+Para clases $C_1,\ldots,C_K$,
+
+$$
+P(C_k\mid\mathbf{x})
+=
+\frac{
+P(\mathbf{x}\mid C_k)P(C_k)
+}{
+\sum_{j=1}^{K}
+P(\mathbf{x}\mid C_j)P(C_j)
+}.
+$$
+
+## Ejemplo de diagnóstico
+
+Sea $D$ el evento “el paciente tiene una enfermedad” y $T^+$ el evento “la prueba resulta positiva”.
+
+Supóngase:
+
+$$
+P(D)=0.02,
+$$
+
+$$
+P(T^+\mid D)=0.95,
+$$
+
+$$
+P(T^+\mid D^c)=0.08.
+$$
+
+Entonces
+
+$$
+P(T^+)
+=
+P(T^+\mid D)P(D)
++
+P(T^+\mid D^c)P(D^c).
+$$
+
+Por tanto,
+
+$$
+P(T^+)
+=
+0.95(0.02)+0.08(0.98)
+=
+0.0974.
+$$
+
+La probabilidad posterior es
+
+$$
+P(D\mid T^+)
+=
+\frac{0.95(0.02)}{0.0974}
+\approx 0.195.
+$$
+
+Aunque la prueba sea sensible, la baja prevalencia influye de manera importante en la probabilidad posterior.
+
+## Variables aleatorias
+
+::: {#def-variable-aleatoria}
+Una **variable aleatoria** es una función
+
+$$
+X:\Omega\to\mathbb{R}.
+$$
+:::
+
+Una variable aleatoria asigna un número real a cada resultado del experimento.
+
+## Variables aleatorias discretas
+
+::: {#def-variable-discreta}
+Una variable aleatoria es discreta si toma valores en un conjunto finito o numerable.
+:::
+
+Su función de masa de probabilidad es
+
+$$
+p_X(x)
+=
+P(X=x).
+$$
+
+Debe satisfacer:
+
+$$
+p_X(x)\geq 0,
+$$
+
+$$
+\sum_x p_X(x)=1.
+$$
+
+## Distribución Bernoulli
+
+Una variable Bernoulli con parámetro $p$ satisface
+
+$$
+X\sim\operatorname{Bernoulli}(p),
+$$
+
+con
+
+$$
+P(X=1)=p,
+\qquad
+P(X=0)=1-p.
+$$
+
+Su esperanza y varianza son
+
+$$
+\mathbb{E}(X)=p,
+$$
+
+$$
+\operatorname{Var}(X)=p(1-p).
+$$
+
+Esta distribución es central en clasificación binaria y regresión logística.
+
+## Distribución binomial
+
+Si
+
+$$
+X\sim\operatorname{Binomial}(n,p),
+$$
+
+entonces
+
+$$
+P(X=x)
+=
+\binom{n}{x}
+p^x(1-p)^{n-x},
+$$
+
+para
+
+$$
+x=0,1,\ldots,n.
+$$
+
+La esperanza y varianza son
+
+$$
+\mathbb{E}(X)=np,
+$$
+
+$$
+\operatorname{Var}(X)=np(1-p).
+$$
+
+## Variables aleatorias continuas
+
+::: {#def-variable-continua}
+Una variable aleatoria continua posee una función de densidad $f_X(x)$ tal que
+
+$$
+P(a\leq X\leq b)
+=
+\int_a^b f_X(x)\,dx.
+$$
+:::
+
+La densidad satisface:
+
+$$
+f_X(x)\geq 0,
+$$
+
+$$
+\int_{-\infty}^{\infty}f_X(x)\,dx=1.
+$$
+
+Para una variable continua,
+
+$$
+P(X=x)=0.
+$$
+
+## Función de distribución acumulada
+
+::: {#def-funcion-distribucion}
+La función de distribución acumulada de $X$ se define como
+
+$$
+F_X(x)
+=
+P(X\leq x).
+$$
+:::
+
+Para una variable continua,
+
+$$
+F_X(x)
+=
+\int_{-\infty}^{x}
+f_X(t)\,dt.
+$$
+
+## Distribución normal
+
+Una variable normal se denota por
+
+$$
+X\sim N(\mu,\sigma^2).
+$$
+
+Su densidad es
+
+$$
+f_X(x)
+=
+\frac{1}{\sqrt{2\pi\sigma^2}}
+\exp
+\left[
+-\frac{(x-\mu)^2}{2\sigma^2}
+\right].
+$$
+
+La distribución normal desempeña un papel fundamental en inferencia estadística, regresión y teoría asintótica.
+
+## Esperanza matemática
+
+::: {#def-esperanza}
+La esperanza de una variable aleatoria discreta es
+
+$$
+\mathbb{E}(X)
+=
+\sum_x x\,p_X(x).
+$$
+
+Para una variable continua,
+
+$$
+\mathbb{E}(X)
+=
+\int_{-\infty}^{\infty}
+x f_X(x)\,dx.
+$$
+:::
+
+La esperanza representa el valor promedio teórico de la variable aleatoria.
+
+## Esperanza de una función
+
+Si $g$ es una función,
+
+para variables discretas:
+
+$$
+\mathbb{E}[g(X)]
+=
+\sum_x g(x)p_X(x),
+$$
+
+y para variables continuas:
+
+$$
+\mathbb{E}[g(X)]
+=
+\int_{-\infty}^{\infty}
+g(x)f_X(x)\,dx.
+$$
+
+## Linealidad de la esperanza
+
+::: {#thm-linealidad-esperanza}
+Para cualesquiera variables aleatorias $X$ y $Y$ y escalares $a,b$,
+
+$$
+\mathbb{E}(aX+bY)
+=
+a\mathbb{E}(X)
++
+b\mathbb{E}(Y).
+$$
+:::
+
+La linealidad no requiere independencia.
+
+## Varianza
+
+::: {#def-varianza}
+La varianza de $X$ se define como
+
+$$
+\operatorname{Var}(X)
+=
+\mathbb{E}
+\left[
+(X-\mathbb{E}X)^2
+\right].
+$$
+:::
+
+Equivalentemente,
+
+$$
+\operatorname{Var}(X)
+=
+\mathbb{E}(X^2)
+-
+[\mathbb{E}(X)]^2.
+$$
+
+La desviación estándar es
+
+$$
+\sigma_X
+=
+\sqrt{
+\operatorname{Var}(X)
+}.
+$$
+
+## Propiedades de la varianza
+
+Para constantes $a$ y $b$,
+
+$$
+\operatorname{Var}(aX+b)
+=
+a^2\operatorname{Var}(X).
+$$
+
+Además,
+
+$$
+\operatorname{Var}(X+Y)
+=
+\operatorname{Var}(X)
++
+\operatorname{Var}(Y)
++
+2\operatorname{Cov}(X,Y).
+$$
+
+Si $X$ y $Y$ son independientes,
+
+$$
+\operatorname{Var}(X+Y)
+=
+\operatorname{Var}(X)
++
+\operatorname{Var}(Y).
+$$
+
+## Covarianza
+
+::: {#def-covarianza}
+La covarianza entre $X$ y $Y$ es
+
+$$
+\operatorname{Cov}(X,Y)
+=
+\mathbb{E}
+\left[
+(X-\mathbb{E}X)
+(Y-\mathbb{E}Y)
+\right].
+$$
+:::
+
+Equivalentemente,
+
+$$
+\operatorname{Cov}(X,Y)
+=
+\mathbb{E}(XY)
+-
+\mathbb{E}(X)\mathbb{E}(Y).
+$$
+
+Si $X$ y $Y$ son independientes, entonces
+
+$$
+\operatorname{Cov}(X,Y)=0.
+$$
+
+La recíproca no siempre es verdadera.
+
+## Correlación
+
+La correlación lineal es
+
+$$
+\rho_{XY}
+=
+\frac{
+\operatorname{Cov}(X,Y)
+}{
+\sigma_X\sigma_Y
+}.
+$$
+
+Se cumple
+
+$$
+-1\leq\rho_{XY}\leq 1.
+$$
+
+La correlación mide asociación lineal, no causalidad.
+
+## Variables aleatorias conjuntas
+
+Sean $X$ y $Y$ variables aleatorias.
+
+En el caso discreto, la función de masa conjunta es
+
+$$
+p_{X,Y}(x,y)
+=
+P(X=x,Y=y).
+$$
+
+En el caso continuo, la densidad conjunta es
+
+$$
+f_{X,Y}(x,y).
+$$
+
+Debe cumplirse
+
+$$
+\int_{-\infty}^{\infty}
+\int_{-\infty}^{\infty}
+f_{X,Y}(x,y)\,dx\,dy
+=
+1.
+$$
+
+## Distribuciones marginales
+
+A partir de una densidad conjunta,
+
+$$
+f_X(x)
+=
+\int_{-\infty}^{\infty}
+f_{X,Y}(x,y)\,dy,
+$$
+
+$$
+f_Y(y)
+=
+\int_{-\infty}^{\infty}
+f_{X,Y}(x,y)\,dx.
+$$
+
+En el caso discreto se utilizan sumas.
+
+## Distribuciones condicionales
+
+Si $f_Y(y)>0$,
+
+$$
+f_{X\mid Y}(x\mid y)
+=
+\frac{
+f_{X,Y}(x,y)
+}{
+f_Y(y)
+}.
+$$
+
+Esta relación generaliza la probabilidad condicional.
+
+## Independencia de variables aleatorias
+
+Las variables $X$ y $Y$ son independientes si
+
+$$
+f_{X,Y}(x,y)
+=
+f_X(x)f_Y(y)
+$$
+
+para todos los valores posibles.
+
+## Vectores aleatorios
+
+::: {#def-vector-aleatorio}
+Un vector aleatorio de dimensión $p$ es
+
+$$
+\mathbf{X}
+=
+\begin{pmatrix}
+X_1\\
+\vdots\\
+X_p
+\end{pmatrix}.
+$$
+:::
+
+Su vector de medias es
+
+$$
+\boldsymbol{\mu}
+=
+\mathbb{E}(\mathbf{X})
+=
+\begin{pmatrix}
+\mathbb{E}(X_1)\\
+\vdots\\
+\mathbb{E}(X_p)
+\end{pmatrix}.
+$$
+
+## Matriz de covarianza
+
+::: {#def-matriz-covarianza}
+La matriz de covarianza de $\mathbf{X}$ es
+
+$$
+\boldsymbol{\Sigma}
+=
+\operatorname{Cov}(\mathbf{X})
+=
+\mathbb{E}
+\left[
+(\mathbf{X}-\boldsymbol{\mu})
+(\mathbf{X}-\boldsymbol{\mu})^{\mathsf T}
+\right].
+$$
+:::
+
+Sus elementos son
+
+$$
+\sigma_{ij}
+=
+\operatorname{Cov}(X_i,X_j).
+$$
+
+La diagonal contiene las varianzas:
+
+$$
+\sigma_{ii}
+=
+\operatorname{Var}(X_i).
+$$
+
+La matriz de covarianza es simétrica y semidefinida positiva.
+
+## Distribución normal multivariada
+
+Se escribe
+
+$$
+\mathbf{X}
+\sim
+N_p(\boldsymbol{\mu},\boldsymbol{\Sigma}).
+$$
+
+Su densidad es
+
+$$
+f(\mathbf{x})
+=
+\frac{
+1
+}{
+(2\pi)^{p/2}
+|\boldsymbol{\Sigma}|^{1/2}
+}
+\exp
+\left[
+-\frac{1}{2}
+(\mathbf{x}-\boldsymbol{\mu})^{\mathsf T}
+\boldsymbol{\Sigma}^{-1}
+(\mathbf{x}-\boldsymbol{\mu})
+\right].
+$$
+
+La forma cuadrática
+
+$$
+(\mathbf{x}-\boldsymbol{\mu})^{\mathsf T}
+\boldsymbol{\Sigma}^{-1}
+(\mathbf{x}-\boldsymbol{\mu})
+$$
+
+corresponde a la distancia de Mahalanobis al cuadrado.
+
+## Muestra aleatoria
+
+::: {#def-muestra-aleatoria}
+Una muestra aleatoria
+
+$$
+X_1,\ldots,X_n
+$$
+
+es un conjunto de variables aleatorias independientes e idénticamente distribuidas.
+:::
+
+Se escribe
+
+$$
+X_1,\ldots,X_n
+\overset{\text{iid}}{\sim}
+F.
+$$
+
+## Media muestral
+
+La media muestral es
+
+$$
+\overline{X}
+=
+\frac{1}{n}
+\sum_{i=1}^{n}X_i.
+$$
+
+Su esperanza es
+
+$$
+\mathbb{E}(\overline{X})
+=
+\mu.
+$$
+
+Si las observaciones son independientes,
+
+$$
+\operatorname{Var}(\overline{X})
+=
+\frac{\sigma^2}{n}.
+$$
+
+## Varianza muestral
+
+La varianza muestral es
+
+$$
+S^2
+=
+\frac{1}{n-1}
+\sum_{i=1}^{n}
+(X_i-\overline{X})^2.
+$$
+
+El denominador $n-1$ permite que
+
+$$
+\mathbb{E}(S^2)=\sigma^2.
+$$
+
+## Ley de los grandes números
+
+::: {#thm-ley-grandes-numeros}
+Bajo condiciones regulares,
+
+$$
+\overline{X}_n
+\longrightarrow
+\mu
+$$
+
+cuando
+
+$$
+n\to\infty.
+$$
+:::
+
+La ley de los grandes números justifica el uso de promedios muestrales como aproximaciones de valores esperados.
+
+## Teorema central del límite
+
+::: {#thm-teorema-central-limite}
+Si $X_1,\ldots,X_n$ son iid con media $\mu$ y varianza finita $\sigma^2$, entonces
+
+$$
+\frac{
+\sqrt{n}
+(\overline{X}-\mu)
+}{
+\sigma
+}
+\overset{d}{\longrightarrow}
+N(0,1).
+$$
+:::
+
+Este resultado explica por qué la distribución normal aparece en numerosos procedimientos de inferencia.
+
+## Estadísticos y parámetros
+
+Un **parámetro** es una cantidad fija pero desconocida de una población, por ejemplo:
+
+$$
+\mu,\quad \sigma^2,\quad p,\quad \boldsymbol{\beta}.
+$$
+
+Un **estadístico** es una función de la muestra:
+
+$$
+T=T(X_1,\ldots,X_n).
+$$
+
+Por ejemplo,
+
+$$
+\overline{X}
+$$
+
+es un estadístico utilizado para estimar $\mu$.
+
+## Estimación puntual
+
+::: {#def-estimador}
+Un estimador $\widehat{\theta}$ es un estadístico utilizado para aproximar un parámetro desconocido $\theta$.
+:::
+
+Propiedades deseables:
+
+- insesgadez;
+- consistencia;
+- eficiencia;
+- suficiencia.
+
+## Sesgo
+
+El sesgo de un estimador es
+
+$$
+\operatorname{Bias}(\widehat{\theta})
+=
+\mathbb{E}(\widehat{\theta})-\theta.
+$$
+
+Si
+
+$$
+\mathbb{E}(\widehat{\theta})=\theta,
+$$
+
+el estimador es insesgado.
+
+## Error cuadrático medio
+
+El error cuadrático medio es
+
+$$
+\operatorname{MSE}(\widehat{\theta})
+=
+\mathbb{E}
+\left[
+(\widehat{\theta}-\theta)^2
+\right].
+$$
+
+Se descompone como
+
+$$
+\operatorname{MSE}(\widehat{\theta})
+=
+\operatorname{Var}(\widehat{\theta})
++
+\operatorname{Bias}(\widehat{\theta})^2.
+$$
+
+Esta identidad anticipa el compromiso entre sesgo y varianza en aprendizaje automático.
+
+## Consistencia
+
+Un estimador es consistente si
+
+$$
+\widehat{\theta}_n
+\overset{P}{\longrightarrow}
+\theta.
+$$
+
+Es decir, la probabilidad de alejarse del parámetro verdadero disminuye al aumentar el tamaño de muestra.
+
+## Función de verosimilitud
+
+::: {#def-verosimilitud}
+Sea una muestra
+
+$$
+x_1,\ldots,x_n
+$$
+
+proveniente de una distribución con parámetro $\theta$. La función de verosimilitud es
+
+$$
+L(\theta)
+=
+\prod_{i=1}^{n}
+f(x_i;\theta).
+$$
+:::
+
+La verosimilitud se interpreta como una función del parámetro, manteniendo fija la muestra observada.
+
+## Log-verosimilitud
+
+La log-verosimilitud es
+
+$$
+\ell(\theta)
+=
+\log L(\theta)
+=
+\sum_{i=1}^{n}
+\log f(x_i;\theta).
+$$
+
+Se utiliza porque transforma productos en sumas y facilita la derivación.
+
+## Estimación por máxima verosimilitud
+
+::: {#def-maxima-verosimilitud}
+El estimador de máxima verosimilitud se define como
+
+$$
+\widehat{\theta}_{MV}
+=
+\arg\max_{\theta}
+L(\theta),
+$$
+
+o equivalentemente,
+
+$$
+\widehat{\theta}_{MV}
+=
+\arg\max_{\theta}
+\ell(\theta).
+$$
+:::
+
+## Ejemplo Bernoulli
+
+Supóngase que
+
+$$
+X_i\sim\operatorname{Bernoulli}(p).
+$$
+
+La función de masa es
+
+$$
+P(X_i=x_i)
+=
+p^{x_i}(1-p)^{1-x_i}.
+$$
+
+La verosimilitud es
+
+$$
+L(p)
+=
+\prod_{i=1}^{n}
+p^{x_i}(1-p)^{1-x_i}.
+$$
+
+Entonces
+
+$$
+L(p)
+=
+p^{\sum x_i}
+(1-p)^{n-\sum x_i}.
+$$
+
+La log-verosimilitud es
+
+$$
+\ell(p)
+=
+\left(
+\sum_{i=1}^{n}x_i
+\right)
+\log p
++
+\left(
+n-\sum_{i=1}^{n}x_i
+\right)
+\log(1-p).
+$$
+
+Derivando:
+
+$$
+\frac{d\ell}{dp}
+=
+\frac{\sum x_i}{p}
+-
+\frac{n-\sum x_i}{1-p}.
+$$
+
+Igualando a cero:
+
+$$
+\widehat{p}
+=
+\frac{1}{n}
+\sum_{i=1}^{n}x_i
+=
+\overline{x}.
+$$
+
+Por tanto, el estimador de máxima verosimilitud de $p$ es la proporción muestral.
+
+## Estimación bayesiana
+
+En el enfoque bayesiano, el parámetro se considera aleatorio.
+
+Se combinan:
+
+- distribución previa:
+
+$$
+p(\theta);
+$$
+
+- verosimilitud:
+
+$$
+p(\mathbf{x}\mid\theta);
+$$
+
+- distribución posterior:
+
+$$
+p(\theta\mid\mathbf{x}).
+$$
+
+Por el teorema de Bayes,
+
+$$
+p(\theta\mid\mathbf{x})
+=
+\frac{
+p(\mathbf{x}\mid\theta)p(\theta)
+}{
+p(\mathbf{x})
+}.
+$$
+
+Equivalentemente,
+
+$$
+p(\theta\mid\mathbf{x})
+\propto
+p(\mathbf{x}\mid\theta)p(\theta).
+$$
+
+## Intervalos de confianza
+
+Un intervalo de confianza para un parámetro $\theta$ tiene la forma
+
+$$
+[L(\mathbf{X}),U(\mathbf{X})].
+$$
+
+Un intervalo con nivel $1-\alpha$ satisface
+
+$$
+P
+\left[
+L(\mathbf{X})
+\leq
+\theta
+\leq
+U(\mathbf{X})
+\right]
+=
+1-\alpha.
+$$
+
+La interpretación correcta se refiere al procedimiento de construcción, no a una probabilidad posterior sobre un parámetro fijo.
+
+## Pruebas de hipótesis
+
+Una prueba de hipótesis compara:
+
+$$
+H_0:\theta\in\Theta_0
+$$
+
+contra
+
+$$
+H_1:\theta\in\Theta_1.
+$$
+
+Los errores posibles son:
+
+- error tipo I: rechazar $H_0$ cuando es verdadera;
+- error tipo II: no rechazar $H_0$ cuando es falsa.
+
+El nivel de significancia es
+
+$$
+\alpha
+=
+P(\text{rechazar }H_0\mid H_0\text{ verdadera}).
+$$
+
+## Relación con clasificación
+
+En clasificación probabilística se selecciona la clase con mayor probabilidad posterior:
+
+$$
+\widehat{y}
+=
+\arg\max_{k}
+P(Y=k\mid\mathbf{x}).
+$$
+
+Esta regla minimiza el error esperado bajo pérdida 0-1.
+
+## Relación con regresión logística
+
+En regresión logística,
+
+$$
+P(Y=1\mid\mathbf{x})
+=
+\pi(\mathbf{x}),
+$$
+
+donde
+
+$$
+\pi(\mathbf{x})
+=
+\frac{
+\exp(\beta_0+\boldsymbol{\beta}^{\mathsf T}\mathbf{x})
+}{
+1+
+\exp(\beta_0+\boldsymbol{\beta}^{\mathsf T}\mathbf{x})
+}.
+$$
+
+Los parámetros se estiman maximizando la verosimilitud Bernoulli.
+
+## Relación con árboles de decisión
+
+La proporción de observaciones de la clase $k$ en un nodo es
+
+$$
+\widehat{p}_k
+=
+\frac{1}{n}
+\sum_{i=1}^{n}
+\mathbb{I}(y_i=k).
+$$
+
+Estas probabilidades se utilizan en medidas como entropía e impureza de Gini.
+
+## Relación con PCA
+
+La matriz de covarianza
+
+$$
+\boldsymbol{\Sigma}
+$$
+
+resume la variabilidad conjunta de las características. PCA utiliza sus valores y vectores propios para encontrar direcciones de máxima varianza.
+
+## Conexión con R
+
+```{r}
+#| eval: false
+
+x <- c(4, 6, 8, 7, 5)
+
+# Media
+mean(x)
+
+# Varianza muestral
+var(x)
+
+# Desviación estándar
+sd(x)
+
+# Probabilidad binomial
+dbinom(3, size = 5, prob = 0.4)
+
+# Probabilidad acumulada normal
+pnorm(1.96)
+
+# Cuantil normal
+qnorm(0.975)
+
+# Simulación Bernoulli
+rbinom(10, size = 1, prob = 0.30)
+
+# Matriz de covarianza
+datos <- data.frame(
+  pm10 = c(40, 55, 68, 73),
+  temperatura = c(18, 21, 24, 26),
+  humedad = c(65, 58, 50, 45)
+)
+
+cov(datos)
+cor(datos)
+```
+
+## Ejemplo integrado de clasificación
+
+Considere dos clases:
+
+$$
+C_1=\text{calidad aceptable},
+$$
+
+$$
+C_2=\text{calidad no aceptable}.
+$$
+
+Supóngase:
+
+$$
+P(C_1)=0.70,
+\qquad
+P(C_2)=0.30.
+$$
+
+Para una observación $\mathbf{x}$,
+
+$$
+P(\mathbf{x}\mid C_1)=0.10,
+$$
+
+$$
+P(\mathbf{x}\mid C_2)=0.25.
+$$
+
+Entonces,
+
+$$
+P(C_1\mid\mathbf{x})
+=
+\frac{
+0.10(0.70)
+}{
+0.10(0.70)+0.25(0.30)
+}
+\approx 0.483.
+$$
+
+Además,
+
+$$
+P(C_2\mid\mathbf{x})
+\approx 0.517.
+$$
+
+La regla de Bayes clasifica la observación en $C_2$.
+
+## Errores frecuentes
+
+1. Confundir probabilidad conjunta con probabilidad condicional.
+2. Suponer que eventos mutuamente excluyentes son independientes.
+3. Interpretar una densidad como una probabilidad puntual.
+4. Confundir independencia con covarianza cero.
+5. Interpretar correlación como causalidad.
+6. Confundir parámetro con estadístico.
+7. Interpretar incorrectamente un intervalo de confianza.
+8. Confundir verosimilitud con probabilidad del parámetro.
+9. Suponer que una muestra grande corrige automáticamente sesgos de diseño.
+10. Aplicar el teorema de Bayes sin considerar probabilidades previas.
+
+## Ejercicios conceptuales
+
+1. Explique la diferencia entre experimento, espacio muestral y evento.
+2. ¿Qué diferencia existe entre probabilidad conjunta y condicional?
+3. Explique la diferencia entre independencia y exclusión mutua.
+4. ¿Qué representa la esperanza matemática?
+5. ¿Qué representa la varianza?
+6. ¿Por qué covarianza cero no implica siempre independencia?
+7. Explique la diferencia entre parámetro y estadístico.
+8. ¿Qué significa que un estimador sea insesgado?
+9. ¿Qué significa que un estimador sea consistente?
+10. Explique la diferencia entre probabilidad y verosimilitud.
+
+## Ejercicios de probabilidad
+
+Sean dos eventos $A$ y $B$ tales que
+
+$$
+P(A)=0.40,
+\qquad
+P(B)=0.55,
+\qquad
+P(A\cap B)=0.25.
+$$
+
+Calcule:
+
+1. $P(A\cup B)$;
+2. $P(A^c)$;
+3. $P(A\mid B)$;
+4. $P(B\mid A)$;
+5. determine si $A$ y $B$ son independientes.
+
+## Ejercicio de Bayes
+
+Una enfermedad tiene prevalencia de $0.03$. Una prueba tiene sensibilidad de $0.92$ y especificidad de $0.90$.
+
+Calcule:
+
+1. la probabilidad de un resultado positivo;
+2. la probabilidad de enfermedad dado un resultado positivo;
+3. la probabilidad de no enfermedad dado un resultado negativo;
+4. interprete los resultados.
+
+## Ejercicio de esperanza y varianza
+
+Sea $X$ una variable aleatoria con distribución:
+
+| $x$ | 0 | 1 | 2 | 3 |
+|---:|---:|---:|---:|---:|
+| $P(X=x)$ | 0.10 | 0.25 | 0.40 | 0.25 |
+
+Calcule:
+
+1. $\mathbb{E}(X)$;
+2. $\mathbb{E}(X^2)$;
+3. $\operatorname{Var}(X)$;
+4. la desviación estándar.
+
+## Ejercicio de máxima verosimilitud
+
+Considere la muestra Bernoulli:
+
+$$
+1,0,1,1,0,1,1,1,0,1.
+$$
+
+1. Escriba la función de verosimilitud.
+2. Escriba la log-verosimilitud.
+3. Calcule el estimador de máxima verosimilitud de $p$.
+4. Interprete el resultado.
+
+## Ejercicio aplicado
+
+Una base de datos ambiental contiene:
+
+- PM10;
+- temperatura;
+- humedad;
+- velocidad del viento.
+
+1. Defina un vector aleatorio.
+2. Escriba el vector de medias.
+3. Describa la matriz de covarianza.
+4. Explique el significado de una covarianza positiva entre PM10 y temperatura.
+5. Explique qué información adicional proporciona la correlación.
+6. Indique cómo se relaciona esta matriz con PCA.
+
+## Resumen
+
+En este capítulo se construyó el marco probabilístico y estadístico del aprendizaje automático. Se definieron espacios de probabilidad, eventos, probabilidad condicional, independencia y teorema de Bayes.
+
+También se estudiaron variables aleatorias, funciones de masa y densidad, esperanza, varianza, covarianza, correlación, distribuciones conjuntas y vectores aleatorios.
+
+Finalmente, se introdujeron conceptos de inferencia estadística, como estimadores, sesgo, consistencia, error cuadrático medio, máxima verosimilitud, estimación bayesiana, intervalos de confianza y pruebas de hipótesis.
+
+Estos elementos serán utilizados posteriormente en regresión logística, clasificación bayesiana, árboles de decisión, PCA, validación y teoría de generalización.

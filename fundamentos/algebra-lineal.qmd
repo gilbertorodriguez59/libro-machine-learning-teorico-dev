@@ -1,0 +1,1660 @@
+# Álgebra lineal para aprendizaje automático {#sec-algebra-lineal}
+
+## Introducción
+
+El álgebra lineal constituye uno de los lenguajes fundamentales del aprendizaje automático. Los conjuntos de datos se representan mediante vectores y matrices; los modelos lineales utilizan combinaciones lineales; el análisis de componentes principales depende de valores y vectores propios; las redes neuronales realizan sucesivas transformaciones matriciales; y numerosos algoritmos se formulan como problemas de proyección, factorización u optimización en espacios vectoriales.
+
+Este capítulo desarrolla los conceptos esenciales de álgebra lineal que se utilizarán a lo largo del libro. El objetivo no es presentar únicamente reglas de cálculo, sino explicar el significado geométrico y estadístico de cada operación.
+
+## Objetivos
+
+Al finalizar el capítulo, el lector podrá:
+
+1. distinguir escalares, vectores y matrices;
+2. realizar operaciones básicas con vectores y matrices;
+3. interpretar una combinación lineal;
+4. analizar independencia y dependencia lineal;
+5. comprender los conceptos de espacio vectorial, subespacio, base y dimensión;
+6. calcular y utilizar productos internos y normas;
+7. interpretar ortogonalidad y proyección;
+8. representar sistemas de ecuaciones mediante matrices;
+9. comprender rango, espacio columna y espacio nulo;
+10. interpretar valores y vectores propios;
+11. comprender la descomposición espectral;
+12. reconocer la función de la descomposición en valores singulares;
+13. relacionar estos conceptos con algoritmos de aprendizaje automático.
+
+## Escalares
+
+::: {#def-escalar}
+Un **escalar** es un elemento de un campo numérico, normalmente el conjunto de los números reales $\mathbb{R}$.
+:::
+
+Los escalares se representan mediante letras minúsculas:
+
+$$
+a,\quad b,\quad x,\quad \alpha,\quad \beta.
+$$
+
+Ejemplos de escalares en aprendizaje automático son:
+
+- una observación individual;
+- un coeficiente de regresión;
+- una tasa de aprendizaje;
+- una probabilidad;
+- una función de pérdida;
+- una distancia entre dos observaciones.
+
+## Vectores
+
+::: {#def-vector}
+Un **vector** de dimensión $p$ es una lista ordenada de $p$ escalares.
+:::
+
+Un vector columna se escribe como
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_p
+\end{pmatrix}
+\in\mathbb{R}^{p}.
+$$
+
+Su transpuesta es un vector fila:
+
+$$
+\mathbf{x}^{\mathsf T}
+=
+\begin{pmatrix}
+x_1 & x_2 & \cdots & x_p
+\end{pmatrix}.
+$$
+
+::: {#exm-vector-observacion}
+Una observación ambiental con concentración de PM10, temperatura y humedad puede representarse mediante
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+52.4\\
+23.1\\
+47.0
+\end{pmatrix}.
+$$
+
+En este caso,
+
+$$
+\mathbf{x}\in\mathbb{R}^{3}.
+$$
+:::
+
+## Igualdad de vectores
+
+Dos vectores $\mathbf{x},\mathbf{y}\in\mathbb{R}^{p}$ son iguales si todas sus componentes correspondientes son iguales:
+
+$$
+\mathbf{x}=\mathbf{y}
+\iff
+x_j=y_j
+\quad
+\text{para todo }j=1,\ldots,p.
+$$
+
+## Suma de vectores
+
+Sean
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+x_1\\
+\vdots\\
+x_p
+\end{pmatrix},
+\qquad
+\mathbf{y}
+=
+\begin{pmatrix}
+y_1\\
+\vdots\\
+y_p
+\end{pmatrix}.
+$$
+
+La suma se define componente a componente:
+
+$$
+\mathbf{x}+\mathbf{y}
+=
+\begin{pmatrix}
+x_1+y_1\\
+\vdots\\
+x_p+y_p
+\end{pmatrix}.
+$$
+
+::: {#exm-suma-vectores}
+Si
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+2\\
+1
+\end{pmatrix},
+\qquad
+\mathbf{y}
+=
+\begin{pmatrix}
+3\\
+4
+\end{pmatrix},
+$$
+
+entonces
+
+$$
+\mathbf{x}+\mathbf{y}
+=
+\begin{pmatrix}
+5\\
+5
+\end{pmatrix}.
+$$
+:::
+
+## Multiplicación por un escalar
+
+Si $\alpha\in\mathbb{R}$ y $\mathbf{x}\in\mathbb{R}^{p}$, entonces
+
+$$
+\alpha\mathbf{x}
+=
+\begin{pmatrix}
+\alpha x_1\\
+\vdots\\
+\alpha x_p
+\end{pmatrix}.
+$$
+
+Geométricamente, la multiplicación por un escalar modifica la longitud del vector y, si $\alpha<0$, también invierte su dirección.
+
+## Combinaciones lineales
+
+::: {#def-combinacion-lineal}
+Una **combinación lineal** de los vectores $\mathbf{v}_1,\ldots,\mathbf{v}_k$ es cualquier vector de la forma
+
+$$
+\alpha_1\mathbf{v}_1+\cdots+\alpha_k\mathbf{v}_k,
+$$
+
+donde $\alpha_1,\ldots,\alpha_k\in\mathbb{R}$.
+:::
+
+Las combinaciones lineales aparecen en prácticamente todos los modelos lineales.
+
+Por ejemplo, en regresión lineal múltiple,
+
+$$
+\widehat{y}
+=
+\beta_0
++
+\beta_1x_1
++
+\cdots
++
+\beta_px_p.
+$$
+
+La predicción es una combinación lineal de las características.
+
+## Combinación convexa
+
+Una combinación lineal se denomina convexa si
+
+$$
+\alpha_j\geq 0
+$$
+
+para todo $j$, y
+
+$$
+\sum_{j=1}^{k}\alpha_j=1.
+$$
+
+En ese caso,
+
+$$
+\mathbf{z}
+=
+\sum_{j=1}^{k}
+\alpha_j\mathbf{v}_j
+$$
+
+se encuentra dentro de la envolvente convexa de los vectores.
+
+Este concepto será importante en optimización y teoría de clasificación.
+
+## Independencia lineal
+
+::: {#def-independencia-lineal}
+Los vectores $\mathbf{v}_1,\ldots,\mathbf{v}_k$ son linealmente independientes si la ecuación
+
+$$
+\alpha_1\mathbf{v}_1+\cdots+\alpha_k\mathbf{v}_k
+=
+\mathbf{0}
+$$
+
+implica
+
+$$
+\alpha_1=\cdots=\alpha_k=0.
+$$
+:::
+
+Si existe una solución no trivial, los vectores son linealmente dependientes.
+
+::: {#exm-independencia}
+Los vectores
+
+$$
+\mathbf{v}_1=
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix},
+\qquad
+\mathbf{v}_2=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
+$$
+
+son linealmente independientes.
+
+En cambio,
+
+$$
+\mathbf{v}_3=
+\begin{pmatrix}
+2\\
+4
+\end{pmatrix},
+\qquad
+\mathbf{v}_4=
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix}
+$$
+
+son linealmente dependientes porque
+
+$$
+\mathbf{v}_3=2\mathbf{v}_4.
+$$
+:::
+
+## Espacios vectoriales
+
+::: {#def-espacio-vectorial}
+Un **espacio vectorial** sobre $\mathbb{R}$ es un conjunto de objetos llamados vectores, equipado con operaciones de suma y multiplicación por escalares que satisfacen ciertas propiedades algebraicas.
+:::
+
+El ejemplo principal es $\mathbb{R}^{p}$.
+
+Las propiedades fundamentales incluyen:
+
+1. cerradura bajo la suma;
+2. asociatividad;
+3. conmutatividad;
+4. existencia del vector cero;
+5. existencia del inverso aditivo;
+6. cerradura bajo multiplicación por escalares;
+7. distributividad;
+8. compatibilidad de escalares;
+9. identidad escalar.
+
+## Subespacios
+
+::: {#def-subespacio}
+Un subconjunto $W$ de un espacio vectorial $V$ es un **subespacio vectorial** si:
+
+1. contiene al vector cero;
+2. es cerrado bajo la suma;
+3. es cerrado bajo la multiplicación por escalares.
+:::
+
+Por ejemplo, el conjunto
+
+$$
+W
+=
+\left\{
+\begin{pmatrix}
+x\\
+2x
+\end{pmatrix}
+:
+x\in\mathbb{R}
+\right\}
+$$
+
+es un subespacio de $\mathbb{R}^{2}$.
+
+## Espacio generado
+
+::: {#def-espacio-generado}
+El espacio generado por los vectores $\mathbf{v}_1,\ldots,\mathbf{v}_k$ es el conjunto de todas sus combinaciones lineales.
+:::
+
+Se denota por
+
+$$
+\operatorname{span}
+\{\mathbf{v}_1,\ldots,\mathbf{v}_k\}.
+$$
+
+Por ejemplo,
+
+$$
+\operatorname{span}
+\left\{
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix},
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
+\right\}
+=
+\mathbb{R}^{2}.
+$$
+
+## Base y dimensión
+
+::: {#def-base}
+Una **base** de un espacio vectorial $V$ es un conjunto de vectores linealmente independientes que genera todo el espacio.
+:::
+
+La base canónica de $\mathbb{R}^{p}$ es
+
+$$
+\mathbf{e}_1,\ldots,\mathbf{e}_p,
+$$
+
+donde
+
+$$
+\mathbf{e}_1=
+\begin{pmatrix}
+1\\
+0\\
+\vdots\\
+0
+\end{pmatrix},
+\quad
+\mathbf{e}_2=
+\begin{pmatrix}
+0\\
+1\\
+\vdots\\
+0
+\end{pmatrix},
+\quad\ldots
+$$
+
+La dimensión de un espacio vectorial es el número de vectores de cualquier base.
+
+Por tanto,
+
+$$
+\dim(\mathbb{R}^{p})=p.
+$$
+
+## Matrices
+
+::: {#def-matriz}
+Una **matriz** de dimensión $n\times p$ es un arreglo rectangular de números con $n$ filas y $p$ columnas.
+:::
+
+Se escribe
+
+$$
+\mathbf{A}
+=
+\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1p}\\
+a_{21} & a_{22} & \cdots & a_{2p}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n1} & a_{n2} & \cdots & a_{np}
+\end{pmatrix}
+\in\mathbb{R}^{n\times p}.
+$$
+
+En aprendizaje automático, una matriz de datos se representa habitualmente mediante
+
+$$
+\mathbf{X}\in\mathbb{R}^{n\times p},
+$$
+
+donde:
+
+- $n$ es el número de observaciones;
+- $p$ es el número de características.
+
+## Filas y columnas
+
+La fila $i$ de $\mathbf{X}$ representa la observación $i$:
+
+$$
+\mathbf{x}_i^{\mathsf T}
+=
+\begin{pmatrix}
+x_{i1} & \cdots & x_{ip}
+\end{pmatrix}.
+$$
+
+La columna $j$ representa la característica $j$:
+
+$$
+\mathbf{x}_{\cdot j}
+=
+\begin{pmatrix}
+x_{1j}\\
+\vdots\\
+x_{nj}
+\end{pmatrix}.
+$$
+
+## Matrices especiales
+
+### Matriz cero
+
+$$
+\mathbf{0}
+=
+\begin{pmatrix}
+0 & \cdots & 0\\
+\vdots & \ddots & \vdots\\
+0 & \cdots & 0
+\end{pmatrix}.
+$$
+
+### Matriz identidad
+
+La matriz identidad de orden $p$ es
+
+$$
+\mathbf{I}_p
+=
+\begin{pmatrix}
+1 & 0 & \cdots & 0\\
+0 & 1 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & 1
+\end{pmatrix}.
+$$
+
+Cumple
+
+$$
+\mathbf{I}_p\mathbf{x}=\mathbf{x}.
+$$
+
+### Matriz diagonal
+
+Una matriz diagonal tiene ceros fuera de la diagonal principal:
+
+$$
+\mathbf{D}
+=
+\operatorname{diag}(d_1,\ldots,d_p).
+$$
+
+### Matriz simétrica
+
+::: {#def-matriz-simetrica}
+Una matriz cuadrada $\mathbf{A}$ es simétrica si
+
+$$
+\mathbf{A}^{\mathsf T}=\mathbf{A}.
+$$
+:::
+
+Las matrices de covarianza son simétricas.
+
+## Suma de matrices
+
+Si
+
+$$
+\mathbf{A},\mathbf{B}\in\mathbb{R}^{n\times p},
+$$
+
+entonces
+
+$$
+\mathbf{A}+\mathbf{B}
+=
+(a_{ij}+b_{ij}).
+$$
+
+La suma solamente está definida cuando ambas matrices tienen las mismas dimensiones.
+
+## Multiplicación de una matriz por un escalar
+
+Si $\alpha\in\mathbb{R}$, entonces
+
+$$
+\alpha\mathbf{A}
+=
+(\alpha a_{ij}).
+$$
+
+## Producto matricial
+
+Sean
+
+$$
+\mathbf{A}\in\mathbb{R}^{n\times p}
+$$
+
+y
+
+$$
+\mathbf{B}\in\mathbb{R}^{p\times m}.
+$$
+
+El producto
+
+$$
+\mathbf{C}
+=
+\mathbf{A}\mathbf{B}
+$$
+
+es una matriz de dimensión $n\times m$, cuyos elementos son
+
+$$
+c_{ij}
+=
+\sum_{k=1}^{p}
+a_{ik}b_{kj}.
+$$
+
+::: {#exm-producto-matricial}
+Sean
+
+$$
+\mathbf{A}
+=
+\begin{pmatrix}
+1 & 2\\
+3 & 4
+\end{pmatrix},
+\qquad
+\mathbf{B}
+=
+\begin{pmatrix}
+2 & 0\\
+1 & 5
+\end{pmatrix}.
+$$
+
+Entonces
+
+$$
+\mathbf{A}\mathbf{B}
+=
+\begin{pmatrix}
+1(2)+2(1) & 1(0)+2(5)\\
+3(2)+4(1) & 3(0)+4(5)
+\end{pmatrix}
+=
+\begin{pmatrix}
+4 & 10\\
+10 & 20
+\end{pmatrix}.
+$$
+:::
+
+En general,
+
+$$
+\mathbf{A}\mathbf{B}
+\neq
+\mathbf{B}\mathbf{A}.
+$$
+
+## Matriz transpuesta
+
+La transpuesta de una matriz $\mathbf{A}\in\mathbb{R}^{n\times p}$ es la matriz
+
+$$
+\mathbf{A}^{\mathsf T}\in\mathbb{R}^{p\times n}
+$$
+
+obtenida intercambiando filas por columnas.
+
+Se cumplen las propiedades:
+
+$$
+(\mathbf{A}^{\mathsf T})^{\mathsf T}
+=
+\mathbf{A},
+$$
+
+$$
+(\mathbf{A}+\mathbf{B})^{\mathsf T}
+=
+\mathbf{A}^{\mathsf T}
++
+\mathbf{B}^{\mathsf T},
+$$
+
+$$
+(\mathbf{A}\mathbf{B})^{\mathsf T}
+=
+\mathbf{B}^{\mathsf T}
+\mathbf{A}^{\mathsf T}.
+$$
+
+## Producto interno
+
+::: {#def-producto-interno}
+El producto interno euclidiano de dos vectores $\mathbf{x},\mathbf{y}\in\mathbb{R}^{p}$ se define como
+
+$$
+\langle\mathbf{x},\mathbf{y}\rangle
+=
+\mathbf{x}^{\mathsf T}\mathbf{y}
+=
+\sum_{j=1}^{p}x_jy_j.
+$$
+:::
+
+::: {#exm-producto-interno}
+Si
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+1\\
+2\\
+3
+\end{pmatrix},
+\qquad
+\mathbf{y}
+=
+\begin{pmatrix}
+4\\
+0\\
+-1
+\end{pmatrix},
+$$
+
+entonces
+
+$$
+\mathbf{x}^{\mathsf T}\mathbf{y}
+=
+1(4)+2(0)+3(-1)
+=
+1.
+$$
+:::
+
+## Norma
+
+::: {#def-norma-euclidiana}
+La norma euclidiana de un vector $\mathbf{x}\in\mathbb{R}^{p}$ es
+
+$$
+\|\mathbf{x}\|_2
+=
+\sqrt{
+\mathbf{x}^{\mathsf T}\mathbf{x}
+}
+=
+\sqrt{
+\sum_{j=1}^{p}x_j^2
+}.
+$$
+:::
+
+La norma representa la longitud del vector.
+
+Se cumplen:
+
+1. $\|\mathbf{x}\|_2\geq 0$;
+2. $\|\mathbf{x}\|_2=0$ si y solo si $\mathbf{x}=\mathbf{0}$;
+3. $\|\alpha\mathbf{x}\|_2=|\alpha|\|\mathbf{x}\|_2$;
+4. $\|\mathbf{x}+\mathbf{y}\|_2\leq\|\mathbf{x}\|_2+\|\mathbf{y}\|_2$.
+
+## Distancia euclidiana
+
+La distancia entre $\mathbf{x}$ y $\mathbf{y}$ se define como
+
+$$
+d(\mathbf{x},\mathbf{y})
+=
+\|\mathbf{x}-\mathbf{y}\|_2.
+$$
+
+Esta distancia es la base del algoritmo $k$-NN y del método $k$-means.
+
+::: {#exm-distancia}
+Sean
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix},
+\qquad
+\mathbf{y}
+=
+\begin{pmatrix}
+4\\
+6
+\end{pmatrix}.
+$$
+
+Entonces
+
+$$
+d(\mathbf{x},\mathbf{y})
+=
+\sqrt{(1-4)^2+(2-6)^2}
+=
+5.
+$$
+:::
+
+## Desigualdad de Cauchy-Schwarz
+
+::: {#thm-cauchy-schwarz}
+Para cualesquiera vectores $\mathbf{x},\mathbf{y}\in\mathbb{R}^{p}$,
+
+$$
+|\mathbf{x}^{\mathsf T}\mathbf{y}|
+\leq
+\|\mathbf{x}\|_2
+\|\mathbf{y}\|_2.
+$$
+:::
+
+Esta desigualdad permite definir el ángulo entre dos vectores.
+
+## Ángulo entre vectores
+
+Si $\mathbf{x}\neq\mathbf{0}$ y $\mathbf{y}\neq\mathbf{0}$, se define
+
+$$
+\cos\theta
+=
+\frac{
+\mathbf{x}^{\mathsf T}\mathbf{y}
+}{
+\|\mathbf{x}\|_2\|\mathbf{y}\|_2
+}.
+$$
+
+Este concepto es relevante en similitud coseno y análisis de texto.
+
+## Ortogonalidad
+
+::: {#def-ortogonalidad}
+Dos vectores $\mathbf{x}$ y $\mathbf{y}$ son ortogonales si
+
+$$
+\mathbf{x}^{\mathsf T}\mathbf{y}=0.
+$$
+:::
+
+La ortogonalidad generaliza la idea geométrica de perpendicularidad.
+
+## Vectores ortonormales
+
+Un conjunto de vectores $\mathbf{q}_1,\ldots,\mathbf{q}_k$ es ortonormal si:
+
+$$
+\mathbf{q}_i^{\mathsf T}\mathbf{q}_j
+=
+\begin{cases}
+1, & i=j,\\
+0, & i\neq j.
+\end{cases}
+$$
+
+Si las columnas de una matriz cuadrada $\mathbf{Q}$ son ortonormales, entonces
+
+$$
+\mathbf{Q}^{\mathsf T}\mathbf{Q}
+=
+\mathbf{I}.
+$$
+
+Por tanto,
+
+$$
+\mathbf{Q}^{-1}
+=
+\mathbf{Q}^{\mathsf T}.
+$$
+
+## Proyección ortogonal
+
+Sea $\mathbf{u}\neq\mathbf{0}$. La proyección de $\mathbf{x}$ sobre $\mathbf{u}$ es
+
+$$
+\operatorname{proj}_{\mathbf{u}}(\mathbf{x})
+=
+\frac{
+\mathbf{x}^{\mathsf T}\mathbf{u}
+}{
+\mathbf{u}^{\mathsf T}\mathbf{u}
+}
+\mathbf{u}.
+$$
+
+Si $\|\mathbf{u}\|_2=1$, entonces
+
+$$
+\operatorname{proj}_{\mathbf{u}}(\mathbf{x})
+=
+(\mathbf{x}^{\mathsf T}\mathbf{u})\mathbf{u}.
+$$
+
+La regresión lineal puede interpretarse geométricamente como una proyección del vector de respuestas sobre el espacio generado por las columnas de la matriz de diseño.
+
+## Sistemas de ecuaciones lineales
+
+Un sistema de $n$ ecuaciones con $p$ incógnitas puede escribirse como
+
+$$
+\mathbf{A}\mathbf{x}
+=
+\mathbf{b}.
+$$
+
+Por ejemplo,
+
+$$
+\begin{aligned}
+2x_1+x_2&=5,\\
+x_1-3x_2&=-4
+\end{aligned}
+$$
+
+se representa como
+
+$$
+\begin{pmatrix}
+2 & 1\\
+1 & -3
+\end{pmatrix}
+\begin{pmatrix}
+x_1\\
+x_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+5\\
+-4
+\end{pmatrix}.
+$$
+
+## Matriz inversa
+
+::: {#def-matriz-inversa}
+Una matriz cuadrada $\mathbf{A}$ es invertible si existe una matriz $\mathbf{A}^{-1}$ tal que
+
+$$
+\mathbf{A}^{-1}\mathbf{A}
+=
+\mathbf{A}\mathbf{A}^{-1}
+=
+\mathbf{I}.
+$$
+:::
+
+Si $\mathbf{A}$ es invertible, el sistema
+
+$$
+\mathbf{A}\mathbf{x}=\mathbf{b}
+$$
+
+tiene la solución única
+
+$$
+\mathbf{x}
+=
+\mathbf{A}^{-1}\mathbf{b}.
+$$
+
+En la práctica computacional, normalmente no se calcula la inversa explícita; se utilizan métodos numéricos para resolver el sistema.
+
+## Determinante
+
+El determinante de una matriz cuadrada $\mathbf{A}$ se denota por
+
+$$
+\det(\mathbf{A}).
+$$
+
+Una matriz es invertible si y solo si
+
+$$
+\det(\mathbf{A})\neq 0.
+$$
+
+El determinante también mide el factor de cambio de volumen inducido por una transformación lineal.
+
+## Rango
+
+::: {#def-rango}
+El rango de una matriz $\mathbf{A}$ es el número máximo de columnas linealmente independientes.
+:::
+
+Se denota por
+
+$$
+\operatorname{rank}(\mathbf{A}).
+$$
+
+Si
+
+$$
+\mathbf{A}\in\mathbb{R}^{n\times p},
+$$
+
+entonces
+
+$$
+\operatorname{rank}(\mathbf{A})
+\leq
+\min(n,p).
+$$
+
+## Espacio columna
+
+El espacio columna de $\mathbf{A}$ es
+
+$$
+\operatorname{Col}(\mathbf{A})
+=
+\operatorname{span}
+\{\mathbf{a}_1,\ldots,\mathbf{a}_p\},
+$$
+
+donde $\mathbf{a}_j$ es la columna $j$ de $\mathbf{A}$.
+
+## Espacio nulo
+
+El espacio nulo de $\mathbf{A}$ es
+
+$$
+\operatorname{Null}(\mathbf{A})
+=
+\{
+\mathbf{x}:
+\mathbf{A}\mathbf{x}
+=
+\mathbf{0}
+\}.
+$$
+
+Si el espacio nulo contiene vectores distintos de cero, las columnas de $\mathbf{A}$ son linealmente dependientes.
+
+## Transformaciones lineales
+
+::: {#def-transformacion-lineal}
+Una función
+
+$$
+T:\mathbb{R}^{p}\to\mathbb{R}^{m}
+$$
+
+es lineal si para todos $\mathbf{x},\mathbf{y}$ y todos $\alpha,\beta\in\mathbb{R}$,
+
+$$
+T(\alpha\mathbf{x}+\beta\mathbf{y})
+=
+\alpha T(\mathbf{x})
++
+\beta T(\mathbf{y}).
+$$
+:::
+
+Toda transformación lineal puede representarse mediante una matriz:
+
+$$
+T(\mathbf{x})
+=
+\mathbf{A}\mathbf{x}.
+$$
+
+## Formas cuadráticas
+
+::: {#def-forma-cuadratica}
+Una forma cuadrática es una expresión de la forma
+
+$$
+q(\mathbf{x})
+=
+\mathbf{x}^{\mathsf T}
+\mathbf{A}
+\mathbf{x},
+$$
+
+donde $\mathbf{A}$ es una matriz cuadrada.
+:::
+
+Las formas cuadráticas aparecen en:
+
+- funciones de pérdida;
+- distancias de Mahalanobis;
+- regresión ridge;
+- análisis de componentes principales;
+- modelos gaussianos.
+
+## Matrices definidas positivas
+
+::: {#def-definida-positiva}
+Una matriz simétrica $\mathbf{A}$ es definida positiva si
+
+$$
+\mathbf{x}^{\mathsf T}\mathbf{A}\mathbf{x}>0
+$$
+
+para todo $\mathbf{x}\neq\mathbf{0}$.
+:::
+
+Es semidefinida positiva si
+
+$$
+\mathbf{x}^{\mathsf T}\mathbf{A}\mathbf{x}\geq 0.
+$$
+
+Las matrices de covarianza son semidefinidas positivas.
+
+## Valores y vectores propios
+
+::: {#def-valor-vector-propio}
+Sea $\mathbf{A}\in\mathbb{R}^{p\times p}$. Un vector no nulo $\mathbf{v}$ es un vector propio de $\mathbf{A}$ si existe un escalar $\lambda$ tal que
+
+$$
+\mathbf{A}\mathbf{v}
+=
+\lambda\mathbf{v}.
+$$
+
+El escalar $\lambda$ se denomina valor propio asociado.
+:::
+
+La ecuación puede escribirse como
+
+$$
+(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}
+=
+\mathbf{0}.
+$$
+
+Para que exista una solución no trivial, se requiere
+
+$$
+\det(\mathbf{A}-\lambda\mathbf{I})=0.
+$$
+
+Esta ecuación se denomina ecuación característica.
+
+::: {#exm-valores-propios}
+Considere
+
+$$
+\mathbf{A}
+=
+\begin{pmatrix}
+2 & 0\\
+0 & 5
+\end{pmatrix}.
+$$
+
+Entonces
+
+$$
+\mathbf{A}
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix}
+=
+2
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix},
+$$
+
+y
+
+$$
+\mathbf{A}
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
+=
+5
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}.
+$$
+
+Por tanto, los valores propios son $2$ y $5$.
+:::
+
+## Interpretación geométrica
+
+Un vector propio conserva su dirección bajo la transformación lineal $\mathbf{A}$. Únicamente cambia su escala mediante el factor $\lambda$.
+
+Esta propiedad será esencial en PCA, donde los vectores propios de la matriz de covarianza determinan las direcciones principales de variabilidad.
+
+## Descomposición espectral
+
+::: {#thm-descomposicion-espectral}
+Toda matriz real simétrica $\mathbf{A}$ puede escribirse como
+
+$$
+\mathbf{A}
+=
+\mathbf{Q}
+\boldsymbol{\Lambda}
+\mathbf{Q}^{\mathsf T},
+$$
+
+donde:
+
+- $\mathbf{Q}$ es una matriz ortogonal;
+- las columnas de $\mathbf{Q}$ son vectores propios ortonormales;
+- $\boldsymbol{\Lambda}$ es diagonal y contiene los valores propios.
+:::
+
+Esta factorización permite comprender la acción de una matriz simétrica como:
+
+1. un cambio de coordenadas;
+2. un escalamiento;
+3. un regreso al sistema original.
+
+## Matriz de covarianza
+
+Sea una variable aleatoria vectorial
+
+$$
+\mathbf{X}
+=
+\begin{pmatrix}
+X_1\\
+\vdots\\
+X_p
+\end{pmatrix}.
+$$
+
+Su matriz de covarianza es
+
+$$
+\boldsymbol{\Sigma}
+=
+\operatorname{Cov}(\mathbf{X})
+=
+\mathbb{E}
+\left[
+(\mathbf{X}-\boldsymbol{\mu})
+(\mathbf{X}-\boldsymbol{\mu})^{\mathsf T}
+\right].
+$$
+
+La matriz $\boldsymbol{\Sigma}$ es simétrica y semidefinida positiva.
+
+## Descomposición en valores singulares
+
+::: {#def-svd}
+Toda matriz
+
+$$
+\mathbf{A}\in\mathbb{R}^{n\times p}
+$$
+
+puede escribirse como
+
+$$
+\mathbf{A}
+=
+\mathbf{U}
+\boldsymbol{\Sigma}
+\mathbf{V}^{\mathsf T},
+$$
+
+donde:
+
+- $\mathbf{U}$ contiene los vectores singulares izquierdos;
+- $\mathbf{V}$ contiene los vectores singulares derechos;
+- $\boldsymbol{\Sigma}$ contiene los valores singulares.
+:::
+
+Los valores singulares son no negativos y se relacionan con los valores propios de
+
+$$
+\mathbf{A}^{\mathsf T}\mathbf{A}
+$$
+
+y
+
+$$
+\mathbf{A}\mathbf{A}^{\mathsf T}.
+$$
+
+La SVD es fundamental para:
+
+- reducción de dimensionalidad;
+- compresión;
+- cálculo estable de pseudoinversas;
+- análisis de componentes principales;
+- aproximación de matrices;
+- sistemas de recomendación.
+
+## Aproximación de rango bajo
+
+Si
+
+$$
+\mathbf{A}
+=
+\sum_{j=1}^{r}
+\sigma_j
+\mathbf{u}_j
+\mathbf{v}_j^{\mathsf T},
+$$
+
+donde
+
+$$
+\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r>0,
+$$
+
+una aproximación de rango $k<r$ es
+
+$$
+\mathbf{A}_k
+=
+\sum_{j=1}^{k}
+\sigma_j
+\mathbf{u}_j
+\mathbf{v}_j^{\mathsf T}.
+$$
+
+Esta aproximación conserva las direcciones más importantes de la matriz.
+
+## Pseudoinversa
+
+Cuando una matriz no es cuadrada o no es invertible, puede utilizarse la pseudoinversa de Moore-Penrose:
+
+$$
+\mathbf{A}^{+}.
+$$
+
+Si
+
+$$
+\mathbf{A}
+=
+\mathbf{U}
+\boldsymbol{\Sigma}
+\mathbf{V}^{\mathsf T},
+$$
+
+entonces
+
+$$
+\mathbf{A}^{+}
+=
+\mathbf{V}
+\boldsymbol{\Sigma}^{+}
+\mathbf{U}^{\mathsf T}.
+$$
+
+La pseudoinversa permite obtener soluciones de mínimos cuadrados incluso cuando la matriz de diseño tiene dependencia lineal.
+
+## Relación con regresión lineal
+
+El modelo de regresión lineal múltiple se escribe como
+
+$$
+\mathbf{y}
+=
+\mathbf{X}\boldsymbol{\beta}
++
+\boldsymbol{\varepsilon}.
+$$
+
+El estimador de mínimos cuadrados satisface
+
+$$
+\mathbf{X}^{\mathsf T}
+\mathbf{X}
+\widehat{\boldsymbol{\beta}}
+=
+\mathbf{X}^{\mathsf T}\mathbf{y}.
+$$
+
+Si $\mathbf{X}^{\mathsf T}\mathbf{X}$ es invertible,
+
+$$
+\widehat{\boldsymbol{\beta}}
+=
+(\mathbf{X}^{\mathsf T}\mathbf{X})^{-1}
+\mathbf{X}^{\mathsf T}\mathbf{y}.
+$$
+
+Geométricamente,
+
+$$
+\widehat{\mathbf{y}}
+=
+\mathbf{X}
+\widehat{\boldsymbol{\beta}}
+$$
+
+es la proyección ortogonal de $\mathbf{y}$ sobre el espacio columna de $\mathbf{X}$.
+
+## Relación con PCA
+
+En PCA se buscan direcciones unitarias $\mathbf{a}$ que maximicen la varianza proyectada:
+
+$$
+\operatorname{Var}
+(
+\mathbf{a}^{\mathsf T}\mathbf{X}
+)
+=
+\mathbf{a}^{\mathsf T}
+\boldsymbol{\Sigma}
+\mathbf{a}.
+$$
+
+El problema
+
+$$
+\max_{\|\mathbf{a}\|_2=1}
+\mathbf{a}^{\mathsf T}
+\boldsymbol{\Sigma}
+\mathbf{a}
+$$
+
+conduce al vector propio asociado al mayor valor propio de $\boldsymbol{\Sigma}$.
+
+## Relación con redes neuronales
+
+En una capa neuronal,
+
+$$
+\mathbf{z}
+=
+\mathbf{W}\mathbf{x}
++
+\mathbf{b}.
+$$
+
+La matriz $\mathbf{W}$ realiza una transformación lineal y $\mathbf{b}$ agrega un desplazamiento. Posteriormente se aplica una función no lineal.
+
+Por tanto, cada capa combina álgebra lineal y cálculo.
+
+## Conexión con R
+
+```{r}
+#| eval: false
+
+x <- c(1, 2, 3)
+y <- c(4, 0, -1)
+
+# Producto interno
+sum(x * y)
+
+# Norma euclidiana
+sqrt(sum(x^2))
+
+# Matriz
+A <- matrix(
+  c(1, 2,
+    3, 4),
+  nrow = 2,
+  byrow = TRUE
+)
+
+# Transpuesta
+t(A)
+
+# Valores y vectores propios
+eigen(A)
+
+# Descomposición en valores singulares
+svd(A)
+```
+
+## Ejemplo numérico integrado
+
+Considere la matriz de datos centrados
+
+$$
+\mathbf{X}
+=
+\begin{pmatrix}
+-1 & -2\\
+0 & 0\\
+1 & 2
+\end{pmatrix}.
+$$
+
+Las columnas son linealmente dependientes porque
+
+$$
+\mathbf{x}_{\cdot 2}
+=
+2\mathbf{x}_{\cdot 1}.
+$$
+
+La matriz de covarianza muestral es proporcional a
+
+$$
+\mathbf{X}^{\mathsf T}\mathbf{X}
+=
+\begin{pmatrix}
+2 & 4\\
+4 & 8
+\end{pmatrix}.
+$$
+
+Esta matriz tiene rango uno. Uno de sus valores propios es cero, lo que indica que no existe variabilidad independiente en una de las direcciones.
+
+Este ejemplo anticipa dos problemas importantes:
+
+1. multicolinealidad en regresión;
+2. reducción de dimensionalidad mediante PCA.
+
+## Errores frecuentes
+
+1. Confundir producto matricial con multiplicación componente a componente.
+2. Suponer que $\mathbf{A}\mathbf{B}=\mathbf{B}\mathbf{A}$.
+3. Confundir vector fila con vector columna.
+4. Suponer que toda matriz cuadrada es invertible.
+5. Confundir independencia lineal con ortogonalidad.
+6. Pensar que rango es simplemente el número de columnas.
+7. Confundir valores propios con vectores propios.
+8. Utilizar la inversa explícita innecesariamente en cálculos numéricos.
+9. Interpretar una matriz de covarianza sin considerar el escalamiento de variables.
+10. Suponer que una matriz semidefinida positiva debe ser invertible.
+
+## Ejercicios conceptuales
+
+1. Explique la diferencia entre escalar, vector y matriz.
+2. ¿Qué significa que un conjunto de vectores sea linealmente independiente?
+3. ¿Qué representa geométricamente el producto interno?
+4. ¿Cuál es la diferencia entre norma y distancia?
+5. ¿Qué significa que dos vectores sean ortogonales?
+6. ¿Qué representa el rango de una matriz?
+7. ¿Por qué una matriz de covarianza es simétrica?
+8. ¿Qué interpretación geométrica tiene un vector propio?
+9. ¿Por qué la SVD puede aplicarse a matrices no cuadradas?
+10. Explique la relación entre proyección ortogonal y regresión lineal.
+
+## Ejercicios de cálculo
+
+Sean
+
+$$
+\mathbf{x}
+=
+\begin{pmatrix}
+2\\
+-1\\
+3
+\end{pmatrix},
+\qquad
+\mathbf{y}
+=
+\begin{pmatrix}
+1\\
+4\\
+0
+\end{pmatrix}.
+$$
+
+Calcule:
+
+1. $\mathbf{x}+\mathbf{y}$;
+2. $3\mathbf{x}$;
+3. $\mathbf{x}^{\mathsf T}\mathbf{y}$;
+4. $\|\mathbf{x}\|_2$;
+5. $d(\mathbf{x},\mathbf{y})$;
+6. el ángulo entre ambos vectores.
+
+## Ejercicios de matrices
+
+Sean
+
+$$
+\mathbf{A}
+=
+\begin{pmatrix}
+1 & 2\\
+0 & 3
+\end{pmatrix},
+\qquad
+\mathbf{B}
+=
+\begin{pmatrix}
+4 & 1\\
+2 & 5
+\end{pmatrix}.
+$$
+
+Calcule:
+
+1. $\mathbf{A}+\mathbf{B}$;
+2. $\mathbf{A}\mathbf{B}$;
+3. $\mathbf{B}\mathbf{A}$;
+4. $\mathbf{A}^{\mathsf T}$;
+5. $\det(\mathbf{A})$;
+6. $\mathbf{A}^{-1}$, si existe.
+
+## Ejercicio de independencia lineal
+
+Determine si los vectores
+
+$$
+\mathbf{v}_1=
+\begin{pmatrix}
+1\\
+2\\
+3
+\end{pmatrix},
+\quad
+\mathbf{v}_2=
+\begin{pmatrix}
+2\\
+4\\
+6
+\end{pmatrix},
+\quad
+\mathbf{v}_3=
+\begin{pmatrix}
+0\\
+1\\
+1
+\end{pmatrix}
+$$
+
+son linealmente independientes.
+
+## Ejercicio de valores propios
+
+Considere
+
+$$
+\mathbf{A}
+=
+\begin{pmatrix}
+3 & 1\\
+1 & 3
+\end{pmatrix}.
+$$
+
+1. Determine la ecuación característica.
+2. Calcule los valores propios.
+3. Calcule un vector propio asociado a cada valor propio.
+4. Normalice los vectores propios.
+5. Construya la descomposición espectral.
+
+## Ejercicio aplicado
+
+Una base de datos contiene las variables:
+
+- PM10;
+- temperatura;
+- humedad;
+- velocidad del viento.
+
+1. Escriba una observación como vector.
+2. Escriba la matriz de datos para $n$ observaciones.
+3. Indique las dimensiones de la matriz.
+4. Explique qué significa que dos columnas sean linealmente dependientes.
+5. Describa una posible consecuencia de esa dependencia en regresión.
+6. Explique cómo PCA podría ayudar a resolver el problema.
+
+## Resumen
+
+En este capítulo se desarrollaron los conceptos de escalares, vectores, matrices, combinaciones lineales, independencia, bases, espacios vectoriales, productos internos, normas, distancias y proyecciones.
+
+También se estudiaron sistemas lineales, inversas, rango, espacios columna y nulo, transformaciones lineales, formas cuadráticas, matrices definidas positivas, valores propios, descomposición espectral y descomposición en valores singulares.
+
+Estas herramientas constituyen la base matemática de numerosos algoritmos de aprendizaje automático, entre ellos regresión lineal, PCA, máquinas de vectores de soporte, redes neuronales, agrupamiento y métodos de reducción de dimensionalidad.

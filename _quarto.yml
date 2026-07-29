@@ -1,0 +1,105 @@
+project:
+  type: book
+  output-dir: docs
+
+lang: es
+
+resource-files:
+  - estilos/portadas/portada-teorico-pdf.png
+  - estilos/portadas/portada-teorico-web.png
+
+book:
+  title: "Fundamentos Matemáticos del Aprendizaje Automático"
+  subtitle: "Teoría, demostraciones y formulación rigurosa de los métodos de regresión, clasificación y análisis de datos"
+  author: "MI Jesús Gilberto Rodríguez Escobedo"
+  output-file: "fundamentos-matematicos-aprendizaje-automatico"
+  date: today
+  downloads: [pdf]
+
+  chapters:
+    - index.qmd
+    - presentacion.qmd
+    - introduccion.qmd
+    - notacion.qmd
+
+    - part: "I. Fundamentos matemáticos"
+      chapters:
+        - fundamentos/conjuntos-funciones.qmd
+        - fundamentos/algebra-lineal.qmd
+        - fundamentos/probabilidad-estadistica.qmd
+        - fundamentos/calculo-optimizacion.qmd
+
+    - part: "II. Fundamentos del aprendizaje automático"
+      chapters:
+        - aprendizaje/aprendizaje-supervisado.qmd
+        - aprendizaje/teoria-clasificacion.qmd
+        - aprendizaje/evaluacion-modelos.qmd
+        - aprendizaje/regularizacion.qmd
+
+    - part: "III. Modelos de regresión"
+      chapters:
+        - regresion/regresion-lineal-simple.qmd
+        - regresion/regresion-lineal-multiple.qmd
+        - regresion/regresion-logistica.qmd
+
+    - part: "IV. Métodos de clasificación"
+      chapters:
+        - clasificacion/knn.qmd
+        - clasificacion/arboles-decision.qmd
+        - clasificacion/random-forest.qmd
+        - clasificacion/svm.qmd
+        - clasificacion/redes-neuronales.qmd
+
+    - part: "V. Aprendizaje no supervisado"
+      chapters:
+        - no-supervisado/pca.qmd
+        - no-supervisado/kmeans.qmd
+        - no-supervisado/agrupamiento-jerarquico.qmd
+        - no-supervisado/reglas-asociacion.qmd
+
+    - part: "VI. Temas avanzados"
+      chapters:
+        - avanzados/teoria-generalizacion.qmd
+        - avanzados/series-tiempo.qmd
+
+    - referencias.qmd
+
+  page-footer:
+    left: "Fundamentos Matemáticos del Aprendizaje Automático"
+    right: "MI Jesús Gilberto Rodríguez Escobedo"
+
+bibliography: referencias.bib
+
+crossref:
+  chapters: true
+  eq-prefix: "Ecuación"
+  fig-prefix: "Figura"
+  tbl-prefix: "Tabla"
+  thm-prefix: "Teorema"
+  def-prefix: "Definición"
+  exm-prefix: "Ejemplo"
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: estilos/styles.css
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    code-fold: true
+    code-tools: true
+
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    number-sections: true
+    keep-tex: true
+    geometry:
+      - top=2.5cm
+      - bottom=2.5cm
+      - left=3cm
+      - right=2.5cm
+    fontsize: 11pt
+    linestretch: 1.15

@@ -1,6 +1,6 @@
 # Álgebra lineal para aprendizaje automático {#sec-algebra-lineal}
 
-## Introducción
+## Introducción {.unnumbered}
 
 El álgebra lineal proporciona la estructura matemática de los datos multivariados y de numerosos algoritmos. Vectores, matrices, productos internos, proyecciones, valores propios y descomposición en valores singulares aparecen directamente en regresión, PCA, SVM y redes neuronales [@strang2016introduction; @axler2015linear; @bishop2006pattern].
 
@@ -8,7 +8,11 @@ El álgebra lineal constituye uno de los lenguajes fundamentales del aprendizaje
 
 Este capítulo desarrolla los conceptos esenciales de álgebra lineal que se utilizarán a lo largo del libro. El objetivo no es presentar únicamente reglas de cálculo, sino explicar el significado geométrico y estadístico de cada operación.
 
-## Objetivos
+::: {.callout-important title="Idea central"}
+El álgebra lineal permite representar datos, transformaciones, proyecciones y descomposiciones mediante vectores y matrices.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -26,7 +30,7 @@ Al finalizar el capítulo, el lector podrá:
 12. reconocer la función de la descomposición en valores singulares;
 13. relacionar estos conceptos con algoritmos de aprendizaje automático.
 
-## Convenciones de dimensiones
+## Convenciones de dimensiones {.unnumbered}
 
 En todo el capítulo se utilizarán las siguientes convenciones:
 
@@ -38,7 +42,7 @@ En todo el capítulo se utilizarán las siguientes convenciones:
 
 Antes de efectuar una operación matricial conviene verificar explícitamente sus dimensiones.
 
-## Escalares
+## Escalares {.unnumbered}
 
 ::: {#def-escalar}
 Un **escalar** es un elemento de un campo numérico, normalmente el conjunto de los números reales $\mathbb{R}$.
@@ -59,7 +63,7 @@ Ejemplos de escalares en aprendizaje automático son:
 - una función de pérdida;
 - una distancia entre dos observaciones.
 
-## Vectores
+## Vectores {.unnumbered}
 
 ::: {#def-vector}
 Un **vector** de dimensión $p$ es una lista ordenada de $p$ escalares.
@@ -109,7 +113,7 @@ $$
 $$
 :::
 
-## Igualdad de vectores
+## Igualdad de vectores {.unnumbered}
 
 Dos vectores $\mathbf{x},\mathbf{y}\in\mathbb{R}^{p}$ son iguales si todas sus componentes correspondientes son iguales:
 
@@ -121,7 +125,7 @@ x_j=y_j
 \text{para todo }j=1,\ldots,p.
 $$
 
-## Suma de vectores
+## Suma de vectores {.unnumbered}
 
 Sean
 
@@ -186,7 +190,7 @@ $$
 $$
 :::
 
-## Multiplicación por un escalar
+## Multiplicación por un escalar {.unnumbered}
 
 Si $\alpha\in\mathbb{R}$ y $\mathbf{x}\in\mathbb{R}^{p}$, entonces
 
@@ -202,7 +206,7 @@ $$
 
 Geométricamente, la multiplicación por un escalar modifica la longitud del vector y, si $\alpha<0$, también invierte su dirección.
 
-## Combinaciones lineales
+## Combinaciones lineales {.unnumbered}
 
 ::: {#def-combinacion-lineal}
 Una **combinación lineal** de los vectores $\mathbf{v}_1,\ldots,\mathbf{v}_k$ es cualquier vector de la forma
@@ -232,7 +236,7 @@ $$
 
 La predicción es una combinación lineal de las características.
 
-## Combinación convexa
+## Combinación convexa {.unnumbered}
 
 Una combinación lineal se denomina convexa si
 
@@ -259,7 +263,7 @@ se encuentra dentro de la envolvente convexa de los vectores.
 
 Este concepto será importante en optimización y teoría de clasificación.
 
-## Independencia lineal
+## Independencia lineal {.unnumbered}
 
 ::: {#def-independencia-lineal}
 Los vectores $\mathbf{v}_1,\ldots,\mathbf{v}_k$ son linealmente independientes si la ecuación
@@ -321,7 +325,7 @@ $$
 $$
 :::
 
-## Espacios vectoriales
+## Espacios vectoriales {.unnumbered}
 
 ::: {#def-espacio-vectorial}
 Un **espacio vectorial** sobre $\mathbb{R}$ es un conjunto de objetos llamados vectores, equipado con operaciones de suma y multiplicación por escalares que satisfacen ciertas propiedades algebraicas.
@@ -341,7 +345,7 @@ Las propiedades fundamentales incluyen:
 8. compatibilidad de escalares;
 9. identidad escalar.
 
-## Subespacios
+## Subespacios {.unnumbered}
 
 ::: {#def-subespacio}
 Un subconjunto $W$ de un espacio vectorial $V$ es un **subespacio vectorial** si:
@@ -368,7 +372,7 @@ $$
 
 es un subespacio de $\mathbb{R}^{2}$.
 
-## Espacio generado
+## Espacio generado {.unnumbered}
 
 ::: {#def-espacio-generado}
 El espacio generado por los vectores $\mathbf{v}_1,\ldots,\mathbf{v}_k$ es el conjunto de todas sus combinaciones lineales.
@@ -399,7 +403,7 @@ $$
 \mathbb{R}^{2}.
 $$
 
-## Base y dimensión
+## Base y dimensión {.unnumbered}
 
 ::: {#def-base}
 Una **base** de un espacio vectorial $V$ es un conjunto de vectores linealmente independientes que genera todo el espacio.
@@ -440,7 +444,7 @@ $$
 \dim(\mathbb{R}^{p})=p.
 $$
 
-## Matrices
+## Matrices {.unnumbered}
 
 ::: {#def-matriz}
 Una **matriz** de dimensión $n\times p$ es un arreglo rectangular de números con $n$ filas y $p$ columnas.
@@ -471,7 +475,7 @@ donde:
 - $n$ es el número de observaciones;
 - $p$ es el número de características.
 
-## Filas y columnas
+## Filas y columnas {.unnumbered}
 
 La fila $i$ de $\mathbf{X}$ representa la observación $i$:
 
@@ -495,9 +499,9 @@ x_{nj}
 \end{pmatrix}.
 $$
 
-## Matrices especiales
+## Matrices especiales {.unnumbered}
 
-### Matriz cero
+### Matriz cero {.unnumbered}
 
 $$
 \mathbf{0}
@@ -509,7 +513,7 @@ $$
 \end{pmatrix}.
 $$
 
-### Matriz identidad
+### Matriz identidad {.unnumbered}
 
 La matriz identidad de orden $p$ es
 
@@ -530,7 +534,7 @@ $$
 \mathbf{I}_p\mathbf{x}=\mathbf{x}.
 $$
 
-### Matriz diagonal
+### Matriz diagonal {.unnumbered}
 
 Una matriz diagonal tiene ceros fuera de la diagonal principal:
 
@@ -540,7 +544,7 @@ $$
 \operatorname{diag}(d_1,\ldots,d_p).
 $$
 
-### Matriz simétrica
+### Matriz simétrica {.unnumbered}
 
 ::: {#def-matriz-simetrica}
 Una matriz cuadrada $\mathbf{A}$ es simétrica si
@@ -552,7 +556,7 @@ $$
 
 Las matrices de covarianza son simétricas.
 
-## Suma de matrices
+## Suma de matrices {.unnumbered}
 
 Si
 
@@ -570,7 +574,7 @@ $$
 
 La suma solamente está definida cuando ambas matrices tienen las mismas dimensiones.
 
-## Multiplicación de una matriz por un escalar
+## Multiplicación de una matriz por un escalar {.unnumbered}
 
 Si $\alpha\in\mathbb{R}$, entonces
 
@@ -580,7 +584,7 @@ $$
 (\alpha a_{ij}).
 $$
 
-## Producto matricial
+## Producto matricial {.unnumbered}
 
 Sean
 
@@ -655,7 +659,7 @@ $$
 \mathbf{B}\mathbf{A}.
 $$
 
-## Matriz transpuesta
+## Matriz transpuesta {.unnumbered}
 
 La transpuesta de una matriz $\mathbf{A}\in\mathbb{R}^{n\times p}$ es la matriz
 
@@ -688,7 +692,7 @@ $$
 \mathbf{A}^{\mathsf T}.
 $$
 
-## Producto interno
+## Producto interno {.unnumbered}
 
 ::: {#def-producto-interno}
 El producto interno euclidiano de dos vectores $\mathbf{x},\mathbf{y}\in\mathbb{R}^{p}$ se define como
@@ -734,7 +738,7 @@ $$
 $$
 :::
 
-## Norma
+## Norma {.unnumbered}
 
 ::: {#def-norma-euclidiana}
 La norma euclidiana de un vector $\mathbf{x}\in\mathbb{R}^{p}$ es
@@ -761,7 +765,7 @@ Se cumplen:
 3. $\|\alpha\mathbf{x}\|_2=|\alpha|\|\mathbf{x}\|_2$;
 4. $\|\mathbf{x}+\mathbf{y}\|_2\leq\|\mathbf{x}\|_2+\|\mathbf{y}\|_2$.
 
-## Distancia euclidiana
+## Distancia euclidiana {.unnumbered}
 
 La distancia entre $\mathbf{x}$ y $\mathbf{y}$ se define como
 
@@ -803,7 +807,7 @@ d(\mathbf{x},\mathbf{y})
 $$
 :::
 
-## Desigualdad de Cauchy-Schwarz
+## Desigualdad de Cauchy-Schwarz {.unnumbered}
 
 ::: {#thm-cauchy-schwarz}
 Para cualesquiera vectores $\mathbf{x},\mathbf{y}\in\mathbb{R}^{p}$,
@@ -818,7 +822,7 @@ $$
 
 Esta desigualdad permite definir el ángulo entre dos vectores.
 
-## Ángulo entre vectores
+## Ángulo entre vectores {.unnumbered}
 
 Si $\mathbf{x}\neq\mathbf{0}$ y $\mathbf{y}\neq\mathbf{0}$, se define
 
@@ -834,7 +838,7 @@ $$
 
 Este concepto es relevante en similitud coseno y análisis de texto.
 
-## Ortogonalidad
+## Ortogonalidad {.unnumbered}
 
 ::: {#def-ortogonalidad}
 Dos vectores $\mathbf{x}$ y $\mathbf{y}$ son ortogonales si
@@ -846,7 +850,7 @@ $$
 
 La ortogonalidad generaliza la idea geométrica de perpendicularidad.
 
-## Vectores ortonormales
+## Vectores ortonormales {.unnumbered}
 
 Un conjunto de vectores $\mathbf{q}_1,\ldots,\mathbf{q}_k$ es ortonormal si:
 
@@ -875,7 +879,7 @@ $$
 \mathbf{Q}^{\mathsf T}.
 $$
 
-## Proyección ortogonal
+## Proyección ortogonal {.unnumbered}
 
 Sea $\mathbf{u}\neq\mathbf{0}$. La proyección de $\mathbf{x}$ sobre $\mathbf{u}$ es
 
@@ -900,7 +904,7 @@ $$
 
 La regresión lineal puede interpretarse geométricamente como una proyección del vector de respuestas sobre el espacio generado por las columnas de la matriz de diseño.
 
-## Sistemas de ecuaciones lineales
+## Sistemas de ecuaciones lineales {.unnumbered}
 
 Un sistema de $n$ ecuaciones con $p$ incógnitas puede escribirse como
 
@@ -937,7 +941,7 @@ x_2
 \end{pmatrix}.
 $$
 
-## Matriz inversa
+## Matriz inversa {.unnumbered}
 
 ::: {#def-matriz-inversa}
 Una matriz cuadrada $\mathbf{A}$ es invertible si existe una matriz $\mathbf{A}^{-1}$ tal que
@@ -967,7 +971,7 @@ $$
 
 En la práctica computacional, normalmente no se calcula la inversa explícita; se utilizan métodos numéricos para resolver el sistema.
 
-## Determinante
+## Determinante {.unnumbered}
 
 El determinante de una matriz cuadrada $\mathbf{A}$ se denota por
 
@@ -983,7 +987,7 @@ $$
 
 El determinante también mide el factor de cambio de volumen inducido por una transformación lineal.
 
-## Rango
+## Rango {.unnumbered}
 
 ::: {#def-rango}
 El rango de una matriz $\mathbf{A}$ es el número máximo de columnas linealmente independientes.
@@ -1009,7 +1013,7 @@ $$
 \min(n,p).
 $$
 
-## Espacio columna
+## Espacio columna {.unnumbered}
 
 El espacio columna de $\mathbf{A}$ es
 
@@ -1022,7 +1026,7 @@ $$
 
 donde $\mathbf{a}_j$ es la columna $j$ de $\mathbf{A}$.
 
-## Espacio nulo
+## Espacio nulo {.unnumbered}
 
 El espacio nulo de $\mathbf{A}$ es
 
@@ -1039,7 +1043,7 @@ $$
 
 Si el espacio nulo contiene vectores distintos de cero, las columnas de $\mathbf{A}$ son linealmente dependientes.
 
-## Transformaciones lineales
+## Transformaciones lineales {.unnumbered}
 
 ::: {#def-transformacion-lineal}
 Una función
@@ -1067,7 +1071,7 @@ T(\mathbf{x})
 \mathbf{A}\mathbf{x}.
 $$
 
-## Formas cuadráticas
+## Formas cuadráticas {.unnumbered}
 
 ::: {#def-forma-cuadratica}
 Una forma cuadrática es una expresión de la forma
@@ -1091,7 +1095,7 @@ Las formas cuadráticas aparecen en:
 - análisis de componentes principales;
 - modelos gaussianos.
 
-## Matrices definidas positivas
+## Matrices definidas positivas {.unnumbered}
 
 ::: {#def-definida-positiva}
 Una matriz simétrica $\mathbf{A}$ es definida positiva si
@@ -1111,7 +1115,7 @@ $$
 
 Las matrices de covarianza son semidefinidas positivas.
 
-## Valores y vectores propios
+## Valores y vectores propios {.unnumbered}
 
 ::: {#def-valor-vector-propio}
 Sea $\mathbf{A}\in\mathbb{R}^{p\times p}$. Un vector no nulo $\mathbf{v}$ es un vector propio de $\mathbf{A}$ si existe un escalar $\lambda$ tal que
@@ -1188,7 +1192,7 @@ $$
 Por tanto, los valores propios son $2$ y $5$.
 :::
 
-## Interpretación geométrica
+## Interpretación geométrica {.unnumbered}
 
 Un vector propio conserva su dirección bajo la transformación lineal $\mathbf{A}$. Únicamente cambia su escala mediante el factor $\lambda$.
 
@@ -1206,7 +1210,7 @@ $$
 se garantiza para matrices reales simétricas. Una matriz real no simétrica puede no poseer una base ortonormal de vectores propios e incluso puede tener valores propios complejos.
 :::
 
-## Descomposición espectral
+## Descomposición espectral {.unnumbered}
 
 ::: {#thm-descomposicion-espectral}
 Toda matriz real simétrica $\mathbf{A}$ puede escribirse como
@@ -1232,7 +1236,7 @@ Esta factorización permite comprender la acción de una matriz simétrica como:
 2. un escalamiento;
 3. un regreso al sistema original.
 
-## Matriz de covarianza
+## Matriz de covarianza {.unnumbered}
 
 Sea una variable aleatoria vectorial
 
@@ -1266,7 +1270,7 @@ La matriz $\boldsymbol{\Sigma}$ es simétrica y semidefinida positiva.
 Toda matriz real $\mathbf{X}\in\mathbb{R}^{n\times p}$ admite una descomposición en valores singulares. Si su rango es $r$, existen exactamente $r$ valores singulares positivos. La SVD no requiere que la matriz sea cuadrada ni invertible [@strang2016introduction].
 :::
 
-## Descomposición en valores singulares
+## Descomposición en valores singulares {.unnumbered}
 
 ::: {#def-svd}
 Toda matriz
@@ -1313,7 +1317,7 @@ La SVD es fundamental para:
 - aproximación de matrices;
 - sistemas de recomendación.
 
-## Aproximación de rango bajo
+## Aproximación de rango bajo {.unnumbered}
 
 Si
 
@@ -1345,7 +1349,7 @@ $$
 
 Esta aproximación conserva las direcciones más importantes de la matriz.
 
-## Pseudoinversa
+## Pseudoinversa {.unnumbered}
 
 Cuando una matriz no es cuadrada o no es invertible, puede utilizarse la pseudoinversa de Moore-Penrose:
 
@@ -1375,7 +1379,7 @@ $$
 
 La pseudoinversa permite obtener soluciones de mínimos cuadrados incluso cuando la matriz de diseño tiene dependencia lineal.
 
-## Relación con regresión lineal
+## Relación con regresión lineal {.unnumbered}
 
 El modelo de regresión lineal múltiple se escribe como
 
@@ -1417,7 +1421,7 @@ $$
 
 es la proyección ortogonal de $\mathbf{y}$ sobre el espacio columna de $\mathbf{X}$.
 
-## Relación con PCA
+## Relación con PCA {.unnumbered}
 
 En PCA se buscan direcciones unitarias $\mathbf{a}$ que maximicen la varianza proyectada:
 
@@ -1443,7 +1447,7 @@ $$
 
 conduce al vector propio asociado al mayor valor propio de $\boldsymbol{\Sigma}$.
 
-## Relación con redes neuronales
+## Relación con redes neuronales {.unnumbered}
 
 En una capa neuronal,
 
@@ -1459,7 +1463,7 @@ La matriz $\mathbf{W}$ realiza una transformación lineal y $\mathbf{b}$ agrega 
 
 Por tanto, cada capa combina álgebra lineal y cálculo.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1491,7 +1495,7 @@ eigen(A)
 svd(A)
 ```
 
-## Ejemplo numérico integrado
+## Ejemplo numérico integrado {.unnumbered}
 
 Considere la matriz de datos centrados
 
@@ -1531,7 +1535,7 @@ Este ejemplo anticipa dos problemas importantes:
 1. multicolinealidad en regresión;
 2. reducción de dimensionalidad mediante PCA.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Confundir producto matricial con multiplicación componente a componente.
 2. Suponer que $\mathbf{A}\mathbf{B}=\mathbf{B}\mathbf{A}$.
@@ -1544,7 +1548,7 @@ Este ejemplo anticipa dos problemas importantes:
 9. Interpretar una matriz de covarianza sin considerar el escalamiento de variables.
 10. Suponer que una matriz semidefinida positiva debe ser invertible.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique la diferencia entre escalar, vector y matriz.
 2. ¿Qué significa que un conjunto de vectores sea linealmente independiente?
@@ -1557,7 +1561,7 @@ Este ejemplo anticipa dos problemas importantes:
 9. ¿Por qué la SVD puede aplicarse a matrices no cuadradas?
 10. Explique la relación entre proyección ortogonal y regresión lineal.
 
-## Ejercicios de cálculo
+## Ejercicios de cálculo {.unnumbered}
 
 Sean
 
@@ -1588,7 +1592,7 @@ Calcule:
 5. $d(\mathbf{x},\mathbf{y})$;
 6. el ángulo entre ambos vectores.
 
-## Ejercicios de matrices
+## Ejercicios de matrices {.unnumbered}
 
 Sean
 
@@ -1617,7 +1621,7 @@ Calcule:
 5. $\det(\mathbf{A})$;
 6. $\mathbf{A}^{-1}$, si existe.
 
-## Ejercicio de independencia lineal
+## Ejercicio de independencia lineal {.unnumbered}
 
 Determine si los vectores
 
@@ -1646,7 +1650,7 @@ $$
 
 son linealmente independientes.
 
-## Ejercicio de valores propios
+## Ejercicio de valores propios {.unnumbered}
 
 Considere
 
@@ -1665,7 +1669,7 @@ $$
 4. Normalice los vectores propios.
 5. Construya la descomposición espectral.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Una base de datos contiene las variables:
 
@@ -1681,7 +1685,7 @@ Una base de datos contiene las variables:
 5. Describa una posible consecuencia de esa dependencia en regresión.
 6. Explique cómo PCA podría ayudar a resolver el problema.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrollaron los conceptos de escalares, vectores, matrices, combinaciones lineales, independencia, bases, espacios vectoriales, productos internos, normas, distancias y proyecciones.
 

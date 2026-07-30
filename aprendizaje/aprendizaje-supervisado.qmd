@@ -1,6 +1,6 @@
 # Formulación matemática del aprendizaje supervisado {#sec-aprendizaje-supervisado}
 
-## Introducción
+## Introducción {.unnumbered}
 
 El aprendizaje supervisado se formula a partir de una distribución conjunta desconocida sobre entradas y salidas. El conjunto de entrenamiento se interpreta como una muestra de esa distribución, y el algoritmo selecciona una función dentro de una clase de hipótesis [@vapnik1998statistical; @shalev2014understanding; @murphy2022probabilistic].
 
@@ -10,7 +10,11 @@ Desde el punto de vista matemático, el aprendizaje supervisado puede formularse
 
 Esta distinción entre ajuste y generalización es central. Un modelo puede describir muy bien la muestra de entrenamiento y, sin embargo, producir predicciones deficientes fuera de ella. Por esta razón, la teoría del aprendizaje automático estudia funciones de pérdida, riesgo esperado, riesgo empírico, complejidad de modelos, regularización y validación.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+El aprendizaje supervisado utiliza pares entrada–salida para construir una función predictiva.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -39,7 +43,7 @@ $$
 Esta hipótesis no siempre es válida. En series temporales, datos espaciales, redes o mediciones repetidas deben utilizarse esquemas de validación y resultados teóricos adaptados a la dependencia.
 :::
 
-## Espacio de entrada
+## Espacio de entrada {.unnumbered}
 
 ::: {#def-espacio-entrada}
 El **espacio de entrada** o espacio de características es el conjunto de todos los posibles vectores de atributos.
@@ -82,7 +86,7 @@ $$
 \end{pmatrix}.
 $$
 
-## Espacio de salida
+## Espacio de salida {.unnumbered}
 
 ::: {#def-espacio-salida}
 El **espacio de salida** es el conjunto de posibles respuestas.
@@ -120,7 +124,7 @@ $$
 \{1,\ldots,K\}.
 $$
 
-## Variable aleatoria conjunta
+## Variable aleatoria conjunta {.unnumbered}
 
 Se considera un par aleatorio
 
@@ -143,7 +147,7 @@ La distribución conjunta determina:
 - cuánto ruido existe;
 - cuál es la mejor regla de predicción posible.
 
-## Muestra de entrenamiento
+## Muestra de entrenamiento {.unnumbered}
 
 ::: {#def-muestra-entrenamiento}
 Una muestra de entrenamiento es
@@ -169,7 +173,7 @@ $$
 
 La muestra contiene información parcial sobre la distribución verdadera.
 
-## Función objetivo desconocida
+## Función objetivo desconocida {.unnumbered}
 
 Se supone que existe una relación subyacente entre entrada y salida. Idealmente puede representarse mediante una función
 
@@ -197,7 +201,7 @@ $$
 
 El término $\varepsilon$ representa ruido o variabilidad no explicada.
 
-## Hipótesis
+## Hipótesis {.unnumbered}
 
 ::: {#def-hipotesis}
 Una **hipótesis** es una función candidata
@@ -221,7 +225,7 @@ $$
 
 En clasificación mediante $k$-NN, la hipótesis se define a partir de las etiquetas de los vecinos más cercanos.
 
-## Espacio de hipótesis
+## Espacio de hipótesis {.unnumbered}
 
 ::: {#def-espacio-hipotesis}
 El **espacio de hipótesis** es la familia de funciones candidatas entre las cuales se seleccionará el modelo.
@@ -235,7 +239,7 @@ $$
 
 Ejemplos:
 
-### Modelos lineales
+### Modelos lineales {.unnumbered}
 
 $$
 \mathcal{F}
@@ -251,7 +255,7 @@ f(\mathbf{x})
 \right\}.
 $$
 
-### Árboles de decisión
+### Árboles de decisión {.unnumbered}
 
 $$
 \mathcal{F}
@@ -261,7 +265,7 @@ $$
 \}.
 $$
 
-### Redes neuronales
+### Redes neuronales {.unnumbered}
 
 $$
 \mathcal{F}
@@ -273,7 +277,7 @@ $$
 
 La elección de $\mathcal{F}$ determina la complejidad del problema.
 
-## Parámetros e hiperparámetros
+## Parámetros e hiperparámetros {.unnumbered}
 
 Los parámetros son cantidades aprendidas a partir de los datos:
 
@@ -297,7 +301,7 @@ Los hiperparámetros controlan la estructura del aprendizaje:
 
 Los hiperparámetros no se estiman directamente mediante el mismo criterio utilizado para los parámetros; suelen seleccionarse mediante validación.
 
-## Función de pérdida
+## Función de pérdida {.unnumbered}
 
 ::: {#def-funcion-perdida}
 Una función de pérdida es una función
@@ -315,7 +319,7 @@ $$
 L(y,\widehat{y}).
 $$
 
-## Pérdida cuadrática
+## Pérdida cuadrática {.unnumbered}
 
 En regresión,
 
@@ -327,7 +331,7 @@ $$
 
 Penaliza con mayor intensidad los errores grandes.
 
-## Pérdida absoluta
+## Pérdida absoluta {.unnumbered}
 
 $$
 L(y,\widehat{y})
@@ -337,7 +341,7 @@ $$
 
 Es más robusta frente a valores extremos.
 
-## Pérdida 0-1
+## Pérdida 0-1 {.unnumbered}
 
 En clasificación,
 
@@ -349,7 +353,7 @@ $$
 
 La pérdida vale cero si la clasificación es correcta y uno si es incorrecta.
 
-## Pérdida logística
+## Pérdida logística {.unnumbered}
 
 Para clasificación binaria,
 
@@ -366,7 +370,7 @@ $$
 
 Esta pérdida surge de la distribución Bernoulli.
 
-## Pérdida hinge
+## Pérdida hinge {.unnumbered}
 
 En SVM,
 
@@ -382,7 +386,7 @@ $$
 
 Penaliza observaciones mal clasificadas o clasificadas con margen insuficiente.
 
-## Riesgo esperado
+## Riesgo esperado {.unnumbered}
 
 ::: {#def-riesgo-esperado}
 El riesgo esperado de una función $f$ es
@@ -424,7 +428,7 @@ f^{*}_{\mathcal{F}}
 R(f).
 $$
 
-## Riesgo de Bayes
+## Riesgo de Bayes {.unnumbered}
 
 Si se permite elegir entre todas las funciones medibles, el menor riesgo posible es el riesgo de Bayes:
 
@@ -436,7 +440,7 @@ $$
 
 Una función que alcanza ese riesgo se denomina regla de Bayes.
 
-## Riesgo empírico
+## Riesgo empírico {.unnumbered}
 
 Como la distribución verdadera es desconocida, se utiliza la muestra.
 
@@ -475,7 +479,7 @@ $$
 Minimizar el segundo no garantiza por sí mismo minimizar el primero; la diferencia entre ambos es el problema de generalización.
 :::
 
-## Minimización del riesgo empírico
+## Minimización del riesgo empírico {.unnumbered}
 
 ::: {#def-erm}
 El principio de minimización del riesgo empírico selecciona
@@ -490,7 +494,7 @@ $$
 
 Esta idea está detrás de numerosos algoritmos.
 
-### Regresión lineal
+### Regresión lineal {.unnumbered}
 
 $$
 \widehat{\boldsymbol{\beta}}
@@ -507,7 +511,7 @@ y_i
 )^2.
 $$
 
-### Clasificación
+### Clasificación {.unnumbered}
 
 $$
 \widehat{f}
@@ -521,7 +525,7 @@ y_i\neq f(\mathbf{x}_i)
 ).
 $$
 
-## Error de entrenamiento
+## Error de entrenamiento {.unnumbered}
 
 El error de entrenamiento es el riesgo empírico evaluado sobre la muestra utilizada para ajustar el modelo:
 
@@ -533,7 +537,7 @@ $$
 
 Un error de entrenamiento bajo no garantiza buen desempeño futuro.
 
-## Error de prueba
+## Error de prueba {.unnumbered}
 
 El error de prueba se estima usando observaciones no utilizadas durante el ajuste:
 
@@ -550,7 +554,7 @@ $$
 
 El error de prueba aproxima el error de generalización.
 
-## Generalización
+## Generalización {.unnumbered}
 
 ::: {#def-generalizacion}
 La **generalización** es la capacidad de un modelo para realizar predicciones adecuadas sobre observaciones nuevas.
@@ -564,7 +568,7 @@ $$
 
 es pequeño.
 
-## Brecha de generalización
+## Brecha de generalización {.unnumbered}
 
 La diferencia
 
@@ -578,7 +582,7 @@ se denomina brecha de generalización.
 
 Una brecha grande indica que el desempeño observado en entrenamiento es demasiado optimista.
 
-## Sobreajuste
+## Sobreajuste {.unnumbered}
 
 ::: {#def-sobreajuste}
 Existe sobreajuste cuando un modelo se adapta excesivamente a la muestra de entrenamiento y captura ruido o particularidades que no se repiten en datos nuevos.
@@ -591,7 +595,7 @@ Características:
 - elevada complejidad;
 - alta sensibilidad a pequeñas variaciones de la muestra.
 
-## Subajuste
+## Subajuste {.unnumbered}
 
 ::: {#def-subajuste}
 Existe subajuste cuando el modelo es demasiado simple para representar la relación subyacente.
@@ -603,7 +607,7 @@ Características:
 - error de prueba alto;
 - incapacidad para capturar patrones importantes.
 
-## Complejidad del modelo
+## Complejidad del modelo {.unnumbered}
 
 La complejidad puede asociarse con:
 
@@ -617,7 +621,7 @@ La complejidad puede asociarse con:
 
 Un espacio de hipótesis demasiado amplio puede reducir el error de entrenamiento, pero aumentar el riesgo de sobreajuste.
 
-## Ejemplo polinomial
+## Ejemplo polinomial {.unnumbered}
 
 Considere modelos
 
@@ -633,7 +637,7 @@ Si $d$ es muy grande, puede existir sobreajuste.
 
 El objetivo es seleccionar un nivel de complejidad que equilibre ajuste y generalización.
 
-## Regularización
+## Regularización {.unnumbered}
 
 ::: {#def-regularizacion}
 La regularización añade una penalización a la función objetivo para controlar la complejidad del modelo.
@@ -657,7 +661,7 @@ Aquí:
 - $\Omega(f)$ mide complejidad;
 - $\lambda\geq 0$ controla la intensidad de la penalización.
 
-## Regularización L2
+## Regularización L2 {.unnumbered}
 
 Para un vector de parámetros,
 
@@ -683,7 +687,7 @@ $$
 
 Esta penalización reduce la magnitud de los parámetros.
 
-## Regularización L1
+## Regularización L1 {.unnumbered}
 
 $$
 \Omega(\boldsymbol{\theta})
@@ -696,7 +700,7 @@ $$
 
 La penalización L1 puede producir parámetros exactamente iguales a cero y favorecer selección de variables.
 
-## Sesgo y varianza
+## Sesgo y varianza {.unnumbered}
 
 El error de predicción puede analizarse mediante sesgo, varianza y ruido irreducible.
 
@@ -731,7 +735,7 @@ Y-\widehat{f}(\mathbf{x}_0)
 \sigma^2.
 $$
 
-## Sesgo del modelo
+## Sesgo del modelo {.unnumbered}
 
 El sesgo se define como
 
@@ -751,7 +755,7 @@ $$
 
 Un modelo muy rígido suele tener sesgo alto.
 
-## Varianza del modelo
+## Varianza del modelo {.unnumbered}
 
 La varianza es
 
@@ -776,7 +780,7 @@ $$
 
 Un modelo muy flexible suele tener varianza alta.
 
-## Ruido irreducible
+## Ruido irreducible {.unnumbered}
 
 El término
 
@@ -793,7 +797,7 @@ Puede deberse a:
 - procesos inherentemente aleatorios;
 - etiquetas incorrectas.
 
-## Compromiso entre sesgo y varianza
+## Compromiso entre sesgo y varianza {.unnumbered}
 
 Al aumentar la complejidad:
 
@@ -807,7 +811,7 @@ Al reducir la complejidad:
 
 La selección de modelos busca un equilibrio.
 
-## Error de aproximación
+## Error de aproximación {.unnumbered}
 
 Incluso con infinitos datos, puede ocurrir que
 
@@ -817,7 +821,7 @@ $$
 
 El error debido a la limitación del espacio de hipótesis se denomina error de aproximación.
 
-## Error de estimación
+## Error de estimación {.unnumbered}
 
 La muestra es finita, por lo que la función seleccionada puede diferir del mejor elemento de $\mathcal{F}$.
 
@@ -835,7 +839,7 @@ $$
 \text{ruido}.
 $$
 
-## Selección de modelos
+## Selección de modelos {.unnumbered}
 
 La selección de modelos consiste en elegir:
 
@@ -846,7 +850,7 @@ La selección de modelos consiste en elegir:
 
 No debe hacerse utilizando el conjunto de prueba final.
 
-## División de datos
+## División de datos {.unnumbered}
 
 Una estrategia común divide los datos en:
 
@@ -860,7 +864,7 @@ El conjunto de validación selecciona hiperparámetros.
 
 El conjunto de prueba evalúa el modelo final.
 
-## Validación cruzada
+## Validación cruzada {.unnumbered}
 
 Cuando los datos son limitados, puede emplearse validación cruzada.
 
@@ -886,7 +890,7 @@ y_i,
 \right).
 $$
 
-## Clasificación óptima bajo pérdida 0-1
+## Clasificación óptima bajo pérdida 0-1 {.unnumbered}
 
 En clasificación, para una observación $\mathbf{x}$, el riesgo condicional de predecir la clase $k$ es
 
@@ -915,7 +919,7 @@ $$
 
 Esta es la regla de Bayes.
 
-## Regresión óptima bajo pérdida cuadrática
+## Regresión óptima bajo pérdida cuadrática {.unnumbered}
 
 Para una observación fija $\mathbf{x}$, se desea minimizar
 
@@ -952,7 +956,7 @@ Y\mid\mathbf{X}=\mathbf{x}
 ].
 $$
 
-## Regresión óptima bajo pérdida absoluta
+## Regresión óptima bajo pérdida absoluta {.unnumbered}
 
 Si se minimiza
 
@@ -969,7 +973,7 @@ la solución es una mediana condicional de $Y$ dado $\mathbf{X}=\mathbf{x}$.
 
 Esto muestra que diferentes funciones de pérdida conducen a diferentes objetivos estadísticos.
 
-## Aprendizaje paramétrico
+## Aprendizaje paramétrico {.unnumbered}
 
 En un modelo paramétrico,
 
@@ -990,7 +994,7 @@ f_{\boldsymbol{\beta}}(\mathbf{x})
 \boldsymbol{\beta}^{\mathsf T}\mathbf{x}.
 $$
 
-## Aprendizaje no paramétrico
+## Aprendizaje no paramétrico {.unnumbered}
 
 Los métodos no paramétricos no fijan una forma funcional rígida.
 
@@ -1002,7 +1006,7 @@ Ejemplos:
 
 La complejidad puede crecer con el tamaño de la muestra.
 
-## Aprendizaje determinista y probabilístico
+## Aprendizaje determinista y probabilístico {.unnumbered}
 
 Un modelo determinista produce directamente
 
@@ -1022,7 +1026,7 @@ $$
 P(Y=1\mid\mathbf{x}).
 $$
 
-## Relación con regresión lineal
+## Relación con regresión lineal {.unnumbered}
 
 En regresión lineal se minimiza
 
@@ -1042,7 +1046,7 @@ $$
 
 El espacio de hipótesis es lineal en los parámetros.
 
-## Relación con regresión logística
+## Relación con regresión logística {.unnumbered}
 
 En regresión logística se minimiza la pérdida logarítmica:
 
@@ -1059,14 +1063,14 @@ y_i\log\pi_i
 \right].
 $$
 
-## Relación con el método de vecinos más cercanos
+## Relación con el método de vecinos más cercanos {.unnumbered}
 
 En $k$-NN, el espacio de hipótesis depende directamente de la muestra. La complejidad se controla mediante $k$:
 
 - $k$ pequeño: baja sesgo, alta varianza;
 - $k$ grande: mayor sesgo, menor varianza.
 
-## Relación con árboles
+## Relación con árboles {.unnumbered}
 
 En árboles de decisión, la profundidad controla complejidad:
 
@@ -1075,7 +1079,7 @@ En árboles de decisión, la profundidad controla complejidad:
 
 La poda actúa como regularización estructural.
 
-## Relación con redes neuronales
+## Relación con redes neuronales {.unnumbered}
 
 En redes neuronales, la complejidad depende de:
 
@@ -1086,7 +1090,7 @@ En redes neuronales, la complejidad depende de:
 - regularización;
 - cantidad de datos.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1116,7 +1120,7 @@ pred <- predict(modelo, newdata = prueba)
 mean((prueba$y - pred)^2)
 ```
 
-## Ejemplo integrado
+## Ejemplo integrado {.unnumbered}
 
 Supóngase que se comparan tres modelos para predecir una variable continua:
 
@@ -1138,7 +1142,7 @@ Interpretación:
 - el modelo lineal logra mejor equilibrio;
 - el polinomio de grado 12 presenta sobreajuste.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Suponer que menor error de entrenamiento implica mejor modelo.
 2. Utilizar el conjunto de prueba para seleccionar hiperparámetros.
@@ -1151,7 +1155,7 @@ Interpretación:
 9. Comparar modelos sin utilizar la misma partición o procedimiento de validación.
 10. Interpretar una brecha pequeña como garantía absoluta de buen desempeño.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique la diferencia entre $\mathcal{X}$ y $\mathcal{Y}$.
 2. ¿Qué diferencia existe entre una hipótesis y el espacio de hipótesis?
@@ -1164,7 +1168,7 @@ Interpretación:
 9. ¿Qué diferencia existe entre sesgo y varianza?
 10. ¿Qué representa el ruido irreducible?
 
-## Ejercicio de riesgo empírico
+## Ejercicio de riesgo empírico {.unnumbered}
 
 Considere las respuestas verdaderas
 
@@ -1199,7 +1203,7 @@ Calcule:
 3. la pérdida absoluta individual;
 4. el riesgo empírico absoluto.
 
-## Ejercicio de clasificación
+## Ejercicio de clasificación {.unnumbered}
 
 Sean las etiquetas verdaderas
 
@@ -1215,7 +1219,7 @@ $$
 
 Calcule el riesgo empírico bajo pérdida 0-1.
 
-## Ejercicio de regularización
+## Ejercicio de regularización {.unnumbered}
 
 Considere
 
@@ -1240,7 +1244,7 @@ $$
 4. Derive el gradiente.
 5. Obtenga la solución formal.
 
-## Ejercicio de sesgo y varianza
+## Ejercicio de sesgo y varianza {.unnumbered}
 
 Compare conceptualmente:
 
@@ -1251,7 +1255,7 @@ Compare conceptualmente:
 
 Indique cuáles tienden a tener mayor sesgo y cuáles mayor varianza.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea predecir la concentración diaria de PM10 utilizando temperatura, humedad y velocidad del viento.
 
@@ -1266,7 +1270,7 @@ Se desea predecir la concentración diaria de PM10 utilizando temperatura, humed
 9. Describa una situación de subajuste.
 10. Proponga una estrategia de regularización o validación.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se formuló matemáticamente el aprendizaje supervisado como un problema de selección de funciones. Se definieron espacios de entrada y salida, muestras de entrenamiento, hipótesis, espacios de hipótesis, parámetros e hiperparámetros.
 

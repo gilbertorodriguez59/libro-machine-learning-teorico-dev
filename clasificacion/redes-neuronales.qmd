@@ -1,6 +1,6 @@
 # Redes neuronales artificiales {#sec-redes-neuronales}
 
-## Introducción
+## Introducción {.unnumbered}
 
 Las redes neuronales componen transformaciones afines y activaciones no lineales. Su entrenamiento moderno se apoya en retropropagación, optimización estocástica, inicialización controlada y regularización [@rumelhart1986learning; @glorot2010understanding; @he2015delving; @srivastava2014dropout].
 
@@ -10,7 +10,11 @@ Su poder proviene de la composición de múltiples transformaciones no lineales.
 
 En este capítulo se desarrolla la formulación matemática de la neurona artificial, el perceptrón, las redes multicapa, la propagación hacia adelante, las funciones de pérdida, la retropropagación y los métodos de optimización utilizados para entrenarlas.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+Una red neuronal compone transformaciones afines y activaciones no lineales.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -31,7 +35,7 @@ Al finalizar el capítulo, el lector podrá:
 15. relacionar profundidad, capacidad y generalización;
 16. conectar redes neuronales con regresión logística y aprendizaje profundo.
 
-## Neurona artificial
+## Neurona artificial {.unnumbered}
 
 Una neurona recibe un vector de entrada
 
@@ -80,7 +84,7 @@ a
 \phi(z).
 $$
 
-## Interpretación de los pesos
+## Interpretación de los pesos {.unnumbered}
 
 Cada peso $w_j$ controla la influencia de la característica $x_j$.
 
@@ -90,7 +94,7 @@ Cada peso $w_j$ controla la influencia de la característica $x_j$.
 
 El sesgo desplaza el umbral de activación.
 
-## Perceptrón
+## Perceptrón {.unnumbered}
 
 El perceptrón utiliza la función escalón:
 
@@ -114,7 +118,7 @@ $$
 \right).
 $$
 
-## Frontera del perceptrón
+## Frontera del perceptrón {.unnumbered}
 
 La frontera de decisión es
 
@@ -124,7 +128,7 @@ $$
 
 Por tanto, el perceptrón es un clasificador lineal.
 
-## Regla de aprendizaje del perceptrón
+## Regla de aprendizaje del perceptrón {.unnumbered}
 
 Para una observación $(\mathbf{x}_i,y_i)$, una actualización simple es
 
@@ -153,7 +157,7 @@ $$
 
 donde $\eta>0$ es la tasa de aprendizaje.
 
-## Limitación del perceptrón
+## Limitación del perceptrón {.unnumbered}
 
 El perceptrón converge si las clases son linealmente separables. No puede resolver problemas como XOR mediante una sola capa lineal.
 
@@ -163,7 +167,7 @@ Esta limitación motivó el uso de capas ocultas y activaciones no lineales.
 Si todas las activaciones fueran lineales, la composición de múltiples capas sería equivalente a una sola transformación lineal. La capacidad no lineal proviene de las funciones de activación.
 :::
 
-## Red multicapa
+## Red multicapa {.unnumbered}
 
 Una red multicapa contiene:
 
@@ -199,7 +203,7 @@ $$
 \mathbf{a}^{(0)}=\mathbf{x}.
 $$
 
-## Dimensiones
+## Dimensiones {.unnumbered}
 
 Si la capa $\ell-1$ tiene $n_{\ell-1}$ unidades y la capa $\ell$ tiene $n_\ell$, entonces
 
@@ -215,7 +219,7 @@ $$
 \mathbb{R}^{n_\ell}.
 $$
 
-## Propagación hacia adelante
+## Propagación hacia adelante {.unnumbered}
 
 La propagación hacia adelante consiste en calcular secuencialmente:
 
@@ -241,7 +245,7 @@ $$
 \mathbf{a}^{(L)}.
 $$
 
-## Función identidad
+## Función identidad {.unnumbered}
 
 Para regresión puede usarse
 
@@ -251,7 +255,7 @@ $$
 
 La salida no queda restringida.
 
-## Función sigmoidal
+## Función sigmoidal {.unnumbered}
 
 $$
 \sigma(z)
@@ -272,7 +276,7 @@ $$
 
 Se utiliza frecuentemente en clasificación binaria.
 
-## Tangente hiperbólica
+## Tangente hiperbólica {.unnumbered}
 
 $$
 \tanh(z)
@@ -290,7 +294,7 @@ $$
 
 Su rango es $(-1,1)$.
 
-## ReLU
+## ReLU {.unnumbered}
 
 La función ReLU es
 
@@ -313,7 +317,7 @@ $$
 
 En $z=0$ se utiliza un subgradiente.
 
-## Leaky ReLU
+## Leaky ReLU {.unnumbered}
 
 $$
 \operatorname{LReLU}(z)
@@ -328,7 +332,7 @@ con $\alpha>0$ pequeño.
 
 Reduce el problema de neuronas muertas.
 
-## Softmax
+## Softmax {.unnumbered}
 
 Para clasificación multiclase, si la salida lineal es
 
@@ -356,7 +360,7 @@ $$
 1.
 $$
 
-## Estabilidad numérica de softmax
+## Estabilidad numérica de softmax {.unnumbered}
 
 Para evitar desbordamiento se utiliza
 
@@ -379,7 +383,7 @@ z_{\max}
 \max_r z_r.
 $$
 
-## Función de pérdida
+## Función de pérdida {.unnumbered}
 
 El entrenamiento busca minimizar una función de pérdida sobre la muestra.
 
@@ -408,7 +412,7 @@ y_i,
 \right).
 $$
 
-## Error cuadrático medio
+## Error cuadrático medio {.unnumbered}
 
 Para regresión:
 
@@ -422,7 +426,7 @@ y_i-\widehat{y}_i
 \right)^2.
 $$
 
-## Entropía cruzada binaria
+## Entropía cruzada binaria {.unnumbered}
 
 Para clasificación binaria:
 
@@ -441,7 +445,7 @@ y_i\log(\widehat{p}_i)
 \right].
 $$
 
-## Entropía cruzada multiclase
+## Entropía cruzada multiclase {.unnumbered}
 
 Con codificación one-hot:
 
@@ -457,7 +461,7 @@ y_{ic}
 \widehat{p}_{ic}.
 $$
 
-## Entrenamiento
+## Entrenamiento {.unnumbered}
 
 El objetivo es encontrar
 
@@ -470,7 +474,7 @@ $$
 
 Como la función suele ser no convexa, se utilizan métodos iterativos.
 
-## Descenso por gradiente
+## Descenso por gradiente {.unnumbered}
 
 La actualización es
 
@@ -485,7 +489,7 @@ $$
 
 donde $\eta$ es la tasa de aprendizaje.
 
-## Descenso por lotes
+## Descenso por lotes {.unnumbered}
 
 Utiliza toda la muestra para calcular cada gradiente:
 
@@ -500,7 +504,7 @@ $$
 
 Es estable, pero puede ser costoso.
 
-## Descenso estocástico
+## Descenso estocástico {.unnumbered}
 
 Actualiza con una observación:
 
@@ -516,7 +520,7 @@ $$
 
 Introduce ruido, pero puede avanzar rápidamente.
 
-## Mini-lotes
+## Mini-lotes {.unnumbered}
 
 Para un mini-lote $\mathcal{B}$:
 
@@ -541,7 +545,7 @@ Es el enfoque más utilizado.
 La retropropagación calcula gradientes eficientemente. El optimizador —SGD, momentum, Adam u otro— utiliza esos gradientes para actualizar los parámetros.
 :::
 
-## Retropropagación
+## Retropropagación {.unnumbered}
 
 ::: {#def-retropropagacion}
 La retropropagación es un algoritmo eficiente para calcular los gradientes de la pérdida respecto de todos los parámetros mediante la regla de la cadena.
@@ -552,7 +556,7 @@ El procedimiento tiene dos fases:
 1. propagación hacia adelante;
 2. propagación hacia atrás de los errores.
 
-## Derivación para una neurona de salida
+## Derivación para una neurona de salida {.unnumbered}
 
 Supóngase
 
@@ -608,7 +612,7 @@ $$
 \frac{\partial L}{\partial z}.
 $$
 
-## Error local de salida
+## Error local de salida {.unnumbered}
 
 Para la capa final,
 
@@ -631,7 +635,7 @@ $$
 
 Esta simplificación es muy importante.
 
-## Propagación hacia capas ocultas
+## Propagación hacia capas ocultas {.unnumbered}
 
 Para una capa oculta $\ell$:
 
@@ -651,7 +655,7 @@ $$
 
 donde $\odot$ representa producto elemento a elemento.
 
-## Gradientes respecto de pesos
+## Gradientes respecto de pesos {.unnumbered}
 
 $$
 \frac{\partial L}
@@ -663,7 +667,7 @@ $$
 \right)^{\mathsf T}.
 $$
 
-## Gradientes respecto de sesgos
+## Gradientes respecto de sesgos {.unnumbered}
 
 $$
 \frac{\partial L}
@@ -672,7 +676,7 @@ $$
 \boldsymbol{\delta}^{(\ell)}.
 $$
 
-## Retropropagación completa
+## Retropropagación completa {.unnumbered}
 
 Para cada mini-lote:
 
@@ -683,7 +687,7 @@ Para cada mini-lote:
 5. obtener gradientes;
 6. actualizar parámetros.
 
-## Ejemplo de una red de una capa oculta
+## Ejemplo de una red de una capa oculta {.unnumbered}
 
 Sea
 
@@ -728,13 +732,13 @@ $$
 \right].
 $$
 
-## Regla de la cadena
+## Regla de la cadena {.unnumbered}
 
 La derivada de la pérdida respecto de $\mathbf{W}^{(1)}$ depende de todas las capas posteriores.
 
 Esto explica por qué la retropropagación recorre la red desde la salida hasta la entrada.
 
-## Problema de gradiente desvaneciente
+## Problema de gradiente desvaneciente {.unnumbered}
 
 En redes profundas, el gradiente implica productos repetidos de derivadas.
 
@@ -751,7 +755,7 @@ $$
 
 Las primeras capas aprenden muy lentamente.
 
-## Problema de gradiente explosivo
+## Problema de gradiente explosivo {.unnumbered}
 
 Si los factores tienen magnitud grande, el producto puede crecer rápidamente:
 
@@ -764,7 +768,7 @@ $$
 
 Esto produce inestabilidad numérica.
 
-## Estrategias de estabilización
+## Estrategias de estabilización {.unnumbered}
 
 Se utilizan:
 
@@ -775,13 +779,13 @@ Se utilizan:
 - conexiones residuales;
 - optimizadores adaptativos.
 
-## Inicialización de pesos
+## Inicialización de pesos {.unnumbered}
 
 Inicializar todos los pesos en cero produce simetría: las neuronas de una misma capa aprenden lo mismo.
 
 Por ello, se utilizan valores aleatorios con varianza controlada.
 
-## Inicialización Xavier
+## Inicialización Xavier {.unnumbered}
 
 Para activaciones como tanh:
 
@@ -803,7 +807,7 @@ $$
 \frac{1}{n_{\text{entrada}}}.
 $$
 
-## Inicialización He
+## Inicialización He {.unnumbered}
 
 Para ReLU:
 
@@ -816,7 +820,7 @@ W_{ij}^{(\ell)}
 \frac{2}{n_{\ell-1}}.
 $$
 
-## Tasa de aprendizaje
+## Tasa de aprendizaje {.unnumbered}
 
 La tasa $\eta$ es uno de los hiperparámetros más importantes.
 
@@ -830,7 +834,7 @@ Si es demasiado pequeña:
 - el aprendizaje es lento;
 - puede quedar atrapado en regiones planas.
 
-## Momentum
+## Momentum {.unnumbered}
 
 Momentum acumula una velocidad:
 
@@ -852,7 +856,7 @@ $$
 
 Ayuda a suavizar oscilaciones y acelerar en direcciones persistentes.
 
-## RMSProp
+## RMSProp {.unnumbered}
 
 RMSProp mantiene un promedio móvil de cuadrados de gradientes:
 
@@ -877,7 +881,7 @@ $$
 {\sqrt{\mathbf{s}_t}+\varepsilon}.
 $$
 
-## Adam
+## Adam {.unnumbered}
 
 Adam combina momentum y escalamiento adaptativo:
 
@@ -899,7 +903,7 @@ $$
 
 Después corrige sesgo y actualiza los parámetros.
 
-## Regularización L2
+## Regularización L2 {.unnumbered}
 
 Se agrega
 
@@ -925,7 +929,7 @@ J(\Theta)
 \right\|_F^2.
 $$
 
-## Weight decay
+## Weight decay {.unnumbered}
 
 En muchos optimizadores, la regularización L2 se implementa como decaimiento de pesos:
 
@@ -937,7 +941,7 @@ $$
 \eta\nabla_{\mathbf{W}}J.
 $$
 
-## Regularización L1
+## Regularización L1 {.unnumbered}
 
 Puede usarse
 
@@ -955,7 +959,7 @@ Favorece pesos exactamente cero, aunque es menos común que L2.
 Dropout introduce máscaras aleatorias durante entrenamiento. En inferencia se utiliza la red completa con el escalamiento correspondiente; no deben eliminarse neuronas aleatoriamente en una predicción ordinaria.
 :::
 
-## Dropout
+## Dropout {.unnumbered}
 
 Durante entrenamiento, cada activación puede eliminarse aleatoriamente.
 
@@ -979,7 +983,7 @@ $$
 
 Durante predicción no se eliminan unidades.
 
-## Interpretación de dropout
+## Interpretación de dropout {.unnumbered}
 
 Dropout:
 
@@ -988,7 +992,7 @@ Dropout:
 - actúa como regularización;
 - puede interpretarse como aproximación a un ensamble de subredes.
 
-## Parada temprana
+## Parada temprana {.unnumbered}
 
 Se monitorea la pérdida de validación.
 
@@ -999,7 +1003,7 @@ El entrenamiento se detiene cuando:
 
 Esto limita el sobreajuste.
 
-## Normalización por lotes
+## Normalización por lotes {.unnumbered}
 
 Para activaciones de un mini-lote:
 
@@ -1041,7 +1045,7 @@ y_i
 \gamma\widehat{z}_i+\beta.
 $$
 
-## Capacidad del modelo
+## Capacidad del modelo {.unnumbered}
 
 La capacidad depende de:
 
@@ -1057,7 +1061,7 @@ Una red con demasiada capacidad puede memorizar la muestra.
 El teorema garantiza capacidad de aproximación bajo determinadas condiciones, pero no asegura entrenamiento eficiente, buena generalización ni una arquitectura pequeña [@hornik1989multilayer].
 :::
 
-## Teorema de aproximación universal
+## Teorema de aproximación universal {.unnumbered}
 
 Bajo condiciones adecuadas, una red con una capa oculta y suficientes unidades puede aproximar arbitrariamente bien funciones continuas sobre conjuntos compactos.
 
@@ -1068,13 +1072,13 @@ Este resultado no garantiza:
 - número razonable de unidades;
 - estabilidad numérica.
 
-## Profundidad frente a anchura
+## Profundidad frente a anchura {.unnumbered}
 
 Una red ancha puede aproximar muchas funciones, pero una red profunda puede representar ciertas estructuras con menos unidades.
 
 La profundidad permite reutilizar composiciones jerárquicas.
 
-## Interpretación probabilística
+## Interpretación probabilística {.unnumbered}
 
 En clasificación binaria, una salida sigmoidal puede interpretarse como
 
@@ -1092,7 +1096,7 @@ $$
 
 Estas probabilidades pueden necesitar calibración.
 
-## Clases desbalanceadas
+## Clases desbalanceadas {.unnumbered}
 
 Puede utilizarse una entropía cruzada ponderada:
 
@@ -1109,7 +1113,7 @@ $$
 
 También pueden ajustarse umbrales o emplearse técnicas de muestreo.
 
-## Etiquetas suaves
+## Etiquetas suaves {.unnumbered}
 
 En lugar de codificación one-hot exacta, puede usarse *label smoothing*:
 
@@ -1123,7 +1127,7 @@ $$
 
 Esto evita predicciones excesivamente confiadas.
 
-## Sobreajuste
+## Sobreajuste {.unnumbered}
 
 Indicadores comunes:
 
@@ -1141,13 +1145,13 @@ Estrategias:
 - aumento de datos;
 - simplificación de arquitectura.
 
-## Validación
+## Validación {.unnumbered}
 
 La selección de arquitectura y de hiperparámetros debe realizarse con validación.
 
 El conjunto de prueba final se reserva para una sola evaluación.
 
-## Hiperparámetros principales
+## Hiperparámetros principales {.unnumbered}
 
 - número de capas;
 - unidades por capa;
@@ -1159,7 +1163,7 @@ El conjunto de prueba final se reserva para una sola evaluación.
 - dropout;
 - número de épocas.
 
-## Época
+## Época {.unnumbered}
 
 Una época corresponde a una pasada completa por la muestra de entrenamiento.
 
@@ -1171,7 +1175,7 @@ $$
 \right\rceil.
 $$
 
-## Complejidad computacional
+## Complejidad computacional {.unnumbered}
 
 Para una capa densa, el costo de propagación es aproximadamente
 
@@ -1194,13 +1198,13 @@ $$
 
 por observación.
 
-## Predicción
+## Predicción {.unnumbered}
 
 Una vez entrenada, la predicción requiere solo propagación hacia adelante.
 
 No necesita almacenar toda la muestra, a diferencia de $k$-NN.
 
-## Interpretabilidad
+## Interpretabilidad {.unnumbered}
 
 Las redes profundas suelen ser difíciles de interpretar globalmente.
 
@@ -1213,7 +1217,7 @@ Herramientas:
 - activaciones internas;
 - análisis de sensibilidad.
 
-## Relación con regresión logística
+## Relación con regresión logística {.unnumbered}
 
 Una red sin capas ocultas, con salida sigmoidal, es equivalente a una regresión logística:
 
@@ -1228,13 +1232,13 @@ $$
 
 Las capas ocultas permiten aprender transformaciones no lineales.
 
-## Relación con perceptrón
+## Relación con perceptrón {.unnumbered}
 
 El perceptrón usa una activación escalón y actualizaciones basadas en errores de clasificación.
 
 Las redes modernas utilizan activaciones diferenciables y optimización basada en gradientes.
 
-## Relación con SVM
+## Relación con SVM {.unnumbered}
 
 SVM maximiza margen y utiliza pérdida hinge.
 
@@ -1242,7 +1246,7 @@ Las redes neuronales minimizan pérdidas diferenciables y aprenden representacio
 
 SVM suele ser competitivo en muestras medianas; las redes profundas sobresalen en problemas con grandes volúmenes de datos y estructuras complejas.
 
-## Relación con aprendizaje profundo
+## Relación con aprendizaje profundo {.unnumbered}
 
 El aprendizaje profundo estudia redes con múltiples capas y arquitecturas especializadas:
 
@@ -1252,7 +1256,7 @@ El aprendizaje profundo estudia redes con múltiples capas y arquitecturas espec
 - autoencoders;
 - redes generativas.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1302,7 +1306,7 @@ historial <- modelo |>
 predict(modelo, x_prueba)
 ```
 
-## Ejemplo numérico de propagación
+## Ejemplo numérico de propagación {.unnumbered}
 
 Considérese una neurona con
 
@@ -1344,7 +1348,7 @@ a
 0.5498.
 $$
 
-## Ejemplo de ReLU
+## Ejemplo de ReLU {.unnumbered}
 
 Si
 
@@ -1370,7 +1374,7 @@ $$
 \operatorname{ReLU}(z)=3.2.
 $$
 
-## Ejemplo de softmax
+## Ejemplo de softmax {.unnumbered}
 
 Considérese
 
@@ -1406,7 +1410,7 @@ $$
 
 La clase predicha es la primera.
 
-## Ventajas
+## Ventajas {.unnumbered}
 
 1. gran capacidad de aproximación;
 2. aprendizaje automático de representaciones;
@@ -1415,7 +1419,7 @@ La clase predicha es la primera.
 5. flexibilidad arquitectónica;
 6. predicción rápida después del entrenamiento.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. entrenamiento costoso;
 2. numerosos hiperparámetros;
@@ -1425,7 +1429,7 @@ La clase predicha es la primera.
 6. necesidad frecuente de grandes conjuntos de datos;
 7. optimización no convexa.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. no escalar variables;
 2. usar demasiadas capas para pocos datos;
@@ -1438,7 +1442,7 @@ La clase predicha es la primera.
 9. evaluar únicamente exactitud;
 10. concluir causalidad a partir de pesos o activaciones.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique el papel de pesos y sesgo.
 2. ¿Por qué una activación no lineal es necesaria?
@@ -1453,7 +1457,7 @@ La clase predicha es la primera.
 11. ¿Qué ventaja ofrece la profundidad?
 12. ¿Por qué la optimización no es convexa?
 
-## Ejercicio de neurona
+## Ejercicio de neurona {.unnumbered}
 
 Considere
 
@@ -1482,7 +1486,7 @@ $$
 3. Calcule la salida ReLU.
 4. Interprete el resultado.
 
-## Ejercicio de dimensiones
+## Ejercicio de dimensiones {.unnumbered}
 
 Una red tiene:
 
@@ -1500,11 +1504,11 @@ Determine las dimensiones de:
 5. $\mathbf{W}^{(3)}$;
 6. $\mathbf{b}^{(3)}$.
 
-## Ejercicio de parámetros
+## Ejercicio de parámetros {.unnumbered}
 
 Para la red anterior, calcule el número total de parámetros entrenables.
 
-## Ejercicio de softmax
+## Ejercicio de softmax {.unnumbered}
 
 Calcule softmax para
 
@@ -1520,7 +1524,7 @@ $$
 
 Verifique que las probabilidades suman uno.
 
-## Ejercicio de retropropagación
+## Ejercicio de retropropagación {.unnumbered}
 
 Para una neurona sigmoidal con entropía cruzada binaria:
 
@@ -1530,7 +1534,7 @@ Para una neurona sigmoidal con entropía cruzada binaria:
 4. derive $\partial L/\partial z$;
 5. derive $\partial L/\partial w_j$.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea clasificar pacientes según riesgo cardiovascular utilizando:
 
@@ -1560,7 +1564,7 @@ Diseñe una red neuronal que incluya:
 14. comparación con regresión logística, SVM y Random Forest;
 15. limitaciones clínicas.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrollaron los fundamentos matemáticos de las redes neuronales artificiales.
 

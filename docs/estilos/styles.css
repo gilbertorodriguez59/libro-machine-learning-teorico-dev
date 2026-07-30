@@ -64,3 +64,15 @@ table {
   }
 }
 
+
+/* Recuadros pedagógicos */
+.callout.callout-style-default {
+  border-radius: 0.65rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.callout-important .callout-header,
+.callout-note .callout-header,
+.callout-warning .callout-header {
+  font-weight: 700;
+}

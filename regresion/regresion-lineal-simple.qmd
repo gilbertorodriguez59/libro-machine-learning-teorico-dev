@@ -1,6 +1,6 @@
 # Regresión lineal simple {#sec-regresion-lineal-simple}
 
-## Introducción
+## Introducción {.unnumbered}
 
 La regresión lineal simple modela la relación media entre una variable respuesta cuantitativa y un predictor. La recta ajustada describe una asociación estadística; por sí sola no establece causalidad [@montgomery2021introduction; @seber2012linear; @james2021introduction].
 
@@ -8,7 +8,11 @@ La regresión lineal simple estudia la relación entre una variable explicativa 
 
 Aunque se trata de uno de los modelos más sencillos, constituye la base conceptual de métodos más avanzados. En este capítulo se desarrollan la formulación probabilística, la estimación por mínimos cuadrados, las propiedades de los estimadores, la inferencia sobre los parámetros, los intervalos de confianza y predicción, el coeficiente de determinación y el análisis de residuos.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+La regresión lineal simple modela la media de una respuesta con un predictor.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -26,7 +30,7 @@ Al finalizar el capítulo, el lector podrá:
 12. reconocer violaciones de supuestos;
 13. relacionar la regresión lineal con el aprendizaje supervisado.
 
-## Formulación del modelo
+## Formulación del modelo {.unnumbered}
 
 Sean observaciones
 
@@ -54,9 +58,9 @@ Aquí:
 - $\beta_1$ es la pendiente;
 - $\varepsilon_i$ es el error aleatorio.
 
-## Interpretación de los parámetros
+## Interpretación de los parámetros {.unnumbered}
 
-### Intercepto
+### Intercepto {.unnumbered}
 
 $$
 \beta_0
@@ -70,7 +74,7 @@ $$
 
 Esta interpretación solo es útil si $X=0$ tiene sentido dentro del contexto del problema.
 
-### Pendiente
+### Pendiente {.unnumbered}
 
 $$
 \beta_1
@@ -95,11 +99,11 @@ $$
 \beta_1.
 $$
 
-## Supuestos clásicos
+## Supuestos clásicos {.unnumbered}
 
 Se supone:
 
-### Linealidad
+### Linealidad {.unnumbered}
 
 $$
 \mathbb{E}(Y_i\mid x_i)
@@ -107,13 +111,13 @@ $$
 \beta_0+\beta_1x_i.
 $$
 
-### Media cero de los errores
+### Media cero de los errores {.unnumbered}
 
 $$
 \mathbb{E}(\varepsilon_i\mid x_i)=0.
 $$
 
-### Varianza constante
+### Varianza constante {.unnumbered}
 
 $$
 \operatorname{Var}(\varepsilon_i\mid x_i)
@@ -121,7 +125,7 @@ $$
 \sigma^2.
 $$
 
-### Independencia
+### Independencia {.unnumbered}
 
 $$
 \operatorname{Cov}(\varepsilon_i,\varepsilon_j)=0,
@@ -129,7 +133,7 @@ $$
 i\neq j.
 $$
 
-### Normalidad
+### Normalidad {.unnumbered}
 
 Para inferencia exacta,
 
@@ -141,7 +145,7 @@ $$
 
 La normalidad no es necesaria para obtener los estimadores de mínimos cuadrados, pero sí para ciertas pruebas e intervalos exactos en muestras pequeñas.
 
-## Función de regresión
+## Función de regresión {.unnumbered}
 
 La función de regresión poblacional es
 
@@ -163,7 +167,7 @@ $$
 \widehat{\beta}_1x.
 $$
 
-## Criterio de mínimos cuadrados
+## Criterio de mínimos cuadrados {.unnumbered}
 
 Los residuos son
 
@@ -203,7 +207,7 @@ $$
 S(\beta_0,\beta_1).
 $$
 
-## Derivación de las ecuaciones normales
+## Derivación de las ecuaciones normales {.unnumbered}
 
 Derivando respecto de $\beta_0$,
 
@@ -260,7 +264,7 @@ $$
 
 Estas son las ecuaciones normales.
 
-## Estimador de la pendiente
+## Estimador de la pendiente {.unnumbered}
 
 Defina
 
@@ -286,7 +290,7 @@ $$
 \frac{S_{xy}}{S_{xx}}.
 $$
 
-## Estimador del intercepto
+## Estimador del intercepto {.unnumbered}
 
 $$
 \widehat{\beta}_0
@@ -302,7 +306,7 @@ $$
 (\overline{x},\overline{y}).
 $$
 
-## Relación con covarianza y varianza
+## Relación con covarianza y varianza {.unnumbered}
 
 La pendiente puede escribirse como
 
@@ -327,7 +331,7 @@ $$
 
 donde $r_{XY}$ es la correlación muestral.
 
-## Interpretación geométrica
+## Interpretación geométrica {.unnumbered}
 
 El vector de respuestas es
 
@@ -387,7 +391,7 @@ $$
 
 es ortogonal a $\mathbf{1}$ y a $\mathbf{x}$.
 
-## Propiedades de los residuos
+## Propiedades de los residuos {.unnumbered}
 
 De las ecuaciones normales se obtiene:
 
@@ -413,7 +417,7 @@ $$
 \overline{y}.
 $$
 
-## Insesgadez de la pendiente
+## Insesgadez de la pendiente {.unnumbered}
 
 Como
 
@@ -464,7 +468,7 @@ $$
 
 Por tanto, $\widehat{\beta}_1$ es insesgado.
 
-## Insesgadez del intercepto
+## Insesgadez del intercepto {.unnumbered}
 
 Como
 
@@ -487,7 +491,7 @@ $$
 \beta_0.
 $$
 
-## Varianza de la pendiente
+## Varianza de la pendiente {.unnumbered}
 
 Bajo homocedasticidad e independencia,
 
@@ -510,7 +514,7 @@ La varianza disminuye cuando:
 - aumenta la dispersión de $X$;
 - disminuye $\sigma^2$.
 
-## Varianza del intercepto
+## Varianza del intercepto {.unnumbered}
 
 $$
 \operatorname{Var}
@@ -530,7 +534,7 @@ S_{xx}
 \right].
 $$
 
-## Covarianza entre estimadores
+## Covarianza entre estimadores {.unnumbered}
 
 $$
 \operatorname{Cov}
@@ -555,7 +559,7 @@ $$
 
 entonces la covarianza entre intercepto y pendiente se reduce a cero.
 
-## Teorema de Gauss-Markov
+## Teorema de Gauss-Markov {.unnumbered}
 
 ::: {#thm-gauss-markov-simple}
 Bajo linealidad, media cero, homocedasticidad e independencia, los estimadores de mínimos cuadrados son los mejores estimadores lineales insesgados.
@@ -565,7 +569,7 @@ La palabra “mejores” significa que tienen mínima varianza dentro de la clas
 
 La normalidad no es necesaria para este resultado.
 
-## Estimación de la varianza del error
+## Estimación de la varianza del error {.unnumbered}
 
 La suma de cuadrados residual es
 
@@ -592,7 +596,7 @@ $$
 
 Se utilizan $n-2$ grados de libertad porque se estimaron dos parámetros.
 
-## Error estándar residual
+## Error estándar residual {.unnumbered}
 
 $$
 s
@@ -608,7 +612,7 @@ $$
 
 Este valor estima la desviación estándar de los errores.
 
-## Distribución de los estimadores
+## Distribución de los estimadores {.unnumbered}
 
 Si los errores son normales,
 
@@ -638,7 +642,7 @@ s/\sqrt{S_{xx}}
 t_{n-2}.
 $$
 
-## Error estándar de la pendiente
+## Error estándar de la pendiente {.unnumbered}
 
 $$
 SE
@@ -649,7 +653,7 @@ SE
 \frac{s}{\sqrt{S_{xx}}}.
 $$
 
-## Error estándar del intercepto
+## Error estándar del intercepto {.unnumbered}
 
 $$
 SE
@@ -669,7 +673,7 @@ S_{xx}
 }.
 $$
 
-## Prueba de hipótesis para la pendiente
+## Prueba de hipótesis para la pendiente {.unnumbered}
 
 Se desea contrastar
 
@@ -705,7 +709,7 @@ $$
 
 Si el valor $p$ es pequeño, existe evidencia de asociación lineal.
 
-## Interpretación correcta
+## Interpretación correcta {.unnumbered}
 
 Rechazar
 
@@ -722,7 +726,7 @@ Una pendiente no significativa no demuestra ausencia total de relación; puede e
 - medición deficiente;
 - rango limitado de $X$.
 
-## Intervalo de confianza para la pendiente
+## Intervalo de confianza para la pendiente {.unnumbered}
 
 Un intervalo de nivel $1-\alpha$ es
 
@@ -735,7 +739,7 @@ SE(
 ).
 $$
 
-## Intervalo de confianza para el intercepto
+## Intervalo de confianza para el intercepto {.unnumbered}
 
 $$
 \widehat{\beta}_0
@@ -746,7 +750,7 @@ SE(
 ).
 $$
 
-## Estimación de la respuesta media
+## Estimación de la respuesta media {.unnumbered}
 
 En un valor $x_0$,
 
@@ -778,7 +782,7 @@ S_{xx}
 }.
 $$
 
-## Intervalo de confianza para la media
+## Intervalo de confianza para la media {.unnumbered}
 
 $$
 \widehat{y}_0
@@ -796,7 +800,7 @@ S_{xx}
 }.
 $$
 
-## Intervalo de predicción
+## Intervalo de predicción {.unnumbered}
 
 Para una nueva observación,
 
@@ -850,7 +854,7 @@ $$
 
 Es más ancho que el intervalo para la media.
 
-## Descomposición de la variabilidad
+## Descomposición de la variabilidad {.unnumbered}
 
 La suma total de cuadrados es
 
@@ -893,7 +897,7 @@ $$
 La pendiente representa el cambio esperado en la respuesta por una unidad adicional del predictor, dentro del rango observado. No debe extrapolarse automáticamente.
 :::
 
-## Coeficiente de determinación
+## Coeficiente de determinación {.unnumbered}
 
 ::: {#def-r2-simple}
 El coeficiente de determinación es
@@ -924,7 +928,7 @@ R^2
 r_{XY}^2.
 $$
 
-## Interpretación del coeficiente de determinación
+## Interpretación del coeficiente de determinación {.unnumbered}
 
 $R^2$ representa la proporción de variabilidad de $Y$ explicada por el modelo lineal.
 
@@ -936,7 +940,7 @@ No indica:
 - capacidad predictiva futura;
 - calidad absoluta del modelo.
 
-## Tabla ANOVA
+## Tabla ANOVA {.unnumbered}
 
 La descomposición puede organizarse como:
 
@@ -966,7 +970,7 @@ $$
 
 para la prueba de la pendiente.
 
-## Residuos
+## Residuos {.unnumbered}
 
 Los residuos son
 
@@ -978,7 +982,7 @@ $$
 
 Se utilizan para evaluar los supuestos.
 
-## Residuos estandarizados
+## Residuos estandarizados {.unnumbered}
 
 Una versión básica es
 
@@ -990,7 +994,7 @@ $$
 
 Sin embargo, las varianzas de los residuos no son iguales porque dependen del apalancamiento.
 
-## Matriz sombrero
+## Matriz sombrero {.unnumbered}
 
 En forma matricial,
 
@@ -1014,7 +1018,7 @@ $$
 
 se denomina matriz sombrero.
 
-## Apalancamiento
+## Apalancamiento {.unnumbered}
 
 Los elementos diagonales
 
@@ -1040,7 +1044,7 @@ $$
 
 Observaciones alejadas de $\overline{x}$ tienen mayor apalancamiento.
 
-## Varianza de los residuos
+## Varianza de los residuos {.unnumbered}
 
 $$
 \operatorname{Var}(e_i)
@@ -1060,13 +1064,13 @@ s\sqrt{1-h_{ii}}
 }.
 $$
 
-## Residuos studentizados
+## Residuos studentizados {.unnumbered}
 
 Los residuos studentizados externamente utilizan una estimación de $\sigma$ obtenida sin la observación $i$.
 
 Son útiles para detectar valores atípicos.
 
-## Distancia de Cook
+## Distancia de Cook {.unnumbered}
 
 La distancia de Cook mide la influencia de una observación sobre el ajuste:
 
@@ -1092,7 +1096,7 @@ Una observación puede ser influyente si combina:
 - residuo grande;
 - apalancamiento alto.
 
-## Diagnóstico de linealidad
+## Diagnóstico de linealidad {.unnumbered}
 
 Se examina la gráfica:
 
@@ -1106,11 +1110,11 @@ $$
 
 Un patrón curvo sugiere relación no lineal.
 
-## Diagnóstico de homocedasticidad
+## Diagnóstico de homocedasticidad {.unnumbered}
 
 Si la dispersión de residuos aumenta o disminuye con $\widehat{y}$, puede existir heterocedasticidad.
 
-## Diagnóstico de normalidad
+## Diagnóstico de normalidad {.unnumbered}
 
 Puede utilizarse:
 
@@ -1120,7 +1124,7 @@ Puede utilizarse:
 
 En muestras grandes, pequeñas desviaciones pueden resultar significativas sin ser importantes en la práctica.
 
-## Diagnóstico de independencia
+## Diagnóstico de independencia {.unnumbered}
 
 En datos ordenados temporalmente se analizan:
 
@@ -1128,7 +1132,7 @@ En datos ordenados temporalmente se analizan:
 - autocorrelaciones;
 - prueba de Durbin-Watson.
 
-## Heterocedasticidad
+## Heterocedasticidad {.unnumbered}
 
 Si
 
@@ -1142,13 +1146,13 @@ la varianza no es constante.
 
 Los estimadores de mínimos cuadrados pueden seguir siendo insesgados, pero los errores estándar clásicos pueden ser incorrectos.
 
-## Errores estándar robustos
+## Errores estándar robustos {.unnumbered}
 
 Los errores estándar robustos corrigen la estimación de varianza sin modificar los coeficientes.
 
 Son útiles cuando existe heterocedasticidad.
 
-## Transformaciones
+## Transformaciones {.unnumbered}
 
 Una transformación puede ayudar a:
 
@@ -1168,13 +1172,13 @@ $$
 
 La interpretación de los coeficientes cambia.
 
-## Extrapolación
+## Extrapolación {.unnumbered}
 
 Predecir fuera del rango observado de $X$ puede ser peligroso.
 
 Aunque la recta se extienda matemáticamente, la relación real puede cambiar.
 
-## Correlación y regresión
+## Correlación y regresión {.unnumbered}
 
 En regresión simple,
 
@@ -1192,7 +1196,7 @@ Sin embargo:
 - cambiar unidades afecta la pendiente;
 - la correlación no cambia ante cambios lineales de escala positiva.
 
-## Regresión y causalidad
+## Regresión y causalidad {.unnumbered}
 
 Una asociación lineal no implica causalidad.
 
@@ -1204,7 +1208,7 @@ Pueden existir:
 - selección de muestra;
 - coincidencia.
 
-## Relación con máxima verosimilitud
+## Relación con máxima verosimilitud {.unnumbered}
 
 Si
 
@@ -1242,7 +1246,7 @@ $$
 
 Por tanto, mínimos cuadrados y máxima verosimilitud coinciden bajo normalidad.
 
-## Relación con aprendizaje supervisado
+## Relación con aprendizaje supervisado {.unnumbered}
 
 El espacio de hipótesis es
 
@@ -1274,7 +1278,7 @@ $$
 
 La regresión lineal simple es, por tanto, un problema de minimización del riesgo empírico.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1311,7 +1315,7 @@ par(mfrow = c(2, 2))
 plot(modelo)
 ```
 
-## Ejemplo numérico
+## Ejemplo numérico {.unnumbered}
 
 Considere:
 
@@ -1390,7 +1394,7 @@ $$
 1+1.2x.
 $$
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Interpretar el intercepto fuera del rango observado.
 2. Concluir causalidad a partir de una pendiente significativa.
@@ -1403,7 +1407,7 @@ $$
 9. Suponer que normalidad de $Y$ es requerida; el supuesto se refiere a los errores.
 10. Interpretar una pendiente no significativa como prueba de ausencia de relación.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique la diferencia entre función de regresión y recta ajustada.
 2. ¿Qué representa $\beta_1$?
@@ -1416,7 +1420,7 @@ $$
 9. ¿Qué diferencia existe entre valor atípico e influencia?
 10. ¿Por qué la extrapolación puede ser peligrosa?
 
-## Ejercicio de estimación
+## Ejercicio de estimación {.unnumbered}
 
 Considere los datos:
 
@@ -1435,7 +1439,7 @@ Calcule:
 7. los valores ajustados;
 8. los residuos.
 
-## Ejercicio de inferencia
+## Ejercicio de inferencia {.unnumbered}
 
 Supóngase:
 
@@ -1456,7 +1460,7 @@ $$
 3. Construya un intervalo de confianza del $95\%$.
 4. Interprete el resultado.
 
-## Ejercicio de ANOVA
+## Ejercicio de ANOVA {.unnumbered}
 
 Sean:
 
@@ -1476,7 +1480,7 @@ Calcule:
 4. $MSE$;
 5. el estadístico $F$.
 
-## Ejercicio de predicción
+## Ejercicio de predicción {.unnumbered}
 
 Supóngase:
 
@@ -1509,7 +1513,7 @@ Para $x_0=12$:
 3. calcule el error estándar de predicción;
 4. compare ambos intervalos.
 
-## Ejercicio de diagnóstico
+## Ejercicio de diagnóstico {.unnumbered}
 
 Para cada patrón, explique qué posible problema sugiere:
 
@@ -1519,7 +1523,7 @@ Para cada patrón, explique qué posible problema sugiere:
 4. un punto con gran apalancamiento y residuo grande;
 5. residuos autocorrelacionados.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea estudiar la relación entre temperatura y concentración de PM10.
 
@@ -1534,7 +1538,7 @@ Se desea estudiar la relación entre temperatura y concentración de PM10.
 9. Explique por qué la asociación no implica causalidad.
 10. Indique cuándo sería necesaria una transformación.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló la regresión lineal simple desde su formulación probabilística hasta la inferencia y el diagnóstico.
 

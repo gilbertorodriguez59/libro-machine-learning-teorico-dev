@@ -1,6 +1,6 @@
 # Regularización y control de la complejidad {#sec-regularizacion}
 
-## Introducción
+## Introducción {.unnumbered}
 
 La regularización modifica el problema de ajuste para controlar la complejidad efectiva, estabilizar estimaciones y mejorar el desempeño fuera de muestra. Puede expresarse como penalización, restricción, parada temprana, reducción de dimensión o elección de una clase de hipótesis más pequeña [@tikhonov1963solution; @tibshirani1996regression; @hastie2009elements].
 
@@ -17,7 +17,11 @@ La regularización puede entenderse desde distintos puntos de vista:
 
 En este capítulo se desarrollan formalmente ridge, LASSO y elastic net, así como sus interpretaciones geométricas y estadísticas.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+Regularizar significa controlar la complejidad efectiva para reducir sobreajuste.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -36,7 +40,7 @@ Al finalizar el capítulo, el lector podrá:
 13. seleccionar $\lambda$ mediante validación;
 14. reconocer limitaciones y precauciones prácticas.
 
-## Motivación
+## Motivación {.unnumbered}
 
 Considere el modelo lineal
 
@@ -81,7 +85,7 @@ Sin embargo, este estimador puede presentar problemas cuando:
 - el modelo tiene demasiada flexibilidad;
 - se desea seleccionar variables.
 
-## Problemas de multicolinealidad
+## Problemas de multicolinealidad {.unnumbered}
 
 Cuando algunas columnas de $\mathbf{X}$ están altamente correlacionadas, la matriz
 
@@ -99,7 +103,7 @@ Esto provoca:
 - signos difíciles de interpretar;
 - predicciones poco robustas.
 
-## Problema penalizado general
+## Problema penalizado general {.unnumbered}
 
 ::: {#def-regularizacion-general}
 Un problema de regularización tiene la forma
@@ -133,7 +137,7 @@ se recupera el modelo sin penalización.
 
 Cuando $\lambda$ aumenta, la penalización adquiere mayor peso.
 
-## Interpretación del parámetro de regularización
+## Interpretación del parámetro de regularización {.unnumbered}
 
 Un valor pequeño de $\lambda$:
 
@@ -148,7 +152,7 @@ Un valor grande:
 - puede aumentar sesgo;
 - puede producir subajuste.
 
-## Formulación restringida
+## Formulación restringida {.unnumbered}
 
 El problema penalizado puede relacionarse con
 
@@ -168,7 +172,7 @@ Existe una correspondencia entre $\lambda$ y $t$, bajo condiciones regulares.
 
 La forma penalizada utiliza $\lambda$; la forma restringida limita directamente la complejidad.
 
-## Regresión ridge
+## Regresión ridge {.unnumbered}
 
 ::: {#def-ridge}
 La regresión ridge minimiza
@@ -202,7 +206,7 @@ $$
 
 Habitualmente el intercepto no se penaliza.
 
-## Forma matricial de ridge
+## Forma matricial de ridge {.unnumbered}
 
 La función objetivo puede escribirse como
 
@@ -216,7 +220,7 @@ J_{ridge}(\boldsymbol{\beta})
 \boldsymbol{\beta}^{\mathsf T}\boldsymbol{\beta}.
 $$
 
-## Derivación del estimador ridge
+## Derivación del estimador ridge {.unnumbered}
 
 Derivando respecto de $\boldsymbol{\beta}$,
 
@@ -267,7 +271,7 @@ $$
 \mathbf{X}^{\mathsf T}\mathbf{y}.
 $$
 
-## Efecto sobre la invertibilidad
+## Efecto sobre la invertibilidad {.unnumbered}
 
 Incluso si
 
@@ -287,7 +291,7 @@ es definida positiva y, por tanto, invertible.
 
 Esta es una ventaja fundamental de ridge.
 
-## Interpretación espectral
+## Interpretación espectral {.unnumbered}
 
 Supóngase que
 
@@ -327,7 +331,7 @@ $$
 
 Ridge reduce con mayor intensidad las direcciones asociadas a valores propios pequeños.
 
-## Factores de contracción
+## Factores de contracción {.unnumbered}
 
 En las coordenadas principales, el factor de contracción es
 
@@ -347,7 +351,7 @@ $$
 
 Cuando $\mu_j$ es pequeño, la contracción es mayor.
 
-## Sesgo de ridge
+## Sesgo de ridge {.unnumbered}
 
 Condicionado a $\mathbf{X}$,
 
@@ -368,7 +372,7 @@ $$
 
 Por tanto, ridge es sesgado cuando $\lambda>0$.
 
-## Varianza de ridge
+## Varianza de ridge {.unnumbered}
 
 Si
 
@@ -402,13 +406,13 @@ $$
 
 Ridge introduce sesgo, pero puede reducir considerablemente la varianza.
 
-## Ridge y el compromiso sesgo-varianza
+## Ridge y el compromiso sesgo-varianza {.unnumbered}
 
 El error cuadrático medio de los parámetros puede disminuir si la reducción de varianza compensa el aumento de sesgo.
 
 Esta es la razón estadística de la regularización.
 
-## Geometría de ridge
+## Geometría de ridge {.unnumbered}
 
 La forma restringida es
 
@@ -434,7 +438,7 @@ La región factible es una esfera o circunferencia $L_2$.
 
 La solución aparece donde una curva de nivel de la pérdida toca la región restringida.
 
-## Estandarización
+## Estandarización {.unnumbered}
 
 Ridge depende de la escala de las variables.
 
@@ -452,7 +456,7 @@ $$
 
 Sin estandarización, las variables con escalas grandes reciben una penalización relativa diferente.
 
-## LASSO
+## LASSO {.unnumbered}
 
 ::: {#def-lasso}
 LASSO minimiza
@@ -484,7 +488,7 @@ $$
 |\beta_j|.
 $$
 
-## Forma restringida de LASSO
+## Forma restringida de LASSO {.unnumbered}
 
 $$
 \min_{\boldsymbol{\beta}}
@@ -504,7 +508,7 @@ $$
 t.
 $$
 
-## No diferenciabilidad
+## No diferenciabilidad {.unnumbered}
 
 La función
 
@@ -527,7 +531,7 @@ Se utilizan métodos como:
 - LARS;
 - métodos proximales.
 
-## Subgradiente
+## Subgradiente {.unnumbered}
 
 Para
 
@@ -549,7 +553,7 @@ $$
 
 Las condiciones óptimas se expresan mediante subgradientes.
 
-## Operador soft-thresholding
+## Operador soft-thresholding {.unnumbered}
 
 ::: {#def-soft-thresholding}
 El operador de umbral suave se define como
@@ -568,7 +572,7 @@ $$
 
 Este operador reduce la magnitud y puede producir exactamente cero.
 
-## Caso ortonormal
+## Caso ortonormal {.unnumbered}
 
 Si
 
@@ -592,7 +596,7 @@ $$
 
 según la convención de escala utilizada.
 
-## Geometría de LASSO
+## Geometría de LASSO {.unnumbered}
 
 La región
 
@@ -610,7 +614,7 @@ Sus vértices están sobre los ejes coordenados. Las curvas de nivel de la pérd
 
 Por ello, LASSO produce coeficientes exactamente iguales a cero.
 
-## Selección de variables
+## Selección de variables {.unnumbered}
 
 Si
 
@@ -626,7 +630,7 @@ LASSO realiza simultáneamente:
 - contracción;
 - selección de variables.
 
-## Limitaciones de LASSO
+## Limitaciones de LASSO {.unnumbered}
 
 LASSO puede presentar dificultades cuando:
 
@@ -637,7 +641,7 @@ LASSO puede presentar dificultades cuando:
 
 En grupos correlacionados, puede seleccionar una variable y excluir otras de forma inestable.
 
-## Elastic net
+## Elastic net {.unnumbered}
 
 ::: {#def-elastic-net}
 Elastic net combina penalizaciones $L_1$ y $L_2$:
@@ -690,7 +694,7 @@ $$
 0\leq\alpha\leq 1.
 $$
 
-## Casos particulares
+## Casos particulares {.unnumbered}
 
 Si
 
@@ -716,7 +720,7 @@ $$
 
 se obtiene elastic net.
 
-## Ventaja de elastic net
+## Ventaja de elastic net {.unnumbered}
 
 Elastic net puede:
 
@@ -725,7 +729,7 @@ Elastic net puede:
 - funcionar mejor cuando $p>n$;
 - combinar esparsidad y estabilidad.
 
-## Caminos de regularización
+## Caminos de regularización {.unnumbered}
 
 Al variar $\lambda$, se obtiene una trayectoria
 
@@ -737,7 +741,7 @@ Cuando $\lambda\to 0$, la solución se aproxima al modelo no regularizado.
 
 Cuando $\lambda\to\infty$, los coeficientes tienden a cero.
 
-## Valor máximo del parámetro de regularización
+## Valor máximo del parámetro de regularización {.unnumbered}
 
 En LASSO existe un valor suficientemente grande
 
@@ -749,7 +753,7 @@ para el cual todos los coeficientes penalizados son cero.
 
 Los algoritmos suelen construir una secuencia decreciente desde $\lambda_{\max}$.
 
-## Selección del parámetro de regularización
+## Selección del parámetro de regularización {.unnumbered}
 
 La práctica habitual es seleccionar $\lambda$ mediante validación cruzada:
 
@@ -762,7 +766,7 @@ $$
 
 También puede utilizarse la regla de un error estándar para elegir una solución más regularizada y parsimoniosa.
 
-## Ridge como estimación bayesiana
+## Ridge como estimación bayesiana {.unnumbered}
 
 Supóngase el modelo gaussiano
 
@@ -806,7 +810,7 @@ $$
 
 Por tanto, ridge corresponde a una previa normal.
 
-## LASSO como estimación bayesiana
+## LASSO como estimación bayesiana {.unnumbered}
 
 Si la previa de cada coeficiente es Laplace,
 
@@ -821,7 +825,7 @@ $$
 
 el estimador MAP conduce a una penalización $L_1$.
 
-## Regularización en regresión logística
+## Regularización en regresión logística {.unnumbered}
 
 La pérdida logística penalizada es
 
@@ -846,9 +850,9 @@ Puede utilizarse:
 - LASSO;
 - elastic net.
 
-## Regularización en redes neuronales
+## Regularización en redes neuronales {.unnumbered}
 
-### Weight decay
+### Weight decay {.unnumbered}
 
 Se añade
 
@@ -860,19 +864,19 @@ $$
 \right\|_F^2.
 $$
 
-### Dropout
+### Dropout {.unnumbered}
 
 Durante el entrenamiento, algunas activaciones se eliminan aleatoriamente.
 
-### Early stopping
+### Early stopping {.unnumbered}
 
 Se detiene el entrenamiento cuando el error de validación deja de mejorar.
 
-### Data augmentation
+### Data augmentation {.unnumbered}
 
 Se generan transformaciones de los datos para reducir sobreajuste.
 
-## Regularización en árboles
+## Regularización en árboles {.unnumbered}
 
 En árboles, el control de complejidad se realiza mediante:
 
@@ -883,7 +887,7 @@ En árboles, el control de complejidad se realiza mediante:
 
 La regularización no siempre adopta la forma de una norma.
 
-## Regularización explícita e implícita
+## Regularización explícita e implícita {.unnumbered}
 
 La regularización explícita aparece directamente en la función objetivo.
 
@@ -895,7 +899,7 @@ La regularización implícita puede provenir de:
 - detención temprana;
 - ruido en el entrenamiento.
 
-## Grados de libertad efectivos
+## Grados de libertad efectivos {.unnumbered}
 
 En ridge, los valores ajustados son
 
@@ -932,7 +936,7 @@ $$
 
 Al aumentar $\lambda$, disminuyen los grados de libertad efectivos.
 
-## Relación con la estabilidad
+## Relación con la estabilidad {.unnumbered}
 
 Un algoritmo es estable si pequeñas modificaciones de la muestra producen cambios pequeños en el modelo.
 
@@ -940,7 +944,7 @@ Ridge suele aumentar estabilidad al evitar coeficientes extremos.
 
 La estabilidad contribuye a reducir la brecha de generalización.
 
-## Variables categóricas
+## Variables categóricas {.unnumbered}
 
 Cuando una variable categórica se codifica con varias variables indicadoras, penalizar cada coeficiente por separado puede ser inadecuado.
 
@@ -949,7 +953,7 @@ Pueden utilizarse extensiones como:
 - group LASSO;
 - sparse group LASSO.
 
-## Group LASSO
+## Group LASSO {.unnumbered}
 
 Si los parámetros se agrupan en $G$ bloques,
 
@@ -969,7 +973,7 @@ $$
 
 Puede eliminar grupos completos de variables.
 
-## Regularización adaptativa
+## Regularización adaptativa {.unnumbered}
 
 Adaptive LASSO utiliza pesos:
 
@@ -982,7 +986,7 @@ Los pesos pueden depender de estimaciones iniciales.
 
 Esto permite penalizar menos los coeficientes aparentemente importantes.
 
-## Regularización y causalidad
+## Regularización y causalidad {.unnumbered}
 
 La selección de variables predictivas no equivale a identificar variables causales.
 
@@ -995,7 +999,7 @@ Un coeficiente cero puede deberse a:
 
 La regularización mejora predicción, pero no resuelve por sí sola problemas causales.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1044,7 +1048,7 @@ ajuste_en <- cv.glmnet(
 coef(ajuste_en, s = "lambda.1se")
 ```
 
-## Ejemplo numérico ridge
+## Ejemplo numérico ridge {.unnumbered}
 
 Considere
 
@@ -1104,7 +1108,7 @@ $$
 
 Este sistema es más estable que el sistema sin penalización.
 
-## Comparación conceptual
+## Comparación conceptual {.unnumbered}
 
 | Método | Penalización | Selección de variables | Estabilidad |
 |---|---|---|---|
@@ -1112,7 +1116,7 @@ Este sistema es más estable que el sistema sin penalización.
 | LASSO | $L_1$ | Sí | Puede ser inestable con correlación |
 | Elastic net | $L_1+L_2$ | Sí | Mayor con variables correlacionadas |
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Penalizar variables sin estandarizarlas.
 2. Penalizar el intercepto sin intención.
@@ -1125,7 +1129,7 @@ Este sistema es más estable que el sistema sin penalización.
 9. Utilizar regularización sin recalibrar el modelo cuando sea necesario.
 10. Reportar únicamente $\lambda_{min}$ sin considerar parsimonia.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique por qué ridge introduce sesgo.
 2. ¿Cómo puede un estimador sesgado tener menor error cuadrático medio?
@@ -1138,7 +1142,7 @@ Este sistema es más estable que el sistema sin penalización.
 9. ¿Qué relación existe entre LASSO y una previa Laplace?
 10. Explique la diferencia entre regularización explícita e implícita.
 
-## Ejercicio de derivación ridge
+## Ejercicio de derivación ridge {.unnumbered}
 
 Considere
 
@@ -1158,7 +1162,7 @@ $$
 4. Obtenga la solución ridge.
 5. Explique por qué la matriz resultante es invertible para $\lambda>0$.
 
-## Ejercicio de soft-thresholding
+## Ejercicio de soft-thresholding {.unnumbered}
 
 Calcule
 
@@ -1175,7 +1179,7 @@ para:
 
 Interprete cuándo el resultado es cero.
 
-## Ejercicio de validación
+## Ejercicio de validación {.unnumbered}
 
 Se obtienen los siguientes errores:
 
@@ -1192,7 +1196,7 @@ Se obtienen los siguientes errores:
 3. Explique qué ocurre en valores muy grandes.
 4. Relacione el patrón con sesgo y varianza.
 
-## Ejercicio comparativo
+## Ejercicio comparativo {.unnumbered}
 
 Supóngase que existen 50 variables altamente correlacionadas y solo 80 observaciones.
 
@@ -1205,7 +1209,7 @@ Compare:
 
 Indique ventajas y limitaciones de cada uno.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea predecir PM10 utilizando 40 variables meteorológicas y derivadas.
 
@@ -1220,7 +1224,7 @@ Se desea predecir PM10 utilizando 40 variables meteorológicas y derivadas.
 9. Explique cómo interpretaría los coeficientes.
 10. Señale por qué la selección no implica causalidad.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se estudió la regularización como mecanismo para controlar complejidad, reducir varianza y mejorar estabilidad.
 

@@ -1,6 +1,6 @@
 # Máquinas de vectores de soporte, SVM {#sec-svm}
 
-## Introducción
+## Introducción {.unnumbered}
 
 Las máquinas de vectores de soporte buscan una frontera con margen grande y pueden incorporar transformaciones no lineales mediante kernels. Su formulación conecta optimización convexa, regularización y teoría de generalización [@cortes1995support; @vapnik1998statistical].
 
@@ -10,7 +10,11 @@ La idea fundamental consiste en encontrar una frontera de decisión que separe l
 
 Cuando las clases no pueden separarse perfectamente, se introducen variables de holgura y una penalización que permite ciertos errores. Para fronteras no lineales, SVM utiliza funciones kernel, que permiten trabajar implícitamente en espacios de características de dimensión mayor sin calcular explícitamente la transformación.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+Una SVM busca una frontera de decisión con margen grande.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -31,7 +35,7 @@ Al finalizar el capítulo, el lector podrá:
 15. analizar escalamiento, regularización y selección de hiperparámetros;
 16. relacionar SVM con minimización del riesgo empírico.
 
-## Clasificación binaria
+## Clasificación binaria {.unnumbered}
 
 Considérese una muestra
 
@@ -61,7 +65,7 @@ $$
 g:\mathbb{R}^{p}\to\{-1,+1\}.
 $$
 
-## Hiperplano separador
+## Hiperplano separador {.unnumbered}
 
 Un hiperplano en $\mathbb{R}^{p}$ se define mediante
 
@@ -85,7 +89,7 @@ g(\mathbf{x})
 \right).
 $$
 
-## Regiones de decisión
+## Regiones de decisión {.unnumbered}
 
 El hiperplano divide el espacio en:
 
@@ -101,7 +105,7 @@ $$
 
 correspondiente a la clase $-1$.
 
-## Separabilidad lineal
+## Separabilidad lineal {.unnumbered}
 
 ::: {#def-separabilidad-lineal}
 La muestra es linealmente separable si existen $\mathbf{w}$ y $b$ tales que
@@ -119,7 +123,7 @@ para toda observación $i$.
 
 Esta condición indica que cada punto queda en el lado correcto del hiperplano.
 
-## Escala del hiperplano
+## Escala del hiperplano {.unnumbered}
 
 Los pares
 
@@ -138,7 +142,7 @@ definen el mismo hiperplano.
 
 Por ello, se necesita fijar una escala para formular el margen.
 
-## Distancia de un punto al hiperplano
+## Distancia de un punto al hiperplano {.unnumbered}
 
 La distancia perpendicular de $\mathbf{x}_i$ al hiperplano es
 
@@ -164,7 +168,7 @@ $$
 }.
 $$
 
-## Margen funcional
+## Margen funcional {.unnumbered}
 
 El margen funcional de la observación $i$ es
 
@@ -183,7 +187,7 @@ Depende de la escala de $\mathbf{w}$ y $b$.
 El margen depende de la escala de las variables. Por ello, SVM suele requerir centrado y estandarización, especialmente con kernels que utilizan distancias.
 :::
 
-## Margen geométrico
+## Margen geométrico {.unnumbered}
 
 El margen geométrico es
 
@@ -202,7 +206,7 @@ $$
 
 Este margen no cambia si $\mathbf{w}$ y $b$ se multiplican por una constante positiva.
 
-## Margen del clasificador
+## Margen del clasificador {.unnumbered}
 
 El margen total respecto de la muestra es
 
@@ -215,7 +219,7 @@ $$
 
 SVM busca maximizar esta cantidad.
 
-## Normalización canónica
+## Normalización canónica {.unnumbered}
 
 Se escalan $\mathbf{w}$ y $b$ para que las observaciones más cercanas satisfagan
 
@@ -238,7 +242,7 @@ y_i
 \geq 1.
 $$
 
-## Hiperplanos del margen
+## Hiperplanos del margen {.unnumbered}
 
 Los hiperplanos paralelos que contienen las observaciones más cercanas son
 
@@ -258,7 +262,7 @@ $$
 \frac{2}{\|\mathbf{w}\|_2}.
 $$
 
-## Problema de margen máximo
+## Problema de margen máximo {.unnumbered}
 
 Maximizar el margen equivale a minimizar la norma de $\mathbf{w}$:
 
@@ -282,7 +286,7 @@ $$
 
 Este es un problema de optimización convexa cuadrática.
 
-## Vectores de soporte
+## Vectores de soporte {.unnumbered}
 
 ::: {#def-vectores-soporte}
 Los vectores de soporte son las observaciones que se encuentran sobre los márgenes o dentro de ellos y que determinan la solución óptima.
@@ -301,7 +305,7 @@ $$
 
 Las observaciones alejadas del margen no cambian directamente la posición del hiperplano óptimo.
 
-## Interpretación geométrica
+## Interpretación geométrica {.unnumbered}
 
 SVM no intenta simplemente encontrar cualquier frontera que separe las clases. Busca la frontera con mayor espacio libre alrededor.
 
@@ -311,7 +315,7 @@ Un margen grande se asocia con:
 - menor sensibilidad a perturbaciones pequeñas;
 - mejor capacidad de generalización.
 
-## Formulación lagrangiana
+## Formulación lagrangiana {.unnumbered}
 
 Se introducen multiplicadores
 
@@ -338,7 +342,7 @@ y_i
 \right].
 $$
 
-## Condición respecto del vector normal
+## Condición respecto del vector normal {.unnumbered}
 
 Derivando respecto de $\mathbf{w}$,
 
@@ -362,7 +366,7 @@ $$
 
 Por tanto, el vector normal es una combinación lineal de observaciones de entrenamiento.
 
-## Condición respecto del intercepto
+## Condición respecto del intercepto {.unnumbered}
 
 Derivando respecto de $b$,
 
@@ -381,7 +385,7 @@ $$
 \alpha_i y_i=0.
 $$
 
-## Problema dual de margen duro
+## Problema dual de margen duro {.unnumbered}
 
 Sustituyendo las condiciones anteriores, se obtiene
 
@@ -411,7 +415,7 @@ $$
 \sum_{i=1}^{n}\alpha_i y_i=0.
 $$
 
-## Condiciones de complementariedad
+## Condiciones de complementariedad {.unnumbered}
 
 Las condiciones KKT incluyen
 
@@ -436,7 +440,7 @@ $$
 
 entonces la observación se encuentra sobre el margen y es vector de soporte.
 
-## Función de decisión dual
+## Función de decisión dual {.unnumbered}
 
 Como
 
@@ -460,7 +464,7 @@ $$
 
 Solo las observaciones con $\alpha_i>0$ contribuyen.
 
-## Datos no separables
+## Datos no separables {.unnumbered}
 
 En la práctica, las clases pueden solaparse o contener ruido.
 
@@ -472,7 +476,7 @@ El margen duro puede:
 
 Para resolverlo se introduce el margen suave.
 
-## Variables de holgura
+## Variables de holgura {.unnumbered}
 
 Se definen
 
@@ -498,7 +502,7 @@ Interpretación:
 - $\xi_i=1$: observación sobre la frontera;
 - $\xi_i>1$: observación mal clasificada.
 
-## Problema de margen suave
+## Problema de margen suave {.unnumbered}
 
 La formulación primal es
 
@@ -528,7 +532,7 @@ $$
 \xi_i\geq 0.
 $$
 
-## Interpretación del parámetro C
+## Interpretación del parámetro C {.unnumbered}
 
 El parámetro
 
@@ -552,7 +556,7 @@ Un valor pequeño:
 - puede generar un margen más ancho;
 - puede aumentar sesgo.
 
-## Pérdida hinge
+## Pérdida hinge {.unnumbered}
 
 La pérdida hinge es
 
@@ -588,7 +592,7 @@ C
 \right\}.
 $$
 
-## Interpretación como riesgo regularizado
+## Interpretación como riesgo regularizado {.unnumbered}
 
 Dividiendo por $n$ y reparametrizando,
 
@@ -610,7 +614,7 @@ $$
 
 SVM es un problema de minimización de riesgo empírico regularizado.
 
-## Dual del margen suave
+## Dual del margen suave {.unnumbered}
 
 El problema dual es
 
@@ -642,7 +646,7 @@ $$
 
 La cota superior $C$ aparece como consecuencia de las variables de holgura.
 
-## Interpretación de los multiplicadores
+## Interpretación de los multiplicadores {.unnumbered}
 
 En el margen suave:
 
@@ -650,7 +654,7 @@ En el margen suave:
 - $0<\alpha_i<C$: observación sobre el margen;
 - $\alpha_i=C$: observación dentro del margen o mal clasificada.
 
-## Fronteras no lineales
+## Fronteras no lineales {.unnumbered}
 
 Un hiperplano en el espacio original puede ser insuficiente.
 
@@ -670,7 +674,7 @@ f(\mathbf{x})
 \mathbf{w}^{\mathsf T}\phi(\mathbf{x})+b.
 $$
 
-## Truco kernel
+## Truco kernel {.unnumbered}
 
 En el problema dual, las observaciones aparecen únicamente mediante productos internos.
 
@@ -696,7 +700,7 @@ K(\mathbf{x}_i,\mathbf{x})
 +b.
 $$
 
-## Kernel lineal
+## Kernel lineal {.unnumbered}
 
 $$
 K(\mathbf{x},\mathbf{z})
@@ -706,7 +710,7 @@ $$
 
 Corresponde a una frontera lineal en el espacio original.
 
-## Kernel polinomial
+## Kernel polinomial {.unnumbered}
 
 $$
 K(\mathbf{x},\mathbf{z})
@@ -726,7 +730,7 @@ Parámetros:
 
 Permite representar interacciones polinomiales.
 
-## Kernel radial
+## Kernel radial {.unnumbered}
 
 El kernel radial gaussiano es
 
@@ -748,7 +752,7 @@ $$
 \frac{1}{2\sigma^2}.
 $$
 
-## Interpretación del parámetro gamma
+## Interpretación del parámetro gamma {.unnumbered}
 
 Un valor grande de $\gamma$:
 
@@ -762,7 +766,7 @@ Un valor pequeño:
 - genera fronteras suaves;
 - puede aumentar subajuste.
 
-## Kernel sigmoidal
+## Kernel sigmoidal {.unnumbered}
 
 $$
 K(\mathbf{x},\mathbf{z})
@@ -777,7 +781,7 @@ $$
 
 No todos los valores de parámetros garantizan que sea un kernel válido.
 
-## Condición de Mercer
+## Condición de Mercer {.unnumbered}
 
 Para representar un producto interno válido, el kernel debe generar una matriz de Gram semidefinida positiva.
 
@@ -800,7 +804,7 @@ $$
 
 para todo vector $\mathbf{a}$.
 
-## Matriz de Gram
+## Matriz de Gram {.unnumbered}
 
 La matriz
 
@@ -816,7 +820,7 @@ $$
 
 resume todos los productos internos en el espacio transformado.
 
-## Cálculo del intercepto
+## Cálculo del intercepto {.unnumbered}
 
 Para un vector de soporte con
 
@@ -852,7 +856,7 @@ $$
 
 Habitualmente se promedia entre varios vectores de soporte.
 
-## Escalamiento de variables
+## Escalamiento de variables {.unnumbered}
 
 SVM depende de productos internos y distancias.
 
@@ -872,7 +876,7 @@ $$
 
 El escalamiento debe aprenderse únicamente con datos de entrenamiento.
 
-## Selección de hiperparámetros
+## Selección de hiperparámetros {.unnumbered}
 
 Los principales hiperparámetros son:
 
@@ -884,7 +888,7 @@ Los principales hiperparámetros son:
 
 La selección se realiza mediante validación cruzada.
 
-## Búsqueda conjunta
+## Búsqueda conjunta {.unnumbered}
 
 Para kernel radial, deben seleccionarse conjuntamente
 
@@ -910,7 +914,7 @@ $$
 
 Estas rejillas son orientativas.
 
-## Número de vectores de soporte
+## Número de vectores de soporte {.unnumbered}
 
 El número de vectores de soporte influye en:
 
@@ -920,7 +924,7 @@ El número de vectores de soporte influye en:
 
 Una solución con muchos vectores de soporte suele ser más compleja.
 
-## Probabilidades
+## Probabilidades {.unnumbered}
 
 SVM produce una puntuación
 
@@ -942,7 +946,7 @@ $$
 
 También puede utilizarse regresión isotónica.
 
-## Clasificación multiclase
+## Clasificación multiclase {.unnumbered}
 
 SVM es esencialmente binario.
 
@@ -951,7 +955,7 @@ Las estrategias comunes son:
 - uno contra el resto;
 - uno contra uno.
 
-## Uno contra el resto
+## Uno contra el resto {.unnumbered}
 
 Para $C$ clases se entrenan $C$ clasificadores:
 
@@ -965,7 +969,7 @@ $$
 
 La predicción utiliza la mayor puntuación.
 
-## Uno contra uno
+## Uno contra uno {.unnumbered}
 
 Se entrena un clasificador por cada par de clases.
 
@@ -979,7 +983,7 @@ $$
 
 La clase final se decide mediante votación.
 
-## SVM para regresión
+## SVM para regresión {.unnumbered}
 
 La regresión por vectores de soporte se denomina SVR.
 
@@ -998,7 +1002,7 @@ $$
 
 Los errores dentro de un tubo de anchura $\varepsilon$ no reciben penalización.
 
-## Formulación de SVR
+## Formulación de SVR {.unnumbered}
 
 La formulación primal es
 
@@ -1037,7 +1041,7 @@ $$
 \xi_i,\xi_i^*\geq 0.
 $$
 
-## Ventajas de SVM
+## Ventajas de SVM {.unnumbered}
 
 1. fundamento matemático sólido;
 2. optimización convexa;
@@ -1047,7 +1051,7 @@ $$
 6. control explícito de regularización;
 7. dependencia solo de vectores de soporte.
 
-## Limitaciones de SVM
+## Limitaciones de SVM {.unnumbered}
 
 1. requiere escalamiento;
 2. selección de kernel e hiperparámetros puede ser costosa;
@@ -1057,7 +1061,7 @@ $$
 6. sensible a clases desbalanceadas;
 7. puede ser difícil explicar fronteras no lineales.
 
-## Maldición de la dimensionalidad
+## Maldición de la dimensionalidad {.unnumbered}
 
 SVM puede funcionar bien cuando $p$ es grande, especialmente con regularización adecuada.
 
@@ -1065,7 +1069,7 @@ Sin embargo, variables irrelevantes y ruido pueden deteriorar el margen y aument
 
 La selección de variables sigue siendo importante.
 
-## Clases desbalanceadas
+## Clases desbalanceadas {.unnumbered}
 
 Puede utilizarse una penalización diferente por clase:
 
@@ -1083,13 +1087,13 @@ para la negativa.
 
 La función objetivo se modifica para asignar mayor costo a errores en la clase crítica.
 
-## Robustez frente a valores atípicos
+## Robustez frente a valores atípicos {.unnumbered}
 
 El margen suave permite tolerar errores, pero valores atípicos pueden influir fuertemente cuando $C$ es grande.
 
 Reducir $C$ aumenta regularización y puede mejorar robustez.
 
-## Relación con regresión logística
+## Relación con regresión logística {.unnumbered}
 
 Ambos modelos lineales utilizan
 
@@ -1111,7 +1115,7 @@ SVM:
 - maximiza margen;
 - depende principalmente de vectores de soporte.
 
-## Relación con perceptrón
+## Relación con perceptrón {.unnumbered}
 
 El perceptrón actualiza parámetros cuando una observación es mal clasificada.
 
@@ -1122,7 +1126,7 @@ SVM añade:
 - optimización convexa;
 - kernels.
 
-## Relación con redes neuronales
+## Relación con redes neuronales {.unnumbered}
 
 SVM utiliza una transformación fija determinada por el kernel.
 
@@ -1130,7 +1134,7 @@ Las redes neuronales aprenden representaciones internas mediante sus parámetros
 
 SVM suele ser competitivo en muestras medianas; las redes profundas dominan problemas con grandes cantidades de datos no estructurados.
 
-## Complejidad computacional
+## Complejidad computacional {.unnumbered}
 
 El entrenamiento clásico requiere resolver un problema cuadrático.
 
@@ -1154,7 +1158,7 @@ $$
 n\times n.
 $$
 
-## Métodos de optimización
+## Métodos de optimización {.unnumbered}
 
 Entre los algoritmos utilizados se encuentran:
 
@@ -1165,13 +1169,13 @@ Entre los algoritmos utilizados se encuentran:
 - aproximaciones lineales;
 - métodos distribuidos.
 
-## SMO
+## SMO {.unnumbered}
 
 El algoritmo SMO resuelve iterativamente pequeños subproblemas que involucran dos multiplicadores $\alpha_i$ a la vez.
 
 Esto evita resolver directamente un gran problema cuadrático.
 
-## SVM lineal para grandes datos
+## SVM lineal para grandes datos {.unnumbered}
 
 Cuando el kernel es lineal, pueden utilizarse algoritmos especializados que operan directamente en el espacio primal.
 
@@ -1181,7 +1185,7 @@ Estos métodos son más eficientes cuando:
 - $p$ es alto;
 - no se necesita una frontera no lineal.
 
-## Interpretación del margen como confianza
+## Interpretación del margen como confianza {.unnumbered}
 
 La magnitud
 
@@ -1193,7 +1197,7 @@ indica distancia funcional respecto de la frontera.
 
 Un valor grande sugiere una decisión más alejada del hiperplano, pero no constituye una probabilidad calibrada.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1248,7 +1252,7 @@ ajuste$best.parameters
 ajuste$best.model
 ```
 
-## Ejemplo de hiperplano
+## Ejemplo de hiperplano {.unnumbered}
 
 Considere
 
@@ -1302,7 +1306,7 @@ $$
 \frac{2}{\sqrt{5}}.
 $$
 
-## Ejemplo de pérdida hinge
+## Ejemplo de pérdida hinge {.unnumbered}
 
 Supóngase
 
@@ -1358,7 +1362,7 @@ L_{\text{hinge}}
 1.8.
 $$
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. aplicar SVM sin escalar variables;
 2. seleccionar $C$ y $\gamma$ con el conjunto de prueba;
@@ -1371,7 +1375,7 @@ $$
 9. utilizar una rejilla lineal en lugar de logarítmica;
 10. concluir causalidad a partir de la frontera.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique qué representa un hiperplano.
 2. ¿Qué diferencia existe entre margen funcional y geométrico?
@@ -1386,7 +1390,7 @@ $$
 11. Compare SVM y regresión logística.
 12. ¿Cómo se extiende SVM a múltiples clases?
 
-## Ejercicio de distancia al hiperplano
+## Ejercicio de distancia al hiperplano {.unnumbered}
 
 Sea
 
@@ -1415,7 +1419,7 @@ calcule:
 2. la clase predicha;
 3. la distancia al hiperplano.
 
-## Ejercicio de margen
+## Ejercicio de margen {.unnumbered}
 
 Supóngase que el vector normal satisface
 
@@ -1428,7 +1432,7 @@ $$
 3. Repita para $\|\mathbf{w}\|_2=2$.
 4. Interprete el cambio.
 
-## Ejercicio de pérdida hinge
+## Ejercicio de pérdida hinge {.unnumbered}
 
 Calcule la pérdida para:
 
@@ -1440,7 +1444,7 @@ Calcule la pérdida para:
 | -1 | -1.5 |
 | -1 | 0.2 |
 
-## Ejercicio de kernel radial
+## Ejercicio de kernel radial {.unnumbered}
 
 Considere
 
@@ -1457,7 +1461,7 @@ $$
 3. Repita con $\gamma=2$.
 4. Interprete el efecto de $\gamma$.
 
-## Ejercicio de selección
+## Ejercicio de selección {.unnumbered}
 
 Se obtienen los siguientes errores de validación:
 
@@ -1475,7 +1479,7 @@ Se obtienen los siguientes errores de validación:
 2. Explique por qué $C$ y $\gamma$ deben elegirse conjuntamente.
 3. Describa un posible patrón de sobreajuste.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea clasificar accidentes severos mediante SVM usando:
 
@@ -1503,7 +1507,7 @@ Diseñe un análisis que incluya:
 13. comparación con Random Forest y regresión logística;
 14. limitaciones interpretativas.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló la formulación matemática de las máquinas de vectores de soporte.
 

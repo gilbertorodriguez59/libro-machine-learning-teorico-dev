@@ -1,6 +1,6 @@
 # Árboles de decisión {#sec-arboles-decision}
 
-## Introducción
+## Introducción {.unnumbered}
 
 Los árboles de decisión particionan recursivamente el espacio predictor mediante reglas simples. Su interpretabilidad es atractiva, pero un árbol profundo puede tener alta varianza y sobreajustar [@breiman1984cart; @quinlan1986induction; @quinlan1993c45].
 
@@ -16,7 +16,11 @@ El modelo final tiene una estructura jerárquica formada por nodos internos, ram
 
 Los árboles destacan por su interpretabilidad, su capacidad de representar relaciones no lineales e interacciones, y su escasa necesidad de transformaciones previas. Sin embargo, un árbol profundo puede presentar alta varianza y sobreajuste. Por ello, su construcción requiere criterios de impureza, reglas de parada y procedimientos de poda.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+Un árbol divide recursivamente el espacio de predictores mediante reglas simples.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -35,7 +39,7 @@ Al finalizar el capítulo, el lector podrá:
 13. reconocer limitaciones de la importancia basada en impureza;
 14. conectar árboles con random forest y boosting.
 
-## Estructura de un árbol
+## Estructura de un árbol {.unnumbered}
 
 Un árbol está formado por:
 
@@ -46,7 +50,7 @@ Un árbol está formado por:
 
 Cada observación recorre el árbol desde la raíz hasta una hoja.
 
-## Representación mediante regiones
+## Representación mediante regiones {.unnumbered}
 
 Sea el espacio de entrada
 
@@ -71,7 +75,7 @@ $$
 
 Cada hoja corresponde a una región $R_m$.
 
-## Regla de predicción en clasificación
+## Regla de predicción en clasificación {.unnumbered}
 
 Sea
 
@@ -103,7 +107,7 @@ $$
 \mathbf{x}\in R_m.
 $$
 
-## Regla de predicción en regresión
+## Regla de predicción en regresión {.unnumbered}
 
 En regresión, la predicción de la hoja es
 
@@ -126,7 +130,7 @@ $$
 
 El árbol de regresión es una función constante por regiones.
 
-## División binaria
+## División binaria {.unnumbered}
 
 En CART, cada nodo se divide en dos hijos. Para una variable numérica $X_j$, una división tiene la forma
 
@@ -144,7 +148,7 @@ $$
 
 El algoritmo busca la pareja $(j,s)$ que produce la mayor reducción de impureza.
 
-## Impureza de un nodo
+## Impureza de un nodo {.unnumbered}
 
 Sea $t$ un nodo y
 
@@ -158,7 +162,7 @@ donde $n_{tc}$ es el número de observaciones de clase $c$ y $n_t$ el total del 
 
 Una medida de impureza cuantifica cuán mezcladas están las clases dentro del nodo.
 
-## Error de clasificación
+## Error de clasificación {.unnumbered}
 
 La impureza basada en error de clasificación es
 
@@ -170,7 +174,7 @@ $$
 
 Es intuitiva, pero poco sensible a cambios en las probabilidades y por ello se usa menos para construir el árbol.
 
-## Impureza de Gini
+## Impureza de Gini {.unnumbered}
 
 ::: {#def-gini}
 La impureza de Gini de un nodo es
@@ -206,7 +210,7 @@ $$
 Entropía y Gini se utilizan para construir el árbol porque son más sensibles a cambios en las probabilidades de clase que el error de clasificación. Una menor impureza local no garantiza por sí sola mejor desempeño fuera de muestra.
 :::
 
-## Entropía
+## Entropía {.unnumbered}
 
 ::: {#def-entropia-arbol}
 La entropía de un nodo es
@@ -225,7 +229,7 @@ con la convención $0\log 0=0$.
 
 La entropía es cero en un nodo puro y alcanza su máximo cuando las clases están distribuidas uniformemente.
 
-## Comparación entre Gini y entropía
+## Comparación entre Gini y entropía {.unnumbered}
 
 Ambas medidas:
 
@@ -236,7 +240,7 @@ Ambas medidas:
 
 CART utiliza habitualmente Gini; ID3 y C4.5 utilizan entropía.
 
-## Impureza ponderada después de una división
+## Impureza ponderada después de una división {.unnumbered}
 
 Si un nodo $t$ se divide en hijos $t_L$ y $t_R$, la impureza posterior es
 
@@ -258,7 +262,7 @@ $$
 
 Se elige la división que maximiza $\Delta I$.
 
-## Ganancia de información
+## Ganancia de información {.unnumbered}
 
 Cuando se usa entropía,
 
@@ -273,7 +277,7 @@ $$
 
 La ganancia de información mide la reducción esperada de incertidumbre producida por una división.
 
-## Ejemplo de Gini
+## Ejemplo de Gini {.unnumbered}
 
 Supóngase un nodo con 10 observaciones:
 
@@ -300,7 +304,7 @@ $$
 
 Si una división genera dos nodos casi puros, la impureza ponderada disminuirá notablemente.
 
-## Árboles de regresión
+## Árboles de regresión {.unnumbered}
 
 Para regresión, se busca minimizar la suma de cuadrados dentro de las hojas.
 
@@ -322,7 +326,7 @@ $$
 \overline{y}_{R_m}.
 $$
 
-## Criterio de división en regresión
+## Criterio de división en regresión {.unnumbered}
 
 Para una división $(j,s)$ se minimiza
 
@@ -340,7 +344,7 @@ $$
 
 Equivalentemente, se maximiza la reducción de suma de cuadrados.
 
-## Partición recursiva
+## Partición recursiva {.unnumbered}
 
 El árbol se construye de manera codiciosa:
 
@@ -351,7 +355,7 @@ El árbol se construye de manera codiciosa:
 
 El procedimiento es codicioso porque no reconsidera globalmente decisiones anteriores.
 
-## Variables numéricas
+## Variables numéricas {.unnumbered}
 
 Para una variable numérica ordenada, los puntos de corte candidatos suelen ubicarse entre valores consecutivos distintos:
 
@@ -363,7 +367,7 @@ $$
 
 No es necesario evaluar todos los números reales.
 
-## Variables categóricas
+## Variables categóricas {.unnumbered}
 
 Para una variable categórica con niveles
 
@@ -375,7 +379,7 @@ una división puede separar un subconjunto de categorías del resto.
 
 El número de particiones posibles crece rápidamente, por lo que los algoritmos utilizan estrategias eficientes o codificaciones específicas.
 
-## Algoritmo ID3
+## Algoritmo ID3 {.unnumbered}
 
 ID3 construye árboles de clasificación utilizando:
 
@@ -386,13 +390,13 @@ ID3 construye árboles de clasificación utilizando:
 
 En cada nodo selecciona la variable con mayor ganancia de información.
 
-## Sesgo de la ganancia de información
+## Sesgo de la ganancia de información {.unnumbered}
 
 Una variable con muchos niveles puede producir una ganancia artificialmente alta, al crear grupos pequeños o incluso puros.
 
 Este problema motivó el criterio de razón de ganancia de C4.5.
 
-## C4.5
+## C4.5 {.unnumbered}
 
 C4.5 extiende ID3 mediante:
 
@@ -402,7 +406,7 @@ C4.5 extiende ID3 mediante:
 - poda posterior;
 - conversión opcional a reglas.
 
-## Razón de ganancia
+## Razón de ganancia {.unnumbered}
 
 La información de división es
 
@@ -428,7 +432,7 @@ $$
 
 Este criterio penaliza divisiones que producen demasiados grupos.
 
-## CART
+## CART {.unnumbered}
 
 CART significa *Classification and Regression Trees*.
 
@@ -440,7 +444,7 @@ Sus características principales son:
 - construcción de un árbol grande;
 - poda por complejidad de costo.
 
-## Profundidad del árbol
+## Profundidad del árbol {.unnumbered}
 
 La profundidad es el número máximo de divisiones desde la raíz hasta una hoja.
 
@@ -457,7 +461,7 @@ Un árbol poco profundo:
 - es más fácil de interpretar;
 - puede presentar subajuste.
 
-## Parámetros de control
+## Parámetros de control {.unnumbered}
 
 Los hiperparámetros comunes incluyen:
 
@@ -468,7 +472,7 @@ Los hiperparámetros comunes incluyen:
 - número máximo de hojas;
 - parámetro de complejidad.
 
-## Crecimiento máximo
+## Crecimiento máximo {.unnumbered}
 
 Una estrategia consiste en hacer crecer un árbol grande hasta que:
 
@@ -479,7 +483,7 @@ Una estrategia consiste en hacer crecer un árbol grande hasta que:
 
 Posteriormente se aplica poda.
 
-## Sobreajuste
+## Sobreajuste {.unnumbered}
 
 Un árbol sin control puede aprender particularidades y ruido de la muestra. Esto suele manifestarse como:
 
@@ -492,7 +496,7 @@ Un árbol sin control puede aprender particularidades y ruido de la muestra. Est
 En CART suele crecerse un árbol amplio y después podarse mediante complejidad-costo. La poda debe seleccionarse con validación para equilibrar ajuste y complejidad.
 :::
 
-## Poda
+## Poda {.unnumbered}
 
 ::: {#def-poda}
 La poda elimina ramas de un árbol grande para producir un modelo más simple y mejorar la generalización.
@@ -503,7 +507,7 @@ Puede realizarse:
 - durante el crecimiento, mediante parada anticipada;
 - después del crecimiento, mediante poda posterior.
 
-## Poda por complejidad de costo
+## Poda por complejidad de costo {.unnumbered}
 
 Para un árbol $T$, CART define
 
@@ -521,7 +525,7 @@ donde:
 
 Cuando $\alpha$ aumenta, se favorecen árboles más pequeños.
 
-## Secuencia de subárboles
+## Secuencia de subárboles {.unnumbered}
 
 La poda de eslabón más débil produce una secuencia anidada
 
@@ -533,7 +537,7 @@ desde el árbol máximo hasta el árbol raíz.
 
 La selección del subárbol se realiza mediante validación cruzada.
 
-## Selección mediante validación cruzada
+## Selección mediante validación cruzada {.unnumbered}
 
 Se estima el error
 
@@ -553,7 +557,7 @@ $$
 
 También puede utilizarse la regla de un error estándar para seleccionar un árbol más pequeño.
 
-## Interpretación de una ruta
+## Interpretación de una ruta {.unnumbered}
 
 Una ruta desde la raíz hasta una hoja representa una conjunción de condiciones.
 
@@ -569,31 +573,31 @@ $$
 
 La hoja puede traducirse en una regla fácilmente comunicable.
 
-## Interacciones automáticas
+## Interacciones automáticas {.unnumbered}
 
 Los árboles representan interacciones sin introducir explícitamente productos entre variables.
 
 Si una división sobre $X_2$ aparece únicamente después de una división sobre $X_1$, el efecto de $X_2$ depende de la región definida por $X_1$.
 
-## No linealidad
+## No linealidad {.unnumbered}
 
 Los árboles pueden aproximar relaciones no lineales mediante divisiones escalonadas. En regresión, la función resultante es constante por regiones.
 
 Aunque esto proporciona flexibilidad, puede producir predicciones discontinuas.
 
-## Invariancia a transformaciones monótonas
+## Invariancia a transformaciones monótonas {.unnumbered}
 
 Como las divisiones dependen principalmente del orden de los valores, un árbol es generalmente invariante ante transformaciones estrictamente monótonas de una variable numérica.
 
 Por ejemplo, aplicar logaritmo a una variable positiva puede cambiar los puntos numéricos, pero no necesariamente el orden ni la partición óptima.
 
-## Escalamiento
+## Escalamiento {.unnumbered}
 
 A diferencia de $k$-NN o SVM, los árboles no suelen requerir estandarización, porque las divisiones se realizan variable por variable.
 
 Esta es una ventaja práctica importante.
 
-## Valores faltantes
+## Valores faltantes {.unnumbered}
 
 Según el algoritmo, pueden tratarse mediante:
 
@@ -604,7 +608,7 @@ Según el algoritmo, pueden tratarse mediante:
 
 La estrategia debe aprenderse únicamente con datos de entrenamiento.
 
-## Probabilidades en las hojas
+## Probabilidades en las hojas {.unnumbered}
 
 Una hoja no solo produce una clase. También puede estimar probabilidades:
 
@@ -616,7 +620,7 @@ $$
 
 Sin embargo, hojas pequeñas pueden producir probabilidades extremas e inestables.
 
-## Suavizamiento de probabilidades
+## Suavizamiento de probabilidades {.unnumbered}
 
 Puede aplicarse suavizamiento de Laplace:
 
@@ -629,7 +633,7 @@ $$
 
 Con $\lambda=1$, se evita obtener probabilidades exactamente cero en hojas pequeñas.
 
-## Clases desbalanceadas
+## Clases desbalanceadas {.unnumbered}
 
 En datos desbalanceados, un árbol puede favorecer la clase mayoritaria.
 
@@ -642,7 +646,7 @@ Estrategias:
 - métricas adecuadas;
 - restricciones de tamaño por hoja.
 
-## Pérdidas asimétricas
+## Pérdidas asimétricas {.unnumbered}
 
 Sea $L(a,c)$ el costo de predecir $a$ cuando la clase real es $c$.
 
@@ -658,7 +662,7 @@ $$
 
 Así, la clase predicha no tiene que ser necesariamente la más frecuente.
 
-## Importancia por reducción de impureza
+## Importancia por reducción de impureza {.unnumbered}
 
 La importancia de la variable $j$ puede definirse como la suma de las reducciones de impureza producidas por divisiones sobre esa variable:
 
@@ -670,7 +674,7 @@ VI_j
 \Delta I_t.
 $$
 
-## Limitaciones de la importancia por impureza
+## Limitaciones de la importancia por impureza {.unnumbered}
 
 Esta medida puede favorecer variables:
 
@@ -680,7 +684,7 @@ Esta medida puede favorecer variables:
 
 Por ello, debe interpretarse con cautela.
 
-## Importancia por permutación
+## Importancia por permutación {.unnumbered}
 
 La importancia por permutación mide cuánto aumenta el error al desordenar los valores de una variable:
 
@@ -694,13 +698,13 @@ $$
 
 Esta medida se relaciona más directamente con el desempeño predictivo, aunque puede verse afectada por variables correlacionadas.
 
-## Inestabilidad
+## Inestabilidad {.unnumbered}
 
 Los árboles presentan alta inestabilidad: pequeños cambios en la muestra pueden producir estructuras muy diferentes.
 
 Esto ocurre porque una modificación pequeña puede cambiar la mejor división en un nodo superior y alterar todas las divisiones posteriores.
 
-## Sesgo y varianza
+## Sesgo y varianza {.unnumbered}
 
 Un árbol profundo suele presentar:
 
@@ -714,7 +718,7 @@ Un árbol podado suele presentar:
 
 Esta propiedad motiva los métodos de ensamble, como bagging y random forest.
 
-## Complejidad computacional
+## Complejidad computacional {.unnumbered}
 
 En una implementación eficiente, el costo depende de:
 
@@ -726,13 +730,13 @@ En una implementación eficiente, el costo depende de:
 
 La predicción es rápida porque solo requiere recorrer una ruta desde la raíz hasta una hoja.
 
-## Fronteras de decisión
+## Fronteras de decisión {.unnumbered}
 
 Con divisiones univariadas, las fronteras son paralelas a los ejes coordenados.
 
 Esto permite representar regiones rectangulares, pero puede ser ineficiente para fronteras oblicuas.
 
-## Árboles oblicuos
+## Árboles oblicuos {.unnumbered}
 
 Una extensión utiliza divisiones de la forma
 
@@ -742,7 +746,7 @@ $$
 
 Estas divisiones pueden representar fronteras inclinadas, aunque son más costosas y menos interpretables.
 
-## Relación con minimización del riesgo empírico
+## Relación con minimización del riesgo empírico {.unnumbered}
 
 Un árbol busca una función por regiones que minimice una pérdida empírica, sujeta a una estructura jerárquica.
 
@@ -757,7 +761,7 @@ $$
 \right\}.
 $$
 
-## Relación con random forest
+## Relación con random forest {.unnumbered}
 
 Random forest reduce la varianza mediante:
 
@@ -768,13 +772,13 @@ Random forest reduce la varianza mediante:
 
 El árbol individual es, por tanto, la unidad básica de random forest.
 
-## Relación con boosting
+## Relación con boosting {.unnumbered}
 
 Boosting construye árboles secuencialmente, haciendo que cada nuevo árbol corrija errores del conjunto anterior.
 
 Generalmente utiliza árboles pequeños como aprendices débiles.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -820,7 +824,7 @@ predict(modelo_podado, type = "prob")
 predict(modelo_podado, type = "class")
 ```
 
-## Ejemplo de ganancia de información
+## Ejemplo de ganancia de información {.unnumbered}
 
 Supóngase un nodo con 12 observaciones:
 
@@ -859,7 +863,7 @@ $$
 IG=H(t)-H_{\text{div}}.
 $$
 
-## Ejemplo de árbol de regresión
+## Ejemplo de árbol de regresión {.unnumbered}
 
 Supóngase que una división genera:
 
@@ -897,7 +901,7 @@ $$
 \widehat{c}_2=18.
 $$
 
-## Ventajas
+## Ventajas {.unnumbered}
 
 1. interpretación sencilla;
 2. representación automática de interacciones;
@@ -907,7 +911,7 @@ $$
 6. predicción rápida;
 7. utilidad para clasificación y regresión.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. alta varianza;
 2. sensibilidad a pequeños cambios;
@@ -917,7 +921,7 @@ $$
 6. riesgo de sobreajuste;
 7. menor precisión que algunos ensambles.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. hacer crecer el árbol sin poda ni validación;
 2. interpretar una hoja pequeña como una regla estable;
@@ -930,7 +934,7 @@ $$
 9. ignorar incertidumbre en probabilidades de hojas;
 10. suponer que el árbol óptimo global se obtiene mediante decisiones codiciosas.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique cómo un árbol particiona el espacio de características.
 2. ¿Qué diferencia existe entre un nodo interno y una hoja?
@@ -945,7 +949,7 @@ $$
 11. ¿Por qué los árboles son inestables?
 12. ¿Cómo se relacionan con random forest?
 
-## Ejercicio de impureza
+## Ejercicio de impureza {.unnumbered}
 
 Un nodo contiene:
 
@@ -960,7 +964,7 @@ Calcule:
 3. la entropía;
 4. el error de clasificación.
 
-## Ejercicio de división
+## Ejercicio de división {.unnumbered}
 
 Un nodo padre tiene impureza de Gini igual a 0.48 y 20 observaciones.
 
@@ -975,7 +979,7 @@ Calcule:
 2. la reducción de impureza;
 3. interprete la calidad de la división.
 
-## Ejercicio de regresión
+## Ejercicio de regresión {.unnumbered}
 
 Considere una división en dos regiones:
 
@@ -988,7 +992,7 @@ Calcule:
 2. la suma de cuadrados dentro de cada hoja;
 3. la suma de cuadrados total posterior a la división.
 
-## Ejercicio de poda
+## Ejercicio de poda {.unnumbered}
 
 Se tienen tres subárboles:
 
@@ -1003,7 +1007,7 @@ Se tienen tres subárboles:
 3. Relacione la decisión con la regla de un error estándar.
 4. Interprete el compromiso sesgo-varianza.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea construir un árbol para clasificar accidentes severos utilizando:
 
@@ -1029,7 +1033,7 @@ Diseñe el análisis incluyendo:
 11. comparación con $k$-NN y regresión logística;
 12. limitaciones causales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló la teoría matemática de los árboles de decisión para clasificación y regresión.
 

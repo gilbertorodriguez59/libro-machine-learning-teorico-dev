@@ -1,6 +1,6 @@
 # Regresión logística {#sec-regresion-logistica}
 
-## Introducción
+## Introducción {.unnumbered}
 
 La regresión logística modela la probabilidad condicional de una respuesta binaria mediante el logit. Aunque se denomina regresión, se utiliza principalmente para clasificación probabilística [@agresti2013categorical; @hosmer2013applied; @bishop2006pattern].
 
@@ -18,7 +18,11 @@ $$
 
 Para garantizar que la predicción permanezca entre 0 y 1 se utiliza la función logística. Los parámetros se estiman por máxima verosimilitud mediante métodos iterativos.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+La regresión logística modela la probabilidad de una clase mediante el logit.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -34,7 +38,7 @@ Al finalizar el capítulo, el lector podrá:
 10. reconocer separación, multicolinealidad e influencia;
 11. extender el modelo al caso multiclase.
 
-## Variable respuesta binaria
+## Variable respuesta binaria {.unnumbered}
 
 Se considera
 
@@ -61,7 +65,7 @@ $$
 Un coeficiente implica que, manteniendo los demás predictores constantes, las odds se multiplican por $e^{\beta_j}$ por cada unidad adicional del predictor.
 :::
 
-## Función logística
+## Función logística {.unnumbered}
 
 ::: {#def-funcion-logistica}
 La función logística se define como
@@ -89,7 +93,7 @@ $$
 \sigma(z)\left[1-\sigma(z)\right].
 $$
 
-## Modelo logístico
+## Modelo logístico {.unnumbered}
 
 Sea
 
@@ -166,7 +170,7 @@ $$
 \mathbf{X}\boldsymbol{\beta}.
 $$
 
-## Odds
+## Odds {.unnumbered}
 
 ::: {#def-odds}
 Los odds de un evento con probabilidad $\pi$ son
@@ -186,7 +190,7 @@ $$
 
 Esto significa que el evento es cuatro veces más probable que su complemento.
 
-## Logit
+## Logit {.unnumbered}
 
 ::: {#def-logit}
 La función logit es
@@ -212,7 +216,7 @@ $$
 
 Por tanto, el logaritmo de los odds es lineal en las características.
 
-## Interpretación de los coeficientes
+## Interpretación de los coeficientes {.unnumbered}
 
 Si $x_j$ aumenta una unidad y las demás variables permanecen constantes,
 
@@ -256,7 +260,7 @@ $$
 OR(c)=e^{c\beta_j}.
 $$
 
-## Variables indicadoras
+## Variables indicadoras {.unnumbered}
 
 Sea
 
@@ -284,7 +288,7 @@ $$
 
 es el odds ratio del grupo expuesto respecto del grupo de referencia.
 
-## Interacciones
+## Interacciones {.unnumbered}
 
 Considere
 
@@ -305,7 +309,7 @@ $$
 
 Por tanto, el efecto depende de $X_2$.
 
-## Efecto marginal sobre la probabilidad
+## Efecto marginal sobre la probabilidad {.unnumbered}
 
 El efecto sobre la probabilidad no es constante:
 
@@ -317,7 +321,7 @@ $$
 
 Por ello, $\beta_j$ no debe interpretarse como un cambio directo en probabilidad.
 
-## Verosimilitud Bernoulli
+## Verosimilitud Bernoulli {.unnumbered}
 
 Para una observación,
 
@@ -340,7 +344,7 @@ $$
 No existe en general una fórmula cerrada para los estimadores logísticos. Se utilizan procedimientos iterativos como Newton-Raphson o IRLS.
 :::
 
-## Log-verosimilitud
+## Log-verosimilitud {.unnumbered}
 
 $$
 \ell(\boldsymbol{\beta})
@@ -366,7 +370,7 @@ y_i\eta_i
 \right].
 $$
 
-## Gradiente
+## Gradiente {.unnumbered}
 
 Sea
 
@@ -400,7 +404,7 @@ $$
 
 Estas ecuaciones no tienen una solución cerrada general.
 
-## Hessiana
+## Hessiana {.unnumbered}
 
 Defina
 
@@ -423,7 +427,7 @@ $$
 
 La Hessiana es semidefinida negativa, por lo que la log-verosimilitud es cóncava.
 
-## Newton-Raphson
+## Newton-Raphson {.unnumbered}
 
 La actualización es
 
@@ -445,7 +449,7 @@ $$
 \right).
 $$
 
-## Mínimos cuadrados ponderados iterativos
+## Mínimos cuadrados ponderados iterativos {.unnumbered}
 
 Newton-Raphson puede expresarse como IRLS.
 
@@ -481,7 +485,7 @@ $$
 \mathbf{z}^{(t)}.
 $$
 
-## Convergencia
+## Convergencia {.unnumbered}
 
 El proceso puede detenerse cuando
 
@@ -497,7 +501,7 @@ $$
 
 o cuando el cambio en log-verosimilitud es pequeño.
 
-## Covarianza asintótica
+## Covarianza asintótica {.unnumbered}
 
 La matriz de información observada es
 
@@ -527,7 +531,7 @@ $$
 \right)^{-1}.
 $$
 
-## Prueba de Wald
+## Prueba de Wald {.unnumbered}
 
 Para
 
@@ -550,7 +554,7 @@ $$
 z\sim N(0,1).
 $$
 
-## Intervalos de confianza
+## Intervalos de confianza {.unnumbered}
 
 Para el coeficiente,
 
@@ -567,7 +571,7 @@ $$
 [e^{L_j},e^{U_j}].
 $$
 
-## Razón de verosimilitud
+## Razón de verosimilitud {.unnumbered}
 
 Para comparar un modelo reducido y uno completo,
 
@@ -585,13 +589,13 @@ $$
 
 donde $q$ es la diferencia en número de parámetros.
 
-## Prueba score
+## Prueba score {.unnumbered}
 
 La prueba score evalúa el gradiente bajo el modelo restringido y no requiere ajustar el modelo completo.
 
 Las pruebas de Wald, razón de verosimilitud y score suelen ser semejantes en muestras grandes.
 
-## Deviance
+## Deviance {.unnumbered}
 
 ::: {#def-deviance-logistica}
 La deviance es
@@ -612,7 +616,7 @@ Una deviance menor indica mejor ajuste relativo.
 
 La deviance nula corresponde al modelo con solo intercepto.
 
-## Pseudo coeficientes de determinación
+## Pseudo coeficientes de determinación {.unnumbered}
 
 En regresión logística no existe un $R^2$ idéntico al de regresión lineal.
 
@@ -631,7 +635,7 @@ $$
 
 No debe interpretarse como proporción de varianza explicada.
 
-## Predicción
+## Predicción {.unnumbered}
 
 Para una observación nueva con características
 
@@ -681,7 +685,7 @@ e^{\widehat{\eta}_0}
 }.
 $$
 
-## Clasificación mediante umbral
+## Clasificación mediante umbral {.unnumbered}
 
 $$
 \widehat{y}
@@ -702,7 +706,7 @@ Puede seleccionarse según:
 - F1;
 - índice de Youden.
 
-## Índice de Youden
+## Índice de Youden {.unnumbered}
 
 $$
 J
@@ -714,7 +718,7 @@ J
 1.
 $$
 
-## Discriminación
+## Discriminación {.unnumbered}
 
 La discriminación mide la capacidad de separar clases.
 
@@ -726,7 +730,7 @@ Puede evaluarse mediante:
 - sensibilidad;
 - especificidad.
 
-## Calibración
+## Calibración {.unnumbered}
 
 La calibración evalúa si las probabilidades predichas corresponden a las frecuencias observadas.
 
@@ -737,7 +741,7 @@ Puede analizarse mediante:
 - pendiente de calibración;
 - intercepto de calibración.
 
-## Brier score
+## Brier score {.unnumbered}
 
 $$
 \operatorname{Brier}
@@ -747,7 +751,7 @@ $$
 (y_i-\widehat{\pi}_i)^2.
 $$
 
-## Pérdida logarítmica
+## Pérdida logarítmica {.unnumbered}
 
 $$
 \operatorname{LogLoss}
@@ -762,7 +766,7 @@ y_i\log\widehat{\pi}_i
 \right].
 $$
 
-## Residuos de Pearson
+## Residuos de Pearson {.unnumbered}
 
 $$
 r_i^{P}
@@ -777,7 +781,7 @@ y_i-\widehat{\pi}_i
 }.
 $$
 
-## Residuos de deviance
+## Residuos de deviance {.unnumbered}
 
 Para $y_i=1$,
 
@@ -800,7 +804,7 @@ r_i^{D}
 }.
 $$
 
-## Apalancamiento e influencia
+## Apalancamiento e influencia {.unnumbered}
 
 La matriz sombrero ponderada es
 
@@ -822,7 +826,7 @@ Los elementos diagonales miden apalancamiento.
 
 La influencia puede estudiarse con distancia de Cook generalizada y DFBETAS.
 
-## Multicolinealidad
+## Multicolinealidad {.unnumbered}
 
 Puede producir:
 
@@ -833,7 +837,7 @@ Puede producir:
 
 Se diagnostica mediante VIF, correlaciones y análisis de condición.
 
-## Separación completa
+## Separación completa {.unnumbered}
 
 ::: {#def-separacion-completa}
 Existe separación completa cuando una combinación lineal de las variables separa perfectamente las dos clases.
@@ -841,7 +845,7 @@ Existe separación completa cuando una combinación lineal de las variables sepa
 
 En ese caso, algunos coeficientes tienden a infinito y el estimador de máxima verosimilitud no existe como valor finito.
 
-## Estrategias frente a separación
+## Estrategias frente a separación {.unnumbered}
 
 - combinar categorías escasas;
 - aumentar el tamaño de muestra;
@@ -849,7 +853,7 @@ En ese caso, algunos coeficientes tienden a infinito y el estimador de máxima v
 - utilizar corrección de Firth;
 - emplear métodos bayesianos.
 
-## Clases desbalanceadas
+## Clases desbalanceadas {.unnumbered}
 
 Cuando una clase es poco frecuente:
 
@@ -877,9 +881,9 @@ $$
 Si una combinación lineal separa perfectamente las clases, los estimadores de máxima verosimilitud pueden divergir. Puede utilizarse penalización o correcciones específicas.
 :::
 
-## Regularización
+## Regularización {.unnumbered}
 
-### Ridge
+### Ridge {.unnumbered}
 
 $$
 J(\boldsymbol{\beta})
@@ -890,7 +894,7 @@ J(\boldsymbol{\beta})
 \|\boldsymbol{\beta}\|_2^2.
 $$
 
-### LASSO
+### LASSO {.unnumbered}
 
 $$
 J(\boldsymbol{\beta})
@@ -901,7 +905,7 @@ J(\boldsymbol{\beta})
 \|\boldsymbol{\beta}\|_1.
 $$
 
-### Elastic net
+### Elastic net {.unnumbered}
 
 $$
 J(\boldsymbol{\beta})
@@ -918,7 +922,7 @@ J(\boldsymbol{\beta})
 \right].
 $$
 
-## Regresión logística multinomial
+## Regresión logística multinomial {.unnumbered}
 
 Para $K$ clases y una categoría de referencia,
 
@@ -949,7 +953,7 @@ e^{\eta_k}
 }.
 $$
 
-## Frontera de decisión
+## Frontera de decisión {.unnumbered}
 
 Con umbral 0.5,
 
@@ -969,7 +973,7 @@ $$
 \widetilde{\mathbf{x}}^{\mathsf T}\boldsymbol{\beta}=0.
 $$
 
-## Relación con aprendizaje supervisado
+## Relación con aprendizaje supervisado {.unnumbered}
 
 El espacio de hipótesis es
 
@@ -988,7 +992,7 @@ $$
 
 La pérdida es logarítmica y el ajuste minimiza el riesgo empírico correspondiente.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1028,7 +1032,7 @@ deviance(modelo)
 AIC(modelo)
 ```
 
-## Ejemplo numérico
+## Ejemplo numérico {.unnumbered}
 
 Considere
 
@@ -1075,7 +1079,7 @@ $$
 
 Manteniendo constante la velocidad, los odds de severidad son aproximadamente 3.32 veces mayores durante la noche.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Interpretar $\beta_j$ como cambio directo en probabilidad.
 2. Confundir odds con probabilidad.
@@ -1090,7 +1094,7 @@ Manteniendo constante la velocidad, los odds de severidad son aproximadamente 3.
 11. ignorar multicolinealidad;
 12. confundir discriminación con calibración.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. ¿Por qué no se utiliza regresión lineal para probabilidades binarias?
 2. Defina odds y logit.
@@ -1105,7 +1109,7 @@ Manteniendo constante la velocidad, los odds de severidad son aproximadamente 3.
 11. ¿Por qué el umbral depende del objetivo?
 12. ¿Cómo se extiende el modelo a múltiples clases?
 
-## Ejercicio de odds y logit
+## Ejercicio de odds y logit {.unnumbered}
 
 Calcule odds y logit para:
 
@@ -1114,7 +1118,7 @@ Calcule odds y logit para:
 3. $\pi=0.80$;
 4. $\pi=0.95$.
 
-## Ejercicio de interpretación
+## Ejercicio de interpretación {.unnumbered}
 
 Considere
 
@@ -1128,7 +1132,7 @@ $$
 2. Calcule sus odds ratios.
 3. Calcule la probabilidad para $X_1=3$ y $X_2=1$.
 
-## Ejercicio de verosimilitud
+## Ejercicio de verosimilitud {.unnumbered}
 
 Considere
 
@@ -1148,7 +1152,7 @@ Calcule:
 2. la log-verosimilitud;
 3. la pérdida logarítmica media.
 
-## Ejercicio de Newton-Raphson
+## Ejercicio de Newton-Raphson {.unnumbered}
 
 Supóngase:
 
@@ -1166,7 +1170,7 @@ $$
 
 Calcule la siguiente iteración.
 
-## Ejercicio de inferencia
+## Ejercicio de inferencia {.unnumbered}
 
 Supóngase:
 
@@ -1181,7 +1185,7 @@ $$
 3. Transforme el intervalo a odds ratio.
 4. Interprete.
 
-## Ejercicio de razón de verosimilitud
+## Ejercicio de razón de verosimilitud {.unnumbered}
 
 Un modelo reducido tiene
 
@@ -1201,7 +1205,7 @@ La diferencia de parámetros es 2.
 2. Indique la distribución de referencia.
 3. Interprete.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea clasificar accidentes severos usando:
 
@@ -1228,7 +1232,7 @@ Diseñe el análisis incluyendo:
 13. regularización;
 14. limitaciones causales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló la regresión logística como modelo probabilístico para clasificación binaria.
 

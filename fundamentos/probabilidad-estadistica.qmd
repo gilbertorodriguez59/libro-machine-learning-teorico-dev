@@ -1,6 +1,6 @@
 # Probabilidad y estadística para aprendizaje automático {#sec-probabilidad-estadistica}
 
-## Introducción
+## Introducción {.unnumbered}
 
 La probabilidad modela incertidumbre y la estadística permite aprender a partir de muestras. En aprendizaje automático, las distribuciones representan poblaciones desconocidas, las pérdidas se interpretan como variables aleatorias y el entrenamiento produce estimadores dependientes de los datos [@ross2019first; @casella2002statistical; @murphy2022probabilistic].
 
@@ -8,7 +8,11 @@ La probabilidad y la estadística proporcionan el marco matemático para represe
 
 La teoría de la probabilidad permite modelar fenómenos aleatorios, mientras que la estadística proporciona herramientas para inferir propiedades de una población a partir de una muestra. Ambas disciplinas son esenciales para comprender la clasificación probabilística, la regresión, la estimación de parámetros, la selección de modelos, la validación y la evaluación de predicciones.
 
-## Objetivos
+::: {.callout-important title="Idea central"}
+La probabilidad modela incertidumbre y la estadística permite aprender sobre una población usando una muestra.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -27,7 +31,7 @@ Al finalizar el capítulo, el lector podrá:
 13. derivar estimadores por máxima verosimilitud;
 14. relacionar estos conceptos con algoritmos de aprendizaje automático.
 
-## Experimentos aleatorios
+## Experimentos aleatorios {.unnumbered}
 
 ::: {#def-experimento-aleatorio}
 Un **experimento aleatorio** es un procedimiento cuyo resultado no puede predecirse con certeza antes de realizarse, aunque sí puede describirse el conjunto de resultados posibles.
@@ -40,7 +44,7 @@ Ejemplos:
 - seleccionar una observación de una base de datos;
 - clasificar un correo como deseado o no deseado.
 
-## Espacio muestral
+## Espacio muestral {.unnumbered}
 
 ::: {#def-espacio-muestral}
 El **espacio muestral** es el conjunto de todos los resultados posibles de un experimento aleatorio. Se denota por $\Omega$.
@@ -58,7 +62,7 @@ $$
 \Omega\subseteq\mathbb{R}.
 $$
 
-## Eventos
+## Eventos {.unnumbered}
 
 ::: {#def-evento}
 Un **evento** es cualquier subconjunto del espacio muestral.
@@ -73,7 +77,7 @@ Las operaciones entre eventos se expresan mediante conjuntos:
 - complemento: $A^c$;
 - diferencia: $A\setminus B$.
 
-## Sigma-álgebra
+## Sigma-álgebra {.unnumbered}
 
 ::: {#def-sigma-algebra}
 Una **sigma-álgebra** $\mathcal{F}$ sobre $\Omega$ es una colección de subconjuntos de $\Omega$ que satisface:
@@ -89,7 +93,7 @@ $$
 
 La sigma-álgebra contiene los eventos a los que puede asignarse probabilidad.
 
-## Espacio de probabilidad
+## Espacio de probabilidad {.unnumbered}
 
 ::: {#def-espacio-probabilidad}
 Un **espacio de probabilidad** es una terna
@@ -115,7 +119,7 @@ $$
 donde $\Omega$ es el espacio muestral, $\mathcal{F}$ una sigma-álgebra y $P$ una medida de probabilidad. No todo subconjunto de un espacio muestral infinito tiene que pertenecer automáticamente a $\mathcal{F}$.
 :::
 
-## Axiomas de probabilidad
+## Axiomas de probabilidad {.unnumbered}
 
 La función
 
@@ -149,7 +153,7 @@ P\left(
 \sum_{i=1}^{\infty}P(A_i).
 $$
 
-## Propiedades fundamentales
+## Propiedades fundamentales {.unnumbered}
 
 De los axiomas se deduce:
 
@@ -173,7 +177,7 @@ $$
 P(A)\leq P(B).
 $$
 
-## Probabilidad condicional
+## Probabilidad condicional {.unnumbered}
 
 ::: {#def-probabilidad-condicional}
 Si $P(B)>0$, la probabilidad condicional de $A$ dado $B$ se define como
@@ -209,7 +213,7 @@ P(A\mid B)
 $$
 :::
 
-## Regla del producto
+## Regla del producto {.unnumbered}
 
 De la definición anterior,
 
@@ -237,7 +241,7 @@ P(A_1)
 P(A_i\mid A_1\cap\cdots\cap A_{i-1}).
 $$
 
-## Independencia
+## Independencia {.unnumbered}
 
 ::: {#def-independencia-eventos}
 Dos eventos $A$ y $B$ son independientes si
@@ -257,14 +261,14 @@ $$
 
 La independencia significa que conocer la ocurrencia de un evento no modifica la probabilidad del otro.
 
-## Partición del espacio muestral
+## Partición del espacio muestral {.unnumbered}
 
 Los eventos $B_1,\ldots,B_k$ forman una partición de $\Omega$ si:
 
 1. $B_i\cap B_j=\varnothing$ para $i\neq j$;
 2. $\bigcup_{j=1}^{k}B_j=\Omega$.
 
-## Teorema de probabilidad total
+## Teorema de probabilidad total {.unnumbered}
 
 ::: {#thm-probabilidad-total}
 Si $B_1,\ldots,B_k$ forman una partición de $\Omega$, entonces para cualquier evento $A$,
@@ -277,7 +281,7 @@ P(A\mid B_j)P(B_j).
 $$
 :::
 
-## Teorema de Bayes
+## Teorema de Bayes {.unnumbered}
 
 ::: {#thm-bayes}
 Si $B_1,\ldots,B_k$ forman una partición y $P(A)>0$, entonces
@@ -321,7 +325,7 @@ $$
 requiere que $P(B)>0$. Cuando $P(B)=0$, la probabilidad condicional elemental no está definida mediante este cociente.
 :::
 
-## Ejemplo de diagnóstico
+## Ejemplo de diagnóstico {.unnumbered}
 
 Sea $D$ el evento “el paciente tiene una enfermedad” y $T^+$ el evento “la prueba resulta positiva”.
 
@@ -370,7 +374,7 @@ $$
 
 Aunque la prueba sea sensible, la baja prevalencia influye de manera importante en la probabilidad posterior.
 
-## Variables aleatorias
+## Variables aleatorias {.unnumbered}
 
 ::: {#def-variable-aleatoria}
 Una **variable aleatoria** es una función
@@ -382,7 +386,7 @@ $$
 
 Una variable aleatoria asigna un número real a cada resultado del experimento.
 
-## Variables aleatorias discretas
+## Variables aleatorias discretas {.unnumbered}
 
 ::: {#def-variable-discreta}
 Una variable aleatoria es discreta si toma valores en un conjunto finito o numerable.
@@ -406,7 +410,7 @@ $$
 \sum_x p_X(x)=1.
 $$
 
-## Distribución Bernoulli
+## Distribución Bernoulli {.unnumbered}
 
 Una variable Bernoulli con parámetro $p$ satisface
 
@@ -434,7 +438,7 @@ $$
 
 Esta distribución es central en clasificación binaria y regresión logística.
 
-## Distribución binomial
+## Distribución binomial {.unnumbered}
 
 Si
 
@@ -467,7 +471,7 @@ $$
 \operatorname{Var}(X)=np(1-p).
 $$
 
-## Variables aleatorias continuas
+## Variables aleatorias continuas {.unnumbered}
 
 ::: {#def-variable-continua}
 Una variable aleatoria continua posee una función de densidad $f_X(x)$ tal que
@@ -495,7 +499,7 @@ $$
 P(X=x)=0.
 $$
 
-## Función de distribución acumulada
+## Función de distribución acumulada {.unnumbered}
 
 ::: {#def-funcion-distribucion}
 La función de distribución acumulada de $X$ se define como
@@ -516,7 +520,7 @@ F_X(x)
 f_X(t)\,dt.
 $$
 
-## Distribución normal
+## Distribución normal {.unnumbered}
 
 Una variable normal se denota por
 
@@ -538,7 +542,7 @@ $$
 
 La distribución normal desempeña un papel fundamental en inferencia estadística, regresión y teoría asintótica.
 
-## Esperanza matemática
+## Esperanza matemática {.unnumbered}
 
 ::: {#def-esperanza}
 La esperanza de una variable aleatoria discreta es
@@ -561,7 +565,7 @@ $$
 
 La esperanza representa el valor promedio teórico de la variable aleatoria.
 
-## Esperanza de una función
+## Esperanza de una función {.unnumbered}
 
 Si $g$ es una función,
 
@@ -582,7 +586,7 @@ $$
 g(x)f_X(x)\,dx.
 $$
 
-## Linealidad de la esperanza
+## Linealidad de la esperanza {.unnumbered}
 
 ::: {#thm-linealidad-esperanza}
 Para cualesquiera variables aleatorias $X$ y $Y$ y escalares $a,b$,
@@ -598,7 +602,7 @@ $$
 
 La linealidad no requiere independencia.
 
-## Varianza
+## Varianza {.unnumbered}
 
 ::: {#def-varianza}
 La varianza de $X$ se define como
@@ -633,7 +637,7 @@ $$
 }.
 $$
 
-## Propiedades de la varianza
+## Propiedades de la varianza {.unnumbered}
 
 Para constantes $a$ y $b$,
 
@@ -665,7 +669,7 @@ $$
 \operatorname{Var}(Y).
 $$
 
-## Covarianza
+## Covarianza {.unnumbered}
 
 ::: {#def-covarianza}
 La covarianza entre $X$ y $Y$ es
@@ -699,7 +703,7 @@ $$
 
 La recíproca no siempre es verdadera.
 
-## Correlación
+## Correlación {.unnumbered}
 
 La correlación lineal es
 
@@ -721,7 +725,7 @@ $$
 
 La correlación mide asociación lineal, no causalidad.
 
-## Variables aleatorias conjuntas
+## Variables aleatorias conjuntas {.unnumbered}
 
 Sean $X$ y $Y$ variables aleatorias.
 
@@ -749,7 +753,7 @@ f_{X,Y}(x,y)\,dx\,dy
 1.
 $$
 
-## Distribuciones marginales
+## Distribuciones marginales {.unnumbered}
 
 A partir de una densidad conjunta,
 
@@ -769,7 +773,7 @@ $$
 
 En el caso discreto se utilizan sumas.
 
-## Distribuciones condicionales
+## Distribuciones condicionales {.unnumbered}
 
 Si $f_Y(y)>0$,
 
@@ -785,7 +789,7 @@ $$
 
 Esta relación generaliza la probabilidad condicional.
 
-## Independencia de variables aleatorias
+## Independencia de variables aleatorias {.unnumbered}
 
 Las variables $X$ y $Y$ son independientes si
 
@@ -797,7 +801,7 @@ $$
 
 para todos los valores posibles.
 
-## Vectores aleatorios
+## Vectores aleatorios {.unnumbered}
 
 ::: {#def-vector-aleatorio}
 Un vector aleatorio de dimensión $p$ es
@@ -827,7 +831,7 @@ $$
 \end{pmatrix}.
 $$
 
-## Matriz de covarianza
+## Matriz de covarianza {.unnumbered}
 
 ::: {#def-matriz-covarianza}
 La matriz de covarianza de $\mathbf{X}$ es
@@ -863,7 +867,7 @@ $$
 
 La matriz de covarianza es simétrica y semidefinida positiva.
 
-## Distribución normal multivariada
+## Distribución normal multivariada {.unnumbered}
 
 Se escribe
 
@@ -903,7 +907,7 @@ $$
 
 corresponde a la distancia de Mahalanobis al cuadrado.
 
-## Muestra aleatoria
+## Muestra aleatoria {.unnumbered}
 
 ::: {#def-muestra-aleatoria}
 Una muestra aleatoria
@@ -923,7 +927,7 @@ X_1,\ldots,X_n
 F.
 $$
 
-## Media muestral
+## Media muestral {.unnumbered}
 
 La media muestral es
 
@@ -950,7 +954,7 @@ $$
 \frac{\sigma^2}{n}.
 $$
 
-## Varianza muestral
+## Varianza muestral {.unnumbered}
 
 La varianza muestral es
 
@@ -986,7 +990,7 @@ El divisor $n-1$ no es una convención arbitraria: corrige el sesgo producido al
 La ley de los grandes números y el teorema central del límite tienen distintas versiones. Las formulaciones elementales de este capítulo suponen observaciones independientes e idénticamente distribuidas y momentos finitos adecuados. En datos temporales, espaciales o dependientes se necesitan resultados adicionales.
 :::
 
-## Ley de los grandes números
+## Ley de los grandes números {.unnumbered}
 
 ::: {#thm-ley-grandes-numeros}
 Bajo condiciones regulares,
@@ -1006,7 +1010,7 @@ $$
 
 La ley de los grandes números justifica el uso de promedios muestrales como aproximaciones de valores esperados.
 
-## Teorema central del límite
+## Teorema central del límite {.unnumbered}
 
 ::: {#thm-teorema-central-limite}
 Si $X_1,\ldots,X_n$ son iid con media $\mu$ y varianza finita $\sigma^2$, entonces
@@ -1025,7 +1029,7 @@ $$
 
 Este resultado explica por qué la distribución normal aparece en numerosos procedimientos de inferencia.
 
-## Estadísticos y parámetros
+## Estadísticos y parámetros {.unnumbered}
 
 Un **parámetro** es una cantidad fija pero desconocida de una población, por ejemplo:
 
@@ -1047,7 +1051,7 @@ $$
 
 es un estadístico utilizado para estimar $\mu$.
 
-## Estimación puntual
+## Estimación puntual {.unnumbered}
 
 ::: {#def-estimador}
 Un estimador $\widehat{\theta}$ es un estadístico utilizado para aproximar un parámetro desconocido $\theta$.
@@ -1060,7 +1064,7 @@ Propiedades deseables:
 - eficiencia;
 - suficiencia.
 
-## Sesgo
+## Sesgo {.unnumbered}
 
 El sesgo de un estimador es
 
@@ -1078,7 +1082,7 @@ $$
 
 el estimador es insesgado.
 
-## Error cuadrático medio
+## Error cuadrático medio {.unnumbered}
 
 El error cuadrático medio es
 
@@ -1103,7 +1107,7 @@ $$
 
 Esta identidad anticipa el compromiso entre sesgo y varianza en aprendizaje automático.
 
-## Consistencia
+## Consistencia {.unnumbered}
 
 Un estimador es consistente si
 
@@ -1115,7 +1119,7 @@ $$
 
 Es decir, la probabilidad de alejarse del parámetro verdadero disminuye al aumentar el tamaño de muestra.
 
-## Función de verosimilitud
+## Función de verosimilitud {.unnumbered}
 
 ::: {#def-verosimilitud}
 Sea una muestra
@@ -1136,7 +1140,7 @@ $$
 
 La verosimilitud se interpreta como una función del parámetro, manteniendo fija la muestra observada.
 
-## Log-verosimilitud
+## Log-verosimilitud {.unnumbered}
 
 La log-verosimilitud es
 
@@ -1155,7 +1159,7 @@ Se utiliza porque transforma productos en sumas y facilita la derivación.
 La verosimilitud se interpreta como función del parámetro con los datos observados fijos. No es una distribución de probabilidad sobre el parámetro, salvo que se normalice dentro de un modelo bayesiano con una distribución previa.
 :::
 
-## Estimación por máxima verosimilitud
+## Estimación por máxima verosimilitud {.unnumbered}
 
 ::: {#def-maxima-verosimilitud}
 El estimador de máxima verosimilitud se define como
@@ -1177,7 +1181,7 @@ $$
 $$
 :::
 
-## Ejemplo Bernoulli
+## Ejemplo Bernoulli {.unnumbered}
 
 Supóngase que
 
@@ -1250,7 +1254,7 @@ $$
 
 Por tanto, el estimador de máxima verosimilitud de $p$ es la proporción muestral.
 
-## Estimación bayesiana
+## Estimación bayesiana {.unnumbered}
 
 En el enfoque bayesiano, el parámetro se considera aleatorio.
 
@@ -1294,7 +1298,7 @@ p(\theta\mid\mathbf{x})
 p(\mathbf{x}\mid\theta)p(\theta).
 $$
 
-## Intervalos de confianza
+## Intervalos de confianza {.unnumbered}
 
 Un intervalo de confianza para un parámetro $\theta$ tiene la forma
 
@@ -1319,7 +1323,7 @@ $$
 
 La interpretación correcta se refiere al procedimiento de construcción, no a una probabilidad posterior sobre un parámetro fijo.
 
-## Pruebas de hipótesis
+## Pruebas de hipótesis {.unnumbered}
 
 Una prueba de hipótesis compara:
 
@@ -1346,7 +1350,7 @@ $$
 P(\text{rechazar }H_0\mid H_0\text{ verdadera}).
 $$
 
-## Relación con clasificación
+## Relación con clasificación {.unnumbered}
 
 En clasificación probabilística se selecciona la clase con mayor probabilidad posterior:
 
@@ -1359,7 +1363,7 @@ $$
 
 Esta regla minimiza el error esperado bajo pérdida 0-1.
 
-## Relación con regresión logística
+## Relación con regresión logística {.unnumbered}
 
 En regresión logística,
 
@@ -1384,7 +1388,7 @@ $$
 
 Los parámetros se estiman maximizando la verosimilitud Bernoulli.
 
-## Relación con árboles de decisión
+## Relación con árboles de decisión {.unnumbered}
 
 La proporción de observaciones de la clase $k$ en un nodo es
 
@@ -1398,7 +1402,7 @@ $$
 
 Estas probabilidades se utilizan en medidas como entropía e impureza de Gini.
 
-## Relación con PCA
+## Relación con PCA {.unnumbered}
 
 La matriz de covarianza
 
@@ -1408,7 +1412,7 @@ $$
 
 resume la variabilidad conjunta de las características. PCA utiliza sus valores y vectores propios para encontrar direcciones de máxima varianza.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1447,7 +1451,7 @@ cov(datos)
 cor(datos)
 ```
 
-## Ejemplo integrado de clasificación
+## Ejemplo integrado de clasificación {.unnumbered}
 
 Considere dos clases:
 
@@ -1499,7 +1503,7 @@ $$
 
 La regla de Bayes clasifica la observación en $C_2$.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Confundir probabilidad conjunta con probabilidad condicional.
 2. Suponer que eventos mutuamente excluyentes son independientes.
@@ -1512,7 +1516,7 @@ La regla de Bayes clasifica la observación en $C_2$.
 9. Suponer que una muestra grande corrige automáticamente sesgos de diseño.
 10. Aplicar el teorema de Bayes sin considerar probabilidades previas.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique la diferencia entre experimento, espacio muestral y evento.
 2. ¿Qué diferencia existe entre probabilidad conjunta y condicional?
@@ -1525,7 +1529,7 @@ La regla de Bayes clasifica la observación en $C_2$.
 9. ¿Qué significa que un estimador sea consistente?
 10. Explique la diferencia entre probabilidad y verosimilitud.
 
-## Ejercicios de probabilidad
+## Ejercicios de probabilidad {.unnumbered}
 
 Sean dos eventos $A$ y $B$ tales que
 
@@ -1545,7 +1549,7 @@ Calcule:
 4. $P(B\mid A)$;
 5. determine si $A$ y $B$ son independientes.
 
-## Ejercicio de Bayes
+## Ejercicio de Bayes {.unnumbered}
 
 Una enfermedad tiene prevalencia de $0.03$. Una prueba tiene sensibilidad de $0.92$ y especificidad de $0.90$.
 
@@ -1556,7 +1560,7 @@ Calcule:
 3. la probabilidad de no enfermedad dado un resultado negativo;
 4. interprete los resultados.
 
-## Ejercicio de esperanza y varianza
+## Ejercicio de esperanza y varianza {.unnumbered}
 
 Sea $X$ una variable aleatoria con distribución:
 
@@ -1571,7 +1575,7 @@ Calcule:
 3. $\operatorname{Var}(X)$;
 4. la desviación estándar.
 
-## Ejercicio de máxima verosimilitud
+## Ejercicio de máxima verosimilitud {.unnumbered}
 
 Considere la muestra Bernoulli:
 
@@ -1584,7 +1588,7 @@ $$
 3. Calcule el estimador de máxima verosimilitud de $p$.
 4. Interprete el resultado.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Una base de datos ambiental contiene:
 
@@ -1600,7 +1604,7 @@ Una base de datos ambiental contiene:
 5. Explique qué información adicional proporciona la correlación.
 6. Indique cómo se relaciona esta matriz con PCA.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se construyó el marco probabilístico y estadístico del aprendizaje automático. Se definieron espacios de probabilidad, eventos, probabilidad condicional, independencia y teorema de Bayes.
 

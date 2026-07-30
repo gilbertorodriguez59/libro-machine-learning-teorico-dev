@@ -1,6 +1,6 @@
 # Teoría matemática de la clasificación {#sec-teoria-clasificacion}
 
-## Introducción
+## Introducción {.unnumbered}
 
 La teoría de clasificación estudia cómo asignar una observación a una categoría minimizando una pérdida esperada. La regla de Bayes constituye el referente óptimo bajo la distribución verdadera, mientras que los clasificadores aprendidos intentan aproximarla a partir de datos finitos [@duda2001pattern; @devroye1996probabilistic; @bishop2006pattern].
 
@@ -10,7 +10,11 @@ Desde el punto de vista matemático, un clasificador es una función que divide 
 
 En este capítulo se desarrollan la regla de Bayes, el riesgo condicional, el error de Bayes, las fronteras de decisión y las principales métricas de evaluación.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+Clasificar consiste en asignar una observación a una categoría minimizando una pérdida esperada.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -29,7 +33,7 @@ Al finalizar el capítulo, el lector podrá:
 13. extender la formulación al caso multiclase;
 14. relacionar estos conceptos con algoritmos concretos.
 
-## Formulación de un problema de clasificación
+## Formulación de un problema de clasificación {.unnumbered}
 
 Sea
 
@@ -65,7 +69,7 @@ $$
 \{1,2,\ldots,K\}.
 $$
 
-## Clasificador
+## Clasificador {.unnumbered}
 
 ::: {#def-clasificador}
 Un **clasificador** es una función
@@ -83,7 +87,7 @@ $$
 f(\mathbf{x}).
 $$
 
-## Regiones de decisión
+## Regiones de decisión {.unnumbered}
 
 Para cada clase $k$, se define la región
 
@@ -113,7 +117,7 @@ $$
 \mathcal{X}.
 $$
 
-## Frontera de decisión
+## Frontera de decisión {.unnumbered}
 
 ::: {#def-frontera-decision}
 La frontera de decisión es el conjunto de puntos que separa dos o más regiones de clasificación.
@@ -138,7 +142,7 @@ $$
 \}.
 $$
 
-## Frontera lineal
+## Frontera lineal {.unnumbered}
 
 Si
 
@@ -160,11 +164,11 @@ $$
 0.
 $$
 
-## Frontera no lineal
+## Frontera no lineal {.unnumbered}
 
 Si $g$ contiene términos polinomiales, funciones kernel o composiciones no lineales, la frontera puede ser curva o altamente compleja.
 
-## Probabilidades posteriores
+## Probabilidades posteriores {.unnumbered}
 
 Para cada clase $k$, se define
 
@@ -189,7 +193,7 @@ $$
 1.
 $$
 
-## Regla de clasificación por máxima probabilidad posterior
+## Regla de clasificación por máxima probabilidad posterior {.unnumbered}
 
 Una regla natural es seleccionar
 
@@ -202,7 +206,7 @@ $$
 
 Esta regla será óptima bajo pérdida 0-1.
 
-## Función de pérdida general
+## Función de pérdida general {.unnumbered}
 
 Sea
 
@@ -223,7 +227,7 @@ L(j,k)
 \end{cases}
 $$
 
-## Riesgo condicional
+## Riesgo condicional {.unnumbered}
 
 ::: {#def-riesgo-condicional}
 El riesgo condicional de predecir la clase $j$ dado $\mathbf{x}$ es
@@ -258,7 +262,7 @@ $$
 La regla de Bayes bajo pérdida 0-1 predice la clase 1 cuando $\eta(\mathbf{x})\geq 1/2$. Si los costos son asimétricos, el umbral deja de ser necesariamente $1/2$.
 :::
 
-## Regla de Bayes bajo pérdida 0-1
+## Regla de Bayes bajo pérdida 0-1 {.unnumbered}
 
 Con pérdida 0-1,
 
@@ -282,7 +286,7 @@ $$
 Bajo pérdida 0-1, la regla que asigna a cada observación la clase con mayor probabilidad posterior minimiza el riesgo esperado de clasificación.
 :::
 
-## Riesgo de Bayes
+## Riesgo de Bayes {.unnumbered}
 
 El riesgo mínimo posible es
 
@@ -309,7 +313,7 @@ $$
 
 Este riesgo representa el error irreducible de clasificación.
 
-## Error de Bayes binario
+## Error de Bayes binario {.unnumbered}
 
 En clasificación binaria,
 
@@ -340,7 +344,7 @@ $$
 \}.
 $$
 
-## Regla de Bayes con densidades
+## Regla de Bayes con densidades {.unnumbered}
 
 Por el teorema de Bayes,
 
@@ -363,7 +367,7 @@ f^{*}(\mathbf{x})
 p(\mathbf{x}\mid Y=k)P(Y=k).
 $$
 
-## Funciones discriminantes
+## Funciones discriminantes {.unnumbered}
 
 Se pueden definir funciones
 
@@ -386,7 +390,7 @@ $$
 
 El uso del logaritmo transforma productos en sumas.
 
-## Pérdidas asimétricas
+## Pérdidas asimétricas {.unnumbered}
 
 En muchos problemas, los errores no tienen el mismo costo.
 
@@ -417,7 +421,7 @@ $$
 
 Por tanto, el umbral óptimo no siempre es $0.5$.
 
-## Clasificación sensible al costo
+## Clasificación sensible al costo {.unnumbered}
 
 Este enfoque es importante cuando:
 
@@ -426,7 +430,7 @@ Este enfoque es importante cuando:
 - un accidente severo tiene un costo mucho mayor que uno leve;
 - las clases están desbalanceadas.
 
-## Clasificación binaria probabilística
+## Clasificación binaria probabilística {.unnumbered}
 
 Un modelo probabilístico produce
 
@@ -449,7 +453,7 @@ $$
 
 donde $t$ es el umbral.
 
-## Efecto del umbral
+## Efecto del umbral {.unnumbered}
 
 Al disminuir $t$:
 
@@ -463,7 +467,7 @@ Al aumentar $t$:
 - puede aumentar la especificidad;
 - puede disminuir la sensibilidad.
 
-## Matriz de confusión
+## Matriz de confusión {.unnumbered}
 
 Para clasificación binaria:
 
@@ -480,7 +484,7 @@ n
 VP+VN+FP+FN.
 $$
 
-## Exactitud
+## Exactitud {.unnumbered}
 
 ::: {#def-exactitud}
 La exactitud es
@@ -496,7 +500,7 @@ VP+VN+FP+FN
 $$
 :::
 
-## Tasa de error
+## Tasa de error {.unnumbered}
 
 $$
 \operatorname{Error}
@@ -516,7 +520,7 @@ $$
 1-\operatorname{Accuracy}.
 $$
 
-## Sensibilidad
+## Sensibilidad {.unnumbered}
 
 ::: {#def-sensibilidad}
 La sensibilidad o tasa de verdaderos positivos es
@@ -540,7 +544,7 @@ También se denomina:
 - true positive rate;
 - tasa de detección.
 
-## Especificidad
+## Especificidad {.unnumbered}
 
 ::: {#def-especificidad}
 La especificidad o tasa de verdaderos negativos es
@@ -556,7 +560,7 @@ VN+FP
 $$
 :::
 
-## Tasa de falsos positivos
+## Tasa de falsos positivos {.unnumbered}
 
 $$
 \operatorname{FPR}
@@ -571,7 +575,7 @@ FP+VN
 \operatorname{Especificidad}.
 $$
 
-## Tasa de falsos negativos
+## Tasa de falsos negativos {.unnumbered}
 
 $$
 \operatorname{FNR}
@@ -586,7 +590,7 @@ FN+VP
 \operatorname{Sensibilidad}.
 $$
 
-## Precisión positiva
+## Precisión positiva {.unnumbered}
 
 ::: {#def-precision}
 La precisión o valor predictivo positivo es
@@ -604,7 +608,7 @@ $$
 
 Mide qué proporción de las predicciones positivas es correcta.
 
-## Valor predictivo negativo
+## Valor predictivo negativo {.unnumbered}
 
 $$
 \operatorname{VPN}
@@ -616,7 +620,7 @@ VN+FN
 }.
 $$
 
-## Medida F1
+## Medida F1 {.unnumbered}
 
 La medida F1 es la media armónica entre precisión y sensibilidad:
 
@@ -647,7 +651,7 @@ F_1
 }.
 $$
 
-## Exactitud balanceada
+## Exactitud balanceada {.unnumbered}
 
 En clases desbalanceadas puede utilizarse
 
@@ -663,7 +667,7 @@ $$
 }.
 $$
 
-## Prevalencia
+## Prevalencia {.unnumbered}
 
 La prevalencia observada de la clase positiva es
 
@@ -679,7 +683,7 @@ $$
 
 Los valores predictivos dependen de la prevalencia.
 
-## Ejemplo de matriz de confusión
+## Ejemplo de matriz de confusión {.unnumbered}
 
 Supóngase:
 
@@ -726,7 +730,7 @@ $$
 \approx 0.818.
 $$
 
-## Limitaciones de la exactitud
+## Limitaciones de la exactitud {.unnumbered}
 
 Considere una base con:
 
@@ -755,7 +759,7 @@ Por tanto, la exactitud puede ser engañosa en datos desbalanceados.
 Un clasificador puede tener buena exactitud y probabilidades mal calibradas. La discriminación evalúa orden o separación entre clases; la calibración evalúa si una probabilidad pronosticada de, por ejemplo, 0.8 corresponde aproximadamente a una frecuencia observada de 0.8.
 :::
 
-## Curva ROC
+## Curva ROC {.unnumbered}
 
 ::: {#def-curva-roc}
 La curva ROC representa la tasa de verdaderos positivos frente a la tasa de falsos positivos para distintos umbrales.
@@ -773,7 +777,7 @@ $$
 
 Cada umbral produce un punto en la curva.
 
-## Interpretación de la curva ROC
+## Interpretación de la curva ROC {.unnumbered}
 
 Un clasificador ideal se aproxima al punto
 
@@ -789,7 +793,7 @@ $$
 \operatorname{FPR}.
 $$
 
-## Área bajo la curva
+## Área bajo la curva {.unnumbered}
 
 ::: {#def-auc}
 El área bajo la curva ROC se denota por AUC.
@@ -803,7 +807,7 @@ Valores típicos:
 - cercano a $1$: excelente discriminación;
 - menor que $0.5$: orden inverso sistemático.
 
-## Curva precisión-recall
+## Curva precisión-recall {.unnumbered}
 
 En problemas con fuerte desbalance, puede ser más informativa la curva precisión-recall.
 
@@ -819,13 +823,13 @@ $$
 \operatorname{Recall}.
 $$
 
-## Calibración
+## Calibración {.unnumbered}
 
 Un clasificador está bien calibrado si, entre las observaciones con probabilidad predicha cercana a $p$, aproximadamente una proporción $p$ pertenece realmente a la clase positiva.
 
 Por ejemplo, entre observaciones con predicción $0.8$, cerca del $80\%$ debería ser positiva.
 
-## Discriminación y calibración
+## Discriminación y calibración {.unnumbered}
 
 Un modelo puede:
 
@@ -836,7 +840,7 @@ Un modelo puede:
 
 La AUC mide discriminación, no calibración.
 
-## Función de pérdida logarítmica
+## Función de pérdida logarítmica {.unnumbered}
 
 Para una observación binaria,
 
@@ -853,7 +857,7 @@ $$
 
 La pérdida penaliza con fuerza probabilidades muy confiadas pero incorrectas.
 
-## Brier score
+## Brier score {.unnumbered}
 
 El Brier score es
 
@@ -869,7 +873,7 @@ $$
 
 Evalúa predicciones probabilísticas y combina calibración con discriminación.
 
-## Clasificación multiclase
+## Clasificación multiclase {.unnumbered}
 
 Para $K$ clases,
 
@@ -888,13 +892,13 @@ $$
 \widehat{P}(Y=k\mid\mathbf{x}).
 $$
 
-## Matriz de confusión multiclase
+## Matriz de confusión multiclase {.unnumbered}
 
 La matriz contiene $K\times K$ entradas.
 
 La posición $(i,j)$ representa el número de observaciones cuya clase real es $i$ y cuya clase predicha es $j$.
 
-## Métricas por clase
+## Métricas por clase {.unnumbered}
 
 Para cada clase $k$, puede considerarse:
 
@@ -903,7 +907,7 @@ Para cada clase $k$, puede considerarse:
 
 Así se calculan sensibilidad, especificidad y precisión por clase.
 
-## Promedio macro
+## Promedio macro {.unnumbered}
 
 El promedio macro asigna el mismo peso a cada clase:
 
@@ -915,7 +919,7 @@ M_{\text{macro}}
 M_k.
 $$
 
-## Promedio ponderado
+## Promedio ponderado {.unnumbered}
 
 El promedio ponderado utiliza el tamaño de cada clase:
 
@@ -934,13 +938,13 @@ w_k
 \frac{n_k}{n}.
 $$
 
-## Promedio micro
+## Promedio micro {.unnumbered}
 
 El promedio micro agrega primero los conteos de todas las clases y después calcula la métrica.
 
 Es más sensible a las clases mayoritarias.
 
-## Estrategia uno contra el resto
+## Estrategia uno contra el resto {.unnumbered}
 
 Para cada clase $k$ se entrena un clasificador binario:
 
@@ -952,7 +956,7 @@ k
 \mathcal{Y}\setminus\{k\}.
 $$
 
-## Estrategia uno contra uno
+## Estrategia uno contra uno {.unnumbered}
 
 Se entrena un clasificador para cada par de clases.
 
@@ -964,7 +968,7 @@ $$
 \frac{K(K-1)}{2}.
 $$
 
-## Regiones de decisión multiclase
+## Regiones de decisión multiclase {.unnumbered}
 
 Si se utilizan funciones discriminantes
 
@@ -987,7 +991,7 @@ g_j(\mathbf{x})
 \}.
 $$
 
-## Relación con regresión logística
+## Relación con regresión logística {.unnumbered}
 
 En regresión logística binaria,
 
@@ -1012,7 +1016,7 @@ $$
 0.
 $$
 
-## Relación con el método de vecinos más cercanos
+## Relación con el método de vecinos más cercanos {.unnumbered}
 
 En $k$-NN, las probabilidades posteriores pueden estimarse como
 
@@ -1026,7 +1030,7 @@ $$
 
 La clase predicha es la de mayor frecuencia local.
 
-## Relación con árboles de decisión
+## Relación con árboles de decisión {.unnumbered}
 
 En una hoja terminal,
 
@@ -1038,7 +1042,7 @@ $$
 
 El árbol asigna la clase más frecuente.
 
-## Relación con SVM
+## Relación con SVM {.unnumbered}
 
 SVM produce una función de puntuación
 
@@ -1061,7 +1065,7 @@ $$
 
 La distancia a la frontera se relaciona con el margen.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1099,7 +1103,7 @@ especificidad
 precision
 ```
 
-## Ejemplo integrado
+## Ejemplo integrado {.unnumbered}
 
 Considere un modelo para identificar accidentes severos.
 
@@ -1155,7 +1159,7 @@ $$
 
 Aunque la exactitud es alta, la sensibilidad indica que uno de cada cinco accidentes severos no es detectado.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Confundir sensibilidad con precisión.
 2. Interpretar exactitud alta como buen desempeño universal.
@@ -1168,7 +1172,7 @@ Aunque la exactitud es alta, la sensibilidad indica que uno de cada cinco accide
 9. Evaluar el modelo final sobre los datos de entrenamiento.
 10. Ignorar la prevalencia al interpretar valores predictivos.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique qué representa una frontera de decisión.
 2. ¿Qué diferencia existe entre una regla discriminante y una probabilidad posterior?
@@ -1181,7 +1185,7 @@ Aunque la exactitud es alta, la sensibilidad indica que uno de cada cinco accide
 9. ¿Qué mide la AUC?
 10. Explique la diferencia entre discriminación y calibración.
 
-## Ejercicio de matriz de confusión
+## Ejercicio de matriz de confusión {.unnumbered}
 
 Considere:
 
@@ -1206,7 +1210,7 @@ Calcule:
 7. F1;
 8. exactitud balanceada.
 
-## Ejercicio de pérdidas asimétricas
+## Ejercicio de pérdidas asimétricas {.unnumbered}
 
 Supóngase:
 
@@ -1225,7 +1229,7 @@ $$
    - $0.30$;
    - $0.60$.
 
-## Ejercicio de regla de Bayes
+## Ejercicio de regla de Bayes {.unnumbered}
 
 Considere dos clases:
 
@@ -1249,7 +1253,7 @@ $$
 2. Determine la clase según la regla de Bayes.
 3. Explique el efecto de las probabilidades previas.
 
-## Ejercicio de umbral
+## Ejercicio de umbral {.unnumbered}
 
 Un modelo produce las probabilidades:
 
@@ -1262,7 +1266,7 @@ $$
 3. Explique cómo cambia la sensibilidad esperada.
 4. Explique cómo cambia la especificidad esperada.
 
-## Ejercicio multiclase
+## Ejercicio multiclase {.unnumbered}
 
 Un problema tiene tres clases:
 
@@ -1290,7 +1294,7 @@ $$
 2. Calcule el riesgo condicional bajo pérdida 0-1 para cada decisión.
 3. Verifique que la decisión óptima minimiza el riesgo.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea clasificar la calidad del aire en:
 
@@ -1310,7 +1314,7 @@ $$
 6. Compare promedio macro y ponderado.
 7. Explique qué métrica usaría si la clase “mala” es poco frecuente pero crítica.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se formuló la clasificación como una regla de decisión sobre el espacio de características. Se definieron regiones y fronteras de decisión, probabilidades posteriores, riesgo condicional y regla de Bayes.
 

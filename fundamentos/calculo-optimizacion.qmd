@@ -1,6 +1,6 @@
 # Cálculo multivariable y optimización {#sec-calculo-optimizacion}
 
-## Introducción
+## Introducción {.unnumbered}
 
 El entrenamiento de numerosos modelos consiste en minimizar una función respecto de vectores o matrices de parámetros. El cálculo multivariable aporta gradientes, Jacobianas y Hessianas; la optimización convexa permite distinguir mínimos locales y globales y establecer condiciones de optimalidad [@apostol1967calculus; @boyd2004convex; @bishop2006pattern].
 
@@ -10,7 +10,11 @@ La regresión lineal minimiza una suma de errores cuadrados; la regresión logí
 
 Este capítulo desarrolla las herramientas necesarias para formular y analizar estos procesos.
 
-## Objetivos
+::: {.callout-important title="Idea central"}
+Entrenar un modelo suele significar minimizar una función de pérdida respecto de sus parámetros.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -30,7 +34,7 @@ Al finalizar el capítulo, el lector podrá:
 14. interpretar métodos de Newton y aproximaciones de segundo orden;
 15. relacionar estos conceptos con algoritmos de aprendizaje automático.
 
-## Funciones de varias variables
+## Funciones de varias variables {.unnumbered}
 
 ::: {#def-funcion-multivariable}
 Una función de varias variables es una aplicación
@@ -73,7 +77,7 @@ $$
 Esta función asigna un número real a cada punto de $\mathbb{R}^{2}$.
 :::
 
-## Superficies de nivel
+## Superficies de nivel {.unnumbered}
 
 Para una constante $c$, el conjunto de nivel de $f$ es
 
@@ -91,7 +95,7 @@ En dos variables, los conjuntos de nivel pueden representarse mediante curvas de
 
 En optimización, estas curvas ayudan a visualizar la geometría de la función objetivo.
 
-## Derivadas parciales
+## Derivadas parciales {.unnumbered}
 
 ::: {#def-derivada-parcial}
 La derivada parcial de $f$ respecto de $x_j$ se define como
@@ -140,7 +144,7 @@ $$
 $$
 :::
 
-## Derivadas parciales de orden superior
+## Derivadas parciales de orden superior {.unnumbered}
 
 Las segundas derivadas parciales son
 
@@ -165,7 +169,7 @@ $$
 {\partial x_j\partial x_i}.
 $$
 
-## Gradiente
+## Gradiente {.unnumbered}
 
 ::: {#def-gradiente}
 El gradiente de una función
@@ -223,7 +227,7 @@ $$
 El gradiente representa la dirección de máximo incremento local bajo el producto interno euclidiano. En geometrías o parametrizaciones diferentes, la noción de dirección más pronunciada puede cambiar.
 :::
 
-## Derivada direccional
+## Derivada direccional {.unnumbered}
 
 Sea $\mathbf{u}$ un vector unitario. La derivada direccional de $f$ en la dirección $\mathbf{u}$ es
 
@@ -253,7 +257,7 @@ $$
 }.
 $$
 
-## Funciones vectoriales
+## Funciones vectoriales {.unnumbered}
 
 Una función vectorial tiene la forma
 
@@ -273,7 +277,7 @@ f_m(\mathbf{x})
 \end{pmatrix}.
 $$
 
-## Matriz Jacobiana
+## Matriz Jacobiana {.unnumbered}
 
 ::: {#def-jacobiana}
 La matriz Jacobiana de
@@ -311,7 +315,7 @@ $$
 
 Si $m=1$, la Jacobiana coincide con el gradiente transpuesto.
 
-## Matriz Hessiana
+## Matriz Hessiana {.unnumbered}
 
 ::: {#def-hessiana}
 La matriz Hessiana de una función escalar
@@ -372,7 +376,7 @@ $$
 $$
 :::
 
-## Diferenciales
+## Diferenciales {.unnumbered}
 
 La diferencial total de $f$ es
 
@@ -393,7 +397,7 @@ df
 d\mathbf{x}.
 $$
 
-## Regla de la cadena
+## Regla de la cadena {.unnumbered}
 
 Sea
 
@@ -422,7 +426,7 @@ $$
 
 Esta regla es la base matemática de la retropropagación en redes neuronales.
 
-## Ejemplo de regla de la cadena
+## Ejemplo de regla de la cadena {.unnumbered}
 
 Sea
 
@@ -463,7 +467,7 @@ $$
 2x_2e^{x_1^2+x_2^2}.
 $$
 
-## Derivación matricial básica
+## Derivación matricial básica {.unnumbered}
 
 En aprendizaje automático, conviene utilizar identidades de cálculo matricial.
 
@@ -525,7 +529,7 @@ $$
 2\mathbf{A}\mathbf{x}.
 $$
 
-## Expansión de Taylor de primer orden
+## Expansión de Taylor de primer orden {.unnumbered}
 
 Si $f$ es diferenciable, cerca de $\mathbf{x}_0$ se aproxima por
 
@@ -540,7 +544,7 @@ $$
 
 Esta es una aproximación lineal local.
 
-## Expansión de Taylor de segundo orden
+## Expansión de Taylor de segundo orden {.unnumbered}
 
 Si $f$ posee segundas derivadas,
 
@@ -560,7 +564,7 @@ $$
 
 Los métodos de Newton utilizan esta aproximación.
 
-## Puntos críticos
+## Puntos críticos {.unnumbered}
 
 ::: {#def-punto-critico}
 Un punto $\mathbf{x}^{*}$ es crítico si
@@ -578,7 +582,7 @@ Un punto crítico puede ser:
 - máximo local;
 - punto silla.
 
-## Clasificación mediante la Hessiana
+## Clasificación mediante la Hessiana {.unnumbered}
 
 Si
 
@@ -604,7 +608,7 @@ En un punto crítico $\mathbf{x}^*$:
 Estas conclusiones requieren que las derivadas necesarias existan y sean continuas en un entorno del punto.
 :::
 
-## Ejemplo de mínimo
+## Ejemplo de mínimo {.unnumbered}
 
 Sea
 
@@ -654,7 +658,7 @@ $$
 
 es un mínimo global.
 
-## Optimización sin restricciones
+## Optimización sin restricciones {.unnumbered}
 
 Un problema de optimización sin restricciones tiene la forma
 
@@ -671,7 +675,7 @@ $$
 
 Si además la Hessiana es definida positiva, el punto es un mínimo local estricto.
 
-## Funciones convexas
+## Funciones convexas {.unnumbered}
 
 ::: {#def-convexidad}
 Una función
@@ -697,7 +701,7 @@ $$
 
 Geométricamente, el segmento entre dos puntos de la gráfica queda por encima de la gráfica.
 
-## Convexidad estricta
+## Convexidad estricta {.unnumbered}
 
 La función es estrictamente convexa si la desigualdad es estricta para
 
@@ -713,7 +717,7 @@ $$
 
 Una función estrictamente convexa tiene a lo sumo un mínimo global.
 
-## Caracterización mediante el gradiente
+## Caracterización mediante el gradiente {.unnumbered}
 
 Si $f$ es diferenciable, es convexa si y solo si
 
@@ -728,7 +732,7 @@ $$
 
 para todos $\mathbf{x},\mathbf{y}$.
 
-## Caracterización mediante la Hessiana
+## Caracterización mediante la Hessiana {.unnumbered}
 
 Si $f$ es dos veces diferenciable, es convexa si
 
@@ -746,7 +750,7 @@ Es estrictamente convexa si la Hessiana es definida positiva.
 Si $f$ es convexa sobre un conjunto convexo, todo mínimo local es global. Si además es estrictamente convexa, puede existir como máximo un minimizador global. La existencia del mínimo requiere condiciones adicionales, como continuidad y coercividad o compacidad del dominio.
 :::
 
-## Teorema del mínimo global
+## Teorema del mínimo global {.unnumbered}
 
 ::: {#thm-minimo-global-convexo}
 Si $f$ es convexa y diferenciable, cualquier punto $\mathbf{x}^{*}$ que satisface
@@ -760,7 +764,7 @@ es un mínimo global.
 
 Este resultado es fundamental en regresión lineal, regresión logística y SVM.
 
-## Funciones cóncavas
+## Funciones cóncavas {.unnumbered}
 
 Una función $f$ es cóncava si $-f$ es convexa.
 
@@ -768,7 +772,7 @@ La maximización de una función cóncava equivale a la minimización de una fun
 
 La log-verosimilitud de muchos modelos estadísticos es cóncava.
 
-## Descenso por gradiente
+## Descenso por gradiente {.unnumbered}
 
 ::: {#def-descenso-gradiente}
 El descenso por gradiente genera una sucesión
@@ -803,7 +807,7 @@ $$
 no garantiza descenso para cualquier tasa de aprendizaje. Las garantías usuales requieren regularidad de la función y una elección adecuada de $\eta_t$.
 :::
 
-## Elección de la tasa de aprendizaje
+## Elección de la tasa de aprendizaje {.unnumbered}
 
 Si $\eta_t$ es demasiado grande, el algoritmo puede:
 
@@ -813,7 +817,7 @@ Si $\eta_t$ es demasiado grande, el algoritmo puede:
 
 Si es demasiado pequeña, la convergencia puede ser muy lenta.
 
-## Criterios de parada
+## Criterios de parada {.unnumbered}
 
 El algoritmo puede detenerse cuando:
 
@@ -839,7 +843,7 @@ $$
 
 o cuando se alcanza un número máximo de iteraciones.
 
-## Descenso por gradiente para una función cuadrática
+## Descenso por gradiente para una función cuadrática {.unnumbered}
 
 Considere
 
@@ -876,7 +880,7 @@ $$
 \theta^{*}=3.
 $$
 
-## Descenso por gradiente por lotes
+## Descenso por gradiente por lotes {.unnumbered}
 
 En aprendizaje supervisado,
 
@@ -900,7 +904,7 @@ $$
 
 Cada actualización utiliza toda la muestra.
 
-## Descenso por gradiente estocástico
+## Descenso por gradiente estocástico {.unnumbered}
 
 El descenso estocástico utiliza una observación a la vez:
 
@@ -917,7 +921,7 @@ $$
 
 Es más ruidoso, pero puede ser más eficiente para bases grandes.
 
-## Mini-lotes
+## Mini-lotes {.unnumbered}
 
 Una variante intermedia utiliza un subconjunto $B_t$:
 
@@ -936,7 +940,7 @@ $$
 
 Esta estrategia es habitual en redes neuronales.
 
-## Método de Newton
+## Método de Newton {.unnumbered}
 
 El método de Newton utiliza la Hessiana:
 
@@ -955,7 +959,7 @@ $$
 
 Puede converger más rápido que el descenso por gradiente, pero requiere calcular e invertir la Hessiana.
 
-## Método de Newton-Raphson
+## Método de Newton-Raphson {.unnumbered}
 
 En máxima verosimilitud, si se maximiza
 
@@ -980,7 +984,7 @@ $$
 
 Este método se utiliza en regresión logística.
 
-## Problemas con restricciones
+## Problemas con restricciones {.unnumbered}
 
 Un problema restringido tiene la forma
 
@@ -1003,7 +1007,7 @@ $$
 h_k(\mathbf{x})\leq 0.
 $$
 
-## Multiplicadores de Lagrange
+## Multiplicadores de Lagrange {.unnumbered}
 
 ::: {#def-lagrangiano}
 Para el problema
@@ -1047,7 +1051,7 @@ $$
 g(\mathbf{x})=0.
 $$
 
-## Ejemplo de Lagrange
+## Ejemplo de Lagrange {.unnumbered}
 
 Minimizar
 
@@ -1099,7 +1103,7 @@ $$
 x_1=x_2=\frac{1}{2}.
 $$
 
-## Relación con PCA
+## Relación con PCA {.unnumbered}
 
 En PCA se resuelve
 
@@ -1151,7 +1155,7 @@ $$
 
 Así, las direcciones principales son vectores propios de la matriz de covarianza.
 
-## Restricciones de desigualdad y condiciones KKT
+## Restricciones de desigualdad y condiciones KKT {.unnumbered}
 
 Para un problema
 
@@ -1203,11 +1207,11 @@ Estas condiciones son fundamentales en máquinas de vectores de soporte.
 Las condiciones KKT son necesarias bajo condiciones de regularidad. En problemas convexos, con funciones diferenciables y una condición de factibilidad como Slater, también son suficientes para optimalidad global.
 :::
 
-## Funciones de pérdida
+## Funciones de pérdida {.unnumbered}
 
 Una función de pérdida mide el error de una predicción.
 
-### Pérdida cuadrática
+### Pérdida cuadrática {.unnumbered}
 
 $$
 L(y,\widehat{y})
@@ -1215,7 +1219,7 @@ L(y,\widehat{y})
 (y-\widehat{y})^2.
 $$
 
-### Pérdida absoluta
+### Pérdida absoluta {.unnumbered}
 
 $$
 L(y,\widehat{y})
@@ -1223,7 +1227,7 @@ L(y,\widehat{y})
 |y-\widehat{y}|.
 $$
 
-### Pérdida logística
+### Pérdida logística {.unnumbered}
 
 Para $y\in\{0,1\}$,
 
@@ -1238,7 +1242,7 @@ y\log\pi
 \right].
 $$
 
-### Pérdida hinge
+### Pérdida hinge {.unnumbered}
 
 Para $y\in\{-1,1\}$,
 
@@ -1252,7 +1256,7 @@ L(y,f(\mathbf{x}))
 \}.
 $$
 
-## Riesgo empírico
+## Riesgo empírico {.unnumbered}
 
 La función objetivo habitual es
 
@@ -1276,7 +1280,7 @@ $$
 \widehat{R}_n(f).
 $$
 
-## Regularización
+## Regularización {.unnumbered}
 
 Para controlar la complejidad se añade una penalización:
 
@@ -1300,7 +1304,7 @@ $$
 \|\boldsymbol{\theta}\|_2^2.
 $$
 
-## Relación con regresión lineal
+## Relación con regresión lineal {.unnumbered}
 
 La función de pérdida es
 
@@ -1356,7 +1360,7 @@ $$
 \mathbf{y}.
 $$
 
-## Relación con regresión logística
+## Relación con regresión logística {.unnumbered}
 
 La log-verosimilitud es
 
@@ -1386,7 +1390,7 @@ $$
 
 La estimación se realiza mediante métodos iterativos.
 
-## Relación con redes neuronales
+## Relación con redes neuronales {.unnumbered}
 
 Una red neuronal compone funciones:
 
@@ -1404,7 +1408,7 @@ $$
 
 La retropropagación aplica repetidamente la regla de la cadena para calcular gradientes respecto de todos los parámetros.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1439,7 +1443,7 @@ resultado <- optim(
 resultado$par
 ```
 
-## Ejemplo integrado
+## Ejemplo integrado {.unnumbered}
 
 Considere
 
@@ -1481,7 +1485,7 @@ Igualando ambas expresiones a cero se obtienen las ecuaciones normales de regres
 
 Este ejemplo muestra cómo una función de pérdida se transforma en un sistema de ecuaciones mediante cálculo diferencial.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Confundir derivada parcial con derivada total.
 2. Utilizar el gradiente con una orientación matricial incorrecta.
@@ -1494,7 +1498,7 @@ Este ejemplo muestra cómo una función de pérdida se transforma en un sistema 
 9. Confundir máximo de log-verosimilitud con mínimo de pérdida sin cambiar el signo.
 10. Ignorar las restricciones al utilizar multiplicadores de Lagrange.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique la interpretación geométrica del gradiente.
 2. ¿Qué información proporciona la Hessiana?
@@ -1507,7 +1511,7 @@ Este ejemplo muestra cómo una función de pérdida se transforma en un sistema 
 9. ¿Qué significa minimizar el riesgo empírico?
 10. ¿Qué función cumple la regularización?
 
-## Ejercicios de derivación
+## Ejercicios de derivación {.unnumbered}
 
 Sea
 
@@ -1534,7 +1538,7 @@ Calcule:
 5. los puntos críticos;
 6. clasifique cada punto crítico.
 
-## Ejercicio de regla de la cadena
+## Ejercicio de regla de la cadena {.unnumbered}
 
 Sean
 
@@ -1561,7 +1565,7 @@ Calcule:
 3. la Jacobiana de $(z_1,z_2)$;
 4. verifique el resultado mediante la regla de la cadena matricial.
 
-## Ejercicio de descenso por gradiente
+## Ejercicio de descenso por gradiente {.unnumbered}
 
 Considere
 
@@ -1585,7 +1589,7 @@ $$
 
 Calcule manualmente las primeras cinco iteraciones.
 
-## Ejercicio de Lagrange
+## Ejercicio de Lagrange {.unnumbered}
 
 Minimice
 
@@ -1606,7 +1610,7 @@ $$
 3. Resuelva el sistema.
 4. Verifique la naturaleza del punto obtenido.
 
-## Ejercicio aplicado a regresión
+## Ejercicio aplicado a regresión {.unnumbered}
 
 Sea
 
@@ -1626,7 +1630,7 @@ $$
 4. Explique bajo qué condición existe una solución única.
 5. Interprete geométricamente la solución.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se estudiaron funciones de varias variables, derivadas parciales, gradientes, Jacobianas, Hessianas, diferenciales y regla de la cadena.
 

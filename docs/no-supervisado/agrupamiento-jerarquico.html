@@ -601,60 +601,49 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Tabla de contenidos</h2>
    
-  <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">23.1</span> Introducción</a></li>
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos"><span class="header-section-number">23.2</span> Objetivos</a></li>
-  <li><a href="#formulación" id="toc-formulación" class="nav-link" data-scroll-target="#formulación"><span class="header-section-number">23.3</span> Formulación</a></li>
-  <li><a href="#matriz-de-distancias" id="toc-matriz-de-distancias" class="nav-link" data-scroll-target="#matriz-de-distancias"><span class="header-section-number">23.4</span> Matriz de distancias</a></li>
-  <li><a href="#distancias-frecuentes" id="toc-distancias-frecuentes" class="nav-link" data-scroll-target="#distancias-frecuentes"><span class="header-section-number">23.5</span> Distancias frecuentes</a>
-  <ul>
-  <li><a href="#euclidiana" id="toc-euclidiana" class="nav-link" data-scroll-target="#euclidiana"><span class="header-section-number">23.5.1</span> Euclidiana</a></li>
-  <li><a href="#manhattan" id="toc-manhattan" class="nav-link" data-scroll-target="#manhattan"><span class="header-section-number">23.5.2</span> Manhattan</a></li>
-  <li><a href="#minkowski" id="toc-minkowski" class="nav-link" data-scroll-target="#minkowski"><span class="header-section-number">23.5.3</span> Minkowski</a></li>
-  </ul></li>
-  <li><a href="#escalamiento" id="toc-escalamiento" class="nav-link" data-scroll-target="#escalamiento"><span class="header-section-number">23.6</span> Escalamiento</a></li>
-  <li><a href="#agrupamiento-aglomerativo" id="toc-agrupamiento-aglomerativo" class="nav-link" data-scroll-target="#agrupamiento-aglomerativo"><span class="header-section-number">23.7</span> Agrupamiento aglomerativo</a></li>
-  <li><a href="#agrupamiento-divisivo" id="toc-agrupamiento-divisivo" class="nav-link" data-scroll-target="#agrupamiento-divisivo"><span class="header-section-number">23.8</span> Agrupamiento divisivo</a></li>
-  <li><a href="#criterios-de-enlace" id="toc-criterios-de-enlace" class="nav-link" data-scroll-target="#criterios-de-enlace"><span class="header-section-number">23.9</span> Criterios de enlace</a>
-  <ul>
-  <li><a href="#enlace-simple" id="toc-enlace-simple" class="nav-link" data-scroll-target="#enlace-simple"><span class="header-section-number">23.9.1</span> Enlace simple</a></li>
-  <li><a href="#enlace-completo" id="toc-enlace-completo" class="nav-link" data-scroll-target="#enlace-completo"><span class="header-section-number">23.9.2</span> Enlace completo</a></li>
-  <li><a href="#enlace-promedio" id="toc-enlace-promedio" class="nav-link" data-scroll-target="#enlace-promedio"><span class="header-section-number">23.9.3</span> Enlace promedio</a></li>
-  <li><a href="#enlace-por-centroides" id="toc-enlace-por-centroides" class="nav-link" data-scroll-target="#enlace-por-centroides"><span class="header-section-number">23.9.4</span> Enlace por centroides</a></li>
-  </ul></li>
-  <li><a href="#método-de-ward" id="toc-método-de-ward" class="nav-link" data-scroll-target="#método-de-ward"><span class="header-section-number">23.10</span> Método de Ward</a></li>
-  <li><a href="#relación-entre-ward-y-k-means" id="toc-relación-entre-ward-y-k-means" class="nav-link" data-scroll-target="#relación-entre-ward-y-k-means"><span class="header-section-number">23.11</span> Relación entre Ward y K-means</a></li>
-  <li><a href="#dendrograma" id="toc-dendrograma" class="nav-link" data-scroll-target="#dendrograma"><span class="header-section-number">23.12</span> Dendrograma</a></li>
-  <li><a href="#corte-del-dendrograma" id="toc-corte-del-dendrograma" class="nav-link" data-scroll-target="#corte-del-dendrograma"><span class="header-section-number">23.13</span> Corte del dendrograma</a></li>
-  <li><a href="#selección-del-número-de-grupos" id="toc-selección-del-número-de-grupos" class="nav-link" data-scroll-target="#selección-del-número-de-grupos"><span class="header-section-number">23.14</span> Selección del número de grupos</a></li>
-  <li><a href="#distancia-cofenética" id="toc-distancia-cofenética" class="nav-link" data-scroll-target="#distancia-cofenética"><span class="header-section-number">23.15</span> Distancia cofenética</a></li>
-  <li><a href="#correlación-cofenética" id="toc-correlación-cofenética" class="nav-link" data-scroll-target="#correlación-cofenética"><span class="header-section-number">23.16</span> Correlación cofenética</a></li>
-  <li><a href="#fórmula-de-lance-williams" id="toc-fórmula-de-lance-williams" class="nav-link" data-scroll-target="#fórmula-de-lance-williams"><span class="header-section-number">23.17</span> Fórmula de Lance-Williams</a></li>
-  <li><a href="#inversiones" id="toc-inversiones" class="nav-link" data-scroll-target="#inversiones"><span class="header-section-number">23.18</span> Inversiones</a></li>
-  <li><a href="#estabilidad" id="toc-estabilidad" class="nav-link" data-scroll-target="#estabilidad"><span class="header-section-number">23.19</span> Estabilidad</a></li>
-  <li><a href="#jaccard-de-grupos" id="toc-jaccard-de-grupos" class="nav-link" data-scroll-target="#jaccard-de-grupos"><span class="header-section-number">23.20</span> Jaccard de grupos</a></li>
-  <li><a href="#comparación-de-dendrogramas" id="toc-comparación-de-dendrogramas" class="nav-link" data-scroll-target="#comparación-de-dendrogramas"><span class="header-section-number">23.21</span> Comparación de dendrogramas</a></li>
-  <li><a href="#complejidad-computacional" id="toc-complejidad-computacional" class="nav-link" data-scroll-target="#complejidad-computacional"><span class="header-section-number">23.22</span> Complejidad computacional</a></li>
-  <li><a href="#métodos-escalables" id="toc-métodos-escalables" class="nav-link" data-scroll-target="#métodos-escalables"><span class="header-section-number">23.23</span> Métodos escalables</a></li>
-  <li><a href="#valores-atípicos" id="toc-valores-atípicos" class="nav-link" data-scroll-target="#valores-atípicos"><span class="header-section-number">23.24</span> Valores atípicos</a></li>
-  <li><a href="#variables-categóricas-y-mixtas" id="toc-variables-categóricas-y-mixtas" class="nav-link" data-scroll-target="#variables-categóricas-y-mixtas"><span class="header-section-number">23.25</span> Variables categóricas y mixtas</a></li>
-  <li><a href="#distancia-de-jaccard" id="toc-distancia-de-jaccard" class="nav-link" data-scroll-target="#distancia-de-jaccard"><span class="header-section-number">23.26</span> Distancia de Jaccard</a></li>
-  <li><a href="#visualización" id="toc-visualización" class="nav-link" data-scroll-target="#visualización"><span class="header-section-number">23.27</span> Visualización</a></li>
-  <li><a href="#relación-con-grafos" id="toc-relación-con-grafos" class="nav-link" data-scroll-target="#relación-con-grafos"><span class="header-section-number">23.28</span> Relación con grafos</a></li>
-  <li><a href="#comparación-con-k-means" id="toc-comparación-con-k-means" class="nav-link" data-scroll-target="#comparación-con-k-means"><span class="header-section-number">23.29</span> Comparación con K-means</a></li>
-  <li><a href="#comparación-con-dbscan" id="toc-comparación-con-dbscan" class="nav-link" data-scroll-target="#comparación-con-dbscan"><span class="header-section-number">23.30</span> Comparación con DBSCAN</a></li>
-  <li><a href="#conexión-con-r" id="toc-conexión-con-r" class="nav-link" data-scroll-target="#conexión-con-r"><span class="header-section-number">23.31</span> Conexión con R</a></li>
-  <li><a href="#ejemplo-numérico" id="toc-ejemplo-numérico" class="nav-link" data-scroll-target="#ejemplo-numérico"><span class="header-section-number">23.32</span> Ejemplo numérico</a></li>
-  <li><a href="#ejemplo-de-enlaces" id="toc-ejemplo-de-enlaces" class="nav-link" data-scroll-target="#ejemplo-de-enlaces"><span class="header-section-number">23.33</span> Ejemplo de enlaces</a></li>
-  <li><a href="#ejemplo-de-ward" id="toc-ejemplo-de-ward" class="nav-link" data-scroll-target="#ejemplo-de-ward"><span class="header-section-number">23.34</span> Ejemplo de Ward</a></li>
-  <li><a href="#ventajas" id="toc-ventajas" class="nav-link" data-scroll-target="#ventajas"><span class="header-section-number">23.35</span> Ventajas</a></li>
-  <li><a href="#limitaciones" id="toc-limitaciones" class="nav-link" data-scroll-target="#limitaciones"><span class="header-section-number">23.36</span> Limitaciones</a></li>
-  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">23.37</span> Errores frecuentes</a></li>
-  <li><a href="#ejercicios-conceptuales" id="toc-ejercicios-conceptuales" class="nav-link" data-scroll-target="#ejercicios-conceptuales"><span class="header-section-number">23.38</span> Ejercicios conceptuales</a></li>
-  <li><a href="#ejercicio-de-distancias" id="toc-ejercicio-de-distancias" class="nav-link" data-scroll-target="#ejercicio-de-distancias"><span class="header-section-number">23.39</span> Ejercicio de distancias</a></li>
-  <li><a href="#ejercicio-de-ward" id="toc-ejercicio-de-ward" class="nav-link" data-scroll-target="#ejercicio-de-ward"><span class="header-section-number">23.40</span> Ejercicio de Ward</a></li>
-  <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado"><span class="header-section-number">23.41</span> Ejercicio aplicado</a></li>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">23.42</span> Resumen</a></li>
+  <ul class="collapse">
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
+  <li><a href="#formulación" id="toc-formulación" class="nav-link" data-scroll-target="#formulación">Formulación</a></li>
+  <li><a href="#matriz-de-distancias" id="toc-matriz-de-distancias" class="nav-link" data-scroll-target="#matriz-de-distancias">Matriz de distancias</a></li>
+  <li><a href="#distancias-frecuentes" id="toc-distancias-frecuentes" class="nav-link" data-scroll-target="#distancias-frecuentes">Distancias frecuentes</a></li>
+  <li><a href="#escalamiento" id="toc-escalamiento" class="nav-link" data-scroll-target="#escalamiento">Escalamiento</a></li>
+  <li><a href="#agrupamiento-aglomerativo" id="toc-agrupamiento-aglomerativo" class="nav-link" data-scroll-target="#agrupamiento-aglomerativo">Agrupamiento aglomerativo</a></li>
+  <li><a href="#agrupamiento-divisivo" id="toc-agrupamiento-divisivo" class="nav-link" data-scroll-target="#agrupamiento-divisivo">Agrupamiento divisivo</a></li>
+  <li><a href="#criterios-de-enlace" id="toc-criterios-de-enlace" class="nav-link" data-scroll-target="#criterios-de-enlace">Criterios de enlace</a></li>
+  <li><a href="#método-de-ward" id="toc-método-de-ward" class="nav-link" data-scroll-target="#método-de-ward">Método de Ward</a></li>
+  <li><a href="#relación-entre-ward-y-k-means" id="toc-relación-entre-ward-y-k-means" class="nav-link" data-scroll-target="#relación-entre-ward-y-k-means">Relación entre Ward y K-means</a></li>
+  <li><a href="#dendrograma" id="toc-dendrograma" class="nav-link" data-scroll-target="#dendrograma">Dendrograma</a></li>
+  <li><a href="#corte-del-dendrograma" id="toc-corte-del-dendrograma" class="nav-link" data-scroll-target="#corte-del-dendrograma">Corte del dendrograma</a></li>
+  <li><a href="#selección-del-número-de-grupos" id="toc-selección-del-número-de-grupos" class="nav-link" data-scroll-target="#selección-del-número-de-grupos">Selección del número de grupos</a></li>
+  <li><a href="#distancia-cofenética" id="toc-distancia-cofenética" class="nav-link" data-scroll-target="#distancia-cofenética">Distancia cofenética</a></li>
+  <li><a href="#correlación-cofenética" id="toc-correlación-cofenética" class="nav-link" data-scroll-target="#correlación-cofenética">Correlación cofenética</a></li>
+  <li><a href="#fórmula-de-lance-williams" id="toc-fórmula-de-lance-williams" class="nav-link" data-scroll-target="#fórmula-de-lance-williams">Fórmula de Lance-Williams</a></li>
+  <li><a href="#inversiones" id="toc-inversiones" class="nav-link" data-scroll-target="#inversiones">Inversiones</a></li>
+  <li><a href="#estabilidad" id="toc-estabilidad" class="nav-link" data-scroll-target="#estabilidad">Estabilidad</a></li>
+  <li><a href="#jaccard-de-grupos" id="toc-jaccard-de-grupos" class="nav-link" data-scroll-target="#jaccard-de-grupos">Jaccard de grupos</a></li>
+  <li><a href="#comparación-de-dendrogramas" id="toc-comparación-de-dendrogramas" class="nav-link" data-scroll-target="#comparación-de-dendrogramas">Comparación de dendrogramas</a></li>
+  <li><a href="#complejidad-computacional" id="toc-complejidad-computacional" class="nav-link" data-scroll-target="#complejidad-computacional">Complejidad computacional</a></li>
+  <li><a href="#métodos-escalables" id="toc-métodos-escalables" class="nav-link" data-scroll-target="#métodos-escalables">Métodos escalables</a></li>
+  <li><a href="#valores-atípicos" id="toc-valores-atípicos" class="nav-link" data-scroll-target="#valores-atípicos">Valores atípicos</a></li>
+  <li><a href="#variables-categóricas-y-mixtas" id="toc-variables-categóricas-y-mixtas" class="nav-link" data-scroll-target="#variables-categóricas-y-mixtas">Variables categóricas y mixtas</a></li>
+  <li><a href="#distancia-de-jaccard" id="toc-distancia-de-jaccard" class="nav-link" data-scroll-target="#distancia-de-jaccard">Distancia de Jaccard</a></li>
+  <li><a href="#visualización" id="toc-visualización" class="nav-link" data-scroll-target="#visualización">Visualización</a></li>
+  <li><a href="#relación-con-grafos" id="toc-relación-con-grafos" class="nav-link" data-scroll-target="#relación-con-grafos">Relación con grafos</a></li>
+  <li><a href="#comparación-con-k-means" id="toc-comparación-con-k-means" class="nav-link" data-scroll-target="#comparación-con-k-means">Comparación con K-means</a></li>
+  <li><a href="#comparación-con-dbscan" id="toc-comparación-con-dbscan" class="nav-link" data-scroll-target="#comparación-con-dbscan">Comparación con DBSCAN</a></li>
+  <li><a href="#conexión-con-r" id="toc-conexión-con-r" class="nav-link" data-scroll-target="#conexión-con-r">Conexión con R</a></li>
+  <li><a href="#ejemplo-numérico" id="toc-ejemplo-numérico" class="nav-link" data-scroll-target="#ejemplo-numérico">Ejemplo numérico</a></li>
+  <li><a href="#ejemplo-de-enlaces" id="toc-ejemplo-de-enlaces" class="nav-link" data-scroll-target="#ejemplo-de-enlaces">Ejemplo de enlaces</a></li>
+  <li><a href="#ejemplo-de-ward" id="toc-ejemplo-de-ward" class="nav-link" data-scroll-target="#ejemplo-de-ward">Ejemplo de Ward</a></li>
+  <li><a href="#ventajas" id="toc-ventajas" class="nav-link" data-scroll-target="#ventajas">Ventajas</a></li>
+  <li><a href="#limitaciones" id="toc-limitaciones" class="nav-link" data-scroll-target="#limitaciones">Limitaciones</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes">Errores frecuentes</a></li>
+  <li><a href="#ejercicios-conceptuales" id="toc-ejercicios-conceptuales" class="nav-link" data-scroll-target="#ejercicios-conceptuales">Ejercicios conceptuales</a></li>
+  <li><a href="#ejercicio-de-distancias" id="toc-ejercicio-de-distancias" class="nav-link" data-scroll-target="#ejercicio-de-distancias">Ejercicio de distancias</a></li>
+  <li><a href="#ejercicio-de-ward" id="toc-ejercicio-de-ward" class="nav-link" data-scroll-target="#ejercicio-de-ward">Ejercicio de Ward</a></li>
+  <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado">Ejercicio aplicado</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
   <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
 </nav>
@@ -682,8 +671,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introducción" class="level2" data-number="23.1">
-<h2 data-number="23.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">23.1</span> Introducción</h2>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
 <p>El agrupamiento jerárquico construye una sucesión de grupos anidados y representa el resultado mediante un <strong>dendrograma</strong>. A diferencia de K-means, no exige fijar el número de conglomerados antes de iniciar el análisis.</p>
 <p>Existen dos estrategias:</p>
 <ul>
@@ -692,8 +681,8 @@ window.Quarto = {
 </ul>
 <p>El resultado depende de dos decisiones fundamentales: la distancia entre observaciones y el criterio de enlace utilizado para medir distancia entre grupos.</p>
 </section>
-<section id="objetivos" class="level2" data-number="23.2">
-<h2 data-number="23.2" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">23.2</span> Objetivos</h2>
+<section id="objetivos" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos">Objetivos</h2>
 <p>Al finalizar el capítulo, el lector podrá:</p>
 <ol type="1">
 <li>distinguir agrupamiento aglomerativo y divisivo;</li>
@@ -708,8 +697,8 @@ window.Quarto = {
 <li>aplicarlo en R.</li>
 </ol>
 </section>
-<section id="formulación" class="level2" data-number="23.3">
-<h2 data-number="23.3" class="anchored" data-anchor-id="formulación"><span class="header-section-number">23.3</span> Formulación</h2>
+<section id="formulación" class="level2">
+<h2 class="anchored" data-anchor-id="formulación">Formulación</h2>
 <p>Considérese una muestra no etiquetada</p>
 <p><span class="math display">\[
 \mathcal{D}_n=\{\mathbf{x}_1,\ldots,\mathbf{x}_n\},
@@ -731,8 +720,8 @@ C_k\cap C_\ell=\varnothing
 \]</span></p>
 <p>El método jerárquico genera varias particiones relacionadas entre sí.</p>
 </section>
-<section id="matriz-de-distancias" class="level2" data-number="23.4">
-<h2 data-number="23.4" class="anchored" data-anchor-id="matriz-de-distancias"><span class="header-section-number">23.4</span> Matriz de distancias</h2>
+<section id="matriz-de-distancias" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-de-distancias">Matriz de distancias</h2>
 <p>La información inicial se resume en</p>
 <p><span class="math display">\[
 \mathbf{D}=(d_{ij}),
@@ -748,10 +737,10 @@ d_{ij}=d_{ji},
 d_{ii}=0.
 \]</span></p>
 </section>
-<section id="distancias-frecuentes" class="level2" data-number="23.5">
-<h2 data-number="23.5" class="anchored" data-anchor-id="distancias-frecuentes"><span class="header-section-number">23.5</span> Distancias frecuentes</h2>
-<section id="euclidiana" class="level3" data-number="23.5.1">
-<h3 data-number="23.5.1" class="anchored" data-anchor-id="euclidiana"><span class="header-section-number">23.5.1</span> Euclidiana</h3>
+<section id="distancias-frecuentes" class="level2">
+<h2 class="anchored" data-anchor-id="distancias-frecuentes">Distancias frecuentes</h2>
+<section id="euclidiana" class="level3">
+<h3 class="anchored" data-anchor-id="euclidiana">Euclidiana</h3>
 <p><span class="math display">\[
 d_2(\mathbf{x}_i,\mathbf{x}_j)
 =
@@ -760,16 +749,16 @@ d_2(\mathbf{x}_i,\mathbf{x}_j)
 \right]^{1/2}.
 \]</span></p>
 </section>
-<section id="manhattan" class="level3" data-number="23.5.2">
-<h3 data-number="23.5.2" class="anchored" data-anchor-id="manhattan"><span class="header-section-number">23.5.2</span> Manhattan</h3>
+<section id="manhattan" class="level3">
+<h3 class="anchored" data-anchor-id="manhattan">Manhattan</h3>
 <p><span class="math display">\[
 d_1(\mathbf{x}_i,\mathbf{x}_j)
 =
 \sum_{r=1}^{p}|x_{ir}-x_{jr}|.
 \]</span></p>
 </section>
-<section id="minkowski" class="level3" data-number="23.5.3">
-<h3 data-number="23.5.3" class="anchored" data-anchor-id="minkowski"><span class="header-section-number">23.5.3</span> Minkowski</h3>
+<section id="minkowski" class="level3">
+<h3 class="anchored" data-anchor-id="minkowski">Minkowski</h3>
 <p><span class="math display">\[
 d_q(\mathbf{x}_i,\mathbf{x}_j)
 =
@@ -780,8 +769,8 @@ d_q(\mathbf{x}_i,\mathbf{x}_j)
 <p>Para datos mixtos puede utilizarse la distancia de Gower.</p>
 </section>
 </section>
-<section id="escalamiento" class="level2" data-number="23.6">
-<h2 data-number="23.6" class="anchored" data-anchor-id="escalamiento"><span class="header-section-number">23.6</span> Escalamiento</h2>
+<section id="escalamiento" class="level2">
+<h2 class="anchored" data-anchor-id="escalamiento">Escalamiento</h2>
 <p>Cuando las variables tienen escalas distintas, suele emplearse</p>
 <p><span class="math display">\[
 z_{ij}
@@ -790,8 +779,8 @@ z_{ij}
 \]</span></p>
 <p>Sin estandarización, una variable con valores grandes puede dominar las fusiones.</p>
 </section>
-<section id="agrupamiento-aglomerativo" class="level2" data-number="23.7">
-<h2 data-number="23.7" class="anchored" data-anchor-id="agrupamiento-aglomerativo"><span class="header-section-number">23.7</span> Agrupamiento aglomerativo</h2>
+<section id="agrupamiento-aglomerativo" class="level2">
+<h2 class="anchored" data-anchor-id="agrupamiento-aglomerativo">Agrupamiento aglomerativo</h2>
 <p>El algoritmo inicia con</p>
 <p><span class="math display">\[
 C_i^{(0)}=\{i\},
@@ -809,19 +798,19 @@ C_i^{(0)}=\{i\},
 </ol>
 </div>
 </section>
-<section id="agrupamiento-divisivo" class="level2" data-number="23.8">
-<h2 data-number="23.8" class="anchored" data-anchor-id="agrupamiento-divisivo"><span class="header-section-number">23.8</span> Agrupamiento divisivo</h2>
+<section id="agrupamiento-divisivo" class="level2">
+<h2 class="anchored" data-anchor-id="agrupamiento-divisivo">Agrupamiento divisivo</h2>
 <p>El método divisivo inicia con</p>
 <p><span class="math display">\[
 C^{(0)}=\{1,\ldots,n\}
 \]</span></p>
 <p>y divide sucesivamente los grupos. DIANA es un algoritmo divisivo clásico.</p>
 </section>
-<section id="criterios-de-enlace" class="level2" data-number="23.9">
-<h2 data-number="23.9" class="anchored" data-anchor-id="criterios-de-enlace"><span class="header-section-number">23.9</span> Criterios de enlace</h2>
+<section id="criterios-de-enlace" class="level2">
+<h2 class="anchored" data-anchor-id="criterios-de-enlace">Criterios de enlace</h2>
 <p>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos grupos.</p>
-<section id="enlace-simple" class="level3" data-number="23.9.1">
-<h3 data-number="23.9.1" class="anchored" data-anchor-id="enlace-simple"><span class="header-section-number">23.9.1</span> Enlace simple</h3>
+<section id="enlace-simple" class="level3">
+<h3 class="anchored" data-anchor-id="enlace-simple">Enlace simple</h3>
 <p><span class="math display">\[
 d_{\text{simple}}(A,B)
 =
@@ -830,8 +819,8 @@ d(\mathbf{x}_i,\mathbf{x}_j).
 \]</span></p>
 <p>Detecta estructuras alargadas, pero puede sufrir <strong>encadenamiento</strong>, donde grupos distintos se unen por una cadena de puntos intermedios.</p>
 </section>
-<section id="enlace-completo" class="level3" data-number="23.9.2">
-<h3 data-number="23.9.2" class="anchored" data-anchor-id="enlace-completo"><span class="header-section-number">23.9.2</span> Enlace completo</h3>
+<section id="enlace-completo" class="level3">
+<h3 class="anchored" data-anchor-id="enlace-completo">Enlace completo</h3>
 <p><span class="math display">\[
 d_{\text{completo}}(A,B)
 =
@@ -840,8 +829,8 @@ d(\mathbf{x}_i,\mathbf{x}_j).
 \]</span></p>
 <p>Favorece grupos compactos, aunque puede ser sensible a valores extremos.</p>
 </section>
-<section id="enlace-promedio" class="level3" data-number="23.9.3">
-<h3 data-number="23.9.3" class="anchored" data-anchor-id="enlace-promedio"><span class="header-section-number">23.9.3</span> Enlace promedio</h3>
+<section id="enlace-promedio" class="level3">
+<h3 class="anchored" data-anchor-id="enlace-promedio">Enlace promedio</h3>
 <p><span class="math display">\[
 d_{\text{promedio}}(A,B)
 =
@@ -852,8 +841,8 @@ d(\mathbf{x}_i,\mathbf{x}_j).
 \]</span></p>
 <p>Representa un compromiso entre enlace simple y completo.</p>
 </section>
-<section id="enlace-por-centroides" class="level3" data-number="23.9.4">
-<h3 data-number="23.9.4" class="anchored" data-anchor-id="enlace-por-centroides"><span class="header-section-number">23.9.4</span> Enlace por centroides</h3>
+<section id="enlace-por-centroides" class="level3">
+<h3 class="anchored" data-anchor-id="enlace-por-centroides">Enlace por centroides</h3>
 <p><span class="math display">\[
 d_{\text{centroide}}(A,B)
 =
@@ -862,8 +851,8 @@ d_{\text{centroide}}(A,B)
 <p>Puede producir inversiones en el dendrograma.</p>
 </section>
 </section>
-<section id="método-de-ward" class="level2" data-number="23.10">
-<h2 data-number="23.10" class="anchored" data-anchor-id="método-de-ward"><span class="header-section-number">23.10</span> Método de Ward</h2>
+<section id="método-de-ward" class="level2">
+<h2 class="anchored" data-anchor-id="método-de-ward">Método de Ward</h2>
 <p>Ward fusiona los grupos que producen el menor aumento en la suma de cuadrados intragrupo.</p>
 <p>Para un grupo <span class="math inline">\(C\)</span>:</p>
 <p><span class="math display">\[
@@ -887,16 +876,16 @@ W(A\cup B)-W(A)-W(B).
 \]</span></p>
 <p>Se fusiona el par con menor incremento.</p>
 </section>
-<section id="relación-entre-ward-y-k-means" class="level2" data-number="23.11">
-<h2 data-number="23.11" class="anchored" data-anchor-id="relación-entre-ward-y-k-means"><span class="header-section-number">23.11</span> Relación entre Ward y K-means</h2>
+<section id="relación-entre-ward-y-k-means" class="level2">
+<h2 class="anchored" data-anchor-id="relación-entre-ward-y-k-means">Relación entre Ward y K-means</h2>
 <p>Ambos métodos buscan grupos compactos mediante suma de cuadrados.</p>
 <ul>
 <li>K-means optimiza directamente una partición con <span class="math inline">\(K\)</span> fijo.</li>
 <li>Ward construye una jerarquía completa y permite elegir <span class="math inline">\(K\)</span> después.</li>
 </ul>
 </section>
-<section id="dendrograma" class="level2" data-number="23.12">
-<h2 data-number="23.12" class="anchored" data-anchor-id="dendrograma"><span class="header-section-number">23.12</span> Dendrograma</h2>
+<section id="dendrograma" class="level2">
+<h2 class="anchored" data-anchor-id="dendrograma">Dendrograma</h2>
 <p>El dendrograma representa las fusiones:</p>
 <ul>
 <li>el eje horizontal contiene observaciones o ramas;</li>
@@ -904,16 +893,16 @@ W(A\cup B)-W(A)-W(B).
 <li>una fusión alta indica mayor diferencia entre grupos.</li>
 </ul>
 </section>
-<section id="corte-del-dendrograma" class="level2" data-number="23.13">
-<h2 data-number="23.13" class="anchored" data-anchor-id="corte-del-dendrograma"><span class="header-section-number">23.13</span> Corte del dendrograma</h2>
+<section id="corte-del-dendrograma" class="level2">
+<h2 class="anchored" data-anchor-id="corte-del-dendrograma">Corte del dendrograma</h2>
 <p>Al cortar a una altura <span class="math inline">\(h\)</span>, las ramas interceptadas forman los grupos.</p>
 <p>Otra opción es fijar directamente el número de grupos:</p>
 <p><span class="math display">\[
 K.
 \]</span></p>
 </section>
-<section id="selección-del-número-de-grupos" class="level2" data-number="23.14">
-<h2 data-number="23.14" class="anchored" data-anchor-id="selección-del-número-de-grupos"><span class="header-section-number">23.14</span> Selección del número de grupos</h2>
+<section id="selección-del-número-de-grupos" class="level2">
+<h2 class="anchored" data-anchor-id="selección-del-número-de-grupos">Selección del número de grupos</h2>
 <p>Puede utilizarse:</p>
 <ul>
 <li>saltos grandes entre alturas;</li>
@@ -924,16 +913,16 @@ K.
 </ul>
 <p>La inspección visual debe complementarse con criterios cuantitativos.</p>
 </section>
-<section id="distancia-cofenética" class="level2" data-number="23.15">
-<h2 data-number="23.15" class="anchored" data-anchor-id="distancia-cofenética"><span class="header-section-number">23.15</span> Distancia cofenética</h2>
+<section id="distancia-cofenética" class="level2">
+<h2 class="anchored" data-anchor-id="distancia-cofenética">Distancia cofenética</h2>
 <p>La distancia cofenética entre dos observaciones es la altura a la que se fusionan por primera vez.</p>
 <p>Se denota por</p>
 <p><span class="math display">\[
 d_{ij}^{coph}.
 \]</span></p>
 </section>
-<section id="correlación-cofenética" class="level2" data-number="23.16">
-<h2 data-number="23.16" class="anchored" data-anchor-id="correlación-cofenética"><span class="header-section-number">23.16</span> Correlación cofenética</h2>
+<section id="correlación-cofenética" class="level2">
+<h2 class="anchored" data-anchor-id="correlación-cofenética">Correlación cofenética</h2>
 <p>Compara las distancias originales con las representadas por el dendrograma:</p>
 <p><span class="math display">\[
 r_{coph}
@@ -946,8 +935,8 @@ d_{ij}^{coph}
 \]</span></p>
 <p>Un valor alto indica que el dendrograma conserva bien la estructura de distancias.</p>
 </section>
-<section id="fórmula-de-lance-williams" class="level2" data-number="23.17">
-<h2 data-number="23.17" class="anchored" data-anchor-id="fórmula-de-lance-williams"><span class="header-section-number">23.17</span> Fórmula de Lance-Williams</h2>
+<section id="fórmula-de-lance-williams" class="level2">
+<h2 class="anchored" data-anchor-id="fórmula-de-lance-williams">Fórmula de Lance-Williams</h2>
 <p>Las distancias pueden actualizarse mediante</p>
 <p><span class="math display">\[
 d(A\cup B,C)
@@ -979,12 +968,12 @@ d(A\cup B,C)
 \gamma=\frac{1}{2}.
 \]</span></p>
 </section>
-<section id="inversiones" class="level2" data-number="23.18">
-<h2 data-number="23.18" class="anchored" data-anchor-id="inversiones"><span class="header-section-number">23.18</span> Inversiones</h2>
+<section id="inversiones" class="level2">
+<h2 class="anchored" data-anchor-id="inversiones">Inversiones</h2>
 <p>Una inversión ocurre cuando una fusión posterior aparece a menor altura que una anterior. Puede presentarse con el enlace por centroides y dificulta la interpretación.</p>
 </section>
-<section id="estabilidad" class="level2" data-number="23.19">
-<h2 data-number="23.19" class="anchored" data-anchor-id="estabilidad"><span class="header-section-number">23.19</span> Estabilidad</h2>
+<section id="estabilidad" class="level2">
+<h2 class="anchored" data-anchor-id="estabilidad">Estabilidad</h2>
 <p>Una solución es estable si pequeñas perturbaciones producen grupos semejantes.</p>
 <p>Puede evaluarse mediante:</p>
 <ul>
@@ -995,8 +984,8 @@ d(A\cup B,C)
 <li>índice de Rand ajustado.</li>
 </ul>
 </section>
-<section id="jaccard-de-grupos" class="level2" data-number="23.20">
-<h2 data-number="23.20" class="anchored" data-anchor-id="jaccard-de-grupos"><span class="header-section-number">23.20</span> Jaccard de grupos</h2>
+<section id="jaccard-de-grupos" class="level2">
+<h2 class="anchored" data-anchor-id="jaccard-de-grupos">Jaccard de grupos</h2>
 <p>Para un grupo original <span class="math inline">\(C\)</span> y uno remuestreado <span class="math inline">\(C^*\)</span>:</p>
 <p><span class="math display">\[
 J(C,C^*)
@@ -1005,8 +994,8 @@ J(C,C^*)
 \]</span></p>
 <p>Valores altos indican estabilidad.</p>
 </section>
-<section id="comparación-de-dendrogramas" class="level2" data-number="23.21">
-<h2 data-number="23.21" class="anchored" data-anchor-id="comparación-de-dendrogramas"><span class="header-section-number">23.21</span> Comparación de dendrogramas</h2>
+<section id="comparación-de-dendrogramas" class="level2">
+<h2 class="anchored" data-anchor-id="comparación-de-dendrogramas">Comparación de dendrogramas</h2>
 <p>Pueden utilizarse:</p>
 <ul>
 <li>correlación cofenética;</li>
@@ -1015,8 +1004,8 @@ J(C,C^*)
 <li>comparación de ramas.</li>
 </ul>
 </section>
-<section id="complejidad-computacional" class="level2" data-number="23.22">
-<h2 data-number="23.22" class="anchored" data-anchor-id="complejidad-computacional"><span class="header-section-number">23.22</span> Complejidad computacional</h2>
+<section id="complejidad-computacional" class="level2">
+<h2 class="anchored" data-anchor-id="complejidad-computacional">Complejidad computacional</h2>
 <p>La matriz de distancias requiere memoria del orden de</p>
 <p><span class="math display">\[
 O(n^2).
@@ -1032,8 +1021,8 @@ O(n^3),
 <p>dependiendo del algoritmo.</p>
 <p>Esto limita el método en muestras muy grandes.</p>
 </section>
-<section id="métodos-escalables" class="level2" data-number="23.23">
-<h2 data-number="23.23" class="anchored" data-anchor-id="métodos-escalables"><span class="header-section-number">23.23</span> Métodos escalables</h2>
+<section id="métodos-escalables" class="level2">
+<h2 class="anchored" data-anchor-id="métodos-escalables">Métodos escalables</h2>
 <p>Para grandes volúmenes pueden utilizarse:</p>
 <ul>
 <li>muestreo;</li>
@@ -1043,8 +1032,8 @@ O(n^3),
 <li>clustering híbrido.</li>
 </ul>
 </section>
-<section id="valores-atípicos" class="level2" data-number="23.24">
-<h2 data-number="23.24" class="anchored" data-anchor-id="valores-atípicos"><span class="header-section-number">23.24</span> Valores atípicos</h2>
+<section id="valores-atípicos" class="level2">
+<h2 class="anchored" data-anchor-id="valores-atípicos">Valores atípicos</h2>
 <p>Una observación extrema puede:</p>
 <ul>
 <li>formar una rama aislada;</li>
@@ -1054,8 +1043,8 @@ O(n^3),
 </ul>
 <p>Debe analizarse antes de interpretar el dendrograma.</p>
 </section>
-<section id="variables-categóricas-y-mixtas" class="level2" data-number="23.25">
-<h2 data-number="23.25" class="anchored" data-anchor-id="variables-categóricas-y-mixtas"><span class="header-section-number">23.25</span> Variables categóricas y mixtas</h2>
+<section id="variables-categóricas-y-mixtas" class="level2">
+<h2 class="anchored" data-anchor-id="variables-categóricas-y-mixtas">Variables categóricas y mixtas</h2>
 <p>La distancia euclidiana no es adecuada directamente para variables categóricas.</p>
 <p>Pueden utilizarse:</p>
 <ul>
@@ -1065,8 +1054,8 @@ O(n^3),
 <li>transformaciones apropiadas.</li>
 </ul>
 </section>
-<section id="distancia-de-jaccard" class="level2" data-number="23.26">
-<h2 data-number="23.26" class="anchored" data-anchor-id="distancia-de-jaccard"><span class="header-section-number">23.26</span> Distancia de Jaccard</h2>
+<section id="distancia-de-jaccard" class="level2">
+<h2 class="anchored" data-anchor-id="distancia-de-jaccard">Distancia de Jaccard</h2>
 <p>Para presencia o ausencia:</p>
 <p><span class="math display">\[
 d_J(A,B)
@@ -1076,8 +1065,8 @@ d_J(A,B)
 \]</span></p>
 <p>Es útil cuando la presencia es más informativa que la ausencia.</p>
 </section>
-<section id="visualización" class="level2" data-number="23.27">
-<h2 data-number="23.27" class="anchored" data-anchor-id="visualización"><span class="header-section-number">23.27</span> Visualización</h2>
+<section id="visualización" class="level2">
+<h2 class="anchored" data-anchor-id="visualización">Visualización</h2>
 <p>Además del dendrograma:</p>
 <ul>
 <li>heatmap con dendrogramas;</li>
@@ -1087,12 +1076,12 @@ d_J(A,B)
 <li>tanglegrams.</li>
 </ul>
 </section>
-<section id="relación-con-grafos" class="level2" data-number="23.28">
-<h2 data-number="23.28" class="anchored" data-anchor-id="relación-con-grafos"><span class="header-section-number">23.28</span> Relación con grafos</h2>
+<section id="relación-con-grafos" class="level2">
+<h2 class="anchored" data-anchor-id="relación-con-grafos">Relación con grafos</h2>
 <p>El enlace simple está relacionado con el árbol de expansión mínima. Cortar sus aristas más largas puede producir la misma partición que un corte del dendrograma de enlace simple.</p>
 </section>
-<section id="comparación-con-k-means" class="level2" data-number="23.29">
-<h2 data-number="23.29" class="anchored" data-anchor-id="comparación-con-k-means"><span class="header-section-number">23.29</span> Comparación con K-means</h2>
+<section id="comparación-con-k-means" class="level2">
+<h2 class="anchored" data-anchor-id="comparación-con-k-means">Comparación con K-means</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1135,12 +1124,12 @@ d_J(A,B)
 </tbody>
 </table>
 </section>
-<section id="comparación-con-dbscan" class="level2" data-number="23.30">
-<h2 data-number="23.30" class="anchored" data-anchor-id="comparación-con-dbscan"><span class="header-section-number">23.30</span> Comparación con DBSCAN</h2>
+<section id="comparación-con-dbscan" class="level2">
+<h2 class="anchored" data-anchor-id="comparación-con-dbscan">Comparación con DBSCAN</h2>
 <p>DBSCAN detecta grupos por densidad y puede identificar ruido. El agrupamiento jerárquico produce una jerarquía completa, pero no identifica ruido de manera natural.</p>
 </section>
-<section id="conexión-con-r" class="level2" data-number="23.31">
-<h2 data-number="23.31" class="anchored" data-anchor-id="conexión-con-r"><span class="header-section-number">23.31</span> Conexión con R</h2>
+<section id="conexión-con-r" class="level2">
+<h2 class="anchored" data-anchor-id="conexión-con-r">Conexión con R</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -1193,8 +1182,8 @@ d_J(A,B)
 </details>
 </div>
 </section>
-<section id="ejemplo-numérico" class="level2" data-number="23.32">
-<h2 data-number="23.32" class="anchored" data-anchor-id="ejemplo-numérico"><span class="header-section-number">23.32</span> Ejemplo numérico</h2>
+<section id="ejemplo-numérico" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-numérico">Ejemplo numérico</h2>
 <p>Considérese:</p>
 <p><span class="math display">\[
 1,\;2,\;5,\;9.
@@ -1208,8 +1197,8 @@ d(1,2)=1.
 \min\{4,3\}=3.
 \]</span></p>
 </section>
-<section id="ejemplo-de-enlaces" class="level2" data-number="23.33">
-<h2 data-number="23.33" class="anchored" data-anchor-id="ejemplo-de-enlaces"><span class="header-section-number">23.33</span> Ejemplo de enlaces</h2>
+<section id="ejemplo-de-enlaces" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-de-enlaces">Ejemplo de enlaces</h2>
 <p>Sean</p>
 <p><span class="math display">\[
 A=\{1,2\},
@@ -1235,8 +1224,8 @@ d_{\text{promedio}}(A,B)
 5.5.
 \]</span></p>
 </section>
-<section id="ejemplo-de-ward" class="level2" data-number="23.34">
-<h2 data-number="23.34" class="anchored" data-anchor-id="ejemplo-de-ward"><span class="header-section-number">23.34</span> Ejemplo de Ward</h2>
+<section id="ejemplo-de-ward" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-de-ward">Ejemplo de Ward</h2>
 <p>Sean</p>
 <p><span class="math display">\[
 |A|=3,
@@ -1256,8 +1245,8 @@ d_{\text{promedio}}(A,B)
 19.2.
 \]</span></p>
 </section>
-<section id="ventajas" class="level2" data-number="23.35">
-<h2 data-number="23.35" class="anchored" data-anchor-id="ventajas"><span class="header-section-number">23.35</span> Ventajas</h2>
+<section id="ventajas" class="level2">
+<h2 class="anchored" data-anchor-id="ventajas">Ventajas</h2>
 <ol type="1">
 <li>produce una jerarquía completa;</li>
 <li>no exige fijar <span class="math inline">\(K\)</span> inicialmente;</li>
@@ -1267,8 +1256,8 @@ d_{\text{promedio}}(A,B)
 <li>puede trabajar con datos mixtos usando distancias adecuadas.</li>
 </ol>
 </section>
-<section id="limitaciones" class="level2" data-number="23.36">
-<h2 data-number="23.36" class="anchored" data-anchor-id="limitaciones"><span class="header-section-number">23.36</span> Limitaciones</h2>
+<section id="limitaciones" class="level2">
+<h2 class="anchored" data-anchor-id="limitaciones">Limitaciones</h2>
 <ol type="1">
 <li>costo elevado;</li>
 <li>sensibilidad a escala;</li>
@@ -1279,8 +1268,8 @@ d_{\text{promedio}}(A,B)
 <li>dificultad con muestras grandes.</li>
 </ol>
 </section>
-<section id="errores-frecuentes" class="level2" data-number="23.37">
-<h2 data-number="23.37" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">23.37</span> Errores frecuentes</h2>
+<section id="errores-frecuentes" class="level2">
+<h2 class="anchored" data-anchor-id="errores-frecuentes">Errores frecuentes</h2>
 <ol type="1">
 <li>no estandarizar;</li>
 <li>elegir el enlace sin justificarlo;</li>
@@ -1294,8 +1283,8 @@ d_{\text{promedio}}(A,B)
 <li>inferir causalidad a partir de los grupos.</li>
 </ol>
 </section>
-<section id="ejercicios-conceptuales" class="level2" data-number="23.38">
-<h2 data-number="23.38" class="anchored" data-anchor-id="ejercicios-conceptuales"><span class="header-section-number">23.38</span> Ejercicios conceptuales</h2>
+<section id="ejercicios-conceptuales" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicios-conceptuales">Ejercicios conceptuales</h2>
 <ol type="1">
 <li>Compare métodos aglomerativos y divisivos.</li>
 <li>¿Qué representa el dendrograma?</li>
@@ -1309,8 +1298,8 @@ d_{\text{promedio}}(A,B)
 <li>Compare agrupamiento jerárquico y K-means.</li>
 </ol>
 </section>
-<section id="ejercicio-de-distancias" class="level2" data-number="23.39">
-<h2 data-number="23.39" class="anchored" data-anchor-id="ejercicio-de-distancias"><span class="header-section-number">23.39</span> Ejercicio de distancias</h2>
+<section id="ejercicio-de-distancias" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-de-distancias">Ejercicio de distancias</h2>
 <p>Considere</p>
 <p><span class="math display">\[
 (1,1),\;(2,1),\;(5,4),\;(6,5).
@@ -1323,8 +1312,8 @@ d_{\text{promedio}}(A,B)
 <li>Compare los resultados.</li>
 </ol>
 </section>
-<section id="ejercicio-de-ward" class="level2" data-number="23.40">
-<h2 data-number="23.40" class="anchored" data-anchor-id="ejercicio-de-ward"><span class="header-section-number">23.40</span> Ejercicio de Ward</h2>
+<section id="ejercicio-de-ward" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-de-ward">Ejercicio de Ward</h2>
 <p>Considere</p>
 <p><span class="math display">\[
 |A|=4,
@@ -1337,8 +1326,8 @@ d_{\text{promedio}}(A,B)
 \]</span></p>
 <p>Calcule el incremento de Ward.</p>
 </section>
-<section id="ejercicio-aplicado" class="level2" data-number="23.41">
-<h2 data-number="23.41" class="anchored" data-anchor-id="ejercicio-aplicado"><span class="header-section-number">23.41</span> Ejercicio aplicado</h2>
+<section id="ejercicio-aplicado" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-aplicado">Ejercicio aplicado</h2>
 <p>Agrupe estaciones de calidad del aire utilizando:</p>
 <ul>
 <li>PM10;</li>
@@ -1367,8 +1356,8 @@ d_{\text{promedio}}(A,B)
 <li>limitaciones ambientales.</li>
 </ol>
 </section>
-<section id="resumen" class="level2" data-number="23.42">
-<h2 data-number="23.42" class="anchored" data-anchor-id="resumen"><span class="header-section-number">23.42</span> Resumen</h2>
+<section id="resumen" class="level2">
+<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
 <p>En este capítulo se desarrolló el agrupamiento jerárquico como método para construir grupos anidados.</p>
 <p>Se estudiaron los enfoques aglomerativo y divisivo, las matrices de distancia, los enlaces simple, completo, promedio, por centroides y Ward.</p>
 <p>También se analizaron dendrogramas, alturas, cortes, distancias cofenéticas, fórmula de Lance-Williams, estabilidad, valores atípicos, complejidad y comparación con K-means.</p>

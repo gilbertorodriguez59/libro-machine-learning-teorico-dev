@@ -1,6 +1,6 @@
 # Random Forest {#sec-random-forest}
 
-## Introducción
+## Introducción {.unnumbered}
 
 Random Forest combina árboles construidos con muestras bootstrap y selección aleatoria de variables. La aleatorización reduce la correlación entre árboles y la promediación disminuye la varianza del ensamble [@breiman2001random; @hastie2009elements].
 
@@ -10,7 +10,11 @@ Un árbol profundo suele tener bajo sesgo y alta varianza. Random Forest disminu
 
 El método puede utilizarse tanto en clasificación como en regresión. Además, proporciona estimaciones internas del error mediante observaciones out-of-bag, medidas de importancia de variables y herramientas para analizar proximidad entre observaciones.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+Random Forest combina muchos árboles aleatorizados para reducir varianza.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -31,7 +35,7 @@ Al finalizar el capítulo, el lector podrá:
 15. estudiar consistencia, sesgo y varianza;
 16. comparar Random Forest con árboles individuales y boosting.
 
-## Ensambles
+## Ensambles {.unnumbered}
 
 ::: {#def-ensamble}
 Un ensamble combina las predicciones de varios modelos base para producir una predicción final.
@@ -64,7 +68,7 @@ $$
 \right\}.
 $$
 
-## Reducción de varianza
+## Reducción de varianza {.unnumbered}
 
 Supóngase que cada predictor tiene varianza $\sigma_f^2$ y que la correlación entre dos predictores cualesquiera es $\rho$. La varianza del promedio es aproximadamente
 
@@ -87,7 +91,7 @@ $$
 
 Por tanto, aumentar el número de modelos reduce una parte de la varianza, pero la correlación entre modelos limita la reducción total.
 
-## Bagging
+## Bagging {.unnumbered}
 
 Bagging significa *Bootstrap Aggregating*. El procedimiento es:
 
@@ -117,7 +121,7 @@ $$
 \right].
 $$
 
-## Muestreo bootstrap
+## Muestreo bootstrap {.unnumbered}
 
 Para cada árbol $b$, se selecciona una muestra
 
@@ -142,7 +146,7 @@ $$
 
 Por tanto, aproximadamente el 63.2 por ciento de las observaciones aparece al menos una vez en una muestra bootstrap.
 
-## Observaciones out-of-bag
+## Observaciones out-of-bag {.unnumbered}
 
 ::: {#def-oob}
 Las observaciones que no aparecen en la muestra bootstrap del árbol $b$ se denominan out-of-bag para ese árbol.
@@ -156,7 +160,7 @@ $$
 
 Cada observación queda fuera de aproximadamente el 36.8 por ciento de los árboles.
 
-## Error out-of-bag
+## Error out-of-bag {.unnumbered}
 
 En regresión, la predicción OOB de la observación $i$ es
 
@@ -189,13 +193,13 @@ Err_{OOB}
 \left(y_i\neq\widehat{y}_{i,OOB}\right).
 $$
 
-## Limitación de bagging
+## Limitación de bagging {.unnumbered}
 
 Aunque bagging reduce varianza, los árboles pueden seguir siendo muy correlacionados. Si una variable es dominante, muchos árboles elegirán esa misma variable en la raíz.
 
 Random Forest introduce aleatoriedad adicional para reducir esta correlación.
 
-## Definición de Random Forest
+## Definición de Random Forest {.unnumbered}
 
 ::: {#def-random-forest}
 Random Forest es un ensamble de árboles construidos mediante muestras bootstrap y selección aleatoria de un subconjunto de variables candidatas en cada nodo.
@@ -210,7 +214,7 @@ Para cada árbol:
 5. se continúa hasta cumplir una regla de parada;
 6. se combina la predicción con la de los demás árboles.
 
-## Parámetro mtry
+## Parámetro mtry {.unnumbered}
 
 El número de variables consideradas en cada división se denota por
 
@@ -231,7 +235,7 @@ Valores iniciales frecuentes son:
 
 Estas son reglas prácticas, no valores universales.
 
-## Efecto de mtry
+## Efecto de mtry {.unnumbered}
 
 Si $m_{try}=p$, Random Forest se aproxima a bagging.
 
@@ -247,11 +251,11 @@ Si $m_{try}$ es grande:
 - aumenta la correlación;
 - puede disminuir el beneficio de la promediación.
 
-## Número de árboles
+## Número de árboles {.unnumbered}
 
 El número de árboles se denota por $B$. A diferencia de boosting, aumentar $B$ no suele producir sobreajuste importante. El error tiende a estabilizarse, aunque el tiempo y la memoria aumentan.
 
-## Clasificación
+## Clasificación {.unnumbered}
 
 La predicción es
 
@@ -279,7 +283,7 @@ $$
 \right].
 $$
 
-## Regresión
+## Regresión {.unnumbered}
 
 La predicción es
 
@@ -291,7 +295,7 @@ $$
 \widehat{f}^{(b)}(\mathbf{x}).
 $$
 
-## Fuerza y correlación
+## Fuerza y correlación {.unnumbered}
 
 El desempeño del bosque depende de:
 
@@ -300,7 +304,7 @@ El desempeño del bosque depende de:
 
 Un bosque mejora cuando los árboles son suficientemente precisos y al mismo tiempo poco correlacionados.
 
-## Margen de clasificación
+## Margen de clasificación {.unnumbered}
 
 Defina
 
@@ -327,7 +331,7 @@ $$
 
 Un margen positivo indica clasificación correcta.
 
-## Importancia por impureza
+## Importancia por impureza {.unnumbered}
 
 La importancia de la variable $j$ puede definirse como
 
@@ -342,11 +346,11 @@ $$
 
 Esta medida se conoce como *Mean Decrease in Impurity*.
 
-## Sesgo de la importancia por impureza
+## Sesgo de la importancia por impureza {.unnumbered}
 
 MDI puede favorecer variables continuas, con muchos valores distintos o categóricas con muchos niveles. No debe interpretarse como evidencia causal.
 
-## Importancia por permutación
+## Importancia por permutación {.unnumbered}
 
 La importancia por permutación compara el error OOB antes y después de permutar una variable:
 
@@ -360,11 +364,11 @@ $$
 
 También se conoce como *Mean Decrease in Accuracy*.
 
-## Variables correlacionadas
+## Variables correlacionadas {.unnumbered}
 
 Si dos variables contienen información semejante, permutar una puede producir un aumento pequeño del error porque la otra conserva parte de la señal. La importancia puede repartirse entre variables correlacionadas.
 
-## Proximidades
+## Proximidades {.unnumbered}
 
 Random Forest puede definir una proximidad entre observaciones:
 
@@ -384,7 +388,7 @@ $$
 
 Puede utilizarse para visualización, detección de valores atípicos, agrupamiento e imputación.
 
-## Desbalance de clases
+## Desbalance de clases {.unnumbered}
 
 Random Forest puede favorecer la clase mayoritaria. Algunas estrategias son:
 
@@ -394,23 +398,23 @@ Random Forest puede favorecer la clase mayoritaria. Algunas estrategias son:
 - ajuste del umbral;
 - Balanced Random Forest.
 
-## Probabilidades y calibración
+## Probabilidades y calibración {.unnumbered}
 
 La proporción de votos se interpreta frecuentemente como probabilidad, pero puede no estar bien calibrada. Puede ser necesario aplicar calibración de Platt, regresión isotónica o validación cruzada.
 
-## Variables categóricas y datos faltantes
+## Variables categóricas y datos faltantes {.unnumbered}
 
 El tratamiento depende de la implementación. Pueden utilizarse imputación, categorías especiales o codificación. Todo preprocesamiento debe aprenderse únicamente con los datos de entrenamiento.
 
-## Escalamiento
+## Escalamiento {.unnumbered}
 
 Random Forest no requiere normalmente estandarización, ya que las divisiones dependen del orden dentro de cada variable.
 
-## Interacciones
+## Interacciones {.unnumbered}
 
 El bosque representa interacciones automáticamente porque cada ruta de un árbol combina múltiples condiciones. Sin embargo, su interpretación es menos transparente que en un árbol individual.
 
-## Dependencia parcial
+## Dependencia parcial {.unnumbered}
 
 Para una variable $X_j$,
 
@@ -435,11 +439,11 @@ $$
 
 Si las variables están correlacionadas, pueden evaluarse combinaciones poco realistas.
 
-## Complejidad computacional
+## Complejidad computacional {.unnumbered}
 
 El costo depende del número de árboles, observaciones, variables candidatas y profundidad. Los árboles pueden construirse en paralelo porque son independientes.
 
-## Sesgo y varianza
+## Sesgo y varianza {.unnumbered}
 
 Comparado con un árbol individual:
 
@@ -447,7 +451,7 @@ Comparado con un árbol individual:
 - la varianza suele disminuir considerablemente;
 - la estabilidad aumenta.
 
-## Hiperparámetros principales
+## Hiperparámetros principales {.unnumbered}
 
 Los principales son:
 
@@ -459,11 +463,11 @@ Los principales son:
 - criterio de división;
 - pesos por clase.
 
-## Selección de hiperparámetros
+## Selección de hiperparámetros {.unnumbered}
 
 Puede utilizarse error OOB, validación cruzada, búsqueda en rejilla, búsqueda aleatoria u optimización bayesiana. El conjunto de prueba final no debe intervenir.
 
-## Pseudocódigo
+## Pseudocódigo {.unnumbered}
 
 ::: {#def-pseudocodigo-rf}
 Para $b=1,\ldots,B$:
@@ -477,19 +481,19 @@ Para $b=1,\ldots,B$:
 Finalmente, promediar en regresión o votar en clasificación.
 :::
 
-## Comparación con bagging
+## Comparación con bagging {.unnumbered}
 
 Bagging utiliza todas las variables en cada nodo. Random Forest usa un subconjunto aleatorio para reducir correlación entre árboles.
 
-## Comparación con boosting
+## Comparación con boosting {.unnumbered}
 
 Random Forest construye árboles independientes y es paralelizable. Boosting construye árboles secuencialmente para corregir errores previos.
 
-## Comparación con k-NN
+## Comparación con k-NN {.unnumbered}
 
 Random Forest no requiere escalamiento, tolera mejor alta dimensión y proporciona medidas de importancia. $k$-NN depende fuertemente de la métrica y de la escala.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -523,7 +527,7 @@ predict(modelo, type = "prob")
 modelo$proximity
 ```
 
-## Ejemplo de bootstrap
+## Ejemplo de bootstrap {.unnumbered}
 
 Para la muestra
 
@@ -539,7 +543,7 @@ $$
 
 Las observaciones 1 y 3 son out-of-bag para ese árbol.
 
-## Ejemplo de votación
+## Ejemplo de votación {.unnumbered}
 
 Si siete árboles producen
 
@@ -553,7 +557,7 @@ $$
 \widehat{P}(A\mid\mathbf{x})=\frac{5}{7}.
 $$
 
-## Ejemplo de regresión
+## Ejemplo de regresión {.unnumbered}
 
 Si cinco árboles predicen
 
@@ -567,7 +571,7 @@ $$
 \widehat{f}_{RF}(\mathbf{x})=12.
 $$
 
-## Ventajas
+## Ventajas {.unnumbered}
 
 1. reduce la varianza de los árboles;
 2. maneja relaciones no lineales;
@@ -578,7 +582,7 @@ $$
 7. tolera muchas variables;
 8. es paralelizable.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. menor interpretabilidad que un árbol;
 2. mayor costo computacional;
@@ -587,7 +591,7 @@ $$
 5. mayor uso de memoria;
 6. extrapolación pobre en regresión.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. interpretar importancia como causalidad;
 2. usar solo importancia por impureza;
@@ -598,7 +602,7 @@ $$
 7. omitir clases desbalanceadas;
 8. preprocesar fuera del ciclo de validación.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique por qué un bosque reduce varianza.
 2. ¿Qué función cumple el bootstrap?
@@ -611,7 +615,7 @@ $$
 9. Compare Random Forest y boosting.
 10. ¿Por qué no suele requerirse estandarización?
 
-## Ejercicio bootstrap
+## Ejercicio bootstrap {.unnumbered}
 
 Para una muestra de tamaño $n=200$, calcule aproximadamente:
 
@@ -619,7 +623,7 @@ Para una muestra de tamaño $n=200$, calcule aproximadamente:
 2. el número esperado de observaciones OOB por árbol;
 3. el número esperado de observaciones distintas en cada muestra bootstrap.
 
-## Ejercicio de varianza
+## Ejercicio de varianza {.unnumbered}
 
 Supóngase
 
@@ -633,7 +637,7 @@ $$
 
 Calcule la varianza aproximada del promedio y compárela con la varianza de un árbol individual.
 
-## Ejercicio de mtry
+## Ejercicio de mtry {.unnumbered}
 
 Para $p=36$ variables:
 
@@ -642,7 +646,7 @@ Para $p=36$ variables:
 3. explique qué ocurre si `mtry` es demasiado pequeño;
 4. explique qué ocurre si es demasiado grande.
 
-## Ejercicio de importancia
+## Ejercicio de importancia {.unnumbered}
 
 | Variable | Error base | Error permutado |
 |---|---:|---:|
@@ -656,7 +660,7 @@ Para $p=36$ variables:
 3. Interprete los resultados.
 4. Explique por qué no implican causalidad.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea clasificar accidentes severos usando velocidad, hora, vialidad, clima, iluminación, peatones, entidad y municipio.
 
@@ -677,7 +681,7 @@ Diseñe un análisis que incluya:
 13. interpretación de proximidades;
 14. limitaciones causales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló Random Forest como un ensamble de árboles basado en bootstrap y selección aleatoria de variables.
 

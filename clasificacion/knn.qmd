@@ -1,6 +1,6 @@
 # Vecinos más cercanos, k-NN {#sec-knn}
 
-## Introducción
+## Introducción {.unnumbered}
 
 El método de vecinos más cercanos es no paramétrico y basa la predicción en observaciones localmente próximas. Su comportamiento depende de la métrica, la escala, el tamaño muestral y el número de vecinos [@cover1967nearest; @stone1977consistent; @duda2001pattern].
 
@@ -10,7 +10,11 @@ A diferencia de modelos paramétricos como la regresión lineal o la regresión 
 
 En clasificación, la clase de una observación nueva se decide mediante voto mayoritario entre sus $k$ vecinos más cercanos. En regresión, la predicción se obtiene promediando las respuestas de esos vecinos. Desde un punto de vista teórico, $k$-NN puede interpretarse como una aproximación local del riesgo condicional o de la función de regresión.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+K-NN predice usando las observaciones más cercanas según una métrica.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -27,7 +31,7 @@ Al finalizar el capítulo, el lector podrá:
 11. analizar complejidad computacional y estructuras de búsqueda;
 12. relacionar $k$-NN con fronteras de decisión, kernels y métodos no paramétricos.
 
-## Espacio de entrada y muestra
+## Espacio de entrada y muestra {.unnumbered}
 
 Considérese una muestra de entrenamiento
 
@@ -61,7 +65,7 @@ $$
 
 y se desea predecir su respuesta.
 
-## Espacio métrico
+## Espacio métrico {.unnumbered}
 
 El algoritmo requiere una noción de cercanía. Matemáticamente, ello se expresa mediante una distancia
 
@@ -80,7 +84,7 @@ que satisface, para cualesquiera $\mathbf{x},\mathbf{z},\mathbf{w}\in\mathcal{X}
 La noción de cercanía no es absoluta: depende de la representación y de la métrica. Antes de aplicar k-NN deben justificarse el escalamiento, la selección de variables y el tratamiento de variables categóricas.
 :::
 
-## Distancia euclidiana
+## Distancia euclidiana {.unnumbered}
 
 La distancia más común en $\mathbb{R}^p$ es la euclidiana:
 
@@ -92,7 +96,7 @@ d_2(\mathbf{x},\mathbf{z})
 \right)^{1/2}.
 $$
 
-## Distancia Manhattan
+## Distancia Manhattan {.unnumbered}
 
 Otra distancia importante es
 
@@ -102,7 +106,7 @@ d_1(\mathbf{x},\mathbf{z})
 \sum_{j=1}^{p}|x_j-z_j|.
 $$
 
-## Distancia de Minkowski
+## Distancia de Minkowski {.unnumbered}
 
 Una familia general es
 
@@ -117,7 +121,7 @@ $$
 
 Para $q=1$ se obtiene Manhattan y para $q=2$ Euclidiana.
 
-## Distancia de Mahalanobis
+## Distancia de Mahalanobis {.unnumbered}
 
 Cuando las variables presentan escalas distintas o correlación, puede utilizarse
 
@@ -133,7 +137,7 @@ $$
 
 donde $\mathbf{S}$ es una matriz de covarianza o dispersión.
 
-## Ordenamiento de distancias
+## Ordenamiento de distancias {.unnumbered}
 
 Para la observación nueva $\mathbf{x}_0$, se calculan las distancias
 
@@ -156,7 +160,7 @@ $$
 
 tal que $d_{(r)}=d(\mathbf{x}_0,\mathbf{x}_{(i_r)})$.
 
-## Definición de los vecinos más cercanos
+## Definición de los vecinos más cercanos {.unnumbered}
 
 ::: {#def-vecinos}
 Los $k$ vecinos más cercanos de $\mathbf{x}_0$ son las observaciones de entrenamiento asociadas a las $k$ menores distancias respecto de $\mathbf{x}_0$.
@@ -168,7 +172,7 @@ $$
 N_k(\mathbf{x}_0).
 $$
 
-## Regla de clasificación binaria
+## Regla de clasificación binaria {.unnumbered}
 
 Supóngase $Y\in\{0,1\}$. La probabilidad condicional local puede estimarse mediante
 
@@ -192,7 +196,7 @@ $$
 \end{cases}
 $$
 
-## Regla multiclase
+## Regla multiclase {.unnumbered}
 
 Si $Y\in\{1,\ldots,C\}$, para cada clase $c$ se estima
 
@@ -213,7 +217,7 @@ $$
 \widehat{p}_c(\mathbf{x}_0).
 $$
 
-## Regla de regresión
+## Regla de regresión {.unnumbered}
 
 Si la respuesta es continua, la estimación natural es el promedio local:
 
@@ -230,7 +234,7 @@ $$
 m(\mathbf{x})=\mathbb{E}(Y\mid\mathbf{X}=\mathbf{x}).
 $$
 
-## Interpretación local
+## Interpretación local {.unnumbered}
 
 El método $k$-NN aproxima la respuesta en $\mathbf{x}_0$ utilizando únicamente observaciones cercanas. Por ello, puede verse como un estimador local que supone que, en una vecindad suficientemente pequeña de $\mathbf{x}_0$, la respuesta cambia poco.
 
@@ -248,7 +252,7 @@ $$
 
 es una estimación local de dicha probabilidad.
 
-## Relación con la regla de Bayes
+## Relación con la regla de Bayes {.unnumbered}
 
 La regla óptima de Bayes en clasificación binaria es
 
@@ -263,7 +267,7 @@ $$
 
 La regla $k$-NN reemplaza $\eta(\mathbf{x})$ por su estimación local $\widehat{\eta}_k(\mathbf{x})$. De esta manera, $k$-NN puede entenderse como una aproximación empírica y no paramétrica de la regla de Bayes.
 
-## Pseudocódigo
+## Pseudocódigo {.unnumbered}
 
 ::: {#def-pseudocodigo-knn}
 Dada una observación nueva $\mathbf{x}_0$:
@@ -275,7 +279,7 @@ Dada una observación nueva $\mathbf{x}_0$:
 5. en regresión, promediar las respuestas.
 :::
 
-## Papel del parámetro k
+## Papel del parámetro k {.unnumbered}
 
 El parámetro $k$ controla el tamaño de la vecindad local.
 
@@ -284,7 +288,7 @@ El parámetro $k$ controla el tamaño de la vecindad local.
 
 Por ello, $k$ regula el compromiso entre flexibilidad y suavizamiento.
 
-## Sesgo y varianza
+## Sesgo y varianza {.unnumbered}
 
 Cuando $k$ es pequeño:
 
@@ -300,13 +304,13 @@ Cuando $k$ es grande:
 - la varianza disminuye;
 - la frontera de decisión es más estable.
 
-## Casos extremos
+## Casos extremos {.unnumbered}
 
-### Caso k igual a 1
+### Caso k igual a 1 {.unnumbered}
 
 La regla 1-NN memoriza la muestra y produce una frontera muy irregular. Tiende a ser sensible al ruido.
 
-### Caso k igual a n
+### Caso k igual a n {.unnumbered}
 
 Si $k=n$, toda observación nueva utiliza la muestra completa.
 
@@ -320,7 +324,7 @@ $$
 
 En este caso se pierde toda adaptación local.
 
-## Error aparente de entrenamiento
+## Error aparente de entrenamiento {.unnumbered}
 
 En 1-NN, cada observación de entrenamiento es su propio vecino más cercano si no se excluye de la búsqueda. Por ello, el error aparente de entrenamiento puede ser cero o muy pequeño.
 
@@ -330,7 +334,7 @@ Sin embargo, ese resultado no refleja necesariamente el error de generalización
 Valores pequeños de $k$ producen fronteras flexibles y alta varianza. Valores grandes suavizan la frontera, pero pueden aumentar el sesgo. El valor de $k$ debe elegirse mediante validación.
 :::
 
-## Selección de k
+## Selección de k {.unnumbered}
 
 La elección de $k$ suele realizarse mediante validación cruzada. Formalmente,
 
@@ -344,7 +348,7 @@ donde $CV(k)$ representa una estimación del error de predicción asociada al va
 
 También puede usarse la regla de un error estándar para seleccionar un valor más grande y estable.
 
-## Empates
+## Empates {.unnumbered}
 
 Pueden aparecer empates en dos sentidos:
 
@@ -358,7 +362,7 @@ Las reglas para resolverlos incluyen:
 - elegir $k$ impar en clasificación binaria;
 - ponderar por distancia.
 
-## Vecinos ponderados
+## Vecinos ponderados {.unnumbered}
 
 Una variante natural asigna pesos mayores a los vecinos más cercanos. Si $w_i(\mathbf{x}_0)\ge 0$ para $i\in N_k(\mathbf{x}_0)$, con
 
@@ -386,7 +390,7 @@ w_i(\mathbf{x}_0)
 y_i.
 $$
 
-## Ponderación inversa a la distancia
+## Ponderación inversa a la distancia {.unnumbered}
 
 Una elección frecuente es
 
@@ -399,13 +403,13 @@ $$
 
 Si alguna distancia es cero, debe tratarse por separado para evitar división entre cero.
 
-## k-NN como estimador de ventana móvil
+## k-NN como estimador de ventana móvil {.unnumbered}
 
 El método puede interpretarse como una estimación local sobre una vecindad aleatoria cuyo radio depende de la densidad de datos. En regiones densas, el radio necesario para contener $k$ vecinos es pequeño; en regiones dispersas, el radio es mayor.
 
 Esto contrasta con métodos de ventana fija, donde el radio es constante y el número de observaciones dentro de la vecindad varía.
 
-## Relación con kernels
+## Relación con kernels {.unnumbered}
 
 Los estimadores con kernels tienen la forma
 
@@ -421,7 +425,7 @@ $$
 
 En cierto sentido, $k$-NN corresponde a una vecindad adaptativa con pesos uniformes sobre los $k$ vecinos seleccionados y peso cero fuera de ellos.
 
-## Consistencia
+## Consistencia {.unnumbered}
 
 Uno de los resultados teóricos clásicos afirma que, bajo condiciones regulares, $k$-NN es consistente si
 
@@ -442,11 +446,11 @@ Estas condiciones expresan que:
 - el número de vecinos debe crecer para reducir varianza;
 - la fracción de la muestra usada localmente debe hacerse pequeña para preservar localización.
 
-## Comentario sobre consistencia de clasificación
+## Comentario sobre consistencia de clasificación {.unnumbered}
 
 Bajo hipótesis adecuadas, el riesgo de clasificación de la regla $k$-NN converge al riesgo de Bayes. El caso 1-NN, aunque no es consistentemente óptimo en el mismo sentido, satisface resultados clásicos como la cota de Cover y Hart.
 
-## Resultado de Cover y Hart
+## Resultado de Cover y Hart {.unnumbered}
 
 Para 1-NN, el error asintótico de clasificación $R_{1NN}$ satisface la desigualdad
 
@@ -458,13 +462,13 @@ donde $R^*$ es el error de Bayes.
 
 Esta cota muestra que el vecino más cercano puede tener un desempeño competitivo, aunque no sea óptimo.
 
-## Fronteras de decisión
+## Fronteras de decisión {.unnumbered}
 
 La frontera de decisión de $k$-NN puede ser muy irregular, especialmente para valores pequeños de $k$. La estructura geométrica depende de la partición inducida por las distancias entre puntos de entrenamiento.
 
 En el caso 1-NN, las regiones de clasificación se relacionan con diagramas de Voronoi.
 
-## Celdas de Voronoi
+## Celdas de Voronoi {.unnumbered}
 
 Para cada punto de entrenamiento $\mathbf{x}_i$, la celda de Voronoi asociada es
 
@@ -482,13 +486,13 @@ $$
 
 En 1-NN, toda observación dentro de $V_i$ recibe la respuesta del punto $i$.
 
-## Influencia de la escala de las variables
+## Influencia de la escala de las variables {.unnumbered}
 
 El desempeño de $k$-NN depende fuertemente de la distancia, y la distancia depende de la escala de las variables. Si una variable tiene magnitudes mucho mayores que otra, dominará la medición de cercanía.
 
 Por ello, casi siempre es necesario estandarizar o normalizar las variables antes de aplicar $k$-NN.
 
-## Estandarización
+## Estandarización {.unnumbered}
 
 Una transformación habitual es
 
@@ -500,7 +504,7 @@ $$
 
 Otra posibilidad es reescalar al intervalo $[0,1]$.
 
-## Variables irrelevantes
+## Variables irrelevantes {.unnumbered}
 
 Las variables irrelevantes pueden deteriorar gravemente el desempeño, pues introducen ruido en la distancia y dificultan la identificación de vecinos realmente informativos.
 
@@ -515,29 +519,29 @@ Por ello, en problemas de alta dimensión es importante considerar:
 Cuando la dimensión crece, las distancias tienden a perder contraste y las vecindades necesitan abarcar regiones amplias para contener suficientes observaciones. La reducción o selección de variables puede ser esencial.
 :::
 
-## Maldición de la dimensionalidad
+## Maldición de la dimensionalidad {.unnumbered}
 
 A medida que la dimensión $p$ crece, los puntos tienden a parecerse entre sí en términos relativos de distancia. Esto reduce el carácter local de la vecindad y puede degradar severamente el método.
 
 Este fenómeno se conoce como maldición de la dimensionalidad.
 
-## Interpretación geométrica de la maldición de la dimensionalidad
+## Interpretación geométrica de la maldición de la dimensionalidad {.unnumbered}
 
 En dimensiones altas, para capturar una fracción pequeña de la probabilidad alrededor de un punto, la vecindad debe expandirse notablemente. En consecuencia, los vecinos más cercanos pueden dejar de ser realmente cercanos.
 
 Esto explica por qué $k$-NN suele funcionar mejor en dimensiones moderadas y con variables informativas bien escaladas.
 
-## Reducción de dimensionalidad antes de k-NN
+## Reducción de dimensionalidad antes de k-NN {.unnumbered}
 
 Es frecuente aplicar métodos como PCA antes de $k$-NN para concentrar la información relevante en pocas dimensiones y reducir ruido. Sin embargo, esta transformación debe aprenderse dentro de cada partición de entrenamiento para evitar fuga de información.
 
-## Costos computacionales
+## Costos computacionales {.unnumbered}
 
-### Entrenamiento
+### Entrenamiento {.unnumbered}
 
 El costo de entrenamiento de $k$-NN es bajo, pues esencialmente consiste en almacenar la muestra.
 
-### Predicción
+### Predicción {.unnumbered}
 
 La predicción puede ser costosa. Para cada punto nuevo, la búsqueda ingenua requiere calcular distancias a las $n$ observaciones, con un costo del orden de
 
@@ -547,7 +551,7 @@ $$
 
 por predicción, más el costo de identificar los $k$ menores valores.
 
-## Estructuras de búsqueda
+## Estructuras de búsqueda {.unnumbered}
 
 Para acelerar la búsqueda de vecinos se emplean estructuras como:
 
@@ -558,7 +562,7 @@ Para acelerar la búsqueda de vecinos se emplean estructuras como:
 
 Su utilidad depende de la dimensión y de la estructura de los datos.
 
-## Distancia para variables mixtas
+## Distancia para variables mixtas {.unnumbered}
 
 Cuando existen variables numéricas y categóricas, la distancia euclidiana puede ser inadecuada. En tales casos puede utilizarse:
 
@@ -566,7 +570,7 @@ Cuando existen variables numéricas y categóricas, la distancia euclidiana pued
 - distancias de Gower;
 - métricas mixtas especializadas.
 
-## Desbalance de clases
+## Desbalance de clases {.unnumbered}
 
 Si una clase es muy frecuente, el voto mayoritario puede sesgarse hacia ella. Algunas estrategias son:
 
@@ -575,13 +579,13 @@ Si una clase es muy frecuente, el voto mayoritario puede sesgarse hacia ella. Al
 - sobre-muestreo o sub-muestreo;
 - voto con pesos por clase.
 
-## Probabilidades predichas y calibración
+## Probabilidades predichas y calibración {.unnumbered}
 
 En clasificación, la proporción local de vecinos de una clase puede interpretarse como una probabilidad predicha. No obstante, la calibración de esas probabilidades depende del tamaño de la vecindad y de la densidad local de datos.
 
 Por ello, la evaluación del método no debe limitarse a exactitud, sino también a métricas probabilísticas cuando corresponda.
 
-## Sensibilidad al ruido y a valores atípicos
+## Sensibilidad al ruido y a valores atípicos {.unnumbered}
 
 Con valores pequeños de $k$, el método puede ser sensible a:
 
@@ -591,7 +595,7 @@ Con valores pequeños de $k$, el método puede ser sensible a:
 
 Aumentar $k$ o ponderar por distancia puede mitigar parcialmente este problema.
 
-## Interpretación de la complejidad del modelo
+## Interpretación de la complejidad del modelo {.unnumbered}
 
 Aunque $k$-NN no ajusta explícitamente parámetros, su complejidad depende de:
 
@@ -602,11 +606,11 @@ Aunque $k$-NN no ajusta explícitamente parámetros, su complejidad depende de:
 
 En este sentido, $k$ actúa como parámetro de suavizamiento o regularización.
 
-## Relación con regresión local
+## Relación con regresión local {.unnumbered}
 
 En regresión, $k$-NN constituye una forma elemental de regresión local constante. Métodos más avanzados, como la regresión local lineal, mejoran esta aproximación ajustando modelos dentro de la vecindad.
 
-## Conexión con el aprendizaje supervisado
+## Conexión con el aprendizaje supervisado {.unnumbered}
 
 El algoritmo define una familia de predictores
 
@@ -620,7 +624,7 @@ $$
 
 determinada por el número de vecinos y la métrica. La selección de estos hiperparámetros se realiza normalmente mediante validación cruzada.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -657,7 +661,7 @@ knn(
 # knn.reg(train = x_esc, y = respuesta, test = nuevo_esc, k = 5)
 ```
 
-## Ejemplo numérico de clasificación
+## Ejemplo numérico de clasificación {.unnumbered}
 
 Considérese la muestra:
 
@@ -680,7 +684,7 @@ Con distancia euclidiana, las distancias a los puntos 3 y 4 son las más pequeñ
 
 La clasificación final dependerá de las distancias exactas y del valor de $k$, lo cual ilustra la naturaleza local del método.
 
-## Ejemplo numérico de regresión
+## Ejemplo numérico de regresión {.unnumbered}
 
 Supóngase que las respuestas asociadas a los 4 vecinos más cercanos de un punto son
 
@@ -698,7 +702,7 @@ $$
 
 Si se usan pesos proporcionales a la cercanía, la predicción puede desplazarse hacia los vecinos más próximos.
 
-## Ventajas
+## Ventajas {.unnumbered}
 
 1. es conceptualmente simple;
 2. no requiere ajuste paramétrico explícito;
@@ -706,7 +710,7 @@ Si se usan pesos proporcionales a la cercanía, la predicción puede desplazarse
 4. funciona bien en problemas pequeños o medianos con estructura local clara;
 5. es flexible tanto para clasificación como para regresión.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. depende fuertemente de la escala de variables;
 2. puede ser costoso en predicción;
@@ -715,7 +719,7 @@ Si se usan pesos proporcionales a la cercanía, la predicción puede desplazarse
 5. puede ser sensible al ruido para valores pequeños de $k$;
 6. su interpretabilidad global es limitada.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. aplicar $k$-NN sin estandarizar variables;
 2. elegir $k$ sin validación;
@@ -726,7 +730,7 @@ Si se usan pesos proporcionales a la cercanía, la predicción puede desplazarse
 7. utilizar distancia euclidiana con variables categóricas sin tratamiento adecuado;
 8. confundir memorizar la muestra con generalizar bien.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique por qué $k$-NN es un método no paramétrico.
 2. ¿Qué papel cumple la distancia?
@@ -739,7 +743,7 @@ Si se usan pesos proporcionales a la cercanía, la predicción puede desplazarse
 9. ¿Por qué se requiere validación cruzada para elegir $k$?
 10. ¿Qué relación existe entre $k$-NN y la regla de Bayes?
 
-## Ejercicio de distancias
+## Ejercicio de distancias {.unnumbered}
 
 Considere los puntos
 
@@ -759,7 +763,7 @@ $$
 4. Repita con distancia Manhattan.
 5. Compare el orden obtenido.
 
-## Ejercicio de clasificación
+## Ejercicio de clasificación {.unnumbered}
 
 Considere la siguiente muestra:
 
@@ -780,7 +784,7 @@ Clasifique el punto $(4,4)$ para:
 
 Interprete cómo cambia la decisión.
 
-## Ejercicio de regresión
+## Ejercicio de regresión {.unnumbered}
 
 Las respuestas de los 5 vecinos más cercanos son:
 
@@ -796,7 +800,7 @@ $$
    y calcule la predicción ponderada.
 3. Compare ambas estimaciones.
 
-## Ejercicio de selección de k
+## Ejercicio de selección de k {.unnumbered}
 
 Se obtiene el siguiente error de validación cruzada:
 
@@ -813,7 +817,7 @@ Se obtiene el siguiente error de validación cruzada:
 2. Explique por qué no conviene elegir $k=1$ solo por su flexibilidad.
 3. Interprete el patrón en términos de sesgo y varianza.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea clasificar accidentes de tránsito como severos o no severos usando:
 
@@ -836,7 +840,7 @@ Diseñe un análisis con $k$-NN que incluya:
 9. análisis del efecto de la dimensionalidad;
 10. limitaciones prácticas.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló el método de vecinos más cercanos como un procedimiento no paramétrico y local para clasificación y regresión.
 

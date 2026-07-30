@@ -1,6 +1,6 @@
 # Lenguaje matemático, conjuntos y funciones {#sec-conjuntos-funciones}
 
-## Introducción
+## Introducción {.unnumbered}
 
 El lenguaje de conjuntos, relaciones y funciones permite expresar con precisión los objetos que aparecen en aprendizaje automático: espacios de entrada, espacios de salida, muestras, hipótesis y funciones de pérdida. La presentación de este capítulo sigue la notación matemática habitual empleada en textos de reconocimiento de patrones y aprendizaje estadístico [@bishop2006pattern; @hastie2009elements].
 
@@ -8,7 +8,11 @@ El aprendizaje automático se construye sobre objetos matemáticos bien definido
 
 En este capítulo se revisan los conceptos de conjuntos, relaciones y funciones, y se muestra cómo aparecen de manera natural en la formulación de problemas de aprendizaje automático.
 
-## Objetivos
+::: {.callout-important title="Idea central"}
+Una **función** asigna a cada elemento del dominio exactamente un elemento del codominio.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -22,7 +26,7 @@ Al finalizar el capítulo, el lector podrá:
 8. representar formalmente conjuntos de entrenamiento;
 9. distinguir matemáticamente entre regresión y clasificación.
 
-## Convenciones y alcance matemático
+## Convenciones y alcance matemático {.unnumbered}
 
 En este libro se trabajará principalmente con conjuntos finitos, subconjuntos de espacios euclidianos y funciones entre espacios de dimensión finita. Salvo indicación contraria:
 
@@ -34,7 +38,7 @@ En este libro se trabajará principalmente con conjuntos finitos, subconjuntos d
 
 Esta precisión evita identificar una función únicamente con su fórmula. Dos expresiones algebraicas iguales pueden representar funciones distintas si sus dominios o codominios son diferentes.
 
-## Conjuntos numéricos
+## Conjuntos numéricos {.unnumbered}
 
 Los conjuntos numéricos más utilizados son:
 
@@ -91,7 +95,7 @@ $$
 donde las componentes podrían corresponder a concentración de partículas, temperatura y humedad.
 :::
 
-## Concepto de conjunto
+## Concepto de conjunto {.unnumbered}
 
 ::: {#def-conjunto}
 Un **conjunto** es una colección bien definida de objetos. Los objetos que forman parte del conjunto se denominan elementos.
@@ -127,11 +131,11 @@ $$
 5\notin A.
 $$
 
-## Formas de especificar conjuntos
+## Formas de especificar conjuntos {.unnumbered}
 
 Un conjunto puede describirse por extensión o por comprensión.
 
-### Por extensión
+### Por extensión {.unnumbered}
 
 Se enumeran sus elementos:
 
@@ -139,7 +143,7 @@ $$
 A=\{1,2,3,4,5\}.
 $$
 
-### Por comprensión
+### Por comprensión {.unnumbered}
 
 Se especifica una propiedad que deben satisfacer sus elementos:
 
@@ -149,7 +153,7 @@ $$
 
 La expresión después de los dos puntos se interpreta como “tal que”.
 
-## Igualdad de conjuntos
+## Igualdad de conjuntos {.unnumbered}
 
 Dos conjuntos $A$ y $B$ son iguales si contienen exactamente los mismos elementos:
 
@@ -171,7 +175,7 @@ $$
 \{1,1,2,3\}=\{1,2,3\}.
 $$
 
-## Subconjuntos
+## Subconjuntos {.unnumbered}
 
 ::: {#def-subconjunto}
 Se dice que $A$ es un subconjunto de $B$ si cada elemento de $A$ también pertenece a $B$.
@@ -203,7 +207,7 @@ A\subseteq B.
 $$
 :::
 
-## Conjunto vacío
+## Conjunto vacío {.unnumbered}
 
 El conjunto que no contiene elementos se denomina conjunto vacío y se denota por
 
@@ -217,9 +221,9 @@ $$
 \varnothing\subseteq A.
 $$
 
-## Operaciones entre conjuntos
+## Operaciones entre conjuntos {.unnumbered}
 
-### Unión
+### Unión {.unnumbered}
 
 La unión de $A$ y $B$ es el conjunto de elementos que pertenecen a $A$, a $B$ o a ambos:
 
@@ -229,7 +233,7 @@ A\cup B
 \{x:x\in A\ \text{o}\ x\in B\}.
 $$
 
-### Intersección
+### Intersección {.unnumbered}
 
 La intersección contiene los elementos comunes:
 
@@ -239,7 +243,7 @@ A\cap B
 \{x:x\in A\ \text{y}\ x\in B\}.
 $$
 
-### Diferencia
+### Diferencia {.unnumbered}
 
 La diferencia $A\setminus B$ contiene los elementos de $A$ que no pertenecen a $B$:
 
@@ -249,7 +253,7 @@ A\setminus B
 \{x:x\in A\ \text{y}\ x\notin B\}.
 $$
 
-### Complemento
+### Complemento {.unnumbered}
 
 Si $U$ es el conjunto universal, el complemento de $A$ es
 
@@ -287,11 +291,11 @@ B\setminus A=\{5,6\}.
 $$
 :::
 
-## Propiedades fundamentales
+## Propiedades fundamentales {.unnumbered}
 
 Para cualesquiera conjuntos $A$, $B$ y $C$ se cumplen:
 
-### Conmutatividad
+### Conmutatividad {.unnumbered}
 
 $$
 A\cup B=B\cup A,
@@ -301,7 +305,7 @@ $$
 A\cap B=B\cap A.
 $$
 
-### Asociatividad
+### Asociatividad {.unnumbered}
 
 $$
 (A\cup B)\cup C=A\cup(B\cup C),
@@ -311,7 +315,7 @@ $$
 (A\cap B)\cap C=A\cap(B\cap C).
 $$
 
-### Distributividad
+### Distributividad {.unnumbered}
 
 $$
 A\cap(B\cup C)
@@ -325,7 +329,7 @@ A\cup(B\cap C)
 (A\cup B)\cap(A\cup C).
 $$
 
-### Leyes de De Morgan
+### Leyes de De Morgan {.unnumbered}
 
 $$
 (A\cup B)^c=A^c\cap B^c,
@@ -337,7 +341,7 @@ $$
 
 Estas propiedades serán importantes posteriormente en probabilidad, reglas de asociación y teoría de clasificación.
 
-## Producto cartesiano
+## Producto cartesiano {.unnumbered}
 
 ::: {#def-producto-cartesiano}
 El producto cartesiano de dos conjuntos $A$ y $B$ se define como
@@ -375,7 +379,7 @@ $$
 }_{p\text{ veces}}.
 $$
 
-## Relaciones
+## Relaciones {.unnumbered}
 
 ::: {#def-relacion}
 Una relación entre los conjuntos $A$ y $B$ es cualquier subconjunto de $A\times B$.
@@ -395,7 +399,7 @@ En clasificación, una muestra etiquetada puede verse como un conjunto de pares 
 Toda función es una relación, pero no toda relación es una función. Para que una relación $f\subseteq A\times B$ sea una función de $A$ en $B$, cada elemento de $A$ debe aparecer exactamente una vez como primera componente.
 :::
 
-## Funciones
+## Funciones {.unnumbered}
 
 ::: {#def-funcion}
 Una función $f$ de un conjunto $A$ a un conjunto $B$ es una regla que asigna a cada elemento de $A$ exactamente un elemento de $B$.
@@ -431,7 +435,7 @@ f(3)=7.
 $$
 :::
 
-## Dominio, codominio e imagen
+## Dominio, codominio e imagen {.unnumbered}
 
 Para una función
 
@@ -457,7 +461,7 @@ $$
 
 El codominio y la imagen no necesariamente coinciden.
 
-## Imagen e imagen inversa de conjuntos
+## Imagen e imagen inversa de conjuntos {.unnumbered}
 
 Si $C\subseteq A$, la imagen de $C$ es
 
@@ -477,9 +481,9 @@ $$
 
 La notación $f^{-1}(D)$ no exige que $f$ sea invertible.
 
-## Funciones inyectivas, suprayectivas y biyectivas
+## Funciones inyectivas, suprayectivas y biyectivas {.unnumbered}
 
-### Función inyectiva
+### Función inyectiva {.unnumbered}
 
 ::: {#def-inyectiva}
 Una función $f:A\to B$ es inyectiva si elementos distintos del dominio tienen imágenes distintas.
@@ -493,7 +497,7 @@ f(x_1)=f(x_2)
 x_1=x_2.
 $$
 
-### Función suprayectiva
+### Función suprayectiva {.unnumbered}
 
 ::: {#def-suprayectiva}
 Una función $f:A\to B$ es suprayectiva si cada elemento de $B$ es imagen de al menos un elemento de $A$.
@@ -507,7 +511,7 @@ $$
 f(x)=y.
 $$
 
-### Función biyectiva
+### Función biyectiva {.unnumbered}
 
 ::: {#def-biyectiva}
 Una función es biyectiva si es simultáneamente inyectiva y suprayectiva.
@@ -515,7 +519,7 @@ Una función es biyectiva si es simultáneamente inyectiva y suprayectiva.
 
 Las funciones biyectivas poseen una función inversa.
 
-## Composición de funciones
+## Composición de funciones {.unnumbered}
 
 Sean
 
@@ -569,7 +573,7 @@ g\circ f\neq f\circ g.
 $$
 :::
 
-## Función indicadora
+## Función indicadora {.unnumbered}
 
 ::: {#def-indicadora}
 Sea $A$ un conjunto. La función indicadora de $A$ se define por
@@ -611,7 +615,7 @@ $$
 
 Esta expresión aparecerá en árboles de decisión, matrices de confusión y medidas de evaluación.
 
-## Sumatorias y productorias
+## Sumatorias y productorias {.unnumbered}
 
 La sumatoria
 
@@ -648,7 +652,7 @@ $$
 
 La productoria será especialmente importante en funciones de verosimilitud.
 
-## Representación formal de datos
+## Representación formal de datos {.unnumbered}
 
 Sea
 
@@ -712,9 +716,9 @@ y_n
 \end{pmatrix}.
 $$
 
-## Regresión y clasificación
+## Regresión y clasificación {.unnumbered}
 
-### Regresión
+### Regresión {.unnumbered}
 
 En un problema de regresión, la respuesta es numérica:
 
@@ -736,7 +740,7 @@ f(\mathbf{x})
 \widehat{y}.
 $$
 
-### Clasificación binaria
+### Clasificación binaria {.unnumbered}
 
 En clasificación binaria,
 
@@ -756,7 +760,7 @@ $$
 f:\mathcal{X}\to\{0,1\}.
 $$
 
-### Clasificación multiclase
+### Clasificación multiclase {.unnumbered}
 
 En clasificación multiclase,
 
@@ -772,7 +776,7 @@ $$
 f:\mathcal{X}\to\{1,\ldots,K\}.
 $$
 
-## Función objetivo desconocida
+## Función objetivo desconocida {.unnumbered}
 
 En aprendizaje supervisado se supone que existe una relación entre las características y la respuesta. Puede representarse idealmente mediante una función desconocida
 
@@ -798,7 +802,7 @@ $$
 En aprendizaje supervisado se supone que existe alguna relación entre $\mathbf{X}$ y $Y$, pero normalmente no se observa una función objetivo determinista exacta. Una formulación más general utiliza una distribución conjunta $P_{X,Y}$ y busca una función que minimice el riesgo esperado. Esta distinción se desarrollará en los capítulos de aprendizaje supervisado y teoría de generalización.
 :::
 
-## Ejemplo integrado
+## Ejemplo integrado {.unnumbered}
 
 Supóngase que se desea clasificar la calidad del aire utilizando tres variables:
 
@@ -850,7 +854,7 @@ $$
 \{\text{buena},\text{regular},\text{mala}\}.
 $$
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 En R, una tabla de datos puede interpretarse como una representación computacional de la matriz $\mathbf{X}$ y del vector $\mathbf{y}$.
 
@@ -887,7 +891,7 @@ $$
 \end{pmatrix}.
 $$
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Confundir un elemento con un subconjunto.
 2. Suponer que el codominio y la imagen siempre son iguales.
@@ -897,9 +901,9 @@ $$
 6. Confundir una observación $\mathbf{x}_i$ con toda la matriz $\mathbf{X}$.
 7. Suponer que toda clasificación utiliza únicamente las etiquetas $0$ y $1$.
 
-## Ejercicios
+## Ejercicios {.unnumbered}
 
-### Ejercicios conceptuales
+### Ejercicios conceptuales {.unnumbered}
 
 1. Explique la diferencia entre $x\in A$ y $\{x\}\subseteq A$.
 2. Explique la diferencia entre dominio, codominio e imagen.
@@ -907,7 +911,7 @@ $$
 4. ¿Qué diferencia existe entre $\mathbb{R}^{p}$ y $\mathbb{R}^{n\times p}$?
 5. ¿Por qué el conjunto de entrenamiento es un subconjunto de $\mathcal{X}\times\mathcal{Y}$?
 
-### Ejercicios de conjuntos
+### Ejercicios de conjuntos {.unnumbered}
 
 Sean
 
@@ -928,7 +932,7 @@ Determine:
 3. $A\setminus B$;
 4. $B\setminus A$.
 
-### Ejercicios de funciones
+### Ejercicios de funciones {.unnumbered}
 
 Sea
 
@@ -944,7 +948,7 @@ $$
 4. Analice si $f$ es inyectiva.
 5. Analice si $f$ es suprayectiva.
 
-### Ejercicio de clasificación
+### Ejercicio de clasificación {.unnumbered}
 
 Considere las observaciones:
 
@@ -972,7 +976,7 @@ $$
 4. Construya el vector $\mathbf{y}$.
 5. Escriba el tipo de función que representaría al clasificador.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se estableció el lenguaje matemático básico del libro. Se definieron conjuntos, subconjuntos, operaciones entre conjuntos, productos cartesianos, relaciones y funciones. También se introdujeron dominio, codominio, imagen, composición y función indicadora.
 

@@ -362,3 +362,18 @@
 - Se reforzaron no linealidad, retropropagación y regularización en redes.
 - Se añadieron referencias académicas especializadas.
 - Se agregó `REVISION_CAPITULOS_12_A_16.md`.
+
+## Versión 0.31
+
+- Corrección global de numeración en capítulos 1 a 16.
+- Todos los encabezados internos se marcaron como `{.unnumbered}`.
+- Solo los capítulos conservan número.
+- Se añadieron recuadros de idea o definición central.
+- Se reforzó el estilo visual de los callouts.
+- Se agregó `CORRECCION_NUMERACION_Y_RECUADROS_1_A_16.md`.
+
+## Versión 0.31.1
+
+- Se corrigió la ubicación de `number-depth`.
+- `number-depth: 1` ahora está en el nivel principal de `_quarto.yml`.
+- Se eliminó la propiedad inválida dentro de `book:`.

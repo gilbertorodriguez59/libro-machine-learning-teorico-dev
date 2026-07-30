@@ -1,6 +1,6 @@
 # Regresión lineal múltiple {#sec-regresion-lineal-multiple}
 
-## Introducción
+## Introducción {.unnumbered}
 
 La regresión lineal múltiple extiende el modelo lineal a varios predictores. Cada coeficiente tiene una interpretación condicional: representa el cambio esperado en la respuesta al modificar una variable mientras las demás permanecen fijas [@montgomery2021introduction; @seber2012linear].
 
@@ -10,7 +10,11 @@ Este modelo permite analizar el efecto parcial de cada variable manteniendo cons
 
 La formulación matricial es especialmente importante porque permite expresar de manera compacta la estimación, la inferencia y la geometría del modelo.
 
-## Objetivos
+::: {.callout-important title="Definición esencial"}
+La regresión lineal múltiple modela una respuesta mediante varios predictores.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -31,7 +35,7 @@ Al finalizar el capítulo, el lector podrá:
 15. analizar residuos, apalancamiento e influencia;
 16. reconocer limitaciones predictivas y causales.
 
-## Formulación del modelo
+## Formulación del modelo {.unnumbered}
 
 Para $n$ observaciones y $p$ variables explicativas, el modelo es
 
@@ -95,7 +99,7 @@ x_{ip}
 \in\mathbb{R}^{p+1}.
 $$
 
-## Formulación matricial
+## Formulación matricial {.unnumbered}
 
 El modelo puede escribirse como
 
@@ -160,7 +164,7 @@ $$
 n\times(p+1).
 $$
 
-## Matriz de diseño
+## Matriz de diseño {.unnumbered}
 
 ::: {#def-matriz-diseno}
 La matriz de diseño es la matriz que contiene los valores de las variables explicativas y, cuando existe intercepto, una primera columna de unos.
@@ -176,7 +180,7 @@ Cada columna representa:
 - una interacción;
 - una transformación.
 
-## Interpretación de los coeficientes
+## Interpretación de los coeficientes {.unnumbered}
 
 El coeficiente $\beta_j$ representa el cambio esperado en $Y$ cuando $x_j$ aumenta una unidad, manteniendo constantes las demás variables.
 
@@ -191,7 +195,7 @@ $$
 
 Esta interpretación depende de que mantener constantes las demás variables sea conceptualmente posible.
 
-## Ejemplo ambiental
+## Ejemplo ambiental {.unnumbered}
 
 Considere
 
@@ -211,9 +215,9 @@ $$
 
 Entonces $\beta_1$ representa el cambio promedio esperado en PM10 por cada unidad adicional de temperatura, manteniendo constantes humedad y viento.
 
-## Supuestos clásicos
+## Supuestos clásicos {.unnumbered}
 
-### Linealidad en los parámetros
+### Linealidad en los parámetros {.unnumbered}
 
 $$
 \mathbb{E}(\mathbf{y}\mid\mathbf{X})
@@ -221,7 +225,7 @@ $$
 \mathbf{X}\boldsymbol{\beta}.
 $$
 
-### Media condicional cero
+### Media condicional cero {.unnumbered}
 
 $$
 \mathbb{E}(\boldsymbol{\varepsilon}\mid\mathbf{X})
@@ -229,7 +233,7 @@ $$
 \mathbf{0}.
 $$
 
-### Homocedasticidad
+### Homocedasticidad {.unnumbered}
 
 $$
 \operatorname{Var}(\boldsymbol{\varepsilon}\mid\mathbf{X})
@@ -237,7 +241,7 @@ $$
 \sigma^2\mathbf{I}.
 $$
 
-### Ausencia de autocorrelación
+### Ausencia de autocorrelación {.unnumbered}
 
 $$
 \operatorname{Cov}(\varepsilon_i,\varepsilon_j\mid\mathbf{X})
@@ -246,7 +250,7 @@ $$
 \qquad i\neq j.
 $$
 
-### Rango completo
+### Rango completo {.unnumbered}
 
 $$
 \operatorname{rank}(\mathbf{X})
@@ -254,7 +258,7 @@ $$
 p+1.
 $$
 
-### Normalidad para inferencia exacta
+### Normalidad para inferencia exacta {.unnumbered}
 
 $$
 \boldsymbol{\varepsilon}
@@ -262,7 +266,7 @@ $$
 N_n(\mathbf{0},\sigma^2\mathbf{I}).
 $$
 
-## Criterio de mínimos cuadrados
+## Criterio de mínimos cuadrados {.unnumbered}
 
 Se desea minimizar
 
@@ -285,7 +289,7 @@ S(\boldsymbol{\beta})
 (\mathbf{y}-\mathbf{X}\boldsymbol{\beta}).
 $$
 
-## Expansión de la función objetivo
+## Expansión de la función objetivo {.unnumbered}
 
 $$
 S(\boldsymbol{\beta})
@@ -299,7 +303,7 @@ S(\boldsymbol{\beta})
 \boldsymbol{\beta}.
 $$
 
-## Derivación del estimador
+## Derivación del estimador {.unnumbered}
 
 El gradiente es
 
@@ -333,7 +337,7 @@ $$
 \mathbf{X}^{\mathsf T}\mathbf{y}.
 $$
 
-## Condición de unicidad
+## Condición de unicidad {.unnumbered}
 
 La solución es única si las columnas de $\mathbf{X}$ son linealmente independientes.
 
@@ -345,7 +349,7 @@ $$
 
 es singular.
 
-## Valores ajustados
+## Valores ajustados {.unnumbered}
 
 $$
 \widehat{\mathbf{y}}
@@ -367,7 +371,7 @@ $$
 \mathbf{y}.
 $$
 
-## Matriz sombrero
+## Matriz sombrero {.unnumbered}
 
 ::: {#def-matriz-sombrero-multiple}
 La matriz sombrero es
@@ -412,7 +416,7 @@ $$
 \mathbf{H}.
 $$
 
-## Residuos
+## Residuos {.unnumbered}
 
 $$
 \mathbf{e}
@@ -438,7 +442,7 @@ $$
 (\mathbf{I}-\mathbf{H})\mathbf{y}.
 $$
 
-## Ortogonalidad
+## Ortogonalidad {.unnumbered}
 
 Los residuos satisfacen
 
@@ -456,7 +460,7 @@ $$
 \sum_{i=1}^{n}e_i=0.
 $$
 
-## Interpretación geométrica
+## Interpretación geométrica {.unnumbered}
 
 El espacio columna
 
@@ -476,7 +480,7 @@ es la proyección ortogonal de $\mathbf{y}$ sobre $\operatorname{Col}(\mathbf{X}
 
 El vector residual pertenece al complemento ortogonal.
 
-## Insesgadez
+## Insesgadez {.unnumbered}
 
 Como
 
@@ -503,7 +507,7 @@ $$
 \boldsymbol{\beta}.
 $$
 
-## Matriz de covarianza de los estimadores
+## Matriz de covarianza de los estimadores {.unnumbered}
 
 $$
 \operatorname{Var}
@@ -520,7 +524,7 @@ $$
 
 Los elementos diagonales proporcionan las varianzas de los coeficientes.
 
-## Teorema de Gauss-Markov
+## Teorema de Gauss-Markov {.unnumbered}
 
 ::: {#thm-gauss-markov-multiple}
 Bajo los supuestos clásicos, el estimador de mínimos cuadrados es el mejor estimador lineal insesgado de $\boldsymbol{\beta}$.
@@ -532,7 +536,7 @@ $$
 \text{Best Linear Unbiased Estimator}.
 $$
 
-## Estimación de la varianza del error
+## Estimación de la varianza del error {.unnumbered}
 
 La suma de cuadrados residual es
 
@@ -560,7 +564,7 @@ n-p-1
 }.
 $$
 
-## Distribución de los estimadores
+## Distribución de los estimadores {.unnumbered}
 
 Bajo normalidad,
 
@@ -577,7 +581,7 @@ N_{p+1}
 \right].
 $$
 
-## Error estándar de un coeficiente
+## Error estándar de un coeficiente {.unnumbered}
 
 Si
 
@@ -604,7 +608,7 @@ SE
 s\sqrt{c_{jj}}.
 $$
 
-## Prueba individual
+## Prueba individual {.unnumbered}
 
 Para contrastar
 
@@ -632,7 +636,7 @@ t
 t_{n-p-1}.
 $$
 
-## Intervalo de confianza
+## Intervalo de confianza {.unnumbered}
 
 $$
 \widehat{\beta}_j
@@ -641,7 +645,7 @@ t_{\alpha/2,n-p-1}
 SE(\widehat{\beta}_j).
 $$
 
-## Prueba global
+## Prueba global {.unnumbered}
 
 La hipótesis global es
 
@@ -672,13 +676,13 @@ F
 F_{p,n-p-1}.
 $$
 
-## Interpretación de la prueba global
+## Interpretación de la prueba global {.unnumbered}
 
 Rechazar $H_0$ indica que el conjunto de variables explicativas aporta capacidad lineal explicativa respecto del modelo con solo intercepto.
 
 No implica que todos los coeficientes sean significativos.
 
-## Descomposición de sumas de cuadrados
+## Descomposición de sumas de cuadrados {.unnumbered}
 
 $$
 SST
@@ -711,7 +715,7 @@ SSR
 SSE.
 $$
 
-## Coeficiente de determinación
+## Coeficiente de determinación {.unnumbered}
 
 $$
 R^2
@@ -728,7 +732,7 @@ Al agregar variables, $R^2$ nunca disminuye.
 
 Por esta razón, no debe utilizarse solo para comparar modelos con diferente número de variables.
 
-## Coeficiente de determinación ajustado
+## Coeficiente de determinación ajustado {.unnumbered}
 
 $$
 R^2_{aj}
@@ -757,7 +761,7 @@ $$
 
 Este coeficiente penaliza la incorporación de variables que no reducen suficientemente el error.
 
-## Comparación de modelos anidados
+## Comparación de modelos anidados {.unnumbered}
 
 Considere:
 
@@ -779,7 +783,7 @@ SSE_C/(n-p-1)
 }.
 $$
 
-## Hipótesis lineales generales
+## Hipótesis lineales generales {.unnumbered}
 
 Puede formularse
 
@@ -810,7 +814,7 @@ $$
 
 donde $m$ es el número de restricciones.
 
-## Predicción en una observación nueva
+## Predicción en una observación nueva {.unnumbered}
 
 Sea
 
@@ -848,7 +852,7 @@ $$
 \widehat{\boldsymbol{\beta}}.
 $$
 
-## Error estándar de la media
+## Error estándar de la media {.unnumbered}
 
 $$
 SE_{mean}
@@ -861,7 +865,7 @@ s
 }.
 $$
 
-## Intervalo de confianza para la media
+## Intervalo de confianza para la media {.unnumbered}
 
 $$
 \widehat{y}_0
@@ -870,7 +874,7 @@ t_{\alpha/2,n-p-1}
 SE_{mean}.
 $$
 
-## Intervalo de predicción
+## Intervalo de predicción {.unnumbered}
 
 $$
 SE_{pred}
@@ -897,7 +901,7 @@ $$
 Con un término de interacción, el efecto de una variable depende del valor de otra. Los efectos principales dejan de representar efectos globales constantes.
 :::
 
-## Variables categóricas
+## Variables categóricas {.unnumbered}
 
 Una variable categórica con $K$ niveles se representa mediante $K-1$ variables indicadoras cuando existe intercepto.
 
@@ -939,7 +943,7 @@ Y
 \varepsilon.
 $$
 
-## Interpretación de indicadores
+## Interpretación de indicadores {.unnumbered}
 
 $$
 \beta_0
@@ -959,7 +963,7 @@ $$
 
 es la diferencia entre los grupos $C$ y $A$.
 
-## Trampa de las variables indicadoras
+## Trampa de las variables indicadoras {.unnumbered}
 
 Si se incluyen las $K$ variables indicadoras y también intercepto, existe dependencia lineal exacta:
 
@@ -969,7 +973,7 @@ $$
 
 Esto se conoce como trampa de variables indicadoras.
 
-## Interacciones
+## Interacciones {.unnumbered}
 
 Una interacción permite que el efecto de una variable dependa de otra.
 
@@ -1000,7 +1004,7 @@ $$
 
 Por tanto, $\beta_1$ ya no representa un efecto constante.
 
-## Interacción entre variable numérica y categórica
+## Interacción entre variable numérica y categórica {.unnumbered}
 
 Sea $D$ una variable indicadora:
 
@@ -1036,7 +1040,7 @@ $$
 (\beta_1+\beta_3)X.
 $$
 
-## Principio jerárquico
+## Principio jerárquico {.unnumbered}
 
 Si se incluye una interacción, normalmente también deben incluirse sus efectos principales.
 
@@ -1048,7 +1052,7 @@ $$
 
 deben conservarse $X_1$ y $X_2$, salvo que exista una justificación especial.
 
-## Transformaciones polinomiales
+## Transformaciones polinomiales {.unnumbered}
 
 Puede modelarse curvatura mediante
 
@@ -1066,7 +1070,7 @@ $$
 
 El modelo sigue siendo lineal en los parámetros, aunque no sea lineal en $X$.
 
-## Centrado de variables
+## Centrado de variables {.unnumbered}
 
 Defina
 
@@ -1082,7 +1086,7 @@ El centrado puede:
 - reducir correlación entre términos principales e interacciones;
 - mejorar estabilidad numérica.
 
-## Multicolinealidad
+## Multicolinealidad {.unnumbered}
 
 ::: {#def-multicolinealidad}
 Existe multicolinealidad cuando algunas variables explicativas presentan relaciones lineales fuertes.
@@ -1093,7 +1097,7 @@ Puede ser:
 - exacta;
 - aproximada.
 
-## Consecuencias
+## Consecuencias {.unnumbered}
 
 La multicolinealidad puede producir:
 
@@ -1110,7 +1114,7 @@ Puede existir una prueba $F$ global significativa junto con pruebas $t$ individu
 La multicolinealidad no introduce necesariamente sesgo, pero aumenta la varianza de los coeficientes y puede volver inestables sus signos e interpretaciones.
 :::
 
-## Factor de inflación de varianza
+## Factor de inflación de varianza {.unnumbered}
 
 Para la variable $X_j$, se ajusta una regresión usando las demás variables como predictores.
 
@@ -1128,7 +1132,7 @@ VIF_j
 }.
 $$
 
-## Interpretación del VIF
+## Interpretación del VIF {.unnumbered}
 
 Si las variables son ortogonales,
 
@@ -1146,7 +1150,7 @@ Valores grandes indican inflación de varianza.
 
 No existe un umbral universal, aunque se usan reglas prácticas como 5 o 10.
 
-## Tolerancia
+## Tolerancia {.unnumbered}
 
 La tolerancia es
 
@@ -1160,7 +1164,7 @@ $$
 
 Valores cercanos a cero sugieren multicolinealidad.
 
-## Estrategias frente a multicolinealidad
+## Estrategias frente a multicolinealidad {.unnumbered}
 
 - eliminar variables redundantes;
 - combinar variables;
@@ -1170,7 +1174,7 @@ Valores cercanos a cero sugieren multicolinealidad.
 - usar ridge o elastic net;
 - evitar interpretaciones individuales excesivas.
 
-## Selección de variables
+## Selección de variables {.unnumbered}
 
 Métodos comunes:
 
@@ -1182,7 +1186,7 @@ Métodos comunes:
 - LASSO;
 - selección basada en conocimiento científico.
 
-## Limitaciones de selección automática
+## Limitaciones de selección automática {.unnumbered}
 
 Los procedimientos paso a paso pueden:
 
@@ -1194,7 +1198,7 @@ Los procedimientos paso a paso pueden:
 
 La validación y la justificación sustantiva son esenciales.
 
-## Criterio AIC
+## Criterio AIC {.unnumbered}
 
 $$
 AIC
@@ -1208,7 +1212,7 @@ donde $k$ es el número de parámetros.
 
 Menor AIC indica mejor equilibrio entre ajuste y complejidad.
 
-## Criterio BIC
+## Criterio BIC {.unnumbered}
 
 $$
 BIC
@@ -1220,7 +1224,7 @@ $$
 
 BIC penaliza más fuertemente la complejidad cuando $n$ es grande.
 
-## Apalancamiento
+## Apalancamiento {.unnumbered}
 
 Los elementos diagonales de $\mathbf{H}$ son
 
@@ -1248,7 +1252,7 @@ n
 }.
 $$
 
-## Residuos estandarizados
+## Residuos estandarizados {.unnumbered}
 
 $$
 r_i
@@ -1260,7 +1264,7 @@ s\sqrt{1-h_{ii}}
 }.
 $$
 
-## Distancia de Cook
+## Distancia de Cook {.unnumbered}
 
 $$
 D_i
@@ -1279,7 +1283,7 @@ $$
 
 Una observación influyente combina residuo y apalancamiento.
 
-## DFFITS
+## DFFITS {.unnumbered}
 
 $$
 DFFITS_i
@@ -1296,7 +1300,7 @@ $$
 
 Mide el cambio en el valor ajustado al eliminar la observación.
 
-## DFBETAS
+## DFBETAS {.unnumbered}
 
 DFBETAS cuantifica cuánto cambia cada coeficiente al eliminar una observación.
 
@@ -1314,7 +1318,7 @@ SE_{(-i)}(\widehat{\beta}_j)
 }.
 $$
 
-## Diagnóstico de linealidad
+## Diagnóstico de linealidad {.unnumbered}
 
 Debe analizarse:
 
@@ -1323,7 +1327,7 @@ Debe analizarse:
 - gráficos componente más residuo;
 - posibles términos no lineales.
 
-## Diagnóstico de homocedasticidad
+## Diagnóstico de homocedasticidad {.unnumbered}
 
 Un patrón de embudo puede sugerir varianza no constante.
 
@@ -1334,7 +1338,7 @@ Pueden utilizarse:
 - errores estándar robustos;
 - mínimos cuadrados ponderados.
 
-## Normalidad
+## Normalidad {.unnumbered}
 
 La normalidad afecta principalmente:
 
@@ -1344,7 +1348,7 @@ La normalidad afecta principalmente:
 
 No es necesaria para que la relación media sea lineal.
 
-## Independencia
+## Independencia {.unnumbered}
 
 Si existen datos temporales o agrupados, puede incumplirse.
 
@@ -1355,7 +1359,7 @@ Alternativas:
 - errores estándar agrupados;
 - regresión generalizada.
 
-## Máxima verosimilitud
+## Máxima verosimilitud {.unnumbered}
 
 Bajo errores normales,
 
@@ -1387,7 +1391,7 @@ $$
 
 Maximizar respecto de $\boldsymbol{\beta}$ equivale a minimizar $SSE$.
 
-## Relación con regularización
+## Relación con regularización {.unnumbered}
 
 Ridge resuelve
 
@@ -1411,7 +1415,7 @@ LASSO sustituye la norma $L_2$ por $L_1$.
 
 Estas técnicas son especialmente útiles cuando $p$ es grande o existe multicolinealidad.
 
-## Relación con aprendizaje supervisado
+## Relación con aprendizaje supervisado {.unnumbered}
 
 El espacio de hipótesis es
 
@@ -1439,7 +1443,7 @@ $$
 
 El estimador minimiza el riesgo empírico.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -1478,7 +1482,7 @@ plot(modelo)
 # vif(modelo)
 ```
 
-## Ejemplo matricial
+## Ejemplo matricial {.unnumbered}
 
 Considere
 
@@ -1525,7 +1529,7 @@ El procedimiento manual consiste en:
 4. obtener $\widehat{\mathbf{y}}$;
 5. calcular los residuos.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. Interpretar un coeficiente sin considerar las demás variables.
 2. Concluir causalidad por significancia estadística.
@@ -1540,7 +1544,7 @@ El procedimiento manual consiste en:
 11. Extrapolar fuera de la región observada.
 12. Confundir significancia estadística con importancia práctica.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique la diferencia entre regresión simple y múltiple.
 2. ¿Qué representa un coeficiente parcial?
@@ -1555,7 +1559,7 @@ El procedimiento manual consiste en:
 11. ¿Por qué multicolinealidad puede afectar inferencia sin afectar mucho la predicción?
 12. ¿Qué diferencia existe entre apalancamiento e influencia?
 
-## Ejercicio de derivación matricial
+## Ejercicio de derivación matricial {.unnumbered}
 
 Parta de
 
@@ -1572,7 +1576,7 @@ $$
 4. Derive el estimador.
 5. Explique la condición de invertibilidad.
 
-## Ejercicio de interpretación
+## Ejercicio de interpretación {.unnumbered}
 
 Considere
 
@@ -1595,7 +1599,7 @@ Interprete cada coeficiente suponiendo que:
 - $X_2$ es humedad;
 - $X_3$ es una variable indicadora de temporada seca.
 
-## Ejercicio de prueba global
+## Ejercicio de prueba global {.unnumbered}
 
 Supóngase:
 
@@ -1623,7 +1627,7 @@ Calcule:
 4. los grados de libertad;
 5. interprete el contraste.
 
-## Ejercicio de modelos anidados
+## Ejercicio de modelos anidados {.unnumbered}
 
 Un modelo reducido tiene
 
@@ -1649,7 +1653,7 @@ $$
 
 Calcule la prueba $F$ parcial.
 
-## Ejercicio de VIF
+## Ejercicio de VIF {.unnumbered}
 
 Una variable $X_j$ se regresa contra las demás y se obtiene
 
@@ -1662,7 +1666,7 @@ $$
 3. Interprete el resultado.
 4. Proponga estrategias.
 
-## Ejercicio de interacción
+## Ejercicio de interacción {.unnumbered}
 
 Considere
 
@@ -1684,7 +1688,7 @@ $$
 4. Compare pendientes.
 5. Interprete la interacción.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea predecir PM10 usando:
 
@@ -1707,7 +1711,7 @@ Diseñe el análisis incluyendo:
 9. predicción;
 10. limitaciones causales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló la regresión lineal múltiple mediante formulación matricial.
 

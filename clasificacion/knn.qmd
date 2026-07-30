@@ -2,6 +2,8 @@
 
 ## Introducción
 
+El método de vecinos más cercanos es no paramétrico y basa la predicción en observaciones localmente próximas. Su comportamiento depende de la métrica, la escala, el tamaño muestral y el número de vecinos [@cover1967nearest; @stone1977consistent; @duda2001pattern].
+
 El método de vecinos más cercanos, conocido como $k$-NN (*$k$-Nearest Neighbors*), es uno de los algoritmos más sencillos y a la vez más importantes del aprendizaje supervisado. Su idea central consiste en predecir la respuesta de una observación nueva a partir de las respuestas observadas en las muestras más próximas dentro del espacio de características.
 
 A diferencia de modelos paramétricos como la regresión lineal o la regresión logística, $k$-NN no impone una forma funcional explícita para la relación entre variables. Por ello, se considera un método no paramétrico y basado en instancias.
@@ -73,6 +75,10 @@ que satisface, para cualesquiera $\mathbf{x},\mathbf{z},\mathbf{w}\in\mathcal{X}
 2. $d(\mathbf{x},\mathbf{z})=0$ si y solo si $\mathbf{x}=\mathbf{z}$;
 3. $d(\mathbf{x},\mathbf{z})=d(\mathbf{z},\mathbf{x})$;
 4. $d(\mathbf{x},\mathbf{w})\le d(\mathbf{x},\mathbf{z})+d(\mathbf{z},\mathbf{w})$.
+
+::: {.callout-important title="Escala y geometría"}
+La noción de cercanía no es absoluta: depende de la representación y de la métrica. Antes de aplicar k-NN deben justificarse el escalamiento, la selección de variables y el tratamiento de variables categóricas.
+:::
 
 ## Distancia euclidiana
 
@@ -320,6 +326,10 @@ En 1-NN, cada observación de entrenamiento es su propio vecino más cercano si 
 
 Sin embargo, ese resultado no refleja necesariamente el error de generalización. Para estimar desempeño predictivo es necesario emplear validación cruzada o un conjunto de prueba.
 
+::: {.callout-note title="Compromiso sesgo-varianza"}
+Valores pequeños de $k$ producen fronteras flexibles y alta varianza. Valores grandes suavizan la frontera, pero pueden aumentar el sesgo. El valor de $k$ debe elegirse mediante validación.
+:::
+
 ## Selección de k
 
 La elección de $k$ suele realizarse mediante validación cruzada. Formalmente,
@@ -500,6 +510,10 @@ Por ello, en problemas de alta dimensión es importante considerar:
 - reducción de dimensionalidad;
 - ponderación de características;
 - distancias especializadas.
+
+::: {.callout-warning title="Dimensión alta"}
+Cuando la dimensión crece, las distancias tienden a perder contraste y las vecindades necesitan abarcar regiones amplias para contener suficientes observaciones. La reducción o selección de variables puede ser esencial.
+:::
 
 ## Maldición de la dimensionalidad
 

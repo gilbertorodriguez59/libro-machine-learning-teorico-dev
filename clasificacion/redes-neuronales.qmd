@@ -2,6 +2,8 @@
 
 ## Introducción
 
+Las redes neuronales componen transformaciones afines y activaciones no lineales. Su entrenamiento moderno se apoya en retropropagación, optimización estocástica, inicialización controlada y regularización [@rumelhart1986learning; @glorot2010understanding; @he2015delving; @srivastava2014dropout].
+
 Las redes neuronales artificiales son modelos de aprendizaje supervisado y no supervisado formados por unidades computacionales simples organizadas en capas. Cada unidad combina linealmente sus entradas, aplica una función de activación y transmite el resultado a la siguiente capa.
 
 Su poder proviene de la composición de múltiples transformaciones no lineales. Mientras un modelo lineal representa fronteras planas, una red profunda puede aproximar funciones altamente complejas, extraer representaciones internas y modelar interacciones de gran orden.
@@ -156,6 +158,10 @@ donde $\eta>0$ es la tasa de aprendizaje.
 El perceptrón converge si las clases son linealmente separables. No puede resolver problemas como XOR mediante una sola capa lineal.
 
 Esta limitación motivó el uso de capas ocultas y activaciones no lineales.
+
+::: {.callout-important title="Necesidad de no linealidad"}
+Si todas las activaciones fueran lineales, la composición de múltiples capas sería equivalente a una sola transformación lineal. La capacidad no lineal proviene de las funciones de activación.
+:::
 
 ## Red multicapa
 
@@ -530,6 +536,10 @@ J_{\mathcal{B}}(\Theta).
 $$
 
 Es el enfoque más utilizado.
+
+::: {.callout-note title="Retropropagación no es el optimizador"}
+La retropropagación calcula gradientes eficientemente. El optimizador —SGD, momentum, Adam u otro— utiliza esos gradientes para actualizar los parámetros.
+:::
 
 ## Retropropagación
 
@@ -941,6 +951,10 @@ $$
 
 Favorece pesos exactamente cero, aunque es menos común que L2.
 
+::: {.callout-note title="Dropout durante entrenamiento y predicción"}
+Dropout introduce máscaras aleatorias durante entrenamiento. En inferencia se utiliza la red completa con el escalamiento correspondiente; no deben eliminarse neuronas aleatoriamente en una predicción ordinaria.
+:::
+
 ## Dropout
 
 Durante entrenamiento, cada activación puede eliminarse aleatoriamente.
@@ -1038,6 +1052,10 @@ La capacidad depende de:
 - regularización.
 
 Una red con demasiada capacidad puede memorizar la muestra.
+
+::: {.callout-warning title="Alcance del teorema universal"}
+El teorema garantiza capacidad de aproximación bajo determinadas condiciones, pero no asegura entrenamiento eficiente, buena generalización ni una arquitectura pequeña [@hornik1989multilayer].
+:::
 
 ## Teorema de aproximación universal
 

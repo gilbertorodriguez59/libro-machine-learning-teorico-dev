@@ -2,6 +2,8 @@
 
 ## Introducción
 
+Las máquinas de vectores de soporte buscan una frontera con margen grande y pueden incorporar transformaciones no lineales mediante kernels. Su formulación conecta optimización convexa, regularización y teoría de generalización [@cortes1995support; @vapnik1998statistical].
+
 Las máquinas de vectores de soporte, conocidas como SVM por *Support Vector Machines*, son métodos de aprendizaje supervisado diseñados principalmente para clasificación, aunque también existen extensiones para regresión.
 
 La idea fundamental consiste en encontrar una frontera de decisión que separe las clases con el mayor margen posible. En el caso linealmente separable, SVM selecciona entre todos los hiperplanos separadores aquel que maximiza la distancia mínima a las observaciones de entrenamiento. Las observaciones que determinan esta frontera reciben el nombre de vectores de soporte.
@@ -176,6 +178,10 @@ y_i
 $$
 
 Depende de la escala de $\mathbf{w}$ y $b$.
+
+::: {.callout-important title="Escalamiento de la representación"}
+El margen depende de la escala de las variables. Por ello, SVM suele requerir centrado y estandarización, especialmente con kernels que utilizan distancias.
+:::
 
 ## Margen geométrico
 

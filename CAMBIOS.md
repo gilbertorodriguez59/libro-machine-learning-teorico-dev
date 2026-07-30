@@ -347,3 +347,18 @@
 - Se redujo la numeración con `number-depth: 2`.
 - Se redujo la profundidad del índice con `toc-depth: 2`.
 - Se agregó `REVISION_CAPITULOS_9_A_11.md`.
+
+## Versión 0.30
+
+- Revisión académica de los capítulos 12 a 16.
+- Se corrigió definitivamente la numeración con `number-depth: 1`.
+- Solo los capítulos conservan numeración.
+- Los apartados internos quedan sin números como 11.61 o 15.43.
+- La navegación conserva dos niveles mediante `toc-depth: 2`.
+- Se reforzaron escala, distancia y dimensionalidad en K-NN.
+- Se precisaron impureza, poda e importancia en árboles.
+- Se reforzaron OOB, mtry e importancia en Random Forest.
+- Se precisaron escalamiento, C y gamma en SVM.
+- Se reforzaron no linealidad, retropropagación y regularización en redes.
+- Se añadieron referencias académicas especializadas.
+- Se agregó `REVISION_CAPITULOS_12_A_16.md`.

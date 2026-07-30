@@ -2,6 +2,8 @@
 
 ## Introducción
 
+Random Forest combina árboles construidos con muestras bootstrap y selección aleatoria de variables. La aleatorización reduce la correlación entre árboles y la promediación disminuye la varianza del ensamble [@breiman2001random; @hastie2009elements].
+
 Random Forest es un método de ensamble que combina muchos árboles de decisión construidos sobre muestras bootstrap y con selección aleatoria de variables en cada división. Su propósito principal es reducir la alta varianza de los árboles individuales sin perder su capacidad para representar relaciones no lineales e interacciones complejas.
 
 Un árbol profundo suele tener bajo sesgo y alta varianza. Random Forest disminuye la varianza mediante promediación. Sin embargo, para que esta reducción sea efectiva, los árboles deben ser no solo precisos, sino también poco correlacionados. La selección aleatoria de variables en cada nodo cumple precisamente esta función: introduce diversidad entre árboles.

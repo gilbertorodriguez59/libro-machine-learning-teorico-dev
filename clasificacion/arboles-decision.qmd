@@ -2,6 +2,8 @@
 
 ## Introducción
 
+Los árboles de decisión particionan recursivamente el espacio predictor mediante reglas simples. Su interpretabilidad es atractiva, pero un árbol profundo puede tener alta varianza y sobreajustar [@breiman1984cart; @quinlan1986induction; @quinlan1993c45].
+
 Los árboles de decisión son modelos supervisados que dividen recursivamente el espacio de características en regiones cada vez más homogéneas. Cada división se expresa mediante una regla sencilla, por ejemplo,
 
 $$
@@ -199,6 +201,10 @@ En clasificación binaria, si $p$ es la proporción de la clase positiva,
 $$
 I_G(t)=2p(1-p).
 $$
+
+::: {.callout-note title="Impureza y error de clasificación"}
+Entropía y Gini se utilizan para construir el árbol porque son más sensibles a cambios en las probabilidades de clase que el error de clasificación. Una menor impureza local no garantiza por sí sola mejor desempeño fuera de muestra.
+:::
 
 ## Entropía
 
@@ -481,6 +487,10 @@ Un árbol sin control puede aprender particularidades y ruido de la muestra. Est
 - error de validación alto;
 - hojas con pocas observaciones;
 - fronteras de decisión extremadamente irregulares.
+
+::: {.callout-important title="Crecimiento y poda"}
+En CART suele crecerse un árbol amplio y después podarse mediante complejidad-costo. La poda debe seleccionarse con validación para equilibrar ajuste y complejidad.
+:::
 
 ## Poda
 

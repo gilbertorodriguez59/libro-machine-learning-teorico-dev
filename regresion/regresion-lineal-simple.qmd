@@ -2,6 +2,8 @@
 
 ## Introducción
 
+La regresión lineal simple modela la relación media entre una variable respuesta cuantitativa y un predictor. La recta ajustada describe una asociación estadística; por sí sola no establece causalidad [@montgomery2021introduction; @seber2012linear; @james2021introduction].
+
 La regresión lineal simple estudia la relación entre una variable explicativa $X$ y una variable respuesta $Y$. Su propósito es modelar cómo cambia, en promedio, la respuesta cuando cambia la variable explicativa.
 
 Aunque se trata de uno de los modelos más sencillos, constituye la base conceptual de métodos más avanzados. En este capítulo se desarrollan la formulación probabilística, la estimación por mínimos cuadrados, las propiedades de los estimadores, la inferencia sobre los parámetros, los intervalos de confianza y predicción, el coeficiente de determinación y el análisis de residuos.
@@ -887,6 +889,10 @@ SSR
 SSE.
 $$
 
+::: {.callout-note title="Interpretación de la pendiente"}
+La pendiente representa el cambio esperado en la respuesta por una unidad adicional del predictor, dentro del rango observado. No debe extrapolarse automáticamente.
+:::
+
 ## Coeficiente de determinación
 
 ::: {#def-r2-simple}
@@ -1540,5 +1546,5 @@ La regresión lineal simple constituye la base para la regresión múltiple, la 
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @james2021introduction.
+Los fundamentos se apoyan en @montgomery2021introduction, @seber2012linear, @hastie2009elements y @james2021introduction.
 

@@ -1,0 +1,31 @@
+{
+  "counts": {
+    "archivos": 40,
+    "qmd": 27,
+    "capitulos": 22,
+    "referencias_bib": 32,
+    "citas_usadas": 32,
+    "bloques_R": 22,
+    "eval_false": 22
+  },
+  "critical": [],
+  "important": [],
+  "minor": [],
+  "missing_bib": [],
+  "unused_bib": [],
+  "broken": [],
+  "unclosed": [],
+  "legacy": [],
+  "placeholders": [],
+  "no_refs": [],
+  "coverchecks": {
+    "include-before-body": true,
+    "portada-pdf.tex": true,
+    "imagen PDF": true,
+    "imagen web": true,
+    "titlepage": true,
+    "página completa": true
+  },
+  "missing_from_order": [],
+  "heading_jumps": []
+}

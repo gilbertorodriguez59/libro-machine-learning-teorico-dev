@@ -2,6 +2,8 @@
 
 ## Introducción
 
+La regresión logística modela la probabilidad condicional de una respuesta binaria mediante el logit. Aunque se denomina regresión, se utiliza principalmente para clasificación probabilística [@agresti2013categorical; @hosmer2013applied; @bishop2006pattern].
+
 La regresión logística es uno de los modelos fundamentales para clasificación binaria. La variable respuesta toma valores discretos,
 
 $$
@@ -54,6 +56,10 @@ donde
 $$
 \pi_i=P(Y_i=1\mid\mathbf{x}_i).
 $$
+
+::: {.callout-note title="Odds y logit"}
+Un coeficiente implica que, manteniendo los demás predictores constantes, las odds se multiplican por $e^{\beta_j}$ por cada unidad adicional del predictor.
+:::
 
 ## Función logística
 
@@ -329,6 +335,10 @@ L(\boldsymbol{\beta})
 \prod_{i=1}^{n}
 \pi_i^{y_i}(1-\pi_i)^{1-y_i}.
 $$
+
+::: {.callout-important title="Estimación por máxima verosimilitud"}
+No existe en general una fórmula cerrada para los estimadores logísticos. Se utilizan procedimientos iterativos como Newton-Raphson o IRLS.
+:::
 
 ## Log-verosimilitud
 
@@ -863,6 +873,10 @@ y_i\log\pi_i
 \right].
 $$
 
+::: {.callout-warning title="Separación completa"}
+Si una combinación lineal separa perfectamente las clases, los estimadores de máxima verosimilitud pueden divergir. Puede utilizarse penalización o correcciones específicas.
+:::
+
 ## Regularización
 
 ### Ridge
@@ -1224,5 +1238,5 @@ Finalmente, se presentaron inferencia, deviance, pseudo-$R^2$, predicción, sele
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @bishop2006pattern; @james2021introduction.
+Los fundamentos se apoyan en @agresti2013categorical, @hosmer2013applied, @bishop2006pattern y @james2021introduction.
 

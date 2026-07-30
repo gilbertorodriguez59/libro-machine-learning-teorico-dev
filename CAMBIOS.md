@@ -336,3 +336,14 @@
 - Se incorporaron citas bibliográficas dentro de los capítulos.
 - Se añadieron referencias académicas de clasificación, validación y regularización.
 - Se agregó `REVISION_CAPITULOS_5_A_8.md`.
+
+## Versión 0.29
+
+- Revisión académica de los capítulos 9 a 11.
+- Se precisaron supuestos e interpretación de la regresión lineal.
+- Se reforzaron multicolinealidad, interacciones y selección de variables.
+- Se precisaron odds, logit, separación completa, umbrales y calibración.
+- Se añadieron nuevas referencias especializadas.
+- Se redujo la numeración con `number-depth: 2`.
+- Se redujo la profundidad del índice con `toc-depth: 2`.
+- Se agregó `REVISION_CAPITULOS_9_A_11.md`.

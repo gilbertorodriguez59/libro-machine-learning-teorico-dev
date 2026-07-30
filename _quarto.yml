@@ -9,6 +9,7 @@ resource-files:
   - estilos/portadas/portada-teorico-web.png
 
 book:
+  number-depth: 2
   title: "Fundamentos Matemáticos del Aprendizaje Automático"
   subtitle: "Teoría, demostraciones y formulación rigurosa de los métodos de regresión, clasificación y análisis de datos"
   author: "MI Jesús Gilberto Rodríguez Escobedo"
@@ -86,7 +87,7 @@ format:
       dark: darkly
     css: estilos/styles.css
     toc: true
-    toc-depth: 4
+    toc-depth: 2
     number-sections: true
     code-fold: true
     code-tools: true

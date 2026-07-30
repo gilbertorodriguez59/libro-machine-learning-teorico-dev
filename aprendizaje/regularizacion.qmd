@@ -2,6 +2,8 @@
 
 ## Introducción
 
+La regularización modifica el problema de ajuste para controlar la complejidad efectiva, estabilizar estimaciones y mejorar el desempeño fuera de muestra. Puede expresarse como penalización, restricción, parada temprana, reducción de dimensión o elección de una clase de hipótesis más pequeña [@tikhonov1963solution; @tibshirani1996regression; @hastie2009elements].
+
 La regularización es una de las ideas centrales del aprendizaje automático moderno. Su propósito es controlar la complejidad de un modelo para mejorar su capacidad de generalización. En lugar de minimizar únicamente el error de entrenamiento, se añade una penalización que desalienta soluciones excesivamente flexibles, inestables o difíciles de interpretar.
 
 La regularización puede entenderse desde distintos puntos de vista:
@@ -1228,5 +1230,5 @@ Finalmente, se desarrolló elastic net, la interpretación bayesiana, los camino
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @bishop2006pattern.
+Los fundamentos se apoyan en @tikhonov1963solution, @tibshirani1996regression, @hastie2009elements y @bishop2006pattern.
 

@@ -2,6 +2,8 @@
 
 ## Introducción
 
+La teoría de clasificación estudia cómo asignar una observación a una categoría minimizando una pérdida esperada. La regla de Bayes constituye el referente óptimo bajo la distribución verdadera, mientras que los clasificadores aprendidos intentan aproximarla a partir de datos finitos [@duda2001pattern; @devroye1996probabilistic; @bishop2006pattern].
+
 La clasificación consiste en asignar una etiqueta discreta a una observación a partir de sus características. En un problema binario, la respuesta puede pertenecer a una de dos clases; en un problema multiclase, puede pertenecer a una de varias categorías.
 
 Desde el punto de vista matemático, un clasificador es una función que divide el espacio de características en regiones de decisión. Cada región se asocia con una clase. La teoría de clasificación estudia cómo construir estas regiones, cómo medir el costo de los errores y cuál es la mejor regla de decisión posible bajo una distribución probabilística dada.
@@ -243,6 +245,18 @@ f^{*}(\mathbf{x})
 \arg\min_j
 R(j\mid\mathbf{x}).
 $$
+
+::: {.callout-note title="Probabilidades posteriores"}
+En clasificación binaria se define
+
+$$
+\eta(\mathbf{x})
+=
+P(Y=1\mid\mathbf{X}=\mathbf{x}).
+$$
+
+La regla de Bayes bajo pérdida 0-1 predice la clase 1 cuando $\eta(\mathbf{x})\geq 1/2$. Si los costos son asimétricos, el umbral deja de ser necesariamente $1/2$.
+:::
 
 ## Regla de Bayes bajo pérdida 0-1
 
@@ -736,6 +750,10 @@ $$
 $$
 
 Por tanto, la exactitud puede ser engañosa en datos desbalanceados.
+
+::: {.callout-note title="Clasificación y calibración"}
+Un clasificador puede tener buena exactitud y probabilidades mal calibradas. La discriminación evalúa orden o separación entre clases; la calibración evalúa si una probabilidad pronosticada de, por ejemplo, 0.8 corresponde aproximadamente a una frecuencia observada de 0.8.
+:::
 
 ## Curva ROC
 
@@ -1302,5 +1320,5 @@ Finalmente, se desarrollaron curvas ROC, AUC, calibración y clasificación mult
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @duda2001pattern; @bishop2006pattern.
+Los fundamentos se apoyan en @duda2001pattern, @devroye1996probabilistic y @bishop2006pattern.
 

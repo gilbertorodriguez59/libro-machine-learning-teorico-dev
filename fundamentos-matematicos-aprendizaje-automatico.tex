@@ -249,10 +249,10 @@
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
-\theoremstyle{plain}
-\newtheorem{theorem}{Teorema}[chapter]
 \theoremstyle{definition}
 \newtheorem{example}{Ejemplo}[chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[chapter]
 \theoremstyle{remark}
 \AtBeginDocument{\renewcommand*{\proofname}{Demostración}}
 \newtheorem*{remark}{Observación}
@@ -548,6 +548,13 @@ funciones}\label{sec-conjuntos-funciones}
 
 \section{Introducción}\label{introducciuxf3n-1}
 
+El lenguaje de conjuntos, relaciones y funciones permite expresar con
+precisión los objetos que aparecen en aprendizaje automático: espacios
+de entrada, espacios de salida, muestras, hipótesis y funciones de
+pérdida. La presentación de este capítulo sigue la notación matemática
+habitual empleada en textos de reconocimiento de patrones y aprendizaje
+estadístico (Bishop 2006; Hastie et~al. 2009).
+
 El aprendizaje automático se construye sobre objetos matemáticos bien
 definidos: conjuntos de datos, espacios de características, funciones de
 predicción, reglas de decisión y medidas de error. Antes de estudiar
@@ -585,6 +592,33 @@ Al finalizar el capítulo, el lector podrá:
 \item
   distinguir matemáticamente entre regresión y clasificación.
 \end{enumerate}
+
+\section{Convenciones y alcance
+matemático}\label{convenciones-y-alcance-matemuxe1tico}
+
+En este libro se trabajará principalmente con conjuntos finitos,
+subconjuntos de espacios euclidianos y funciones entre espacios de
+dimensión finita. Salvo indicación contraria:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\mathbb{N}=\{1,2,3,\ldots\}\);
+\item
+  \(\mathbb{R}^{p}\) representa el espacio de vectores reales de
+  dimensión \(p\);
+\item
+  una muestra de tamaño \(n\) se indexa mediante \(i=1,\ldots,n\);
+\item
+  las funciones se consideran bien definidas en todo su dominio;
+\item
+  la igualdad entre funciones exige igualdad de dominio, codominio y
+  valores.
+\end{itemize}
+
+Esta precisión evita identificar una función únicamente con su fórmula.
+Dos expresiones algebraicas iguales pueden representar funciones
+distintas si sus dominios o codominios son diferentes.
 
 \section{Conjuntos numéricos}\label{conjuntos-numuxe9ricos}
 
@@ -968,6 +1002,15 @@ Si \((a,b)\in R\), se dice que \(a\) está relacionado con \(b\).
 
 En clasificación, una muestra etiquetada puede verse como un conjunto de
 pares ordenados que relaciona cada observación con una clase.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Relación y función}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Toda función es una relación, pero no toda relación es una función. Para
+que una relación \(f\subseteq A\times B\) sea una función de \(A\) en
+\(B\), cada elemento de \(A\) debe aparecer exactamente una vez como
+primera componente.
+
+\end{tcolorbox}
 
 \section{Funciones}\label{funciones}
 
@@ -1399,6 +1442,17 @@ El objetivo del aprendizaje consiste en construir una aproximación
 \widehat{f}\approx f^{*}.
 \]
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Función objetivo y datos observados}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+En aprendizaje supervisado se supone que existe alguna relación entre
+\(\mathbf{X}\) y \(Y\), pero normalmente no se observa una función
+objetivo determinista exacta. Una formulación más general utiliza una
+distribución conjunta \(P_{X,Y}\) y busca una función que minimice el
+riesgo esperado. Esta distinción se desarrollará en los capítulos de
+aprendizaje supervisado y teoría de generalización.
+
+\end{tcolorbox}
+
 \section{Ejemplo integrado}\label{ejemplo-integrado}
 
 Supóngase que se desea clasificar la calidad del aire utilizando tres
@@ -1663,13 +1717,19 @@ posteriores.
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Hastie et~al. (2009); Bishop (2006).
+Los fundamentos y la notación de este capítulo se apoyan principalmente
+en Bishop (2006) y Hastie et~al. (2009).
 
 \chapter{Álgebra lineal para aprendizaje
 automático}\label{sec-algebra-lineal}
 
 \section{Introducción}\label{introducciuxf3n-2}
+
+El álgebra lineal proporciona la estructura matemática de los datos
+multivariados y de numerosos algoritmos. Vectores, matrices, productos
+internos, proyecciones, valores propios y descomposición en valores
+singulares aparecen directamente en regresión, PCA, SVM y redes
+neuronales (Strang 2016; Axler 2015; Bishop 2006).
 
 El álgebra lineal constituye uno de los lenguajes fundamentales del
 aprendizaje automático. Los conjuntos de datos se representan mediante
@@ -1720,6 +1780,30 @@ Al finalizar el capítulo, el lector podrá:
 \item
   relacionar estos conceptos con algoritmos de aprendizaje automático.
 \end{enumerate}
+
+\section{Convenciones de dimensiones}\label{convenciones-de-dimensiones}
+
+En todo el capítulo se utilizarán las siguientes convenciones:
+
+\begin{itemize}
+\tightlist
+\item
+  los vectores se consideran columnas;
+\item
+  \(\mathbf{x}\in\mathbb{R}^{p}\) tiene dimensión \(p\times1\);
+\item
+  una matriz de datos \(\mathbf{X}\in\mathbb{R}^{n\times p}\) contiene
+  observaciones en filas y variables en columnas;
+\item
+  \(\mathbf{X}^{\mathsf T}\in\mathbb{R}^{p\times n}\);
+\item
+  el producto \(\mathbf{A}\mathbf{B}\) existe únicamente si el número de
+  columnas de \(\mathbf{A}\) coincide con el número de filas de
+  \(\mathbf{B}\).
+\end{itemize}
+
+Antes de efectuar una operación matricial conviene verificar
+explícitamente sus dimensiones.
 
 \section{Escalares}\label{escalares}
 
@@ -3029,6 +3113,22 @@ Esta propiedad será esencial en PCA, donde los vectores propios de la
 matriz de covarianza determinan las direcciones principales de
 variabilidad.
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hipótesis de la descomposición espectral}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+La descomposición ortogonal
+
+\[
+\mathbf{A}
+=
+\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\mathsf T}
+\]
+
+se garantiza para matrices reales simétricas. Una matriz real no
+simétrica puede no poseer una base ortonormal de vectores propios e
+incluso puede tener valores propios complejos.
+
+\end{tcolorbox}
+
 \section{Descomposición espectral}\label{descomposiciuxf3n-espectral}
 
 \begin{theorem}[]\protect\hypertarget{thm-descomposicion-espectral}{}\label{thm-descomposicion-espectral}
@@ -3100,6 +3200,15 @@ Su matriz de covarianza es
 \]
 
 La matriz \(\boldsymbol{\Sigma}\) es simétrica y semidefinida positiva.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{SVD y rango}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Toda matriz real \(\mathbf{X}\in\mathbb{R}^{n\times p}\) admite una
+descomposición en valores singulares. Si su rango es \(r\), existen
+exactamente \(r\) valores singulares positivos. La SVD no requiere que
+la matriz sea cuadrada ni invertible (Strang 2016).
+
+\end{tcolorbox}
 
 \section{Descomposición en valores
 singulares}\label{descomposiciuxf3n-en-valores-singulares}
@@ -3654,13 +3763,19 @@ métodos de reducción de dimensionalidad.
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Mardia et~al. (1979); Bishop (2006).
+Los fundamentos se apoyan en Strang (2016), Axler (2015), Mardia et~al.
+(1979) y Bishop (2006).
 
 \chapter{Probabilidad y estadística para aprendizaje
 automático}\label{sec-probabilidad-estadistica}
 
 \section{Introducción}\label{introducciuxf3n-3}
+
+La probabilidad modela incertidumbre y la estadística permite aprender a
+partir de muestras. En aprendizaje automático, las distribuciones
+representan poblaciones desconocidas, las pérdidas se interpretan como
+variables aleatorias y el entrenamiento produce estimadores dependientes
+de los datos (Ross 2019; Casella y Berger 2002; Murphy 2022).
 
 La probabilidad y la estadística proporcionan el marco matemático para
 representar incertidumbre, variabilidad y aprendizaje a partir de datos.
@@ -3833,6 +3948,21 @@ donde:
 \end{itemize}
 
 \end{definition}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Modelo probabilístico}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Un espacio de probabilidad es una terna
+
+\[
+(\Omega,\mathcal{F},P),
+\]
+
+donde \(\Omega\) es el espacio muestral, \(\mathcal{F}\) una
+sigma-álgebra y \(P\) una medida de probabilidad. No todo subconjunto de
+un espacio muestral infinito tiene que pertenecer automáticamente a
+\(\mathcal{F}\).
+
+\end{tcolorbox}
 
 \section{Axiomas de probabilidad}\label{axiomas-de-probabilidad}
 
@@ -4067,6 +4197,21 @@ P(\mathbf{x}\mid C_k)P(C_k)
 P(\mathbf{x}\mid C_j)P(C_j)
 }.
 \]
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Condición para aplicar Bayes}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+La expresión
+
+\[
+P(A\mid B)
+=
+\frac{P(B\mid A)P(A)}{P(B)}
+\]
+
+requiere que \(P(B)>0\). Cuando \(P(B)=0\), la probabilidad condicional
+elemental no está definida mediante este cociente.
+
+\end{tcolorbox}
 
 \section{Ejemplo de diagnóstico}\label{ejemplo-de-diagnuxf3stico}
 
@@ -4754,6 +4899,35 @@ El denominador \(n-1\) permite que
 \mathbb{E}(S^2)=\sigma^2.
 \]
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Varianza poblacional y varianza muestral}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+La varianza de una variable aleatoria utiliza su distribución
+poblacional. En cambio, la varianza muestral insesgada emplea el divisor
+\(n-1\):
+
+\[
+S^2
+=
+\frac{1}{n-1}
+\sum_{i=1}^{n}
+(X_i-\overline{X})^2.
+\]
+
+El divisor \(n-1\) no es una convención arbitraria: corrige el sesgo
+producido al estimar la media con la misma muestra.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, colframe=quarto-callout-warning-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Supuestos de los resultados asintóticos}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+La ley de los grandes números y el teorema central del límite tienen
+distintas versiones. Las formulaciones elementales de este capítulo
+suponen observaciones independientes e idénticamente distribuidas y
+momentos finitos adecuados. En datos temporales, espaciales o
+dependientes se necesitan resultados adicionales.
+
+\end{tcolorbox}
+
 \section{Ley de los grandes
 números}\label{ley-de-los-grandes-nuxfameros}
 
@@ -4946,6 +5120,15 @@ La log-verosimilitud es
 
 Se utiliza porque transforma productos en sumas y facilita la
 derivación.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Máxima verosimilitud}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+La verosimilitud se interpreta como función del parámetro con los datos
+observados fijos. No es una distribución de probabilidad sobre el
+parámetro, salvo que se normalice dentro de un modelo bayesiano con una
+distribución previa.
+
+\end{tcolorbox}
 
 \section{Estimación por máxima
 verosimilitud}\label{estimaciuxf3n-por-muxe1xima-verosimilitud}
@@ -5537,13 +5720,19 @@ de generalización.
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Murphy (2022); Bishop (2006).
+Los fundamentos se apoyan en Ross (2019), Casella y Berger (2002),
+Murphy (2022) y Bishop (2006).
 
 \chapter{Cálculo multivariable y
 optimización}\label{sec-calculo-optimizacion}
 
 \section{Introducción}\label{introducciuxf3n-4}
+
+El entrenamiento de numerosos modelos consiste en minimizar una función
+respecto de vectores o matrices de parámetros. El cálculo multivariable
+aporta gradientes, Jacobianas y Hessianas; la optimización convexa
+permite distinguir mínimos locales y globales y establecer condiciones
+de optimalidad (Apostol 1969; Boyd y Vandenberghe 2004; Bishop 2006).
 
 El cálculo multivariable y la optimización permiten describir cómo
 cambia una función cuando cambian varios parámetros al mismo tiempo. En
@@ -5806,6 +5995,14 @@ el gradiente es
 \]
 
 \end{example}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Gradiente y sistema de coordenadas}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+El gradiente representa la dirección de máximo incremento local bajo el
+producto interno euclidiano. En geometrías o parametrizaciones
+diferentes, la noción de dirección más pronunciada puede cambiar.
+
+\end{tcolorbox}
 
 \section{Derivada direccional}\label{derivada-direccional}
 
@@ -6207,6 +6404,28 @@ entonces:
   si es semidefinida, la prueba puede ser inconclusa.
 \end{itemize}
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Criterio de la Hessiana}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+En un punto crítico \(\mathbf{x}^*\):
+
+\begin{itemize}
+\tightlist
+\item
+  si \(\nabla^2f(\mathbf{x}^*)\) es definida positiva, existe un mínimo
+  local estricto;
+\item
+  si es definida negativa, existe un máximo local estricto;
+\item
+  si es indefinida, el punto es de silla;
+\item
+  si es semidefinida, el criterio puede ser inconcluso.
+\end{itemize}
+
+Estas conclusiones requieren que las derivadas necesarias existan y sean
+continuas en un entorno del punto.
+
+\end{tcolorbox}
+
 \section{Ejemplo de mínimo}\label{ejemplo-de-muxednimo}
 
 Sea
@@ -6353,6 +6572,15 @@ para todo \(\mathbf{x}\).
 
 Es estrictamente convexa si la Hessiana es definida positiva.
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Convexidad y mínimos globales}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Si \(f\) es convexa sobre un conjunto convexo, todo mínimo local es
+global. Si además es estrictamente convexa, puede existir como máximo un
+minimizador global. La existencia del mínimo requiere condiciones
+adicionales, como continuidad y coercividad o compacidad del dominio.
+
+\end{tcolorbox}
+
 \section{Teorema del mínimo global}\label{teorema-del-muxednimo-global}
 
 \begin{theorem}[]\protect\hypertarget{thm-minimo-global-convexo}{}\label{thm-minimo-global-convexo}
@@ -6402,6 +6630,24 @@ donde \(\eta_t>0\) es la tasa de aprendizaje.
 \end{definition}
 
 El método avanza en dirección opuesta al gradiente.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, colframe=quarto-callout-warning-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Descenso por gradiente}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+La actualización
+
+\[
+\boldsymbol{\theta}_{t+1}
+=
+\boldsymbol{\theta}_t
+-
+\eta_t\nabla f(\boldsymbol{\theta}_t)
+\]
+
+no garantiza descenso para cualquier tasa de aprendizaje. Las garantías
+usuales requieren regularidad de la función y una elección adecuada de
+\(\eta_t\).
+
+\end{tcolorbox}
 
 \section{Elección de la tasa de
 aprendizaje}\label{elecciuxf3n-de-la-tasa-de-aprendizaje}
@@ -6821,6 +7067,15 @@ g_i(\mathbf{x})\leq 0,
 \]
 
 Estas condiciones son fundamentales en máquinas de vectores de soporte.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Condiciones KKT}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Las condiciones KKT son necesarias bajo condiciones de regularidad. En
+problemas convexos, con funciones diferenciables y una condición de
+factibilidad como Slater, también son suficientes para optimalidad
+global.
+
+\end{tcolorbox}
 
 \section{Funciones de pérdida}\label{funciones-de-puxe9rdida}
 
@@ -7344,8 +7599,8 @@ posteriores.
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Bishop (2006); Hastie et~al. (2009).
+Los fundamentos se apoyan en Apostol (1969), Boyd y Vandenberghe (2004),
+Bishop (2006) y Hastie et~al. (2009).
 
 \part{II. Fundamentos del aprendizaje automático}
 
@@ -7353,6 +7608,12 @@ principalmente en Bishop (2006); Hastie et~al. (2009).
 supervisado}\label{sec-aprendizaje-supervisado}
 
 \section{Introducción}\label{introducciuxf3n-5}
+
+El aprendizaje supervisado se formula a partir de una distribución
+conjunta desconocida sobre entradas y salidas. El conjunto de
+entrenamiento se interpreta como una muestra de esa distribución, y el
+algoritmo selecciona una función dentro de una clase de hipótesis
+(Vapnik 1998; Shalev-Shwartz y Ben-David 2014; Murphy 2022).
 
 El aprendizaje supervisado estudia métodos capaces de construir una
 regla de predicción a partir de observaciones etiquetadas. Cada
@@ -7409,6 +7670,21 @@ Al finalizar el capítulo, el lector podrá:
 \item
   relacionar estos conceptos con regresión y clasificación.
 \end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Hipótesis de muestreo}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+La formulación elemental supone observaciones independientes e
+idénticamente distribuidas:
+
+\[
+(\mathbf{X}_i,Y_i)\overset{iid}{\sim}P_{X,Y}.
+\]
+
+Esta hipótesis no siempre es válida. En series temporales, datos
+espaciales, redes o mediciones repetidas deben utilizarse esquemas de
+validación y resultados teóricos adaptados a la dependencia.
+
+\end{tcolorbox}
 
 \section{Espacio de entrada}\label{espacio-de-entrada}
 
@@ -7878,6 +8154,27 @@ f(\mathbf{x}_i)
 \end{definition}
 
 Este riesgo puede calcularse directamente.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Riesgo esperado y riesgo empírico}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+El riesgo esperado depende de la distribución desconocida:
+
+\[
+R(f)=\mathbb{E}[L(Y,f(\mathbf{X}))].
+\]
+
+El riesgo empírico se calcula con la muestra:
+
+\[
+\widehat{R}_n(f)
+=
+\frac{1}{n}\sum_{i=1}^{n}L(y_i,f(\mathbf{x}_i)).
+\]
+
+Minimizar el segundo no garantiza por sí mismo minimizar el primero; la
+diferencia entre ambos es el problema de generalización.
+
+\end{tcolorbox}
 
 \section{Minimización del riesgo
 empírico}\label{minimizaciuxf3n-del-riesgo-empuxedrico}
@@ -8911,13 +9208,19 @@ posteriores.
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Vapnik (1998); Murphy (2022).
+Los fundamentos se apoyan en Vapnik (1998), Shalev-Shwartz y Ben-David
+(2014) y Murphy (2022).
 
 \chapter{Teoría matemática de la
 clasificación}\label{sec-teoria-clasificacion}
 
 \section{Introducción}\label{introducciuxf3n-6}
+
+La teoría de clasificación estudia cómo asignar una observación a una
+categoría minimizando una pérdida esperada. La regla de Bayes constituye
+el referente óptimo bajo la distribución verdadera, mientras que los
+clasificadores aprendidos intentan aproximarla a partir de datos finitos
+(Duda et~al. 2001; Devroye et~al. 1996; Bishop 2006).
 
 La clasificación consiste en asignar una etiqueta discreta a una
 observación a partir de sus características. En un problema binario, la
@@ -9201,6 +9504,22 @@ f^{*}(\mathbf{x})
 \arg\min_j
 R(j\mid\mathbf{x}).
 \]
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Probabilidades posteriores}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+En clasificación binaria se define
+
+\[
+\eta(\mathbf{x})
+=
+P(Y=1\mid\mathbf{X}=\mathbf{x}).
+\]
+
+La regla de Bayes bajo pérdida 0-1 predice la clase 1 cuando
+\(\eta(\mathbf{x})\geq 1/2\). Si los costos son asimétricos, el umbral
+deja de ser necesariamente \(1/2\).
+
+\end{tcolorbox}
 
 \section{Regla de Bayes bajo pérdida
 0-1}\label{regla-de-bayes-bajo-puxe9rdida-0-1}
@@ -9755,6 +10074,15 @@ Sin embargo,
 \]
 
 Por tanto, la exactitud puede ser engañosa en datos desbalanceados.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Clasificación y calibración}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Un clasificador puede tener buena exactitud y probabilidades mal
+calibradas. La discriminación evalúa orden o separación entre clases; la
+calibración evalúa si una probabilidad pronosticada de, por ejemplo, 0.8
+corresponde aproximadamente a una frecuencia observada de 0.8.
+
+\end{tcolorbox}
 
 \section{Curva ROC}\label{curva-roc}
 
@@ -10465,13 +10793,19 @@ y comparar los algoritmos de clasificación de los capítulos posteriores.
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Duda et~al. (2001); Bishop (2006).
+Los fundamentos se apoyan en Duda et~al. (2001), Devroye et~al. (1996) y
+Bishop (2006).
 
 \chapter{Evaluación, validación y selección de
 modelos}\label{sec-evaluacion-modelos}
 
 \section{Introducción}\label{introducciuxf3n-7}
+
+La evaluación de modelos intenta estimar el desempeño fuera de muestra.
+Para que la estimación sea válida, el conjunto de evaluación debe
+permanecer independiente de las decisiones tomadas durante
+entrenamiento, selección de variables y ajuste de hiperparámetros (Stone
+1974; Efron 1983; Hastie et~al. 2009).
 
 La evaluación de modelos tiene como propósito estimar qué tan bien
 funcionará un algoritmo sobre observaciones nuevas. Esta tarea es
@@ -11990,13 +12324,20 @@ conclusiones optimistas.
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Hastie et~al. (2009); James et~al. (2021).
+Los fundamentos se apoyan en Stone (1974), Efron (1983), Hastie et~al.
+(2009) y James et~al. (2021).
 
 \chapter{Regularización y control de la
 complejidad}\label{sec-regularizacion}
 
 \section{Introducción}\label{introducciuxf3n-8}
+
+La regularización modifica el problema de ajuste para controlar la
+complejidad efectiva, estabilizar estimaciones y mejorar el desempeño
+fuera de muestra. Puede expresarse como penalización, restricción,
+parada temprana, reducción de dimensión o elección de una clase de
+hipótesis más pequeña (Tikhonov 1963; Tibshirani 1996; Hastie et~al.
+2009).
 
 La regularización es una de las ideas centrales del aprendizaje
 automático moderno. Su propósito es controlar la complejidad de un
@@ -13507,8 +13848,8 @@ clasificación y redes neuronales.
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Hastie et~al. (2009); Bishop (2006).
+Los fundamentos se apoyan en Tikhonov (1963), Tibshirani (1996), Hastie
+et~al. (2009) y Bishop (2006).
 
 \part{III. Modelos de regresión}
 
@@ -32586,10 +32927,18 @@ Agrawal, Rakesh, y Ramakrishnan Srikant. 1994. {«Fast Algorithms for
 Mining Association Rules in Large Databases»}. \emph{Proceedings of the
 20th International Conference on Very Large Data Bases}, 487-99.
 
+\bibitem[\citeproctext]{ref-apostol1967calculus}
+Apostol, Tom M. 1969. \emph{Calculus, Volume II: Multi-Variable Calculus
+and Linear Algebra with Applications}. 2.ª ed. Wiley.
+
 \bibitem[\citeproctext]{ref-arthur2007kmeans}
 Arthur, David, y Sergei Vassilvitskii. 2007. {«K-means++: The Advantages
 of Careful Seeding»}. \emph{Proceedings of the Eighteenth Annual
 ACM-SIAM Symposium on Discrete Algorithms}, 1027-35.
+
+\bibitem[\citeproctext]{ref-axler2015linear}
+Axler, Sheldon. 2015. \emph{Linear Algebra Done Right}. 3.ª ed.
+Springer. \url{https://doi.org/10.1007/978-3-319-11080-6}.
 
 \bibitem[\citeproctext]{ref-bartlett2002rademacher}
 Bartlett, Peter L., y Shahar Mendelson. 2002. {«Rademacher and Gaussian
@@ -32605,6 +32954,11 @@ Box, George E. P., Gwilym M. Jenkins, Gregory C. Reinsel, y Greta M.
 Ljung. 2015. \emph{Time Series Analysis: Forecasting and Control}. 5.ª
 ed. Wiley.
 
+\bibitem[\citeproctext]{ref-boyd2004convex}
+Boyd, Stephen, y Lieven Vandenberghe. 2004. \emph{Convex Optimization}.
+Cambridge University Press.
+\url{https://doi.org/10.1017/CBO9780511804441}.
+
 \bibitem[\citeproctext]{ref-breiman2001random}
 Breiman, Leo. 2001. {«Random Forests»}. \emph{Machine Learning} 45:
 5-32. \url{https://doi.org/10.1023/A:1010933404324}.
@@ -32612,6 +32966,10 @@ Breiman, Leo. 2001. {«Random Forests»}. \emph{Machine Learning} 45:
 \bibitem[\citeproctext]{ref-breiman1984cart}
 Breiman, Leo, Jerome H. Friedman, Richard A. Olshen, y Charles J. Stone.
 1984. \emph{Classification and Regression Trees}.
+
+\bibitem[\citeproctext]{ref-casella2002statistical}
+Casella, George, y Roger L. Berger. 2002. \emph{Statistical Inference}.
+2.ª ed. Duxbury.
 
 \bibitem[\citeproctext]{ref-cortes1995support}
 Cortes, Corinna, y Vladimir Vapnik. 1995. {«Support-Vector Networks»}.
@@ -32623,9 +32981,20 @@ Cover, Thomas M., y Peter E. Hart. 1967. {«Nearest Neighbor Pattern
 Classification»}. \emph{IEEE Transactions on Information Theory} 13 (1):
 21-27. \url{https://doi.org/10.1109/TIT.1967.1053964}.
 
+\bibitem[\citeproctext]{ref-devroye1996probabilistic}
+Devroye, Luc, László Györfi, y Gábor Lugosi. 1996. \emph{A Probabilistic
+Theory of Pattern Recognition}. Springer.
+\url{https://doi.org/10.1007/978-1-4612-0711-5}.
+
 \bibitem[\citeproctext]{ref-duda2001pattern}
 Duda, Richard O., Peter E. Hart, y David G. Stork. 2001. \emph{Pattern
 Classification}. 2.ª ed. Wiley.
+
+\bibitem[\citeproctext]{ref-efron1983estimating}
+Efron, Bradley. 1983. {«Estimating the Error Rate of a Prediction Rule:
+Improvement on Cross-Validation»}. \emph{Journal of the American
+Statistical Association} 78 (382): 316-31.
+\url{https://doi.org/10.1080/01621459.1983.10477973}.
 
 \bibitem[\citeproctext]{ref-hahsler2005arules}
 Hahsler, Michael, Bettina Grün, y Kurt Hornik. 2005. {«arules: A
@@ -32699,6 +33068,10 @@ Points in Space»}. \emph{Philosophical Magazine} 2 (11): 559-72.
 Quinlan, J. Ross. 1986. {«Induction of Decision Trees»}. \emph{Machine
 Learning} 1: 81-106. \url{https://doi.org/10.1007/BF00116251}.
 
+\bibitem[\citeproctext]{ref-ross2019first}
+Ross, Sheldon M. 2019. \emph{A First Course in Probability}. 10.ª ed.
+Pearson.
+
 \bibitem[\citeproctext]{ref-rumelhart1986learning}
 Rumelhart, David E., Geoffrey E. Hinton, y Ronald J. Williams. 1986.
 {«Learning Representations by Back-Propagating Errors»}. \emph{Nature}
@@ -32713,6 +33086,26 @@ Press.
 Stone, Charles J. 1977. {«Consistent Nonparametric Regression»}.
 \emph{The Annals of Statistics} 5 (4): 595-620.
 \url{https://doi.org/10.1214/aos/1176343886}.
+
+\bibitem[\citeproctext]{ref-stone1974crossvalidatory}
+Stone, Mervyn. 1974. {«Cross-Validatory Choice and Assessment of
+Statistical Predictions»}. \emph{Journal of the Royal Statistical
+Society: Series B} 36 (2): 111-47.
+\url{https://doi.org/10.1111/j.2517-6161.1974.tb00994.x}.
+
+\bibitem[\citeproctext]{ref-strang2016introduction}
+Strang, Gilbert. 2016. \emph{Introduction to Linear Algebra}. 5.ª ed.
+Wellesley-Cambridge Press.
+
+\bibitem[\citeproctext]{ref-tibshirani1996regression}
+Tibshirani, Robert. 1996. {«Regression Shrinkage and Selection via the
+Lasso»}. \emph{Journal of the Royal Statistical Society: Series B} 58
+(1): 267-88. \url{https://doi.org/10.1111/j.2517-6161.1996.tb02080.x}.
+
+\bibitem[\citeproctext]{ref-tikhonov1963solution}
+Tikhonov, Andrey N. 1963. {«Solution of Incorrectly Formulated Problems
+and the Regularization Method»}. \emph{Soviet Mathematics Doklady} 4:
+1035-38.
 
 \bibitem[\citeproctext]{ref-valiant1984theory}
 Valiant, Leslie G. 1984. {«A Theory of the Learnable»}.

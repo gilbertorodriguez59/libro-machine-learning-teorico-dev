@@ -2,6 +2,8 @@
 
 ## Introducción
 
+El lenguaje de conjuntos, relaciones y funciones permite expresar con precisión los objetos que aparecen en aprendizaje automático: espacios de entrada, espacios de salida, muestras, hipótesis y funciones de pérdida. La presentación de este capítulo sigue la notación matemática habitual empleada en textos de reconocimiento de patrones y aprendizaje estadístico [@bishop2006pattern; @hastie2009elements].
+
 El aprendizaje automático se construye sobre objetos matemáticos bien definidos: conjuntos de datos, espacios de características, funciones de predicción, reglas de decisión y medidas de error. Antes de estudiar algoritmos concretos, es necesario establecer un lenguaje común que permita expresar estos elementos con precisión.
 
 En este capítulo se revisan los conceptos de conjuntos, relaciones y funciones, y se muestra cómo aparecen de manera natural en la formulación de problemas de aprendizaje automático.
@@ -19,6 +21,18 @@ Al finalizar el capítulo, el lector podrá:
 7. utilizar funciones indicadoras;
 8. representar formalmente conjuntos de entrenamiento;
 9. distinguir matemáticamente entre regresión y clasificación.
+
+## Convenciones y alcance matemático
+
+En este libro se trabajará principalmente con conjuntos finitos, subconjuntos de espacios euclidianos y funciones entre espacios de dimensión finita. Salvo indicación contraria:
+
+- $\mathbb{N}=\{1,2,3,\ldots\}$;
+- $\mathbb{R}^{p}$ representa el espacio de vectores reales de dimensión $p$;
+- una muestra de tamaño $n$ se indexa mediante $i=1,\ldots,n$;
+- las funciones se consideran bien definidas en todo su dominio;
+- la igualdad entre funciones exige igualdad de dominio, codominio y valores.
+
+Esta precisión evita identificar una función únicamente con su fórmula. Dos expresiones algebraicas iguales pueden representar funciones distintas si sus dominios o codominios son diferentes.
 
 ## Conjuntos numéricos
 
@@ -376,6 +390,10 @@ $$
 Si $(a,b)\in R$, se dice que $a$ está relacionado con $b$.
 
 En clasificación, una muestra etiquetada puede verse como un conjunto de pares ordenados que relaciona cada observación con una clase.
+
+::: {.callout-note title="Relación y función"}
+Toda función es una relación, pero no toda relación es una función. Para que una relación $f\subseteq A\times B$ sea una función de $A$ en $B$, cada elemento de $A$ debe aparecer exactamente una vez como primera componente.
+:::
 
 ## Funciones
 
@@ -776,6 +794,10 @@ $$
 \widehat{f}\approx f^{*}.
 $$
 
+::: {.callout-important title="Función objetivo y datos observados"}
+En aprendizaje supervisado se supone que existe alguna relación entre $\mathbf{X}$ y $Y$, pero normalmente no se observa una función objetivo determinista exacta. Una formulación más general utiliza una distribución conjunta $P_{X,Y}$ y busca una función que minimice el riesgo esperado. Esta distinción se desarrollará en los capítulos de aprendizaje supervisado y teoría de generalización.
+:::
+
 ## Ejemplo integrado
 
 Supóngase que se desea clasificar la calidad del aire utilizando tres variables:
@@ -970,5 +992,5 @@ y se distinguieron formalmente los problemas de regresión y clasificación. Est
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @bishop2006pattern.
+Los fundamentos y la notación de este capítulo se apoyan principalmente en @bishop2006pattern y @hastie2009elements.
 

@@ -308,3 +308,31 @@
 - Se eliminó la portada PDF duplicada de `index.qmd`.
 - Se agregó el archivo `estilos/portadas/portada-pdf.tex`.
 - Se añadieron referencias académicas de series de tiempo.
+
+## Versión 0.27
+
+- Revisión académica y editorial de los capítulos 1 a 4.
+- Se reforzaron convenciones de conjuntos, funciones y formulación probabilística.
+- Se añadieron verificaciones de dimensiones en álgebra lineal.
+- Se precisaron las hipótesis de la descomposición espectral y la SVD.
+- Se aclararon espacio de probabilidad, Bayes, varianza muestral y máxima verosimilitud.
+- Se explicitaron supuestos de la ley de los grandes números y del teorema central del límite.
+- Se precisaron criterios de la Hessiana, convexidad, descenso por gradiente y condiciones KKT.
+- Se incorporaron citas bibliográficas dentro del desarrollo de los capítulos.
+- Se añadieron nuevas referencias académicas de fundamentos matemáticos.
+- Se agregó el reporte `REVISION_CAPITULOS_1_A_4.md`.
+
+## Versión 0.28
+
+- Revisión académica y editorial de los capítulos 5 a 8.
+- Se explicitó la hipótesis iid y la diferencia entre riesgo esperado y empírico.
+- Se precisó el predictor de Bayes para distintas funciones de pérdida.
+- Se reforzaron probabilidades posteriores, costos asimétricos y pérdidas sustitutas.
+- Se distinguieron discriminación y calibración.
+- Se precisaron los papeles de entrenamiento, validación y prueba.
+- Se reforzó la prevención de fuga dentro de validación cruzada.
+- Se aclararon AUC, prevalencia, umbral y bootstrap.
+- Se precisaron Ridge, Lasso, Elastic Net, estandarización y selección de lambda.
+- Se incorporaron citas bibliográficas dentro de los capítulos.
+- Se añadieron referencias académicas de clasificación, validación y regularización.
+- Se agregó `REVISION_CAPITULOS_5_A_8.md`.

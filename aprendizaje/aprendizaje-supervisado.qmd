@@ -2,6 +2,8 @@
 
 ## Introducción
 
+El aprendizaje supervisado se formula a partir de una distribución conjunta desconocida sobre entradas y salidas. El conjunto de entrenamiento se interpreta como una muestra de esa distribución, y el algoritmo selecciona una función dentro de una clase de hipótesis [@vapnik1998statistical; @shalev2014understanding; @murphy2022probabilistic].
+
 El aprendizaje supervisado estudia métodos capaces de construir una regla de predicción a partir de observaciones etiquetadas. Cada observación contiene un conjunto de características y una respuesta conocida. El objetivo consiste en utilizar esa información para predecir correctamente la respuesta de nuevas observaciones.
 
 Desde el punto de vista matemático, el aprendizaje supervisado puede formularse como un problema de selección de funciones. Se dispone de una familia de modelos posibles y se busca aquel que minimice una medida de error, no solamente sobre los datos observados, sino también sobre datos futuros provenientes del mismo proceso generador.
@@ -26,6 +28,16 @@ Al finalizar el capítulo, el lector podrá:
 12. comprender regularización y complejidad de modelos;
 13. interpretar ruido irreducible;
 14. relacionar estos conceptos con regresión y clasificación.
+
+::: {.callout-important title="Hipótesis de muestreo"}
+La formulación elemental supone observaciones independientes e idénticamente distribuidas:
+
+$$
+(\mathbf{X}_i,Y_i)\overset{iid}{\sim}P_{X,Y}.
+$$
+
+Esta hipótesis no siempre es válida. En series temporales, datos espaciales, redes o mediciones repetidas deben utilizarse esquemas de validación y resultados teóricos adaptados a la dependencia.
+:::
 
 ## Espacio de entrada
 
@@ -444,6 +456,24 @@ $$
 :::
 
 Este riesgo puede calcularse directamente.
+
+::: {.callout-note title="Riesgo esperado y riesgo empírico"}
+El riesgo esperado depende de la distribución desconocida:
+
+$$
+R(f)=\mathbb{E}[L(Y,f(\mathbf{X}))].
+$$
+
+El riesgo empírico se calcula con la muestra:
+
+$$
+\widehat{R}_n(f)
+=
+\frac{1}{n}\sum_{i=1}^{n}L(y_i,f(\mathbf{x}_i)).
+$$
+
+Minimizar el segundo no garantiza por sí mismo minimizar el primero; la diferencia entre ambos es el problema de generalización.
+:::
 
 ## Minimización del riesgo empírico
 
@@ -1246,5 +1276,5 @@ Finalmente, se analizaron sobreajuste, subajuste, complejidad, regularización, 
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @vapnik1998statistical; @murphy2022probabilistic.
+Los fundamentos se apoyan en @vapnik1998statistical, @shalev2014understanding y @murphy2022probabilistic.
 

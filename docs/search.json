@@ -64,7 +64,7 @@
     "href": "fundamentos/conjuntos-funciones.html",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
     "section": "",
-    "text": "5.1 Introducción\nEl aprendizaje automático se construye sobre objetos matemáticos bien definidos: conjuntos de datos, espacios de características, funciones de predicción, reglas de decisión y medidas de error. Antes de estudiar algoritmos concretos, es necesario establecer un lenguaje común que permita expresar estos elementos con precisión.\nEn este capítulo se revisan los conceptos de conjuntos, relaciones y funciones, y se muestra cómo aparecen de manera natural en la formulación de problemas de aprendizaje automático.",
+    "text": "5.1 Introducción\nEl lenguaje de conjuntos, relaciones y funciones permite expresar con precisión los objetos que aparecen en aprendizaje automático: espacios de entrada, espacios de salida, muestras, hipótesis y funciones de pérdida. La presentación de este capítulo sigue la notación matemática habitual empleada en textos de reconocimiento de patrones y aprendizaje estadístico (Bishop 2006; Hastie et al. 2009).\nEl aprendizaje automático se construye sobre objetos matemáticos bien definidos: conjuntos de datos, espacios de características, funciones de predicción, reglas de decisión y medidas de error. Antes de estudiar algoritmos concretos, es necesario establecer un lenguaje común que permita expresar estos elementos con precisión.\nEn este capítulo se revisan los conceptos de conjuntos, relaciones y funciones, y se muestra cómo aparecen de manera natural en la formulación de problemas de aprendizaje automático.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -82,11 +82,22 @@
     ]
   },
   {
+    "objectID": "fundamentos/conjuntos-funciones.html#convenciones-y-alcance-matemático",
+    "href": "fundamentos/conjuntos-funciones.html#convenciones-y-alcance-matemático",
+    "title": "5  Lenguaje matemático, conjuntos y funciones",
+    "section": "5.3 Convenciones y alcance matemático",
+    "text": "5.3 Convenciones y alcance matemático\nEn este libro se trabajará principalmente con conjuntos finitos, subconjuntos de espacios euclidianos y funciones entre espacios de dimensión finita. Salvo indicación contraria:\n\n\\(\\mathbb{N}=\\{1,2,3,\\ldots\\}\\);\n\\(\\mathbb{R}^{p}\\) representa el espacio de vectores reales de dimensión \\(p\\);\nuna muestra de tamaño \\(n\\) se indexa mediante \\(i=1,\\ldots,n\\);\nlas funciones se consideran bien definidas en todo su dominio;\nla igualdad entre funciones exige igualdad de dominio, codominio y valores.\n\nEsta precisión evita identificar una función únicamente con su fórmula. Dos expresiones algebraicas iguales pueden representar funciones distintas si sus dominios o codominios son diferentes.",
+    "crumbs": [
+      "I. Fundamentos matemáticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
+    ]
+  },
+  {
     "objectID": "fundamentos/conjuntos-funciones.html#conjuntos-numéricos",
     "href": "fundamentos/conjuntos-funciones.html#conjuntos-numéricos",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.3 Conjuntos numéricos",
-    "text": "5.3 Conjuntos numéricos\nLos conjuntos numéricos más utilizados son:\n\\[\n\\mathbb{N}=\\{1,2,3,\\ldots\\},\n\\]\n\\[\n\\mathbb{Z}=\\{\\ldots,-2,-1,0,1,2,\\ldots\\},\n\\]\n\\[\n\\mathbb{Q}\n=\n\\left\\{\n\\frac{a}{b}:a,b\\in\\mathbb{Z},\\ b\\neq 0\n\\right\\},\n\\]\ny\n\\[\n\\mathbb{R},\n\\]\nque representa el conjunto de los números reales.\nEn aprendizaje automático también se utiliza frecuentemente el espacio\n\\[\n\\mathbb{R}^{p}\n=\n\\left\\{\n(x_1,\\ldots,x_p):x_j\\in\\mathbb{R}\n\\right\\}.\n\\]\nCada elemento de \\(\\mathbb{R}^{p}\\) es un vector con \\(p\\) componentes.\n\nEjemplo 5.1 Una observación ambiental puede representarse mediante\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n42.3\\\\\n18.7\\\\\n61.0\n\\end{pmatrix}\n\\in\\mathbb{R}^{3},\n\\]\ndonde las componentes podrían corresponder a concentración de partículas, temperatura y humedad.",
+    "section": "5.4 Conjuntos numéricos",
+    "text": "5.4 Conjuntos numéricos\nLos conjuntos numéricos más utilizados son:\n\\[\n\\mathbb{N}=\\{1,2,3,\\ldots\\},\n\\]\n\\[\n\\mathbb{Z}=\\{\\ldots,-2,-1,0,1,2,\\ldots\\},\n\\]\n\\[\n\\mathbb{Q}\n=\n\\left\\{\n\\frac{a}{b}:a,b\\in\\mathbb{Z},\\ b\\neq 0\n\\right\\},\n\\]\ny\n\\[\n\\mathbb{R},\n\\]\nque representa el conjunto de los números reales.\nEn aprendizaje automático también se utiliza frecuentemente el espacio\n\\[\n\\mathbb{R}^{p}\n=\n\\left\\{\n(x_1,\\ldots,x_p):x_j\\in\\mathbb{R}\n\\right\\}.\n\\]\nCada elemento de \\(\\mathbb{R}^{p}\\) es un vector con \\(p\\) componentes.\n\nEjemplo 5.1 Una observación ambiental puede representarse mediante\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n42.3\\\\\n18.7\\\\\n61.0\n\\end{pmatrix}\n\\in\\mathbb{R}^{3},\n\\]\ndonde las componentes podrían corresponder a concentración de partículas, temperatura y humedad.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -96,8 +107,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#concepto-de-conjunto",
     "href": "fundamentos/conjuntos-funciones.html#concepto-de-conjunto",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.4 Concepto de conjunto",
-    "text": "5.4 Concepto de conjunto\n\nDefinición 5.1 Un conjunto es una colección bien definida de objetos. Los objetos que forman parte del conjunto se denominan elementos.\n\nSi \\(x\\) pertenece a un conjunto \\(A\\), se escribe\n\\[\nx\\in A.\n\\]\nSi no pertenece, se escribe\n\\[\nx\\notin A.\n\\]\nPor ejemplo, si\n\\[\nA=\\{2,4,6,8\\},\n\\]\nentonces\n\\[\n4\\in A\n\\]\ny\n\\[\n5\\notin A.\n\\]",
+    "section": "5.5 Concepto de conjunto",
+    "text": "5.5 Concepto de conjunto\n\nDefinición 5.1 Un conjunto es una colección bien definida de objetos. Los objetos que forman parte del conjunto se denominan elementos.\n\nSi \\(x\\) pertenece a un conjunto \\(A\\), se escribe\n\\[\nx\\in A.\n\\]\nSi no pertenece, se escribe\n\\[\nx\\notin A.\n\\]\nPor ejemplo, si\n\\[\nA=\\{2,4,6,8\\},\n\\]\nentonces\n\\[\n4\\in A\n\\]\ny\n\\[\n5\\notin A.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -107,8 +118,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#formas-de-especificar-conjuntos",
     "href": "fundamentos/conjuntos-funciones.html#formas-de-especificar-conjuntos",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.5 Formas de especificar conjuntos",
-    "text": "5.5 Formas de especificar conjuntos\nUn conjunto puede describirse por extensión o por comprensión.\n\n5.5.1 Por extensión\nSe enumeran sus elementos:\n\\[\nA=\\{1,2,3,4,5\\}.\n\\]\n\n\n5.5.2 Por comprensión\nSe especifica una propiedad que deben satisfacer sus elementos:\n\\[\nA=\\{x\\in\\mathbb{N}:1\\leq x\\leq 5\\}.\n\\]\nLa expresión después de los dos puntos se interpreta como “tal que”.",
+    "section": "5.6 Formas de especificar conjuntos",
+    "text": "5.6 Formas de especificar conjuntos\nUn conjunto puede describirse por extensión o por comprensión.\n\n5.6.1 Por extensión\nSe enumeran sus elementos:\n\\[\nA=\\{1,2,3,4,5\\}.\n\\]\n\n\n5.6.2 Por comprensión\nSe especifica una propiedad que deben satisfacer sus elementos:\n\\[\nA=\\{x\\in\\mathbb{N}:1\\leq x\\leq 5\\}.\n\\]\nLa expresión después de los dos puntos se interpreta como “tal que”.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -118,8 +129,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#igualdad-de-conjuntos",
     "href": "fundamentos/conjuntos-funciones.html#igualdad-de-conjuntos",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.6 Igualdad de conjuntos",
-    "text": "5.6 Igualdad de conjuntos\nDos conjuntos \\(A\\) y \\(B\\) son iguales si contienen exactamente los mismos elementos:\n\\[\nA=B\n\\iff\n(\\forall x)(x\\in A\\Leftrightarrow x\\in B).\n\\]\nEl orden de los elementos no importa. Por ejemplo,\n\\[\n\\{1,2,3\\}=\\{3,1,2\\}.\n\\]\nLa repetición tampoco modifica un conjunto:\n\\[\n\\{1,1,2,3\\}=\\{1,2,3\\}.\n\\]",
+    "section": "5.7 Igualdad de conjuntos",
+    "text": "5.7 Igualdad de conjuntos\nDos conjuntos \\(A\\) y \\(B\\) son iguales si contienen exactamente los mismos elementos:\n\\[\nA=B\n\\iff\n(\\forall x)(x\\in A\\Leftrightarrow x\\in B).\n\\]\nEl orden de los elementos no importa. Por ejemplo,\n\\[\n\\{1,2,3\\}=\\{3,1,2\\}.\n\\]\nLa repetición tampoco modifica un conjunto:\n\\[\n\\{1,1,2,3\\}=\\{1,2,3\\}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -129,8 +140,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#subconjuntos",
     "href": "fundamentos/conjuntos-funciones.html#subconjuntos",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.7 Subconjuntos",
-    "text": "5.7 Subconjuntos\n\nDefinición 5.2 Se dice que \\(A\\) es un subconjunto de \\(B\\) si cada elemento de \\(A\\) también pertenece a \\(B\\).\n\nFormalmente,\n\\[\nA\\subseteq B\n\\iff\n(\\forall x)(x\\in A\\Rightarrow x\\in B).\n\\]\nSi además \\(A\\neq B\\), entonces \\(A\\) es un subconjunto propio de \\(B\\).\n\nEjemplo 5.2 Sean\n\\[\nA=\\{1,2\\},\n\\qquad\nB=\\{1,2,3,4\\}.\n\\]\nEntonces\n\\[\nA\\subseteq B.\n\\]",
+    "section": "5.8 Subconjuntos",
+    "text": "5.8 Subconjuntos\n\nDefinición 5.2 Se dice que \\(A\\) es un subconjunto de \\(B\\) si cada elemento de \\(A\\) también pertenece a \\(B\\).\n\nFormalmente,\n\\[\nA\\subseteq B\n\\iff\n(\\forall x)(x\\in A\\Rightarrow x\\in B).\n\\]\nSi además \\(A\\neq B\\), entonces \\(A\\) es un subconjunto propio de \\(B\\).\n\nEjemplo 5.2 Sean\n\\[\nA=\\{1,2\\},\n\\qquad\nB=\\{1,2,3,4\\}.\n\\]\nEntonces\n\\[\nA\\subseteq B.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -140,8 +151,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#conjunto-vacío",
     "href": "fundamentos/conjuntos-funciones.html#conjunto-vacío",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.8 Conjunto vacío",
-    "text": "5.8 Conjunto vacío\nEl conjunto que no contiene elementos se denomina conjunto vacío y se denota por\n\\[\n\\varnothing.\n\\]\nEl conjunto vacío es subconjunto de todo conjunto:\n\\[\n\\varnothing\\subseteq A.\n\\]",
+    "section": "5.9 Conjunto vacío",
+    "text": "5.9 Conjunto vacío\nEl conjunto que no contiene elementos se denomina conjunto vacío y se denota por\n\\[\n\\varnothing.\n\\]\nEl conjunto vacío es subconjunto de todo conjunto:\n\\[\n\\varnothing\\subseteq A.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -151,8 +162,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#operaciones-entre-conjuntos",
     "href": "fundamentos/conjuntos-funciones.html#operaciones-entre-conjuntos",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.9 Operaciones entre conjuntos",
-    "text": "5.9 Operaciones entre conjuntos\n\n5.9.1 Unión\nLa unión de \\(A\\) y \\(B\\) es el conjunto de elementos que pertenecen a \\(A\\), a \\(B\\) o a ambos:\n\\[\nA\\cup B\n=\n\\{x:x\\in A\\ \\text{o}\\ x\\in B\\}.\n\\]\n\n\n5.9.2 Intersección\nLa intersección contiene los elementos comunes:\n\\[\nA\\cap B\n=\n\\{x:x\\in A\\ \\text{y}\\ x\\in B\\}.\n\\]\n\n\n5.9.3 Diferencia\nLa diferencia \\(A\\setminus B\\) contiene los elementos de \\(A\\) que no pertenecen a \\(B\\):\n\\[\nA\\setminus B\n=\n\\{x:x\\in A\\ \\text{y}\\ x\\notin B\\}.\n\\]\n\n\n5.9.4 Complemento\nSi \\(U\\) es el conjunto universal, el complemento de \\(A\\) es\n\\[\nA^{c}=U\\setminus A.\n\\]\n\nEjemplo 5.3 Sean\n\\[\nA=\\{1,2,3,4\\},\n\\qquad\nB=\\{3,4,5,6\\}.\n\\]\nEntonces\n\\[\nA\\cup B=\\{1,2,3,4,5,6\\},\n\\]\n\\[\nA\\cap B=\\{3,4\\},\n\\]\n\\[\nA\\setminus B=\\{1,2\\},\n\\]\ny\n\\[\nB\\setminus A=\\{5,6\\}.\n\\]",
+    "section": "5.10 Operaciones entre conjuntos",
+    "text": "5.10 Operaciones entre conjuntos\n\n5.10.1 Unión\nLa unión de \\(A\\) y \\(B\\) es el conjunto de elementos que pertenecen a \\(A\\), a \\(B\\) o a ambos:\n\\[\nA\\cup B\n=\n\\{x:x\\in A\\ \\text{o}\\ x\\in B\\}.\n\\]\n\n\n5.10.2 Intersección\nLa intersección contiene los elementos comunes:\n\\[\nA\\cap B\n=\n\\{x:x\\in A\\ \\text{y}\\ x\\in B\\}.\n\\]\n\n\n5.10.3 Diferencia\nLa diferencia \\(A\\setminus B\\) contiene los elementos de \\(A\\) que no pertenecen a \\(B\\):\n\\[\nA\\setminus B\n=\n\\{x:x\\in A\\ \\text{y}\\ x\\notin B\\}.\n\\]\n\n\n5.10.4 Complemento\nSi \\(U\\) es el conjunto universal, el complemento de \\(A\\) es\n\\[\nA^{c}=U\\setminus A.\n\\]\n\nEjemplo 5.3 Sean\n\\[\nA=\\{1,2,3,4\\},\n\\qquad\nB=\\{3,4,5,6\\}.\n\\]\nEntonces\n\\[\nA\\cup B=\\{1,2,3,4,5,6\\},\n\\]\n\\[\nA\\cap B=\\{3,4\\},\n\\]\n\\[\nA\\setminus B=\\{1,2\\},\n\\]\ny\n\\[\nB\\setminus A=\\{5,6\\}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -162,8 +173,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#propiedades-fundamentales",
     "href": "fundamentos/conjuntos-funciones.html#propiedades-fundamentales",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.10 Propiedades fundamentales",
-    "text": "5.10 Propiedades fundamentales\nPara cualesquiera conjuntos \\(A\\), \\(B\\) y \\(C\\) se cumplen:\n\n5.10.1 Conmutatividad\n\\[\nA\\cup B=B\\cup A,\n\\]\n\\[\nA\\cap B=B\\cap A.\n\\]\n\n\n5.10.2 Asociatividad\n\\[\n(A\\cup B)\\cup C=A\\cup(B\\cup C),\n\\]\n\\[\n(A\\cap B)\\cap C=A\\cap(B\\cap C).\n\\]\n\n\n5.10.3 Distributividad\n\\[\nA\\cap(B\\cup C)\n=\n(A\\cap B)\\cup(A\\cap C),\n\\]\n\\[\nA\\cup(B\\cap C)\n=\n(A\\cup B)\\cap(A\\cup C).\n\\]\n\n\n5.10.4 Leyes de De Morgan\n\\[\n(A\\cup B)^c=A^c\\cap B^c,\n\\]\n\\[\n(A\\cap B)^c=A^c\\cup B^c.\n\\]\nEstas propiedades serán importantes posteriormente en probabilidad, reglas de asociación y teoría de clasificación.",
+    "section": "5.11 Propiedades fundamentales",
+    "text": "5.11 Propiedades fundamentales\nPara cualesquiera conjuntos \\(A\\), \\(B\\) y \\(C\\) se cumplen:\n\n5.11.1 Conmutatividad\n\\[\nA\\cup B=B\\cup A,\n\\]\n\\[\nA\\cap B=B\\cap A.\n\\]\n\n\n5.11.2 Asociatividad\n\\[\n(A\\cup B)\\cup C=A\\cup(B\\cup C),\n\\]\n\\[\n(A\\cap B)\\cap C=A\\cap(B\\cap C).\n\\]\n\n\n5.11.3 Distributividad\n\\[\nA\\cap(B\\cup C)\n=\n(A\\cap B)\\cup(A\\cap C),\n\\]\n\\[\nA\\cup(B\\cap C)\n=\n(A\\cup B)\\cap(A\\cup C).\n\\]\n\n\n5.11.4 Leyes de De Morgan\n\\[\n(A\\cup B)^c=A^c\\cap B^c,\n\\]\n\\[\n(A\\cap B)^c=A^c\\cup B^c.\n\\]\nEstas propiedades serán importantes posteriormente en probabilidad, reglas de asociación y teoría de clasificación.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -173,8 +184,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#producto-cartesiano",
     "href": "fundamentos/conjuntos-funciones.html#producto-cartesiano",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.11 Producto cartesiano",
-    "text": "5.11 Producto cartesiano\n\nDefinición 5.3 El producto cartesiano de dos conjuntos \\(A\\) y \\(B\\) se define como\n\\[\nA\\times B\n=\n\\{(a,b):a\\in A,\\ b\\in B\\}.\n\\]\n\nSi\n\\[\nA=\\{1,2\\},\n\\qquad\nB=\\{a,b\\},\n\\]\nentonces\n\\[\nA\\times B\n=\n\\{(1,a),(1,b),(2,a),(2,b)\\}.\n\\]\nEl producto cartesiano permite representar observaciones con varias características. En general,\n\\[\n\\mathbb{R}^{p}\n=\n\\underbrace{\n\\mathbb{R}\\times\\cdots\\times\\mathbb{R}\n}_{p\\text{ veces}}.\n\\]",
+    "section": "5.12 Producto cartesiano",
+    "text": "5.12 Producto cartesiano\n\nDefinición 5.3 El producto cartesiano de dos conjuntos \\(A\\) y \\(B\\) se define como\n\\[\nA\\times B\n=\n\\{(a,b):a\\in A,\\ b\\in B\\}.\n\\]\n\nSi\n\\[\nA=\\{1,2\\},\n\\qquad\nB=\\{a,b\\},\n\\]\nentonces\n\\[\nA\\times B\n=\n\\{(1,a),(1,b),(2,a),(2,b)\\}.\n\\]\nEl producto cartesiano permite representar observaciones con varias características. En general,\n\\[\n\\mathbb{R}^{p}\n=\n\\underbrace{\n\\mathbb{R}\\times\\cdots\\times\\mathbb{R}\n}_{p\\text{ veces}}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -184,8 +195,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#relaciones",
     "href": "fundamentos/conjuntos-funciones.html#relaciones",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.12 Relaciones",
-    "text": "5.12 Relaciones\n\nDefinición 5.4 Una relación entre los conjuntos \\(A\\) y \\(B\\) es cualquier subconjunto de \\(A\\times B\\).\n\nUna relación \\(R\\) puede escribirse como\n\\[\nR\\subseteq A\\times B.\n\\]\nSi \\((a,b)\\in R\\), se dice que \\(a\\) está relacionado con \\(b\\).\nEn clasificación, una muestra etiquetada puede verse como un conjunto de pares ordenados que relaciona cada observación con una clase.",
+    "section": "5.13 Relaciones",
+    "text": "5.13 Relaciones\n\nDefinición 5.4 Una relación entre los conjuntos \\(A\\) y \\(B\\) es cualquier subconjunto de \\(A\\times B\\).\n\nUna relación \\(R\\) puede escribirse como\n\\[\nR\\subseteq A\\times B.\n\\]\nSi \\((a,b)\\in R\\), se dice que \\(a\\) está relacionado con \\(b\\).\nEn clasificación, una muestra etiquetada puede verse como un conjunto de pares ordenados que relaciona cada observación con una clase.\n\n\n\n\n\n\nNotaRelación y función\n\n\n\nToda función es una relación, pero no toda relación es una función. Para que una relación \\(f\\subseteq A\\times B\\) sea una función de \\(A\\) en \\(B\\), cada elemento de \\(A\\) debe aparecer exactamente una vez como primera componente.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -195,8 +206,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#funciones",
     "href": "fundamentos/conjuntos-funciones.html#funciones",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.13 Funciones",
-    "text": "5.13 Funciones\n\nDefinición 5.5 Una función \\(f\\) de un conjunto \\(A\\) a un conjunto \\(B\\) es una regla que asigna a cada elemento de \\(A\\) exactamente un elemento de \\(B\\).\n\nSe escribe\n\\[\nf:A\\longrightarrow B.\n\\]\nEl conjunto \\(A\\) es el dominio y \\(B\\) es el codominio.\nSi \\(x\\in A\\), el valor asignado se denota por \\(f(x)\\).\n\nEjemplo 5.4 Sea\n\\[\nf:\\mathbb{R}\\longrightarrow\\mathbb{R}\n\\]\ndefinida por\n\\[\nf(x)=2x+1.\n\\]\nEntonces\n\\[\nf(3)=7.\n\\]",
+    "section": "5.14 Funciones",
+    "text": "5.14 Funciones\n\nDefinición 5.5 Una función \\(f\\) de un conjunto \\(A\\) a un conjunto \\(B\\) es una regla que asigna a cada elemento de \\(A\\) exactamente un elemento de \\(B\\).\n\nSe escribe\n\\[\nf:A\\longrightarrow B.\n\\]\nEl conjunto \\(A\\) es el dominio y \\(B\\) es el codominio.\nSi \\(x\\in A\\), el valor asignado se denota por \\(f(x)\\).\n\nEjemplo 5.4 Sea\n\\[\nf:\\mathbb{R}\\longrightarrow\\mathbb{R}\n\\]\ndefinida por\n\\[\nf(x)=2x+1.\n\\]\nEntonces\n\\[\nf(3)=7.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -206,8 +217,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#dominio-codominio-e-imagen",
     "href": "fundamentos/conjuntos-funciones.html#dominio-codominio-e-imagen",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.14 Dominio, codominio e imagen",
-    "text": "5.14 Dominio, codominio e imagen\nPara una función\n\\[\nf:A\\to B,\n\\]\nel dominio es \\(A\\) y el codominio es \\(B\\).\nLa imagen de \\(f\\) es\n\\[\n\\operatorname{Im}(f)\n=\n\\{f(x):x\\in A\\}.\n\\]\nSiempre se cumple\n\\[\n\\operatorname{Im}(f)\\subseteq B.\n\\]\nEl codominio y la imagen no necesariamente coinciden.",
+    "section": "5.15 Dominio, codominio e imagen",
+    "text": "5.15 Dominio, codominio e imagen\nPara una función\n\\[\nf:A\\to B,\n\\]\nel dominio es \\(A\\) y el codominio es \\(B\\).\nLa imagen de \\(f\\) es\n\\[\n\\operatorname{Im}(f)\n=\n\\{f(x):x\\in A\\}.\n\\]\nSiempre se cumple\n\\[\n\\operatorname{Im}(f)\\subseteq B.\n\\]\nEl codominio y la imagen no necesariamente coinciden.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -217,8 +228,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#imagen-e-imagen-inversa-de-conjuntos",
     "href": "fundamentos/conjuntos-funciones.html#imagen-e-imagen-inversa-de-conjuntos",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.15 Imagen e imagen inversa de conjuntos",
-    "text": "5.15 Imagen e imagen inversa de conjuntos\nSi \\(C\\subseteq A\\), la imagen de \\(C\\) es\n\\[\nf(C)\n=\n\\{f(x):x\\in C\\}.\n\\]\nSi \\(D\\subseteq B\\), la imagen inversa de \\(D\\) es\n\\[\nf^{-1}(D)\n=\n\\{x\\in A:f(x)\\in D\\}.\n\\]\nLa notación \\(f^{-1}(D)\\) no exige que \\(f\\) sea invertible.",
+    "section": "5.16 Imagen e imagen inversa de conjuntos",
+    "text": "5.16 Imagen e imagen inversa de conjuntos\nSi \\(C\\subseteq A\\), la imagen de \\(C\\) es\n\\[\nf(C)\n=\n\\{f(x):x\\in C\\}.\n\\]\nSi \\(D\\subseteq B\\), la imagen inversa de \\(D\\) es\n\\[\nf^{-1}(D)\n=\n\\{x\\in A:f(x)\\in D\\}.\n\\]\nLa notación \\(f^{-1}(D)\\) no exige que \\(f\\) sea invertible.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -228,8 +239,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#funciones-inyectivas-suprayectivas-y-biyectivas",
     "href": "fundamentos/conjuntos-funciones.html#funciones-inyectivas-suprayectivas-y-biyectivas",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.16 Funciones inyectivas, suprayectivas y biyectivas",
-    "text": "5.16 Funciones inyectivas, suprayectivas y biyectivas\n\n5.16.1 Función inyectiva\n\nDefinición 5.6 Una función \\(f:A\\to B\\) es inyectiva si elementos distintos del dominio tienen imágenes distintas.\n\nEquivalentemente,\n\\[\nf(x_1)=f(x_2)\n\\Rightarrow\nx_1=x_2.\n\\]\n\n\n5.16.2 Función suprayectiva\n\nDefinición 5.7 Una función \\(f:A\\to B\\) es suprayectiva si cada elemento de \\(B\\) es imagen de al menos un elemento de \\(A\\).\n\nFormalmente,\n\\[\n(\\forall y\\in B)(\\exists x\\in A)\n\\quad\nf(x)=y.\n\\]\n\n\n5.16.3 Función biyectiva\n\nDefinición 5.8 Una función es biyectiva si es simultáneamente inyectiva y suprayectiva.\n\nLas funciones biyectivas poseen una función inversa.",
+    "section": "5.17 Funciones inyectivas, suprayectivas y biyectivas",
+    "text": "5.17 Funciones inyectivas, suprayectivas y biyectivas\n\n5.17.1 Función inyectiva\n\nDefinición 5.6 Una función \\(f:A\\to B\\) es inyectiva si elementos distintos del dominio tienen imágenes distintas.\n\nEquivalentemente,\n\\[\nf(x_1)=f(x_2)\n\\Rightarrow\nx_1=x_2.\n\\]\n\n\n5.17.2 Función suprayectiva\n\nDefinición 5.7 Una función \\(f:A\\to B\\) es suprayectiva si cada elemento de \\(B\\) es imagen de al menos un elemento de \\(A\\).\n\nFormalmente,\n\\[\n(\\forall y\\in B)(\\exists x\\in A)\n\\quad\nf(x)=y.\n\\]\n\n\n5.17.3 Función biyectiva\n\nDefinición 5.8 Una función es biyectiva si es simultáneamente inyectiva y suprayectiva.\n\nLas funciones biyectivas poseen una función inversa.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -239,8 +250,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#composición-de-funciones",
     "href": "fundamentos/conjuntos-funciones.html#composición-de-funciones",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.17 Composición de funciones",
-    "text": "5.17 Composición de funciones\nSean\n\\[\nf:A\\to B\n\\]\ny\n\\[\ng:B\\to C.\n\\]\nLa composición de \\(g\\) con \\(f\\) se define como\n\\[\n(g\\circ f)(x)=g(f(x)).\n\\]\nLa composición es esencial en redes neuronales, donde cada capa aplica una transformación a la salida de la capa anterior.\n\nEjemplo 5.5 Sean\n\\[\nf(x)=2x+1,\n\\qquad\ng(x)=x^2.\n\\]\nEntonces\n\\[\n(g\\circ f)(x)\n=\n(2x+1)^2.\n\\]\nEn cambio,\n\\[\n(f\\circ g)(x)\n=\n2x^2+1.\n\\]\nEn general,\n\\[\ng\\circ f\\neq f\\circ g.\n\\]",
+    "section": "5.18 Composición de funciones",
+    "text": "5.18 Composición de funciones\nSean\n\\[\nf:A\\to B\n\\]\ny\n\\[\ng:B\\to C.\n\\]\nLa composición de \\(g\\) con \\(f\\) se define como\n\\[\n(g\\circ f)(x)=g(f(x)).\n\\]\nLa composición es esencial en redes neuronales, donde cada capa aplica una transformación a la salida de la capa anterior.\n\nEjemplo 5.5 Sean\n\\[\nf(x)=2x+1,\n\\qquad\ng(x)=x^2.\n\\]\nEntonces\n\\[\n(g\\circ f)(x)\n=\n(2x+1)^2.\n\\]\nEn cambio,\n\\[\n(f\\circ g)(x)\n=\n2x^2+1.\n\\]\nEn general,\n\\[\ng\\circ f\\neq f\\circ g.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -250,8 +261,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#función-indicadora",
     "href": "fundamentos/conjuntos-funciones.html#función-indicadora",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.18 Función indicadora",
-    "text": "5.18 Función indicadora\n\nDefinición 5.9 Sea \\(A\\) un conjunto. La función indicadora de \\(A\\) se define por\n\\[\n\\mathbb{I}_{A}(x)\n=\n\\begin{cases}\n1, & x\\in A,\\\\\n0, & x\\notin A.\n\\end{cases}\n\\]\n\nTambién se utiliza la notación\n\\[\n\\mathbb{I}(x\\in A).\n\\]\nEn clasificación, la función indicadora permite contar observaciones de una clase:\n\\[\nn_k\n=\n\\sum_{i=1}^{n}\n\\mathbb{I}(y_i=k).\n\\]\nLa proporción de observaciones de la clase \\(k\\) es\n\\[\n\\widehat{p}_k\n=\n\\frac{1}{n}\n\\sum_{i=1}^{n}\n\\mathbb{I}(y_i=k).\n\\]\nEsta expresión aparecerá en árboles de decisión, matrices de confusión y medidas de evaluación.",
+    "section": "5.19 Función indicadora",
+    "text": "5.19 Función indicadora\n\nDefinición 5.9 Sea \\(A\\) un conjunto. La función indicadora de \\(A\\) se define por\n\\[\n\\mathbb{I}_{A}(x)\n=\n\\begin{cases}\n1, & x\\in A,\\\\\n0, & x\\notin A.\n\\end{cases}\n\\]\n\nTambién se utiliza la notación\n\\[\n\\mathbb{I}(x\\in A).\n\\]\nEn clasificación, la función indicadora permite contar observaciones de una clase:\n\\[\nn_k\n=\n\\sum_{i=1}^{n}\n\\mathbb{I}(y_i=k).\n\\]\nLa proporción de observaciones de la clase \\(k\\) es\n\\[\n\\widehat{p}_k\n=\n\\frac{1}{n}\n\\sum_{i=1}^{n}\n\\mathbb{I}(y_i=k).\n\\]\nEsta expresión aparecerá en árboles de decisión, matrices de confusión y medidas de evaluación.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -261,8 +272,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#sumatorias-y-productorias",
     "href": "fundamentos/conjuntos-funciones.html#sumatorias-y-productorias",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.19 Sumatorias y productorias",
-    "text": "5.19 Sumatorias y productorias\nLa sumatoria\n\\[\n\\sum_{i=1}^{n}x_i\n\\]\nrepresenta\n\\[\nx_1+x_2+\\cdots+x_n.\n\\]\nLa productoria\n\\[\n\\prod_{i=1}^{n}x_i\n\\]\nrepresenta\n\\[\nx_1x_2\\cdots x_n.\n\\]\nLa media aritmética de una muestra es\n\\[\n\\bar{x}\n=\n\\frac{1}{n}\n\\sum_{i=1}^{n}x_i.\n\\]\nLa productoria será especialmente importante en funciones de verosimilitud.",
+    "section": "5.20 Sumatorias y productorias",
+    "text": "5.20 Sumatorias y productorias\nLa sumatoria\n\\[\n\\sum_{i=1}^{n}x_i\n\\]\nrepresenta\n\\[\nx_1+x_2+\\cdots+x_n.\n\\]\nLa productoria\n\\[\n\\prod_{i=1}^{n}x_i\n\\]\nrepresenta\n\\[\nx_1x_2\\cdots x_n.\n\\]\nLa media aritmética de una muestra es\n\\[\n\\bar{x}\n=\n\\frac{1}{n}\n\\sum_{i=1}^{n}x_i.\n\\]\nLa productoria será especialmente importante en funciones de verosimilitud.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -272,8 +283,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#representación-formal-de-datos",
     "href": "fundamentos/conjuntos-funciones.html#representación-formal-de-datos",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.20 Representación formal de datos",
-    "text": "5.20 Representación formal de datos\nSea\n\\[\n\\mathcal{X}\\subseteq\\mathbb{R}^{p}\n\\]\nel espacio de características y sea \\(\\mathcal{Y}\\) el espacio de respuestas.\nUn conjunto de datos supervisado se representa como\n\\[\n\\mathcal{D}\n=\n\\left\\{\n(\\mathbf{x}_i,y_i)\n\\right\\}_{i=1}^{n}\n\\subseteq\n\\mathcal{X}\\times\\mathcal{Y}.\n\\]\nCada vector\n\\[\n\\mathbf{x}_i\n=\n\\begin{pmatrix}\nx_{i1}\\\\\nx_{i2}\\\\\n\\vdots\\\\\nx_{ip}\n\\end{pmatrix}\n\\]\ncontiene los valores de las \\(p\\) características de la observación \\(i\\).\nLa matriz de datos se representa como\n\\[\n\\mathbf{X}\n=\n\\begin{pmatrix}\nx_{11} & x_{12} & \\cdots & x_{1p}\\\\\nx_{21} & x_{22} & \\cdots & x_{2p}\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\nx_{n1} & x_{n2} & \\cdots & x_{np}\n\\end{pmatrix}\n\\in\\mathbb{R}^{n\\times p}.\n\\]\nEl vector de respuestas es\n\\[\n\\mathbf{y}\n=\n\\begin{pmatrix}\ny_1\\\\\ny_2\\\\\n\\vdots\\\\\ny_n\n\\end{pmatrix}.\n\\]",
+    "section": "5.21 Representación formal de datos",
+    "text": "5.21 Representación formal de datos\nSea\n\\[\n\\mathcal{X}\\subseteq\\mathbb{R}^{p}\n\\]\nel espacio de características y sea \\(\\mathcal{Y}\\) el espacio de respuestas.\nUn conjunto de datos supervisado se representa como\n\\[\n\\mathcal{D}\n=\n\\left\\{\n(\\mathbf{x}_i,y_i)\n\\right\\}_{i=1}^{n}\n\\subseteq\n\\mathcal{X}\\times\\mathcal{Y}.\n\\]\nCada vector\n\\[\n\\mathbf{x}_i\n=\n\\begin{pmatrix}\nx_{i1}\\\\\nx_{i2}\\\\\n\\vdots\\\\\nx_{ip}\n\\end{pmatrix}\n\\]\ncontiene los valores de las \\(p\\) características de la observación \\(i\\).\nLa matriz de datos se representa como\n\\[\n\\mathbf{X}\n=\n\\begin{pmatrix}\nx_{11} & x_{12} & \\cdots & x_{1p}\\\\\nx_{21} & x_{22} & \\cdots & x_{2p}\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\nx_{n1} & x_{n2} & \\cdots & x_{np}\n\\end{pmatrix}\n\\in\\mathbb{R}^{n\\times p}.\n\\]\nEl vector de respuestas es\n\\[\n\\mathbf{y}\n=\n\\begin{pmatrix}\ny_1\\\\\ny_2\\\\\n\\vdots\\\\\ny_n\n\\end{pmatrix}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -283,8 +294,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#regresión-y-clasificación",
     "href": "fundamentos/conjuntos-funciones.html#regresión-y-clasificación",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.21 Regresión y clasificación",
-    "text": "5.21 Regresión y clasificación\n\n5.21.1 Regresión\nEn un problema de regresión, la respuesta es numérica:\n\\[\n\\mathcal{Y}\\subseteq\\mathbb{R}.\n\\]\nSe busca una función\n\\[\nf:\\mathcal{X}\\to\\mathbb{R}.\n\\]\nPor ejemplo, estimar la concentración de un contaminante:\n\\[\nf(\\mathbf{x})\n=\n\\widehat{y}.\n\\]\n\n\n5.21.2 Clasificación binaria\nEn clasificación binaria,\n\\[\n\\mathcal{Y}=\\{0,1\\}\n\\]\no bien\n\\[\n\\mathcal{Y}=\\{-1,1\\}.\n\\]\nLa función de clasificación tiene la forma\n\\[\nf:\\mathcal{X}\\to\\{0,1\\}.\n\\]\n\n\n5.21.3 Clasificación multiclase\nEn clasificación multiclase,\n\\[\n\\mathcal{Y}\n=\n\\{1,2,\\ldots,K\\}.\n\\]\nEntonces\n\\[\nf:\\mathcal{X}\\to\\{1,\\ldots,K\\}.\n\\]",
+    "section": "5.22 Regresión y clasificación",
+    "text": "5.22 Regresión y clasificación\n\n5.22.1 Regresión\nEn un problema de regresión, la respuesta es numérica:\n\\[\n\\mathcal{Y}\\subseteq\\mathbb{R}.\n\\]\nSe busca una función\n\\[\nf:\\mathcal{X}\\to\\mathbb{R}.\n\\]\nPor ejemplo, estimar la concentración de un contaminante:\n\\[\nf(\\mathbf{x})\n=\n\\widehat{y}.\n\\]\n\n\n5.22.2 Clasificación binaria\nEn clasificación binaria,\n\\[\n\\mathcal{Y}=\\{0,1\\}\n\\]\no bien\n\\[\n\\mathcal{Y}=\\{-1,1\\}.\n\\]\nLa función de clasificación tiene la forma\n\\[\nf:\\mathcal{X}\\to\\{0,1\\}.\n\\]\n\n\n5.22.3 Clasificación multiclase\nEn clasificación multiclase,\n\\[\n\\mathcal{Y}\n=\n\\{1,2,\\ldots,K\\}.\n\\]\nEntonces\n\\[\nf:\\mathcal{X}\\to\\{1,\\ldots,K\\}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -294,8 +305,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#función-objetivo-desconocida",
     "href": "fundamentos/conjuntos-funciones.html#función-objetivo-desconocida",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.22 Función objetivo desconocida",
-    "text": "5.22 Función objetivo desconocida\nEn aprendizaje supervisado se supone que existe una relación entre las características y la respuesta. Puede representarse idealmente mediante una función desconocida\n\\[\nf^{*}:\\mathcal{X}\\to\\mathcal{Y}.\n\\]\nLos datos satisfacen aproximadamente\n\\[\ny_i=f^{*}(\\mathbf{x}_i)+\\varepsilon_i\n\\]\nen regresión, donde \\(\\varepsilon_i\\) representa variación aleatoria o error.\nEl objetivo del aprendizaje consiste en construir una aproximación\n\\[\n\\widehat{f}\\approx f^{*}.\n\\]",
+    "section": "5.23 Función objetivo desconocida",
+    "text": "5.23 Función objetivo desconocida\nEn aprendizaje supervisado se supone que existe una relación entre las características y la respuesta. Puede representarse idealmente mediante una función desconocida\n\\[\nf^{*}:\\mathcal{X}\\to\\mathcal{Y}.\n\\]\nLos datos satisfacen aproximadamente\n\\[\ny_i=f^{*}(\\mathbf{x}_i)+\\varepsilon_i\n\\]\nen regresión, donde \\(\\varepsilon_i\\) representa variación aleatoria o error.\nEl objetivo del aprendizaje consiste en construir una aproximación\n\\[\n\\widehat{f}\\approx f^{*}.\n\\]\n\n\n\n\n\n\nImportanteFunción objetivo y datos observados\n\n\n\nEn aprendizaje supervisado se supone que existe alguna relación entre \\(\\mathbf{X}\\) y \\(Y\\), pero normalmente no se observa una función objetivo determinista exacta. Una formulación más general utiliza una distribución conjunta \\(P_{X,Y}\\) y busca una función que minimice el riesgo esperado. Esta distinción se desarrollará en los capítulos de aprendizaje supervisado y teoría de generalización.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -305,8 +316,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#ejemplo-integrado",
     "href": "fundamentos/conjuntos-funciones.html#ejemplo-integrado",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.23 Ejemplo integrado",
-    "text": "5.23 Ejemplo integrado\nSupóngase que se desea clasificar la calidad del aire utilizando tres variables:\n\nconcentración de partículas PM10;\ntemperatura;\nhumedad relativa.\n\nEl espacio de características es\n\\[\n\\mathcal{X}\\subseteq\\mathbb{R}^{3}.\n\\]\nLa respuesta puede definirse como\n\\[\n\\mathcal{Y}\n=\n\\{\\text{buena},\\text{regular},\\text{mala}\\}.\n\\]\nUna observación es\n\\[\n\\mathbf{x}_i\n=\n\\begin{pmatrix}\n\\text{PM10}_i\\\\\n\\text{temperatura}_i\\\\\n\\text{humedad}_i\n\\end{pmatrix}.\n\\]\nEl conjunto de entrenamiento es\n\\[\n\\mathcal{D}\n=\n\\left\\{\n(\\mathbf{x}_i,y_i)\n\\right\\}_{i=1}^{n}.\n\\]\nEl clasificador buscado es una función\n\\[\n\\widehat{f}:\\mathbb{R}^{3}\n\\to\n\\{\\text{buena},\\text{regular},\\text{mala}\\}.\n\\]",
+    "section": "5.24 Ejemplo integrado",
+    "text": "5.24 Ejemplo integrado\nSupóngase que se desea clasificar la calidad del aire utilizando tres variables:\n\nconcentración de partículas PM10;\ntemperatura;\nhumedad relativa.\n\nEl espacio de características es\n\\[\n\\mathcal{X}\\subseteq\\mathbb{R}^{3}.\n\\]\nLa respuesta puede definirse como\n\\[\n\\mathcal{Y}\n=\n\\{\\text{buena},\\text{regular},\\text{mala}\\}.\n\\]\nUna observación es\n\\[\n\\mathbf{x}_i\n=\n\\begin{pmatrix}\n\\text{PM10}_i\\\\\n\\text{temperatura}_i\\\\\n\\text{humedad}_i\n\\end{pmatrix}.\n\\]\nEl conjunto de entrenamiento es\n\\[\n\\mathcal{D}\n=\n\\left\\{\n(\\mathbf{x}_i,y_i)\n\\right\\}_{i=1}^{n}.\n\\]\nEl clasificador buscado es una función\n\\[\n\\widehat{f}:\\mathbb{R}^{3}\n\\to\n\\{\\text{buena},\\text{regular},\\text{mala}\\}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -316,8 +327,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#conexión-con-r",
     "href": "fundamentos/conjuntos-funciones.html#conexión-con-r",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.24 Conexión con R",
-    "text": "5.24 Conexión con R\nEn R, una tabla de datos puede interpretarse como una representación computacional de la matriz \\(\\mathbf{X}\\) y del vector \\(\\mathbf{y}\\).\n\n\nCódigo\ndatos &lt;- data.frame(\n  pm10 = c(38, 75, 112, 46),\n  temperatura = c(19, 23, 27, 21),\n  humedad = c(64, 52, 43, 58),\n  calidad = c(\"buena\", \"regular\", \"mala\", \"buena\")\n)\n\nX &lt;- as.matrix(datos[, c(\"pm10\", \"temperatura\", \"humedad\")])\ny &lt;- datos$calidad\n\n\nMatemáticamente,\n\\[\n\\mathbf{X}\\in\\mathbb{R}^{4\\times 3}\n\\]\ny\n\\[\n\\mathbf{y}\n=\n\\begin{pmatrix}\n\\text{buena}\\\\\n\\text{regular}\\\\\n\\text{mala}\\\\\n\\text{buena}\n\\end{pmatrix}.\n\\]",
+    "section": "5.25 Conexión con R",
+    "text": "5.25 Conexión con R\nEn R, una tabla de datos puede interpretarse como una representación computacional de la matriz \\(\\mathbf{X}\\) y del vector \\(\\mathbf{y}\\).\n\n\nCódigo\ndatos &lt;- data.frame(\n  pm10 = c(38, 75, 112, 46),\n  temperatura = c(19, 23, 27, 21),\n  humedad = c(64, 52, 43, 58),\n  calidad = c(\"buena\", \"regular\", \"mala\", \"buena\")\n)\n\nX &lt;- as.matrix(datos[, c(\"pm10\", \"temperatura\", \"humedad\")])\ny &lt;- datos$calidad\n\n\nMatemáticamente,\n\\[\n\\mathbf{X}\\in\\mathbb{R}^{4\\times 3}\n\\]\ny\n\\[\n\\mathbf{y}\n=\n\\begin{pmatrix}\n\\text{buena}\\\\\n\\text{regular}\\\\\n\\text{mala}\\\\\n\\text{buena}\n\\end{pmatrix}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -327,8 +338,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#errores-frecuentes",
     "href": "fundamentos/conjuntos-funciones.html#errores-frecuentes",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.25 Errores frecuentes",
-    "text": "5.25 Errores frecuentes\n\nConfundir un elemento con un subconjunto.\nSuponer que el codominio y la imagen siempre son iguales.\nConfundir \\(f^{-1}(D)\\) con la función inversa.\nOlvidar que una función debe asignar exactamente una salida a cada entrada.\nConsiderar que el orden de los elementos cambia un conjunto.\nConfundir una observación \\(\\mathbf{x}_i\\) con toda la matriz \\(\\mathbf{X}\\).\nSuponer que toda clasificación utiliza únicamente las etiquetas \\(0\\) y \\(1\\).",
+    "section": "5.26 Errores frecuentes",
+    "text": "5.26 Errores frecuentes\n\nConfundir un elemento con un subconjunto.\nSuponer que el codominio y la imagen siempre son iguales.\nConfundir \\(f^{-1}(D)\\) con la función inversa.\nOlvidar que una función debe asignar exactamente una salida a cada entrada.\nConsiderar que el orden de los elementos cambia un conjunto.\nConfundir una observación \\(\\mathbf{x}_i\\) con toda la matriz \\(\\mathbf{X}\\).\nSuponer que toda clasificación utiliza únicamente las etiquetas \\(0\\) y \\(1\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -338,8 +349,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#ejercicios",
     "href": "fundamentos/conjuntos-funciones.html#ejercicios",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.26 Ejercicios",
-    "text": "5.26 Ejercicios\n\n5.26.1 Ejercicios conceptuales\n\nExplique la diferencia entre \\(x\\in A\\) y \\(\\{x\\}\\subseteq A\\).\nExplique la diferencia entre dominio, codominio e imagen.\n¿Por qué una función de clasificación puede considerarse una regla de decisión?\n¿Qué diferencia existe entre \\(\\mathbb{R}^{p}\\) y \\(\\mathbb{R}^{n\\times p}\\)?\n¿Por qué el conjunto de entrenamiento es un subconjunto de \\(\\mathcal{X}\\times\\mathcal{Y}\\)?\n\n\n\n5.26.2 Ejercicios de conjuntos\nSean\n\\[\nA=\\{1,2,3,4,5\\}\n\\]\ny\n\\[\nB=\\{4,5,6,7\\}.\n\\]\nDetermine:\n\n\\(A\\cup B\\);\n\\(A\\cap B\\);\n\\(A\\setminus B\\);\n\\(B\\setminus A\\).\n\n\n\n5.26.3 Ejercicios de funciones\nSea\n\\[\nf:\\mathbb{R}\\to\\mathbb{R},\n\\qquad\nf(x)=3x-2.\n\\]\n\nCalcule \\(f(0)\\), \\(f(2)\\) y \\(f(-1)\\).\nDetermine la imagen del conjunto \\(\\{0,1,2\\}\\).\nDetermine \\(f^{-1}(\\{1,4\\})\\).\nAnalice si \\(f\\) es inyectiva.\nAnalice si \\(f\\) es suprayectiva.\n\n\n\n5.26.4 Ejercicio de clasificación\nConsidere las observaciones:\n\\[\n\\mathbf{x}_1=(20,60),\n\\qquad\n\\mathbf{x}_2=(45,48),\n\\qquad\n\\mathbf{x}_3=(80,35),\n\\]\ncon etiquetas\n\\[\ny_1=\\text{baja},\n\\qquad\ny_2=\\text{media},\n\\qquad\ny_3=\\text{alta}.\n\\]\n\nIdentifique \\(\\mathcal{X}\\) y \\(\\mathcal{Y}\\).\nEscriba formalmente el conjunto de entrenamiento.\nConstruya la matriz \\(\\mathbf{X}\\).\nConstruya el vector \\(\\mathbf{y}\\).\nEscriba el tipo de función que representaría al clasificador.",
+    "section": "5.27 Ejercicios",
+    "text": "5.27 Ejercicios\n\n5.27.1 Ejercicios conceptuales\n\nExplique la diferencia entre \\(x\\in A\\) y \\(\\{x\\}\\subseteq A\\).\nExplique la diferencia entre dominio, codominio e imagen.\n¿Por qué una función de clasificación puede considerarse una regla de decisión?\n¿Qué diferencia existe entre \\(\\mathbb{R}^{p}\\) y \\(\\mathbb{R}^{n\\times p}\\)?\n¿Por qué el conjunto de entrenamiento es un subconjunto de \\(\\mathcal{X}\\times\\mathcal{Y}\\)?\n\n\n\n5.27.2 Ejercicios de conjuntos\nSean\n\\[\nA=\\{1,2,3,4,5\\}\n\\]\ny\n\\[\nB=\\{4,5,6,7\\}.\n\\]\nDetermine:\n\n\\(A\\cup B\\);\n\\(A\\cap B\\);\n\\(A\\setminus B\\);\n\\(B\\setminus A\\).\n\n\n\n5.27.3 Ejercicios de funciones\nSea\n\\[\nf:\\mathbb{R}\\to\\mathbb{R},\n\\qquad\nf(x)=3x-2.\n\\]\n\nCalcule \\(f(0)\\), \\(f(2)\\) y \\(f(-1)\\).\nDetermine la imagen del conjunto \\(\\{0,1,2\\}\\).\nDetermine \\(f^{-1}(\\{1,4\\})\\).\nAnalice si \\(f\\) es inyectiva.\nAnalice si \\(f\\) es suprayectiva.\n\n\n\n5.27.4 Ejercicio de clasificación\nConsidere las observaciones:\n\\[\n\\mathbf{x}_1=(20,60),\n\\qquad\n\\mathbf{x}_2=(45,48),\n\\qquad\n\\mathbf{x}_3=(80,35),\n\\]\ncon etiquetas\n\\[\ny_1=\\text{baja},\n\\qquad\ny_2=\\text{media},\n\\qquad\ny_3=\\text{alta}.\n\\]\n\nIdentifique \\(\\mathcal{X}\\) y \\(\\mathcal{Y}\\).\nEscriba formalmente el conjunto de entrenamiento.\nConstruya la matriz \\(\\mathbf{X}\\).\nConstruya el vector \\(\\mathbf{y}\\).\nEscriba el tipo de función que representaría al clasificador.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -349,8 +360,8 @@
     "objectID": "fundamentos/conjuntos-funciones.html#resumen",
     "href": "fundamentos/conjuntos-funciones.html#resumen",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
-    "section": "5.27 Resumen",
-    "text": "5.27 Resumen\nEn este capítulo se estableció el lenguaje matemático básico del libro. Se definieron conjuntos, subconjuntos, operaciones entre conjuntos, productos cartesianos, relaciones y funciones. También se introdujeron dominio, codominio, imagen, composición y función indicadora.\nFinalmente, se formuló un conjunto de datos supervisado como\n\\[\n\\mathcal{D}\n=\n\\left\\{\n(\\mathbf{x}_i,y_i)\n\\right\\}_{i=1}^{n}\n\\subseteq\n\\mathcal{X}\\times\\mathcal{Y},\n\\]\ny se distinguieron formalmente los problemas de regresión y clasificación. Esta notación será utilizada en todos los capítulos posteriores.",
+    "section": "5.28 Resumen",
+    "text": "5.28 Resumen\nEn este capítulo se estableció el lenguaje matemático básico del libro. Se definieron conjuntos, subconjuntos, operaciones entre conjuntos, productos cartesianos, relaciones y funciones. También se introdujeron dominio, codominio, imagen, composición y función indicadora.\nFinalmente, se formuló un conjunto de datos supervisado como\n\\[\n\\mathcal{D}\n=\n\\left\\{\n(\\mathbf{x}_i,y_i)\n\\right\\}_{i=1}^{n}\n\\subseteq\n\\mathcal{X}\\times\\mathcal{Y},\n\\]\ny se distinguieron formalmente los problemas de regresión y clasificación. Esta notación será utilizada en todos los capítulos posteriores.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -361,7 +372,7 @@
     "href": "fundamentos/conjuntos-funciones.html#referencias-del-capítulo",
     "title": "5  Lenguaje matemático, conjuntos y funciones",
     "section": "Referencias del capítulo",
-    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Hastie et al. (2009); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
+    "text": "Referencias del capítulo\nLos fundamentos y la notación de este capítulo se apoyan principalmente en Bishop (2006) y Hastie et al. (2009).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lenguaje matemático, conjuntos y funciones</span>"
@@ -372,7 +383,7 @@
     "href": "fundamentos/algebra-lineal.html",
     "title": "6  Álgebra lineal para aprendizaje automático",
     "section": "",
-    "text": "6.1 Introducción\nEl álgebra lineal constituye uno de los lenguajes fundamentales del aprendizaje automático. Los conjuntos de datos se representan mediante vectores y matrices; los modelos lineales utilizan combinaciones lineales; el análisis de componentes principales depende de valores y vectores propios; las redes neuronales realizan sucesivas transformaciones matriciales; y numerosos algoritmos se formulan como problemas de proyección, factorización u optimización en espacios vectoriales.\nEste capítulo desarrolla los conceptos esenciales de álgebra lineal que se utilizarán a lo largo del libro. El objetivo no es presentar únicamente reglas de cálculo, sino explicar el significado geométrico y estadístico de cada operación.",
+    "text": "6.1 Introducción\nEl álgebra lineal proporciona la estructura matemática de los datos multivariados y de numerosos algoritmos. Vectores, matrices, productos internos, proyecciones, valores propios y descomposición en valores singulares aparecen directamente en regresión, PCA, SVM y redes neuronales (Strang 2016; Axler 2015; Bishop 2006).\nEl álgebra lineal constituye uno de los lenguajes fundamentales del aprendizaje automático. Los conjuntos de datos se representan mediante vectores y matrices; los modelos lineales utilizan combinaciones lineales; el análisis de componentes principales depende de valores y vectores propios; las redes neuronales realizan sucesivas transformaciones matriciales; y numerosos algoritmos se formulan como problemas de proyección, factorización u optimización en espacios vectoriales.\nEste capítulo desarrolla los conceptos esenciales de álgebra lineal que se utilizarán a lo largo del libro. El objetivo no es presentar únicamente reglas de cálculo, sino explicar el significado geométrico y estadístico de cada operación.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -390,11 +401,22 @@
     ]
   },
   {
+    "objectID": "fundamentos/algebra-lineal.html#convenciones-de-dimensiones",
+    "href": "fundamentos/algebra-lineal.html#convenciones-de-dimensiones",
+    "title": "6  Álgebra lineal para aprendizaje automático",
+    "section": "6.3 Convenciones de dimensiones",
+    "text": "6.3 Convenciones de dimensiones\nEn todo el capítulo se utilizarán las siguientes convenciones:\n\nlos vectores se consideran columnas;\n\\(\\mathbf{x}\\in\\mathbb{R}^{p}\\) tiene dimensión \\(p\\times1\\);\nuna matriz de datos \\(\\mathbf{X}\\in\\mathbb{R}^{n\\times p}\\) contiene observaciones en filas y variables en columnas;\n\\(\\mathbf{X}^{\\mathsf T}\\in\\mathbb{R}^{p\\times n}\\);\nel producto \\(\\mathbf{A}\\mathbf{B}\\) existe únicamente si el número de columnas de \\(\\mathbf{A}\\) coincide con el número de filas de \\(\\mathbf{B}\\).\n\nAntes de efectuar una operación matricial conviene verificar explícitamente sus dimensiones.",
+    "crumbs": [
+      "I. Fundamentos matemáticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
+    ]
+  },
+  {
     "objectID": "fundamentos/algebra-lineal.html#escalares",
     "href": "fundamentos/algebra-lineal.html#escalares",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.3 Escalares",
-    "text": "6.3 Escalares\n\nDefinición 6.1 Un escalar es un elemento de un campo numérico, normalmente el conjunto de los números reales \\(\\mathbb{R}\\).\n\nLos escalares se representan mediante letras minúsculas:\n\\[\na,\\quad b,\\quad x,\\quad \\alpha,\\quad \\beta.\n\\]\nEjemplos de escalares en aprendizaje automático son:\n\nuna observación individual;\nun coeficiente de regresión;\nuna tasa de aprendizaje;\nuna probabilidad;\nuna función de pérdida;\nuna distancia entre dos observaciones.",
+    "section": "6.4 Escalares",
+    "text": "6.4 Escalares\n\nDefinición 6.1 Un escalar es un elemento de un campo numérico, normalmente el conjunto de los números reales \\(\\mathbb{R}\\).\n\nLos escalares se representan mediante letras minúsculas:\n\\[\na,\\quad b,\\quad x,\\quad \\alpha,\\quad \\beta.\n\\]\nEjemplos de escalares en aprendizaje automático son:\n\nuna observación individual;\nun coeficiente de regresión;\nuna tasa de aprendizaje;\nuna probabilidad;\nuna función de pérdida;\nuna distancia entre dos observaciones.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -404,8 +426,8 @@
     "objectID": "fundamentos/algebra-lineal.html#vectores",
     "href": "fundamentos/algebra-lineal.html#vectores",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.4 Vectores",
-    "text": "6.4 Vectores\n\nDefinición 6.2 Un vector de dimensión \\(p\\) es una lista ordenada de \\(p\\) escalares.\n\nUn vector columna se escribe como\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\nx_1\\\\\nx_2\\\\\n\\vdots\\\\\nx_p\n\\end{pmatrix}\n\\in\\mathbb{R}^{p}.\n\\]\nSu transpuesta es un vector fila:\n\\[\n\\mathbf{x}^{\\mathsf T}\n=\n\\begin{pmatrix}\nx_1 & x_2 & \\cdots & x_p\n\\end{pmatrix}.\n\\]\n\nEjemplo 6.1 Una observación ambiental con concentración de PM10, temperatura y humedad puede representarse mediante\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n52.4\\\\\n23.1\\\\\n47.0\n\\end{pmatrix}.\n\\]\nEn este caso,\n\\[\n\\mathbf{x}\\in\\mathbb{R}^{3}.\n\\]",
+    "section": "6.5 Vectores",
+    "text": "6.5 Vectores\n\nDefinición 6.2 Un vector de dimensión \\(p\\) es una lista ordenada de \\(p\\) escalares.\n\nUn vector columna se escribe como\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\nx_1\\\\\nx_2\\\\\n\\vdots\\\\\nx_p\n\\end{pmatrix}\n\\in\\mathbb{R}^{p}.\n\\]\nSu transpuesta es un vector fila:\n\\[\n\\mathbf{x}^{\\mathsf T}\n=\n\\begin{pmatrix}\nx_1 & x_2 & \\cdots & x_p\n\\end{pmatrix}.\n\\]\n\nEjemplo 6.1 Una observación ambiental con concentración de PM10, temperatura y humedad puede representarse mediante\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n52.4\\\\\n23.1\\\\\n47.0\n\\end{pmatrix}.\n\\]\nEn este caso,\n\\[\n\\mathbf{x}\\in\\mathbb{R}^{3}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -415,8 +437,8 @@
     "objectID": "fundamentos/algebra-lineal.html#igualdad-de-vectores",
     "href": "fundamentos/algebra-lineal.html#igualdad-de-vectores",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.5 Igualdad de vectores",
-    "text": "6.5 Igualdad de vectores\nDos vectores \\(\\mathbf{x},\\mathbf{y}\\in\\mathbb{R}^{p}\\) son iguales si todas sus componentes correspondientes son iguales:\n\\[\n\\mathbf{x}=\\mathbf{y}\n\\iff\nx_j=y_j\n\\quad\n\\text{para todo }j=1,\\ldots,p.\n\\]",
+    "section": "6.6 Igualdad de vectores",
+    "text": "6.6 Igualdad de vectores\nDos vectores \\(\\mathbf{x},\\mathbf{y}\\in\\mathbb{R}^{p}\\) son iguales si todas sus componentes correspondientes son iguales:\n\\[\n\\mathbf{x}=\\mathbf{y}\n\\iff\nx_j=y_j\n\\quad\n\\text{para todo }j=1,\\ldots,p.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -426,8 +448,8 @@
     "objectID": "fundamentos/algebra-lineal.html#suma-de-vectores",
     "href": "fundamentos/algebra-lineal.html#suma-de-vectores",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.6 Suma de vectores",
-    "text": "6.6 Suma de vectores\nSean\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\nx_1\\\\\n\\vdots\\\\\nx_p\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\ny_1\\\\\n\\vdots\\\\\ny_p\n\\end{pmatrix}.\n\\]\nLa suma se define componente a componente:\n\\[\n\\mathbf{x}+\\mathbf{y}\n=\n\\begin{pmatrix}\nx_1+y_1\\\\\n\\vdots\\\\\nx_p+y_p\n\\end{pmatrix}.\n\\]\n\nEjemplo 6.2 Si\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n2\\\\\n1\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\n3\\\\\n4\n\\end{pmatrix},\n\\]\nentonces\n\\[\n\\mathbf{x}+\\mathbf{y}\n=\n\\begin{pmatrix}\n5\\\\\n5\n\\end{pmatrix}.\n\\]",
+    "section": "6.7 Suma de vectores",
+    "text": "6.7 Suma de vectores\nSean\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\nx_1\\\\\n\\vdots\\\\\nx_p\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\ny_1\\\\\n\\vdots\\\\\ny_p\n\\end{pmatrix}.\n\\]\nLa suma se define componente a componente:\n\\[\n\\mathbf{x}+\\mathbf{y}\n=\n\\begin{pmatrix}\nx_1+y_1\\\\\n\\vdots\\\\\nx_p+y_p\n\\end{pmatrix}.\n\\]\n\nEjemplo 6.2 Si\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n2\\\\\n1\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\n3\\\\\n4\n\\end{pmatrix},\n\\]\nentonces\n\\[\n\\mathbf{x}+\\mathbf{y}\n=\n\\begin{pmatrix}\n5\\\\\n5\n\\end{pmatrix}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -437,8 +459,8 @@
     "objectID": "fundamentos/algebra-lineal.html#multiplicación-por-un-escalar",
     "href": "fundamentos/algebra-lineal.html#multiplicación-por-un-escalar",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.7 Multiplicación por un escalar",
-    "text": "6.7 Multiplicación por un escalar\nSi \\(\\alpha\\in\\mathbb{R}\\) y \\(\\mathbf{x}\\in\\mathbb{R}^{p}\\), entonces\n\\[\n\\alpha\\mathbf{x}\n=\n\\begin{pmatrix}\n\\alpha x_1\\\\\n\\vdots\\\\\n\\alpha x_p\n\\end{pmatrix}.\n\\]\nGeométricamente, la multiplicación por un escalar modifica la longitud del vector y, si \\(\\alpha&lt;0\\), también invierte su dirección.",
+    "section": "6.8 Multiplicación por un escalar",
+    "text": "6.8 Multiplicación por un escalar\nSi \\(\\alpha\\in\\mathbb{R}\\) y \\(\\mathbf{x}\\in\\mathbb{R}^{p}\\), entonces\n\\[\n\\alpha\\mathbf{x}\n=\n\\begin{pmatrix}\n\\alpha x_1\\\\\n\\vdots\\\\\n\\alpha x_p\n\\end{pmatrix}.\n\\]\nGeométricamente, la multiplicación por un escalar modifica la longitud del vector y, si \\(\\alpha&lt;0\\), también invierte su dirección.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -448,8 +470,8 @@
     "objectID": "fundamentos/algebra-lineal.html#combinaciones-lineales",
     "href": "fundamentos/algebra-lineal.html#combinaciones-lineales",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.8 Combinaciones lineales",
-    "text": "6.8 Combinaciones lineales\n\nDefinición 6.3 Una combinación lineal de los vectores \\(\\mathbf{v}_1,\\ldots,\\mathbf{v}_k\\) es cualquier vector de la forma\n\\[\n\\alpha_1\\mathbf{v}_1+\\cdots+\\alpha_k\\mathbf{v}_k,\n\\]\ndonde \\(\\alpha_1,\\ldots,\\alpha_k\\in\\mathbb{R}\\).\n\nLas combinaciones lineales aparecen en prácticamente todos los modelos lineales.\nPor ejemplo, en regresión lineal múltiple,\n\\[\n\\widehat{y}\n=\n\\beta_0\n+\n\\beta_1x_1\n+\n\\cdots\n+\n\\beta_px_p.\n\\]\nLa predicción es una combinación lineal de las características.",
+    "section": "6.9 Combinaciones lineales",
+    "text": "6.9 Combinaciones lineales\n\nDefinición 6.3 Una combinación lineal de los vectores \\(\\mathbf{v}_1,\\ldots,\\mathbf{v}_k\\) es cualquier vector de la forma\n\\[\n\\alpha_1\\mathbf{v}_1+\\cdots+\\alpha_k\\mathbf{v}_k,\n\\]\ndonde \\(\\alpha_1,\\ldots,\\alpha_k\\in\\mathbb{R}\\).\n\nLas combinaciones lineales aparecen en prácticamente todos los modelos lineales.\nPor ejemplo, en regresión lineal múltiple,\n\\[\n\\widehat{y}\n=\n\\beta_0\n+\n\\beta_1x_1\n+\n\\cdots\n+\n\\beta_px_p.\n\\]\nLa predicción es una combinación lineal de las características.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -459,8 +481,8 @@
     "objectID": "fundamentos/algebra-lineal.html#combinación-convexa",
     "href": "fundamentos/algebra-lineal.html#combinación-convexa",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.9 Combinación convexa",
-    "text": "6.9 Combinación convexa\nUna combinación lineal se denomina convexa si\n\\[\n\\alpha_j\\geq 0\n\\]\npara todo \\(j\\), y\n\\[\n\\sum_{j=1}^{k}\\alpha_j=1.\n\\]\nEn ese caso,\n\\[\n\\mathbf{z}\n=\n\\sum_{j=1}^{k}\n\\alpha_j\\mathbf{v}_j\n\\]\nse encuentra dentro de la envolvente convexa de los vectores.\nEste concepto será importante en optimización y teoría de clasificación.",
+    "section": "6.10 Combinación convexa",
+    "text": "6.10 Combinación convexa\nUna combinación lineal se denomina convexa si\n\\[\n\\alpha_j\\geq 0\n\\]\npara todo \\(j\\), y\n\\[\n\\sum_{j=1}^{k}\\alpha_j=1.\n\\]\nEn ese caso,\n\\[\n\\mathbf{z}\n=\n\\sum_{j=1}^{k}\n\\alpha_j\\mathbf{v}_j\n\\]\nse encuentra dentro de la envolvente convexa de los vectores.\nEste concepto será importante en optimización y teoría de clasificación.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -470,8 +492,8 @@
     "objectID": "fundamentos/algebra-lineal.html#independencia-lineal",
     "href": "fundamentos/algebra-lineal.html#independencia-lineal",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.10 Independencia lineal",
-    "text": "6.10 Independencia lineal\n\nDefinición 6.4 Los vectores \\(\\mathbf{v}_1,\\ldots,\\mathbf{v}_k\\) son linealmente independientes si la ecuación\n\\[\n\\alpha_1\\mathbf{v}_1+\\cdots+\\alpha_k\\mathbf{v}_k\n=\n\\mathbf{0}\n\\]\nimplica\n\\[\n\\alpha_1=\\cdots=\\alpha_k=0.\n\\]\n\nSi existe una solución no trivial, los vectores son linealmente dependientes.\n\nEjemplo 6.3 Los vectores\n\\[\n\\mathbf{v}_1=\n\\begin{pmatrix}\n1\\\\\n0\n\\end{pmatrix},\n\\qquad\n\\mathbf{v}_2=\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}\n\\]\nson linealmente independientes.\nEn cambio,\n\\[\n\\mathbf{v}_3=\n\\begin{pmatrix}\n2\\\\\n4\n\\end{pmatrix},\n\\qquad\n\\mathbf{v}_4=\n\\begin{pmatrix}\n1\\\\\n2\n\\end{pmatrix}\n\\]\nson linealmente dependientes porque\n\\[\n\\mathbf{v}_3=2\\mathbf{v}_4.\n\\]",
+    "section": "6.11 Independencia lineal",
+    "text": "6.11 Independencia lineal\n\nDefinición 6.4 Los vectores \\(\\mathbf{v}_1,\\ldots,\\mathbf{v}_k\\) son linealmente independientes si la ecuación\n\\[\n\\alpha_1\\mathbf{v}_1+\\cdots+\\alpha_k\\mathbf{v}_k\n=\n\\mathbf{0}\n\\]\nimplica\n\\[\n\\alpha_1=\\cdots=\\alpha_k=0.\n\\]\n\nSi existe una solución no trivial, los vectores son linealmente dependientes.\n\nEjemplo 6.3 Los vectores\n\\[\n\\mathbf{v}_1=\n\\begin{pmatrix}\n1\\\\\n0\n\\end{pmatrix},\n\\qquad\n\\mathbf{v}_2=\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}\n\\]\nson linealmente independientes.\nEn cambio,\n\\[\n\\mathbf{v}_3=\n\\begin{pmatrix}\n2\\\\\n4\n\\end{pmatrix},\n\\qquad\n\\mathbf{v}_4=\n\\begin{pmatrix}\n1\\\\\n2\n\\end{pmatrix}\n\\]\nson linealmente dependientes porque\n\\[\n\\mathbf{v}_3=2\\mathbf{v}_4.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -481,8 +503,8 @@
     "objectID": "fundamentos/algebra-lineal.html#espacios-vectoriales",
     "href": "fundamentos/algebra-lineal.html#espacios-vectoriales",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.11 Espacios vectoriales",
-    "text": "6.11 Espacios vectoriales\n\nDefinición 6.5 Un espacio vectorial sobre \\(\\mathbb{R}\\) es un conjunto de objetos llamados vectores, equipado con operaciones de suma y multiplicación por escalares que satisfacen ciertas propiedades algebraicas.\n\nEl ejemplo principal es \\(\\mathbb{R}^{p}\\).\nLas propiedades fundamentales incluyen:\n\ncerradura bajo la suma;\nasociatividad;\nconmutatividad;\nexistencia del vector cero;\nexistencia del inverso aditivo;\ncerradura bajo multiplicación por escalares;\ndistributividad;\ncompatibilidad de escalares;\nidentidad escalar.",
+    "section": "6.12 Espacios vectoriales",
+    "text": "6.12 Espacios vectoriales\n\nDefinición 6.5 Un espacio vectorial sobre \\(\\mathbb{R}\\) es un conjunto de objetos llamados vectores, equipado con operaciones de suma y multiplicación por escalares que satisfacen ciertas propiedades algebraicas.\n\nEl ejemplo principal es \\(\\mathbb{R}^{p}\\).\nLas propiedades fundamentales incluyen:\n\ncerradura bajo la suma;\nasociatividad;\nconmutatividad;\nexistencia del vector cero;\nexistencia del inverso aditivo;\ncerradura bajo multiplicación por escalares;\ndistributividad;\ncompatibilidad de escalares;\nidentidad escalar.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -492,8 +514,8 @@
     "objectID": "fundamentos/algebra-lineal.html#subespacios",
     "href": "fundamentos/algebra-lineal.html#subespacios",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.12 Subespacios",
-    "text": "6.12 Subespacios\n\nDefinición 6.6 Un subconjunto \\(W\\) de un espacio vectorial \\(V\\) es un subespacio vectorial si:\n\ncontiene al vector cero;\nes cerrado bajo la suma;\nes cerrado bajo la multiplicación por escalares.\n\n\nPor ejemplo, el conjunto\n\\[\nW\n=\n\\left\\{\n\\begin{pmatrix}\nx\\\\\n2x\n\\end{pmatrix}\n:\nx\\in\\mathbb{R}\n\\right\\}\n\\]\nes un subespacio de \\(\\mathbb{R}^{2}\\).",
+    "section": "6.13 Subespacios",
+    "text": "6.13 Subespacios\n\nDefinición 6.6 Un subconjunto \\(W\\) de un espacio vectorial \\(V\\) es un subespacio vectorial si:\n\ncontiene al vector cero;\nes cerrado bajo la suma;\nes cerrado bajo la multiplicación por escalares.\n\n\nPor ejemplo, el conjunto\n\\[\nW\n=\n\\left\\{\n\\begin{pmatrix}\nx\\\\\n2x\n\\end{pmatrix}\n:\nx\\in\\mathbb{R}\n\\right\\}\n\\]\nes un subespacio de \\(\\mathbb{R}^{2}\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -503,8 +525,8 @@
     "objectID": "fundamentos/algebra-lineal.html#espacio-generado",
     "href": "fundamentos/algebra-lineal.html#espacio-generado",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.13 Espacio generado",
-    "text": "6.13 Espacio generado\n\nDefinición 6.7 El espacio generado por los vectores \\(\\mathbf{v}_1,\\ldots,\\mathbf{v}_k\\) es el conjunto de todas sus combinaciones lineales.\n\nSe denota por\n\\[\n\\operatorname{span}\n\\{\\mathbf{v}_1,\\ldots,\\mathbf{v}_k\\}.\n\\]\nPor ejemplo,\n\\[\n\\operatorname{span}\n\\left\\{\n\\begin{pmatrix}\n1\\\\\n0\n\\end{pmatrix},\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}\n\\right\\}\n=\n\\mathbb{R}^{2}.\n\\]",
+    "section": "6.14 Espacio generado",
+    "text": "6.14 Espacio generado\n\nDefinición 6.7 El espacio generado por los vectores \\(\\mathbf{v}_1,\\ldots,\\mathbf{v}_k\\) es el conjunto de todas sus combinaciones lineales.\n\nSe denota por\n\\[\n\\operatorname{span}\n\\{\\mathbf{v}_1,\\ldots,\\mathbf{v}_k\\}.\n\\]\nPor ejemplo,\n\\[\n\\operatorname{span}\n\\left\\{\n\\begin{pmatrix}\n1\\\\\n0\n\\end{pmatrix},\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}\n\\right\\}\n=\n\\mathbb{R}^{2}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -514,8 +536,8 @@
     "objectID": "fundamentos/algebra-lineal.html#base-y-dimensión",
     "href": "fundamentos/algebra-lineal.html#base-y-dimensión",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.14 Base y dimensión",
-    "text": "6.14 Base y dimensión\n\nDefinición 6.8 Una base de un espacio vectorial \\(V\\) es un conjunto de vectores linealmente independientes que genera todo el espacio.\n\nLa base canónica de \\(\\mathbb{R}^{p}\\) es\n\\[\n\\mathbf{e}_1,\\ldots,\\mathbf{e}_p,\n\\]\ndonde\n\\[\n\\mathbf{e}_1=\n\\begin{pmatrix}\n1\\\\\n0\\\\\n\\vdots\\\\\n0\n\\end{pmatrix},\n\\quad\n\\mathbf{e}_2=\n\\begin{pmatrix}\n0\\\\\n1\\\\\n\\vdots\\\\\n0\n\\end{pmatrix},\n\\quad\\ldots\n\\]\nLa dimensión de un espacio vectorial es el número de vectores de cualquier base.\nPor tanto,\n\\[\n\\dim(\\mathbb{R}^{p})=p.\n\\]",
+    "section": "6.15 Base y dimensión",
+    "text": "6.15 Base y dimensión\n\nDefinición 6.8 Una base de un espacio vectorial \\(V\\) es un conjunto de vectores linealmente independientes que genera todo el espacio.\n\nLa base canónica de \\(\\mathbb{R}^{p}\\) es\n\\[\n\\mathbf{e}_1,\\ldots,\\mathbf{e}_p,\n\\]\ndonde\n\\[\n\\mathbf{e}_1=\n\\begin{pmatrix}\n1\\\\\n0\\\\\n\\vdots\\\\\n0\n\\end{pmatrix},\n\\quad\n\\mathbf{e}_2=\n\\begin{pmatrix}\n0\\\\\n1\\\\\n\\vdots\\\\\n0\n\\end{pmatrix},\n\\quad\\ldots\n\\]\nLa dimensión de un espacio vectorial es el número de vectores de cualquier base.\nPor tanto,\n\\[\n\\dim(\\mathbb{R}^{p})=p.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -525,8 +547,8 @@
     "objectID": "fundamentos/algebra-lineal.html#matrices",
     "href": "fundamentos/algebra-lineal.html#matrices",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.15 Matrices",
-    "text": "6.15 Matrices\n\nDefinición 6.9 Una matriz de dimensión \\(n\\times p\\) es un arreglo rectangular de números con \\(n\\) filas y \\(p\\) columnas.\n\nSe escribe\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\na_{11} & a_{12} & \\cdots & a_{1p}\\\\\na_{21} & a_{22} & \\cdots & a_{2p}\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\na_{n1} & a_{n2} & \\cdots & a_{np}\n\\end{pmatrix}\n\\in\\mathbb{R}^{n\\times p}.\n\\]\nEn aprendizaje automático, una matriz de datos se representa habitualmente mediante\n\\[\n\\mathbf{X}\\in\\mathbb{R}^{n\\times p},\n\\]\ndonde:\n\n\\(n\\) es el número de observaciones;\n\\(p\\) es el número de características.",
+    "section": "6.16 Matrices",
+    "text": "6.16 Matrices\n\nDefinición 6.9 Una matriz de dimensión \\(n\\times p\\) es un arreglo rectangular de números con \\(n\\) filas y \\(p\\) columnas.\n\nSe escribe\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\na_{11} & a_{12} & \\cdots & a_{1p}\\\\\na_{21} & a_{22} & \\cdots & a_{2p}\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\na_{n1} & a_{n2} & \\cdots & a_{np}\n\\end{pmatrix}\n\\in\\mathbb{R}^{n\\times p}.\n\\]\nEn aprendizaje automático, una matriz de datos se representa habitualmente mediante\n\\[\n\\mathbf{X}\\in\\mathbb{R}^{n\\times p},\n\\]\ndonde:\n\n\\(n\\) es el número de observaciones;\n\\(p\\) es el número de características.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -536,8 +558,8 @@
     "objectID": "fundamentos/algebra-lineal.html#filas-y-columnas",
     "href": "fundamentos/algebra-lineal.html#filas-y-columnas",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.16 Filas y columnas",
-    "text": "6.16 Filas y columnas\nLa fila \\(i\\) de \\(\\mathbf{X}\\) representa la observación \\(i\\):\n\\[\n\\mathbf{x}_i^{\\mathsf T}\n=\n\\begin{pmatrix}\nx_{i1} & \\cdots & x_{ip}\n\\end{pmatrix}.\n\\]\nLa columna \\(j\\) representa la característica \\(j\\):\n\\[\n\\mathbf{x}_{\\cdot j}\n=\n\\begin{pmatrix}\nx_{1j}\\\\\n\\vdots\\\\\nx_{nj}\n\\end{pmatrix}.\n\\]",
+    "section": "6.17 Filas y columnas",
+    "text": "6.17 Filas y columnas\nLa fila \\(i\\) de \\(\\mathbf{X}\\) representa la observación \\(i\\):\n\\[\n\\mathbf{x}_i^{\\mathsf T}\n=\n\\begin{pmatrix}\nx_{i1} & \\cdots & x_{ip}\n\\end{pmatrix}.\n\\]\nLa columna \\(j\\) representa la característica \\(j\\):\n\\[\n\\mathbf{x}_{\\cdot j}\n=\n\\begin{pmatrix}\nx_{1j}\\\\\n\\vdots\\\\\nx_{nj}\n\\end{pmatrix}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -547,8 +569,8 @@
     "objectID": "fundamentos/algebra-lineal.html#matrices-especiales",
     "href": "fundamentos/algebra-lineal.html#matrices-especiales",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.17 Matrices especiales",
-    "text": "6.17 Matrices especiales\n\n6.17.1 Matriz cero\n\\[\n\\mathbf{0}\n=\n\\begin{pmatrix}\n0 & \\cdots & 0\\\\\n\\vdots & \\ddots & \\vdots\\\\\n0 & \\cdots & 0\n\\end{pmatrix}.\n\\]\n\n\n6.17.2 Matriz identidad\nLa matriz identidad de orden \\(p\\) es\n\\[\n\\mathbf{I}_p\n=\n\\begin{pmatrix}\n1 & 0 & \\cdots & 0\\\\\n0 & 1 & \\cdots & 0\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\n0 & 0 & \\cdots & 1\n\\end{pmatrix}.\n\\]\nCumple\n\\[\n\\mathbf{I}_p\\mathbf{x}=\\mathbf{x}.\n\\]\n\n\n6.17.3 Matriz diagonal\nUna matriz diagonal tiene ceros fuera de la diagonal principal:\n\\[\n\\mathbf{D}\n=\n\\operatorname{diag}(d_1,\\ldots,d_p).\n\\]\n\n\n6.17.4 Matriz simétrica\n\nDefinición 6.10 Una matriz cuadrada \\(\\mathbf{A}\\) es simétrica si\n\\[\n\\mathbf{A}^{\\mathsf T}=\\mathbf{A}.\n\\]\n\nLas matrices de covarianza son simétricas.",
+    "section": "6.18 Matrices especiales",
+    "text": "6.18 Matrices especiales\n\n6.18.1 Matriz cero\n\\[\n\\mathbf{0}\n=\n\\begin{pmatrix}\n0 & \\cdots & 0\\\\\n\\vdots & \\ddots & \\vdots\\\\\n0 & \\cdots & 0\n\\end{pmatrix}.\n\\]\n\n\n6.18.2 Matriz identidad\nLa matriz identidad de orden \\(p\\) es\n\\[\n\\mathbf{I}_p\n=\n\\begin{pmatrix}\n1 & 0 & \\cdots & 0\\\\\n0 & 1 & \\cdots & 0\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\n0 & 0 & \\cdots & 1\n\\end{pmatrix}.\n\\]\nCumple\n\\[\n\\mathbf{I}_p\\mathbf{x}=\\mathbf{x}.\n\\]\n\n\n6.18.3 Matriz diagonal\nUna matriz diagonal tiene ceros fuera de la diagonal principal:\n\\[\n\\mathbf{D}\n=\n\\operatorname{diag}(d_1,\\ldots,d_p).\n\\]\n\n\n6.18.4 Matriz simétrica\n\nDefinición 6.10 Una matriz cuadrada \\(\\mathbf{A}\\) es simétrica si\n\\[\n\\mathbf{A}^{\\mathsf T}=\\mathbf{A}.\n\\]\n\nLas matrices de covarianza son simétricas.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -558,8 +580,8 @@
     "objectID": "fundamentos/algebra-lineal.html#suma-de-matrices",
     "href": "fundamentos/algebra-lineal.html#suma-de-matrices",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.18 Suma de matrices",
-    "text": "6.18 Suma de matrices\nSi\n\\[\n\\mathbf{A},\\mathbf{B}\\in\\mathbb{R}^{n\\times p},\n\\]\nentonces\n\\[\n\\mathbf{A}+\\mathbf{B}\n=\n(a_{ij}+b_{ij}).\n\\]\nLa suma solamente está definida cuando ambas matrices tienen las mismas dimensiones.",
+    "section": "6.19 Suma de matrices",
+    "text": "6.19 Suma de matrices\nSi\n\\[\n\\mathbf{A},\\mathbf{B}\\in\\mathbb{R}^{n\\times p},\n\\]\nentonces\n\\[\n\\mathbf{A}+\\mathbf{B}\n=\n(a_{ij}+b_{ij}).\n\\]\nLa suma solamente está definida cuando ambas matrices tienen las mismas dimensiones.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -569,8 +591,8 @@
     "objectID": "fundamentos/algebra-lineal.html#multiplicación-de-una-matriz-por-un-escalar",
     "href": "fundamentos/algebra-lineal.html#multiplicación-de-una-matriz-por-un-escalar",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.19 Multiplicación de una matriz por un escalar",
-    "text": "6.19 Multiplicación de una matriz por un escalar\nSi \\(\\alpha\\in\\mathbb{R}\\), entonces\n\\[\n\\alpha\\mathbf{A}\n=\n(\\alpha a_{ij}).\n\\]",
+    "section": "6.20 Multiplicación de una matriz por un escalar",
+    "text": "6.20 Multiplicación de una matriz por un escalar\nSi \\(\\alpha\\in\\mathbb{R}\\), entonces\n\\[\n\\alpha\\mathbf{A}\n=\n(\\alpha a_{ij}).\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -580,8 +602,8 @@
     "objectID": "fundamentos/algebra-lineal.html#producto-matricial",
     "href": "fundamentos/algebra-lineal.html#producto-matricial",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.20 Producto matricial",
-    "text": "6.20 Producto matricial\nSean\n\\[\n\\mathbf{A}\\in\\mathbb{R}^{n\\times p}\n\\]\ny\n\\[\n\\mathbf{B}\\in\\mathbb{R}^{p\\times m}.\n\\]\nEl producto\n\\[\n\\mathbf{C}\n=\n\\mathbf{A}\\mathbf{B}\n\\]\nes una matriz de dimensión \\(n\\times m\\), cuyos elementos son\n\\[\nc_{ij}\n=\n\\sum_{k=1}^{p}\na_{ik}b_{kj}.\n\\]\n\nEjemplo 6.4 Sean\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\n1 & 2\\\\\n3 & 4\n\\end{pmatrix},\n\\qquad\n\\mathbf{B}\n=\n\\begin{pmatrix}\n2 & 0\\\\\n1 & 5\n\\end{pmatrix}.\n\\]\nEntonces\n\\[\n\\mathbf{A}\\mathbf{B}\n=\n\\begin{pmatrix}\n1(2)+2(1) & 1(0)+2(5)\\\\\n3(2)+4(1) & 3(0)+4(5)\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4 & 10\\\\\n10 & 20\n\\end{pmatrix}.\n\\]\n\nEn general,\n\\[\n\\mathbf{A}\\mathbf{B}\n\\neq\n\\mathbf{B}\\mathbf{A}.\n\\]",
+    "section": "6.21 Producto matricial",
+    "text": "6.21 Producto matricial\nSean\n\\[\n\\mathbf{A}\\in\\mathbb{R}^{n\\times p}\n\\]\ny\n\\[\n\\mathbf{B}\\in\\mathbb{R}^{p\\times m}.\n\\]\nEl producto\n\\[\n\\mathbf{C}\n=\n\\mathbf{A}\\mathbf{B}\n\\]\nes una matriz de dimensión \\(n\\times m\\), cuyos elementos son\n\\[\nc_{ij}\n=\n\\sum_{k=1}^{p}\na_{ik}b_{kj}.\n\\]\n\nEjemplo 6.4 Sean\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\n1 & 2\\\\\n3 & 4\n\\end{pmatrix},\n\\qquad\n\\mathbf{B}\n=\n\\begin{pmatrix}\n2 & 0\\\\\n1 & 5\n\\end{pmatrix}.\n\\]\nEntonces\n\\[\n\\mathbf{A}\\mathbf{B}\n=\n\\begin{pmatrix}\n1(2)+2(1) & 1(0)+2(5)\\\\\n3(2)+4(1) & 3(0)+4(5)\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n4 & 10\\\\\n10 & 20\n\\end{pmatrix}.\n\\]\n\nEn general,\n\\[\n\\mathbf{A}\\mathbf{B}\n\\neq\n\\mathbf{B}\\mathbf{A}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -591,8 +613,8 @@
     "objectID": "fundamentos/algebra-lineal.html#matriz-transpuesta",
     "href": "fundamentos/algebra-lineal.html#matriz-transpuesta",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.21 Matriz transpuesta",
-    "text": "6.21 Matriz transpuesta\nLa transpuesta de una matriz \\(\\mathbf{A}\\in\\mathbb{R}^{n\\times p}\\) es la matriz\n\\[\n\\mathbf{A}^{\\mathsf T}\\in\\mathbb{R}^{p\\times n}\n\\]\nobtenida intercambiando filas por columnas.\nSe cumplen las propiedades:\n\\[\n(\\mathbf{A}^{\\mathsf T})^{\\mathsf T}\n=\n\\mathbf{A},\n\\]\n\\[\n(\\mathbf{A}+\\mathbf{B})^{\\mathsf T}\n=\n\\mathbf{A}^{\\mathsf T}\n+\n\\mathbf{B}^{\\mathsf T},\n\\]\n\\[\n(\\mathbf{A}\\mathbf{B})^{\\mathsf T}\n=\n\\mathbf{B}^{\\mathsf T}\n\\mathbf{A}^{\\mathsf T}.\n\\]",
+    "section": "6.22 Matriz transpuesta",
+    "text": "6.22 Matriz transpuesta\nLa transpuesta de una matriz \\(\\mathbf{A}\\in\\mathbb{R}^{n\\times p}\\) es la matriz\n\\[\n\\mathbf{A}^{\\mathsf T}\\in\\mathbb{R}^{p\\times n}\n\\]\nobtenida intercambiando filas por columnas.\nSe cumplen las propiedades:\n\\[\n(\\mathbf{A}^{\\mathsf T})^{\\mathsf T}\n=\n\\mathbf{A},\n\\]\n\\[\n(\\mathbf{A}+\\mathbf{B})^{\\mathsf T}\n=\n\\mathbf{A}^{\\mathsf T}\n+\n\\mathbf{B}^{\\mathsf T},\n\\]\n\\[\n(\\mathbf{A}\\mathbf{B})^{\\mathsf T}\n=\n\\mathbf{B}^{\\mathsf T}\n\\mathbf{A}^{\\mathsf T}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -602,8 +624,8 @@
     "objectID": "fundamentos/algebra-lineal.html#producto-interno",
     "href": "fundamentos/algebra-lineal.html#producto-interno",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.22 Producto interno",
-    "text": "6.22 Producto interno\n\nDefinición 6.11 El producto interno euclidiano de dos vectores \\(\\mathbf{x},\\mathbf{y}\\in\\mathbb{R}^{p}\\) se define como\n\\[\n\\langle\\mathbf{x},\\mathbf{y}\\rangle\n=\n\\mathbf{x}^{\\mathsf T}\\mathbf{y}\n=\n\\sum_{j=1}^{p}x_jy_j.\n\\]\n\n\nEjemplo 6.5 Si\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n1\\\\\n2\\\\\n3\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\n4\\\\\n0\\\\\n-1\n\\end{pmatrix},\n\\]\nentonces\n\\[\n\\mathbf{x}^{\\mathsf T}\\mathbf{y}\n=\n1(4)+2(0)+3(-1)\n=\n1.\n\\]",
+    "section": "6.23 Producto interno",
+    "text": "6.23 Producto interno\n\nDefinición 6.11 El producto interno euclidiano de dos vectores \\(\\mathbf{x},\\mathbf{y}\\in\\mathbb{R}^{p}\\) se define como\n\\[\n\\langle\\mathbf{x},\\mathbf{y}\\rangle\n=\n\\mathbf{x}^{\\mathsf T}\\mathbf{y}\n=\n\\sum_{j=1}^{p}x_jy_j.\n\\]\n\n\nEjemplo 6.5 Si\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n1\\\\\n2\\\\\n3\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\n4\\\\\n0\\\\\n-1\n\\end{pmatrix},\n\\]\nentonces\n\\[\n\\mathbf{x}^{\\mathsf T}\\mathbf{y}\n=\n1(4)+2(0)+3(-1)\n=\n1.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -613,8 +635,8 @@
     "objectID": "fundamentos/algebra-lineal.html#norma",
     "href": "fundamentos/algebra-lineal.html#norma",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.23 Norma",
-    "text": "6.23 Norma\n\nDefinición 6.12 La norma euclidiana de un vector \\(\\mathbf{x}\\in\\mathbb{R}^{p}\\) es\n\\[\n\\|\\mathbf{x}\\|_2\n=\n\\sqrt{\n\\mathbf{x}^{\\mathsf T}\\mathbf{x}\n}\n=\n\\sqrt{\n\\sum_{j=1}^{p}x_j^2\n}.\n\\]\n\nLa norma representa la longitud del vector.\nSe cumplen:\n\n\\(\\|\\mathbf{x}\\|_2\\geq 0\\);\n\\(\\|\\mathbf{x}\\|_2=0\\) si y solo si \\(\\mathbf{x}=\\mathbf{0}\\);\n\\(\\|\\alpha\\mathbf{x}\\|_2=|\\alpha|\\|\\mathbf{x}\\|_2\\);\n\\(\\|\\mathbf{x}+\\mathbf{y}\\|_2\\leq\\|\\mathbf{x}\\|_2+\\|\\mathbf{y}\\|_2\\).",
+    "section": "6.24 Norma",
+    "text": "6.24 Norma\n\nDefinición 6.12 La norma euclidiana de un vector \\(\\mathbf{x}\\in\\mathbb{R}^{p}\\) es\n\\[\n\\|\\mathbf{x}\\|_2\n=\n\\sqrt{\n\\mathbf{x}^{\\mathsf T}\\mathbf{x}\n}\n=\n\\sqrt{\n\\sum_{j=1}^{p}x_j^2\n}.\n\\]\n\nLa norma representa la longitud del vector.\nSe cumplen:\n\n\\(\\|\\mathbf{x}\\|_2\\geq 0\\);\n\\(\\|\\mathbf{x}\\|_2=0\\) si y solo si \\(\\mathbf{x}=\\mathbf{0}\\);\n\\(\\|\\alpha\\mathbf{x}\\|_2=|\\alpha|\\|\\mathbf{x}\\|_2\\);\n\\(\\|\\mathbf{x}+\\mathbf{y}\\|_2\\leq\\|\\mathbf{x}\\|_2+\\|\\mathbf{y}\\|_2\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -624,8 +646,8 @@
     "objectID": "fundamentos/algebra-lineal.html#distancia-euclidiana",
     "href": "fundamentos/algebra-lineal.html#distancia-euclidiana",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.24 Distancia euclidiana",
-    "text": "6.24 Distancia euclidiana\nLa distancia entre \\(\\mathbf{x}\\) y \\(\\mathbf{y}\\) se define como\n\\[\nd(\\mathbf{x},\\mathbf{y})\n=\n\\|\\mathbf{x}-\\mathbf{y}\\|_2.\n\\]\nEsta distancia es la base del algoritmo \\(k\\)-NN y del método \\(k\\)-means.\n\nEjemplo 6.6 Sean\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n1\\\\\n2\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\n4\\\\\n6\n\\end{pmatrix}.\n\\]\nEntonces\n\\[\nd(\\mathbf{x},\\mathbf{y})\n=\n\\sqrt{(1-4)^2+(2-6)^2}\n=\n5.\n\\]",
+    "section": "6.25 Distancia euclidiana",
+    "text": "6.25 Distancia euclidiana\nLa distancia entre \\(\\mathbf{x}\\) y \\(\\mathbf{y}\\) se define como\n\\[\nd(\\mathbf{x},\\mathbf{y})\n=\n\\|\\mathbf{x}-\\mathbf{y}\\|_2.\n\\]\nEsta distancia es la base del algoritmo \\(k\\)-NN y del método \\(k\\)-means.\n\nEjemplo 6.6 Sean\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n1\\\\\n2\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\n4\\\\\n6\n\\end{pmatrix}.\n\\]\nEntonces\n\\[\nd(\\mathbf{x},\\mathbf{y})\n=\n\\sqrt{(1-4)^2+(2-6)^2}\n=\n5.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -635,8 +657,8 @@
     "objectID": "fundamentos/algebra-lineal.html#desigualdad-de-cauchy-schwarz",
     "href": "fundamentos/algebra-lineal.html#desigualdad-de-cauchy-schwarz",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.25 Desigualdad de Cauchy-Schwarz",
-    "text": "6.25 Desigualdad de Cauchy-Schwarz\n\nTeorema 6.1 Para cualesquiera vectores \\(\\mathbf{x},\\mathbf{y}\\in\\mathbb{R}^{p}\\),\n\\[\n|\\mathbf{x}^{\\mathsf T}\\mathbf{y}|\n\\leq\n\\|\\mathbf{x}\\|_2\n\\|\\mathbf{y}\\|_2.\n\\]\n\nEsta desigualdad permite definir el ángulo entre dos vectores.",
+    "section": "6.26 Desigualdad de Cauchy-Schwarz",
+    "text": "6.26 Desigualdad de Cauchy-Schwarz\n\nTeorema 6.1 Para cualesquiera vectores \\(\\mathbf{x},\\mathbf{y}\\in\\mathbb{R}^{p}\\),\n\\[\n|\\mathbf{x}^{\\mathsf T}\\mathbf{y}|\n\\leq\n\\|\\mathbf{x}\\|_2\n\\|\\mathbf{y}\\|_2.\n\\]\n\nEsta desigualdad permite definir el ángulo entre dos vectores.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -646,8 +668,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ángulo-entre-vectores",
     "href": "fundamentos/algebra-lineal.html#ángulo-entre-vectores",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.26 Ángulo entre vectores",
-    "text": "6.26 Ángulo entre vectores\nSi \\(\\mathbf{x}\\neq\\mathbf{0}\\) y \\(\\mathbf{y}\\neq\\mathbf{0}\\), se define\n\\[\n\\cos\\theta\n=\n\\frac{\n\\mathbf{x}^{\\mathsf T}\\mathbf{y}\n}{\n\\|\\mathbf{x}\\|_2\\|\\mathbf{y}\\|_2\n}.\n\\]\nEste concepto es relevante en similitud coseno y análisis de texto.",
+    "section": "6.27 Ángulo entre vectores",
+    "text": "6.27 Ángulo entre vectores\nSi \\(\\mathbf{x}\\neq\\mathbf{0}\\) y \\(\\mathbf{y}\\neq\\mathbf{0}\\), se define\n\\[\n\\cos\\theta\n=\n\\frac{\n\\mathbf{x}^{\\mathsf T}\\mathbf{y}\n}{\n\\|\\mathbf{x}\\|_2\\|\\mathbf{y}\\|_2\n}.\n\\]\nEste concepto es relevante en similitud coseno y análisis de texto.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -657,8 +679,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ortogonalidad",
     "href": "fundamentos/algebra-lineal.html#ortogonalidad",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.27 Ortogonalidad",
-    "text": "6.27 Ortogonalidad\n\nDefinición 6.13 Dos vectores \\(\\mathbf{x}\\) y \\(\\mathbf{y}\\) son ortogonales si\n\\[\n\\mathbf{x}^{\\mathsf T}\\mathbf{y}=0.\n\\]\n\nLa ortogonalidad generaliza la idea geométrica de perpendicularidad.",
+    "section": "6.28 Ortogonalidad",
+    "text": "6.28 Ortogonalidad\n\nDefinición 6.13 Dos vectores \\(\\mathbf{x}\\) y \\(\\mathbf{y}\\) son ortogonales si\n\\[\n\\mathbf{x}^{\\mathsf T}\\mathbf{y}=0.\n\\]\n\nLa ortogonalidad generaliza la idea geométrica de perpendicularidad.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -668,8 +690,8 @@
     "objectID": "fundamentos/algebra-lineal.html#vectores-ortonormales",
     "href": "fundamentos/algebra-lineal.html#vectores-ortonormales",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.28 Vectores ortonormales",
-    "text": "6.28 Vectores ortonormales\nUn conjunto de vectores \\(\\mathbf{q}_1,\\ldots,\\mathbf{q}_k\\) es ortonormal si:\n\\[\n\\mathbf{q}_i^{\\mathsf T}\\mathbf{q}_j\n=\n\\begin{cases}\n1, & i=j,\\\\\n0, & i\\neq j.\n\\end{cases}\n\\]\nSi las columnas de una matriz cuadrada \\(\\mathbf{Q}\\) son ortonormales, entonces\n\\[\n\\mathbf{Q}^{\\mathsf T}\\mathbf{Q}\n=\n\\mathbf{I}.\n\\]\nPor tanto,\n\\[\n\\mathbf{Q}^{-1}\n=\n\\mathbf{Q}^{\\mathsf T}.\n\\]",
+    "section": "6.29 Vectores ortonormales",
+    "text": "6.29 Vectores ortonormales\nUn conjunto de vectores \\(\\mathbf{q}_1,\\ldots,\\mathbf{q}_k\\) es ortonormal si:\n\\[\n\\mathbf{q}_i^{\\mathsf T}\\mathbf{q}_j\n=\n\\begin{cases}\n1, & i=j,\\\\\n0, & i\\neq j.\n\\end{cases}\n\\]\nSi las columnas de una matriz cuadrada \\(\\mathbf{Q}\\) son ortonormales, entonces\n\\[\n\\mathbf{Q}^{\\mathsf T}\\mathbf{Q}\n=\n\\mathbf{I}.\n\\]\nPor tanto,\n\\[\n\\mathbf{Q}^{-1}\n=\n\\mathbf{Q}^{\\mathsf T}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -679,8 +701,8 @@
     "objectID": "fundamentos/algebra-lineal.html#proyección-ortogonal",
     "href": "fundamentos/algebra-lineal.html#proyección-ortogonal",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.29 Proyección ortogonal",
-    "text": "6.29 Proyección ortogonal\nSea \\(\\mathbf{u}\\neq\\mathbf{0}\\). La proyección de \\(\\mathbf{x}\\) sobre \\(\\mathbf{u}\\) es\n\\[\n\\operatorname{proj}_{\\mathbf{u}}(\\mathbf{x})\n=\n\\frac{\n\\mathbf{x}^{\\mathsf T}\\mathbf{u}\n}{\n\\mathbf{u}^{\\mathsf T}\\mathbf{u}\n}\n\\mathbf{u}.\n\\]\nSi \\(\\|\\mathbf{u}\\|_2=1\\), entonces\n\\[\n\\operatorname{proj}_{\\mathbf{u}}(\\mathbf{x})\n=\n(\\mathbf{x}^{\\mathsf T}\\mathbf{u})\\mathbf{u}.\n\\]\nLa regresión lineal puede interpretarse geométricamente como una proyección del vector de respuestas sobre el espacio generado por las columnas de la matriz de diseño.",
+    "section": "6.30 Proyección ortogonal",
+    "text": "6.30 Proyección ortogonal\nSea \\(\\mathbf{u}\\neq\\mathbf{0}\\). La proyección de \\(\\mathbf{x}\\) sobre \\(\\mathbf{u}\\) es\n\\[\n\\operatorname{proj}_{\\mathbf{u}}(\\mathbf{x})\n=\n\\frac{\n\\mathbf{x}^{\\mathsf T}\\mathbf{u}\n}{\n\\mathbf{u}^{\\mathsf T}\\mathbf{u}\n}\n\\mathbf{u}.\n\\]\nSi \\(\\|\\mathbf{u}\\|_2=1\\), entonces\n\\[\n\\operatorname{proj}_{\\mathbf{u}}(\\mathbf{x})\n=\n(\\mathbf{x}^{\\mathsf T}\\mathbf{u})\\mathbf{u}.\n\\]\nLa regresión lineal puede interpretarse geométricamente como una proyección del vector de respuestas sobre el espacio generado por las columnas de la matriz de diseño.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -690,8 +712,8 @@
     "objectID": "fundamentos/algebra-lineal.html#sistemas-de-ecuaciones-lineales",
     "href": "fundamentos/algebra-lineal.html#sistemas-de-ecuaciones-lineales",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.30 Sistemas de ecuaciones lineales",
-    "text": "6.30 Sistemas de ecuaciones lineales\nUn sistema de \\(n\\) ecuaciones con \\(p\\) incógnitas puede escribirse como\n\\[\n\\mathbf{A}\\mathbf{x}\n=\n\\mathbf{b}.\n\\]\nPor ejemplo,\n\\[\n\\begin{aligned}\n2x_1+x_2&=5,\\\\\nx_1-3x_2&=-4\n\\end{aligned}\n\\]\nse representa como\n\\[\n\\begin{pmatrix}\n2 & 1\\\\\n1 & -3\n\\end{pmatrix}\n\\begin{pmatrix}\nx_1\\\\\nx_2\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n5\\\\\n-4\n\\end{pmatrix}.\n\\]",
+    "section": "6.31 Sistemas de ecuaciones lineales",
+    "text": "6.31 Sistemas de ecuaciones lineales\nUn sistema de \\(n\\) ecuaciones con \\(p\\) incógnitas puede escribirse como\n\\[\n\\mathbf{A}\\mathbf{x}\n=\n\\mathbf{b}.\n\\]\nPor ejemplo,\n\\[\n\\begin{aligned}\n2x_1+x_2&=5,\\\\\nx_1-3x_2&=-4\n\\end{aligned}\n\\]\nse representa como\n\\[\n\\begin{pmatrix}\n2 & 1\\\\\n1 & -3\n\\end{pmatrix}\n\\begin{pmatrix}\nx_1\\\\\nx_2\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n5\\\\\n-4\n\\end{pmatrix}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -701,8 +723,8 @@
     "objectID": "fundamentos/algebra-lineal.html#matriz-inversa",
     "href": "fundamentos/algebra-lineal.html#matriz-inversa",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.31 Matriz inversa",
-    "text": "6.31 Matriz inversa\n\nDefinición 6.14 Una matriz cuadrada \\(\\mathbf{A}\\) es invertible si existe una matriz \\(\\mathbf{A}^{-1}\\) tal que\n\\[\n\\mathbf{A}^{-1}\\mathbf{A}\n=\n\\mathbf{A}\\mathbf{A}^{-1}\n=\n\\mathbf{I}.\n\\]\n\nSi \\(\\mathbf{A}\\) es invertible, el sistema\n\\[\n\\mathbf{A}\\mathbf{x}=\\mathbf{b}\n\\]\ntiene la solución única\n\\[\n\\mathbf{x}\n=\n\\mathbf{A}^{-1}\\mathbf{b}.\n\\]\nEn la práctica computacional, normalmente no se calcula la inversa explícita; se utilizan métodos numéricos para resolver el sistema.",
+    "section": "6.32 Matriz inversa",
+    "text": "6.32 Matriz inversa\n\nDefinición 6.14 Una matriz cuadrada \\(\\mathbf{A}\\) es invertible si existe una matriz \\(\\mathbf{A}^{-1}\\) tal que\n\\[\n\\mathbf{A}^{-1}\\mathbf{A}\n=\n\\mathbf{A}\\mathbf{A}^{-1}\n=\n\\mathbf{I}.\n\\]\n\nSi \\(\\mathbf{A}\\) es invertible, el sistema\n\\[\n\\mathbf{A}\\mathbf{x}=\\mathbf{b}\n\\]\ntiene la solución única\n\\[\n\\mathbf{x}\n=\n\\mathbf{A}^{-1}\\mathbf{b}.\n\\]\nEn la práctica computacional, normalmente no se calcula la inversa explícita; se utilizan métodos numéricos para resolver el sistema.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -712,8 +734,8 @@
     "objectID": "fundamentos/algebra-lineal.html#determinante",
     "href": "fundamentos/algebra-lineal.html#determinante",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.32 Determinante",
-    "text": "6.32 Determinante\nEl determinante de una matriz cuadrada \\(\\mathbf{A}\\) se denota por\n\\[\n\\det(\\mathbf{A}).\n\\]\nUna matriz es invertible si y solo si\n\\[\n\\det(\\mathbf{A})\\neq 0.\n\\]\nEl determinante también mide el factor de cambio de volumen inducido por una transformación lineal.",
+    "section": "6.33 Determinante",
+    "text": "6.33 Determinante\nEl determinante de una matriz cuadrada \\(\\mathbf{A}\\) se denota por\n\\[\n\\det(\\mathbf{A}).\n\\]\nUna matriz es invertible si y solo si\n\\[\n\\det(\\mathbf{A})\\neq 0.\n\\]\nEl determinante también mide el factor de cambio de volumen inducido por una transformación lineal.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -723,8 +745,8 @@
     "objectID": "fundamentos/algebra-lineal.html#rango",
     "href": "fundamentos/algebra-lineal.html#rango",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.33 Rango",
-    "text": "6.33 Rango\n\nDefinición 6.15 El rango de una matriz \\(\\mathbf{A}\\) es el número máximo de columnas linealmente independientes.\n\nSe denota por\n\\[\n\\operatorname{rank}(\\mathbf{A}).\n\\]\nSi\n\\[\n\\mathbf{A}\\in\\mathbb{R}^{n\\times p},\n\\]\nentonces\n\\[\n\\operatorname{rank}(\\mathbf{A})\n\\leq\n\\min(n,p).\n\\]",
+    "section": "6.34 Rango",
+    "text": "6.34 Rango\n\nDefinición 6.15 El rango de una matriz \\(\\mathbf{A}\\) es el número máximo de columnas linealmente independientes.\n\nSe denota por\n\\[\n\\operatorname{rank}(\\mathbf{A}).\n\\]\nSi\n\\[\n\\mathbf{A}\\in\\mathbb{R}^{n\\times p},\n\\]\nentonces\n\\[\n\\operatorname{rank}(\\mathbf{A})\n\\leq\n\\min(n,p).\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -734,8 +756,8 @@
     "objectID": "fundamentos/algebra-lineal.html#espacio-columna",
     "href": "fundamentos/algebra-lineal.html#espacio-columna",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.34 Espacio columna",
-    "text": "6.34 Espacio columna\nEl espacio columna de \\(\\mathbf{A}\\) es\n\\[\n\\operatorname{Col}(\\mathbf{A})\n=\n\\operatorname{span}\n\\{\\mathbf{a}_1,\\ldots,\\mathbf{a}_p\\},\n\\]\ndonde \\(\\mathbf{a}_j\\) es la columna \\(j\\) de \\(\\mathbf{A}\\).",
+    "section": "6.35 Espacio columna",
+    "text": "6.35 Espacio columna\nEl espacio columna de \\(\\mathbf{A}\\) es\n\\[\n\\operatorname{Col}(\\mathbf{A})\n=\n\\operatorname{span}\n\\{\\mathbf{a}_1,\\ldots,\\mathbf{a}_p\\},\n\\]\ndonde \\(\\mathbf{a}_j\\) es la columna \\(j\\) de \\(\\mathbf{A}\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -745,8 +767,8 @@
     "objectID": "fundamentos/algebra-lineal.html#espacio-nulo",
     "href": "fundamentos/algebra-lineal.html#espacio-nulo",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.35 Espacio nulo",
-    "text": "6.35 Espacio nulo\nEl espacio nulo de \\(\\mathbf{A}\\) es\n\\[\n\\operatorname{Null}(\\mathbf{A})\n=\n\\{\n\\mathbf{x}:\n\\mathbf{A}\\mathbf{x}\n=\n\\mathbf{0}\n\\}.\n\\]\nSi el espacio nulo contiene vectores distintos de cero, las columnas de \\(\\mathbf{A}\\) son linealmente dependientes.",
+    "section": "6.36 Espacio nulo",
+    "text": "6.36 Espacio nulo\nEl espacio nulo de \\(\\mathbf{A}\\) es\n\\[\n\\operatorname{Null}(\\mathbf{A})\n=\n\\{\n\\mathbf{x}:\n\\mathbf{A}\\mathbf{x}\n=\n\\mathbf{0}\n\\}.\n\\]\nSi el espacio nulo contiene vectores distintos de cero, las columnas de \\(\\mathbf{A}\\) son linealmente dependientes.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -756,8 +778,8 @@
     "objectID": "fundamentos/algebra-lineal.html#transformaciones-lineales",
     "href": "fundamentos/algebra-lineal.html#transformaciones-lineales",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.36 Transformaciones lineales",
-    "text": "6.36 Transformaciones lineales\n\nDefinición 6.16 Una función\n\\[\nT:\\mathbb{R}^{p}\\to\\mathbb{R}^{m}\n\\]\nes lineal si para todos \\(\\mathbf{x},\\mathbf{y}\\) y todos \\(\\alpha,\\beta\\in\\mathbb{R}\\),\n\\[\nT(\\alpha\\mathbf{x}+\\beta\\mathbf{y})\n=\n\\alpha T(\\mathbf{x})\n+\n\\beta T(\\mathbf{y}).\n\\]\n\nToda transformación lineal puede representarse mediante una matriz:\n\\[\nT(\\mathbf{x})\n=\n\\mathbf{A}\\mathbf{x}.\n\\]",
+    "section": "6.37 Transformaciones lineales",
+    "text": "6.37 Transformaciones lineales\n\nDefinición 6.16 Una función\n\\[\nT:\\mathbb{R}^{p}\\to\\mathbb{R}^{m}\n\\]\nes lineal si para todos \\(\\mathbf{x},\\mathbf{y}\\) y todos \\(\\alpha,\\beta\\in\\mathbb{R}\\),\n\\[\nT(\\alpha\\mathbf{x}+\\beta\\mathbf{y})\n=\n\\alpha T(\\mathbf{x})\n+\n\\beta T(\\mathbf{y}).\n\\]\n\nToda transformación lineal puede representarse mediante una matriz:\n\\[\nT(\\mathbf{x})\n=\n\\mathbf{A}\\mathbf{x}.\n\\]",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -767,8 +789,8 @@
     "objectID": "fundamentos/algebra-lineal.html#formas-cuadráticas",
     "href": "fundamentos/algebra-lineal.html#formas-cuadráticas",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.37 Formas cuadráticas",
-    "text": "6.37 Formas cuadráticas\n\nDefinición 6.17 Una forma cuadrática es una expresión de la forma\n\\[\nq(\\mathbf{x})\n=\n\\mathbf{x}^{\\mathsf T}\n\\mathbf{A}\n\\mathbf{x},\n\\]\ndonde \\(\\mathbf{A}\\) es una matriz cuadrada.\n\nLas formas cuadráticas aparecen en:\n\nfunciones de pérdida;\ndistancias de Mahalanobis;\nregresión ridge;\nanálisis de componentes principales;\nmodelos gaussianos.",
+    "section": "6.38 Formas cuadráticas",
+    "text": "6.38 Formas cuadráticas\n\nDefinición 6.17 Una forma cuadrática es una expresión de la forma\n\\[\nq(\\mathbf{x})\n=\n\\mathbf{x}^{\\mathsf T}\n\\mathbf{A}\n\\mathbf{x},\n\\]\ndonde \\(\\mathbf{A}\\) es una matriz cuadrada.\n\nLas formas cuadráticas aparecen en:\n\nfunciones de pérdida;\ndistancias de Mahalanobis;\nregresión ridge;\nanálisis de componentes principales;\nmodelos gaussianos.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -778,8 +800,8 @@
     "objectID": "fundamentos/algebra-lineal.html#matrices-definidas-positivas",
     "href": "fundamentos/algebra-lineal.html#matrices-definidas-positivas",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.38 Matrices definidas positivas",
-    "text": "6.38 Matrices definidas positivas\n\nDefinición 6.18 Una matriz simétrica \\(\\mathbf{A}\\) es definida positiva si\n\\[\n\\mathbf{x}^{\\mathsf T}\\mathbf{A}\\mathbf{x}&gt;0\n\\]\npara todo \\(\\mathbf{x}\\neq\\mathbf{0}\\).\n\nEs semidefinida positiva si\n\\[\n\\mathbf{x}^{\\mathsf T}\\mathbf{A}\\mathbf{x}\\geq 0.\n\\]\nLas matrices de covarianza son semidefinidas positivas.",
+    "section": "6.39 Matrices definidas positivas",
+    "text": "6.39 Matrices definidas positivas\n\nDefinición 6.18 Una matriz simétrica \\(\\mathbf{A}\\) es definida positiva si\n\\[\n\\mathbf{x}^{\\mathsf T}\\mathbf{A}\\mathbf{x}&gt;0\n\\]\npara todo \\(\\mathbf{x}\\neq\\mathbf{0}\\).\n\nEs semidefinida positiva si\n\\[\n\\mathbf{x}^{\\mathsf T}\\mathbf{A}\\mathbf{x}\\geq 0.\n\\]\nLas matrices de covarianza son semidefinidas positivas.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -789,8 +811,8 @@
     "objectID": "fundamentos/algebra-lineal.html#valores-y-vectores-propios",
     "href": "fundamentos/algebra-lineal.html#valores-y-vectores-propios",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.39 Valores y vectores propios",
-    "text": "6.39 Valores y vectores propios\n\nDefinición 6.19 Sea \\(\\mathbf{A}\\in\\mathbb{R}^{p\\times p}\\). Un vector no nulo \\(\\mathbf{v}\\) es un vector propio de \\(\\mathbf{A}\\) si existe un escalar \\(\\lambda\\) tal que\n\\[\n\\mathbf{A}\\mathbf{v}\n=\n\\lambda\\mathbf{v}.\n\\]\nEl escalar \\(\\lambda\\) se denomina valor propio asociado.\n\nLa ecuación puede escribirse como\n\\[\n(\\mathbf{A}-\\lambda\\mathbf{I})\\mathbf{v}\n=\n\\mathbf{0}.\n\\]\nPara que exista una solución no trivial, se requiere\n\\[\n\\det(\\mathbf{A}-\\lambda\\mathbf{I})=0.\n\\]\nEsta ecuación se denomina ecuación característica.\n\nEjemplo 6.7 Considere\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\n2 & 0\\\\\n0 & 5\n\\end{pmatrix}.\n\\]\nEntonces\n\\[\n\\mathbf{A}\n\\begin{pmatrix}\n1\\\\\n0\n\\end{pmatrix}\n=\n2\n\\begin{pmatrix}\n1\\\\\n0\n\\end{pmatrix},\n\\]\ny\n\\[\n\\mathbf{A}\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}\n=\n5\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}.\n\\]\nPor tanto, los valores propios son \\(2\\) y \\(5\\).",
+    "section": "6.40 Valores y vectores propios",
+    "text": "6.40 Valores y vectores propios\n\nDefinición 6.19 Sea \\(\\mathbf{A}\\in\\mathbb{R}^{p\\times p}\\). Un vector no nulo \\(\\mathbf{v}\\) es un vector propio de \\(\\mathbf{A}\\) si existe un escalar \\(\\lambda\\) tal que\n\\[\n\\mathbf{A}\\mathbf{v}\n=\n\\lambda\\mathbf{v}.\n\\]\nEl escalar \\(\\lambda\\) se denomina valor propio asociado.\n\nLa ecuación puede escribirse como\n\\[\n(\\mathbf{A}-\\lambda\\mathbf{I})\\mathbf{v}\n=\n\\mathbf{0}.\n\\]\nPara que exista una solución no trivial, se requiere\n\\[\n\\det(\\mathbf{A}-\\lambda\\mathbf{I})=0.\n\\]\nEsta ecuación se denomina ecuación característica.\n\nEjemplo 6.7 Considere\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\n2 & 0\\\\\n0 & 5\n\\end{pmatrix}.\n\\]\nEntonces\n\\[\n\\mathbf{A}\n\\begin{pmatrix}\n1\\\\\n0\n\\end{pmatrix}\n=\n2\n\\begin{pmatrix}\n1\\\\\n0\n\\end{pmatrix},\n\\]\ny\n\\[\n\\mathbf{A}\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}\n=\n5\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}.\n\\]\nPor tanto, los valores propios son \\(2\\) y \\(5\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -800,8 +822,8 @@
     "objectID": "fundamentos/algebra-lineal.html#interpretación-geométrica",
     "href": "fundamentos/algebra-lineal.html#interpretación-geométrica",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.40 Interpretación geométrica",
-    "text": "6.40 Interpretación geométrica\nUn vector propio conserva su dirección bajo la transformación lineal \\(\\mathbf{A}\\). Únicamente cambia su escala mediante el factor \\(\\lambda\\).\nEsta propiedad será esencial en PCA, donde los vectores propios de la matriz de covarianza determinan las direcciones principales de variabilidad.",
+    "section": "6.41 Interpretación geométrica",
+    "text": "6.41 Interpretación geométrica\nUn vector propio conserva su dirección bajo la transformación lineal \\(\\mathbf{A}\\). Únicamente cambia su escala mediante el factor \\(\\lambda\\).\nEsta propiedad será esencial en PCA, donde los vectores propios de la matriz de covarianza determinan las direcciones principales de variabilidad.\n\n\n\n\n\n\nNotaHipótesis de la descomposición espectral\n\n\n\nLa descomposición ortogonal\n\\[\n\\mathbf{A}\n=\n\\mathbf{Q}\\boldsymbol{\\Lambda}\\mathbf{Q}^{\\mathsf T}\n\\]\nse garantiza para matrices reales simétricas. Una matriz real no simétrica puede no poseer una base ortonormal de vectores propios e incluso puede tener valores propios complejos.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -811,8 +833,8 @@
     "objectID": "fundamentos/algebra-lineal.html#descomposición-espectral",
     "href": "fundamentos/algebra-lineal.html#descomposición-espectral",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.41 Descomposición espectral",
-    "text": "6.41 Descomposición espectral\n\nTeorema 6.2 Toda matriz real simétrica \\(\\mathbf{A}\\) puede escribirse como\n\\[\n\\mathbf{A}\n=\n\\mathbf{Q}\n\\boldsymbol{\\Lambda}\n\\mathbf{Q}^{\\mathsf T},\n\\]\ndonde:\n\n\\(\\mathbf{Q}\\) es una matriz ortogonal;\nlas columnas de \\(\\mathbf{Q}\\) son vectores propios ortonormales;\n\\(\\boldsymbol{\\Lambda}\\) es diagonal y contiene los valores propios.\n\n\nEsta factorización permite comprender la acción de una matriz simétrica como:\n\nun cambio de coordenadas;\nun escalamiento;\nun regreso al sistema original.",
+    "section": "6.42 Descomposición espectral",
+    "text": "6.42 Descomposición espectral\n\nTeorema 6.2 Toda matriz real simétrica \\(\\mathbf{A}\\) puede escribirse como\n\\[\n\\mathbf{A}\n=\n\\mathbf{Q}\n\\boldsymbol{\\Lambda}\n\\mathbf{Q}^{\\mathsf T},\n\\]\ndonde:\n\n\\(\\mathbf{Q}\\) es una matriz ortogonal;\nlas columnas de \\(\\mathbf{Q}\\) son vectores propios ortonormales;\n\\(\\boldsymbol{\\Lambda}\\) es diagonal y contiene los valores propios.\n\n\nEsta factorización permite comprender la acción de una matriz simétrica como:\n\nun cambio de coordenadas;\nun escalamiento;\nun regreso al sistema original.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -822,8 +844,8 @@
     "objectID": "fundamentos/algebra-lineal.html#matriz-de-covarianza",
     "href": "fundamentos/algebra-lineal.html#matriz-de-covarianza",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.42 Matriz de covarianza",
-    "text": "6.42 Matriz de covarianza\nSea una variable aleatoria vectorial\n\\[\n\\mathbf{X}\n=\n\\begin{pmatrix}\nX_1\\\\\n\\vdots\\\\\nX_p\n\\end{pmatrix}.\n\\]\nSu matriz de covarianza es\n\\[\n\\boldsymbol{\\Sigma}\n=\n\\operatorname{Cov}(\\mathbf{X})\n=\n\\mathbb{E}\n\\left[\n(\\mathbf{X}-\\boldsymbol{\\mu})\n(\\mathbf{X}-\\boldsymbol{\\mu})^{\\mathsf T}\n\\right].\n\\]\nLa matriz \\(\\boldsymbol{\\Sigma}\\) es simétrica y semidefinida positiva.",
+    "section": "6.43 Matriz de covarianza",
+    "text": "6.43 Matriz de covarianza\nSea una variable aleatoria vectorial\n\\[\n\\mathbf{X}\n=\n\\begin{pmatrix}\nX_1\\\\\n\\vdots\\\\\nX_p\n\\end{pmatrix}.\n\\]\nSu matriz de covarianza es\n\\[\n\\boldsymbol{\\Sigma}\n=\n\\operatorname{Cov}(\\mathbf{X})\n=\n\\mathbb{E}\n\\left[\n(\\mathbf{X}-\\boldsymbol{\\mu})\n(\\mathbf{X}-\\boldsymbol{\\mu})^{\\mathsf T}\n\\right].\n\\]\nLa matriz \\(\\boldsymbol{\\Sigma}\\) es simétrica y semidefinida positiva.\n\n\n\n\n\n\nImportanteSVD y rango\n\n\n\nToda matriz real \\(\\mathbf{X}\\in\\mathbb{R}^{n\\times p}\\) admite una descomposición en valores singulares. Si su rango es \\(r\\), existen exactamente \\(r\\) valores singulares positivos. La SVD no requiere que la matriz sea cuadrada ni invertible (Strang 2016).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -833,8 +855,8 @@
     "objectID": "fundamentos/algebra-lineal.html#descomposición-en-valores-singulares",
     "href": "fundamentos/algebra-lineal.html#descomposición-en-valores-singulares",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.43 Descomposición en valores singulares",
-    "text": "6.43 Descomposición en valores singulares\n\nDefinición 6.20 Toda matriz\n\\[\n\\mathbf{A}\\in\\mathbb{R}^{n\\times p}\n\\]\npuede escribirse como\n\\[\n\\mathbf{A}\n=\n\\mathbf{U}\n\\boldsymbol{\\Sigma}\n\\mathbf{V}^{\\mathsf T},\n\\]\ndonde:\n\n\\(\\mathbf{U}\\) contiene los vectores singulares izquierdos;\n\\(\\mathbf{V}\\) contiene los vectores singulares derechos;\n\\(\\boldsymbol{\\Sigma}\\) contiene los valores singulares.\n\n\nLos valores singulares son no negativos y se relacionan con los valores propios de\n\\[\n\\mathbf{A}^{\\mathsf T}\\mathbf{A}\n\\]\ny\n\\[\n\\mathbf{A}\\mathbf{A}^{\\mathsf T}.\n\\]\nLa SVD es fundamental para:\n\nreducción de dimensionalidad;\ncompresión;\ncálculo estable de pseudoinversas;\nanálisis de componentes principales;\naproximación de matrices;\nsistemas de recomendación.",
+    "section": "6.44 Descomposición en valores singulares",
+    "text": "6.44 Descomposición en valores singulares\n\nDefinición 6.20 Toda matriz\n\\[\n\\mathbf{A}\\in\\mathbb{R}^{n\\times p}\n\\]\npuede escribirse como\n\\[\n\\mathbf{A}\n=\n\\mathbf{U}\n\\boldsymbol{\\Sigma}\n\\mathbf{V}^{\\mathsf T},\n\\]\ndonde:\n\n\\(\\mathbf{U}\\) contiene los vectores singulares izquierdos;\n\\(\\mathbf{V}\\) contiene los vectores singulares derechos;\n\\(\\boldsymbol{\\Sigma}\\) contiene los valores singulares.\n\n\nLos valores singulares son no negativos y se relacionan con los valores propios de\n\\[\n\\mathbf{A}^{\\mathsf T}\\mathbf{A}\n\\]\ny\n\\[\n\\mathbf{A}\\mathbf{A}^{\\mathsf T}.\n\\]\nLa SVD es fundamental para:\n\nreducción de dimensionalidad;\ncompresión;\ncálculo estable de pseudoinversas;\nanálisis de componentes principales;\naproximación de matrices;\nsistemas de recomendación.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -844,8 +866,8 @@
     "objectID": "fundamentos/algebra-lineal.html#aproximación-de-rango-bajo",
     "href": "fundamentos/algebra-lineal.html#aproximación-de-rango-bajo",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.44 Aproximación de rango bajo",
-    "text": "6.44 Aproximación de rango bajo\nSi\n\\[\n\\mathbf{A}\n=\n\\sum_{j=1}^{r}\n\\sigma_j\n\\mathbf{u}_j\n\\mathbf{v}_j^{\\mathsf T},\n\\]\ndonde\n\\[\n\\sigma_1\\geq\\sigma_2\\geq\\cdots\\geq\\sigma_r&gt;0,\n\\]\nuna aproximación de rango \\(k&lt;r\\) es\n\\[\n\\mathbf{A}_k\n=\n\\sum_{j=1}^{k}\n\\sigma_j\n\\mathbf{u}_j\n\\mathbf{v}_j^{\\mathsf T}.\n\\]\nEsta aproximación conserva las direcciones más importantes de la matriz.",
+    "section": "6.45 Aproximación de rango bajo",
+    "text": "6.45 Aproximación de rango bajo\nSi\n\\[\n\\mathbf{A}\n=\n\\sum_{j=1}^{r}\n\\sigma_j\n\\mathbf{u}_j\n\\mathbf{v}_j^{\\mathsf T},\n\\]\ndonde\n\\[\n\\sigma_1\\geq\\sigma_2\\geq\\cdots\\geq\\sigma_r&gt;0,\n\\]\nuna aproximación de rango \\(k&lt;r\\) es\n\\[\n\\mathbf{A}_k\n=\n\\sum_{j=1}^{k}\n\\sigma_j\n\\mathbf{u}_j\n\\mathbf{v}_j^{\\mathsf T}.\n\\]\nEsta aproximación conserva las direcciones más importantes de la matriz.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -855,8 +877,8 @@
     "objectID": "fundamentos/algebra-lineal.html#pseudoinversa",
     "href": "fundamentos/algebra-lineal.html#pseudoinversa",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.45 Pseudoinversa",
-    "text": "6.45 Pseudoinversa\nCuando una matriz no es cuadrada o no es invertible, puede utilizarse la pseudoinversa de Moore-Penrose:\n\\[\n\\mathbf{A}^{+}.\n\\]\nSi\n\\[\n\\mathbf{A}\n=\n\\mathbf{U}\n\\boldsymbol{\\Sigma}\n\\mathbf{V}^{\\mathsf T},\n\\]\nentonces\n\\[\n\\mathbf{A}^{+}\n=\n\\mathbf{V}\n\\boldsymbol{\\Sigma}^{+}\n\\mathbf{U}^{\\mathsf T}.\n\\]\nLa pseudoinversa permite obtener soluciones de mínimos cuadrados incluso cuando la matriz de diseño tiene dependencia lineal.",
+    "section": "6.46 Pseudoinversa",
+    "text": "6.46 Pseudoinversa\nCuando una matriz no es cuadrada o no es invertible, puede utilizarse la pseudoinversa de Moore-Penrose:\n\\[\n\\mathbf{A}^{+}.\n\\]\nSi\n\\[\n\\mathbf{A}\n=\n\\mathbf{U}\n\\boldsymbol{\\Sigma}\n\\mathbf{V}^{\\mathsf T},\n\\]\nentonces\n\\[\n\\mathbf{A}^{+}\n=\n\\mathbf{V}\n\\boldsymbol{\\Sigma}^{+}\n\\mathbf{U}^{\\mathsf T}.\n\\]\nLa pseudoinversa permite obtener soluciones de mínimos cuadrados incluso cuando la matriz de diseño tiene dependencia lineal.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -866,8 +888,8 @@
     "objectID": "fundamentos/algebra-lineal.html#relación-con-regresión-lineal",
     "href": "fundamentos/algebra-lineal.html#relación-con-regresión-lineal",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.46 Relación con regresión lineal",
-    "text": "6.46 Relación con regresión lineal\nEl modelo de regresión lineal múltiple se escribe como\n\\[\n\\mathbf{y}\n=\n\\mathbf{X}\\boldsymbol{\\beta}\n+\n\\boldsymbol{\\varepsilon}.\n\\]\nEl estimador de mínimos cuadrados satisface\n\\[\n\\mathbf{X}^{\\mathsf T}\n\\mathbf{X}\n\\widehat{\\boldsymbol{\\beta}}\n=\n\\mathbf{X}^{\\mathsf T}\\mathbf{y}.\n\\]\nSi \\(\\mathbf{X}^{\\mathsf T}\\mathbf{X}\\) es invertible,\n\\[\n\\widehat{\\boldsymbol{\\beta}}\n=\n(\\mathbf{X}^{\\mathsf T}\\mathbf{X})^{-1}\n\\mathbf{X}^{\\mathsf T}\\mathbf{y}.\n\\]\nGeométricamente,\n\\[\n\\widehat{\\mathbf{y}}\n=\n\\mathbf{X}\n\\widehat{\\boldsymbol{\\beta}}\n\\]\nes la proyección ortogonal de \\(\\mathbf{y}\\) sobre el espacio columna de \\(\\mathbf{X}\\).",
+    "section": "6.47 Relación con regresión lineal",
+    "text": "6.47 Relación con regresión lineal\nEl modelo de regresión lineal múltiple se escribe como\n\\[\n\\mathbf{y}\n=\n\\mathbf{X}\\boldsymbol{\\beta}\n+\n\\boldsymbol{\\varepsilon}.\n\\]\nEl estimador de mínimos cuadrados satisface\n\\[\n\\mathbf{X}^{\\mathsf T}\n\\mathbf{X}\n\\widehat{\\boldsymbol{\\beta}}\n=\n\\mathbf{X}^{\\mathsf T}\\mathbf{y}.\n\\]\nSi \\(\\mathbf{X}^{\\mathsf T}\\mathbf{X}\\) es invertible,\n\\[\n\\widehat{\\boldsymbol{\\beta}}\n=\n(\\mathbf{X}^{\\mathsf T}\\mathbf{X})^{-1}\n\\mathbf{X}^{\\mathsf T}\\mathbf{y}.\n\\]\nGeométricamente,\n\\[\n\\widehat{\\mathbf{y}}\n=\n\\mathbf{X}\n\\widehat{\\boldsymbol{\\beta}}\n\\]\nes la proyección ortogonal de \\(\\mathbf{y}\\) sobre el espacio columna de \\(\\mathbf{X}\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -877,8 +899,8 @@
     "objectID": "fundamentos/algebra-lineal.html#relación-con-pca",
     "href": "fundamentos/algebra-lineal.html#relación-con-pca",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.47 Relación con PCA",
-    "text": "6.47 Relación con PCA\nEn PCA se buscan direcciones unitarias \\(\\mathbf{a}\\) que maximicen la varianza proyectada:\n\\[\n\\operatorname{Var}\n(\n\\mathbf{a}^{\\mathsf T}\\mathbf{X}\n)\n=\n\\mathbf{a}^{\\mathsf T}\n\\boldsymbol{\\Sigma}\n\\mathbf{a}.\n\\]\nEl problema\n\\[\n\\max_{\\|\\mathbf{a}\\|_2=1}\n\\mathbf{a}^{\\mathsf T}\n\\boldsymbol{\\Sigma}\n\\mathbf{a}\n\\]\nconduce al vector propio asociado al mayor valor propio de \\(\\boldsymbol{\\Sigma}\\).",
+    "section": "6.48 Relación con PCA",
+    "text": "6.48 Relación con PCA\nEn PCA se buscan direcciones unitarias \\(\\mathbf{a}\\) que maximicen la varianza proyectada:\n\\[\n\\operatorname{Var}\n(\n\\mathbf{a}^{\\mathsf T}\\mathbf{X}\n)\n=\n\\mathbf{a}^{\\mathsf T}\n\\boldsymbol{\\Sigma}\n\\mathbf{a}.\n\\]\nEl problema\n\\[\n\\max_{\\|\\mathbf{a}\\|_2=1}\n\\mathbf{a}^{\\mathsf T}\n\\boldsymbol{\\Sigma}\n\\mathbf{a}\n\\]\nconduce al vector propio asociado al mayor valor propio de \\(\\boldsymbol{\\Sigma}\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -888,8 +910,8 @@
     "objectID": "fundamentos/algebra-lineal.html#relación-con-redes-neuronales",
     "href": "fundamentos/algebra-lineal.html#relación-con-redes-neuronales",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.48 Relación con redes neuronales",
-    "text": "6.48 Relación con redes neuronales\nEn una capa neuronal,\n\\[\n\\mathbf{z}\n=\n\\mathbf{W}\\mathbf{x}\n+\n\\mathbf{b}.\n\\]\nLa matriz \\(\\mathbf{W}\\) realiza una transformación lineal y \\(\\mathbf{b}\\) agrega un desplazamiento. Posteriormente se aplica una función no lineal.\nPor tanto, cada capa combina álgebra lineal y cálculo.",
+    "section": "6.49 Relación con redes neuronales",
+    "text": "6.49 Relación con redes neuronales\nEn una capa neuronal,\n\\[\n\\mathbf{z}\n=\n\\mathbf{W}\\mathbf{x}\n+\n\\mathbf{b}.\n\\]\nLa matriz \\(\\mathbf{W}\\) realiza una transformación lineal y \\(\\mathbf{b}\\) agrega un desplazamiento. Posteriormente se aplica una función no lineal.\nPor tanto, cada capa combina álgebra lineal y cálculo.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -899,8 +921,8 @@
     "objectID": "fundamentos/algebra-lineal.html#conexión-con-r",
     "href": "fundamentos/algebra-lineal.html#conexión-con-r",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.49 Conexión con R",
-    "text": "6.49 Conexión con R\n\n\nCódigo\nx &lt;- c(1, 2, 3)\ny &lt;- c(4, 0, -1)\n\n# Producto interno\nsum(x * y)\n\n# Norma euclidiana\nsqrt(sum(x^2))\n\n# Matriz\nA &lt;- matrix(\n  c(1, 2,\n    3, 4),\n  nrow = 2,\n  byrow = TRUE\n)\n\n# Transpuesta\nt(A)\n\n# Valores y vectores propios\neigen(A)\n\n# Descomposición en valores singulares\nsvd(A)",
+    "section": "6.50 Conexión con R",
+    "text": "6.50 Conexión con R\n\n\nCódigo\nx &lt;- c(1, 2, 3)\ny &lt;- c(4, 0, -1)\n\n# Producto interno\nsum(x * y)\n\n# Norma euclidiana\nsqrt(sum(x^2))\n\n# Matriz\nA &lt;- matrix(\n  c(1, 2,\n    3, 4),\n  nrow = 2,\n  byrow = TRUE\n)\n\n# Transpuesta\nt(A)\n\n# Valores y vectores propios\neigen(A)\n\n# Descomposición en valores singulares\nsvd(A)",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -910,8 +932,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ejemplo-numérico-integrado",
     "href": "fundamentos/algebra-lineal.html#ejemplo-numérico-integrado",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.50 Ejemplo numérico integrado",
-    "text": "6.50 Ejemplo numérico integrado\nConsidere la matriz de datos centrados\n\\[\n\\mathbf{X}\n=\n\\begin{pmatrix}\n-1 & -2\\\\\n0 & 0\\\\\n1 & 2\n\\end{pmatrix}.\n\\]\nLas columnas son linealmente dependientes porque\n\\[\n\\mathbf{x}_{\\cdot 2}\n=\n2\\mathbf{x}_{\\cdot 1}.\n\\]\nLa matriz de covarianza muestral es proporcional a\n\\[\n\\mathbf{X}^{\\mathsf T}\\mathbf{X}\n=\n\\begin{pmatrix}\n2 & 4\\\\\n4 & 8\n\\end{pmatrix}.\n\\]\nEsta matriz tiene rango uno. Uno de sus valores propios es cero, lo que indica que no existe variabilidad independiente en una de las direcciones.\nEste ejemplo anticipa dos problemas importantes:\n\nmulticolinealidad en regresión;\nreducción de dimensionalidad mediante PCA.",
+    "section": "6.51 Ejemplo numérico integrado",
+    "text": "6.51 Ejemplo numérico integrado\nConsidere la matriz de datos centrados\n\\[\n\\mathbf{X}\n=\n\\begin{pmatrix}\n-1 & -2\\\\\n0 & 0\\\\\n1 & 2\n\\end{pmatrix}.\n\\]\nLas columnas son linealmente dependientes porque\n\\[\n\\mathbf{x}_{\\cdot 2}\n=\n2\\mathbf{x}_{\\cdot 1}.\n\\]\nLa matriz de covarianza muestral es proporcional a\n\\[\n\\mathbf{X}^{\\mathsf T}\\mathbf{X}\n=\n\\begin{pmatrix}\n2 & 4\\\\\n4 & 8\n\\end{pmatrix}.\n\\]\nEsta matriz tiene rango uno. Uno de sus valores propios es cero, lo que indica que no existe variabilidad independiente en una de las direcciones.\nEste ejemplo anticipa dos problemas importantes:\n\nmulticolinealidad en regresión;\nreducción de dimensionalidad mediante PCA.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -921,8 +943,8 @@
     "objectID": "fundamentos/algebra-lineal.html#errores-frecuentes",
     "href": "fundamentos/algebra-lineal.html#errores-frecuentes",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.51 Errores frecuentes",
-    "text": "6.51 Errores frecuentes\n\nConfundir producto matricial con multiplicación componente a componente.\nSuponer que \\(\\mathbf{A}\\mathbf{B}=\\mathbf{B}\\mathbf{A}\\).\nConfundir vector fila con vector columna.\nSuponer que toda matriz cuadrada es invertible.\nConfundir independencia lineal con ortogonalidad.\nPensar que rango es simplemente el número de columnas.\nConfundir valores propios con vectores propios.\nUtilizar la inversa explícita innecesariamente en cálculos numéricos.\nInterpretar una matriz de covarianza sin considerar el escalamiento de variables.\nSuponer que una matriz semidefinida positiva debe ser invertible.",
+    "section": "6.52 Errores frecuentes",
+    "text": "6.52 Errores frecuentes\n\nConfundir producto matricial con multiplicación componente a componente.\nSuponer que \\(\\mathbf{A}\\mathbf{B}=\\mathbf{B}\\mathbf{A}\\).\nConfundir vector fila con vector columna.\nSuponer que toda matriz cuadrada es invertible.\nConfundir independencia lineal con ortogonalidad.\nPensar que rango es simplemente el número de columnas.\nConfundir valores propios con vectores propios.\nUtilizar la inversa explícita innecesariamente en cálculos numéricos.\nInterpretar una matriz de covarianza sin considerar el escalamiento de variables.\nSuponer que una matriz semidefinida positiva debe ser invertible.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -932,8 +954,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ejercicios-conceptuales",
     "href": "fundamentos/algebra-lineal.html#ejercicios-conceptuales",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.52 Ejercicios conceptuales",
-    "text": "6.52 Ejercicios conceptuales\n\nExplique la diferencia entre escalar, vector y matriz.\n¿Qué significa que un conjunto de vectores sea linealmente independiente?\n¿Qué representa geométricamente el producto interno?\n¿Cuál es la diferencia entre norma y distancia?\n¿Qué significa que dos vectores sean ortogonales?\n¿Qué representa el rango de una matriz?\n¿Por qué una matriz de covarianza es simétrica?\n¿Qué interpretación geométrica tiene un vector propio?\n¿Por qué la SVD puede aplicarse a matrices no cuadradas?\nExplique la relación entre proyección ortogonal y regresión lineal.",
+    "section": "6.53 Ejercicios conceptuales",
+    "text": "6.53 Ejercicios conceptuales\n\nExplique la diferencia entre escalar, vector y matriz.\n¿Qué significa que un conjunto de vectores sea linealmente independiente?\n¿Qué representa geométricamente el producto interno?\n¿Cuál es la diferencia entre norma y distancia?\n¿Qué significa que dos vectores sean ortogonales?\n¿Qué representa el rango de una matriz?\n¿Por qué una matriz de covarianza es simétrica?\n¿Qué interpretación geométrica tiene un vector propio?\n¿Por qué la SVD puede aplicarse a matrices no cuadradas?\nExplique la relación entre proyección ortogonal y regresión lineal.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -943,8 +965,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ejercicios-de-cálculo",
     "href": "fundamentos/algebra-lineal.html#ejercicios-de-cálculo",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.53 Ejercicios de cálculo",
-    "text": "6.53 Ejercicios de cálculo\nSean\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n2\\\\\n-1\\\\\n3\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\n1\\\\\n4\\\\\n0\n\\end{pmatrix}.\n\\]\nCalcule:\n\n\\(\\mathbf{x}+\\mathbf{y}\\);\n\\(3\\mathbf{x}\\);\n\\(\\mathbf{x}^{\\mathsf T}\\mathbf{y}\\);\n\\(\\|\\mathbf{x}\\|_2\\);\n\\(d(\\mathbf{x},\\mathbf{y})\\);\nel ángulo entre ambos vectores.",
+    "section": "6.54 Ejercicios de cálculo",
+    "text": "6.54 Ejercicios de cálculo\nSean\n\\[\n\\mathbf{x}\n=\n\\begin{pmatrix}\n2\\\\\n-1\\\\\n3\n\\end{pmatrix},\n\\qquad\n\\mathbf{y}\n=\n\\begin{pmatrix}\n1\\\\\n4\\\\\n0\n\\end{pmatrix}.\n\\]\nCalcule:\n\n\\(\\mathbf{x}+\\mathbf{y}\\);\n\\(3\\mathbf{x}\\);\n\\(\\mathbf{x}^{\\mathsf T}\\mathbf{y}\\);\n\\(\\|\\mathbf{x}\\|_2\\);\n\\(d(\\mathbf{x},\\mathbf{y})\\);\nel ángulo entre ambos vectores.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -954,8 +976,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ejercicios-de-matrices",
     "href": "fundamentos/algebra-lineal.html#ejercicios-de-matrices",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.54 Ejercicios de matrices",
-    "text": "6.54 Ejercicios de matrices\nSean\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\n1 & 2\\\\\n0 & 3\n\\end{pmatrix},\n\\qquad\n\\mathbf{B}\n=\n\\begin{pmatrix}\n4 & 1\\\\\n2 & 5\n\\end{pmatrix}.\n\\]\nCalcule:\n\n\\(\\mathbf{A}+\\mathbf{B}\\);\n\\(\\mathbf{A}\\mathbf{B}\\);\n\\(\\mathbf{B}\\mathbf{A}\\);\n\\(\\mathbf{A}^{\\mathsf T}\\);\n\\(\\det(\\mathbf{A})\\);\n\\(\\mathbf{A}^{-1}\\), si existe.",
+    "section": "6.55 Ejercicios de matrices",
+    "text": "6.55 Ejercicios de matrices\nSean\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\n1 & 2\\\\\n0 & 3\n\\end{pmatrix},\n\\qquad\n\\mathbf{B}\n=\n\\begin{pmatrix}\n4 & 1\\\\\n2 & 5\n\\end{pmatrix}.\n\\]\nCalcule:\n\n\\(\\mathbf{A}+\\mathbf{B}\\);\n\\(\\mathbf{A}\\mathbf{B}\\);\n\\(\\mathbf{B}\\mathbf{A}\\);\n\\(\\mathbf{A}^{\\mathsf T}\\);\n\\(\\det(\\mathbf{A})\\);\n\\(\\mathbf{A}^{-1}\\), si existe.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -965,8 +987,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ejercicio-de-independencia-lineal",
     "href": "fundamentos/algebra-lineal.html#ejercicio-de-independencia-lineal",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.55 Ejercicio de independencia lineal",
-    "text": "6.55 Ejercicio de independencia lineal\nDetermine si los vectores\n\\[\n\\mathbf{v}_1=\n\\begin{pmatrix}\n1\\\\\n2\\\\\n3\n\\end{pmatrix},\n\\quad\n\\mathbf{v}_2=\n\\begin{pmatrix}\n2\\\\\n4\\\\\n6\n\\end{pmatrix},\n\\quad\n\\mathbf{v}_3=\n\\begin{pmatrix}\n0\\\\\n1\\\\\n1\n\\end{pmatrix}\n\\]\nson linealmente independientes.",
+    "section": "6.56 Ejercicio de independencia lineal",
+    "text": "6.56 Ejercicio de independencia lineal\nDetermine si los vectores\n\\[\n\\mathbf{v}_1=\n\\begin{pmatrix}\n1\\\\\n2\\\\\n3\n\\end{pmatrix},\n\\quad\n\\mathbf{v}_2=\n\\begin{pmatrix}\n2\\\\\n4\\\\\n6\n\\end{pmatrix},\n\\quad\n\\mathbf{v}_3=\n\\begin{pmatrix}\n0\\\\\n1\\\\\n1\n\\end{pmatrix}\n\\]\nson linealmente independientes.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -976,8 +998,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ejercicio-de-valores-propios",
     "href": "fundamentos/algebra-lineal.html#ejercicio-de-valores-propios",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.56 Ejercicio de valores propios",
-    "text": "6.56 Ejercicio de valores propios\nConsidere\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\n3 & 1\\\\\n1 & 3\n\\end{pmatrix}.\n\\]\n\nDetermine la ecuación característica.\nCalcule los valores propios.\nCalcule un vector propio asociado a cada valor propio.\nNormalice los vectores propios.\nConstruya la descomposición espectral.",
+    "section": "6.57 Ejercicio de valores propios",
+    "text": "6.57 Ejercicio de valores propios\nConsidere\n\\[\n\\mathbf{A}\n=\n\\begin{pmatrix}\n3 & 1\\\\\n1 & 3\n\\end{pmatrix}.\n\\]\n\nDetermine la ecuación característica.\nCalcule los valores propios.\nCalcule un vector propio asociado a cada valor propio.\nNormalice los vectores propios.\nConstruya la descomposición espectral.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -987,8 +1009,8 @@
     "objectID": "fundamentos/algebra-lineal.html#ejercicio-aplicado",
     "href": "fundamentos/algebra-lineal.html#ejercicio-aplicado",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.57 Ejercicio aplicado",
-    "text": "6.57 Ejercicio aplicado\nUna base de datos contiene las variables:\n\nPM10;\ntemperatura;\nhumedad;\nvelocidad del viento.\n\n\nEscriba una observación como vector.\nEscriba la matriz de datos para \\(n\\) observaciones.\nIndique las dimensiones de la matriz.\nExplique qué significa que dos columnas sean linealmente dependientes.\nDescriba una posible consecuencia de esa dependencia en regresión.\nExplique cómo PCA podría ayudar a resolver el problema.",
+    "section": "6.58 Ejercicio aplicado",
+    "text": "6.58 Ejercicio aplicado\nUna base de datos contiene las variables:\n\nPM10;\ntemperatura;\nhumedad;\nvelocidad del viento.\n\n\nEscriba una observación como vector.\nEscriba la matriz de datos para \\(n\\) observaciones.\nIndique las dimensiones de la matriz.\nExplique qué significa que dos columnas sean linealmente dependientes.\nDescriba una posible consecuencia de esa dependencia en regresión.\nExplique cómo PCA podría ayudar a resolver el problema.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -998,8 +1020,8 @@
     "objectID": "fundamentos/algebra-lineal.html#resumen",
     "href": "fundamentos/algebra-lineal.html#resumen",
     "title": "6  Álgebra lineal para aprendizaje automático",
-    "section": "6.58 Resumen",
-    "text": "6.58 Resumen\nEn este capítulo se desarrollaron los conceptos de escalares, vectores, matrices, combinaciones lineales, independencia, bases, espacios vectoriales, productos internos, normas, distancias y proyecciones.\nTambién se estudiaron sistemas lineales, inversas, rango, espacios columna y nulo, transformaciones lineales, formas cuadráticas, matrices definidas positivas, valores propios, descomposición espectral y descomposición en valores singulares.\nEstas herramientas constituyen la base matemática de numerosos algoritmos de aprendizaje automático, entre ellos regresión lineal, PCA, máquinas de vectores de soporte, redes neuronales, agrupamiento y métodos de reducción de dimensionalidad.",
+    "section": "6.59 Resumen",
+    "text": "6.59 Resumen\nEn este capítulo se desarrollaron los conceptos de escalares, vectores, matrices, combinaciones lineales, independencia, bases, espacios vectoriales, productos internos, normas, distancias y proyecciones.\nTambién se estudiaron sistemas lineales, inversas, rango, espacios columna y nulo, transformaciones lineales, formas cuadráticas, matrices definidas positivas, valores propios, descomposición espectral y descomposición en valores singulares.\nEstas herramientas constituyen la base matemática de numerosos algoritmos de aprendizaje automático, entre ellos regresión lineal, PCA, máquinas de vectores de soporte, redes neuronales, agrupamiento y métodos de reducción de dimensionalidad.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -1010,7 +1032,7 @@
     "href": "fundamentos/algebra-lineal.html#referencias-del-capítulo",
     "title": "6  Álgebra lineal para aprendizaje automático",
     "section": "Referencias del capítulo",
-    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Mardia et al. (1979); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nMardia, Kanti V., John T. Kent, y John M. Bibby. 1979. Multivariate Analysis. Academic Press.",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Strang (2016), Axler (2015), Mardia et al. (1979) y Bishop (2006).\n\n\n\n\n\n\nAxler, Sheldon. 2015. Linear Algebra Done Right. 3.ª ed. Springer. https://doi.org/10.1007/978-3-319-11080-6.\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nMardia, Kanti V., John T. Kent, y John M. Bibby. 1979. Multivariate Analysis. Academic Press.\n\n\nStrang, Gilbert. 2016. Introduction to Linear Algebra. 5.ª ed. Wellesley-Cambridge Press.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Álgebra lineal para aprendizaje automático</span>"
@@ -1021,7 +1043,7 @@
     "href": "fundamentos/probabilidad-estadistica.html",
     "title": "7  Probabilidad y estadística para aprendizaje automático",
     "section": "",
-    "text": "7.1 Introducción\nLa probabilidad y la estadística proporcionan el marco matemático para representar incertidumbre, variabilidad y aprendizaje a partir de datos. Los algoritmos de aprendizaje automático no trabajan con relaciones completamente deterministas: las observaciones contienen ruido, los patrones son incompletos y las predicciones siempre están sujetas a cierto grado de incertidumbre.\nLa teoría de la probabilidad permite modelar fenómenos aleatorios, mientras que la estadística proporciona herramientas para inferir propiedades de una población a partir de una muestra. Ambas disciplinas son esenciales para comprender la clasificación probabilística, la regresión, la estimación de parámetros, la selección de modelos, la validación y la evaluación de predicciones.",
+    "text": "7.1 Introducción\nLa probabilidad modela incertidumbre y la estadística permite aprender a partir de muestras. En aprendizaje automático, las distribuciones representan poblaciones desconocidas, las pérdidas se interpretan como variables aleatorias y el entrenamiento produce estimadores dependientes de los datos (Ross 2019; Casella y Berger 2002; Murphy 2022).\nLa probabilidad y la estadística proporcionan el marco matemático para representar incertidumbre, variabilidad y aprendizaje a partir de datos. Los algoritmos de aprendizaje automático no trabajan con relaciones completamente deterministas: las observaciones contienen ruido, los patrones son incompletos y las predicciones siempre están sujetas a cierto grado de incertidumbre.\nLa teoría de la probabilidad permite modelar fenómenos aleatorios, mientras que la estadística proporciona herramientas para inferir propiedades de una población a partir de una muestra. Ambas disciplinas son esenciales para comprender la clasificación probabilística, la regresión, la estimación de parámetros, la selección de modelos, la validación y la evaluación de predicciones.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Probabilidad y estadística para aprendizaje automático</span>"
@@ -1087,7 +1109,7 @@
     "href": "fundamentos/probabilidad-estadistica.html#espacio-de-probabilidad",
     "title": "7  Probabilidad y estadística para aprendizaje automático",
     "section": "7.7 Espacio de probabilidad",
-    "text": "7.7 Espacio de probabilidad\n\nDefinición 7.5 Un espacio de probabilidad es una terna\n\\[\n(\\Omega,\\mathcal{F},P),\n\\]\ndonde:\n\n\\(\\Omega\\) es el espacio muestral;\n\\(\\mathcal{F}\\) es una sigma-álgebra;\n\\(P\\) es una medida de probabilidad.",
+    "text": "7.7 Espacio de probabilidad\n\nDefinición 7.5 Un espacio de probabilidad es una terna\n\\[\n(\\Omega,\\mathcal{F},P),\n\\]\ndonde:\n\n\\(\\Omega\\) es el espacio muestral;\n\\(\\mathcal{F}\\) es una sigma-álgebra;\n\\(P\\) es una medida de probabilidad.\n\n\n\n\n\n\n\n\nNotaModelo probabilístico\n\n\n\nUn espacio de probabilidad es una terna\n\\[\n(\\Omega,\\mathcal{F},P),\n\\]\ndonde \\(\\Omega\\) es el espacio muestral, \\(\\mathcal{F}\\) una sigma-álgebra y \\(P\\) una medida de probabilidad. No todo subconjunto de un espacio muestral infinito tiene que pertenecer automáticamente a \\(\\mathcal{F}\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Probabilidad y estadística para aprendizaje automático</span>"
@@ -1175,7 +1197,7 @@
     "href": "fundamentos/probabilidad-estadistica.html#teorema-de-bayes",
     "title": "7  Probabilidad y estadística para aprendizaje automático",
     "section": "7.15 Teorema de Bayes",
-    "text": "7.15 Teorema de Bayes\n\nTeorema 7.2 Si \\(B_1,\\ldots,B_k\\) forman una partición y \\(P(A)&gt;0\\), entonces\n\\[\nP(B_j\\mid A)\n=\n\\frac{\nP(A\\mid B_j)P(B_j)\n}{\n\\sum_{\\ell=1}^{k}\nP(A\\mid B_\\ell)P(B_\\ell)\n}.\n\\]\n\nEn clasificación, la regla de Bayes permite calcular la probabilidad posterior de una clase dado un vector de características.\nPara clases \\(C_1,\\ldots,C_K\\),\n\\[\nP(C_k\\mid\\mathbf{x})\n=\n\\frac{\nP(\\mathbf{x}\\mid C_k)P(C_k)\n}{\n\\sum_{j=1}^{K}\nP(\\mathbf{x}\\mid C_j)P(C_j)\n}.\n\\]",
+    "text": "7.15 Teorema de Bayes\n\nTeorema 7.2 Si \\(B_1,\\ldots,B_k\\) forman una partición y \\(P(A)&gt;0\\), entonces\n\\[\nP(B_j\\mid A)\n=\n\\frac{\nP(A\\mid B_j)P(B_j)\n}{\n\\sum_{\\ell=1}^{k}\nP(A\\mid B_\\ell)P(B_\\ell)\n}.\n\\]\n\nEn clasificación, la regla de Bayes permite calcular la probabilidad posterior de una clase dado un vector de características.\nPara clases \\(C_1,\\ldots,C_K\\),\n\\[\nP(C_k\\mid\\mathbf{x})\n=\n\\frac{\nP(\\mathbf{x}\\mid C_k)P(C_k)\n}{\n\\sum_{j=1}^{K}\nP(\\mathbf{x}\\mid C_j)P(C_j)\n}.\n\\]\n\n\n\n\n\n\nImportanteCondición para aplicar Bayes\n\n\n\nLa expresión\n\\[\nP(A\\mid B)\n=\n\\frac{P(B\\mid A)P(A)}{P(B)}\n\\]\nrequiere que \\(P(B)&gt;0\\). Cuando \\(P(B)=0\\), la probabilidad condicional elemental no está definida mediante este cociente.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Probabilidad y estadística para aprendizaje automático</span>"
@@ -1450,7 +1472,7 @@
     "href": "fundamentos/probabilidad-estadistica.html#varianza-muestral",
     "title": "7  Probabilidad y estadística para aprendizaje automático",
     "section": "7.40 Varianza muestral",
-    "text": "7.40 Varianza muestral\nLa varianza muestral es\n\\[\nS^2\n=\n\\frac{1}{n-1}\n\\sum_{i=1}^{n}\n(X_i-\\overline{X})^2.\n\\]\nEl denominador \\(n-1\\) permite que\n\\[\n\\mathbb{E}(S^2)=\\sigma^2.\n\\]",
+    "text": "7.40 Varianza muestral\nLa varianza muestral es\n\\[\nS^2\n=\n\\frac{1}{n-1}\n\\sum_{i=1}^{n}\n(X_i-\\overline{X})^2.\n\\]\nEl denominador \\(n-1\\) permite que\n\\[\n\\mathbb{E}(S^2)=\\sigma^2.\n\\]\n\n\n\n\n\n\nNotaVarianza poblacional y varianza muestral\n\n\n\nLa varianza de una variable aleatoria utiliza su distribución poblacional. En cambio, la varianza muestral insesgada emplea el divisor \\(n-1\\):\n\\[\nS^2\n=\n\\frac{1}{n-1}\n\\sum_{i=1}^{n}\n(X_i-\\overline{X})^2.\n\\]\nEl divisor \\(n-1\\) no es una convención arbitraria: corrige el sesgo producido al estimar la media con la misma muestra.\n\n\n\n\n\n\n\n\nAdvertenciaSupuestos de los resultados asintóticos\n\n\n\nLa ley de los grandes números y el teorema central del límite tienen distintas versiones. Las formulaciones elementales de este capítulo suponen observaciones independientes e idénticamente distribuidas y momentos finitos adecuados. En datos temporales, espaciales o dependientes se necesitan resultados adicionales.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Probabilidad y estadística para aprendizaje automático</span>"
@@ -1549,7 +1571,7 @@
     "href": "fundamentos/probabilidad-estadistica.html#log-verosimilitud",
     "title": "7  Probabilidad y estadística para aprendizaje automático",
     "section": "7.49 Log-verosimilitud",
-    "text": "7.49 Log-verosimilitud\nLa log-verosimilitud es\n\\[\n\\ell(\\theta)\n=\n\\log L(\\theta)\n=\n\\sum_{i=1}^{n}\n\\log f(x_i;\\theta).\n\\]\nSe utiliza porque transforma productos en sumas y facilita la derivación.",
+    "text": "7.49 Log-verosimilitud\nLa log-verosimilitud es\n\\[\n\\ell(\\theta)\n=\n\\log L(\\theta)\n=\n\\sum_{i=1}^{n}\n\\log f(x_i;\\theta).\n\\]\nSe utiliza porque transforma productos en sumas y facilita la derivación.\n\n\n\n\n\n\nNotaMáxima verosimilitud\n\n\n\nLa verosimilitud se interpreta como función del parámetro con los datos observados fijos. No es una distribución de probabilidad sobre el parámetro, salvo que se normalice dentro de un modelo bayesiano con una distribución previa.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Probabilidad y estadística para aprendizaje automático</span>"
@@ -1769,7 +1791,7 @@
     "href": "fundamentos/probabilidad-estadistica.html#referencias-del-capítulo",
     "title": "7  Probabilidad y estadística para aprendizaje automático",
     "section": "Referencias del capítulo",
-    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Murphy (2022); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An Introduction. MIT Press.",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Ross (2019), Casella y Berger (2002), Murphy (2022) y Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nCasella, George, y Roger L. Berger. 2002. Statistical Inference. 2.ª ed. Duxbury.\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An Introduction. MIT Press.\n\n\nRoss, Sheldon M. 2019. A First Course in Probability. 10.ª ed. Pearson.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Probabilidad y estadística para aprendizaje automático</span>"
@@ -1780,7 +1802,7 @@
     "href": "fundamentos/calculo-optimizacion.html",
     "title": "8  Cálculo multivariable y optimización",
     "section": "",
-    "text": "8.1 Introducción\nEl cálculo multivariable y la optimización permiten describir cómo cambia una función cuando cambian varios parámetros al mismo tiempo. En aprendizaje automático, los modelos dependen de vectores o matrices de parámetros, y su entrenamiento consiste casi siempre en minimizar una función de pérdida.\nLa regresión lineal minimiza una suma de errores cuadrados; la regresión logística maximiza una log-verosimilitud; las máquinas de vectores de soporte resuelven problemas de optimización convexa; las redes neuronales ajustan millones de parámetros mediante gradientes; y numerosos métodos utilizan restricciones, multiplicadores de Lagrange o aproximaciones de segundo orden.\nEste capítulo desarrolla las herramientas necesarias para formular y analizar estos procesos.",
+    "text": "8.1 Introducción\nEl entrenamiento de numerosos modelos consiste en minimizar una función respecto de vectores o matrices de parámetros. El cálculo multivariable aporta gradientes, Jacobianas y Hessianas; la optimización convexa permite distinguir mínimos locales y globales y establecer condiciones de optimalidad (Apostol 1969; Boyd y Vandenberghe 2004; Bishop 2006).\nEl cálculo multivariable y la optimización permiten describir cómo cambia una función cuando cambian varios parámetros al mismo tiempo. En aprendizaje automático, los modelos dependen de vectores o matrices de parámetros, y su entrenamiento consiste casi siempre en minimizar una función de pérdida.\nLa regresión lineal minimiza una suma de errores cuadrados; la regresión logística maximiza una log-verosimilitud; las máquinas de vectores de soporte resuelven problemas de optimización convexa; las redes neuronales ajustan millones de parámetros mediante gradientes; y numerosos métodos utilizan restricciones, multiplicadores de Lagrange o aproximaciones de segundo orden.\nEste capítulo desarrolla las herramientas necesarias para formular y analizar estos procesos.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
@@ -1846,7 +1868,7 @@
     "href": "fundamentos/calculo-optimizacion.html#gradiente",
     "title": "8  Cálculo multivariable y optimización",
     "section": "8.7 Gradiente",
-    "text": "8.7 Gradiente\n\nDefinición 8.3 El gradiente de una función\n\\[\nf:\\mathbb{R}^{p}\\to\\mathbb{R}\n\\]\nes el vector\n\\[\n\\nabla f(\\mathbf{x})\n=\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x_1}\\\\\n\\frac{\\partial f}{\\partial x_2}\\\\\n\\vdots\\\\\n\\frac{\\partial f}{\\partial x_p}\n\\end{pmatrix}.\n\\]\n\nEl gradiente apunta en la dirección de máximo crecimiento local de la función.\nLa dirección opuesta,\n\\[\n-\\nabla f(\\mathbf{x}),\n\\]\napunta en la dirección de máximo decrecimiento local.\n\nEjemplo 8.3 Para\n\\[\nf(x_1,x_2)\n=\nx_1^2+3x_1x_2+2x_2^2,\n\\]\nel gradiente es\n\\[\n\\nabla f(x_1,x_2)\n=\n\\begin{pmatrix}\n2x_1+3x_2\\\\\n3x_1+4x_2\n\\end{pmatrix}.\n\\]",
+    "text": "8.7 Gradiente\n\nDefinición 8.3 El gradiente de una función\n\\[\nf:\\mathbb{R}^{p}\\to\\mathbb{R}\n\\]\nes el vector\n\\[\n\\nabla f(\\mathbf{x})\n=\n\\begin{pmatrix}\n\\frac{\\partial f}{\\partial x_1}\\\\\n\\frac{\\partial f}{\\partial x_2}\\\\\n\\vdots\\\\\n\\frac{\\partial f}{\\partial x_p}\n\\end{pmatrix}.\n\\]\n\nEl gradiente apunta en la dirección de máximo crecimiento local de la función.\nLa dirección opuesta,\n\\[\n-\\nabla f(\\mathbf{x}),\n\\]\napunta en la dirección de máximo decrecimiento local.\n\nEjemplo 8.3 Para\n\\[\nf(x_1,x_2)\n=\nx_1^2+3x_1x_2+2x_2^2,\n\\]\nel gradiente es\n\\[\n\\nabla f(x_1,x_2)\n=\n\\begin{pmatrix}\n2x_1+3x_2\\\\\n3x_1+4x_2\n\\end{pmatrix}.\n\\]\n\n\n\n\n\n\n\nNotaGradiente y sistema de coordenadas\n\n\n\nEl gradiente representa la dirección de máximo incremento local bajo el producto interno euclidiano. En geometrías o parametrizaciones diferentes, la noción de dirección más pronunciada puede cambiar.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
@@ -1978,7 +2000,7 @@
     "href": "fundamentos/calculo-optimizacion.html#clasificación-mediante-la-hessiana",
     "title": "8  Cálculo multivariable y optimización",
     "section": "8.19 Clasificación mediante la Hessiana",
-    "text": "8.19 Clasificación mediante la Hessiana\nSi\n\\[\n\\nabla f(\\mathbf{x}^{*})=\\mathbf{0},\n\\]\nentonces:\n\nsi \\(\\mathbf{H}_f(\\mathbf{x}^{*})\\) es definida positiva, \\(\\mathbf{x}^{*}\\) es mínimo local;\nsi es definida negativa, es máximo local;\nsi es indefinida, es punto silla;\nsi es semidefinida, la prueba puede ser inconclusa.",
+    "text": "8.19 Clasificación mediante la Hessiana\nSi\n\\[\n\\nabla f(\\mathbf{x}^{*})=\\mathbf{0},\n\\]\nentonces:\n\nsi \\(\\mathbf{H}_f(\\mathbf{x}^{*})\\) es definida positiva, \\(\\mathbf{x}^{*}\\) es mínimo local;\nsi es definida negativa, es máximo local;\nsi es indefinida, es punto silla;\nsi es semidefinida, la prueba puede ser inconclusa.\n\n\n\n\n\n\n\nImportanteCriterio de la Hessiana\n\n\n\nEn un punto crítico \\(\\mathbf{x}^*\\):\n\nsi \\(\\nabla^2f(\\mathbf{x}^*)\\) es definida positiva, existe un mínimo local estricto;\nsi es definida negativa, existe un máximo local estricto;\nsi es indefinida, el punto es de silla;\nsi es semidefinida, el criterio puede ser inconcluso.\n\nEstas conclusiones requieren que las derivadas necesarias existan y sean continuas en un entorno del punto.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
@@ -2044,7 +2066,7 @@
     "href": "fundamentos/calculo-optimizacion.html#caracterización-mediante-la-hessiana",
     "title": "8  Cálculo multivariable y optimización",
     "section": "8.25 Caracterización mediante la Hessiana",
-    "text": "8.25 Caracterización mediante la Hessiana\nSi \\(f\\) es dos veces diferenciable, es convexa si\n\\[\n\\mathbf{H}_f(\\mathbf{x})\n\\succeq\n\\mathbf{0}\n\\]\npara todo \\(\\mathbf{x}\\).\nEs estrictamente convexa si la Hessiana es definida positiva.",
+    "text": "8.25 Caracterización mediante la Hessiana\nSi \\(f\\) es dos veces diferenciable, es convexa si\n\\[\n\\mathbf{H}_f(\\mathbf{x})\n\\succeq\n\\mathbf{0}\n\\]\npara todo \\(\\mathbf{x}\\).\nEs estrictamente convexa si la Hessiana es definida positiva.\n\n\n\n\n\n\nNotaConvexidad y mínimos globales\n\n\n\nSi \\(f\\) es convexa sobre un conjunto convexo, todo mínimo local es global. Si además es estrictamente convexa, puede existir como máximo un minimizador global. La existencia del mínimo requiere condiciones adicionales, como continuidad y coercividad o compacidad del dominio.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
@@ -2077,7 +2099,7 @@
     "href": "fundamentos/calculo-optimizacion.html#descenso-por-gradiente",
     "title": "8  Cálculo multivariable y optimización",
     "section": "8.28 Descenso por gradiente",
-    "text": "8.28 Descenso por gradiente\n\nDefinición 8.8 El descenso por gradiente genera una sucesión\n\\[\n\\boldsymbol{\\theta}^{(t+1)}\n=\n\\boldsymbol{\\theta}^{(t)}\n-\n\\eta_t\n\\nabla J(\n\\boldsymbol{\\theta}^{(t)}\n),\n\\]\ndonde \\(\\eta_t&gt;0\\) es la tasa de aprendizaje.\n\nEl método avanza en dirección opuesta al gradiente.",
+    "text": "8.28 Descenso por gradiente\n\nDefinición 8.8 El descenso por gradiente genera una sucesión\n\\[\n\\boldsymbol{\\theta}^{(t+1)}\n=\n\\boldsymbol{\\theta}^{(t)}\n-\n\\eta_t\n\\nabla J(\n\\boldsymbol{\\theta}^{(t)}\n),\n\\]\ndonde \\(\\eta_t&gt;0\\) es la tasa de aprendizaje.\n\nEl método avanza en dirección opuesta al gradiente.\n\n\n\n\n\n\nAdvertenciaDescenso por gradiente\n\n\n\nLa actualización\n\\[\n\\boldsymbol{\\theta}_{t+1}\n=\n\\boldsymbol{\\theta}_t\n-\n\\eta_t\\nabla f(\\boldsymbol{\\theta}_t)\n\\]\nno garantiza descenso para cualquier tasa de aprendizaje. Las garantías usuales requieren regularidad de la función y una elección adecuada de \\(\\eta_t\\).",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
@@ -2220,7 +2242,7 @@
     "href": "fundamentos/calculo-optimizacion.html#restricciones-de-desigualdad-y-condiciones-kkt",
     "title": "8  Cálculo multivariable y optimización",
     "section": "8.41 Restricciones de desigualdad y condiciones KKT",
-    "text": "8.41 Restricciones de desigualdad y condiciones KKT\nPara un problema\n\\[\n\\min_{\\mathbf{x}}\nf(\\mathbf{x})\n\\]\nsujeto a\n\\[\ng_i(\\mathbf{x})\\leq 0,\n\\]\nlas condiciones de Karush-Kuhn-Tucker incluyen:\n\nestacionariedad;\nfactibilidad primal;\nfactibilidad dual;\ncomplementariedad.\n\nEn forma simplificada:\n\\[\n\\nabla f(\\mathbf{x})\n+\n\\sum_i\n\\lambda_i\n\\nabla g_i(\\mathbf{x})\n=\n\\mathbf{0},\n\\]\n\\[\ng_i(\\mathbf{x})\\leq 0,\n\\]\n\\[\n\\lambda_i\\geq 0,\n\\]\n\\[\n\\lambda_i g_i(\\mathbf{x})=0.\n\\]\nEstas condiciones son fundamentales en máquinas de vectores de soporte.",
+    "text": "8.41 Restricciones de desigualdad y condiciones KKT\nPara un problema\n\\[\n\\min_{\\mathbf{x}}\nf(\\mathbf{x})\n\\]\nsujeto a\n\\[\ng_i(\\mathbf{x})\\leq 0,\n\\]\nlas condiciones de Karush-Kuhn-Tucker incluyen:\n\nestacionariedad;\nfactibilidad primal;\nfactibilidad dual;\ncomplementariedad.\n\nEn forma simplificada:\n\\[\n\\nabla f(\\mathbf{x})\n+\n\\sum_i\n\\lambda_i\n\\nabla g_i(\\mathbf{x})\n=\n\\mathbf{0},\n\\]\n\\[\ng_i(\\mathbf{x})\\leq 0,\n\\]\n\\[\n\\lambda_i\\geq 0,\n\\]\n\\[\n\\lambda_i g_i(\\mathbf{x})=0.\n\\]\nEstas condiciones son fundamentales en máquinas de vectores de soporte.\n\n\n\n\n\n\nImportanteCondiciones KKT\n\n\n\nLas condiciones KKT son necesarias bajo condiciones de regularidad. En problemas convexos, con funciones diferenciables y una condición de factibilidad como Slater, también son suficientes para optimalidad global.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
@@ -2407,7 +2429,7 @@
     "href": "fundamentos/calculo-optimizacion.html#referencias-del-capítulo",
     "title": "8  Cálculo multivariable y optimización",
     "section": "Referencias del capítulo",
-    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Bishop (2006); Hastie et al. (2009).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Apostol (1969), Boyd y Vandenberghe (2004), Bishop (2006) y Hastie et al. (2009).\n\n\n\n\n\n\nApostol, Tom M. 1969. Calculus, Volume II: Multi-Variable Calculus and Linear Algebra with Applications. 2.ª ed. Wiley.\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nBoyd, Stephen, y Lieven Vandenberghe. 2004. Convex Optimization. Cambridge University Press. https://doi.org/10.1017/CBO9780511804441.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
     "crumbs": [
       "I. Fundamentos matemáticos",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Cálculo multivariable y optimización</span>"
@@ -2418,7 +2440,7 @@
     "href": "aprendizaje/aprendizaje-supervisado.html",
     "title": "9  Formulación matemática del aprendizaje supervisado",
     "section": "",
-    "text": "9.1 Introducción\nEl aprendizaje supervisado estudia métodos capaces de construir una regla de predicción a partir de observaciones etiquetadas. Cada observación contiene un conjunto de características y una respuesta conocida. El objetivo consiste en utilizar esa información para predecir correctamente la respuesta de nuevas observaciones.\nDesde el punto de vista matemático, el aprendizaje supervisado puede formularse como un problema de selección de funciones. Se dispone de una familia de modelos posibles y se busca aquel que minimice una medida de error, no solamente sobre los datos observados, sino también sobre datos futuros provenientes del mismo proceso generador.\nEsta distinción entre ajuste y generalización es central. Un modelo puede describir muy bien la muestra de entrenamiento y, sin embargo, producir predicciones deficientes fuera de ella. Por esta razón, la teoría del aprendizaje automático estudia funciones de pérdida, riesgo esperado, riesgo empírico, complejidad de modelos, regularización y validación.",
+    "text": "9.1 Introducción\nEl aprendizaje supervisado se formula a partir de una distribución conjunta desconocida sobre entradas y salidas. El conjunto de entrenamiento se interpreta como una muestra de esa distribución, y el algoritmo selecciona una función dentro de una clase de hipótesis (Vapnik 1998; Shalev-Shwartz y Ben-David 2014; Murphy 2022).\nEl aprendizaje supervisado estudia métodos capaces de construir una regla de predicción a partir de observaciones etiquetadas. Cada observación contiene un conjunto de características y una respuesta conocida. El objetivo consiste en utilizar esa información para predecir correctamente la respuesta de nuevas observaciones.\nDesde el punto de vista matemático, el aprendizaje supervisado puede formularse como un problema de selección de funciones. Se dispone de una familia de modelos posibles y se busca aquel que minimice una medida de error, no solamente sobre los datos observados, sino también sobre datos futuros provenientes del mismo proceso generador.\nEsta distinción entre ajuste y generalización es central. Un modelo puede describir muy bien la muestra de entrenamiento y, sin embargo, producir predicciones deficientes fuera de ella. Por esta razón, la teoría del aprendizaje automático estudia funciones de pérdida, riesgo esperado, riesgo empírico, complejidad de modelos, regularización y validación.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Formulación matemática del aprendizaje supervisado</span>"
@@ -2429,7 +2451,7 @@
     "href": "aprendizaje/aprendizaje-supervisado.html#objetivos",
     "title": "9  Formulación matemática del aprendizaje supervisado",
     "section": "9.2 Objetivos",
-    "text": "9.2 Objetivos\nAl finalizar el capítulo, el lector podrá:\n\nformular matemáticamente un problema de aprendizaje supervisado;\ndistinguir entre espacio de entrada y espacio de salida;\ninterpretar una muestra de entrenamiento;\ndefinir una función objetivo desconocida;\ndistinguir modelo, hipótesis y espacio de hipótesis;\ncomprender funciones de pérdida;\ndefinir riesgo esperado y riesgo empírico;\ninterpretar el principio de minimización del riesgo empírico;\ndistinguir error de entrenamiento y error de generalización;\ncomprender sobreajuste y subajuste;\nanalizar el compromiso entre sesgo y varianza;\ncomprender regularización y complejidad de modelos;\ninterpretar ruido irreducible;\nrelacionar estos conceptos con regresión y clasificación.",
+    "text": "9.2 Objetivos\nAl finalizar el capítulo, el lector podrá:\n\nformular matemáticamente un problema de aprendizaje supervisado;\ndistinguir entre espacio de entrada y espacio de salida;\ninterpretar una muestra de entrenamiento;\ndefinir una función objetivo desconocida;\ndistinguir modelo, hipótesis y espacio de hipótesis;\ncomprender funciones de pérdida;\ndefinir riesgo esperado y riesgo empírico;\ninterpretar el principio de minimización del riesgo empírico;\ndistinguir error de entrenamiento y error de generalización;\ncomprender sobreajuste y subajuste;\nanalizar el compromiso entre sesgo y varianza;\ncomprender regularización y complejidad de modelos;\ninterpretar ruido irreducible;\nrelacionar estos conceptos con regresión y clasificación.\n\n\n\n\n\n\n\nImportanteHipótesis de muestreo\n\n\n\nLa formulación elemental supone observaciones independientes e idénticamente distribuidas:\n\\[\n(\\mathbf{X}_i,Y_i)\\overset{iid}{\\sim}P_{X,Y}.\n\\]\nEsta hipótesis no siempre es válida. En series temporales, datos espaciales, redes o mediciones repetidas deben utilizarse esquemas de validación y resultados teóricos adaptados a la dependencia.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Formulación matemática del aprendizaje supervisado</span>"
@@ -2616,7 +2638,7 @@
     "href": "aprendizaje/aprendizaje-supervisado.html#riesgo-empírico",
     "title": "9  Formulación matemática del aprendizaje supervisado",
     "section": "9.19 Riesgo empírico",
-    "text": "9.19 Riesgo empírico\nComo la distribución verdadera es desconocida, se utiliza la muestra.\n\nDefinición 9.8 El riesgo empírico es\n\\[\n\\widehat{R}_n(f)\n=\n\\frac{1}{n}\n\\sum_{i=1}^{n}\nL(\ny_i,\nf(\\mathbf{x}_i)\n).\n\\]\n\nEste riesgo puede calcularse directamente.",
+    "text": "9.19 Riesgo empírico\nComo la distribución verdadera es desconocida, se utiliza la muestra.\n\nDefinición 9.8 El riesgo empírico es\n\\[\n\\widehat{R}_n(f)\n=\n\\frac{1}{n}\n\\sum_{i=1}^{n}\nL(\ny_i,\nf(\\mathbf{x}_i)\n).\n\\]\n\nEste riesgo puede calcularse directamente.\n\n\n\n\n\n\nNotaRiesgo esperado y riesgo empírico\n\n\n\nEl riesgo esperado depende de la distribución desconocida:\n\\[\nR(f)=\\mathbb{E}[L(Y,f(\\mathbf{X}))].\n\\]\nEl riesgo empírico se calcula con la muestra:\n\\[\n\\widehat{R}_n(f)\n=\n\\frac{1}{n}\\sum_{i=1}^{n}L(y_i,f(\\mathbf{x}_i)).\n\\]\nMinimizar el segundo no garantiza por sí mismo minimizar el primero; la diferencia entre ambos es el problema de generalización.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Formulación matemática del aprendizaje supervisado</span>"
@@ -3100,7 +3122,7 @@
     "href": "aprendizaje/aprendizaje-supervisado.html#referencias-del-capítulo",
     "title": "9  Formulación matemática del aprendizaje supervisado",
     "section": "Referencias del capítulo",
-    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Vapnik (1998); Murphy (2022).\n\n\n\n\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An Introduction. MIT Press.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Vapnik (1998), Shalev-Shwartz y Ben-David (2014) y Murphy (2022).\n\n\n\n\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An Introduction. MIT Press.\n\n\nShalev-Shwartz, Shai, y Shai Ben-David. 2014. Understanding Machine Learning: From Theory to Algorithms. Cambridge University Press.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Formulación matemática del aprendizaje supervisado</span>"
@@ -3111,7 +3133,7 @@
     "href": "aprendizaje/teoria-clasificacion.html",
     "title": "10  Teoría matemática de la clasificación",
     "section": "",
-    "text": "10.1 Introducción\nLa clasificación consiste en asignar una etiqueta discreta a una observación a partir de sus características. En un problema binario, la respuesta puede pertenecer a una de dos clases; en un problema multiclase, puede pertenecer a una de varias categorías.\nDesde el punto de vista matemático, un clasificador es una función que divide el espacio de características en regiones de decisión. Cada región se asocia con una clase. La teoría de clasificación estudia cómo construir estas regiones, cómo medir el costo de los errores y cuál es la mejor regla de decisión posible bajo una distribución probabilística dada.\nEn este capítulo se desarrollan la regla de Bayes, el riesgo condicional, el error de Bayes, las fronteras de decisión y las principales métricas de evaluación.",
+    "text": "10.1 Introducción\nLa teoría de clasificación estudia cómo asignar una observación a una categoría minimizando una pérdida esperada. La regla de Bayes constituye el referente óptimo bajo la distribución verdadera, mientras que los clasificadores aprendidos intentan aproximarla a partir de datos finitos (Duda et al. 2001; Devroye et al. 1996; Bishop 2006).\nLa clasificación consiste en asignar una etiqueta discreta a una observación a partir de sus características. En un problema binario, la respuesta puede pertenecer a una de dos clases; en un problema multiclase, puede pertenecer a una de varias categorías.\nDesde el punto de vista matemático, un clasificador es una función que divide el espacio de características en regiones de decisión. Cada región se asocia con una clase. La teoría de clasificación estudia cómo construir estas regiones, cómo medir el costo de los errores y cuál es la mejor regla de decisión posible bajo una distribución probabilística dada.\nEn este capítulo se desarrollan la regla de Bayes, el riesgo condicional, el error de Bayes, las fronteras de decisión y las principales métricas de evaluación.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Teoría matemática de la clasificación</span>"
@@ -3232,7 +3254,7 @@
     "href": "aprendizaje/teoria-clasificacion.html#riesgo-condicional",
     "title": "10  Teoría matemática de la clasificación",
     "section": "10.12 Riesgo condicional",
-    "text": "10.12 Riesgo condicional\n\nDefinición 10.3 El riesgo condicional de predecir la clase \\(j\\) dado \\(\\mathbf{x}\\) es\n\\[\nR(j\\mid\\mathbf{x})\n=\n\\sum_{k=1}^{K}\nL(j,k)\nP(Y=k\\mid\\mathbf{X}=\\mathbf{x}).\n\\]\n\nLa decisión óptima es\n\\[\nf^{*}(\\mathbf{x})\n=\n\\arg\\min_j\nR(j\\mid\\mathbf{x}).\n\\]",
+    "text": "10.12 Riesgo condicional\n\nDefinición 10.3 El riesgo condicional de predecir la clase \\(j\\) dado \\(\\mathbf{x}\\) es\n\\[\nR(j\\mid\\mathbf{x})\n=\n\\sum_{k=1}^{K}\nL(j,k)\nP(Y=k\\mid\\mathbf{X}=\\mathbf{x}).\n\\]\n\nLa decisión óptima es\n\\[\nf^{*}(\\mathbf{x})\n=\n\\arg\\min_j\nR(j\\mid\\mathbf{x}).\n\\]\n\n\n\n\n\n\nNotaProbabilidades posteriores\n\n\n\nEn clasificación binaria se define\n\\[\n\\eta(\\mathbf{x})\n=\nP(Y=1\\mid\\mathbf{X}=\\mathbf{x}).\n\\]\nLa regla de Bayes bajo pérdida 0-1 predice la clase 1 cuando \\(\\eta(\\mathbf{x})\\geq 1/2\\). Si los costos son asimétricos, el umbral deja de ser necesariamente \\(1/2\\).",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Teoría matemática de la clasificación</span>"
@@ -3485,7 +3507,7 @@
     "href": "aprendizaje/teoria-clasificacion.html#limitaciones-de-la-exactitud",
     "title": "10  Teoría matemática de la clasificación",
     "section": "10.35 Limitaciones de la exactitud",
-    "text": "10.35 Limitaciones de la exactitud\nConsidere una base con:\n\n990 observaciones negativas;\n10 observaciones positivas.\n\nUn clasificador que siempre predice negativo obtiene\n\\[\n\\operatorname{Accuracy}\n=\n\\frac{990}{1000}\n=\n0.99.\n\\]\nSin embargo,\n\\[\n\\operatorname{Sensibilidad}=0.\n\\]\nPor tanto, la exactitud puede ser engañosa en datos desbalanceados.",
+    "text": "10.35 Limitaciones de la exactitud\nConsidere una base con:\n\n990 observaciones negativas;\n10 observaciones positivas.\n\nUn clasificador que siempre predice negativo obtiene\n\\[\n\\operatorname{Accuracy}\n=\n\\frac{990}{1000}\n=\n0.99.\n\\]\nSin embargo,\n\\[\n\\operatorname{Sensibilidad}=0.\n\\]\nPor tanto, la exactitud puede ser engañosa en datos desbalanceados.\n\n\n\n\n\n\nNotaClasificación y calibración\n\n\n\nUn clasificador puede tener buena exactitud y probabilidades mal calibradas. La discriminación evalúa orden o separación entre clases; la calibración evalúa si una probabilidad pronosticada de, por ejemplo, 0.8 corresponde aproximadamente a una frecuencia observada de 0.8.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Teoría matemática de la clasificación</span>"
@@ -3848,7 +3870,7 @@
     "href": "aprendizaje/teoria-clasificacion.html#referencias-del-capítulo",
     "title": "10  Teoría matemática de la clasificación",
     "section": "Referencias del capítulo",
-    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Duda et al. (2001); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nDuda, Richard O., Peter E. Hart, y David G. Stork. 2001. Pattern Classification. 2.ª ed. Wiley.",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Duda et al. (2001), Devroye et al. (1996) y Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nDevroye, Luc, László Györfi, y Gábor Lugosi. 1996. A Probabilistic Theory of Pattern Recognition. Springer. https://doi.org/10.1007/978-1-4612-0711-5.\n\n\nDuda, Richard O., Peter E. Hart, y David G. Stork. 2001. Pattern Classification. 2.ª ed. Wiley.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Teoría matemática de la clasificación</span>"
@@ -3859,7 +3881,7 @@
     "href": "aprendizaje/evaluacion-modelos.html",
     "title": "11  Evaluación, validación y selección de modelos",
     "section": "",
-    "text": "11.1 Introducción\nLa evaluación de modelos tiene como propósito estimar qué tan bien funcionará un algoritmo sobre observaciones nuevas. Esta tarea es distinta del ajuste. Durante el entrenamiento, el modelo utiliza una muestra para estimar parámetros; durante la evaluación, se intenta medir su capacidad de generalización.\nUna evaluación incorrecta puede producir conclusiones engañosas. Si se utiliza la misma información para entrenar y evaluar, el error obtenido será optimista. Si el conjunto de prueba interviene en la selección de hiperparámetros, deja de ser una evaluación imparcial. Si el preprocesamiento se realiza antes de dividir los datos, puede existir fuga de información.\nEn este capítulo se desarrollan formalmente la partición entrenamiento-validación-prueba, la validación cruzada, leave-one-out, bootstrap, validación anidada y selección de hiperparámetros.",
+    "text": "11.1 Introducción\nLa evaluación de modelos intenta estimar el desempeño fuera de muestra. Para que la estimación sea válida, el conjunto de evaluación debe permanecer independiente de las decisiones tomadas durante entrenamiento, selección de variables y ajuste de hiperparámetros (Stone 1974; Efron 1983; Hastie et al. 2009).\nLa evaluación de modelos tiene como propósito estimar qué tan bien funcionará un algoritmo sobre observaciones nuevas. Esta tarea es distinta del ajuste. Durante el entrenamiento, el modelo utiliza una muestra para estimar parámetros; durante la evaluación, se intenta medir su capacidad de generalización.\nUna evaluación incorrecta puede producir conclusiones engañosas. Si se utiliza la misma información para entrenar y evaluar, el error obtenido será optimista. Si el conjunto de prueba interviene en la selección de hiperparámetros, deja de ser una evaluación imparcial. Si el preprocesamiento se realiza antes de dividir los datos, puede existir fuga de información.\nEn este capítulo se desarrollan formalmente la partición entrenamiento-validación-prueba, la validación cruzada, leave-one-out, bootstrap, validación anidada y selección de hiperparámetros.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Evaluación, validación y selección de modelos</span>"
@@ -4530,7 +4552,7 @@
     "href": "aprendizaje/evaluacion-modelos.html#referencias-del-capítulo",
     "title": "11  Evaluación, validación y selección de modelos",
     "section": "Referencias del capítulo",
-    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Hastie et al. (2009); James et al. (2021).\n\n\n\n\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. An Introduction to Statistical Learning. 2.ª ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Stone (1974), Efron (1983), Hastie et al. (2009) y James et al. (2021).\n\n\n\n\n\n\nEfron, Bradley. 1983. «Estimating the Error Rate of a Prediction Rule: Improvement on Cross-Validation». Journal of the American Statistical Association 78 (382): 316-31. https://doi.org/10.1080/01621459.1983.10477973.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. An Introduction to Statistical Learning. 2.ª ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nStone, Mervyn. 1974. «Cross-Validatory Choice and Assessment of Statistical Predictions». Journal of the Royal Statistical Society: Series B 36 (2): 111-47. https://doi.org/10.1111/j.2517-6161.1974.tb00994.x.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Evaluación, validación y selección de modelos</span>"
@@ -4541,7 +4563,7 @@
     "href": "aprendizaje/regularizacion.html",
     "title": "12  Regularización y control de la complejidad",
     "section": "",
-    "text": "12.1 Introducción\nLa regularización es una de las ideas centrales del aprendizaje automático moderno. Su propósito es controlar la complejidad de un modelo para mejorar su capacidad de generalización. En lugar de minimizar únicamente el error de entrenamiento, se añade una penalización que desalienta soluciones excesivamente flexibles, inestables o difíciles de interpretar.\nLa regularización puede entenderse desde distintos puntos de vista:\nEn este capítulo se desarrollan formalmente ridge, LASSO y elastic net, así como sus interpretaciones geométricas y estadísticas.",
+    "text": "12.1 Introducción\nLa regularización modifica el problema de ajuste para controlar la complejidad efectiva, estabilizar estimaciones y mejorar el desempeño fuera de muestra. Puede expresarse como penalización, restricción, parada temprana, reducción de dimensión o elección de una clase de hipótesis más pequeña (Tikhonov 1963; Tibshirani 1996; Hastie et al. 2009).\nLa regularización es una de las ideas centrales del aprendizaje automático moderno. Su propósito es controlar la complejidad de un modelo para mejorar su capacidad de generalización. En lugar de minimizar únicamente el error de entrenamiento, se añade una penalización que desalienta soluciones excesivamente flexibles, inestables o difíciles de interpretar.\nLa regularización puede entenderse desde distintos puntos de vista:\nEn este capítulo se desarrollan formalmente ridge, LASSO y elastic net, así como sus interpretaciones geométricas y estadísticas.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Regularización y control de la complejidad</span>"
@@ -5168,7 +5190,7 @@
     "href": "aprendizaje/regularizacion.html#referencias-del-capítulo",
     "title": "12  Regularización y control de la complejidad",
     "section": "Referencias del capítulo",
-    "text": "Referencias del capítulo\nLos fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en Hastie et al. (2009); Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.",
+    "text": "Referencias del capítulo\nLos fundamentos se apoyan en Tikhonov (1963), Tibshirani (1996), Hastie et al. (2009) y Bishop (2006).\n\n\n\n\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning. Springer.\n\n\nHastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2.ª ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nTibshirani, Robert. 1996. «Regression Shrinkage and Selection via the Lasso». Journal of the Royal Statistical Society: Series B 58 (1): 267-88. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x.\n\n\nTikhonov, Andrey N. 1963. «Solution of Incorrectly Formulated Problems and the Regularization Method». Soviet Mathematics Doklady 4: 1035-38.",
     "crumbs": [
       "II. Fundamentos del aprendizaje automático",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Regularización y control de la complejidad</span>"
@@ -14804,7 +14826,7 @@
     "href": "referencias.html",
     "title": "Referencias",
     "section": "",
-    "text": "Agrawal, Rakesh, and Ramakrishnan Srikant. 1994. “Fast Algorithms\nfor Mining Association Rules in Large Databases.” Proceedings\nof the 20th International Conference on Very Large Data Bases,\n487–99.\n\n\nArthur, David, and Sergei Vassilvitskii. 2007. “K-Means++: The\nAdvantages of Careful Seeding.” Proceedings of the Eighteenth\nAnnual ACM-SIAM Symposium on Discrete Algorithms, 1027–35.\n\n\nBartlett, Peter L., and Shahar Mendelson. 2002. “Rademacher and\nGaussian Complexities: Risk Bounds and Structural Results.”\nJournal of Machine Learning Research 3: 463–82.\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine\nLearning. Springer.\n\n\nBox, George E. P., Gwilym M. Jenkins, Gregory C. Reinsel, and Greta M.\nLjung. 2015. Time Series Analysis: Forecasting and Control. 5th\ned. Wiley.\n\n\nBreiman, Leo. 2001. “Random Forests.” Machine\nLearning 45: 5–32. https://doi.org/10.1023/A:1010933404324.\n\n\nBreiman, Leo, Jerome H. Friedman, Richard A. Olshen, and Charles J.\nStone. 1984. Classification and Regression Trees.\n\n\nCortes, Corinna, and Vladimir Vapnik. 1995. “Support-Vector\nNetworks.” Machine Learning 20: 273–97. https://doi.org/10.1007/BF00994018.\n\n\nCover, Thomas M., and Peter E. Hart. 1967. “Nearest Neighbor\nPattern Classification.” IEEE Transactions on Information\nTheory 13 (1): 21–27. https://doi.org/10.1109/TIT.1967.1053964.\n\n\nDuda, Richard O., Peter E. Hart, and David G. Stork. 2001. Pattern\nClassification. 2nd ed. Wiley.\n\n\nHahsler, Michael, Bettina Grün, and Kurt Hornik. 2005. “Arules: A\nComputational Environment for Mining Association Rules and Frequent Item\nSets.” Journal of Statistical Software 14 (15): 1–25. https://doi.org/10.18637/jss.v014.i15.\n\n\nHamilton, James D. 1994. Time Series Analysis. Princeton\nUniversity Press.\n\n\nHan, Jiawei, Jian Pei, and Yiwen Yin. 2000. “Mining Frequent\nPatterns Without Candidate Generation.” Proceedings of the\n2000 ACM SIGMOD International Conference on Management of Data,\n1–12. https://doi.org/10.1145/335191.335372.\n\n\nHastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. The\nElements of Statistical Learning: Data Mining, Inference, and\nPrediction. 2nd ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nHochreiter, Sepp, and Jürgen Schmidhuber. 1997. “Long Short-Term\nMemory.” Neural Computation 9 (8): 1735–80. https://doi.org/10.1162/neco.1997.9.8.1735.\n\n\nHotelling, Harold. 1933. “Analysis of a Complex of Statistical\nVariables into Principal Components.” Journal of Educational\nPsychology 24: 417–41. https://doi.org/10.1037/h0071325.\n\n\nHyndman, Rob J., and George Athanasopoulos. 2021. Forecasting:\nPrinciples and Practice. 3rd ed. OTexts.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.\n2021. An Introduction to Statistical Learning. 2nd ed.\nSpringer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nLloyd, Stuart P. 1982. “Least Squares Quantization in PCM.”\nIEEE Transactions on Information Theory 28 (2): 129–37. https://doi.org/10.1109/TIT.1982.1056489.\n\n\nMardia, Kanti V., John T. Kent, and John M. Bibby. 1979.\nMultivariate Analysis. Academic Press.\n\n\nMcAllester, David A. 1999. “PAC-Bayesian Model Averaging.”\nProceedings of the Twelfth Annual Conference on Computational\nLearning Theory, 164–70.\n\n\nMohri, Mehryar, Afshin Rostamizadeh, and Ameet Talwalkar. 2018.\nFoundations of Machine Learning. 2nd ed. MIT Press.\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An\nIntroduction. MIT Press.\n\n\nPearson, Karl. 1901. “On Lines and Planes of Closest Fit to\nSystems of Points in Space.” Philosophical Magazine 2\n(11): 559–72. https://doi.org/10.1080/14786440109462720.\n\n\nQuinlan, J. Ross. 1986. “Induction of Decision Trees.”\nMachine Learning 1: 81–106. https://doi.org/10.1007/BF00116251.\n\n\nRumelhart, David E., Geoffrey E. Hinton, and Ronald J. Williams. 1986.\n“Learning Representations by Back-Propagating Errors.”\nNature 323: 533–36. https://doi.org/10.1038/323533a0.\n\n\nShalev-Shwartz, Shai, and Shai Ben-David. 2014. Understanding\nMachine Learning: From Theory to Algorithms. Cambridge University\nPress.\n\n\nStone, Charles J. 1977. “Consistent Nonparametric\nRegression.” The Annals of Statistics 5 (4): 595–620. https://doi.org/10.1214/aos/1176343886.\n\n\nValiant, Leslie G. 1984. “A Theory of the Learnable.”\nCommunications of the ACM 27 (11): 1134–42.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.\n\n\nVapnik, Vladimir N., and Alexey Y. Chervonenkis. 1971. “On the\nUniform Convergence of Relative Frequencies of Events to Their\nProbabilities.” Theory of Probability and Its\nApplications 16 (2): 264–80.\n\n\nWard, Joe H. 1963. “Hierarchical Grouping to Optimize an Objective\nFunction.” Journal of the American Statistical\nAssociation 58 (301): 236–44. https://doi.org/10.1080/01621459.1963.10500845.",
+    "text": "Agrawal, Rakesh, and Ramakrishnan Srikant. 1994. “Fast Algorithms\nfor Mining Association Rules in Large Databases.” Proceedings\nof the 20th International Conference on Very Large Data Bases,\n487–99.\n\n\nApostol, Tom M. 1969. Calculus, Volume II: Multi-Variable Calculus\nand Linear Algebra with Applications. 2nd ed. Wiley.\n\n\nArthur, David, and Sergei Vassilvitskii. 2007. “K-Means++: The\nAdvantages of Careful Seeding.” Proceedings of the Eighteenth\nAnnual ACM-SIAM Symposium on Discrete Algorithms, 1027–35.\n\n\nAxler, Sheldon. 2015. Linear Algebra Done Right. 3rd ed.\nSpringer. https://doi.org/10.1007/978-3-319-11080-6.\n\n\nBartlett, Peter L., and Shahar Mendelson. 2002. “Rademacher and\nGaussian Complexities: Risk Bounds and Structural Results.”\nJournal of Machine Learning Research 3: 463–82.\n\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine\nLearning. Springer.\n\n\nBox, George E. P., Gwilym M. Jenkins, Gregory C. Reinsel, and Greta M.\nLjung. 2015. Time Series Analysis: Forecasting and Control. 5th\ned. Wiley.\n\n\nBoyd, Stephen, and Lieven Vandenberghe. 2004. Convex\nOptimization. Cambridge University Press. https://doi.org/10.1017/CBO9780511804441.\n\n\nBreiman, Leo. 2001. “Random Forests.” Machine\nLearning 45: 5–32. https://doi.org/10.1023/A:1010933404324.\n\n\nBreiman, Leo, Jerome H. Friedman, Richard A. Olshen, and Charles J.\nStone. 1984. Classification and Regression Trees.\n\n\nCasella, George, and Roger L. Berger. 2002. Statistical\nInference. 2nd ed. Duxbury.\n\n\nCortes, Corinna, and Vladimir Vapnik. 1995. “Support-Vector\nNetworks.” Machine Learning 20: 273–97. https://doi.org/10.1007/BF00994018.\n\n\nCover, Thomas M., and Peter E. Hart. 1967. “Nearest Neighbor\nPattern Classification.” IEEE Transactions on Information\nTheory 13 (1): 21–27. https://doi.org/10.1109/TIT.1967.1053964.\n\n\nDevroye, Luc, László Györfi, and Gábor Lugosi. 1996. A Probabilistic\nTheory of Pattern Recognition. Springer. https://doi.org/10.1007/978-1-4612-0711-5.\n\n\nDuda, Richard O., Peter E. Hart, and David G. Stork. 2001. Pattern\nClassification. 2nd ed. Wiley.\n\n\nEfron, Bradley. 1983. “Estimating the Error Rate of a Prediction\nRule: Improvement on Cross-Validation.” Journal of the\nAmerican Statistical Association 78 (382): 316–31. https://doi.org/10.1080/01621459.1983.10477973.\n\n\nHahsler, Michael, Bettina Grün, and Kurt Hornik. 2005. “Arules: A\nComputational Environment for Mining Association Rules and Frequent Item\nSets.” Journal of Statistical Software 14 (15): 1–25. https://doi.org/10.18637/jss.v014.i15.\n\n\nHamilton, James D. 1994. Time Series Analysis. Princeton\nUniversity Press.\n\n\nHan, Jiawei, Jian Pei, and Yiwen Yin. 2000. “Mining Frequent\nPatterns Without Candidate Generation.” Proceedings of the\n2000 ACM SIGMOD International Conference on Management of Data,\n1–12. https://doi.org/10.1145/335191.335372.\n\n\nHastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. The\nElements of Statistical Learning: Data Mining, Inference, and\nPrediction. 2nd ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nHochreiter, Sepp, and Jürgen Schmidhuber. 1997. “Long Short-Term\nMemory.” Neural Computation 9 (8): 1735–80. https://doi.org/10.1162/neco.1997.9.8.1735.\n\n\nHotelling, Harold. 1933. “Analysis of a Complex of Statistical\nVariables into Principal Components.” Journal of Educational\nPsychology 24: 417–41. https://doi.org/10.1037/h0071325.\n\n\nHyndman, Rob J., and George Athanasopoulos. 2021. Forecasting:\nPrinciples and Practice. 3rd ed. OTexts.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.\n2021. An Introduction to Statistical Learning. 2nd ed.\nSpringer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nLloyd, Stuart P. 1982. “Least Squares Quantization in PCM.”\nIEEE Transactions on Information Theory 28 (2): 129–37. https://doi.org/10.1109/TIT.1982.1056489.\n\n\nMardia, Kanti V., John T. Kent, and John M. Bibby. 1979.\nMultivariate Analysis. Academic Press.\n\n\nMcAllester, David A. 1999. “PAC-Bayesian Model Averaging.”\nProceedings of the Twelfth Annual Conference on Computational\nLearning Theory, 164–70.\n\n\nMohri, Mehryar, Afshin Rostamizadeh, and Ameet Talwalkar. 2018.\nFoundations of Machine Learning. 2nd ed. MIT Press.\n\n\nMurphy, Kevin P. 2022. Probabilistic Machine Learning: An\nIntroduction. MIT Press.\n\n\nPearson, Karl. 1901. “On Lines and Planes of Closest Fit to\nSystems of Points in Space.” Philosophical Magazine 2\n(11): 559–72. https://doi.org/10.1080/14786440109462720.\n\n\nQuinlan, J. Ross. 1986. “Induction of Decision Trees.”\nMachine Learning 1: 81–106. https://doi.org/10.1007/BF00116251.\n\n\nRoss, Sheldon M. 2019. A First Course in Probability. 10th ed.\nPearson.\n\n\nRumelhart, David E., Geoffrey E. Hinton, and Ronald J. Williams. 1986.\n“Learning Representations by Back-Propagating Errors.”\nNature 323: 533–36. https://doi.org/10.1038/323533a0.\n\n\nShalev-Shwartz, Shai, and Shai Ben-David. 2014. Understanding\nMachine Learning: From Theory to Algorithms. Cambridge University\nPress.\n\n\nStone, Charles J. 1977. “Consistent Nonparametric\nRegression.” The Annals of Statistics 5 (4): 595–620. https://doi.org/10.1214/aos/1176343886.\n\n\nStone, Mervyn. 1974. “Cross-Validatory Choice and Assessment of\nStatistical Predictions.” Journal of the Royal Statistical\nSociety: Series B 36 (2): 111–47. https://doi.org/10.1111/j.2517-6161.1974.tb00994.x.\n\n\nStrang, Gilbert. 2016. Introduction to Linear Algebra. 5th ed.\nWellesley-Cambridge Press.\n\n\nTibshirani, Robert. 1996. “Regression Shrinkage and Selection via\nthe Lasso.” Journal of the Royal Statistical Society: Series\nB 58 (1): 267–88. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x.\n\n\nTikhonov, Andrey N. 1963. “Solution of Incorrectly Formulated\nProblems and the Regularization Method.” Soviet Mathematics\nDoklady 4: 1035–38.\n\n\nValiant, Leslie G. 1984. “A Theory of the Learnable.”\nCommunications of the ACM 27 (11): 1134–42.\n\n\nVapnik, Vladimir N. 1998. Statistical Learning Theory. Wiley.\n\n\nVapnik, Vladimir N., and Alexey Y. Chervonenkis. 1971. “On the\nUniform Convergence of Relative Frequencies of Events to Their\nProbabilities.” Theory of Probability and Its\nApplications 16 (2): 264–80.\n\n\nWard, Joe H. 1963. “Hierarchical Grouping to Optimize an Objective\nFunction.” Journal of the American Statistical\nAssociation 58 (301): 236–44. https://doi.org/10.1080/01621459.1963.10500845.",
     "crumbs": [
       "Referencias"
     ]

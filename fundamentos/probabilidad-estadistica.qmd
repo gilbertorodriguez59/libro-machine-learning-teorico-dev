@@ -2,6 +2,8 @@
 
 ## Introducción
 
+La probabilidad modela incertidumbre y la estadística permite aprender a partir de muestras. En aprendizaje automático, las distribuciones representan poblaciones desconocidas, las pérdidas se interpretan como variables aleatorias y el entrenamiento produce estimadores dependientes de los datos [@ross2019first; @casella2002statistical; @murphy2022probabilistic].
+
 La probabilidad y la estadística proporcionan el marco matemático para representar incertidumbre, variabilidad y aprendizaje a partir de datos. Los algoritmos de aprendizaje automático no trabajan con relaciones completamente deterministas: las observaciones contienen ruido, los patrones son incompletos y las predicciones siempre están sujetas a cierto grado de incertidumbre.
 
 La teoría de la probabilidad permite modelar fenómenos aleatorios, mientras que la estadística proporciona herramientas para inferir propiedades de una población a partir de una muestra. Ambas disciplinas son esenciales para comprender la clasificación probabilística, la regresión, la estimación de parámetros, la selección de modelos, la validación y la evaluación de predicciones.
@@ -101,6 +103,16 @@ donde:
 - $\Omega$ es el espacio muestral;
 - $\mathcal{F}$ es una sigma-álgebra;
 - $P$ es una medida de probabilidad.
+:::
+
+::: {.callout-note title="Modelo probabilístico"}
+Un espacio de probabilidad es una terna
+
+$$
+(\Omega,\mathcal{F},P),
+$$
+
+donde $\Omega$ es el espacio muestral, $\mathcal{F}$ una sigma-álgebra y $P$ una medida de probabilidad. No todo subconjunto de un espacio muestral infinito tiene que pertenecer automáticamente a $\mathcal{F}$.
 :::
 
 ## Axiomas de probabilidad
@@ -296,6 +308,18 @@ P(\mathbf{x}\mid C_k)P(C_k)
 P(\mathbf{x}\mid C_j)P(C_j)
 }.
 $$
+
+::: {.callout-important title="Condición para aplicar Bayes"}
+La expresión
+
+$$
+P(A\mid B)
+=
+\frac{P(B\mid A)P(A)}{P(B)}
+$$
+
+requiere que $P(B)>0$. Cuando $P(B)=0$, la probabilidad condicional elemental no está definida mediante este cociente.
+:::
 
 ## Ejemplo de diagnóstico
 
@@ -944,6 +968,24 @@ $$
 \mathbb{E}(S^2)=\sigma^2.
 $$
 
+::: {.callout-note title="Varianza poblacional y varianza muestral"}
+La varianza de una variable aleatoria utiliza su distribución poblacional. En cambio, la varianza muestral insesgada emplea el divisor $n-1$:
+
+$$
+S^2
+=
+\frac{1}{n-1}
+\sum_{i=1}^{n}
+(X_i-\overline{X})^2.
+$$
+
+El divisor $n-1$ no es una convención arbitraria: corrige el sesgo producido al estimar la media con la misma muestra.
+:::
+
+::: {.callout-warning title="Supuestos de los resultados asintóticos"}
+La ley de los grandes números y el teorema central del límite tienen distintas versiones. Las formulaciones elementales de este capítulo suponen observaciones independientes e idénticamente distribuidas y momentos finitos adecuados. En datos temporales, espaciales o dependientes se necesitan resultados adicionales.
+:::
+
 ## Ley de los grandes números
 
 ::: {#thm-ley-grandes-numeros}
@@ -1108,6 +1150,10 @@ $$
 $$
 
 Se utiliza porque transforma productos en sumas y facilita la derivación.
+
+::: {.callout-note title="Máxima verosimilitud"}
+La verosimilitud se interpreta como función del parámetro con los datos observados fijos. No es una distribución de probabilidad sobre el parámetro, salvo que se normalice dentro de un modelo bayesiano con una distribución previa.
+:::
 
 ## Estimación por máxima verosimilitud
 
@@ -1566,5 +1612,5 @@ Estos elementos serán utilizados posteriormente en regresión logística, clasi
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @murphy2022probabilistic; @bishop2006pattern.
+Los fundamentos se apoyan en @ross2019first, @casella2002statistical, @murphy2022probabilistic y @bishop2006pattern.
 

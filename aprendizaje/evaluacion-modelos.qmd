@@ -2,6 +2,8 @@
 
 ## Introducción
 
+La evaluación de modelos intenta estimar el desempeño fuera de muestra. Para que la estimación sea válida, el conjunto de evaluación debe permanecer independiente de las decisiones tomadas durante entrenamiento, selección de variables y ajuste de hiperparámetros [@stone1974crossvalidatory; @efron1983estimating; @hastie2009elements].
+
 La evaluación de modelos tiene como propósito estimar qué tan bien funcionará un algoritmo sobre observaciones nuevas. Esta tarea es distinta del ajuste. Durante el entrenamiento, el modelo utiliza una muestra para estimar parámetros; durante la evaluación, se intenta medir su capacidad de generalización.
 
 Una evaluación incorrecta puede producir conclusiones engañosas. Si se utiliza la misma información para entrenar y evaluar, el error obtenido será optimista. Si el conjunto de prueba interviene en la selección de hiperparámetros, deja de ser una evaluación imparcial. Si el preprocesamiento se realiza antes de dividir los datos, puede existir fuga de información.
@@ -1155,5 +1157,5 @@ Finalmente, se introdujeron bootstrap, error out-of-bag, selección de hiperpar�
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @hastie2009elements; @james2021introduction.
+Los fundamentos se apoyan en @stone1974crossvalidatory, @efron1983estimating, @hastie2009elements y @james2021introduction.
 

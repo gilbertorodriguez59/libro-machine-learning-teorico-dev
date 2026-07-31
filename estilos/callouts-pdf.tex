@@ -1,0 +1,74 @@
+% Estilo editorial seguro para PDF
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{caption}
+\usepackage{needspace}
+\usepackage{imakeidx}
+\usepackage{etoolbox}
+\usepackage{fvextra}
+
+\makeindex[intoc=true, columns=2, columnseprule=true]
+
+\definecolor{LibroAzul}{HTML}{1F4E79}
+\definecolor{LibroAzulClaro}{HTML}{EAF3F8}
+\definecolor{LibroGrisCodigo}{HTML}{F4F7FA}
+\definecolor{LibroBordeCodigo}{HTML}{1F4E79}
+
+\raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.32em}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{9pt plus 2pt minus 2pt}
+\setlength{\intextsep}{9pt plus 2pt minus 2pt}
+
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  justification=centering,
+  skip=5pt
+}
+
+\pretocmd{\section}{\Needspace{5\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{4\baselineskip}}{}{}
+\pretocmd{\subsubsection}{\Needspace{3\baselineskip}}{}{}
+
+\RedeclareSectionCommand[
+  beforeskip=-0.72\baselineskip,
+  afterskip=0.28\baselineskip
+]{section}
+
+\RedeclareSectionCommand[
+  beforeskip=-0.58\baselineskip,
+  afterskip=0.20\baselineskip
+]{subsection}
+
+\RedeclareSectionCommand[
+  beforeskip=-0.45\baselineskip,
+  afterskip=0.15\baselineskip
+]{subsubsection}
+
+\tcbset{
+  enhanced,
+  breakable,
+  boxrule=0.75pt,
+  arc=1.8mm,
+  left=3mm,
+  right=3mm,
+  top=2mm,
+  bottom=2mm,
+  before skip=7pt,
+  after skip=7pt,
+  fonttitle=\bfseries
+}
+
+% Ajuste seguro de líneas largas en código.
+% Se conserva el entorno Shaded estándar de Quarto/Pandoc.
+\fvset{
+  breaklines=true,
+  breakanywhere=true,
+  fontsize=\small
+}

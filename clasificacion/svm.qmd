@@ -1,8 +1,8 @@
-# Máquinas de vectores de soporte, SVM {#sec-svm}
+# Máquinas de vectores de soporte\index{Máquinas de vectores de soporte}, SVM {#sec-svm}
 
 ## Introducción {.unnumbered}
 
-Las máquinas de vectores de soporte buscan una frontera con margen grande y pueden incorporar transformaciones no lineales mediante kernels. Su formulación conecta optimización convexa, regularización y teoría de generalización [@cortes1995support; @vapnik1998statistical].
+Las máquinas de vectores de soporte buscan una frontera con margen\index{Margen} grande y pueden incorporar transformaciones no lineales mediante kernel\index{Kernels}s. Su formulación conecta optimización convexa, regularización y teoría de generalización [@cortes1995support; @vapnik1998statistical].
 
 Las máquinas de vectores de soporte, conocidas como SVM por *Support Vector Machines*, son métodos de aprendizaje supervisado diseñados principalmente para clasificación, aunque también existen extensiones para regresión.
 
@@ -10,7 +10,7 @@ La idea fundamental consiste en encontrar una frontera de decisión que separe l
 
 Cuando las clases no pueden separarse perfectamente, se introducen variables de holgura y una penalización que permite ciertos errores. Para fronteras no lineales, SVM utiliza funciones kernel, que permiten trabajar implícitamente en espacios de características de dimensión mayor sin calcular explícitamente la transformación.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 Una SVM busca una frontera de decisión con margen grande.
 :::
 
@@ -183,7 +183,7 @@ $$
 
 Depende de la escala de $\mathbf{w}$ y $b$.
 
-::: {.callout-important title="Escalamiento de la representación"}
+::: {.callout-important title="Escalamiento de la representación" appearance="default" icon="true"}
 El margen depende de la escala de las variables. Por ello, SVM suele requerir centrado y estandarización, especialmente con kernels que utilizan distancias.
 :::
 

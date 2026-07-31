@@ -1,4 +1,4 @@
-# Regularización y control de la complejidad {#sec-regularizacion}
+# Regularización\index{Regularización} y control de la complejidad {#sec-regularizacion}
 
 ## Introducción {.unnumbered}
 
@@ -15,9 +15,9 @@ La regularización puede entenderse desde distintos puntos de vista:
 - como un mecanismo de selección de variables;
 - como una forma de incorporar información previa.
 
-En este capítulo se desarrollan formalmente ridge, LASSO y elastic net, así como sus interpretaciones geométricas y estadísticas.
+En este capítulo se desarrollan formalmente ridge\index{Ridge}, LASSO\index{Lasso} y elastic net, así como sus interpretaciones geométricas y estadísticas.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 Regularizar significa controlar la complejidad efectiva para reducir sobreajuste.
 :::
 

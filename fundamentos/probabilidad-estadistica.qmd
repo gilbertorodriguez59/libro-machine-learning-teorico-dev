@@ -1,4 +1,4 @@
-# Probabilidad y estadística para aprendizaje automático {#sec-probabilidad-estadistica}
+# Probabilidad\index{Probabilidad} y estadística para aprendizaje automático {#sec-probabilidad-estadistica}
 
 ## Introducción {.unnumbered}
 
@@ -8,7 +8,7 @@ La probabilidad y la estadística proporcionan el marco matemático para represe
 
 La teoría de la probabilidad permite modelar fenómenos aleatorios, mientras que la estadística proporciona herramientas para inferir propiedades de una población a partir de una muestra. Ambas disciplinas son esenciales para comprender la clasificación probabilística, la regresión, la estimación de parámetros, la selección de modelos, la validación y la evaluación de predicciones.
 
-::: {.callout-important title="Idea central"}
+::: {.callout-important title="Idea central" appearance="default" icon="true"}
 La probabilidad modela incertidumbre y la estadística permite aprender sobre una población usando una muestra.
 :::
 
@@ -28,7 +28,7 @@ Al finalizar el capítulo, el lector podrá:
 10. comprender distribuciones conjuntas, marginales y condicionales;
 11. interpretar la ley de los grandes números y el teorema central del límite;
 12. comprender estimación puntual y por intervalos;
-13. derivar estimadores por máxima verosimilitud;
+13. derivar estimadores por máxima verosimilitud\index{Máxima verosimilitud};
 14. relacionar estos conceptos con algoritmos de aprendizaje automático.
 
 ## Experimentos aleatorios {.unnumbered}
@@ -109,7 +109,7 @@ donde:
 - $P$ es una medida de probabilidad.
 :::
 
-::: {.callout-note title="Modelo probabilístico"}
+::: {.callout-note title="Modelo probabilístico" appearance="default" icon="true"}
 Un espacio de probabilidad es una terna
 
 $$
@@ -313,7 +313,7 @@ P(\mathbf{x}\mid C_j)P(C_j)
 }.
 $$
 
-::: {.callout-important title="Condición para aplicar Bayes"}
+::: {.callout-important title="Condición para aplicar Bayes" appearance="default" icon="true"}
 La expresión
 
 $$
@@ -377,7 +377,7 @@ Aunque la prueba sea sensible, la baja prevalencia influye de manera importante 
 ## Variables aleatorias {.unnumbered}
 
 ::: {#def-variable-aleatoria}
-Una **variable aleatoria** es una función
+Una **variable aleatoria\index{Variables aleatorias}** es una función
 
 $$
 X:\Omega\to\mathbb{R}.
@@ -972,7 +972,7 @@ $$
 \mathbb{E}(S^2)=\sigma^2.
 $$
 
-::: {.callout-note title="Varianza poblacional y varianza muestral"}
+::: {.callout-note title="Varianza poblacional y varianza muestral" appearance="default" icon="true"}
 La varianza de una variable aleatoria utiliza su distribución poblacional. En cambio, la varianza muestral insesgada emplea el divisor $n-1$:
 
 $$
@@ -986,7 +986,7 @@ $$
 El divisor $n-1$ no es una convención arbitraria: corrige el sesgo producido al estimar la media con la misma muestra.
 :::
 
-::: {.callout-warning title="Supuestos de los resultados asintóticos"}
+::: {.callout-warning title="Supuestos de los resultados asintóticos" appearance="default" icon="true"}
 La ley de los grandes números y el teorema central del límite tienen distintas versiones. Las formulaciones elementales de este capítulo suponen observaciones independientes e idénticamente distribuidas y momentos finitos adecuados. En datos temporales, espaciales o dependientes se necesitan resultados adicionales.
 :::
 
@@ -1155,7 +1155,7 @@ $$
 
 Se utiliza porque transforma productos en sumas y facilita la derivación.
 
-::: {.callout-note title="Máxima verosimilitud"}
+::: {.callout-note title="Máxima verosimilitud" appearance="default" icon="true"}
 La verosimilitud se interpreta como función del parámetro con los datos observados fijos. No es una distribución de probabilidad sobre el parámetro, salvo que se normalice dentro de un modelo bayesiano con una distribución previa.
 :::
 

@@ -377,3 +377,36 @@
 - Se corrigió la ubicación de `number-depth`.
 - `number-depth: 1` ahora está en el nivel principal de `_quarto.yml`.
 - Se eliminó la propiedad inválida dentro de `book:`.
+
+## Versión 0.31.2
+
+- Se activó `callout-appearance: default` para HTML y PDF.
+- Se activaron iconos mediante `callout-icon: true`.
+- Se actualizaron 50 recuadros con apariencia e icono explícitos.
+- Se agregó `estilos/callouts-pdf.tex`.
+- Los recuadros PDF utilizan `tcolorbox`, bordes visibles y encabezados destacados.
+- Se agregó `RECUADROS_DESTACADOS_HTML_PDF.md`.
+
+## Versión 0.32
+
+- Revisión académica de los capítulos 17 a 20.
+- Se añadieron cuatro figuras didácticas originales.
+- Se incorporaron nuevas referencias formales e inline.
+- El índice PDF se redujo a capítulos mediante `toc-depth: 1`.
+- Todos los apartados internos del libro quedaron sin numeración.
+- Se agregó un índice temático final con páginas en PDF.
+- Se añadió una versión navegable del índice temático para HTML.
+- Se compactaron márgenes, interlineado y separación entre elementos.
+- Se mejoró el control de líneas viudas, huérfanas y títulos aislados.
+- Definiciones y conceptos importantes conservan recuadros destacados.
+- El código R se presenta en cajas profesionales con borde y fondo.
+- Se agregaron títulos y numeración de líneas a los códigos R revisados.
+- Se agregó `REVISION_EDITORIAL_INTEGRAL_v0.32.md`.
+
+## Versión 0.32.1
+
+- Se corrigió el error LaTeX `You can't use \spacefactor in vertical mode`.
+- Se eliminó la redefinición incompatible del entorno `Shaded`.
+- Se conserva el entorno estándar de código generado por Quarto/Pandoc.
+- Se mantiene el ajuste de líneas largas mediante `fvextra`.
+- Se conservan recuadros, figuras, contenido reducido e índice temático.

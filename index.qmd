@@ -14,7 +14,7 @@ title-block-style: none
 ::: {.content-visible when-format="html"}
 
 ::: {.callout-note appearance="simple" icon="true"}
-## Descargar el libro en PDF
+## Descargar el libro en PDF {.unnumbered}
 
 Puedes descargar la versión completa del libro mediante el botón **PDF** que aparece junto al título o mediante el siguiente enlace:
 

@@ -1,8 +1,8 @@
-# Redes neuronales artificiales {#sec-redes-neuronales}
+# Redes neuronales\index{Redes neuronales} artificiales {#sec-redes-neuronales}
 
 ## Introducción {.unnumbered}
 
-Las redes neuronales componen transformaciones afines y activaciones no lineales. Su entrenamiento moderno se apoya en retropropagación, optimización estocástica, inicialización controlada y regularización [@rumelhart1986learning; @glorot2010understanding; @he2015delving; @srivastava2014dropout].
+Las redes neuronales componen transformaciones afines y activaciones no lineales. Su entrenamiento moderno se apoya en retropropagación\index{Retropropagación}, optimización estocástica, inicialización controlada y regularización [@rumelhart1986learning; @glorot2010understanding; @he2015delving; @srivastava2014dropout\index{Dropout}].
 
 Las redes neuronales artificiales son modelos de aprendizaje supervisado y no supervisado formados por unidades computacionales simples organizadas en capas. Cada unidad combina linealmente sus entradas, aplica una función de activación y transmite el resultado a la siguiente capa.
 
@@ -10,7 +10,7 @@ Su poder proviene de la composición de múltiples transformaciones no lineales.
 
 En este capítulo se desarrolla la formulación matemática de la neurona artificial, el perceptrón, las redes multicapa, la propagación hacia adelante, las funciones de pérdida, la retropropagación y los métodos de optimización utilizados para entrenarlas.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 Una red neuronal compone transformaciones afines y activaciones no lineales.
 :::
 
@@ -163,7 +163,7 @@ El perceptrón converge si las clases son linealmente separables. No puede resol
 
 Esta limitación motivó el uso de capas ocultas y activaciones no lineales.
 
-::: {.callout-important title="Necesidad de no linealidad"}
+::: {.callout-important title="Necesidad de no linealidad" appearance="default" icon="true"}
 Si todas las activaciones fueran lineales, la composición de múltiples capas sería equivalente a una sola transformación lineal. La capacidad no lineal proviene de las funciones de activación.
 :::
 
@@ -541,7 +541,7 @@ $$
 
 Es el enfoque más utilizado.
 
-::: {.callout-note title="Retropropagación no es el optimizador"}
+::: {.callout-note title="Retropropagación no es el optimizador" appearance="default" icon="true"}
 La retropropagación calcula gradientes eficientemente. El optimizador —SGD, momentum, Adam u otro— utiliza esos gradientes para actualizar los parámetros.
 :::
 
@@ -955,7 +955,7 @@ $$
 
 Favorece pesos exactamente cero, aunque es menos común que L2.
 
-::: {.callout-note title="Dropout durante entrenamiento y predicción"}
+::: {.callout-note title="Dropout durante entrenamiento y predicción" appearance="default" icon="true"}
 Dropout introduce máscaras aleatorias durante entrenamiento. En inferencia se utiliza la red completa con el escalamiento correspondiente; no deben eliminarse neuronas aleatoriamente en una predicción ordinaria.
 :::
 
@@ -1057,7 +1057,7 @@ La capacidad depende de:
 
 Una red con demasiada capacidad puede memorizar la muestra.
 
-::: {.callout-warning title="Alcance del teorema universal"}
+::: {.callout-warning title="Alcance del teorema universal" appearance="default" icon="true"}
 El teorema garantiza capacidad de aproximación bajo determinadas condiciones, pero no asegura entrenamiento eficiente, buena generalización ni una arquitectura pequeña [@hornik1989multilayer].
 :::
 

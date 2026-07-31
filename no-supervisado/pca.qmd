@@ -1,6 +1,6 @@
-# Análisis de Componentes Principales, PCA {#sec-pca}
+# Análisis de Componentes Principales\index{Análisis de componentes principales}, PCA {#sec-pca}
 
-## Introducción
+## Introducción {.unnumbered}
 
 El Análisis de Componentes Principales, conocido como PCA por *Principal Component Analysis*, es uno de los métodos más importantes de reducción de dimensionalidad.
 
@@ -8,7 +8,11 @@ Su objetivo consiste en transformar un conjunto de variables posiblemente correl
 
 PCA no utiliza una variable objetivo. Por ello, es un método no supervisado. Su propósito no es clasificar ni predecir directamente, sino representar los datos en un espacio de menor dimensión conservando la mayor cantidad posible de información.
 
-## Objetivos
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
+PCA transforma variables correlacionadas en componentes ortogonales ordenadas por la varianza que explican. Es una transformación lineal no supervisada y su interpretación depende del centrado, la escala y las cargas.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -19,7 +23,7 @@ Al finalizar el capítulo, el lector podrá:
 5. derivar la primera componente principal;
 6. obtener componentes sucesivas;
 7. demostrar la ortogonalidad entre componentes;
-8. interpretar varianza explicada;
+8. interpretar varianza explicada\index{Varianza explicada};
 9. construir el gráfico scree;
 10. seleccionar el número de componentes;
 11. interpretar cargas y puntuaciones;
@@ -29,7 +33,7 @@ Al finalizar el capítulo, el lector podrá:
 15. analizar limitaciones;
 16. conectar PCA con regresión, clasificación y agrupamiento.
 
-## Matriz de datos
+## Matriz de datos {.unnumbered}
 
 Considérese una matriz
 
@@ -46,7 +50,7 @@ $$
 
 Cada fila representa una observación y cada columna una variable.
 
-## Centrado
+## Centrado {.unnumbered}
 
 La media de la variable $j$ es
 
@@ -82,7 +86,7 @@ $$
 
 Cada columna de $\mathbf{X}_c$ tiene media cero.
 
-## Estandarización
+## Estandarización {.unnumbered}
 
 Cuando las variables tienen escalas distintas, se utiliza
 
@@ -100,7 +104,7 @@ $$
 \mathbf{Z}.
 $$
 
-## Covarianza y correlación
+## Covarianza y correlación {.unnumbered}
 
 Si se trabaja con datos centrados, la matriz de covarianza es
 
@@ -124,7 +128,7 @@ $$
 
 es la matriz de correlación.
 
-## Interpretación geométrica
+## Interpretación geométrica {.unnumbered}
 
 PCA busca nuevas direcciones en el espacio de variables.
 
@@ -132,7 +136,9 @@ La primera dirección es aquella sobre la cual la proyección de los datos tiene
 
 La segunda dirección maximiza la varianza restante y debe ser ortogonal a la primera.
 
-## Primera componente principal
+![La primera componente sigue la dirección de máxima variabilidad; la segunda es ortogonal a ella.](../estilos/figuras/pca-geometria.png){#fig-pca-geometria width=82% fig-alt="Nube de puntos con dos ejes principales ortogonales"}
+
+## Primera componente principal {.unnumbered}
 
 Sea
 
@@ -164,7 +170,7 @@ $$
 \mathbf{X}_c\mathbf{a}_1.
 $$
 
-## Varianza de una componente
+## Varianza de una componente {.unnumbered}
 
 La varianza de la proyección es
 
@@ -190,7 +196,7 @@ $$
 \mathbf{a}_1^{\mathsf T}\mathbf{a}_1=1.
 $$
 
-## Derivación mediante multiplicadores de Lagrange
+## Derivación mediante multiplicadores de Lagrange {.unnumbered}
 
 La función lagrangiana es
 
@@ -227,7 +233,7 @@ $$
 
 La primera dirección principal es el vector propio asociado al mayor valor propio.
 
-## Primera varianza principal
+## Primera varianza principal {.unnumbered}
 
 Como
 
@@ -249,7 +255,7 @@ $$
 \lambda_1.
 $$
 
-## Componentes sucesivas
+## Componentes sucesivas {.unnumbered}
 
 La componente $k$ maximiza
 
@@ -274,7 +280,7 @@ $$
 
 La solución es el vector propio asociado a $\lambda_k$.
 
-## Descomposición espectral
+## Descomposición espectral {.unnumbered}
 
 Como $\mathbf{S}$ es simétrica,
 
@@ -318,7 +324,7 @@ $$
 \geq 0.
 $$
 
-## Puntuaciones
+## Puntuaciones {.unnumbered}
 
 Las puntuaciones principales son
 
@@ -330,7 +336,7 @@ $$
 
 La columna $k$ de $\mathbf{T}$ contiene las coordenadas de las observaciones en la componente $k$.
 
-## Cargas
+## Cargas {.unnumbered}
 
 Los coeficientes del vector propio se denominan cargas:
 
@@ -342,7 +348,7 @@ Indican la contribución de la variable $j$ a la componente $k$.
 
 Una carga grande en magnitud indica fuerte asociación con la componente.
 
-## Signo de las componentes
+## Signo de las componentes {.unnumbered}
 
 Si $\mathbf{a}_k$ es vector propio, también lo es
 
@@ -354,7 +360,7 @@ Por ello, el signo de una componente es arbitrario.
 
 La interpretación debe basarse en relaciones relativas, no en el signo absoluto.
 
-## Varianza explicada
+## Varianza explicada {.unnumbered}
 
 La varianza total es
 
@@ -383,7 +389,7 @@ CPVE_m
 }.
 $$
 
-## Gráfico scree
+## Gráfico scree {.unnumbered}
 
 El gráfico scree muestra
 
@@ -401,7 +407,7 @@ frente al número de componente.
 
 Se busca un punto de inflexión o codo a partir del cual la ganancia adicional sea pequeña.
 
-## Selección del número de componentes
+## Selección del número de componentes {.unnumbered}
 
 Criterios comunes:
 
@@ -412,7 +418,7 @@ Criterios comunes:
 - validación cruzada;
 - desempeño posterior.
 
-## Criterio de Kaiser
+## Criterio de Kaiser {.unnumbered}
 
 Cuando PCA se realiza sobre la matriz de correlación, se retienen componentes con
 
@@ -422,13 +428,17 @@ $$
 
 Este criterio es simple, pero no debe usarse de forma automática.
 
-## Análisis paralelo
+## Análisis paralelo {.unnumbered}
 
 Compara los valores propios observados con los obtenidos en datos aleatorios de la misma dimensión.
 
 Se retienen componentes cuyos valores propios exceden los valores esperados bajo aleatoriedad.
 
-## Covarianza o correlación
+::: {.callout-warning title="Decisión crítica: estandarizar o no" appearance="default" icon="true"}
+PCA sobre la matriz de covarianza conserva las diferencias originales de escala. PCA sobre la matriz de correlación asigna varianza unitaria a cada variable. Las dos decisiones pueden producir componentes muy distintas y deben justificarse con el significado de las unidades [@jolliffe2002principal; @jolliffe2016principal].
+:::
+
+## Covarianza o correlación {.unnumbered}
 
 Usar covarianza es apropiado cuando:
 
@@ -442,7 +452,7 @@ Usar correlación es apropiado cuando:
 - las escalas son muy diferentes;
 - se desea dar peso comparable a cada variable.
 
-## Reconstrucción
+## Reconstrucción {.unnumbered}
 
 Si se retienen $m$ componentes,
 
@@ -471,7 +481,7 @@ $$
 \mathbf{A}_m^{\mathsf T}.
 $$
 
-## Error de reconstrucción
+## Error de reconstrucción {.unnumbered}
 
 El error cuadrático es
 
@@ -485,7 +495,9 @@ $$
 
 PCA produce la mejor aproximación lineal de rango $m$ en norma de Frobenius.
 
-## Teorema de Eckart-Young
+La reconstrucción truncada no es únicamente una aproximación intuitiva: entre todas las matrices de rango a lo sumo $m$, la obtenida mediante las primeras componentes minimiza el error de Frobenius [@eckart1936approximation].
+
+## Teorema de Eckart-Young {.unnumbered}
 
 La aproximación truncada basada en las primeras $m$ componentes minimiza
 
@@ -499,7 +511,7 @@ $$
 
 entre todas las matrices $\mathbf{M}$ de rango a lo sumo $m$.
 
-## Formulación mediante SVD
+## Formulación mediante SVD {.unnumbered}
 
 La descomposición en valores singulares es
 
@@ -533,7 +545,7 @@ $$
 \frac{d_k^2}{n-1}.
 $$
 
-## Ventaja de SVD
+## Ventaja de SVD {.unnumbered}
 
 SVD evita formar explícitamente la matriz de covarianza y suele ser más estable numéricamente.
 
@@ -544,7 +556,7 @@ Es especialmente útil cuando:
 - existen problemas de rango;
 - se requiere PCA truncado.
 
-## Componentes no correlacionadas
+## Componentes no correlacionadas {.unnumbered}
 
 La covarianza de las puntuaciones es
 
@@ -556,13 +568,13 @@ $$
 
 Por tanto, las componentes principales son incorrelacionadas.
 
-## Incorrelación no implica independencia
+## Incorrelación no implica independencia {.unnumbered}
 
 Si los datos no son normales multivariados, componentes no correlacionadas no necesariamente son independientes.
 
 PCA elimina correlación lineal, no toda dependencia.
 
-## Interpretación de biplot
+## Interpretación de biplot\index{Biplot} {.unnumbered}
 
 Un biplot representa simultáneamente:
 
@@ -577,7 +589,7 @@ El ángulo aproximado entre vectores refleja correlación:
 - ángulo cercano a $180^\circ$: correlación negativa;
 - ángulo cercano a $90^\circ$: correlación cercana a cero.
 
-## Efecto de valores atípicos
+## Efecto de valores atípicos {.unnumbered}
 
 PCA depende de medias y covarianzas.
 
@@ -590,7 +602,7 @@ Una observación extrema puede alterar:
 - covarianzas;
 - direcciones principales.
 
-## PCA robusto
+## PCA robusto {.unnumbered}
 
 Existen variantes robustas que utilizan:
 
@@ -599,7 +611,7 @@ Existen variantes robustas que utilizan:
 - pérdidas robustas;
 - métodos de baja dimensión robustos.
 
-## Linealidad
+## Linealidad {.unnumbered}
 
 PCA identifica estructura lineal.
 
@@ -613,7 +625,7 @@ Alternativas:
 - autoencoders;
 - UMAP.
 
-## Kernel PCA
+## Kernel PCA {.unnumbered}
 
 Kernel PCA aplica PCA en un espacio de características definido por un kernel.
 
@@ -627,13 +639,13 @@ $$
 
 Después de centrar la matriz kernel, se calculan sus vectores propios.
 
-## PCA y distancia
+## PCA y distancia {.unnumbered}
 
 Al reducir dimensión, las distancias pueden aproximarse usando las primeras componentes.
 
 Esto puede mejorar métodos como $k$-NN cuando las variables originales contienen ruido.
 
-## PCA antes de clasificación
+## PCA antes de clasificación {.unnumbered}
 
 PCA puede utilizarse antes de:
 
@@ -647,13 +659,13 @@ Sin embargo, PCA maximiza varianza, no separación entre clases.
 
 Una componente con baja varianza podría ser muy discriminante.
 
-## Fuga de información
+## Fuga de información {.unnumbered}
 
 PCA debe aprenderse únicamente con los datos de entrenamiento.
 
 En validación cruzada, el centrado, escalamiento y cálculo de componentes deben repetirse dentro de cada partición de entrenamiento.
 
-## Regresión por componentes principales
+## Regresión por componentes principales {.unnumbered}
 
 En PCR se ajusta una regresión usando las primeras componentes:
 
@@ -670,13 +682,13 @@ $$
 
 Esto reduce multicolinealidad, pero la selección de componentes no utiliza $Y$.
 
-## PCA y multicolinealidad
+## PCA y multicolinealidad {.unnumbered}
 
 Las componentes son ortogonales, por lo que no presentan multicolinealidad entre sí.
 
 Esto puede estabilizar modelos posteriores.
 
-## Datos de alta dimensión
+## Datos de alta dimensión {.unnumbered}
 
 Cuando
 
@@ -692,7 +704,7 @@ $$
 
 Por tanto, como máximo hay $n-1$ componentes con varianza positiva.
 
-## Datos faltantes
+## Datos faltantes {.unnumbered}
 
 PCA clásico requiere una matriz completa.
 
@@ -704,7 +716,7 @@ Estrategias:
 - PCA probabilístico;
 - métodos de baja-rango con faltantes.
 
-## PCA probabilístico
+## PCA probabilístico {.unnumbered}
 
 PCA probabilístico modela
 
@@ -734,13 +746,13 @@ $$
 
 Proporciona una interpretación generativa.
 
-## Estandarización y variables constantes
+## Estandarización y variables constantes {.unnumbered}
 
 Una variable con desviación estándar cero no puede estandarizarse.
 
 Debe eliminarse o tratarse antes de PCA.
 
-## Complejidad computacional
+## Complejidad computacional {.unnumbered}
 
 El costo depende de $n$ y $p$.
 
@@ -758,13 +770,13 @@ $$
 
 SVD truncada puede reducir el costo cuando solo se requieren pocas componentes.
 
-## PCA incremental
+## PCA incremental {.unnumbered}
 
 Cuando los datos son muy grandes o llegan secuencialmente, puede utilizarse PCA incremental.
 
 Este método actualiza progresivamente la representación sin almacenar toda la muestra.
 
-## Interpretabilidad
+## Interpretabilidad {.unnumbered}
 
 Las componentes son combinaciones lineales y pueden ser difíciles de interpretar.
 
@@ -782,16 +794,20 @@ $$
 
 requiere analizar magnitudes, signos y contexto de las variables.
 
-## Rotaciones
+## Rotaciones {.unnumbered}
 
 En análisis factorial se utilizan rotaciones para facilitar interpretación.
 
 En PCA también pueden rotarse componentes, aunque la varianza explicada se redistribuye y se modifica la interpretación original.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
+#| label: lst-pca-r
+#| lst-cap: "Cálculo e inspección de un PCA en R"
+#| code-line-numbers: true
+#| code-overflow: wrap
 
 datos <- data.frame(
   pm10 = c(45, 52, 60, 38, 70, 65),
@@ -827,7 +843,7 @@ plot(
 biplot(modelo_pca)
 ```
 
-## Ejemplo con dos variables
+## Ejemplo con dos variables {.unnumbered}
 
 Considérese la matriz centrada
 
@@ -856,7 +872,7 @@ Se calculan sus valores y vectores propios.
 
 La primera componente será la dirección asociada al mayor valor propio.
 
-## Ejemplo de varianza explicada
+## Ejemplo de varianza explicada {.unnumbered}
 
 Supóngase que los valores propios son
 
@@ -908,7 +924,7 @@ $$
 0.875.
 $$
 
-## Ejemplo de reconstrucción
+## Ejemplo de reconstrucción {.unnumbered}
 
 Con dos variables y una sola componente,
 
@@ -928,7 +944,7 @@ $$
 \overline{\mathbf{x}}.
 $$
 
-## Ventajas
+## Ventajas {.unnumbered}
 
 1. reduce dimensionalidad;
 2. elimina correlación lineal;
@@ -938,7 +954,7 @@ $$
 6. ayuda frente a multicolinealidad;
 7. tiene formulación matemática clara.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. es lineal;
 2. es sensible a escala;
@@ -948,7 +964,7 @@ $$
 6. requiere datos numéricos;
 7. puede ocultar variables importantes de baja varianza.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. aplicar PCA sin centrar;
 2. no estandarizar variables de escalas distintas;
@@ -961,7 +977,7 @@ $$
 9. interpretar el signo absoluto de una carga;
 10. usar PCA con variables categóricas sin transformación adecuada.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique el objetivo de PCA.
 2. ¿Por qué se centra la matriz?
@@ -976,7 +992,7 @@ $$
 11. ¿Cómo afecta un valor atípico?
 12. ¿Por qué debe calcularse dentro de cada partición de entrenamiento?
 
-## Ejercicio de matriz de covarianza
+## Ejercicio de matriz de covarianza {.unnumbered}
 
 Considere
 
@@ -997,7 +1013,7 @@ $$
 4. Obtenga valores y vectores propios.
 5. Identifique la primera componente.
 
-## Ejercicio de varianza explicada
+## Ejercicio de varianza explicada {.unnumbered}
 
 Considere
 
@@ -1016,7 +1032,7 @@ $$
 3. Calcule la proporción acumulada.
 4. Determine cuántas componentes se necesitan para explicar al menos 90 por ciento.
 
-## Ejercicio de cargas
+## Ejercicio de cargas {.unnumbered}
 
 La primera componente es
 
@@ -1037,7 +1053,7 @@ $$
 3. Explique por qué cambiar todos los signos no modifica la componente.
 4. Proponga una interpretación sustantiva.
 
-## Ejercicio de reconstrucción
+## Ejercicio de reconstrucción {.unnumbered}
 
 Sea
 
@@ -1059,7 +1075,7 @@ $$
 1. Reconstruya la observación centrada.
 2. Si la media es $(10,5)$, reconstruya la observación original.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea analizar calidad del aire con variables:
 
@@ -1088,7 +1104,7 @@ Diseñe un análisis PCA que incluya:
 13. validación;
 14. limitaciones ambientales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló el Análisis de Componentes Principales como método lineal de reducción de dimensionalidad.
 
@@ -1100,5 +1116,4 @@ Finalmente, se analizaron estandarización, valores atípicos, fuga de informaci
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @pearson1901lines; @hotelling1933analysis; @mardia1979multivariate.
-
+Los fundamentos se apoyan en @pearson1901lines, @hotelling1933analysis, @jolliffe2002principal, @jolliffe2016principal, @eckart1936approximation y @mardia1979multivariate.

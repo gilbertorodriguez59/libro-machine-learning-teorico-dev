@@ -8,9 +8,9 @@ La evaluación de modelos tiene como propósito estimar qué tan bien funcionar�
 
 Una evaluación incorrecta puede producir conclusiones engañosas. Si se utiliza la misma información para entrenar y evaluar, el error obtenido será optimista. Si el conjunto de prueba interviene en la selección de hiperparámetros, deja de ser una evaluación imparcial. Si el preprocesamiento se realiza antes de dividir los datos, puede existir fuga de información.
 
-En este capítulo se desarrollan formalmente la partición entrenamiento-validación-prueba, la validación cruzada, leave-one-out, bootstrap, validación anidada y selección de hiperparámetros.
+En este capítulo se desarrollan formalmente la partición entrenamiento-validación-prueba, la validación cruzada\index{Validación cruzada}, leave-one-out, bootstrap, validación anidada y selección de hiperparámetros.
 
-::: {.callout-important title="Principio esencial"}
+::: {.callout-important title="Principio esencial" appearance="default" icon="true"}
 La evaluación válida requiere datos que no hayan intervenido en el entrenamiento ni en la selección del modelo.
 :::
 

@@ -1,4 +1,4 @@
-# Regresión lineal simple {#sec-regresion-lineal-simple}
+# Regresión lineal simple\index{Regresión lineal simple} {#sec-regresion-lineal-simple}
 
 ## Introducción {.unnumbered}
 
@@ -8,7 +8,7 @@ La regresión lineal simple estudia la relación entre una variable explicativa 
 
 Aunque se trata de uno de los modelos más sencillos, constituye la base conceptual de métodos más avanzados. En este capítulo se desarrollan la formulación probabilística, la estimación por mínimos cuadrados, las propiedades de los estimadores, la inferencia sobre los parámetros, los intervalos de confianza y predicción, el coeficiente de determinación y el análisis de residuos.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 La regresión lineal simple modela la media de una respuesta con un predictor.
 :::
 
@@ -893,7 +893,7 @@ SSR
 SSE.
 $$
 
-::: {.callout-note title="Interpretación de la pendiente"}
+::: {.callout-note title="Interpretación de la pendiente" appearance="default" icon="true"}
 La pendiente representa el cambio esperado en la respuesta por una unidad adicional del predictor, dentro del rango observado. No debe extrapolarse automáticamente.
 :::
 

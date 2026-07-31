@@ -6,14 +6,16 @@
 %
 \documentclass[
   spanish,
-  11pt,
+  10.5pt,
   letterpaper,
   DIV=11,
-  numbers=noendperiod]{scrreprt}
+  numbers=noendperiod,
+  oneside,
+  open=any]{scrreprt}
 \usepackage{xcolor}
-\usepackage[top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+\usepackage[top=2.2cm,bottom=2.2cm,left=2.7cm,right=2.4cm]{geometry}
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{1}
+\setcounter{secnumdepth}{0}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -192,6 +194,80 @@
  
 
 
+% Estilo editorial seguro para PDF
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{caption}
+\usepackage{needspace}
+\usepackage{imakeidx}
+\usepackage{etoolbox}
+\usepackage{fvextra}
+
+\makeindex[intoc=true, columns=2, columnseprule=true]
+
+\definecolor{LibroAzul}{HTML}{1F4E79}
+\definecolor{LibroAzulClaro}{HTML}{EAF3F8}
+\definecolor{LibroGrisCodigo}{HTML}{F4F7FA}
+\definecolor{LibroBordeCodigo}{HTML}{1F4E79}
+
+\raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.32em}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{9pt plus 2pt minus 2pt}
+\setlength{\intextsep}{9pt plus 2pt minus 2pt}
+
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  justification=centering,
+  skip=5pt
+}
+
+\pretocmd{\section}{\Needspace{5\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{4\baselineskip}}{}{}
+\pretocmd{\subsubsection}{\Needspace{3\baselineskip}}{}{}
+
+\RedeclareSectionCommand[
+  beforeskip=-0.72\baselineskip,
+  afterskip=0.28\baselineskip
+]{section}
+
+\RedeclareSectionCommand[
+  beforeskip=-0.58\baselineskip,
+  afterskip=0.20\baselineskip
+]{subsection}
+
+\RedeclareSectionCommand[
+  beforeskip=-0.45\baselineskip,
+  afterskip=0.15\baselineskip
+]{subsubsection}
+
+\tcbset{
+  enhanced,
+  breakable,
+  boxrule=0.75pt,
+  arc=1.8mm,
+  left=3mm,
+  right=3mm,
+  top=2mm,
+  bottom=2mm,
+  before skip=7pt,
+  after skip=7pt,
+  fonttitle=\bfseries
+}
+
+% Ajuste seguro de líneas largas en código.
+% Se conserva el entorno Shaded estándar de Quarto/Pandoc.
+\fvset{
+  breaklines=true,
+  breakanywhere=true,
+  fontsize=\small
+}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
@@ -291,7 +367,7 @@
 \subtitle{Teoría, demostraciones y formulación rigurosa de los métodos
 de regresión, clasificación y análisis de datos}
 \author{MI Jesús Gilberto Rodríguez Escobedo}
-\date{2026-07-30}
+\date{2026-07-31}
 \begin{document}
 \maketitle
 
@@ -307,13 +383,13 @@ de regresión, clasificación y análisis de datos}
 \end{titlepage}
 \clearpage
 
-\renewcommand*\contentsname{Tabla de contenidos}
+\renewcommand*\contentsname{Contenido}
 {
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{0}
 \tableofcontents
 }
 
-\setstretch{1.15}
+\setstretch{1.08}
 \bookmarksetup{startatroot}
 
 \chapter{Fundamentos Matemáticos del Aprendizaje
@@ -420,7 +496,10 @@ demostraciones y derivaciones. Posteriormente se desarrollan ejemplos
 numéricos manuales y se establece la conexión con los algoritmos
 estudiados en el volumen práctico.
 
-\section{Organización de la obra}\label{organizaciuxf3n-de-la-obra}
+\section*{Organización de la obra}\label{organizaciuxf3n-de-la-obra}
+\addcontentsline{toc}{section}{Organización de la obra}
+
+\markright{Organización de la obra}
 
 La obra se organiza en seis partes:
 
@@ -543,8 +622,9 @@ En esta obra se utilizarán las siguientes convenciones:
 
 \part{I. Fundamentos matemáticos}
 
-\chapter{Lenguaje matemático, conjuntos y
-funciones}\label{sec-conjuntos-funciones}
+\chapter{\texorpdfstring{Lenguaje matemático, conjunto\index{Conjuntos}s
+y
+funciones}{Lenguaje matemático, conjuntos y funciones}}\label{sec-conjuntos-funciones}
 
 \section*{Introducción}\label{introducciuxf3n-1}
 \addcontentsline{toc}{section}{Introducción}
@@ -570,8 +650,8 @@ formulación de problemas de aprendizaje automático.
 
 \begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Idea central}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-Una \textbf{función} asigna a cada elemento del dominio exactamente un
-elemento del codominio.
+Una \textbf{función\index{Función}} asigna a cada elemento del
+dominio\index{Dominio} exactamente un elemento del codominio.
 
 \end{tcolorbox}
 
@@ -1620,7 +1700,7 @@ En R, una tabla de datos puede interpretarse como una representación
 computacional de la matriz \(\mathbf{X}\) y del vector \(\mathbf{y}\).
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{pm10 =} \FunctionTok{c}\NormalTok{(}\DecValTok{38}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{112}\NormalTok{, }\DecValTok{46}\NormalTok{),}
   \AttributeTok{temperatura =} \FunctionTok{c}\NormalTok{(}\DecValTok{19}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{21}\NormalTok{),}
@@ -1843,10 +1923,12 @@ automático}\label{sec-algebra-lineal}
 \markright{Introducción}
 
 El álgebra lineal proporciona la estructura matemática de los datos
-multivariados y de numerosos algoritmos. Vectores, matrices, productos
-internos, proyecciones, valores propios y descomposición en valores
-singulares aparecen directamente en regresión, PCA, SVM y redes
-neuronales (Strang 2016; Axler 2015; Bishop 2006).
+multivariados y de numerosos algoritmos. Vector\index{Vectores}es,
+matrices, productos internos, proyecciones, valores propios y
+descomposición en valores
+singulares\index{Descomposición en valores singulares} aparecen
+directamente en regresión, PCA, SVM y redes neuronales (Strang 2016;
+Axler 2015; Bishop 2006).
 
 El álgebra lineal constituye uno de los lenguajes fundamentales del
 aprendizaje automático. Los conjuntos de datos se representan mediante
@@ -1923,8 +2005,9 @@ En todo el capítulo se utilizarán las siguientes convenciones:
 \item
   \(\mathbf{x}\in\mathbb{R}^{p}\) tiene dimensión \(p\times1\);
 \item
-  una matriz de datos \(\mathbf{X}\in\mathbb{R}^{n\times p}\) contiene
-  observaciones en filas y variables en columnas;
+  una matriz\index{Matrices} de datos
+  \(\mathbf{X}\in\mathbb{R}^{n\times p}\) contiene observaciones en
+  filas y variables en columnas;
 \item
   \(\mathbf{X}^{\mathsf T}\in\mathbb{R}^{p\times n}\);
 \item
@@ -3280,7 +3363,8 @@ escalar \(\lambda\) tal que
 \lambda\mathbf{v}.
 \]
 
-El escalar \(\lambda\) se denomina valor propio asociado.
+El escalar \(\lambda\) se denomina valor propio\index{Valores propios}
+asociado.
 
 \end{definition}
 
@@ -3712,7 +3796,7 @@ Por tanto, cada capa combina álgebra lineal y cálculo.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
 \NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}
 
@@ -4070,8 +4154,9 @@ métodos de reducción de dimensionalidad.
 Los fundamentos se apoyan en Strang (2016), Axler (2015), Mardia et~al.
 (1979) y Bishop (2006).
 
-\chapter{Probabilidad y estadística para aprendizaje
-automático}\label{sec-probabilidad-estadistica}
+\chapter{\texorpdfstring{Probabilidad\index{Probabilidad} y estadística
+para aprendizaje
+automático}{Probabilidad y estadística para aprendizaje automático}}\label{sec-probabilidad-estadistica}
 
 \section*{Introducción}\label{introducciuxf3n-3}
 \addcontentsline{toc}{section}{Introducción}
@@ -4141,7 +4226,8 @@ Al finalizar el capítulo, el lector podrá:
 \item
   comprender estimación puntual y por intervalos;
 \item
-  derivar estimadores por máxima verosimilitud;
+  derivar estimadores por máxima
+  verosimilitud\index{Máxima verosimilitud};
 \item
   relacionar estos conceptos con algoritmos de aprendizaje automático.
 \end{enumerate}
@@ -4630,7 +4716,8 @@ importante en la probabilidad posterior.
 
 \begin{definition}[]\protect\hypertarget{def-variable-aleatoria}{}\label{def-variable-aleatoria}
 
-Una \textbf{variable aleatoria} es una función
+Una \textbf{variable aleatoria\index{Variables aleatorias}} es una
+función
 
 \[
 X:\Omega\to\mathbb{R}.
@@ -5903,7 +5990,7 @@ varianza.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{5}\NormalTok{)}
 
 \CommentTok{\# Media}
@@ -6248,7 +6335,8 @@ optimización}\label{sec-calculo-optimizacion}
 
 El entrenamiento de numerosos modelos consiste en minimizar una función
 respecto de vectores o matrices de parámetros. El cálculo multivariable
-aporta gradientes, Jacobianas y Hessianas; la optimización convexa
+aporta gradiente\index{Gradiente}s, Jacobianas y
+Hessiana\index{Hessiana}s; la optimización convex\index{Convexidad}a
 permite distinguir mínimos locales y globales y establecer condiciones
 de optimalidad (Apostol 1969; Boyd y Vandenberghe 2004; Bishop 2006).
 
@@ -7959,7 +8047,7 @@ calcular gradientes respecto de todos los parámetros.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \CommentTok{\# Función cuadrática}
 \NormalTok{f }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(theta) \{}
 \NormalTok{  (theta }\SpecialCharTok{{-}} \DecValTok{3}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}
@@ -8335,8 +8423,8 @@ Esta distinción entre ajuste y generalización es central. Un modelo
 puede describir muy bien la muestra de entrenamiento y, sin embargo,
 producir predicciones deficientes fuera de ella. Por esta razón, la
 teoría del aprendizaje automático estudia funciones de pérdida, riesgo
-esperado, riesgo empírico, complejidad de modelos, regularización y
-validación.
+esperado\index{Riesgo esperado}, riesgo empírico\index{Riesgo empírico},
+complejidad de modelos, regularización y validación.
 
 \begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definición esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
@@ -9789,7 +9877,7 @@ En redes neuronales, la complejidad depende de:
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 
 \CommentTok{\# Datos simulados}
@@ -10122,10 +10210,11 @@ clasificación}\label{sec-teoria-clasificacion}
 \markright{Introducción}
 
 La teoría de clasificación estudia cómo asignar una observación a una
-categoría minimizando una pérdida esperada. La regla de Bayes constituye
-el referente óptimo bajo la distribución verdadera, mientras que los
-clasificadores aprendidos intentan aproximarla a partir de datos finitos
-(Duda et~al. 2001; Devroye et~al. 1996; Bishop 2006).
+categoría minimizando una pérdida esperada. La regla de
+Bayes\index{Regla de Bayes} constituye el referente óptimo bajo la
+distribución verdadera, mientras que los clasificadores aprendidos
+intentan aproximarla a partir de datos finitos (Duda et~al. 2001;
+Devroye et~al. 1996; Bishop 2006).
 
 La clasificación consiste en asignar una etiqueta discreta a una
 observación a partir de sus características. En un problema binario, la
@@ -10397,7 +10486,7 @@ f(\mathbf{x})
 \eta_k(\mathbf{x}).
 \]
 
-Esta regla será óptima bajo pérdida 0-1.
+Esta regla será óptima bajo pérdida 0-1\index{Pérdida 0-1}.
 
 \section*{Función de pérdida
 general}\label{funciuxf3n-de-puxe9rdida-general}
@@ -11518,7 +11607,7 @@ La distancia a la frontera se relaciona con el margen.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{real }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}
   \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
   \AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
@@ -11938,8 +12027,9 @@ preprocesamiento se realiza antes de dividir los datos, puede existir
 fuga de información.
 
 En este capítulo se desarrollan formalmente la partición
-entrenamiento-validación-prueba, la validación cruzada, leave-one-out,
-bootstrap, validación anidada y selección de hiperparámetros.
+entrenamiento-validación-prueba, la validación
+cruzada\index{Validación cruzada}, leave-one-out, bootstrap, validación
+anidada y selección de hiperparámetros.
 
 \begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Principio esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
@@ -13269,7 +13359,7 @@ cuando las clases están desbalanceadas.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 
 \NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{150}
@@ -13641,8 +13731,9 @@ conclusiones optimistas.
 Los fundamentos se apoyan en Stone (1974), Efron (1983), Hastie et~al.
 (2009) y James et~al. (2021).
 
-\chapter{Regularización y control de la
-complejidad}\label{sec-regularizacion}
+\chapter{\texorpdfstring{Regularización\index{Regularización} y control
+de la
+complejidad}{Regularización y control de la complejidad}}\label{sec-regularizacion}
 
 \section*{Introducción}\label{introducciuxf3n-8}
 \addcontentsline{toc}{section}{Introducción}
@@ -13681,8 +13772,9 @@ La regularización puede entenderse desde distintos puntos de vista:
   como una forma de incorporar información previa.
 \end{itemize}
 
-En este capítulo se desarrollan formalmente ridge, LASSO y elastic net,
-así como sus interpretaciones geométricas y estadísticas.
+En este capítulo se desarrollan formalmente ridge\index{Ridge},
+LASSO\index{Lasso} y elastic net, así como sus interpretaciones
+geométricas y estadísticas.
 
 \begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definición esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
@@ -14977,7 +15069,7 @@ problemas causales.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \CommentTok{\# Requiere glmnet}
 \FunctionTok{library}\NormalTok{(glmnet)}
 
@@ -15350,7 +15442,8 @@ et~al. (2009) y Bishop (2006).
 
 \part{III. Modelos de regresión}
 
-\chapter{Regresión lineal simple}\label{sec-regresion-lineal-simple}
+\chapter{\texorpdfstring{Regresión lineal
+simple\index{Regresión lineal simple}}{Regresión lineal simple}}\label{sec-regresion-lineal-simple}
 
 \section*{Introducción}\label{introducciuxf3n-9}
 \addcontentsline{toc}{section}{Introducción}
@@ -16963,7 +17056,7 @@ del riesgo empírico.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{temperatura =} \FunctionTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{28}\NormalTok{),}
   \AttributeTok{pm10 =} \FunctionTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{39}\NormalTok{, }\DecValTok{44}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{57}\NormalTok{, }\DecValTok{63}\NormalTok{)}
@@ -17381,7 +17474,8 @@ supervisado.
 Los fundamentos se apoyan en Montgomery et~al. (2021), Seber y Lee
 (2012), Hastie et~al. (2009) y James et~al. (2021).
 
-\chapter{Regresión lineal múltiple}\label{sec-regresion-lineal-multiple}
+\chapter{\texorpdfstring{Regresión lineal
+múltiple\index{Regresión lineal múltiple}}{Regresión lineal múltiple}}\label{sec-regresion-lineal-multiple}
 
 \section*{Introducción}\label{introducciuxf3n-10}
 \addcontentsline{toc}{section}{Introducción}
@@ -17402,7 +17496,8 @@ combinación lineal de \(p\) características.
 Este modelo permite analizar el efecto parcial de cada variable
 manteniendo constantes las demás, construir predicciones, evaluar
 hipótesis conjuntas, incorporar variables categóricas, representar
-interacciones y estudiar problemas de multicolinealidad.
+interacciones y estudiar problemas de
+multicolinealidad\index{Multicolinealidad}.
 
 La formulación matricial es especialmente importante porque permite
 expresar de manera compacta la estimación, la inferencia y la geometría
@@ -19241,7 +19336,7 @@ El estimador minimiza el riesgo empírico.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{pm10 =} \FunctionTok{c}\NormalTok{(}\DecValTok{42}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{63}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{88}\NormalTok{),}
   \AttributeTok{temperatura =} \FunctionTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{28}\NormalTok{),}
@@ -19673,7 +19768,8 @@ avanzados.
 Los fundamentos se apoyan en Montgomery et~al. (2021), Seber y Lee
 (2012), Hastie et~al. (2009) y Mardia et~al. (1979).
 
-\chapter{Regresión logística}\label{sec-regresion-logistica}
+\chapter{\texorpdfstring{Regresión
+logística\index{Regresión logística}}{Regresión logística}}\label{sec-regresion-logistica}
 
 \section*{Introducción}\label{introducciuxf3n-11}
 \addcontentsline{toc}{section}{Introducción}
@@ -19722,7 +19818,7 @@ Al finalizar el capítulo, el lector podrá:
 \item
   formular un modelo de regresión logística;
 \item
-  interpretar probabilidades, odds y logit;
+  interpretar probabilidades, odds\index{Odds} y logit;
 \item
   interpretar coeficientes y odds ratios;
 \item
@@ -20918,7 +21014,7 @@ correspondiente.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{severo =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
   \AttributeTok{velocidad =} \FunctionTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{48}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{80}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{90}\NormalTok{),}
@@ -21311,7 +21407,8 @@ Bishop (2006) y James et~al. (2021).
 
 \part{IV. Métodos de clasificación}
 
-\chapter{Vecinos más cercanos, k-NN}\label{sec-knn}
+\chapter{\texorpdfstring{Vecinos más cercanos,
+k-NN\index{K-NN}}{Vecinos más cercanos, k-NN}}\label{sec-knn}
 
 \section*{Introducción}\label{introducciuxf3n-12}
 \addcontentsline{toc}{section}{Introducción}
@@ -22117,11 +22214,13 @@ ser esencial.
 
 \end{tcolorbox}
 
-\section*{Maldición de la
-dimensionalidad}\label{maldiciuxf3n-de-la-dimensionalidad}
-\addcontentsline{toc}{section}{Maldición de la dimensionalidad}
+\section*{\texorpdfstring{Maldición de la
+dimensionalidad\index{Maldición de la dimensionalidad}}{Maldición de la dimensionalidad}}\label{maldiciuxf3n-de-la-dimensionalidad}
+\addcontentsline{toc}{section}{Maldición de la
+dimensionalidad\index{Maldición de la dimensionalidad}}
 
-\markright{Maldición de la dimensionalidad}
+\markright{Maldición de la
+dimensionalidad\index{Maldición de la dimensionalidad}}
 
 A medida que la dimensión \(p\) crece, los puntos tienden a parecerse
 entre sí en términos relativos de distancia. Esto reduce el carácter
@@ -22337,7 +22436,7 @@ hiperparámetros se realiza normalmente mediante validación cruzada.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \CommentTok{\# Clasificación con k{-}NN}
 \CommentTok{\# Requiere class}
 \FunctionTok{library}\NormalTok{(class)}
@@ -22742,7 +22841,8 @@ capítulo}\label{referencias-del-capuxedtulo-11}
 Los fundamentos y resultados desarrollados en este capítulo se apoyan
 principalmente en Cover y Hart (1967); Stone (1977); Duda et~al. (2001).
 
-\chapter{Árboles de decisión}\label{sec-arboles-decision}
+\chapter{\texorpdfstring{Árbol\index{Árboles de decisión}es de
+decisión}{Árboles de decisión}}\label{sec-arboles-decision}
 
 \section*{Introducción}\label{introducciuxf3n-13}
 \addcontentsline{toc}{section}{Introducción}
@@ -22800,7 +22900,8 @@ Al finalizar el capítulo, el lector podrá:
 \item
   distinguir nodos, ramas y hojas;
 \item
-  definir impureza de Gini y entropía;
+  definir impureza de Gini\index{Índice de Gini} y
+  entropía\index{Entropía};
 \item
   calcular ganancia de información;
 \item
@@ -23954,7 +24055,7 @@ Generalmente utiliza árboles pequeños como aprendices débiles.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{library}\NormalTok{(rpart)}
 \FunctionTok{library}\NormalTok{(rpart.plot)}
 
@@ -24410,7 +24511,8 @@ capítulo}\label{referencias-del-capuxedtulo-12}
 Los fundamentos y resultados desarrollados en este capítulo se apoyan
 principalmente en Breiman et~al. (1984); Quinlan (1986).
 
-\chapter{Random Forest}\label{sec-random-forest}
+\chapter{\texorpdfstring{Random
+Forest\index{Random Forest}}{Random Forest}}\label{sec-random-forest}
 
 \section*{Introducción}\label{introducciuxf3n-14}
 \addcontentsline{toc}{section}{Introducción}
@@ -25183,7 +25285,7 @@ métrica y de la escala.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{library}\NormalTok{(randomForest)}
 
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
@@ -25532,17 +25634,20 @@ capítulo}\label{referencias-del-capuxedtulo-13}
 Los fundamentos y resultados desarrollados en este capítulo se apoyan
 principalmente en Breiman (2001); Hastie et~al. (2009).
 
-\chapter{Máquinas de vectores de soporte, SVM}\label{sec-svm}
+\chapter{\texorpdfstring{Máquinas de vectores de
+soporte\index{Máquinas de vectores de soporte},
+SVM}{Máquinas de vectores de soporte, SVM}}\label{sec-svm}
 
 \section*{Introducción}\label{introducciuxf3n-15}
 \addcontentsline{toc}{section}{Introducción}
 
 \markright{Introducción}
 
-Las máquinas de vectores de soporte buscan una frontera con margen
-grande y pueden incorporar transformaciones no lineales mediante
-kernels. Su formulación conecta optimización convexa, regularización y
-teoría de generalización (Cortes y Vapnik 1995; Vapnik 1998).
+Las máquinas de vectores de soporte buscan una frontera con
+margen\index{Margen} grande y pueden incorporar transformaciones no
+lineales mediante kernel\index{Kernels}s. Su formulación conecta
+optimización convexa, regularización y teoría de generalización (Cortes
+y Vapnik 1995; Vapnik 1998).
 
 Las máquinas de vectores de soporte, conocidas como SVM por
 \emph{Support Vector Machines}, son métodos de aprendizaje supervisado
@@ -27154,7 +27259,7 @@ constituye una probabilidad calibrada.
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{library}\NormalTok{(e1071)}
 
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
@@ -27629,7 +27734,8 @@ capítulo}\label{referencias-del-capuxedtulo-14}
 Los fundamentos y resultados desarrollados en este capítulo se apoyan
 principalmente en Cortes y Vapnik (1995); Vapnik (1998).
 
-\chapter{Redes neuronales artificiales}\label{sec-redes-neuronales}
+\chapter{\texorpdfstring{Redes neuronales\index{Redes neuronales}
+artificiales}{Redes neuronales artificiales}}\label{sec-redes-neuronales}
 
 \section*{Introducción}\label{introducciuxf3n-16}
 \addcontentsline{toc}{section}{Introducción}
@@ -27637,10 +27743,11 @@ principalmente en Cortes y Vapnik (1995); Vapnik (1998).
 \markright{Introducción}
 
 Las redes neuronales componen transformaciones afines y activaciones no
-lineales. Su entrenamiento moderno se apoya en retropropagación,
-optimización estocástica, inicialización controlada y regularización
-(Rumelhart et~al. 1986; Glorot y Bengio 2010; He et~al. 2015; Srivastava
-et~al. 2014).
+lineales. Su entrenamiento moderno se apoya en
+retropropagación\index{Retropropagación}, optimización estocástica,
+inicialización controlada y regularización (Rumelhart et~al. 1986;
+Glorot y Bengio 2010; He et~al. 2015; Srivastava et~al. 2014,
+\index{Dropout}).
 
 Las redes neuronales artificiales son modelos de aprendizaje supervisado
 y no supervisado formados por unidades computacionales simples
@@ -29328,7 +29435,7 @@ arquitecturas especializadas:
 \markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{library}\NormalTok{(keras)}
 
 \NormalTok{modelo }\OtherTok{\textless{}{-}} \FunctionTok{keras\_model\_sequential}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
@@ -29821,9 +29928,14 @@ principalmente en Rumelhart et~al. (1986); Bishop (2006).
 
 \part{V. Aprendizaje no supervisado}
 
-\chapter{Análisis de Componentes Principales, PCA}\label{sec-pca}
+\chapter{\texorpdfstring{Análisis de Componentes
+Principales\index{Análisis de componentes principales},
+PCA}{Análisis de Componentes Principales, PCA}}\label{sec-pca}
 
-\section{Introducción}\label{introducciuxf3n-17}
+\section*{Introducción}\label{introducciuxf3n-17}
+\addcontentsline{toc}{section}{Introducción}
+
+\markright{Introducción}
 
 El Análisis de Componentes Principales, conocido como PCA por
 \emph{Principal Component Analysis}, es uno de los métodos más
@@ -29839,7 +29951,19 @@ supervisado. Su propósito no es clasificar ni predecir directamente,
 sino representar los datos en un espacio de menor dimensión conservando
 la mayor cantidad posible de información.
 
-\section{Objetivos}\label{objetivos-16}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definición esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+PCA transforma variables correlacionadas en componentes ortogonales
+ordenadas por la varianza que explican. Es una transformación lineal no
+supervisada y su interpretación depende del centrado, la escala y las
+cargas.
+
+\end{tcolorbox}
+
+\section*{Objetivos}\label{objetivos-16}
+\addcontentsline{toc}{section}{Objetivos}
+
+\markright{Objetivos}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -29861,7 +29985,7 @@ Al finalizar el capítulo, el lector podrá:
 \item
   demostrar la ortogonalidad entre componentes;
 \item
-  interpretar varianza explicada;
+  interpretar varianza explicada\index{Varianza explicada};
 \item
   construir el gráfico scree;
 \item
@@ -29880,7 +30004,10 @@ Al finalizar el capítulo, el lector podrá:
   conectar PCA con regresión, clasificación y agrupamiento.
 \end{enumerate}
 
-\section{Matriz de datos}\label{matriz-de-datos}
+\section*{Matriz de datos}\label{matriz-de-datos}
+\addcontentsline{toc}{section}{Matriz de datos}
+
+\markright{Matriz de datos}
 
 Considérese una matriz
 
@@ -29897,7 +30024,10 @@ x_{n1} & \cdots & x_{np}
 
 Cada fila representa una observación y cada columna una variable.
 
-\section{Centrado}\label{centrado}
+\section*{Centrado}\label{centrado}
+\addcontentsline{toc}{section}{Centrado}
+
+\markright{Centrado}
 
 La media de la variable \(j\) es
 
@@ -29933,7 +30063,10 @@ donde
 
 Cada columna de \(\mathbf{X}_c\) tiene media cero.
 
-\section{Estandarización}\label{estandarizaciuxf3n-2}
+\section*{Estandarización}\label{estandarizaciuxf3n-2}
+\addcontentsline{toc}{section}{Estandarización}
+
+\markright{Estandarización}
 
 Cuando las variables tienen escalas distintas, se utiliza
 
@@ -29951,7 +30084,10 @@ La matriz estandarizada se denota por
 \mathbf{Z}.
 \]
 
-\section{Covarianza y correlación}\label{covarianza-y-correlaciuxf3n}
+\section*{Covarianza y correlación}\label{covarianza-y-correlaciuxf3n}
+\addcontentsline{toc}{section}{Covarianza y correlación}
+
+\markright{Covarianza y correlación}
 
 Si se trabaja con datos centrados, la matriz de covarianza es
 
@@ -29975,8 +30111,11 @@ Si se trabaja con datos estandarizados,
 
 es la matriz de correlación.
 
-\section{Interpretación
+\section*{Interpretación
 geométrica}\label{interpretaciuxf3n-geomuxe9trica-4}
+\addcontentsline{toc}{section}{Interpretación geométrica}
+
+\markright{Interpretación geométrica}
 
 PCA busca nuevas direcciones en el espacio de variables.
 
@@ -29986,8 +30125,24 @@ tiene la mayor varianza posible.
 La segunda dirección maximiza la varianza restante y debe ser ortogonal
 a la primera.
 
-\section{Primera componente
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.82\linewidth,height=\textheight,keepaspectratio,alt={Nube de puntos con dos ejes principales ortogonales}]{no-supervisado/../estilos/figuras/pca-geometria.png}
+
+}
+
+\caption{\label{fig-pca-geometria}La primera componente sigue la
+dirección de máxima variabilidad; la segunda es ortogonal a ella.}
+
+\end{figure}%
+
+\section*{Primera componente
 principal}\label{primera-componente-principal}
+\addcontentsline{toc}{section}{Primera componente principal}
+
+\markright{Primera componente principal}
 
 Sea
 
@@ -30019,7 +30174,10 @@ En notación matricial, las puntuaciones son
 \mathbf{X}_c\mathbf{a}_1.
 \]
 
-\section{Varianza de una componente}\label{varianza-de-una-componente}
+\section*{Varianza de una componente}\label{varianza-de-una-componente}
+\addcontentsline{toc}{section}{Varianza de una componente}
+
+\markright{Varianza de una componente}
 
 La varianza de la proyección es
 
@@ -30045,8 +30203,12 @@ sujeto a
 \mathbf{a}_1^{\mathsf T}\mathbf{a}_1=1.
 \]
 
-\section{Derivación mediante multiplicadores de
+\section*{Derivación mediante multiplicadores de
 Lagrange}\label{derivaciuxf3n-mediante-multiplicadores-de-lagrange}
+\addcontentsline{toc}{section}{Derivación mediante multiplicadores de
+Lagrange}
+
+\markright{Derivación mediante multiplicadores de Lagrange}
 
 La función lagrangiana es
 
@@ -30084,7 +30246,10 @@ Por tanto,
 La primera dirección principal es el vector propio asociado al mayor
 valor propio.
 
-\section{Primera varianza principal}\label{primera-varianza-principal}
+\section*{Primera varianza principal}\label{primera-varianza-principal}
+\addcontentsline{toc}{section}{Primera varianza principal}
+
+\markright{Primera varianza principal}
 
 Como
 
@@ -30106,7 +30271,10 @@ entonces
 \lambda_1.
 \]
 
-\section{Componentes sucesivas}\label{componentes-sucesivas}
+\section*{Componentes sucesivas}\label{componentes-sucesivas}
+\addcontentsline{toc}{section}{Componentes sucesivas}
+
+\markright{Componentes sucesivas}
 
 La componente \(k\) maximiza
 
@@ -30131,7 +30299,10 @@ y
 
 La solución es el vector propio asociado a \(\lambda_k\).
 
-\section{Descomposición espectral}\label{descomposiciuxf3n-espectral-1}
+\section*{Descomposición espectral}\label{descomposiciuxf3n-espectral-1}
+\addcontentsline{toc}{section}{Descomposición espectral}
+
+\markright{Descomposición espectral}
 
 Como \(\mathbf{S}\) es simétrica,
 
@@ -30175,7 +30346,10 @@ Los valores propios se ordenan como
 \geq 0.
 \]
 
-\section{Puntuaciones}\label{puntuaciones}
+\section*{Puntuaciones}\label{puntuaciones}
+\addcontentsline{toc}{section}{Puntuaciones}
+
+\markright{Puntuaciones}
 
 Las puntuaciones principales son
 
@@ -30188,7 +30362,10 @@ Las puntuaciones principales son
 La columna \(k\) de \(\mathbf{T}\) contiene las coordenadas de las
 observaciones en la componente \(k\).
 
-\section{Cargas}\label{cargas}
+\section*{Cargas}\label{cargas}
+\addcontentsline{toc}{section}{Cargas}
+
+\markright{Cargas}
 
 Los coeficientes del vector propio se denominan cargas:
 
@@ -30200,7 +30377,10 @@ Indican la contribución de la variable \(j\) a la componente \(k\).
 
 Una carga grande en magnitud indica fuerte asociación con la componente.
 
-\section{Signo de las componentes}\label{signo-de-las-componentes}
+\section*{Signo de las componentes}\label{signo-de-las-componentes}
+\addcontentsline{toc}{section}{Signo de las componentes}
+
+\markright{Signo de las componentes}
 
 Si \(\mathbf{a}_k\) es vector propio, también lo es
 
@@ -30213,7 +30393,10 @@ Por ello, el signo de una componente es arbitrario.
 La interpretación debe basarse en relaciones relativas, no en el signo
 absoluto.
 
-\section{Varianza explicada}\label{varianza-explicada}
+\section*{Varianza explicada}\label{varianza-explicada}
+\addcontentsline{toc}{section}{Varianza explicada}
+
+\markright{Varianza explicada}
 
 La varianza total es
 
@@ -30242,7 +30425,10 @@ CPVE_m
 }.
 \]
 
-\section{Gráfico scree}\label{gruxe1fico-scree}
+\section*{Gráfico scree}\label{gruxe1fico-scree}
+\addcontentsline{toc}{section}{Gráfico scree}
+
+\markright{Gráfico scree}
 
 El gráfico scree muestra
 
@@ -30261,8 +30447,11 @@ frente al número de componente.
 Se busca un punto de inflexión o codo a partir del cual la ganancia
 adicional sea pequeña.
 
-\section{Selección del número de
+\section*{Selección del número de
 componentes}\label{selecciuxf3n-del-nuxfamero-de-componentes}
+\addcontentsline{toc}{section}{Selección del número de componentes}
+
+\markright{Selección del número de componentes}
 
 Criterios comunes:
 
@@ -30282,7 +30471,10 @@ Criterios comunes:
   desempeño posterior.
 \end{itemize}
 
-\section{Criterio de Kaiser}\label{criterio-de-kaiser}
+\section*{Criterio de Kaiser}\label{criterio-de-kaiser}
+\addcontentsline{toc}{section}{Criterio de Kaiser}
+
+\markright{Criterio de Kaiser}
 
 Cuando PCA se realiza sobre la matriz de correlación, se retienen
 componentes con
@@ -30293,7 +30485,10 @@ componentes con
 
 Este criterio es simple, pero no debe usarse de forma automática.
 
-\section{Análisis paralelo}\label{anuxe1lisis-paralelo}
+\section*{Análisis paralelo}\label{anuxe1lisis-paralelo}
+\addcontentsline{toc}{section}{Análisis paralelo}
+
+\markright{Análisis paralelo}
 
 Compara los valores propios observados con los obtenidos en datos
 aleatorios de la misma dimensión.
@@ -30301,7 +30496,20 @@ aleatorios de la misma dimensión.
 Se retienen componentes cuyos valores propios exceden los valores
 esperados bajo aleatoriedad.
 
-\section{Covarianza o correlación}\label{covarianza-o-correlaciuxf3n}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, colframe=quarto-callout-warning-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Decisión crítica: estandarizar o no}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+PCA sobre la matriz de covarianza conserva las diferencias originales de
+escala. PCA sobre la matriz de correlación asigna varianza unitaria a
+cada variable. Las dos decisiones pueden producir componentes muy
+distintas y deben justificarse con el significado de las unidades
+(Jolliffe 2002; Jolliffe y Cadima 2016).
+
+\end{tcolorbox}
+
+\section*{Covarianza o correlación}\label{covarianza-o-correlaciuxf3n}
+\addcontentsline{toc}{section}{Covarianza o correlación}
+
+\markright{Covarianza o correlación}
 
 Usar covarianza es apropiado cuando:
 
@@ -30327,7 +30535,10 @@ Usar correlación es apropiado cuando:
   se desea dar peso comparable a cada variable.
 \end{itemize}
 
-\section{Reconstrucción}\label{reconstrucciuxf3n}
+\section*{Reconstrucción}\label{reconstrucciuxf3n}
+\addcontentsline{toc}{section}{Reconstrucción}
+
+\markright{Reconstrucción}
 
 Si se retienen \(m\) componentes,
 
@@ -30356,7 +30567,10 @@ La reconstrucción aproximada es
 \mathbf{A}_m^{\mathsf T}.
 \]
 
-\section{Error de reconstrucción}\label{error-de-reconstrucciuxf3n}
+\section*{Error de reconstrucción}\label{error-de-reconstrucciuxf3n}
+\addcontentsline{toc}{section}{Error de reconstrucción}
+
+\markright{Error de reconstrucción}
 
 El error cuadrático es
 
@@ -30371,7 +30585,15 @@ El error cuadrático es
 PCA produce la mejor aproximación lineal de rango \(m\) en norma de
 Frobenius.
 
-\section{Teorema de Eckart-Young}\label{teorema-de-eckart-young}
+La reconstrucción truncada no es únicamente una aproximación intuitiva:
+entre todas las matrices de rango a lo sumo \(m\), la obtenida mediante
+las primeras componentes minimiza el error de Frobenius (Eckart y Young
+1936).
+
+\section*{Teorema de Eckart-Young}\label{teorema-de-eckart-young}
+\addcontentsline{toc}{section}{Teorema de Eckart-Young}
+
+\markright{Teorema de Eckart-Young}
 
 La aproximación truncada basada en las primeras \(m\) componentes
 minimiza
@@ -30386,7 +30608,10 @@ minimiza
 
 entre todas las matrices \(\mathbf{M}\) de rango a lo sumo \(m\).
 
-\section{Formulación mediante SVD}\label{formulaciuxf3n-mediante-svd}
+\section*{Formulación mediante SVD}\label{formulaciuxf3n-mediante-svd}
+\addcontentsline{toc}{section}{Formulación mediante SVD}
+
+\markright{Formulación mediante SVD}
 
 La descomposición en valores singulares es
 
@@ -30425,7 +30650,10 @@ Por tanto:
 \frac{d_k^2}{n-1}.
 \]
 
-\section{Ventaja de SVD}\label{ventaja-de-svd}
+\section*{Ventaja de SVD}\label{ventaja-de-svd}
+\addcontentsline{toc}{section}{Ventaja de SVD}
+
+\markright{Ventaja de SVD}
 
 SVD evita formar explícitamente la matriz de covarianza y suele ser más
 estable numéricamente.
@@ -30444,8 +30672,11 @@ Es especialmente útil cuando:
   se requiere PCA truncado.
 \end{itemize}
 
-\section{Componentes no
+\section*{Componentes no
 correlacionadas}\label{componentes-no-correlacionadas}
+\addcontentsline{toc}{section}{Componentes no correlacionadas}
+
+\markright{Componentes no correlacionadas}
 
 La covarianza de las puntuaciones es
 
@@ -30457,15 +30688,22 @@ La covarianza de las puntuaciones es
 
 Por tanto, las componentes principales son incorrelacionadas.
 
-\section{Incorrelación no implica
+\section*{Incorrelación no implica
 independencia}\label{incorrelaciuxf3n-no-implica-independencia}
+\addcontentsline{toc}{section}{Incorrelación no implica independencia}
+
+\markright{Incorrelación no implica independencia}
 
 Si los datos no son normales multivariados, componentes no
 correlacionadas no necesariamente son independientes.
 
 PCA elimina correlación lineal, no toda dependencia.
 
-\section{Interpretación de biplot}\label{interpretaciuxf3n-de-biplot}
+\section*{\texorpdfstring{Interpretación de
+biplot\index{Biplot}}{Interpretación de biplot}}\label{interpretaciuxf3n-de-biplot}
+\addcontentsline{toc}{section}{Interpretación de biplot\index{Biplot}}
+
+\markright{Interpretación de biplot\index{Biplot}}
 
 Un biplot representa simultáneamente:
 
@@ -30491,8 +30729,11 @@ El ángulo aproximado entre vectores refleja correlación:
   ángulo cercano a \(90^\circ\): correlación cercana a cero.
 \end{itemize}
 
-\section{Efecto de valores
+\section*{Efecto de valores
 atípicos}\label{efecto-de-valores-atuxedpicos}
+\addcontentsline{toc}{section}{Efecto de valores atípicos}
+
+\markright{Efecto de valores atípicos}
 
 PCA depende de medias y covarianzas.
 
@@ -30512,7 +30753,10 @@ Una observación extrema puede alterar:
   direcciones principales.
 \end{itemize}
 
-\section{PCA robusto}\label{pca-robusto}
+\section*{PCA robusto}\label{pca-robusto}
+\addcontentsline{toc}{section}{PCA robusto}
+
+\markright{PCA robusto}
 
 Existen variantes robustas que utilizan:
 
@@ -30528,7 +30772,10 @@ Existen variantes robustas que utilizan:
   métodos de baja dimensión robustos.
 \end{itemize}
 
-\section{Linealidad}\label{linealidad-1}
+\section*{Linealidad}\label{linealidad-1}
+\addcontentsline{toc}{section}{Linealidad}
+
+\markright{Linealidad}
 
 PCA identifica estructura lineal.
 
@@ -30551,7 +30798,10 @@ Alternativas:
   UMAP.
 \end{itemize}
 
-\section{Kernel PCA}\label{kernel-pca}
+\section*{Kernel PCA}\label{kernel-pca}
+\addcontentsline{toc}{section}{Kernel PCA}
+
+\markright{Kernel PCA}
 
 Kernel PCA aplica PCA en un espacio de características definido por un
 kernel.
@@ -30566,7 +30816,10 @@ K(\mathbf{x}_i,\mathbf{x}_j).
 
 Después de centrar la matriz kernel, se calculan sus vectores propios.
 
-\section{PCA y distancia}\label{pca-y-distancia}
+\section*{PCA y distancia}\label{pca-y-distancia}
+\addcontentsline{toc}{section}{PCA y distancia}
+
+\markright{PCA y distancia}
 
 Al reducir dimensión, las distancias pueden aproximarse usando las
 primeras componentes.
@@ -30574,8 +30827,11 @@ primeras componentes.
 Esto puede mejorar métodos como \(k\)-NN cuando las variables originales
 contienen ruido.
 
-\section{PCA antes de
+\section*{PCA antes de
 clasificación}\label{pca-antes-de-clasificaciuxf3n}
+\addcontentsline{toc}{section}{PCA antes de clasificación}
+
+\markright{PCA antes de clasificación}
 
 PCA puede utilizarse antes de:
 
@@ -30597,15 +30853,21 @@ Sin embargo, PCA maximiza varianza, no separación entre clases.
 
 Una componente con baja varianza podría ser muy discriminante.
 
-\section{Fuga de información}\label{fuga-de-informaciuxf3n-1}
+\section*{Fuga de información}\label{fuga-de-informaciuxf3n-1}
+\addcontentsline{toc}{section}{Fuga de información}
+
+\markright{Fuga de información}
 
 PCA debe aprenderse únicamente con los datos de entrenamiento.
 
 En validación cruzada, el centrado, escalamiento y cálculo de
 componentes deben repetirse dentro de cada partición de entrenamiento.
 
-\section{Regresión por componentes
+\section*{Regresión por componentes
 principales}\label{regresiuxf3n-por-componentes-principales}
+\addcontentsline{toc}{section}{Regresión por componentes principales}
+
+\markright{Regresión por componentes principales}
 
 En PCR se ajusta una regresión usando las primeras componentes:
 
@@ -30623,14 +30885,20 @@ Y
 Esto reduce multicolinealidad, pero la selección de componentes no
 utiliza \(Y\).
 
-\section{PCA y multicolinealidad}\label{pca-y-multicolinealidad}
+\section*{PCA y multicolinealidad}\label{pca-y-multicolinealidad}
+\addcontentsline{toc}{section}{PCA y multicolinealidad}
+
+\markright{PCA y multicolinealidad}
 
 Las componentes son ortogonales, por lo que no presentan
 multicolinealidad entre sí.
 
 Esto puede estabilizar modelos posteriores.
 
-\section{Datos de alta dimensión}\label{datos-de-alta-dimensiuxf3n}
+\section*{Datos de alta dimensión}\label{datos-de-alta-dimensiuxf3n}
+\addcontentsline{toc}{section}{Datos de alta dimensión}
+
+\markright{Datos de alta dimensión}
 
 Cuando
 
@@ -30646,7 +30914,10 @@ n-1.
 
 Por tanto, como máximo hay \(n-1\) componentes con varianza positiva.
 
-\section{Datos faltantes}\label{datos-faltantes}
+\section*{Datos faltantes}\label{datos-faltantes}
+\addcontentsline{toc}{section}{Datos faltantes}
+
+\markright{Datos faltantes}
 
 PCA clásico requiere una matriz completa.
 
@@ -30666,7 +30937,10 @@ Estrategias:
   métodos de baja-rango con faltantes.
 \end{itemize}
 
-\section{PCA probabilístico}\label{pca-probabiluxedstico}
+\section*{PCA probabilístico}\label{pca-probabiluxedstico}
+\addcontentsline{toc}{section}{PCA probabilístico}
+
+\markright{PCA probabilístico}
 
 PCA probabilístico modela
 
@@ -30696,14 +30970,20 @@ N(\mathbf{0},\sigma^2\mathbf{I}).
 
 Proporciona una interpretación generativa.
 
-\section{Estandarización y variables
+\section*{Estandarización y variables
 constantes}\label{estandarizaciuxf3n-y-variables-constantes}
+\addcontentsline{toc}{section}{Estandarización y variables constantes}
+
+\markright{Estandarización y variables constantes}
 
 Una variable con desviación estándar cero no puede estandarizarse.
 
 Debe eliminarse o tratarse antes de PCA.
 
-\section{Complejidad computacional}\label{complejidad-computacional-4}
+\section*{Complejidad computacional}\label{complejidad-computacional-4}
+\addcontentsline{toc}{section}{Complejidad computacional}
+
+\markright{Complejidad computacional}
 
 El costo depende de \(n\) y \(p\).
 
@@ -30722,7 +31002,10 @@ O(p^3).
 SVD truncada puede reducir el costo cuando solo se requieren pocas
 componentes.
 
-\section{PCA incremental}\label{pca-incremental}
+\section*{PCA incremental}\label{pca-incremental}
+\addcontentsline{toc}{section}{PCA incremental}
+
+\markright{PCA incremental}
 
 Cuando los datos son muy grandes o llegan secuencialmente, puede
 utilizarse PCA incremental.
@@ -30730,7 +31013,10 @@ utilizarse PCA incremental.
 Este método actualiza progresivamente la representación sin almacenar
 toda la muestra.
 
-\section{Interpretabilidad}\label{interpretabilidad-1}
+\section*{Interpretabilidad}\label{interpretabilidad-1}
+\addcontentsline{toc}{section}{Interpretabilidad}
+
+\markright{Interpretabilidad}
 
 Las componentes son combinaciones lineales y pueden ser difíciles de
 interpretar.
@@ -30749,7 +31035,10 @@ Z_1
 
 requiere analizar magnitudes, signos y contexto de las variables.
 
-\section{Rotaciones}\label{rotaciones}
+\section*{Rotaciones}\label{rotaciones}
+\addcontentsline{toc}{section}{Rotaciones}
+
+\markright{Rotaciones}
 
 En análisis factorial se utilizan rotaciones para facilitar
 interpretación.
@@ -30757,10 +31046,13 @@ interpretación.
 En PCA también pueden rotarse componentes, aunque la varianza explicada
 se redistribuye y se modifica la interpretación original.
 
-\section{Conexión con R}\label{conexiuxf3n-con-r-16}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-16}
+\addcontentsline{toc}{section}{Conexión con R}
+
+\markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{pm10 =} \FunctionTok{c}\NormalTok{(}\DecValTok{45}\NormalTok{, }\DecValTok{52}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{38}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{65}\NormalTok{),}
   \AttributeTok{no2 =} \FunctionTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{28}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{47}\NormalTok{),}
@@ -30796,7 +31088,10 @@ se redistribuye y se modifica la interpretación original.
 \end{Highlighting}
 \end{Shaded}
 
-\section{Ejemplo con dos variables}\label{ejemplo-con-dos-variables}
+\section*{Ejemplo con dos variables}\label{ejemplo-con-dos-variables}
+\addcontentsline{toc}{section}{Ejemplo con dos variables}
+
+\markright{Ejemplo con dos variables}
 
 Considérese la matriz centrada
 
@@ -30825,8 +31120,11 @@ Se calculan sus valores y vectores propios.
 
 La primera componente será la dirección asociada al mayor valor propio.
 
-\section{Ejemplo de varianza
+\section*{Ejemplo de varianza
 explicada}\label{ejemplo-de-varianza-explicada}
+\addcontentsline{toc}{section}{Ejemplo de varianza explicada}
+
+\markright{Ejemplo de varianza explicada}
 
 Supóngase que los valores propios son
 
@@ -30878,7 +31176,10 @@ Las dos primeras componentes explican
 0.875.
 \]
 
-\section{Ejemplo de reconstrucción}\label{ejemplo-de-reconstrucciuxf3n}
+\section*{Ejemplo de reconstrucción}\label{ejemplo-de-reconstrucciuxf3n}
+\addcontentsline{toc}{section}{Ejemplo de reconstrucción}
+
+\markright{Ejemplo de reconstrucción}
 
 Con dos variables y una sola componente,
 
@@ -30898,7 +31199,10 @@ Después se suma la media original:
 \overline{\mathbf{x}}.
 \]
 
-\section{Ventajas}\label{ventajas-4}
+\section*{Ventajas}\label{ventajas-4}
+\addcontentsline{toc}{section}{Ventajas}
+
+\markright{Ventajas}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -30919,7 +31223,10 @@ Después se suma la media original:
   tiene formulación matemática clara.
 \end{enumerate}
 
-\section{Limitaciones}\label{limitaciones-4}
+\section*{Limitaciones}\label{limitaciones-4}
+\addcontentsline{toc}{section}{Limitaciones}
+
+\markright{Limitaciones}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -30940,7 +31247,10 @@ Después se suma la media original:
   puede ocultar variables importantes de baja varianza.
 \end{enumerate}
 
-\section{Errores frecuentes}\label{errores-frecuentes-16}
+\section*{Errores frecuentes}\label{errores-frecuentes-16}
+\addcontentsline{toc}{section}{Errores frecuentes}
+
+\markright{Errores frecuentes}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -30967,7 +31277,10 @@ Después se suma la media original:
   usar PCA con variables categóricas sin transformación adecuada.
 \end{enumerate}
 
-\section{Ejercicios conceptuales}\label{ejercicios-conceptuales-16}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-16}
+\addcontentsline{toc}{section}{Ejercicios conceptuales}
+
+\markright{Ejercicios conceptuales}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -30998,8 +31311,11 @@ Después se suma la media original:
   ¿Por qué debe calcularse dentro de cada partición de entrenamiento?
 \end{enumerate}
 
-\section{Ejercicio de matriz de
+\section*{Ejercicio de matriz de
 covarianza}\label{ejercicio-de-matriz-de-covarianza}
+\addcontentsline{toc}{section}{Ejercicio de matriz de covarianza}
+
+\markright{Ejercicio de matriz de covarianza}
 
 Considere
 
@@ -31029,8 +31345,11 @@ Considere
   Identifique la primera componente.
 \end{enumerate}
 
-\section{Ejercicio de varianza
+\section*{Ejercicio de varianza
 explicada}\label{ejercicio-de-varianza-explicada}
+\addcontentsline{toc}{section}{Ejercicio de varianza explicada}
+
+\markright{Ejercicio de varianza explicada}
 
 Considere
 
@@ -31058,7 +31377,10 @@ Considere
   por ciento.
 \end{enumerate}
 
-\section{Ejercicio de cargas}\label{ejercicio-de-cargas}
+\section*{Ejercicio de cargas}\label{ejercicio-de-cargas}
+\addcontentsline{toc}{section}{Ejercicio de cargas}
+
+\markright{Ejercicio de cargas}
 
 La primera componente es
 
@@ -31087,8 +31409,11 @@ Z_1
   Proponga una interpretación sustantiva.
 \end{enumerate}
 
-\section{Ejercicio de
+\section*{Ejercicio de
 reconstrucción}\label{ejercicio-de-reconstrucciuxf3n}
+\addcontentsline{toc}{section}{Ejercicio de reconstrucción}
+
+\markright{Ejercicio de reconstrucción}
 
 Sea
 
@@ -31116,7 +31441,10 @@ t_1=2.
   Si la media es \((10,5)\), reconstruya la observación original.
 \end{enumerate}
 
-\section{Ejercicio aplicado}\label{ejercicio-aplicado-14}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-14}
+\addcontentsline{toc}{section}{Ejercicio aplicado}
+
+\markright{Ejercicio aplicado}
 
 Se desea analizar calidad del aire con variables:
 
@@ -31173,7 +31501,10 @@ Diseñe un análisis PCA que incluya:
   limitaciones ambientales.
 \end{enumerate}
 
-\section{Resumen}\label{resumen-16}
+\section*{Resumen}\label{resumen-16}
+\addcontentsline{toc}{section}{Resumen}
+
+\markright{Resumen}
 
 En este capítulo se desarrolló el Análisis de Componentes Principales
 como método lineal de reducción de dimensionalidad.
@@ -31197,13 +31528,17 @@ capítulo}\label{referencias-del-capuxedtulo-16}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Pearson (1901); Hotelling (1933); Mardia et~al.
+Los fundamentos se apoyan en Pearson (1901), Hotelling (1933), Jolliffe
+(2002), Jolliffe y Cadima (2016), Eckart y Young (1936) y Mardia et~al.
 (1979).
 
-\chapter{Agrupamiento mediante K-means}\label{sec-kmeans}
+\chapter{\texorpdfstring{Agrupamiento mediante
+K-means\index{K-means}}{Agrupamiento mediante K-means}}\label{sec-kmeans}
 
-\section{Introducción}\label{introducciuxf3n-18}
+\section*{Introducción}\label{introducciuxf3n-18}
+\addcontentsline{toc}{section}{Introducción}
+
+\markright{Introducción}
 
 K-means es uno de los algoritmos más conocidos de aprendizaje no
 supervisado. Su objetivo consiste en dividir un conjunto de
@@ -31211,9 +31546,9 @@ observaciones en \(K\) grupos de manera que las observaciones dentro de
 cada grupo sean lo más semejantes posible y los grupos entre sí sean
 diferentes.
 
-El método representa cada grupo mediante un centroide. La asignación de
-observaciones y la actualización de centroides se realizan de forma
-iterativa hasta alcanzar una solución estable.
+El método representa cada grupo mediante un centroide\index{Centroides}.
+La asignación de observaciones y la actualización de centroides se
+realizan de forma iterativa hasta alcanzar una solución estable.
 
 K-means es conceptualmente sencillo, computacionalmente eficiente y
 ampliamente utilizado en segmentación, compresión, análisis exploratorio
@@ -31221,7 +31556,18 @@ y preprocesamiento. Sin embargo, su desempeño depende de la escala de
 las variables, de la inicialización, de la forma de los grupos y de la
 elección del número de conglomerados.
 
-\section{Objetivos}\label{objetivos-17}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definición esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+K-means divide las observaciones en \(K\) grupos y representa cada grupo
+por su media. El algoritmo alterna asignaciones y actualización de
+centroides para reducir la suma de cuadrados intragrupo.
+
+\end{tcolorbox}
+
+\section*{Objetivos}\label{objetivos-17}
+\addcontentsline{toc}{section}{Objetivos}
+
+\markright{Objetivos}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -31247,7 +31593,7 @@ Al finalizar el capítulo, el lector podrá:
 \item
   seleccionar el número de grupos;
 \item
-  interpretar inercia, silueta y separación;
+  interpretar inercia, silueta\index{Silueta} y separación;
 \item
   reconocer limitaciones geométricas;
 \item
@@ -31258,7 +31604,10 @@ Al finalizar el capítulo, el lector podrá:
   aplicar el método en R.
 \end{enumerate}
 
-\section{Formulación del problema}\label{formulaciuxf3n-del-problema}
+\section*{Formulación del problema}\label{formulaciuxf3n-del-problema}
+\addcontentsline{toc}{section}{Formulación del problema}
+
+\markright{Formulación del problema}
 
 Considérese una muestra no etiquetada
 
@@ -31297,7 +31646,10 @@ y
 \{1,\ldots,n\}.
 \]
 
-\section{Centroides}\label{centroides}
+\section*{Centroides}\label{centroides}
+\addcontentsline{toc}{section}{Centroides}
+
+\markright{Centroides}
 
 El centroide del grupo \(C_k\) es
 
@@ -31312,7 +31664,23 @@ El centroide del grupo \(C_k\) es
 Cada centroide representa la media vectorial de las observaciones
 asignadas al grupo.
 
-\section{Función objetivo}\label{funciuxf3n-objetivo}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.82\linewidth,height=\textheight,keepaspectratio,alt={Tres grupos de puntos y sus centroides}]{no-supervisado/../estilos/figuras/kmeans-centroides.png}
+
+}
+
+\caption{\label{fig-kmeans-centroides}Los centroides resumen cada grupo
+y determinan regiones de asignación por proximidad.}
+
+\end{figure}%
+
+\section*{Función objetivo}\label{funciuxf3n-objetivo}
+\addcontentsline{toc}{section}{Función objetivo}
+
+\markright{Función objetivo}
 
 K-means minimiza la suma de cuadrados dentro de los grupos:
 
@@ -31338,7 +31706,10 @@ Esta cantidad también se conoce como:
   within-cluster sum of squares.
 \end{itemize}
 
-\section{Variables indicadoras}\label{variables-indicadoras-1}
+\section*{Variables indicadoras}\label{variables-indicadoras-1}
+\addcontentsline{toc}{section}{Variables indicadoras}
+
+\markright{Variables indicadoras}
 
 Defínase
 
@@ -31372,7 +31743,10 @@ r_{ik}
 \right\|_2^2.
 \]
 
-\section{Optimización alternante}\label{optimizaciuxf3n-alternante}
+\section*{Optimización alternante}\label{optimizaciuxf3n-alternante}
+\addcontentsline{toc}{section}{Optimización alternante}
+
+\markright{Optimización alternante}
 
 El problema es difícil de resolver globalmente porque las asignaciones
 son discretas.
@@ -31390,7 +31764,10 @@ K-means utiliza optimización alternante:
   repetir.
 \end{enumerate}
 
-\section{Paso de asignación}\label{paso-de-asignaciuxf3n}
+\section*{Paso de asignación}\label{paso-de-asignaciuxf3n}
+\addcontentsline{toc}{section}{Paso de asignación}
+
+\markright{Paso de asignación}
 
 Dados los centroides, cada observación se asigna al centroide más
 cercano:
@@ -31409,7 +31786,10 @@ k=
 \end{cases}
 \]
 
-\section{Paso de actualización}\label{paso-de-actualizaciuxf3n}
+\section*{Paso de actualización}\label{paso-de-actualizaciuxf3n}
+\addcontentsline{toc}{section}{Paso de actualización}
+
+\markright{Paso de actualización}
 
 Dadas las asignaciones, el centroide óptimo es la media:
 
@@ -31424,7 +31804,10 @@ r_{ik}\mathbf{x}_i
 }.
 \]
 
-\section{Derivación del centroide}\label{derivaciuxf3n-del-centroide}
+\section*{Derivación del centroide}\label{derivaciuxf3n-del-centroide}
+\addcontentsline{toc}{section}{Derivación del centroide}
+
+\markright{Derivación del centroide}
 
 Para un grupo fijo, se minimiza
 
@@ -31466,7 +31849,14 @@ Por tanto,
 \sum_{i\in C_k}\mathbf{x}_i.
 \]
 
-\section{Algoritmo de Lloyd}\label{algoritmo-de-lloyd}
+La formulación moderna de K-means se relaciona con los trabajos de
+MacQueen (1967) y Lloyd (1982). Cada paso reduce o mantiene la función
+objetivo, pero la solución final depende de la inicialización.
+
+\section*{Algoritmo de Lloyd}\label{algoritmo-de-lloyd}
+\addcontentsline{toc}{section}{Algoritmo de Lloyd}
+
+\markright{Algoritmo de Lloyd}
 
 \begin{definition}[]\protect\hypertarget{def-algoritmo-lloyd}{}\label{def-algoritmo-lloyd}
 
@@ -31487,7 +31877,10 @@ El algoritmo clásico de K-means es:
 
 \end{definition}
 
-\section{Pseudocódigo}\label{pseudocuxf3digo-2}
+\section*{Pseudocódigo}\label{pseudocuxf3digo-2}
+\addcontentsline{toc}{section}{Pseudocódigo}
+
+\markright{Pseudocódigo}
 
 Dado \(K\):
 
@@ -31508,7 +31901,10 @@ Dado \(K\):
   de otro modo, volver al paso 2.
 \end{enumerate}
 
-\section{Convergencia}\label{convergencia-1}
+\section*{Convergencia}\label{convergencia-1}
+\addcontentsline{toc}{section}{Convergencia}
+
+\markright{Convergencia}
 
 Cada paso de asignación no aumenta la función objetivo.
 
@@ -31524,7 +31920,10 @@ J^{(t)}.
 
 Como \(J\geq 0\), la secuencia converge.
 
-\section{Convergencia local}\label{convergencia-local}
+\section*{Convergencia local}\label{convergencia-local}
+\addcontentsline{toc}{section}{Convergencia local}
+
+\markright{Convergencia local}
 
 La convergencia no garantiza alcanzar el mínimo global.
 
@@ -31542,7 +31941,10 @@ K-means puede quedar atrapado en un mínimo local dependiendo de:
   presencia de valores atípicos.
 \end{itemize}
 
-\section{Inicialización aleatoria}\label{inicializaciuxf3n-aleatoria}
+\section*{Inicialización aleatoria}\label{inicializaciuxf3n-aleatoria}
+\addcontentsline{toc}{section}{Inicialización aleatoria}
+
+\markright{Inicialización aleatoria}
 
 Una estrategia simple consiste en seleccionar aleatoriamente \(K\)
 observaciones como centroides.
@@ -31559,7 +31961,10 @@ Esta estrategia puede producir:
   alta variabilidad entre ejecuciones.
 \end{itemize}
 
-\section{Reinicios múltiples}\label{reinicios-muxfaltiples}
+\section*{Reinicios múltiples}\label{reinicios-muxfaltiples}
+\addcontentsline{toc}{section}{Reinicios múltiples}
+
+\markright{Reinicios múltiples}
 
 Para reducir dependencia de la inicialización:
 
@@ -31576,7 +31981,10 @@ Para reducir dependencia de la inicialización:
 
 En R, este comportamiento se controla con \texttt{nstart}.
 
-\section{K-means++}\label{k-means}
+\section*{K-means++}\label{k-means}
+\addcontentsline{toc}{section}{K-means++}
+
+\markright{K-means++}
 
 K-means++ mejora la selección inicial:
 
@@ -31597,7 +32005,10 @@ K-means++ mejora la selección inicial:
 
 Esto favorece centroides iniciales bien separados.
 
-\section{Cota de K-means++}\label{cota-de-k-means}
+\section*{Cota de K-means++}\label{cota-de-k-means}
+\addcontentsline{toc}{section}{Cota de K-means++}
+
+\markright{Cota de K-means++}
 
 K-means++ proporciona una garantía esperada de aproximación del orden de
 
@@ -31607,7 +32018,10 @@ O(\log K)
 
 respecto del óptimo global.
 
-\section{Distancia euclidiana}\label{distancia-euclidiana-2}
+\section*{Distancia euclidiana}\label{distancia-euclidiana-2}
+\addcontentsline{toc}{section}{Distancia euclidiana}
+
+\markright{Distancia euclidiana}
 
 K-means está ligado a la distancia euclidiana cuadrática:
 
@@ -31622,8 +32036,12 @@ d^2(\mathbf{x},\boldsymbol{\mu})
 Cambiar la distancia requiere modificar también la definición del
 representante del grupo.
 
-\section{Relación entre media y distancia
+\section*{Relación entre media y distancia
 cuadrática}\label{relaciuxf3n-entre-media-y-distancia-cuadruxe1tica}
+\addcontentsline{toc}{section}{Relación entre media y distancia
+cuadrática}
+
+\markright{Relación entre media y distancia cuadrática}
 
 La media es el punto que minimiza la suma de distancias euclidianas
 cuadráticas.
@@ -31631,14 +32049,20 @@ cuadráticas.
 Por ello, K-means no puede reemplazar arbitrariamente la distancia
 euclidiana por otra sin cambiar el algoritmo.
 
-\section{K-medians}\label{k-medians}
+\section*{K-medians}\label{k-medians}
+\addcontentsline{toc}{section}{K-medians}
+
+\markright{K-medians}
 
 Si se utiliza distancia Manhattan, el representante adecuado es la
 mediana.
 
 El método resultante se denomina K-medians.
 
-\section{K-medoids}\label{k-medoids}
+\section*{K-medoids}\label{k-medoids}
+\addcontentsline{toc}{section}{K-medoids}
+
+\markright{K-medoids}
 
 K-medoids representa cada grupo mediante una observación real del
 conjunto.
@@ -31646,7 +32070,10 @@ conjunto.
 Es más robusto frente a valores atípicos y permite distancias más
 generales.
 
-\section{Geometría de los grupos}\label{geometruxeda-de-los-grupos}
+\section*{Geometría de los grupos}\label{geometruxeda-de-los-grupos}
+\addcontentsline{toc}{section}{Geometría de los grupos}
+
+\markright{Geometría de los grupos}
 
 K-means funciona mejor cuando los grupos son:
 
@@ -31664,7 +32091,10 @@ K-means funciona mejor cuando los grupos son:
   describibles mediante centroides.
 \end{itemize}
 
-\section{Regiones de Voronoi}\label{regiones-de-voronoi}
+\section*{Regiones de Voronoi}\label{regiones-de-voronoi}
+\addcontentsline{toc}{section}{Regiones de Voronoi}
+
+\markright{Regiones de Voronoi}
 
 Dados los centroides, el espacio se divide en regiones:
 
@@ -31686,7 +32116,10 @@ V_k
 
 Cada región es una celda de Voronoi.
 
-\section{Fronteras entre grupos}\label{fronteras-entre-grupos}
+\section*{Fronteras entre grupos}\label{fronteras-entre-grupos}
+\addcontentsline{toc}{section}{Fronteras entre grupos}
+
+\markright{Fronteras entre grupos}
 
 La frontera entre dos centroides satisface
 
@@ -31702,7 +32135,10 @@ La frontera entre dos centroides satisface
 
 Al simplificar, se obtiene un hiperplano.
 
-\section{Escalamiento}\label{escalamiento-2}
+\section*{Escalamiento}\label{escalamiento-2}
+\addcontentsline{toc}{section}{Escalamiento}
+
+\markright{Escalamiento}
 
 K-means depende fuertemente de la escala.
 
@@ -31716,7 +32152,10 @@ z_{ij}
 \frac{x_{ij}-\overline{x}_j}{s_j}.
 \]
 
-\section{Valores atípicos}\label{valores-atuxedpicos}
+\section*{Valores atípicos}\label{valores-atuxedpicos}
+\addcontentsline{toc}{section}{Valores atípicos}
+
+\markright{Valores atípicos}
 
 La media y la distancia cuadrática son sensibles a valores extremos.
 
@@ -31734,7 +32173,10 @@ Un valor atípico puede:
   aumentar la inercia.
 \end{itemize}
 
-\section{Grupos vacíos}\label{grupos-vacuxedos}
+\section*{Grupos vacíos}\label{grupos-vacuxedos}
+\addcontentsline{toc}{section}{Grupos vacíos}
+
+\markright{Grupos vacíos}
 
 Durante una actualización, un grupo puede quedar sin observaciones.
 
@@ -31752,8 +32194,11 @@ Estrategias:
   reiniciar el algoritmo.
 \end{itemize}
 
-\section{Elección del número de
+\section*{Elección del número de
 grupos}\label{elecciuxf3n-del-nuxfamero-de-grupos}
+\addcontentsline{toc}{section}{Elección del número de grupos}
+
+\markright{Elección del número de grupos}
 
 El valor de \(K\) es un hiperparámetro.
 
@@ -31777,7 +32222,10 @@ Se utilizan:
   desempeño posterior.
 \end{itemize}
 
-\section{Método del codo}\label{muxe9todo-del-codo}
+\section*{Método del codo}\label{muxe9todo-del-codo}
+\addcontentsline{toc}{section}{Método del codo}
+
+\markright{Método del codo}
 
 Se calcula
 
@@ -31794,7 +32242,14 @@ W_K
 Como \(W_K\) disminuye al aumentar \(K\), se busca un punto donde la
 mejora adicional se vuelve pequeña.
 
-\section{Coeficiente de silueta}\label{coeficiente-de-silueta}
+El coeficiente de silueta combina compactación y separación y permite
+comparar particiones con distintos valores de \(K\) (Rousseeuw 1987). No
+reemplaza la interpretación sustantiva ni la evaluación de estabilidad.
+
+\section*{Coeficiente de silueta}\label{coeficiente-de-silueta}
+\addcontentsline{toc}{section}{Coeficiente de silueta}
+
+\markright{Coeficiente de silueta}
 
 Para la observación \(i\):
 
@@ -31824,8 +32279,11 @@ Se cumple
 -1\leq s(i)\leq 1.
 \]
 
-\section{Interpretación de la
+\section*{Interpretación de la
 silueta}\label{interpretaciuxf3n-de-la-silueta}
+\addcontentsline{toc}{section}{Interpretación de la silueta}
+
+\markright{Interpretación de la silueta}
 
 \begin{itemize}
 \tightlist
@@ -31839,7 +32297,10 @@ silueta}\label{interpretaciuxf3n-de-la-silueta}
 
 La silueta promedio resume la calidad global.
 
-\section{Índice Gap}\label{uxedndice-gap}
+\section*{Índice Gap}\label{uxedndice-gap}
+\addcontentsline{toc}{section}{Índice Gap}
+
+\markright{Índice Gap}
 
 El índice Gap compara la dispersión observada con la esperada bajo una
 distribución de referencia sin estructura de grupos.
@@ -31847,8 +32308,11 @@ distribución de referencia sin estructura de grupos.
 Se selecciona un valor de \(K\) cuya mejora sea significativa respecto
 del caso aleatorio.
 
-\section{Estabilidad del
+\section*{Estabilidad del
 agrupamiento}\label{estabilidad-del-agrupamiento}
+\addcontentsline{toc}{section}{Estabilidad del agrupamiento}
+
+\markright{Estabilidad del agrupamiento}
 
 Un agrupamiento es estable si pequeñas modificaciones en los datos
 producen grupos semejantes.
@@ -31867,14 +32331,20 @@ Puede evaluarse mediante:
   índices de concordancia.
 \end{itemize}
 
-\section{Índice de Rand ajustado}\label{uxedndice-de-rand-ajustado}
+\section*{Índice de Rand ajustado}\label{uxedndice-de-rand-ajustado}
+\addcontentsline{toc}{section}{Índice de Rand ajustado}
+
+\markright{Índice de Rand ajustado}
 
 Si se comparan dos particiones, el índice de Rand ajustado mide su
 concordancia corrigiendo el acuerdo esperado por azar.
 
 Su valor máximo es 1.
 
-\section{Evaluación sin etiquetas}\label{evaluaciuxf3n-sin-etiquetas}
+\section*{Evaluación sin etiquetas}\label{evaluaciuxf3n-sin-etiquetas}
+\addcontentsline{toc}{section}{Evaluación sin etiquetas}
+
+\markright{Evaluación sin etiquetas}
 
 Sin etiquetas verdaderas se utilizan criterios internos:
 
@@ -31892,8 +32362,11 @@ Sin etiquetas verdaderas se utilizan criterios internos:
   estabilidad.
 \end{itemize}
 
-\section{Evaluación con etiquetas
+\section*{Evaluación con etiquetas
 externas}\label{evaluaciuxf3n-con-etiquetas-externas}
+\addcontentsline{toc}{section}{Evaluación con etiquetas externas}
+
+\markright{Evaluación con etiquetas externas}
 
 Si existen etiquetas de referencia, pueden utilizarse:
 
@@ -31913,8 +32386,11 @@ Si existen etiquetas de referencia, pueden utilizarse:
 
 Las etiquetas no intervienen en el ajuste, solo en la evaluación.
 
-\section{Relación con mezcla de
+\section*{Relación con mezcla de
 gaussianas}\label{relaciuxf3n-con-mezcla-de-gaussianas}
+\addcontentsline{toc}{section}{Relación con mezcla de gaussianas}
+
+\markright{Relación con mezcla de gaussianas}
 
 K-means puede interpretarse como un caso límite de una mezcla de
 gaussianas con:
@@ -31931,7 +32407,10 @@ gaussianas con:
   probabilidades uniformes.
 \end{itemize}
 
-\section{Mezclas gaussianas}\label{mezclas-gaussianas}
+\section*{Mezclas gaussianas}\label{mezclas-gaussianas}
+\addcontentsline{toc}{section}{Mezclas gaussianas}
+
+\markright{Mezclas gaussianas}
 
 Una mezcla gaussiana modela
 
@@ -31951,7 +32430,10 @@ p(\mathbf{x})
 
 A diferencia de K-means, produce asignaciones probabilísticas.
 
-\section{Asignación dura y blanda}\label{asignaciuxf3n-dura-y-blanda}
+\section*{Asignación dura y blanda}\label{asignaciuxf3n-dura-y-blanda}
+\addcontentsline{toc}{section}{Asignación dura y blanda}
+
+\markright{Asignación dura y blanda}
 
 K-means usa
 
@@ -31971,8 +32453,11 @@ con
 \sum_{k=1}^{K}\gamma_{ik}=1.
 \]
 
-\section{K-means como cuantización
+\section*{K-means como cuantización
 vectorial}\label{k-means-como-cuantizaciuxf3n-vectorial}
+\addcontentsline{toc}{section}{K-means como cuantización vectorial}
+
+\markright{K-means como cuantización vectorial}
 
 K-means puede utilizarse para representar cada observación mediante su
 centroide más cercano.
@@ -31993,27 +32478,39 @@ Aplicaciones:
   compresión de señales.
 \end{itemize}
 
-\section{K-means en imágenes}\label{k-means-en-imuxe1genes}
+\section*{K-means en imágenes}\label{k-means-en-imuxe1genes}
+\addcontentsline{toc}{section}{K-means en imágenes}
+
+\markright{K-means en imágenes}
 
 Cada píxel puede representarse por un vector RGB.
 
 K-means agrupa colores y reemplaza cada píxel por el color de su
 centroide.
 
-\section{K-means en datos grandes}\label{k-means-en-datos-grandes}
+\section*{K-means en datos grandes}\label{k-means-en-datos-grandes}
+\addcontentsline{toc}{section}{K-means en datos grandes}
+
+\markright{K-means en datos grandes}
 
 Para grandes volúmenes se utiliza mini-batch K-means.
 
 En cada iteración se actualizan centroides con un subconjunto pequeño de
 observaciones.
 
-\section{Mini-batch K-means}\label{mini-batch-k-means}
+\section*{Mini-batch K-means}\label{mini-batch-k-means}
+\addcontentsline{toc}{section}{Mini-batch K-means}
+
+\markright{Mini-batch K-means}
 
 Reduce el costo computacional y permite trabajar con datos masivos.
 
 Puede sacrificar algo de precisión a cambio de velocidad.
 
-\section{Complejidad computacional}\label{complejidad-computacional-5}
+\section*{Complejidad computacional}\label{complejidad-computacional-5}
+\addcontentsline{toc}{section}{Complejidad computacional}
+
+\markright{Complejidad computacional}
 
 El costo aproximado por iteración es
 
@@ -32027,7 +32524,10 @@ Si se realizan \(T\) iteraciones:
 O(nKpT).
 \]
 
-\section{Memoria}\label{memoria}
+\section*{Memoria}\label{memoria}
+\addcontentsline{toc}{section}{Memoria}
+
+\markright{Memoria}
 
 La implementación básica necesita almacenar:
 
@@ -32043,7 +32543,10 @@ La implementación básica necesita almacenar:
   distancias temporales.
 \end{itemize}
 
-\section{Datos categóricos}\label{datos-categuxf3ricos}
+\section*{Datos categóricos}\label{datos-categuxf3ricos}
+\addcontentsline{toc}{section}{Datos categóricos}
+
+\markright{Datos categóricos}
 
 K-means no es adecuado directamente para variables categóricas.
 
@@ -32061,7 +32564,10 @@ Alternativas:
   clustering jerárquico.
 \end{itemize}
 
-\section{K-modes}\label{k-modes}
+\section*{K-modes}\label{k-modes}
+\addcontentsline{toc}{section}{K-modes}
+
+\markright{K-modes}
 
 K-modes utiliza:
 
@@ -32075,7 +32581,10 @@ K-modes utiliza:
   datos nominales.
 \end{itemize}
 
-\section{K-prototypes}\label{k-prototypes}
+\section*{K-prototypes}\label{k-prototypes}
+\addcontentsline{toc}{section}{K-prototypes}
+
+\markright{K-prototypes}
 
 K-prototypes combina:
 
@@ -32089,8 +32598,11 @@ K-prototypes combina:
   una función de costo mixta.
 \end{itemize}
 
-\section{Reducción de dimensionalidad
+\section*{Reducción de dimensionalidad
 previa}\label{reducciuxf3n-de-dimensionalidad-previa}
+\addcontentsline{toc}{section}{Reducción de dimensionalidad previa}
+
+\markright{Reducción de dimensionalidad previa}
 
 PCA puede aplicarse antes de K-means para:
 
@@ -32108,7 +32620,10 @@ PCA puede aplicarse antes de K-means para:
 
 Pero también puede eliminar componentes importantes para separar grupos.
 
-\section{Fuga de información}\label{fuga-de-informaciuxf3n-2}
+\section*{Fuga de información}\label{fuga-de-informaciuxf3n-2}
+\addcontentsline{toc}{section}{Fuga de información}
+
+\markright{Fuga de información}
 
 En un análisis predictivo posterior, cualquier escalamiento o PCA debe
 aprenderse con los datos de entrenamiento.
@@ -32116,8 +32631,11 @@ aprenderse con los datos de entrenamiento.
 En clustering puramente exploratorio, debe documentarse claramente el
 conjunto utilizado.
 
-\section{Interpretación de
+\section*{Interpretación de
 centroides}\label{interpretaciuxf3n-de-centroides}
+\addcontentsline{toc}{section}{Interpretación de centroides}
+
+\markright{Interpretación de centroides}
 
 Los centroides pueden describirse mediante perfiles:
 
@@ -32133,7 +32651,10 @@ Los centroides pueden describirse mediante perfiles:
 
 Cada componente representa la media de una variable dentro del grupo.
 
-\section{Etiquetas de los grupos}\label{etiquetas-de-los-grupos}
+\section*{Etiquetas de los grupos}\label{etiquetas-de-los-grupos}
+\addcontentsline{toc}{section}{Etiquetas de los grupos}
+
+\markright{Etiquetas de los grupos}
 
 Los números de grupo son arbitrarios.
 
@@ -32142,15 +32663,21 @@ Cambiar las etiquetas no cambia la solución.
 Por ejemplo, los grupos 1 y 2 pueden intercambiarse sin modificar la
 partición.
 
-\section{No identificabilidad de
+\section*{No identificabilidad de
 etiquetas}\label{no-identificabilidad-de-etiquetas}
+\addcontentsline{toc}{section}{No identificabilidad de etiquetas}
+
+\markright{No identificabilidad de etiquetas}
 
 Este fenómeno se conoce como permutación de etiquetas.
 
 La interpretación debe basarse en centroides y características, no en el
 número asignado.
 
-\section{Sensibilidad al orden}\label{sensibilidad-al-orden}
+\section*{Sensibilidad al orden}\label{sensibilidad-al-orden}
+\addcontentsline{toc}{section}{Sensibilidad al orden}
+
+\markright{Sensibilidad al orden}
 
 Una implementación determinista con inicialización fija no depende del
 orden.
@@ -32158,7 +32685,10 @@ orden.
 Sin embargo, algoritmos en línea o mini-batch pueden verse afectados por
 el orden de llegada.
 
-\section{Reproducibilidad}\label{reproducibilidad-1}
+\section*{Reproducibilidad}\label{reproducibilidad-1}
+\addcontentsline{toc}{section}{Reproducibilidad}
+
+\markright{Reproducibilidad}
 
 Debe fijarse una semilla aleatoria y reportarse:
 
@@ -32176,10 +32706,13 @@ Debe fijarse una semilla aleatoria y reportarse:
   criterio de selección.
 \end{itemize}
 
-\section{Conexión con R}\label{conexiuxf3n-con-r-17}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-17}
+\addcontentsline{toc}{section}{Conexión con R}
+
+\markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{pm10 =} \FunctionTok{c}\NormalTok{(}\DecValTok{45}\NormalTok{, }\DecValTok{52}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{38}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{28}\NormalTok{),}
   \AttributeTok{no2 =} \FunctionTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{28}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{47}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{18}\NormalTok{),}
@@ -32223,7 +32756,10 @@ Debe fijarse una semilla aleatoria y reportarse:
 \end{Highlighting}
 \end{Shaded}
 
-\section{Ejemplo numérico}\label{ejemplo-numuxe9rico-2}
+\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico-2}
+\addcontentsline{toc}{section}{Ejemplo numérico}
+
+\markright{Ejemplo numérico}
 
 Considérese el conjunto unidimensional:
 
@@ -32269,8 +32805,11 @@ Los centroides actualizados son
 
 El algoritmo converge inmediatamente.
 
-\section{Ejemplo de función
+\section*{Ejemplo de función
 objetivo}\label{ejemplo-de-funciuxf3n-objetivo}
+\addcontentsline{toc}{section}{Ejemplo de función objetivo}
+
+\markright{Ejemplo de función objetivo}
 
 Para el primer grupo:
 
@@ -32290,8 +32829,11 @@ Por tanto,
 J=4.
 \]
 
-\section{Ejemplo de sensibilidad a
+\section*{Ejemplo de sensibilidad a
 escala}\label{ejemplo-de-sensibilidad-a-escala}
+\addcontentsline{toc}{section}{Ejemplo de sensibilidad a escala}
+
+\markright{Ejemplo de sensibilidad a escala}
 
 Supóngase que una variable se mide entre 0 y 1 y otra entre 0 y 10000.
 
@@ -32299,7 +32841,19 @@ Sin estandarización, la segunda variable dominará la distancia.
 
 Esto puede producir grupos definidos casi exclusivamente por ella.
 
-\section{Ventajas}\label{ventajas-5}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, colframe=quarto-callout-warning-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{El agrupamiento no descubre automáticamente grupos verdaderos}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Un algoritmo siempre puede producir una partición cuando se le solicita.
+La existencia matemática de grupos no implica que estos sean estables,
+naturales o útiles. El resultado debe evaluarse mediante geometría,
+estabilidad y conocimiento del dominio (Jain 2010).
+
+\end{tcolorbox}
+
+\section*{Ventajas}\label{ventajas-5}
+\addcontentsline{toc}{section}{Ventajas}
+
+\markright{Ventajas}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -32320,7 +32874,10 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
   apropiado para grupos compactos y esféricos.
 \end{enumerate}
 
-\section{Limitaciones}\label{limitaciones-5}
+\section*{Limitaciones}\label{limitaciones-5}
+\addcontentsline{toc}{section}{Limitaciones}
+
+\markright{Limitaciones}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -32343,7 +32900,10 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
   no es adecuado directamente para datos categóricos.
 \end{enumerate}
 
-\section{Errores frecuentes}\label{errores-frecuentes-17}
+\section*{Errores frecuentes}\label{errores-frecuentes-17}
+\addcontentsline{toc}{section}{Errores frecuentes}
+
+\markright{Errores frecuentes}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -32370,7 +32930,10 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
   concluir causalidad a partir de grupos.
 \end{enumerate}
 
-\section{Ejercicios conceptuales}\label{ejercicios-conceptuales-17}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-17}
+\addcontentsline{toc}{section}{Ejercicios conceptuales}
+
+\markright{Ejercicios conceptuales}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -32401,7 +32964,10 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
   ¿Cómo se evalúa estabilidad?
 \end{enumerate}
 
-\section{Ejercicio de asignación}\label{ejercicio-de-asignaciuxf3n}
+\section*{Ejercicio de asignación}\label{ejercicio-de-asignaciuxf3n}
+\addcontentsline{toc}{section}{Ejercicio de asignación}
+
+\markright{Ejercicio de asignación}
 
 Considere los puntos
 
@@ -32430,7 +32996,10 @@ y centroides iniciales
   Calcule la función objetivo.
 \end{enumerate}
 
-\section{Ejercicio de centroides}\label{ejercicio-de-centroides}
+\section*{Ejercicio de centroides}\label{ejercicio-de-centroides}
+\addcontentsline{toc}{section}{Ejercicio de centroides}
+
+\markright{Ejercicio de centroides}
 
 Los puntos de un grupo son
 
@@ -32449,7 +33018,10 @@ Los puntos de un grupo son
   Compare con el punto \((3,3)\) como representante.
 \end{enumerate}
 
-\section{Ejercicio de silueta}\label{ejercicio-de-silueta}
+\section*{Ejercicio de silueta}\label{ejercicio-de-silueta}
+\addcontentsline{toc}{section}{Ejercicio de silueta}
+
+\markright{Ejercicio de silueta}
 
 Para una observación:
 
@@ -32476,7 +33048,10 @@ a(i)=5,
 b(i)=4.
 \]
 
-\section{Ejercicio del codo}\label{ejercicio-del-codo}
+\section*{Ejercicio del codo}\label{ejercicio-del-codo}
+\addcontentsline{toc}{section}{Ejercicio del codo}
+
+\markright{Ejercicio del codo}
 
 Se obtiene:
 
@@ -32510,7 +33085,10 @@ Se obtiene:
   Explique por qué el criterio no es concluyente.
 \end{enumerate}
 
-\section{Ejercicio aplicado}\label{ejercicio-aplicado-15}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-15}
+\addcontentsline{toc}{section}{Ejercicio aplicado}
+
+\markright{Ejercicio aplicado}
 
 Se desea agrupar estaciones de calidad del aire usando:
 
@@ -32567,7 +33145,10 @@ Diseñe un análisis que incluya:
   limitaciones ambientales.
 \end{enumerate}
 
-\section{Resumen}\label{resumen-17}
+\section*{Resumen}\label{resumen-17}
+\addcontentsline{toc}{section}{Resumen}
+
+\markright{Resumen}
 
 En este capítulo se desarrolló K-means como método de agrupamiento
 basado en centroides.
@@ -32590,17 +33171,21 @@ capítulo}\label{referencias-del-capuxedtulo-17}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Lloyd (1982); Arthur y Vassilvitskii (2007).
+Los fundamentos se apoyan en MacQueen (1967), Lloyd (1982), Arthur y
+Vassilvitskii (2007), Rousseeuw (1987) y Jain (2010).
 
-\chapter{Agrupamiento jerárquico}\label{sec-agrupamiento-jerarquico}
+\chapter{\texorpdfstring{Agrupamiento
+jerárquico\index{Agrupamiento jerárquico}}{Agrupamiento jerárquico}}\label{sec-agrupamiento-jerarquico}
 
-\section{Introducción}\label{introducciuxf3n-19}
+\section*{Introducción}\label{introducciuxf3n-19}
+\addcontentsline{toc}{section}{Introducción}
+
+\markright{Introducción}
 
 El agrupamiento jerárquico construye una sucesión de grupos anidados y
-representa el resultado mediante un \textbf{dendrograma}. A diferencia
-de K-means, no exige fijar el número de conglomerados antes de iniciar
-el análisis.
+representa el resultado mediante un
+\textbf{dendrograma\index{Dendrograma}}. A diferencia de K-means, no
+exige fijar el número de conglomerados antes de iniciar el análisis.
 
 Existen dos estrategias:
 
@@ -32617,7 +33202,18 @@ El resultado depende de dos decisiones fundamentales: la distancia entre
 observaciones y el criterio de enlace utilizado para medir distancia
 entre grupos.
 
-\section{Objetivos}\label{objetivos-18}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definición esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+El agrupamiento jerárquico construye una secuencia de particiones
+anidadas. El dendrograma resume las fusiones, pero su forma depende de
+la distancia y del criterio de enlace.
+
+\end{tcolorbox}
+
+\section*{Objetivos}\label{objetivos-18}
+\addcontentsline{toc}{section}{Objetivos}
+
+\markright{Objetivos}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -32629,7 +33225,8 @@ Al finalizar el capítulo, el lector podrá:
 \item
   construir e interpretar una matriz de distancias;
 \item
-  definir enlace simple, completo, promedio y Ward;
+  definir enlace simple, completo, promedio y
+  Ward\index{Método de Ward};
 \item
   interpretar un dendrograma y sus alturas;
 \item
@@ -32646,7 +33243,10 @@ Al finalizar el capítulo, el lector podrá:
   aplicarlo en R.
 \end{enumerate}
 
-\section{Formulación}\label{formulaciuxf3n}
+\section*{Formulación}\label{formulaciuxf3n}
+\addcontentsline{toc}{section}{Formulación}
+
+\markright{Formulación}
 
 Considérese una muestra no etiquetada
 
@@ -32677,7 +33277,10 @@ y
 
 El método jerárquico genera varias particiones relacionadas entre sí.
 
-\section{Matriz de distancias}\label{matriz-de-distancias}
+\section*{Matriz de distancias}\label{matriz-de-distancias}
+\addcontentsline{toc}{section}{Matriz de distancias}
+
+\markright{Matriz de distancias}
 
 La información inicial se resume en
 
@@ -32699,9 +33302,13 @@ d_{ij}=d_{ji},
 d_{ii}=0.
 \]
 
-\section{Distancias frecuentes}\label{distancias-frecuentes}
+\section*{Distancias frecuentes}\label{distancias-frecuentes}
+\addcontentsline{toc}{section}{Distancias frecuentes}
 
-\subsection{Euclidiana}\label{euclidiana}
+\markright{Distancias frecuentes}
+
+\subsection*{Euclidiana}\label{euclidiana}
+\addcontentsline{toc}{subsection}{Euclidiana}
 
 \[
 d_2(\mathbf{x}_i,\mathbf{x}_j)
@@ -32711,7 +33318,8 @@ d_2(\mathbf{x}_i,\mathbf{x}_j)
 \right]^{1/2}.
 \]
 
-\subsection{Manhattan}\label{manhattan}
+\subsection*{Manhattan}\label{manhattan}
+\addcontentsline{toc}{subsection}{Manhattan}
 
 \[
 d_1(\mathbf{x}_i,\mathbf{x}_j)
@@ -32719,7 +33327,8 @@ d_1(\mathbf{x}_i,\mathbf{x}_j)
 \sum_{r=1}^{p}|x_{ir}-x_{jr}|.
 \]
 
-\subsection{Minkowski}\label{minkowski}
+\subsection*{Minkowski}\label{minkowski}
+\addcontentsline{toc}{subsection}{Minkowski}
 
 \[
 d_q(\mathbf{x}_i,\mathbf{x}_j)
@@ -32731,7 +33340,10 @@ d_q(\mathbf{x}_i,\mathbf{x}_j)
 
 Para datos mixtos puede utilizarse la distancia de Gower.
 
-\section{Escalamiento}\label{escalamiento-3}
+\section*{Escalamiento}\label{escalamiento-3}
+\addcontentsline{toc}{section}{Escalamiento}
+
+\markright{Escalamiento}
 
 Cuando las variables tienen escalas distintas, suele emplearse
 
@@ -32744,7 +33356,10 @@ z_{ij}
 Sin estandarización, una variable con valores grandes puede dominar las
 fusiones.
 
-\section{Agrupamiento aglomerativo}\label{agrupamiento-aglomerativo}
+\section*{Agrupamiento aglomerativo}\label{agrupamiento-aglomerativo}
+\addcontentsline{toc}{section}{Agrupamiento aglomerativo}
+
+\markright{Agrupamiento aglomerativo}
 
 El algoritmo inicia con
 
@@ -32777,7 +33392,10 @@ fusiones queda un solo grupo.
 
 \end{definition}
 
-\section{Agrupamiento divisivo}\label{agrupamiento-divisivo}
+\section*{Agrupamiento divisivo}\label{agrupamiento-divisivo}
+\addcontentsline{toc}{section}{Agrupamiento divisivo}
+
+\markright{Agrupamiento divisivo}
 
 El método divisivo inicia con
 
@@ -32788,11 +33406,15 @@ C^{(0)}=\{1,\ldots,n\}
 y divide sucesivamente los grupos. DIANA es un algoritmo divisivo
 clásico.
 
-\section{Criterios de enlace}\label{criterios-de-enlace}
+\section*{Criterios de enlace}\label{criterios-de-enlace}
+\addcontentsline{toc}{section}{Criterios de enlace}
+
+\markright{Criterios de enlace}
 
 Sean \(A\) y \(B\) dos grupos.
 
-\subsection{Enlace simple}\label{enlace-simple}
+\subsection*{Enlace simple}\label{enlace-simple}
+\addcontentsline{toc}{subsection}{Enlace simple}
 
 \[
 d_{\text{simple}}(A,B)
@@ -32805,7 +33427,8 @@ Detecta estructuras alargadas, pero puede sufrir
 \textbf{encadenamiento}, donde grupos distintos se unen por una cadena
 de puntos intermedios.
 
-\subsection{Enlace completo}\label{enlace-completo}
+\subsection*{Enlace completo}\label{enlace-completo}
+\addcontentsline{toc}{subsection}{Enlace completo}
 
 \[
 d_{\text{completo}}(A,B)
@@ -32816,7 +33439,8 @@ d(\mathbf{x}_i,\mathbf{x}_j).
 
 Favorece grupos compactos, aunque puede ser sensible a valores extremos.
 
-\subsection{Enlace promedio}\label{enlace-promedio}
+\subsection*{Enlace promedio}\label{enlace-promedio}
+\addcontentsline{toc}{subsection}{Enlace promedio}
 
 \[
 d_{\text{promedio}}(A,B)
@@ -32829,7 +33453,8 @@ d(\mathbf{x}_i,\mathbf{x}_j).
 
 Representa un compromiso entre enlace simple y completo.
 
-\subsection{Enlace por centroides}\label{enlace-por-centroides}
+\subsection*{Enlace por centroides}\label{enlace-por-centroides}
+\addcontentsline{toc}{subsection}{Enlace por centroides}
 
 \[
 d_{\text{centroide}}(A,B)
@@ -32839,7 +33464,10 @@ d_{\text{centroide}}(A,B)
 
 Puede producir inversiones en el dendrograma.
 
-\section{Método de Ward}\label{muxe9todo-de-ward}
+\section*{Método de Ward}\label{muxe9todo-de-ward}
+\addcontentsline{toc}{section}{Método de Ward}
+
+\markright{Método de Ward}
 
 Ward fusiona los grupos que producen el menor aumento en la suma de
 cuadrados intragrupo.
@@ -32872,8 +33500,11 @@ También puede escribirse como
 
 Se fusiona el par con menor incremento.
 
-\section{Relación entre Ward y
+\section*{Relación entre Ward y
 K-means}\label{relaciuxf3n-entre-ward-y-k-means}
+\addcontentsline{toc}{section}{Relación entre Ward y K-means}
+
+\markright{Relación entre Ward y K-means}
 
 Ambos métodos buscan grupos compactos mediante suma de cuadrados.
 
@@ -32885,7 +33516,23 @@ Ambos métodos buscan grupos compactos mediante suma de cuadrados.
   Ward construye una jerarquía completa y permite elegir \(K\) después.
 \end{itemize}
 
-\section{Dendrograma}\label{dendrograma}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.84\linewidth,height=\textheight,keepaspectratio,alt={Dendrograma de nueve observaciones construido con enlace de Ward}]{no-supervisado/../estilos/figuras/dendrograma-ward.png}
+
+}
+
+\caption{\label{fig-dendrograma-ward}El dendrograma registra las
+fusiones y la altura a la que ocurren.}
+
+\end{figure}%
+
+\section*{Dendrograma}\label{dendrograma}
+\addcontentsline{toc}{section}{Dendrograma}
+
+\markright{Dendrograma}
 
 El dendrograma representa las fusiones:
 
@@ -32899,7 +33546,10 @@ El dendrograma representa las fusiones:
   una fusión alta indica mayor diferencia entre grupos.
 \end{itemize}
 
-\section{Corte del dendrograma}\label{corte-del-dendrograma}
+\section*{Corte del dendrograma}\label{corte-del-dendrograma}
+\addcontentsline{toc}{section}{Corte del dendrograma}
+
+\markright{Corte del dendrograma}
 
 Al cortar a una altura \(h\), las ramas interceptadas forman los grupos.
 
@@ -32909,8 +33559,11 @@ Otra opción es fijar directamente el número de grupos:
 K.
 \]
 
-\section{Selección del número de
+\section*{Selección del número de
 grupos}\label{selecciuxf3n-del-nuxfamero-de-grupos}
+\addcontentsline{toc}{section}{Selección del número de grupos}
+
+\markright{Selección del número de grupos}
 
 Puede utilizarse:
 
@@ -32930,7 +33583,10 @@ Puede utilizarse:
 
 La inspección visual debe complementarse con criterios cuantitativos.
 
-\section{Distancia cofenética}\label{distancia-cofenuxe9tica}
+\section*{Distancia cofenética}\label{distancia-cofenuxe9tica}
+\addcontentsline{toc}{section}{Distancia cofenética}
+
+\markright{Distancia cofenética}
 
 La distancia cofenética entre dos observaciones es la altura a la que se
 fusionan por primera vez.
@@ -32941,7 +33597,10 @@ Se denota por
 d_{ij}^{coph}.
 \]
 
-\section{Correlación cofenética}\label{correlaciuxf3n-cofenuxe9tica}
+\section*{Correlación cofenética}\label{correlaciuxf3n-cofenuxe9tica}
+\addcontentsline{toc}{section}{Correlación cofenética}
+
+\markright{Correlación cofenética}
 
 Compara las distancias originales con las representadas por el
 dendrograma:
@@ -32959,7 +33618,15 @@ d_{ij}^{coph}
 Un valor alto indica que el dendrograma conserva bien la estructura de
 distancias.
 
-\section{Fórmula de Lance-Williams}\label{fuxf3rmula-de-lance-williams}
+La actualización recursiva de distancias puede expresarse mediante la
+familia de Lance-Williams (Lance y Williams 1967). Esta formulación
+permite comparar distintos enlaces dentro de una estructura algebraica
+común.
+
+\section*{Fórmula de Lance-Williams}\label{fuxf3rmula-de-lance-williams}
+\addcontentsline{toc}{section}{Fórmula de Lance-Williams}
+
+\markright{Fórmula de Lance-Williams}
 
 Las distancias pueden actualizarse mediante
 
@@ -32998,13 +33665,19 @@ Para enlace completo:
 \gamma=\frac{1}{2}.
 \]
 
-\section{Inversiones}\label{inversiones}
+\section*{Inversiones}\label{inversiones}
+\addcontentsline{toc}{section}{Inversiones}
+
+\markright{Inversiones}
 
 Una inversión ocurre cuando una fusión posterior aparece a menor altura
 que una anterior. Puede presentarse con el enlace por centroides y
 dificulta la interpretación.
 
-\section{Estabilidad}\label{estabilidad}
+\section*{Estabilidad}\label{estabilidad}
+\addcontentsline{toc}{section}{Estabilidad}
+
+\markright{Estabilidad}
 
 Una solución es estable si pequeñas perturbaciones producen grupos
 semejantes.
@@ -33025,7 +33698,10 @@ Puede evaluarse mediante:
   índice de Rand ajustado.
 \end{itemize}
 
-\section{Jaccard de grupos}\label{jaccard-de-grupos}
+\section*{Jaccard de grupos}\label{jaccard-de-grupos}
+\addcontentsline{toc}{section}{Jaccard de grupos}
+
+\markright{Jaccard de grupos}
 
 Para un grupo original \(C\) y uno remuestreado \(C^*\):
 
@@ -33037,8 +33713,11 @@ J(C,C^*)
 
 Valores altos indican estabilidad.
 
-\section{Comparación de
+\section*{Comparación de
 dendrogramas}\label{comparaciuxf3n-de-dendrogramas}
+\addcontentsline{toc}{section}{Comparación de dendrogramas}
+
+\markright{Comparación de dendrogramas}
 
 Pueden utilizarse:
 
@@ -33054,7 +33733,15 @@ Pueden utilizarse:
   comparación de ramas.
 \end{itemize}
 
-\section{Complejidad computacional}\label{complejidad-computacional-6}
+Los algoritmos jerárquicos clásicos son apropiados sobre todo para
+muestras pequeñas o medianas. Revisiones modernas describen variantes
+eficientes y los compromisos entre exactitud, memoria y tiempo (Murtagh
+y Contreras 2012).
+
+\section*{Complejidad computacional}\label{complejidad-computacional-6}
+\addcontentsline{toc}{section}{Complejidad computacional}
+
+\markright{Complejidad computacional}
 
 La matriz de distancias requiere memoria del orden de
 
@@ -33078,7 +33765,10 @@ dependiendo del algoritmo.
 
 Esto limita el método en muestras muy grandes.
 
-\section{Métodos escalables}\label{muxe9todos-escalables}
+\section*{Métodos escalables}\label{muxe9todos-escalables}
+\addcontentsline{toc}{section}{Métodos escalables}
+
+\markright{Métodos escalables}
 
 Para grandes volúmenes pueden utilizarse:
 
@@ -33096,7 +33786,10 @@ Para grandes volúmenes pueden utilizarse:
   clustering híbrido.
 \end{itemize}
 
-\section{Valores atípicos}\label{valores-atuxedpicos-1}
+\section*{Valores atípicos}\label{valores-atuxedpicos-1}
+\addcontentsline{toc}{section}{Valores atípicos}
+
+\markright{Valores atípicos}
 
 Una observación extrema puede:
 
@@ -33114,8 +33807,11 @@ Una observación extrema puede:
 
 Debe analizarse antes de interpretar el dendrograma.
 
-\section{Variables categóricas y
+\section*{Variables categóricas y
 mixtas}\label{variables-categuxf3ricas-y-mixtas}
+\addcontentsline{toc}{section}{Variables categóricas y mixtas}
+
+\markright{Variables categóricas y mixtas}
 
 La distancia euclidiana no es adecuada directamente para variables
 categóricas.
@@ -33134,7 +33830,10 @@ Pueden utilizarse:
   transformaciones apropiadas.
 \end{itemize}
 
-\section{Distancia de Jaccard}\label{distancia-de-jaccard}
+\section*{Distancia de Jaccard}\label{distancia-de-jaccard}
+\addcontentsline{toc}{section}{Distancia de Jaccard}
+
+\markright{Distancia de Jaccard}
 
 Para presencia o ausencia:
 
@@ -33147,7 +33846,10 @@ d_J(A,B)
 
 Es útil cuando la presencia es más informativa que la ausencia.
 
-\section{Visualización}\label{visualizaciuxf3n}
+\section*{Visualización}\label{visualizaciuxf3n}
+\addcontentsline{toc}{section}{Visualización}
+
+\markright{Visualización}
 
 Además del dendrograma:
 
@@ -33165,13 +33867,19 @@ Además del dendrograma:
   tanglegrams.
 \end{itemize}
 
-\section{Relación con grafos}\label{relaciuxf3n-con-grafos}
+\section*{Relación con grafos}\label{relaciuxf3n-con-grafos}
+\addcontentsline{toc}{section}{Relación con grafos}
+
+\markright{Relación con grafos}
 
 El enlace simple está relacionado con el árbol de expansión mínima.
 Cortar sus aristas más largas puede producir la misma partición que un
 corte del dendrograma de enlace simple.
 
-\section{Comparación con K-means}\label{comparaciuxf3n-con-k-means}
+\section*{Comparación con K-means}\label{comparaciuxf3n-con-k-means}
+\addcontentsline{toc}{section}{Comparación con K-means}
+
+\markright{Comparación con K-means}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lll@{}}
@@ -33190,16 +33898,22 @@ Reversibilidad & Fusiones irreversibles & Reasignaciones iterativas \\
 \end{longtable}
 }
 
-\section{Comparación con DBSCAN}\label{comparaciuxf3n-con-dbscan}
+\section*{Comparación con DBSCAN}\label{comparaciuxf3n-con-dbscan}
+\addcontentsline{toc}{section}{Comparación con DBSCAN}
+
+\markright{Comparación con DBSCAN}
 
 DBSCAN detecta grupos por densidad y puede identificar ruido. El
 agrupamiento jerárquico produce una jerarquía completa, pero no
 identifica ruido de manera natural.
 
-\section{Conexión con R}\label{conexiuxf3n-con-r-18}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-18}
+\addcontentsline{toc}{section}{Conexión con R}
+
+\markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{pm10 =} \FunctionTok{c}\NormalTok{(}\DecValTok{45}\NormalTok{, }\DecValTok{52}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{38}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{28}\NormalTok{),}
   \AttributeTok{no2 =} \FunctionTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{28}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{47}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{18}\NormalTok{),}
@@ -33249,7 +33963,10 @@ identifica ruido de manera natural.
 \end{Highlighting}
 \end{Shaded}
 
-\section{Ejemplo numérico}\label{ejemplo-numuxe9rico-3}
+\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico-3}
+\addcontentsline{toc}{section}{Ejemplo numérico}
+
+\markright{Ejemplo numérico}
 
 Considérese:
 
@@ -33269,7 +33986,10 @@ Con enlace simple, la distancia entre \(\{1,2\}\) y \(\{5\}\) es
 \min\{4,3\}=3.
 \]
 
-\section{Ejemplo de enlaces}\label{ejemplo-de-enlaces}
+\section*{Ejemplo de enlaces}\label{ejemplo-de-enlaces}
+\addcontentsline{toc}{section}{Ejemplo de enlaces}
+
+\markright{Ejemplo de enlaces}
 
 Sean
 
@@ -33303,7 +34023,10 @@ d_{\text{promedio}}(A,B)
 5.5.
 \]
 
-\section{Ejemplo de Ward}\label{ejemplo-de-ward}
+\section*{Ejemplo de Ward}\label{ejemplo-de-ward}
+\addcontentsline{toc}{section}{Ejemplo de Ward}
+
+\markright{Ejemplo de Ward}
 
 Sean
 
@@ -33329,7 +34052,10 @@ Entonces
 19.2.
 \]
 
-\section{Ventajas}\label{ventajas-6}
+\section*{Ventajas}\label{ventajas-6}
+\addcontentsline{toc}{section}{Ventajas}
+
+\markright{Ventajas}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -33348,7 +34074,10 @@ Entonces
   puede trabajar con datos mixtos usando distancias adecuadas.
 \end{enumerate}
 
-\section{Limitaciones}\label{limitaciones-6}
+\section*{Limitaciones}\label{limitaciones-6}
+\addcontentsline{toc}{section}{Limitaciones}
+
+\markright{Limitaciones}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -33369,7 +34098,10 @@ Entonces
   dificultad con muestras grandes.
 \end{enumerate}
 
-\section{Errores frecuentes}\label{errores-frecuentes-18}
+\section*{Errores frecuentes}\label{errores-frecuentes-18}
+\addcontentsline{toc}{section}{Errores frecuentes}
+
+\markright{Errores frecuentes}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -33396,7 +34128,10 @@ Entonces
   inferir causalidad a partir de los grupos.
 \end{enumerate}
 
-\section{Ejercicios conceptuales}\label{ejercicios-conceptuales-18}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-18}
+\addcontentsline{toc}{section}{Ejercicios conceptuales}
+
+\markright{Ejercicios conceptuales}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -33423,7 +34158,10 @@ Entonces
   Compare agrupamiento jerárquico y K-means.
 \end{enumerate}
 
-\section{Ejercicio de distancias}\label{ejercicio-de-distancias-1}
+\section*{Ejercicio de distancias}\label{ejercicio-de-distancias-1}
+\addcontentsline{toc}{section}{Ejercicio de distancias}
+
+\markright{Ejercicio de distancias}
 
 Considere
 
@@ -33446,7 +34184,10 @@ Considere
   Compare los resultados.
 \end{enumerate}
 
-\section{Ejercicio de Ward}\label{ejercicio-de-ward}
+\section*{Ejercicio de Ward}\label{ejercicio-de-ward}
+\addcontentsline{toc}{section}{Ejercicio de Ward}
+
+\markright{Ejercicio de Ward}
 
 Considere
 
@@ -33464,7 +34205,10 @@ y
 
 Calcule el incremento de Ward.
 
-\section{Ejercicio aplicado}\label{ejercicio-aplicado-16}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-16}
+\addcontentsline{toc}{section}{Ejercicio aplicado}
+
+\markright{Ejercicio aplicado}
 
 Agrupe estaciones de calidad del aire utilizando:
 
@@ -33521,7 +34265,10 @@ Incluya:
   limitaciones ambientales.
 \end{enumerate}
 
-\section{Resumen}\label{resumen-18}
+\section*{Resumen}\label{resumen-18}
+\addcontentsline{toc}{section}{Resumen}
+
+\markright{Resumen}
 
 En este capítulo se desarrolló el agrupamiento jerárquico como método
 para construir grupos anidados.
@@ -33540,12 +34287,16 @@ capítulo}\label{referencias-del-capuxedtulo-18}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Ward (1963); Mardia et~al. (1979).
+Los fundamentos se apoyan en Ward (1963), Lance y Williams (1967),
+Murtagh y Contreras (2012) y Mardia et~al. (1979).
 
-\chapter{Reglas de asociación}\label{sec-reglas-asociacion}
+\chapter{\texorpdfstring{Reglas de
+asociación\index{Reglas de asociación}}{Reglas de asociación}}\label{sec-reglas-asociacion}
 
-\section{Introducción}\label{introducciuxf3n-20}
+\section*{Introducción}\label{introducciuxf3n-20}
+\addcontentsline{toc}{section}{Introducción}
+
+\markright{Introducción}
 
 Las reglas de asociación permiten descubrir relaciones de coocurrencia
 en bases de datos transaccionales. Su formulación clásica surgió en el
@@ -33567,7 +34318,19 @@ evitar evaluar todos los subconjuntos posibles (Agrawal y Srikant 1994).
 Otros métodos, como FP-growth, eliminan la generación explícita de
 candidatos mediante una estructura comprimida (Han et~al. 2000).
 
-\section{Objetivos}\label{objetivos-19}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definición esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Una regla \(X\Rightarrow Y\) resume una coocurrencia entre conjuntos de
+elementos. Soporte\index{Soporte}, confianza\index{Confianza} y
+lift\index{Lift} describen frecuencia, probabilidad condicional y
+desviación respecto de la independencia.
+
+\end{tcolorbox}
+
+\section*{Objetivos}\label{objetivos-19}
+\addcontentsline{toc}{section}{Objetivos}
+
+\markright{Objetivos}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -33600,7 +34363,10 @@ Al finalizar el capítulo, el lector podrá:
   aplicar reglas de asociación en R.
 \end{enumerate}
 
-\section{Base transaccional}\label{base-transaccional}
+\section*{Base transaccional}\label{base-transaccional}
+\addcontentsline{toc}{section}{Base transaccional}
+
+\markright{Base transaccional}
 
 Sea
 
@@ -33626,7 +34392,10 @@ La base de datos es
 \{T_1,\ldots,T_n\}.
 \]
 
-\section{Itemset}\label{itemset}
+\section*{Itemset}\label{itemset}
+\addcontentsline{toc}{section}{Itemset}
+
+\markright{Itemset}
 
 Un itemset es cualquier subconjunto
 
@@ -33642,7 +34411,10 @@ Su tamaño es
 
 Si \(|X|=k\), se denomina \(k\)-itemset.
 
-\section{Regla de asociación}\label{regla-de-asociaciuxf3n}
+\section*{Regla de asociación}\label{regla-de-asociaciuxf3n}
+\addcontentsline{toc}{section}{Regla de asociación}
+
+\markright{Regla de asociación}
 
 Una regla es una implicación
 
@@ -33658,7 +34430,10 @@ X\cap Y=\varnothing.
 
 \(X\) es el antecedente y \(Y\) el consecuente.
 
-\section{Soporte de un itemset}\label{soporte-de-un-itemset}
+\section*{Soporte de un itemset}\label{soporte-de-un-itemset}
+\addcontentsline{toc}{section}{Soporte de un itemset}
+
+\markright{Soporte de un itemset}
 
 El soporte absoluto es
 
@@ -33686,7 +34461,23 @@ supp(X)
 \widehat{P}(X).
 \]
 
-\section{Soporte de una regla}\label{soporte-de-una-regla}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.88\linewidth,height=\textheight,keepaspectratio,alt={Diagrama del antecedente, regla, consecuente y medidas de asociación}]{no-supervisado/../estilos/figuras/reglas-medidas.png}
+
+}
+
+\caption{\label{fig-reglas-medidas}Una regla relaciona antecedente y
+consecuente y se evalúa mediante soporte, confianza y lift.}
+
+\end{figure}%
+
+\section*{Soporte de una regla}\label{soporte-de-una-regla}
+\addcontentsline{toc}{section}{Soporte de una regla}
+
+\markright{Soporte de una regla}
 
 El soporte de
 
@@ -33704,7 +34495,10 @@ supp(X\cup Y).
 
 Mide la frecuencia conjunta del antecedente y el consecuente.
 
-\section{Confianza}\label{confianza}
+\section*{Confianza}\label{confianza}
+\addcontentsline{toc}{section}{Confianza}
+
+\markright{Confianza}
 
 La confianza es
 
@@ -33722,15 +34516,21 @@ conf(X\Rightarrow Y)
 \widehat{P}(Y\mid X).
 \]
 
-\section{Limitación de la
+\section*{Limitación de la
 confianza}\label{limitaciuxf3n-de-la-confianza}
+\addcontentsline{toc}{section}{Limitación de la confianza}
+
+\markright{Limitación de la confianza}
 
 Una confianza alta puede deberse simplemente a que \(Y\) es muy
 frecuente.
 
 Por ello, debe compararse con el soporte marginal del consecuente.
 
-\section{Lift}\label{lift}
+\section*{Lift}\label{lift}
+\addcontentsline{toc}{section}{Lift}
+
+\markright{Lift}
 
 El lift es
 
@@ -33761,7 +34561,10 @@ Interpretación:
   \(lift<1\): asociación negativa.
 \end{itemize}
 
-\section{Leverage}\label{leverage}
+\section*{Leverage}\label{leverage}
+\addcontentsline{toc}{section}{Leverage}
+
+\markright{Leverage}
 
 El leverage es
 
@@ -33775,7 +34578,10 @@ supp(X)supp(Y).
 
 Mide la diferencia absoluta respecto de la independencia.
 
-\section{Conviction}\label{conviction}
+\section*{Conviction}\label{conviction}
+\addcontentsline{toc}{section}{Conviction}
+
+\markright{Conviction}
 
 La conviction se define como
 
@@ -33789,7 +34595,10 @@ conv(X\Rightarrow Y)
 Valores grandes indican que la regla comete menos errores de los
 esperados bajo independencia.
 
-\section{Cobertura}\label{cobertura}
+\section*{Cobertura}\label{cobertura}
+\addcontentsline{toc}{section}{Cobertura}
+
+\markright{Cobertura}
 
 La cobertura de la regla es
 
@@ -33801,7 +34610,10 @@ supp(X).
 
 Mide qué proporción de transacciones satisface el antecedente.
 
-\section{Ejemplo básico}\label{ejemplo-buxe1sico}
+\section*{Ejemplo básico}\label{ejemplo-buxe1sico}
+\addcontentsline{toc}{section}{Ejemplo básico}
+
+\markright{Ejemplo básico}
 
 Considérese:
 
@@ -33851,7 +34663,10 @@ lift
 1.25.
 \]
 
-\section{Conjuntos frecuentes}\label{conjuntos-frecuentes}
+\section*{Conjuntos frecuentes}\label{conjuntos-frecuentes}
+\addcontentsline{toc}{section}{Conjuntos frecuentes}
+
+\markright{Conjuntos frecuentes}
 
 Dado un umbral mínimo
 
@@ -33867,7 +34682,10 @@ supp(X)\geq s_{min}.
 
 El problema central consiste en encontrar todos los itemsets frecuentes.
 
-\section{Explosión combinatoria}\label{explosiuxf3n-combinatoria}
+\section*{Explosión combinatoria}\label{explosiuxf3n-combinatoria}
+\addcontentsline{toc}{section}{Explosión combinatoria}
+
+\markright{Explosión combinatoria}
 
 Con \(m\) elementos existen
 
@@ -33879,7 +34697,10 @@ itemsets no vacíos.
 
 Una búsqueda exhaustiva se vuelve inviable cuando \(m\) es grande.
 
-\section{Propiedad Apriori}\label{propiedad-apriori}
+\section*{Propiedad Apriori}\label{propiedad-apriori}
+\addcontentsline{toc}{section}{Propiedad Apriori}
+
+\markright{Propiedad Apriori}
 
 \begin{theorem}[]\protect\hypertarget{thm-propiedad-apriori}{}\label{thm-propiedad-apriori}
 
@@ -33891,7 +34712,10 @@ frecuentes.
 Equivalentemente, si un itemset no es frecuente, ninguno de sus
 superconjuntos puede ser frecuente.
 
-\section{Demostración}\label{demostraciuxf3n}
+\section*{Demostración}\label{demostraciuxf3n}
+\addcontentsline{toc}{section}{Demostración}
+
+\markright{Demostración}
 
 Si
 
@@ -33914,7 +34738,15 @@ supp(B)\leq supp(A).
 Si \(A\) no alcanza el soporte mínimo, ningún superconjunto \(B\) puede
 alcanzarlo.
 
-\section{Algoritmo Apriori}\label{algoritmo-apriori}
+El problema de minería de reglas fue formalizado por Agrawal et~al.
+(1993). Apriori aprovecha la antimonotonicidad del soporte para podar
+candidatos, mientras FP-growth evita su generación explícita (Agrawal y
+Srikant 1994; Han et~al. 2000).
+
+\section*{Algoritmo Apriori}\label{algoritmo-apriori}
+\addcontentsline{toc}{section}{Algoritmo Apriori}
+
+\markright{Algoritmo Apriori}
 
 Apriori procede por niveles:
 
@@ -33933,7 +34765,10 @@ Apriori procede por niveles:
   repetir para tamaños sucesivos.
 \end{enumerate}
 
-\section{Generación de candidatos}\label{generaciuxf3n-de-candidatos}
+\section*{Generación de candidatos}\label{generaciuxf3n-de-candidatos}
+\addcontentsline{toc}{section}{Generación de candidatos}
+
+\markright{Generación de candidatos}
 
 A partir de
 
@@ -33950,7 +34785,10 @@ C_k.
 Después se eliminan candidatos que contienen algún subconjunto no
 frecuente.
 
-\section{Pseudocódigo de Apriori}\label{pseudocuxf3digo-de-apriori}
+\section*{Pseudocódigo de Apriori}\label{pseudocuxf3digo-de-apriori}
+\addcontentsline{toc}{section}{Pseudocódigo de Apriori}
+
+\markright{Pseudocódigo de Apriori}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -33975,7 +34813,10 @@ frecuente.
   detener cuando \(L_k\) sea vacío.
 \end{enumerate}
 
-\section{Generación de reglas}\label{generaciuxf3n-de-reglas}
+\section*{Generación de reglas}\label{generaciuxf3n-de-reglas}
+\addcontentsline{toc}{section}{Generación de reglas}
+
+\markright{Generación de reglas}
 
 Para cada itemset frecuente \(Z\) y cada subconjunto no vacío
 
@@ -33991,14 +34832,20 @@ X\Rightarrow Z\setminus X.
 
 La regla se conserva si alcanza la confianza mínima.
 
-\section{Monotonicidad de la
+\section*{Monotonicidad de la
 confianza}\label{monotonicidad-de-la-confianza}
+\addcontentsline{toc}{section}{Monotonicidad de la confianza}
+
+\markright{Monotonicidad de la confianza}
 
 La confianza no es antimonótona en general. Sin embargo, durante la
 generación de reglas puede aprovecharse que, para un itemset fijo,
 ampliar el consecuente no aumenta la confianza.
 
-\section{Eclat}\label{eclat}
+\section*{Eclat}\label{eclat}
+\addcontentsline{toc}{section}{Eclat}
+
+\markright{Eclat}
 
 Eclat utiliza una representación vertical.
 
@@ -34017,7 +34864,10 @@ TID(X\cup Y)
 TID(X)\cap TID(Y).
 \]
 
-\section{FP-growth}\label{fp-growth}
+\section*{FP-growth}\label{fp-growth}
+\addcontentsline{toc}{section}{FP-growth}
+
+\markright{FP-growth}
 
 FP-growth comprime la base en un árbol de patrones frecuentes y extrae
 itemsets sin generar candidatos explícitos (Han et~al. 2000).
@@ -34041,7 +34891,10 @@ Sus pasos generales son:
   generar patrones frecuentes.
 \end{enumerate}
 
-\section{Reglas redundantes}\label{reglas-redundantes}
+\section*{Reglas redundantes}\label{reglas-redundantes}
+\addcontentsline{toc}{section}{Reglas redundantes}
+
+\markright{Reglas redundantes}
 
 Una regla puede ser redundante si otra regla más general tiene igual o
 mejor desempeño.
@@ -34061,14 +34914,20 @@ A,B\Rightarrow C
 tienen la misma confianza, añadir \(B\) no aporta información
 predictiva.
 
-\section{Itemsets cerrados}\label{itemsets-cerrados}
+\section*{Itemsets cerrados}\label{itemsets-cerrados}
+\addcontentsline{toc}{section}{Itemsets cerrados}
+
+\markright{Itemsets cerrados}
 
 Un itemset frecuente \(X\) es cerrado si no existe un superconjunto con
 el mismo soporte.
 
 Los itemsets cerrados proporcionan una representación más compacta.
 
-\section{Itemsets maximales}\label{itemsets-maximales}
+\section*{Itemsets maximales}\label{itemsets-maximales}
+\addcontentsline{toc}{section}{Itemsets maximales}
+
+\markright{Itemsets maximales}
 
 Un itemset frecuente es maximal si ningún superconjunto suyo es
 frecuente.
@@ -34076,7 +34935,10 @@ frecuente.
 Los maximales son aún más compactos, pero pierden información exacta de
 soportes de subconjuntos.
 
-\section{Restricciones}\label{restricciones}
+\section*{Restricciones}\label{restricciones}
+\addcontentsline{toc}{section}{Restricciones}
+
+\markright{Restricciones}
 
 El espacio de búsqueda puede reducirse imponiendo:
 
@@ -34096,7 +34958,10 @@ El espacio de búsqueda puede reducirse imponiendo:
   restricciones de categorías.
 \end{itemize}
 
-\section{Discretización}\label{discretizaciuxf3n}
+\section*{Discretización}\label{discretizaciuxf3n}
+\addcontentsline{toc}{section}{Discretización}
+
+\markright{Discretización}
 
 Variables numéricas deben convertirse normalmente en intervalos:
 
@@ -34120,7 +34985,19 @@ La discretización puede ser:
 
 Los resultados dependen fuertemente de los cortes.
 
-\section{Significancia estadística}\label{significancia-estaduxedstica}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, colframe=quarto-callout-warning-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Interés estadístico y utilidad práctica}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Un lift elevado con soporte mínimo puede corresponder a muy pocas
+transacciones. Las reglas deben evaluarse por frecuencia, estabilidad,
+significancia, novedad y posibilidad de acción; ninguna medida aislada
+es suficiente.
+
+\end{tcolorbox}
+
+\section*{Significancia estadística}\label{significancia-estaduxedstica}
+\addcontentsline{toc}{section}{Significancia estadística}
+
+\markright{Significancia estadística}
 
 Lift alto no garantiza significancia, especialmente con soporte bajo.
 
@@ -34138,7 +35015,10 @@ Puede utilizarse una tabla \(2\times2\) y aplicar:
   corrección por comparaciones múltiples.
 \end{itemize}
 
-\section{Tabla de contingencia}\label{tabla-de-contingencia}
+\section*{Tabla de contingencia}\label{tabla-de-contingencia}
+\addcontentsline{toc}{section}{Tabla de contingencia}
+
+\markright{Tabla de contingencia}
 
 Para dos eventos \(X\) y \(Y\):
 
@@ -34157,7 +35037,10 @@ no \(X\) & \(n_{01}\) & \(n_{00}\) \\
 
 Las medidas de asociación se derivan de estas frecuencias.
 
-\section{Múltiples comparaciones}\label{muxfaltiples-comparaciones}
+\section*{Múltiples comparaciones}\label{muxfaltiples-comparaciones}
+\addcontentsline{toc}{section}{Múltiples comparaciones}
+
+\markright{Múltiples comparaciones}
 
 La minería puede producir miles de reglas. Evaluar cada una al nivel
 usual genera falsos positivos.
@@ -34176,8 +35059,11 @@ Deben considerarse:
   validación en una muestra independiente.
 \end{itemize}
 
-\section{Asociación no es
+\section*{Asociación no es
 causalidad}\label{asociaciuxf3n-no-es-causalidad}
+\addcontentsline{toc}{section}{Asociación no es causalidad}
+
+\markright{Asociación no es causalidad}
 
 La regla
 
@@ -34203,7 +35089,10 @@ La coocurrencia puede deberse a:
   artefactos de discretización.
 \end{itemize}
 
-\section{Reglas negativas}\label{reglas-negativas}
+\section*{Reglas negativas}\label{reglas-negativas}
+\addcontentsline{toc}{section}{Reglas negativas}
+
+\markright{Reglas negativas}
 
 También pueden estudiarse reglas como
 
@@ -34214,7 +35103,10 @@ X\Rightarrow \neg Y.
 Su análisis requiere considerar cuidadosamente soportes y universo de
 elementos.
 
-\section{Reglas secuenciales}\label{reglas-secuenciales}
+\section*{Reglas secuenciales}\label{reglas-secuenciales}
+\addcontentsline{toc}{section}{Reglas secuenciales}
+
+\markright{Reglas secuenciales}
 
 Las reglas de asociación tradicionales ignoran el orden temporal.
 
@@ -34225,7 +35117,10 @@ ejemplo:
 A\to B\to C.
 \]
 
-\section{Reglas ponderadas}\label{reglas-ponderadas}
+\section*{Reglas ponderadas}\label{reglas-ponderadas}
+\addcontentsline{toc}{section}{Reglas ponderadas}
+
+\markright{Reglas ponderadas}
 
 En algunos problemas los elementos tienen importancia, utilidad o costo
 diferentes.
@@ -34246,7 +35141,10 @@ Las reglas ponderadas incorporan:
   severidad.
 \end{itemize}
 
-\section{Evaluación práctica}\label{evaluaciuxf3n-pruxe1ctica}
+\section*{Evaluación práctica}\label{evaluaciuxf3n-pruxe1ctica}
+\addcontentsline{toc}{section}{Evaluación práctica}
+
+\markright{Evaluación práctica}
 
 Una buena regla debe equilibrar:
 
@@ -34268,7 +35166,10 @@ Una buena regla debe equilibrar:
   posibilidad de acción.
 \end{itemize}
 
-\section{Reglas y predicción}\label{reglas-y-predicciuxf3n}
+\section*{Reglas y predicción}\label{reglas-y-predicciuxf3n}
+\addcontentsline{toc}{section}{Reglas y predicción}
+
+\markright{Reglas y predicción}
 
 Las reglas pueden utilizarse como características o como clasificadores.
 
@@ -34278,7 +35179,10 @@ En clasificación asociativa, el consecuente es una clase:
 X\Rightarrow Y=c.
 \]
 
-\section{Complejidad}\label{complejidad}
+\section*{Complejidad}\label{complejidad}
+\addcontentsline{toc}{section}{Complejidad}
+
+\markright{Complejidad}
 
 El costo depende de:
 
@@ -34298,13 +35202,16 @@ El costo depende de:
 
 Un soporte demasiado bajo puede generar una explosión de resultados.
 
-\section{Conexión con R}\label{conexiuxf3n-con-r-19}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-19}
+\addcontentsline{toc}{section}{Conexión con R}
+
+\markright{Conexión con R}
 
 El paquete \texttt{arules} proporciona infraestructura para
 transacciones, itemsets y reglas (Hahsler et~al. 2005).
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{library}\NormalTok{(arules)}
 
 \NormalTok{transacciones }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
@@ -34341,7 +35248,10 @@ transacciones, itemsets y reglas (Hahsler et~al. 2005).
 \end{Highlighting}
 \end{Shaded}
 
-\section{Aplicación ambiental}\label{aplicaciuxf3n-ambiental}
+\section*{Aplicación ambiental}\label{aplicaciuxf3n-ambiental}
+\addcontentsline{toc}{section}{Aplicación ambiental}
+
+\markright{Aplicación ambiental}
 
 Una transacción puede representar un día o una estación. Los elementos
 podrían ser:
@@ -34371,7 +35281,10 @@ Una regla posible sería
 Debe interpretarse como asociación empírica, no como mecanismo causal
 probado.
 
-\section{Ventajas}\label{ventajas-7}
+\section*{Ventajas}\label{ventajas-7}
+\addcontentsline{toc}{section}{Ventajas}
+
+\markright{Ventajas}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -34390,7 +35303,10 @@ probado.
   admite restricciones de dominio.
 \end{enumerate}
 
-\section{Limitaciones}\label{limitaciones-7}
+\section*{Limitaciones}\label{limitaciones-7}
+\addcontentsline{toc}{section}{Limitaciones}
+
+\markright{Limitaciones}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -34413,7 +35329,10 @@ probado.
   dificultad para evaluar utilidad real.
 \end{enumerate}
 
-\section{Errores frecuentes}\label{errores-frecuentes-19}
+\section*{Errores frecuentes}\label{errores-frecuentes-19}
+\addcontentsline{toc}{section}{Errores frecuentes}
+
+\markright{Errores frecuentes}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -34440,7 +35359,10 @@ probado.
   confundir coocurrencia con secuencia temporal.
 \end{enumerate}
 
-\section{Ejercicios conceptuales}\label{ejercicios-conceptuales-19}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-19}
+\addcontentsline{toc}{section}{Ejercicios conceptuales}
+
+\markright{Ejercicios conceptuales}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -34467,7 +35389,10 @@ probado.
   Explique por qué asociación no es causalidad.
 \end{enumerate}
 
-\section{Ejercicio de medidas}\label{ejercicio-de-medidas}
+\section*{Ejercicio de medidas}\label{ejercicio-de-medidas}
+\addcontentsline{toc}{section}{Ejercicio de medidas}
+
+\markright{Ejercicio de medidas}
 
 En 1,000 transacciones:
 
@@ -34500,7 +35425,10 @@ Calcule:
   leverage.
 \end{enumerate}
 
-\section{Ejercicio Apriori}\label{ejercicio-apriori}
+\section*{Ejercicio Apriori}\label{ejercicio-apriori}
+\addcontentsline{toc}{section}{Ejercicio Apriori}
+
+\markright{Ejercicio Apriori}
 
 Considere:
 
@@ -34541,7 +35469,10 @@ Con soporte mínimo 0.4:
   obtenga las reglas con confianza mínima 0.7.
 \end{enumerate}
 
-\section{Ejercicio aplicado}\label{ejercicio-aplicado-17}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-17}
+\addcontentsline{toc}{section}{Ejercicio aplicado}
+
+\markright{Ejercicio aplicado}
 
 Diseñe un análisis de reglas para accidentes de tránsito donde cada
 accidente se represente por elementos como:
@@ -34589,7 +35520,10 @@ Incluya:
   limitaciones causales.
 \end{enumerate}
 
-\section{Resumen}\label{resumen-19}
+\section*{Resumen}\label{resumen-19}
+\addcontentsline{toc}{section}{Resumen}
+
+\markright{Resumen}
 
 En este capítulo se desarrollaron los fundamentos matemáticos de las
 reglas de asociación.
@@ -34608,14 +35542,18 @@ capítulo}\label{referencias-del-capuxedtulo-19}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos históricos y algorítmicos se apoyan en Agrawal y Srikant
+Los fundamentos se apoyan en Agrawal et~al. (1993), Agrawal y Srikant
 (1994), Han et~al. (2000) y Hahsler et~al. (2005).
 
 \part{VI. Temas avanzados}
 
-\chapter{Teoría de generalización}\label{sec-teoria-generalizacion}
+\chapter{\texorpdfstring{Teoría de
+generalización\index{Generalización}}{Teoría de generalización}}\label{sec-teoria-generalizacion}
 
-\section{Introducción}\label{introducciuxf3n-21}
+\section*{Introducción}\label{introducciuxf3n-21}
+\addcontentsline{toc}{section}{Introducción}
+
+\markright{Introducción}
 
 La finalidad del aprendizaje automático es construir modelos que
 funcionen con observaciones nuevas. La teoría de generalización estudia
@@ -34624,8 +35562,11 @@ riesgo sobre la población y cómo influyen el tamaño muestral, la
 complejidad del modelo y la regularización (Vapnik y Chervonenkis 1971;
 Valiant 1984; Shalev-Shwartz y Ben-David 2014).
 
-\section{Riesgo esperado y riesgo
+\section*{Riesgo esperado y riesgo
 empírico}\label{riesgo-esperado-y-riesgo-empuxedrico}
+\addcontentsline{toc}{section}{Riesgo esperado y riesgo empírico}
+
+\markright{Riesgo esperado y riesgo empírico}
 
 Para una función \(f\) y una pérdida \(L\), el riesgo esperado es
 
@@ -34647,8 +35588,11 @@ R(f)-\widehat R_n(f)
 
 se denomina brecha de generalización.
 
-\section{Minimización del riesgo
+\section*{Minimización del riesgo
 empírico}\label{minimizaciuxf3n-del-riesgo-empuxedrico-1}
+\addcontentsline{toc}{section}{Minimización del riesgo empírico}
+
+\markright{Minimización del riesgo empírico}
 
 El estimador ERM es
 
@@ -34659,7 +35603,10 @@ El estimador ERM es
 Si el riesgo empírico aproxima uniformemente al riesgo esperado,
 entonces ERM generaliza.
 
-\section{Exceso de riesgo}\label{exceso-de-riesgo}
+\section*{Exceso de riesgo}\label{exceso-de-riesgo}
+\addcontentsline{toc}{section}{Exceso de riesgo}
+
+\markright{Exceso de riesgo}
 
 Sea \(f^*\) el predictor óptimo y \(f^*_{\mathcal F}\) el mejor
 predictor dentro de \(\mathcal F\). Entonces
@@ -34672,7 +35619,10 @@ R(\widehat f)-R(f^*)=
 El primer término es error de estimación y el segundo error de
 aproximación.
 
-\section{Convergencia uniforme}\label{convergencia-uniforme}
+\section*{Convergencia uniforme}\label{convergencia-uniforme}
+\addcontentsline{toc}{section}{Convergencia uniforme}
+
+\markright{Convergencia uniforme}
 
 Se busca controlar
 
@@ -34686,7 +35636,10 @@ Si esta cantidad es menor que \(\varepsilon\), entonces
 R(\widehat f_{ERM})\le R(f^*_{\mathcal F})+2\varepsilon.
 \]
 
-\section{Desigualdad de Hoeffding}\label{desigualdad-de-hoeffding}
+\section*{Desigualdad de Hoeffding}\label{desigualdad-de-hoeffding}
+\addcontentsline{toc}{section}{Desigualdad de Hoeffding}
+
+\markright{Desigualdad de Hoeffding}
 
 Si \(0\le L\le1\), para un predictor fijo,
 
@@ -34700,7 +35653,10 @@ Con probabilidad al menos \(1-\delta\),
 R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2/\delta)}{2n}}.
 \]
 
-\section{Clases finitas}\label{clases-finitas}
+\section*{Clases finitas}\label{clases-finitas}
+\addcontentsline{toc}{section}{Clases finitas}
+
+\markright{Clases finitas}
 
 Si \(|\mathcal F|=M\), una unión de eventos produce
 
@@ -34711,7 +35667,11 @@ R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2M/\delta)}{2n}}
 simultáneamente para todos los modelos. La penalización aumenta con
 \(\log M\) y disminuye con \(n\).
 
-\section{Aprendizaje PAC}\label{aprendizaje-pac}
+\section*{\texorpdfstring{Aprendizaje
+PAC\index{Aprendizaje PAC}}{Aprendizaje PAC}}\label{aprendizaje-pac}
+\addcontentsline{toc}{section}{Aprendizaje PAC\index{Aprendizaje PAC}}
+
+\markright{Aprendizaje PAC\index{Aprendizaje PAC}}
 
 PAC significa \emph{Probably Approximately Correct}. Un algoritmo
 aprende una clase si para todo \(\varepsilon>0\) y \(\delta>0\)
@@ -34731,7 +35691,11 @@ En el caso agnóstico es del orden de
 \frac{\log M+\log(1/\delta)}{\varepsilon^2}.
 \]
 
-\section{Dimensión VC}\label{dimensiuxf3n-vc}
+\section*{\texorpdfstring{Dimensión
+VC\index{Dimensión VC}}{Dimensión VC}}\label{dimensiuxf3n-vc}
+\addcontentsline{toc}{section}{Dimensión VC\index{Dimensión VC}}
+
+\markright{Dimensión VC\index{Dimensión VC}}
 
 La dimensión VC es el mayor número de puntos que una clase puede
 fragmentar, es decir, etiquetar de todas las formas binarias posibles.
@@ -34746,8 +35710,11 @@ fragmentar, es decir, etiquetar de todas las formas binarias posibles.
   hiperplanos en \(\mathbb R^p\): VC igual a \(p+1\).
 \end{itemize}
 
-\section{Función de crecimiento y lema de
+\section*{Función de crecimiento y lema de
 Sauer}\label{funciuxf3n-de-crecimiento-y-lema-de-sauer}
+\addcontentsline{toc}{section}{Función de crecimiento y lema de Sauer}
+
+\markright{Función de crecimiento y lema de Sauer}
 
 La función de crecimiento \(\Pi_{\mathcal F}(n)\) cuenta el máximo
 número de etiquetaciones inducidas por la clase. Si la dimensión VC es
@@ -34763,7 +35730,10 @@ Una cota típica es
 R(f)\le\widehat R_n(f)+C\sqrt{\frac{d\log(n/d)+\log(1/\delta)}{n}}.
 \]
 
-\section{Complejidad de Rademacher}\label{complejidad-de-rademacher}
+\section*{Complejidad de Rademacher}\label{complejidad-de-rademacher}
+\addcontentsline{toc}{section}{Complejidad de Rademacher}
+
+\markright{Complejidad de Rademacher}
 
 La complejidad empírica es
 
@@ -34780,8 +35750,11 @@ Una cota típica es
 R(f)\le\widehat R_n(f)+2\mathfrak R_n(\mathcal F)+\sqrt{\frac{\log(1/\delta)}{2n}}.
 \]
 
-\section{Regularización, norma y
+\section*{Regularización, norma y
 margen}\label{regularizaciuxf3n-norma-y-margen}
+\addcontentsline{toc}{section}{Regularización, norma y margen}
+
+\markright{Regularización, norma y margen}
 
 La regularización restringe la clase efectiva. En modelos lineales,
 limitar \(\|\mathbf w\|_2\) reduce capacidad. En SVM, un margen grande
@@ -34793,7 +35766,10 @@ puede producir cotas que dependen aproximadamente de
 
 donde \(R\) acota la norma de las entradas y \(\gamma\) es el margen.
 
-\section{Estabilidad algorítmica}\label{estabilidad-algoruxedtmica}
+\section*{Estabilidad algorítmica}\label{estabilidad-algoruxedtmica}
+\addcontentsline{toc}{section}{Estabilidad algorítmica}
+
+\markright{Estabilidad algorítmica}
 
 Un algoritmo es estable si reemplazar una observación cambia poco la
 pérdida. Si
@@ -34805,7 +35781,10 @@ pérdida. Si
 y \(\beta_n\to0\), la influencia de una observación disminuye con \(n\).
 Los algoritmos regularizados suelen ser más estables.
 
-\section{PAC-Bayes}\label{pac-bayes}
+\section*{PAC-Bayes}\label{pac-bayes}
+\addcontentsline{toc}{section}{PAC-Bayes}
+
+\markright{PAC-Bayes}
 
 Las cotas PAC-Bayes consideran una distribución previa \(P\) y una
 posterior \(Q\) sobre modelos. La penalización depende de
@@ -34817,13 +35796,19 @@ posterior \(Q\) sobre modelos. La penalización depende de
 Un posterior cercano a una prior simple puede obtener una mejor garantía
 (McAllester 1999).
 
-\section{Selección de modelos}\label{selecciuxf3n-de-modelos-1}
+\section*{Selección de modelos}\label{selecciuxf3n-de-modelos-1}
+\addcontentsline{toc}{section}{Selección de modelos}
+
+\markright{Selección de modelos}
 
 Comparar muchos modelos usando la misma validación puede sobreajustar el
 conjunto de validación. La validación cruzada anidada separa selección
 de hiperparámetros y estimación final del desempeño.
 
-\section{Cambio de distribución}\label{cambio-de-distribuciuxf3n}
+\section*{Cambio de distribución}\label{cambio-de-distribuciuxf3n}
+\addcontentsline{toc}{section}{Cambio de distribución}
+
+\markright{Cambio de distribución}
 
 Las garantías clásicas suelen suponer
 
@@ -34835,26 +35820,39 @@ Cuando esta igualdad falla pueden aparecer \emph{covariate shift},
 \emph{concept drift} o cambios estructurales. En esos casos se requieren
 validación temporal, reponderación, monitoreo y actualización.
 
-\section{Modelos sobreparametrizados}\label{modelos-sobreparametrizados}
+\section*{Modelos
+sobreparametrizados}\label{modelos-sobreparametrizados}
+\addcontentsline{toc}{section}{Modelos sobreparametrizados}
+
+\markright{Modelos sobreparametrizados}
 
 Las redes modernas pueden tener más parámetros que observaciones y aun
 así generalizar. La complejidad efectiva depende también de normas,
 margen, optimización implícita, estructura de los datos y arquitectura.
 
-\section{Doble descenso}\label{doble-descenso}
+\section*{Doble descenso}\label{doble-descenso}
+\addcontentsline{toc}{section}{Doble descenso}
+
+\markright{Doble descenso}
 
 El error de prueba puede disminuir, aumentar cerca del umbral de
 interpolación y volver a disminuir en el régimen sobreparametrizado.
 Este comportamiento se denomina doble descenso.
 
-\section{Cotas vacías}\label{cotas-vacuxedas}
+\section*{Cotas vacías}\label{cotas-vacuxedas}
+\addcontentsline{toc}{section}{Cotas vacías}
+
+\markright{Cotas vacías}
 
 Una cota puede ser matemáticamente válida pero numéricamente inútil si
 supera el máximo posible del riesgo. Deben distinguirse validez formal y
 utilidad práctica.
 
-\section{Conexión con los
+\section*{Conexión con los
 algoritmos}\label{conexiuxf3n-con-los-algoritmos}
+\addcontentsline{toc}{section}{Conexión con los algoritmos}
+
+\markright{Conexión con los algoritmos}
 
 \begin{itemize}
 \tightlist
@@ -34871,10 +35869,13 @@ algoritmos}\label{conexiuxf3n-con-los-algoritmos}
   parada temprana.
 \end{itemize}
 
-\section{Ejemplo en R}\label{ejemplo-en-r}
+\section*{Ejemplo en R}\label{ejemplo-en-r}
+\addcontentsline{toc}{section}{Ejemplo en R}
+
+\markright{Ejemplo en R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 \NormalTok{simular }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(n, }\AttributeTok{B=}\DecValTok{1000}\NormalTok{) \{}
   \FunctionTok{mean}\NormalTok{(}\FunctionTok{replicate}\NormalTok{(B, }\FunctionTok{abs}\NormalTok{(}\FunctionTok{mean}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(n,}\DecValTok{1}\NormalTok{,}\FloatTok{0.3}\NormalTok{))}\SpecialCharTok{{-}}\FloatTok{0.3}\NormalTok{)))}
@@ -34883,7 +35884,10 @@ algoritmos}\label{conexiuxf3n-con-los-algoritmos}
 \end{Highlighting}
 \end{Shaded}
 
-\section{Ejercicios}\label{ejercicios-1}
+\section*{Ejercicios}\label{ejercicios-1}
+\addcontentsline{toc}{section}{Ejercicios}
+
+\markright{Ejercicios}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -34907,7 +35911,10 @@ algoritmos}\label{conexiuxf3n-con-los-algoritmos}
   Explique por qué una cota puede ser vacía.
 \end{enumerate}
 
-\section{Resumen}\label{resumen-20}
+\section*{Resumen}\label{resumen-20}
+\addcontentsline{toc}{section}{Resumen}
+
+\markright{Resumen}
 
 Se estudiaron riesgo esperado, riesgo empírico, convergencia uniforme,
 Hoeffding, aprendizaje PAC, dimensión VC, complejidad de Rademacher,
@@ -34924,10 +35931,14 @@ Los fundamentos se apoyan en Vapnik y Chervonenkis (1971), Valiant
 (1984), Vapnik (1998), Shalev-Shwartz y Ben-David (2014), Mohri et~al.
 (2018), Bartlett y Mendelson (2002) y McAllester (1999).
 
-\chapter{Series de tiempo y aprendizaje
-automático}\label{sec-series-tiempo}
+\chapter{\texorpdfstring{Series de tiempo\index{Series de tiempo} y
+aprendizaje
+automático}{Series de tiempo y aprendizaje automático}}\label{sec-series-tiempo}
 
-\section{Introducción}\label{introducciuxf3n-22}
+\section*{Introducción}\label{introducciuxf3n-22}
+\addcontentsline{toc}{section}{Introducción}
+
+\markright{Introducción}
 
 Una serie de tiempo es una secuencia de observaciones ordenadas
 cronológicamente. A diferencia de una muestra transversal, el orden
@@ -34936,16 +35947,19 @@ temporal.
 
 El análisis de series de tiempo busca describir, modelar y pronosticar
 esta dependencia. Los enfoques clásicos utilizan estructuras como
-tendencia, estacionalidad, autocorrelación y modelos ARIMA. Los métodos
-de aprendizaje automático transforman la historia temporal en variables
-predictoras y utilizan árboles, ensambles, redes neuronales u otros
-algoritmos.
+tendencia, estacionalidad, autocorrelación\index{Autocorrelación} y
+modelos ARIMA\index{ARIMA}. Los métodos de aprendizaje automático
+transforman la historia temporal en variables predictoras y utilizan
+árboles, ensambles, redes neuronales u otros algoritmos.
 
 La evaluación correcta exige respetar el orden cronológico. Una
 partición aleatoria puede mezclar pasado y futuro, producir fuga de
 información y generar estimaciones excesivamente optimistas.
 
-\section{Objetivos}\label{objetivos-20}
+\section*{Objetivos}\label{objetivos-20}
+\addcontentsline{toc}{section}{Objetivos}
+
+\markright{Objetivos}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -34982,7 +35996,10 @@ Al finalizar el capítulo, el lector podrá:
   comparar enfoques estadísticos y de aprendizaje automático.
 \end{enumerate}
 
-\section{Definición}\label{definiciuxf3n}
+\section*{Definición}\label{definiciuxf3n}
+\addcontentsline{toc}{section}{Definición}
+
+\markright{Definición}
 
 Una serie de tiempo es una colección
 
@@ -35004,7 +36021,10 @@ Una realización observada es
 y_1,y_2,\ldots,y_T.
 \]
 
-\section{Componentes}\label{componentes}
+\section*{Componentes}\label{componentes}
+\addcontentsline{toc}{section}{Componentes}
+
+\markright{Componentes}
 
 Una descomposición aditiva es
 
@@ -35026,7 +36046,10 @@ donde:
   \(\varepsilon_t\): componente irregular.
 \end{itemize}
 
-\section{Modelo multiplicativo}\label{modelo-multiplicativo}
+\section*{Modelo multiplicativo}\label{modelo-multiplicativo}
+\addcontentsline{toc}{section}{Modelo multiplicativo}
+
+\markright{Modelo multiplicativo}
 
 Cuando la amplitud estacional aumenta con el nivel:
 
@@ -35036,7 +36059,10 @@ Y_t=T_tS_tC_t\varepsilon_t.
 
 Aplicando logaritmos se obtiene una forma aditiva.
 
-\section{Tendencia}\label{tendencia}
+\section*{Tendencia}\label{tendencia}
+\addcontentsline{toc}{section}{Tendencia}
+
+\markright{Tendencia}
 
 La tendencia describe el comportamiento de largo plazo.
 
@@ -35056,7 +36082,10 @@ Puede ser:
   localmente cambiante.
 \end{itemize}
 
-\section{Estacionalidad}\label{estacionalidad}
+\section*{Estacionalidad}\label{estacionalidad}
+\addcontentsline{toc}{section}{Estacionalidad}
+
+\markright{Estacionalidad}
 
 La estacionalidad es un patrón que se repite con periodo conocido:
 
@@ -35078,7 +36107,10 @@ Ejemplos:
   4 trimestres.
 \end{itemize}
 
-\section{Estacionariedad débil}\label{estacionariedad-duxe9bil}
+\section*{Estacionariedad débil}\label{estacionariedad-duxe9bil}
+\addcontentsline{toc}{section}{Estacionariedad débil}
+
+\markright{Estacionariedad débil}
 
 Un proceso es débilmente estacionario si:
 
@@ -35096,7 +36128,10 @@ es constante y
 
 depende solo del rezago \(h\).
 
-\section{Autocovarianza}\label{autocovarianza}
+\section*{Autocovarianza}\label{autocovarianza}
+\addcontentsline{toc}{section}{Autocovarianza}
+
+\markright{Autocovarianza}
 
 \[
 \gamma(h)
@@ -35110,7 +36145,10 @@ Para \(h=0\):
 \gamma(0)=\operatorname{Var}(Y_t).
 \]
 
-\section{Autocorrelación}\label{autocorrelaciuxf3n}
+\section*{Autocorrelación}\label{autocorrelaciuxf3n}
+\addcontentsline{toc}{section}{Autocorrelación}
+
+\markright{Autocorrelación}
 
 \[
 \rho(h)
@@ -35124,7 +36162,10 @@ Se cumple
 -1\leq\rho(h)\leq1.
 \]
 
-\section{ACF muestral}\label{acf-muestral}
+\section*{ACF muestral}\label{acf-muestral}
+\addcontentsline{toc}{section}{ACF muestral}
+
+\markright{ACF muestral}
 
 \[
 \widehat{\rho}(h)
@@ -35139,7 +36180,10 @@ Se cumple
 
 La ACF ayuda a detectar dependencia y estacionalidad.
 
-\section{Ruido blanco}\label{ruido-blanco}
+\section*{Ruido blanco}\label{ruido-blanco}
+\addcontentsline{toc}{section}{Ruido blanco}
+
+\markright{Ruido blanco}
 
 Un proceso de ruido blanco satisface:
 
@@ -35156,7 +36200,10 @@ Un proceso de ruido blanco satisface:
 \quad (t\neq s).
 \]
 
-\section{Caminata aleatoria}\label{caminata-aleatoria}
+\section*{Caminata aleatoria}\label{caminata-aleatoria}
+\addcontentsline{toc}{section}{Caminata aleatoria}
+
+\markright{Caminata aleatoria}
 
 \[
 Y_t=Y_{t-1}+\varepsilon_t.
@@ -35164,7 +36211,10 @@ Y_t=Y_{t-1}+\varepsilon_t.
 
 No es estacionaria porque su varianza crece con el tiempo.
 
-\section{Diferenciación}\label{diferenciaciuxf3n}
+\section*{Diferenciación}\label{diferenciaciuxf3n}
+\addcontentsline{toc}{section}{Diferenciación}
+
+\markright{Diferenciación}
 
 La primera diferencia es
 
@@ -35184,7 +36234,10 @@ Y_t-Y_{t-m}.
 
 Se utilizan para eliminar tendencia o estacionalidad.
 
-\section{Operador rezago}\label{operador-rezago}
+\section*{Operador rezago}\label{operador-rezago}
+\addcontentsline{toc}{section}{Operador rezago}
+
+\markright{Operador rezago}
 
 Defínase
 
@@ -35204,7 +36257,10 @@ La diferencia de orden \(d\) es
 \nabla^dY_t=(1-B)^dY_t.
 \]
 
-\section{Modelo autorregresivo AR(p)}\label{modelo-autorregresivo-arp}
+\section*{Modelo autorregresivo AR(p)}\label{modelo-autorregresivo-arp}
+\addcontentsline{toc}{section}{Modelo autorregresivo AR(p)}
+
+\markright{Modelo autorregresivo AR(p)}
 
 \[
 Y_t
@@ -35218,7 +36274,10 @@ c+
 
 El valor presente depende de sus propios rezagos.
 
-\section{AR(1)}\label{ar1}
+\section*{AR(1)}\label{ar1}
+\addcontentsline{toc}{section}{AR(1)}
+
+\markright{AR(1)}
 
 \[
 Y_t=c+\phi Y_{t-1}+\varepsilon_t.
@@ -35236,7 +36295,10 @@ Su media es
 \mu=\frac{c}{1-\phi}.
 \]
 
-\section{Modelo MA(q)}\label{modelo-maq}
+\section*{Modelo MA(q)}\label{modelo-maq}
+\addcontentsline{toc}{section}{Modelo MA(q)}
+
+\markright{Modelo MA(q)}
 
 \[
 Y_t
@@ -35250,7 +36312,10 @@ Y_t
 
 El valor depende de perturbaciones actuales y pasadas.
 
-\section{Modelo ARMA(p,q)}\label{modelo-armapq}
+\section*{Modelo ARMA(p,q)}\label{modelo-armapq}
+\addcontentsline{toc}{section}{Modelo ARMA(p,q)}
+
+\markright{Modelo ARMA(p,q)}
 
 \[
 Y_t
@@ -35264,7 +36329,10 @@ c+
 
 Se utiliza para series estacionarias.
 
-\section{Modelo ARIMA(p,d,q)}\label{modelo-arimapdq}
+\section*{Modelo ARIMA(p,d,q)}\label{modelo-arimapdq}
+\addcontentsline{toc}{section}{Modelo ARIMA(p,d,q)}
+
+\markright{Modelo ARIMA(p,d,q)}
 
 Una serie se diferencia \(d\) veces y se ajusta un ARMA:
 
@@ -35286,7 +36354,10 @@ Los parámetros son:
   \(q\): media móvil.
 \end{itemize}
 
-\section{ARIMA estacional}\label{arima-estacional}
+\section*{ARIMA estacional}\label{arima-estacional}
+\addcontentsline{toc}{section}{ARIMA estacional}
+
+\markright{ARIMA estacional}
 
 \[
 ARIMA(p,d,q)(P,D,Q)_m.
@@ -35294,7 +36365,10 @@ ARIMA(p,d,q)(P,D,Q)_m.
 
 Incluye componentes estacionales con periodo \(m\).
 
-\section{Identificación}\label{identificaciuxf3n}
+\section*{Identificación}\label{identificaciuxf3n}
+\addcontentsline{toc}{section}{Identificación}
+
+\markright{Identificación}
 
 Se utilizan:
 
@@ -35314,21 +36388,30 @@ Se utilizan:
   diagnóstico de residuos.
 \end{itemize}
 
-\section{PACF}\label{pacf}
+\section*{PACF}\label{pacf}
+\addcontentsline{toc}{section}{PACF}
+
+\markright{PACF}
 
 La autocorrelación parcial en rezago \(h\) mide la relación entre
 \(Y_t\) y \(Y_{t-h}\) controlando rezagos intermedios.
 
 Es útil para identificar órdenes autorregresivos.
 
-\section{Prueba de raíz unitaria}\label{prueba-de-rauxedz-unitaria}
+\section*{Prueba de raíz unitaria}\label{prueba-de-rauxedz-unitaria}
+\addcontentsline{toc}{section}{Prueba de raíz unitaria}
+
+\markright{Prueba de raíz unitaria}
 
 La prueba Dickey-Fuller aumentada contrasta una raíz unitaria.
 
 No rechazar no demuestra estacionariedad; indica evidencia insuficiente
 contra la raíz unitaria.
 
-\section{Suavizamiento exponencial}\label{suavizamiento-exponencial}
+\section*{Suavizamiento exponencial}\label{suavizamiento-exponencial}
+\addcontentsline{toc}{section}{Suavizamiento exponencial}
+
+\markright{Suavizamiento exponencial}
 
 El nivel simple se actualiza mediante
 
@@ -35350,7 +36433,10 @@ El pronóstico es
 \widehat{y}_{t+h|t}=\ell_t.
 \]
 
-\section{Método de Holt}\label{muxe9todo-de-holt}
+\section*{Método de Holt}\label{muxe9todo-de-holt}
+\addcontentsline{toc}{section}{Método de Holt}
+
+\markright{Método de Holt}
 
 Incluye nivel y tendencia:
 
@@ -35370,13 +36456,19 @@ b_t
 (1-\beta)b_{t-1}.
 \]
 
-\section{Holt-Winters}\label{holt-winters}
+\section*{Holt-Winters}\label{holt-winters}
+\addcontentsline{toc}{section}{Holt-Winters}
+
+\markright{Holt-Winters}
 
 Añade una componente estacional y puede formularse en versión aditiva o
 multiplicativa.
 
-\section{Pronóstico h pasos
+\section*{Pronóstico h pasos
 adelante}\label{pronuxf3stico-h-pasos-adelante}
+\addcontentsline{toc}{section}{Pronóstico h pasos adelante}
+
+\markright{Pronóstico h pasos adelante}
 
 Se denota por
 
@@ -35386,7 +36478,10 @@ Se denota por
 
 la predicción de \(Y_{t+h}\) usando información disponible hasta \(t\).
 
-\section{Error de pronóstico}\label{error-de-pronuxf3stico}
+\section*{Error de pronóstico}\label{error-de-pronuxf3stico}
+\addcontentsline{toc}{section}{Error de pronóstico}
+
+\markright{Error de pronóstico}
 
 \[
 e_{t+h|t}
@@ -35396,7 +36491,10 @@ Y_{t+h}
 \widehat{Y}_{t+h|t}.
 \]
 
-\section{MAE}\label{mae}
+\section*{MAE}\label{mae}
+\addcontentsline{toc}{section}{MAE}
+
+\markright{MAE}
 
 \[
 MAE
@@ -35405,7 +36503,10 @@ MAE
 \sum_{i=1}^{n}|e_i|.
 \]
 
-\section{RMSE}\label{rmse}
+\section*{RMSE}\label{rmse}
+\addcontentsline{toc}{section}{RMSE}
+
+\markright{RMSE}
 
 \[
 RMSE
@@ -35416,7 +36517,10 @@ RMSE
 }.
 \]
 
-\section{MAPE}\label{mape}
+\section*{MAPE}\label{mape}
+\addcontentsline{toc}{section}{MAPE}
+
+\markright{MAPE}
 
 \[
 MAPE
@@ -35430,7 +36534,10 @@ MAPE
 
 Es problemático si \(y_i\) es cero o cercano a cero.
 
-\section{MASE}\label{mase}
+\section*{MASE}\label{mase}
+\addcontentsline{toc}{section}{MASE}
+
+\markright{MASE}
 
 \[
 MASE
@@ -35445,8 +36552,11 @@ MASE
 
 Permite comparación entre series.
 
-\section{Pronósticos
+\section*{Pronósticos
 probabilísticos}\label{pronuxf3sticos-probabiluxedsticos}
+\addcontentsline{toc}{section}{Pronósticos probabilísticos}
+
+\markright{Pronósticos probabilísticos}
 
 Un pronóstico completo puede ser una distribución:
 
@@ -35468,12 +36578,18 @@ Puede resumirse mediante:
   simulaciones.
 \end{itemize}
 
-\section{Cobertura de intervalos}\label{cobertura-de-intervalos}
+\section*{Cobertura de intervalos}\label{cobertura-de-intervalos}
+\addcontentsline{toc}{section}{Cobertura de intervalos}
+
+\markright{Cobertura de intervalos}
 
 Un intervalo nominal del 95 por ciento debe contener aproximadamente el
 95 por ciento de observaciones futuras bajo calibración correcta.
 
-\section{Variables rezagadas}\label{variables-rezagadas}
+\section*{Variables rezagadas}\label{variables-rezagadas}
+\addcontentsline{toc}{section}{Variables rezagadas}
+
+\markright{Variables rezagadas}
 
 Para aprendizaje automático se construyen:
 
@@ -35503,7 +36619,10 @@ También pueden incluirse:
   variables externas.
 \end{itemize}
 
-\section{Ventanas móviles}\label{ventanas-muxf3viles}
+\section*{Ventanas móviles}\label{ventanas-muxf3viles}
+\addcontentsline{toc}{section}{Ventanas móviles}
+
+\markright{Ventanas móviles}
 
 Una media de ventana \(w\) es
 
@@ -35516,7 +36635,10 @@ M_t^{(w)}
 
 Debe calcularse usando únicamente información anterior a \(t\).
 
-\section{Variables de calendario}\label{variables-de-calendario}
+\section*{Variables de calendario}\label{variables-de-calendario}
+\addcontentsline{toc}{section}{Variables de calendario}
+
+\markright{Variables de calendario}
 
 Pueden incluir:
 
@@ -35550,7 +36672,10 @@ Para variables cíclicas puede utilizarse:
 \right).
 \]
 
-\section{Variables exógenas}\label{variables-exuxf3genas}
+\section*{Variables exógenas}\label{variables-exuxf3genas}
+\addcontentsline{toc}{section}{Variables exógenas}
+
+\markright{Variables exógenas}
 
 Un modelo puede incluir
 
@@ -35573,7 +36698,10 @@ Y_{t-1},\ldots,Y_{t-p},
 Para pronosticar se necesitan valores futuros o pronósticos de las
 variables exógenas.
 
-\section{Fuga temporal}\label{fuga-temporal}
+\section*{Fuga temporal}\label{fuga-temporal}
+\addcontentsline{toc}{section}{Fuga temporal}
+
+\markright{Fuga temporal}
 
 Existe fuga si una variable usa información futura.
 
@@ -35593,7 +36721,10 @@ Ejemplos:
   partición aleatoria.
 \end{itemize}
 
-\section{División temporal}\label{divisiuxf3n-temporal}
+\section*{División temporal}\label{divisiuxf3n-temporal}
+\addcontentsline{toc}{section}{División temporal}
+
+\markright{División temporal}
 
 La partición correcta respeta:
 
@@ -35607,8 +36738,11 @@ La partición correcta respeta:
 
 El futuro nunca debe utilizarse para construir el pasado.
 
-\section{Validación con origen
+\section*{Validación con origen
 móvil}\label{validaciuxf3n-con-origen-muxf3vil}
+\addcontentsline{toc}{section}{Validación con origen móvil}
+
+\markright{Validación con origen móvil}
 
 En cada iteración se entrena con información hasta un tiempo y se evalúa
 en periodos posteriores.
@@ -35623,7 +36757,10 @@ Puede usarse:
   ventana deslizante.
 \end{itemize}
 
-\section{Ventana expansiva}\label{ventana-expansiva}
+\section*{Ventana expansiva}\label{ventana-expansiva}
+\addcontentsline{toc}{section}{Ventana expansiva}
+
+\markright{Ventana expansiva}
 
 El conjunto de entrenamiento crece:
 
@@ -35633,7 +36770,10 @@ El conjunto de entrenamiento crece:
 \{1,\ldots,t+1\}.
 \]
 
-\section{Ventana deslizante}\label{ventana-deslizante-1}
+\section*{Ventana deslizante}\label{ventana-deslizante-1}
+\addcontentsline{toc}{section}{Ventana deslizante}
+
+\markright{Ventana deslizante}
 
 Se mantiene una longitud fija:
 
@@ -35643,7 +36783,10 @@ Se mantiene una longitud fija:
 
 Es útil cuando existe cambio de distribución.
 
-\section{Pronóstico recursivo}\label{pronuxf3stico-recursivo}
+\section*{Pronóstico recursivo}\label{pronuxf3stico-recursivo}
+\addcontentsline{toc}{section}{Pronóstico recursivo}
+
+\markright{Pronóstico recursivo}
 
 Para múltiples pasos, la predicción anterior se utiliza como entrada:
 
@@ -35658,7 +36801,10 @@ f
 
 Los errores pueden acumularse.
 
-\section{Pronóstico directo}\label{pronuxf3stico-directo}
+\section*{Pronóstico directo}\label{pronuxf3stico-directo}
+\addcontentsline{toc}{section}{Pronóstico directo}
+
+\markright{Pronóstico directo}
 
 Se entrena un modelo diferente para cada horizonte:
 
@@ -35668,7 +36814,10 @@ f_1,f_2,\ldots,f_H.
 
 Reduce acumulación, pero requiere más modelos.
 
-\section{Estrategia multioutput}\label{estrategia-multioutput}
+\section*{Estrategia multioutput}\label{estrategia-multioutput}
+\addcontentsline{toc}{section}{Estrategia multioutput}
+
+\markright{Estrategia multioutput}
 
 Un modelo produce simultáneamente:
 
@@ -35676,7 +36825,10 @@ Un modelo produce simultáneamente:
 (\widehat{Y}_{t+1},\ldots,\widehat{Y}_{t+H}).
 \]
 
-\section{Árboles y bosques}\label{uxe1rboles-y-bosques}
+\section*{Árboles y bosques}\label{uxe1rboles-y-bosques}
+\addcontentsline{toc}{section}{Árboles y bosques}
+
+\markright{Árboles y bosques}
 
 Random Forest puede usar:
 
@@ -35706,15 +36858,21 @@ Ventajas:
 
 Limitación: extrapola mal tendencias fuera del rango de entrenamiento.
 
-\section{Gradient boosting}\label{gradient-boosting}
+\section*{Gradient boosting}\label{gradient-boosting}
+\addcontentsline{toc}{section}{Gradient boosting}
+
+\markright{Gradient boosting}
 
 Los modelos boosting suelen ser muy competitivos en series tabulares con
 variables rezagadas.
 
 Requieren validación temporal y control de sobreajuste.
 
-\section{Redes neuronales
+\section*{Redes neuronales
 recurrentes}\label{redes-neuronales-recurrentes}
+\addcontentsline{toc}{section}{Redes neuronales recurrentes}
+
+\markright{Redes neuronales recurrentes}
 
 Una RNN actualiza un estado:
 
@@ -35733,13 +36891,19 @@ Una RNN actualiza un estado:
 
 El estado resume información pasada.
 
-\section{Gradientes en RNN}\label{gradientes-en-rnn}
+\section*{Gradientes en RNN}\label{gradientes-en-rnn}
+\addcontentsline{toc}{section}{Gradientes en RNN}
+
+\markright{Gradientes en RNN}
 
 La retropropagación a través del tiempo multiplica Jacobianas
 repetidamente, lo cual puede producir gradientes desvanecientes o
 explosivos.
 
-\section{LSTM}\label{lstm}
+\section*{LSTM}\label{lstm}
+\addcontentsline{toc}{section}{LSTM}
+
+\markright{LSTM}
 
 Las redes LSTM introducen compuertas para controlar el flujo de
 información (Hochreiter y Schmidhuber 1997).
@@ -35758,7 +36922,10 @@ Incluyen:
   compuerta de salida.
 \end{itemize}
 
-\section{Atención y transformers}\label{atenciuxf3n-y-transformers}
+\section*{Atención y transformers}\label{atenciuxf3n-y-transformers}
+\addcontentsline{toc}{section}{Atención y transformers}
+
+\markright{Atención y transformers}
 
 Los transformers modelan dependencias mediante atención:
 
@@ -35773,7 +36940,10 @@ softmax
 
 Permiten relacionar posiciones distantes sin recurrencia estricta.
 
-\section{Modelos híbridos}\label{modelos-huxedbridos}
+\section*{Modelos híbridos}\label{modelos-huxedbridos}
+\addcontentsline{toc}{section}{Modelos híbridos}
+
+\markright{Modelos híbridos}
 
 Puede combinarse:
 
@@ -35789,7 +36959,10 @@ Puede combinarse:
   modelos separados por componentes.
 \end{itemize}
 
-\section{Pronóstico jerárquico}\label{pronuxf3stico-jeruxe1rquico}
+\section*{Pronóstico jerárquico}\label{pronuxf3stico-jeruxe1rquico}
+\addcontentsline{toc}{section}{Pronóstico jerárquico}
+
+\markright{Pronóstico jerárquico}
 
 En datos agregados, los pronósticos deben ser coherentes:
 
@@ -35801,7 +36974,10 @@ Y_{\text{total}}
 
 Se emplean métodos de reconciliación.
 
-\section{Series múltiples}\label{series-muxfaltiples}
+\section*{Series múltiples}\label{series-muxfaltiples}
+\addcontentsline{toc}{section}{Series múltiples}
+
+\markright{Series múltiples}
 
 Una colección de series puede compartir información.
 
@@ -35815,7 +36991,10 @@ Se distinguen:
   modelos globales: un modelo común.
 \end{itemize}
 
-\section{Concept drift}\label{concept-drift}
+\section*{Concept drift}\label{concept-drift}
+\addcontentsline{toc}{section}{Concept drift}
+
+\markright{Concept drift}
 
 La relación temporal puede cambiar.
 
@@ -35835,7 +37014,10 @@ Se requiere monitorear:
   calibración.
 \end{itemize}
 
-\section{Residuos}\label{residuos-2}
+\section*{Residuos}\label{residuos-2}
+\addcontentsline{toc}{section}{Residuos}
+
+\markright{Residuos}
 
 Un modelo adecuado debe dejar residuos aproximadamente:
 
@@ -35851,13 +37033,19 @@ Un modelo adecuado debe dejar residuos aproximadamente:
   sin estructura sistemática.
 \end{itemize}
 
-\section{Prueba Ljung-Box}\label{prueba-ljung-box}
+\section*{Prueba Ljung-Box}\label{prueba-ljung-box}
+\addcontentsline{toc}{section}{Prueba Ljung-Box}
+
+\markright{Prueba Ljung-Box}
 
 Contrasta autocorrelaciones conjuntas de residuos.
 
 Rechazar sugiere dependencia temporal no modelada.
 
-\section{Selección de modelos}\label{selecciuxf3n-de-modelos-2}
+\section*{Selección de modelos}\label{selecciuxf3n-de-modelos-2}
+\addcontentsline{toc}{section}{Selección de modelos}
+
+\markright{Selección de modelos}
 
 AIC:
 
@@ -35874,7 +37062,10 @@ BIC=-2\log L+k\log n.
 En aprendizaje automático debe priorizarse desempeño fuera de muestra
 mediante validación temporal.
 
-\section{Línea base}\label{luxednea-base}
+\section*{Línea base}\label{luxednea-base}
+\addcontentsline{toc}{section}{Línea base}
+
+\markright{Línea base}
 
 Todo modelo debe compararse con referencias simples:
 
@@ -35892,20 +37083,29 @@ Todo modelo debe compararse con referencias simples:
 
 Un modelo complejo que no supera la línea base no agrega valor.
 
-\section{Pronóstico ingenuo}\label{pronuxf3stico-ingenuo}
+\section*{Pronóstico ingenuo}\label{pronuxf3stico-ingenuo}
+\addcontentsline{toc}{section}{Pronóstico ingenuo}
+
+\markright{Pronóstico ingenuo}
 
 \[
 \widehat{Y}_{t+h|t}=Y_t.
 \]
 
-\section{Ingenuo estacional}\label{ingenuo-estacional}
+\section*{Ingenuo estacional}\label{ingenuo-estacional}
+\addcontentsline{toc}{section}{Ingenuo estacional}
+
+\markright{Ingenuo estacional}
 
 \[
 \widehat{Y}_{t+h|t}=Y_{t+h-m}.
 \]
 
-\section{Intervalos y aprendizaje
+\section*{Intervalos y aprendizaje
 automático}\label{intervalos-y-aprendizaje-automuxe1tico}
+\addcontentsline{toc}{section}{Intervalos y aprendizaje automático}
+
+\markright{Intervalos y aprendizaje automático}
 
 Puede utilizarse:
 
@@ -35923,7 +37123,10 @@ Puede utilizarse:
   modelos probabilísticos.
 \end{itemize}
 
-\section{Evaluación por horizonte}\label{evaluaciuxf3n-por-horizonte}
+\section*{Evaluación por horizonte}\label{evaluaciuxf3n-por-horizonte}
+\addcontentsline{toc}{section}{Evaluación por horizonte}
+
+\markright{Evaluación por horizonte}
 
 El error debe analizarse para cada horizonte:
 
@@ -35935,7 +37138,10 @@ RMSE(h).
 
 Un modelo puede ser bueno a corto plazo y malo a largo plazo.
 
-\section{Aplicación ambiental}\label{aplicaciuxf3n-ambiental-1}
+\section*{Aplicación ambiental}\label{aplicaciuxf3n-ambiental-1}
+\addcontentsline{toc}{section}{Aplicación ambiental}
+
+\markright{Aplicación ambiental}
 
 Para pronosticar PM10 pueden utilizarse:
 
@@ -35961,10 +37167,13 @@ Para pronosticar PM10 pueden utilizarse:
 
 La validación debe simular el uso operativo real.
 
-\section{Conexión con R}\label{conexiuxf3n-con-r-20}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-20}
+\addcontentsline{toc}{section}{Conexión con R}
+
+\markright{Conexión con R}
 
 \begin{Shaded}
-\begin{Highlighting}[]
+\begin{Highlighting}[numbers=left,,]
 \FunctionTok{library}\NormalTok{(forecast)}
 
 \NormalTok{serie }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(}
@@ -35994,7 +37203,10 @@ La validación debe simular el uso operativo real.
 \end{Highlighting}
 \end{Shaded}
 
-\section{Ejemplo AR(1)}\label{ejemplo-ar1}
+\section*{Ejemplo AR(1)}\label{ejemplo-ar1}
+\addcontentsline{toc}{section}{Ejemplo AR(1)}
+
+\markright{Ejemplo AR(1)}
 
 Sea
 
@@ -36010,7 +37222,10 @@ La media estacionaria es
 \frac{20}{3}.
 \]
 
-\section{Ejemplo de diferencia}\label{ejemplo-de-diferencia}
+\section*{Ejemplo de diferencia}\label{ejemplo-de-diferencia}
+\addcontentsline{toc}{section}{Ejemplo de diferencia}
+
+\markright{Ejemplo de diferencia}
 
 Para:
 
@@ -36024,8 +37239,11 @@ las primeras diferencias son:
 5,\;6,\;4.
 \]
 
-\section{Ejemplo de variable
+\section*{Ejemplo de variable
 rezagada}\label{ejemplo-de-variable-rezagada}
+\addcontentsline{toc}{section}{Ejemplo de variable rezagada}
+
+\markright{Ejemplo de variable rezagada}
 
 Para predecir \(Y_t\) con tres rezagos:
 
@@ -36037,8 +37255,11 @@ Para predecir \(Y_t\) con tres rezagos:
 
 La primera fila utilizable aparece en \(t=4\).
 
-\section{Ventajas de los enfoques
+\section*{Ventajas de los enfoques
 clásicos}\label{ventajas-de-los-enfoques-cluxe1sicos}
+\addcontentsline{toc}{section}{Ventajas de los enfoques clásicos}
+
+\markright{Ventajas de los enfoques clásicos}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -36055,8 +37276,11 @@ clásicos}\label{ventajas-de-los-enfoques-cluxe1sicos}
   diagnóstico de residuos.
 \end{enumerate}
 
-\section{Ventajas del aprendizaje
+\section*{Ventajas del aprendizaje
 automático}\label{ventajas-del-aprendizaje-automuxe1tico}
+\addcontentsline{toc}{section}{Ventajas del aprendizaje automático}
+
+\markright{Ventajas del aprendizaje automático}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -36073,7 +37297,10 @@ automático}\label{ventajas-del-aprendizaje-automuxe1tico}
   flexibilidad.
 \end{enumerate}
 
-\section{Limitaciones}\label{limitaciones-8}
+\section*{Limitaciones}\label{limitaciones-8}
+\addcontentsline{toc}{section}{Limitaciones}
+
+\markright{Limitaciones}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -36094,7 +37321,10 @@ automático}\label{ventajas-del-aprendizaje-automuxe1tico}
   extrapolación limitada en árboles.
 \end{enumerate}
 
-\section{Errores frecuentes}\label{errores-frecuentes-20}
+\section*{Errores frecuentes}\label{errores-frecuentes-20}
+\addcontentsline{toc}{section}{Errores frecuentes}
+
+\markright{Errores frecuentes}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -36121,7 +37351,10 @@ automático}\label{ventajas-del-aprendizaje-automuxe1tico}
   usar variables exógenas futuras desconocidas.
 \end{enumerate}
 
-\section{Ejercicios conceptuales}\label{ejercicios-conceptuales-20}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-20}
+\addcontentsline{toc}{section}{Ejercicios conceptuales}
+
+\markright{Ejercicios conceptuales}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -36148,7 +37381,10 @@ automático}\label{ventajas-del-aprendizaje-automuxe1tico}
   Compare modelos clásicos y aprendizaje automático.
 \end{enumerate}
 
-\section{Ejercicio AR(1)}\label{ejercicio-ar1}
+\section*{Ejercicio AR(1)}\label{ejercicio-ar1}
+\addcontentsline{toc}{section}{Ejercicio AR(1)}
+
+\markright{Ejercicio AR(1)}
 
 Sea:
 
@@ -36167,7 +37403,10 @@ Y_t=1+0.5Y_{t-1}+\varepsilon_t.
   Pronostique un paso si \(Y_t=10\) y \(\mathbb{E}(\varepsilon)=0\).
 \end{enumerate}
 
-\section{Ejercicio de métricas}\label{ejercicio-de-muxe9tricas}
+\section*{Ejercicio de métricas}\label{ejercicio-de-muxe9tricas}
+\addcontentsline{toc}{section}{Ejercicio de métricas}
+
+\markright{Ejercicio de métricas}
 
 Observados:
 
@@ -36196,7 +37435,10 @@ Calcule:
   MAPE.
 \end{enumerate}
 
-\section{Ejercicio de validación}\label{ejercicio-de-validaciuxf3n-1}
+\section*{Ejercicio de validación}\label{ejercicio-de-validaciuxf3n-1}
+\addcontentsline{toc}{section}{Ejercicio de validación}
+
+\markright{Ejercicio de validación}
 
 Diseñe una validación de origen móvil para 60 meses:
 
@@ -36212,7 +37454,10 @@ Diseñe una validación de origen móvil para 60 meses:
 
 Indique las particiones sucesivas.
 
-\section{Ejercicio aplicado}\label{ejercicio-aplicado-18}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-18}
+\addcontentsline{toc}{section}{Ejercicio aplicado}
+
+\markright{Ejercicio aplicado}
 
 Diseñe un sistema para pronosticar PM10 diario que incluya:
 
@@ -36251,7 +37496,10 @@ Diseñe un sistema para pronosticar PM10 diario que incluya:
   limitaciones ambientales.
 \end{enumerate}
 
-\section{Resumen}\label{resumen-21}
+\section*{Resumen}\label{resumen-21}
+\addcontentsline{toc}{section}{Resumen}
+
+\markright{Resumen}
 
 En este capítulo se desarrollaron los fundamentos de las series de
 tiempo y su relación con aprendizaje automático.
@@ -36286,6 +37534,13 @@ y Athanasopoulos (2021) y Hochreiter y Schmidhuber (1997).
 
 \protect\phantomsection\label{refs}
 \begin{CSLReferences}{1}{1}
+\bibitem[\citeproctext]{ref-agrawal1993mining}
+Agrawal, Rakesh, Tomasz Imieliński, y Arun Swami. 1993. {«Mining
+Association Rules Between Sets of Items in Large Databases»}.
+\emph{Proceedings of the 1993 ACM SIGMOD International Conference on
+Management of Data}, 207-16.
+\url{https://doi.org/10.1145/170035.170072}.
+
 \bibitem[\citeproctext]{ref-agrawal1994fast}
 Agrawal, Rakesh, y Ramakrishnan Srikant. 1994. {«Fast Algorithms for
 Mining Association Rules in Large Databases»}. \emph{Proceedings of the
@@ -36357,6 +37612,11 @@ Theory of Pattern Recognition}. Springer.
 Duda, Richard O., Peter E. Hart, y David G. Stork. 2001. \emph{Pattern
 Classification}. 2.ª ed. Wiley.
 
+\bibitem[\citeproctext]{ref-eckart1936approximation}
+Eckart, Carl, y Gale Young. 1936. {«The Approximation of One Matrix by
+Another of Lower Rank»}. \emph{Psychometrika} 1: 211-18.
+\url{https://doi.org/10.1007/BF02288367}.
+
 \bibitem[\citeproctext]{ref-efron1983estimating}
 Efron, Bradley. 1983. {«Estimating the Error Rate of a Prediction Rule:
 Improvement on Cross-Validation»}. \emph{Journal of the American
@@ -36422,15 +37682,41 @@ Psychology} 24: 417-41. \url{https://doi.org/10.1037/h0071325}.
 Hyndman, Rob J., y George Athanasopoulos. 2021. \emph{Forecasting:
 Principles and Practice}. 3.ª ed. OTexts.
 
+\bibitem[\citeproctext]{ref-jain2010clustering}
+Jain, Anil K. 2010. {«Data Clustering: 50 Years Beyond K-means»}.
+\emph{Pattern Recognition Letters} 31 (8): 651-66.
+\url{https://doi.org/10.1016/j.patrec.2009.09.011}.
+
 \bibitem[\citeproctext]{ref-james2021introduction}
 James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021.
 \emph{An Introduction to Statistical Learning}. 2.ª ed. Springer.
 \url{https://doi.org/10.1007/978-1-0716-1418-1}.
 
+\bibitem[\citeproctext]{ref-jolliffe2002principal}
+Jolliffe, Ian T. 2002. \emph{Principal Component Analysis}. 2.ª ed.
+Springer. \url{https://doi.org/10.1007/b98835}.
+
+\bibitem[\citeproctext]{ref-jolliffe2016principal}
+Jolliffe, Ian T., y Jorge Cadima. 2016. {«Principal Component Analysis:
+A Review and Recent Developments»}. \emph{Philosophical Transactions of
+the Royal Society A} 374 (2065): 20150202.
+\url{https://doi.org/10.1098/rsta.2015.0202}.
+
+\bibitem[\citeproctext]{ref-lance1967general}
+Lance, G. N., y W. T. Williams. 1967. {«A General Theory of
+Classificatory Sorting Strategies: 1. Hierarchical Systems»}. \emph{The
+Computer Journal} 9 (4): 373-80.
+\url{https://doi.org/10.1093/comjnl/9.4.373}.
+
 \bibitem[\citeproctext]{ref-lloyd1982least}
 Lloyd, Stuart P. 1982. {«Least Squares Quantization in PCM»}. \emph{IEEE
 Transactions on Information Theory} 28 (2): 129-37.
 \url{https://doi.org/10.1109/TIT.1982.1056489}.
+
+\bibitem[\citeproctext]{ref-macqueen1967some}
+MacQueen, James. 1967. {«Some Methods for Classification and Analysis of
+Multivariate Observations»}. \emph{Proceedings of the Fifth Berkeley
+Symposium on Mathematical Statistics and Probability} 1: 281-97.
 
 \bibitem[\citeproctext]{ref-mardia1979multivariate}
 Mardia, Kanti V., John T. Kent, y John M. Bibby. 1979.
@@ -36453,6 +37739,12 @@ Montgomery, Douglas C., Elizabeth A. Peck, y G. Geoffrey Vining. 2021.
 Murphy, Kevin P. 2022. \emph{Probabilistic Machine Learning: An
 Introduction}. MIT Press.
 
+\bibitem[\citeproctext]{ref-murtagh2012algorithms}
+Murtagh, Fionn, y Pedro Contreras. 2012. {«Algorithms for Hierarchical
+Clustering: An Overview»}. \emph{Wiley Interdisciplinary Reviews: Data
+Mining and Knowledge Discovery} 2 (1): 86-97.
+\url{https://doi.org/10.1002/widm.53}.
+
 \bibitem[\citeproctext]{ref-pearson1901lines}
 Pearson, Karl. 1901. {«On Lines and Planes of Closest Fit to Systems of
 Points in Space»}. \emph{Philosophical Magazine} 2 (11): 559-72.
@@ -36469,6 +37761,12 @@ Morgan Kaufmann.
 \bibitem[\citeproctext]{ref-ross2019first}
 Ross, Sheldon M. 2019. \emph{A First Course in Probability}. 10.ª ed.
 Pearson.
+
+\bibitem[\citeproctext]{ref-rousseeuw1987silhouettes}
+Rousseeuw, Peter J. 1987. {«Silhouettes: A Graphical Aid to the
+Interpretation and Validation of Cluster Analysis»}. \emph{Journal of
+Computational and Applied Mathematics} 20: 53-65.
+\url{https://doi.org/10.1016/0377-0427(87)90125-7}.
 
 \bibitem[\citeproctext]{ref-rumelhart1986learning}
 Rumelhart, David E., Geoffrey E. Hinton, y Ronald J. Williams. 1986.
@@ -36533,6 +37831,15 @@ Function»}. \emph{Journal of the American Statistical Association} 58
 (301): 236-44. \url{https://doi.org/10.1080/01621459.1963.10500845}.
 
 \end{CSLReferences}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Índice temático}\label{uxedndice-temuxe1tico}
+\addcontentsline{toc}{chapter}{Índice temático}
+
+\markboth{Índice temático}{Índice temático}
+
+\printindex
 
 
 

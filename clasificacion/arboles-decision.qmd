@@ -1,4 +1,4 @@
-# Árboles de decisión {#sec-arboles-decision}
+# Árbol\index{Árboles de decisión}es de decisión {#sec-arboles-decision}
 
 ## Introducción {.unnumbered}
 
@@ -16,7 +16,7 @@ El modelo final tiene una estructura jerárquica formada por nodos internos, ram
 
 Los árboles destacan por su interpretabilidad, su capacidad de representar relaciones no lineales e interacciones, y su escasa necesidad de transformaciones previas. Sin embargo, un árbol profundo puede presentar alta varianza y sobreajuste. Por ello, su construcción requiere criterios de impureza, reglas de parada y procedimientos de poda.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 Un árbol divide recursivamente el espacio de predictores mediante reglas simples.
 :::
 
@@ -26,7 +26,7 @@ Al finalizar el capítulo, el lector podrá:
 
 1. formular un árbol como una partición recursiva del espacio;
 2. distinguir nodos, ramas y hojas;
-3. definir impureza de Gini y entropía;
+3. definir impureza de Gini\index{Índice de Gini} y entropía\index{Entropía};
 4. calcular ganancia de información;
 5. formular divisiones para variables numéricas y categóricas;
 6. construir árboles de clasificación y regresión;
@@ -206,7 +206,7 @@ $$
 I_G(t)=2p(1-p).
 $$
 
-::: {.callout-note title="Impureza y error de clasificación"}
+::: {.callout-note title="Impureza y error de clasificación" appearance="default" icon="true"}
 Entropía y Gini se utilizan para construir el árbol porque son más sensibles a cambios en las probabilidades de clase que el error de clasificación. Una menor impureza local no garantiza por sí sola mejor desempeño fuera de muestra.
 :::
 
@@ -492,7 +492,7 @@ Un árbol sin control puede aprender particularidades y ruido de la muestra. Est
 - hojas con pocas observaciones;
 - fronteras de decisión extremadamente irregulares.
 
-::: {.callout-important title="Crecimiento y poda"}
+::: {.callout-important title="Crecimiento y poda" appearance="default" icon="true"}
 En CART suele crecerse un árbol amplio y después podarse mediante complejidad-costo. La poda debe seleccionarse con validación para equilibrar ajuste y complejidad.
 :::
 

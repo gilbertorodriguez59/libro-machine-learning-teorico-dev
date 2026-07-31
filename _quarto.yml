@@ -3,7 +3,9 @@ project:
   output-dir: docs
 
 lang: es
-number-depth: 1
+number-depth: 0
+callout-appearance: default
+callout-icon: true
 
 resource-files:
   - estilos/portadas/portada-teorico-pdf.png
@@ -64,6 +66,7 @@ book:
         - avanzados/series-tiempo.qmd
 
     - referencias.qmd
+    - indice-tematico.qmd
 
   page-footer:
     left: "Fundamentos Matemáticos del Aprendizaje Automático"
@@ -88,20 +91,32 @@ format:
     css: estilos/styles.css
     toc: true
     toc-depth: 2
+    toc-title: "En este capítulo"
+    code-overflow: wrap
+    code-line-numbers: true
+    code-block-bg: "#F4F7FA"
+    code-block-border-left: "#1F4E79"
     number-sections: true
     code-fold: true
     code-tools: true
 
   pdf:
+    include-in-header: estilos/callouts-pdf.tex
     include-before-body: estilos/portadas/portada-pdf.tex
     documentclass: scrreprt
+    classoption:
+      - oneside
+      - open=any
     toc: true
+    toc-depth: 1
+    toc-title: "Contenido"
     number-sections: true
+    code-line-numbers: true
     keep-tex: true
     geometry:
-      - top=2.5cm
-      - bottom=2.5cm
-      - left=3cm
-      - right=2.5cm
-    fontsize: 11pt
-    linestretch: 1.15
+      - top=2.2cm
+      - bottom=2.2cm
+      - left=2.7cm
+      - right=2.4cm
+    fontsize: 10.5pt
+    linestretch: 1.08

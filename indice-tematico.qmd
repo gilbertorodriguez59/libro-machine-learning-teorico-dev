@@ -1,0 +1,44 @@
+# Índice temático {.unnumbered}
+
+::: {.content-visible when-format="pdf"}
+
+```{=latex}
+\printindex
+```
+
+:::
+
+::: {.content-visible when-format="html"}
+
+Este índice agrupa los conceptos principales y dirige al capítulo donde se desarrollan.
+
+## A–C {.unnumbered}
+
+- **Análisis de componentes principales:** [PCA](no-supervisado/pca.qmd)
+- **Árboles de decisión:** [Árboles de decisión](clasificacion/arboles-decision.qmd)
+- **Autocorrelación y ARIMA:** [Series de tiempo](avanzados/series-tiempo.qmd)
+- **Clasificación y regla de Bayes:** [Teoría de clasificación](aprendizaje/teoria-clasificacion.qmd)
+- **Convexidad y gradiente:** [Cálculo y optimización](fundamentos/calculo-optimizacion.qmd)
+
+## D–M {.unnumbered}
+
+- **Dendrograma y método de Ward:** [Agrupamiento jerárquico](no-supervisado/agrupamiento-jerarquico.qmd)
+- **Dimensión VC y aprendizaje PAC:** [Teoría de generalización](avanzados/teoria-generalizacion.qmd)
+- **K-means y silueta:** [K-means](no-supervisado/kmeans.qmd)
+- **K-NN y distancia:** [K-NN](clasificacion/knn.qmd)
+- **Kernels y margen:** [SVM](clasificacion/svm.qmd)
+- **Matrices, vectores y valores propios:** [Álgebra lineal](fundamentos/algebra-lineal.qmd)
+- **Multicolinealidad:** [Regresión lineal múltiple](regresion/regresion-lineal-multiple.qmd)
+
+## N–Z {.unnumbered}
+
+- **Probabilidad y máxima verosimilitud:** [Probabilidad y estadística](fundamentos/probabilidad-estadistica.qmd)
+- **Random Forest y observaciones OOB:** [Random Forest](clasificacion/random-forest.qmd)
+- **Redes neuronales y retropropagación:** [Redes neuronales](clasificacion/redes-neuronales.qmd)
+- **Reglas de asociación, soporte, confianza y lift:** [Reglas de asociación](no-supervisado/reglas-asociacion.qmd)
+- **Regularización, Ridge y Lasso:** [Regularización](aprendizaje/regularizacion.qmd)
+- **Regresión lineal:** [Regresión lineal simple](regresion/regresion-lineal-simple.qmd)
+- **Regresión logística y odds:** [Regresión logística](regresion/regresion-logistica.qmd)
+- **Validación cruzada y métricas:** [Evaluación de modelos](aprendizaje/evaluacion-modelos.qmd)
+
+:::

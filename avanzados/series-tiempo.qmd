@@ -1,14 +1,14 @@
-# Series de tiempo y aprendizaje automático {#sec-series-tiempo}
+# Series de tiempo\index{Series de tiempo} y aprendizaje automático {#sec-series-tiempo}
 
-## Introducción
+## Introducción {.unnumbered}
 
 Una serie de tiempo es una secuencia de observaciones ordenadas cronológicamente. A diferencia de una muestra transversal, el orden contiene información y las observaciones pueden presentar dependencia temporal.
 
-El análisis de series de tiempo busca describir, modelar y pronosticar esta dependencia. Los enfoques clásicos utilizan estructuras como tendencia, estacionalidad, autocorrelación y modelos ARIMA. Los métodos de aprendizaje automático transforman la historia temporal en variables predictoras y utilizan árboles, ensambles, redes neuronales u otros algoritmos.
+El análisis de series de tiempo busca describir, modelar y pronosticar esta dependencia. Los enfoques clásicos utilizan estructuras como tendencia, estacionalidad, autocorrelación\index{Autocorrelación} y modelos ARIMA\index{ARIMA}. Los métodos de aprendizaje automático transforman la historia temporal en variables predictoras y utilizan árboles, ensambles, redes neuronales u otros algoritmos.
 
 La evaluación correcta exige respetar el orden cronológico. Una partición aleatoria puede mezclar pasado y futuro, producir fuga de información y generar estimaciones excesivamente optimistas.
 
-## Objetivos
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -27,7 +27,7 @@ Al finalizar el capítulo, el lector podrá:
 13. aplicar árboles, Random Forest y redes neuronales;
 14. comparar enfoques estadísticos y de aprendizaje automático.
 
-## Definición
+## Definición {.unnumbered}
 
 Una serie de tiempo es una colección
 
@@ -49,7 +49,7 @@ $$
 y_1,y_2,\ldots,y_T.
 $$
 
-## Componentes
+## Componentes {.unnumbered}
 
 Una descomposición aditiva es
 
@@ -64,7 +64,7 @@ donde:
 - $C_t$: ciclo;
 - $\varepsilon_t$: componente irregular.
 
-## Modelo multiplicativo
+## Modelo multiplicativo {.unnumbered}
 
 Cuando la amplitud estacional aumenta con el nivel:
 
@@ -74,7 +74,7 @@ $$
 
 Aplicando logaritmos se obtiene una forma aditiva.
 
-## Tendencia
+## Tendencia {.unnumbered}
 
 La tendencia describe el comportamiento de largo plazo.
 
@@ -86,7 +86,7 @@ Puede ser:
 - no lineal;
 - localmente cambiante.
 
-## Estacionalidad
+## Estacionalidad {.unnumbered}
 
 La estacionalidad es un patrón que se repite con periodo conocido:
 
@@ -101,7 +101,7 @@ Ejemplos:
 - 24 horas;
 - 4 trimestres.
 
-## Estacionariedad débil
+## Estacionariedad débil {.unnumbered}
 
 Un proceso es débilmente estacionario si:
 
@@ -119,7 +119,7 @@ $$
 
 depende solo del rezago $h$.
 
-## Autocovarianza
+## Autocovarianza {.unnumbered}
 
 $$
 \gamma(h)
@@ -133,7 +133,7 @@ $$
 \gamma(0)=\operatorname{Var}(Y_t).
 $$
 
-## Autocorrelación
+## Autocorrelación {.unnumbered}
 
 $$
 \rho(h)
@@ -147,7 +147,7 @@ $$
 -1\leq\rho(h)\leq1.
 $$
 
-## ACF muestral
+## ACF muestral {.unnumbered}
 
 $$
 \widehat{\rho}(h)
@@ -162,7 +162,7 @@ $$
 
 La ACF ayuda a detectar dependencia y estacionalidad.
 
-## Ruido blanco
+## Ruido blanco {.unnumbered}
 
 Un proceso de ruido blanco satisface:
 
@@ -179,7 +179,7 @@ $$
 \quad (t\neq s).
 $$
 
-## Caminata aleatoria
+## Caminata aleatoria {.unnumbered}
 
 $$
 Y_t=Y_{t-1}+\varepsilon_t.
@@ -187,7 +187,7 @@ $$
 
 No es estacionaria porque su varianza crece con el tiempo.
 
-## Diferenciación
+## Diferenciación {.unnumbered}
 
 La primera diferencia es
 
@@ -207,7 +207,7 @@ $$
 
 Se utilizan para eliminar tendencia o estacionalidad.
 
-## Operador rezago
+## Operador rezago {.unnumbered}
 
 Defínase
 
@@ -227,7 +227,7 @@ $$
 \nabla^dY_t=(1-B)^dY_t.
 $$
 
-## Modelo autorregresivo AR(p)
+## Modelo autorregresivo AR(p) {.unnumbered}
 
 $$
 Y_t
@@ -241,7 +241,7 @@ $$
 
 El valor presente depende de sus propios rezagos.
 
-## AR(1)
+## AR(1) {.unnumbered}
 
 $$
 Y_t=c+\phi Y_{t-1}+\varepsilon_t.
@@ -259,7 +259,7 @@ $$
 \mu=\frac{c}{1-\phi}.
 $$
 
-## Modelo MA(q)
+## Modelo MA(q) {.unnumbered}
 
 $$
 Y_t
@@ -273,7 +273,7 @@ $$
 
 El valor depende de perturbaciones actuales y pasadas.
 
-## Modelo ARMA(p,q)
+## Modelo ARMA(p,q) {.unnumbered}
 
 $$
 Y_t
@@ -287,7 +287,7 @@ $$
 
 Se utiliza para series estacionarias.
 
-## Modelo ARIMA(p,d,q)
+## Modelo ARIMA(p,d,q) {.unnumbered}
 
 Una serie se diferencia $d$ veces y se ajusta un ARMA:
 
@@ -303,7 +303,7 @@ Los parámetros son:
 - $d$: diferenciación;
 - $q$: media móvil.
 
-## ARIMA estacional
+## ARIMA estacional {.unnumbered}
 
 $$
 ARIMA(p,d,q)(P,D,Q)_m.
@@ -311,7 +311,7 @@ $$
 
 Incluye componentes estacionales con periodo $m$.
 
-## Identificación
+## Identificación {.unnumbered}
 
 Se utilizan:
 
@@ -322,19 +322,19 @@ Se utilizan:
 - criterios AIC y BIC;
 - diagnóstico de residuos.
 
-## PACF
+## PACF {.unnumbered}
 
 La autocorrelación parcial en rezago $h$ mide la relación entre $Y_t$ y $Y_{t-h}$ controlando rezagos intermedios.
 
 Es útil para identificar órdenes autorregresivos.
 
-## Prueba de raíz unitaria
+## Prueba de raíz unitaria {.unnumbered}
 
 La prueba Dickey-Fuller aumentada contrasta una raíz unitaria.
 
 No rechazar no demuestra estacionariedad; indica evidencia insuficiente contra la raíz unitaria.
 
-## Suavizamiento exponencial
+## Suavizamiento exponencial {.unnumbered}
 
 El nivel simple se actualiza mediante
 
@@ -356,7 +356,7 @@ $$
 \widehat{y}_{t+h|t}=\ell_t.
 $$
 
-## Método de Holt
+## Método de Holt {.unnumbered}
 
 Incluye nivel y tendencia:
 
@@ -376,11 +376,11 @@ b_t
 (1-\beta)b_{t-1}.
 $$
 
-## Holt-Winters
+## Holt-Winters {.unnumbered}
 
 Añade una componente estacional y puede formularse en versión aditiva o multiplicativa.
 
-## Pronóstico h pasos adelante
+## Pronóstico h pasos adelante {.unnumbered}
 
 Se denota por
 
@@ -390,7 +390,7 @@ $$
 
 la predicción de $Y_{t+h}$ usando información disponible hasta $t$.
 
-## Error de pronóstico
+## Error de pronóstico {.unnumbered}
 
 $$
 e_{t+h|t}
@@ -400,7 +400,7 @@ Y_{t+h}
 \widehat{Y}_{t+h|t}.
 $$
 
-## MAE
+## MAE {.unnumbered}
 
 $$
 MAE
@@ -409,7 +409,7 @@ MAE
 \sum_{i=1}^{n}|e_i|.
 $$
 
-## RMSE
+## RMSE {.unnumbered}
 
 $$
 RMSE
@@ -420,7 +420,7 @@ RMSE
 }.
 $$
 
-## MAPE
+## MAPE {.unnumbered}
 
 $$
 MAPE
@@ -434,7 +434,7 @@ $$
 
 Es problemático si $y_i$ es cero o cercano a cero.
 
-## MASE
+## MASE {.unnumbered}
 
 $$
 MASE
@@ -449,7 +449,7 @@ $$
 
 Permite comparación entre series.
 
-## Pronósticos probabilísticos
+## Pronósticos probabilísticos {.unnumbered}
 
 Un pronóstico completo puede ser una distribución:
 
@@ -464,11 +464,11 @@ Puede resumirse mediante:
 - densidades;
 - simulaciones.
 
-## Cobertura de intervalos
+## Cobertura de intervalos {.unnumbered}
 
 Un intervalo nominal del 95 por ciento debe contener aproximadamente el 95 por ciento de observaciones futuras bajo calibración correcta.
 
-## Variables rezagadas
+## Variables rezagadas {.unnumbered}
 
 Para aprendizaje automático se construyen:
 
@@ -490,7 +490,7 @@ También pueden incluirse:
 - calendario;
 - variables externas.
 
-## Ventanas móviles
+## Ventanas móviles {.unnumbered}
 
 Una media de ventana $w$ es
 
@@ -503,7 +503,7 @@ $$
 
 Debe calcularse usando únicamente información anterior a $t$.
 
-## Variables de calendario
+## Variables de calendario {.unnumbered}
 
 Pueden incluir:
 
@@ -528,7 +528,7 @@ $$
 \right).
 $$
 
-## Variables exógenas
+## Variables exógenas {.unnumbered}
 
 Un modelo puede incluir
 
@@ -550,7 +550,7 @@ $$
 
 Para pronosticar se necesitan valores futuros o pronósticos de las variables exógenas.
 
-## Fuga temporal
+## Fuga temporal {.unnumbered}
 
 Existe fuga si una variable usa información futura.
 
@@ -562,7 +562,7 @@ Ejemplos:
 - selección de variables con el periodo de prueba;
 - partición aleatoria.
 
-## División temporal
+## División temporal {.unnumbered}
 
 La partición correcta respeta:
 
@@ -576,7 +576,7 @@ $$
 
 El futuro nunca debe utilizarse para construir el pasado.
 
-## Validación con origen móvil
+## Validación con origen móvil {.unnumbered}
 
 En cada iteración se entrena con información hasta un tiempo y se evalúa en periodos posteriores.
 
@@ -585,7 +585,7 @@ Puede usarse:
 - ventana expansiva;
 - ventana deslizante.
 
-## Ventana expansiva
+## Ventana expansiva {.unnumbered}
 
 El conjunto de entrenamiento crece:
 
@@ -595,7 +595,7 @@ $$
 \{1,\ldots,t+1\}.
 $$
 
-## Ventana deslizante
+## Ventana deslizante {.unnumbered}
 
 Se mantiene una longitud fija:
 
@@ -605,7 +605,7 @@ $$
 
 Es útil cuando existe cambio de distribución.
 
-## Pronóstico recursivo
+## Pronóstico recursivo {.unnumbered}
 
 Para múltiples pasos, la predicción anterior se utiliza como entrada:
 
@@ -620,7 +620,7 @@ $$
 
 Los errores pueden acumularse.
 
-## Pronóstico directo
+## Pronóstico directo {.unnumbered}
 
 Se entrena un modelo diferente para cada horizonte:
 
@@ -630,7 +630,7 @@ $$
 
 Reduce acumulación, pero requiere más modelos.
 
-## Estrategia multioutput
+## Estrategia multioutput {.unnumbered}
 
 Un modelo produce simultáneamente:
 
@@ -638,7 +638,7 @@ $$
 (\widehat{Y}_{t+1},\ldots,\widehat{Y}_{t+H}).
 $$
 
-## Árboles y bosques
+## Árboles y bosques {.unnumbered}
 
 Random Forest puede usar:
 
@@ -655,13 +655,13 @@ Ventajas:
 
 Limitación: extrapola mal tendencias fuera del rango de entrenamiento.
 
-## Gradient boosting
+## Gradient boosting {.unnumbered}
 
 Los modelos boosting suelen ser muy competitivos en series tabulares con variables rezagadas.
 
 Requieren validación temporal y control de sobreajuste.
 
-## Redes neuronales recurrentes
+## Redes neuronales recurrentes {.unnumbered}
 
 Una RNN actualiza un estado:
 
@@ -680,11 +680,11 @@ $$
 
 El estado resume información pasada.
 
-## Gradientes en RNN
+## Gradientes en RNN {.unnumbered}
 
 La retropropagación a través del tiempo multiplica Jacobianas repetidamente, lo cual puede producir gradientes desvanecientes o explosivos.
 
-## LSTM
+## LSTM {.unnumbered}
 
 Las redes LSTM introducen compuertas para controlar el flujo de información [@hochreiter1997long].
 
@@ -695,7 +695,7 @@ Incluyen:
 - estado de celda;
 - compuerta de salida.
 
-## Atención y transformers
+## Atención y transformers {.unnumbered}
 
 Los transformers modelan dependencias mediante atención:
 
@@ -710,7 +710,7 @@ $$
 
 Permiten relacionar posiciones distantes sin recurrencia estricta.
 
-## Modelos híbridos
+## Modelos híbridos {.unnumbered}
 
 Puede combinarse:
 
@@ -719,7 +719,7 @@ Puede combinarse:
 - descomposición estacional;
 - modelos separados por componentes.
 
-## Pronóstico jerárquico
+## Pronóstico jerárquico {.unnumbered}
 
 En datos agregados, los pronósticos deben ser coherentes:
 
@@ -731,7 +731,7 @@ $$
 
 Se emplean métodos de reconciliación.
 
-## Series múltiples
+## Series múltiples {.unnumbered}
 
 Una colección de series puede compartir información.
 
@@ -740,7 +740,7 @@ Se distinguen:
 - modelos locales: uno por serie;
 - modelos globales: un modelo común.
 
-## Concept drift
+## Concept drift {.unnumbered}
 
 La relación temporal puede cambiar.
 
@@ -752,7 +752,7 @@ Se requiere monitorear:
 - importancia de variables;
 - calibración.
 
-## Residuos
+## Residuos {.unnumbered}
 
 Un modelo adecuado debe dejar residuos aproximadamente:
 
@@ -761,13 +761,13 @@ Un modelo adecuado debe dejar residuos aproximadamente:
 - con varianza estable;
 - sin estructura sistemática.
 
-## Prueba Ljung-Box
+## Prueba Ljung-Box {.unnumbered}
 
 Contrasta autocorrelaciones conjuntas de residuos.
 
 Rechazar sugiere dependencia temporal no modelada.
 
-## Selección de modelos
+## Selección de modelos {.unnumbered}
 
 AIC:
 
@@ -783,7 +783,7 @@ $$
 
 En aprendizaje automático debe priorizarse desempeño fuera de muestra mediante validación temporal.
 
-## Línea base
+## Línea base {.unnumbered}
 
 Todo modelo debe compararse con referencias simples:
 
@@ -794,19 +794,19 @@ Todo modelo debe compararse con referencias simples:
 
 Un modelo complejo que no supera la línea base no agrega valor.
 
-## Pronóstico ingenuo
+## Pronóstico ingenuo {.unnumbered}
 
 $$
 \widehat{Y}_{t+h|t}=Y_t.
 $$
 
-## Ingenuo estacional
+## Ingenuo estacional {.unnumbered}
 
 $$
 \widehat{Y}_{t+h|t}=Y_{t+h-m}.
 $$
 
-## Intervalos y aprendizaje automático
+## Intervalos y aprendizaje automático {.unnumbered}
 
 Puede utilizarse:
 
@@ -816,7 +816,7 @@ Puede utilizarse:
 - ensambles;
 - modelos probabilísticos.
 
-## Evaluación por horizonte
+## Evaluación por horizonte {.unnumbered}
 
 El error debe analizarse para cada horizonte:
 
@@ -828,7 +828,7 @@ $$
 
 Un modelo puede ser bueno a corto plazo y malo a largo plazo.
 
-## Aplicación ambiental
+## Aplicación ambiental {.unnumbered}
 
 Para pronosticar PM10 pueden utilizarse:
 
@@ -843,7 +843,7 @@ Para pronosticar PM10 pueden utilizarse:
 
 La validación debe simular el uso operativo real.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
@@ -876,7 +876,7 @@ crear_rezagos <- function(x, p = 3) {
 }
 ```
 
-## Ejemplo AR(1)
+## Ejemplo AR(1) {.unnumbered}
 
 Sea
 
@@ -892,7 +892,7 @@ $$
 \frac{20}{3}.
 $$
 
-## Ejemplo de diferencia
+## Ejemplo de diferencia {.unnumbered}
 
 Para:
 
@@ -906,7 +906,7 @@ $$
 5,\;6,\;4.
 $$
 
-## Ejemplo de variable rezagada
+## Ejemplo de variable rezagada {.unnumbered}
 
 Para predecir $Y_t$ con tres rezagos:
 
@@ -918,7 +918,7 @@ $$
 
 La primera fila utilizable aparece en $t=4$.
 
-## Ventajas de los enfoques clásicos
+## Ventajas de los enfoques clásicos {.unnumbered}
 
 1. interpretación;
 2. intervalos probabilísticos;
@@ -926,7 +926,7 @@ La primera fila utilizable aparece en $t=4$.
 4. teoría desarrollada;
 5. diagnóstico de residuos.
 
-## Ventajas del aprendizaje automático
+## Ventajas del aprendizaje automático {.unnumbered}
 
 1. no linealidad;
 2. numerosas variables;
@@ -934,7 +934,7 @@ La primera fila utilizable aparece en $t=4$.
 4. series múltiples;
 5. flexibilidad.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. dependencia temporal;
 2. riesgo de fuga;
@@ -944,7 +944,7 @@ La primera fila utilizable aparece en $t=4$.
 6. necesidad de validación realista;
 7. extrapolación limitada en árboles.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. dividir aleatoriamente;
 2. calcular rezagos con información futura;
@@ -957,7 +957,7 @@ La primera fila utilizable aparece en $t=4$.
 9. confundir ajuste histórico con pronóstico;
 10. usar variables exógenas futuras desconocidas.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Defina estacionariedad.
 2. Distinga tendencia y estacionalidad.
@@ -970,7 +970,7 @@ La primera fila utilizable aparece en $t=4$.
 9. ¿Por qué se necesitan líneas base?
 10. Compare modelos clásicos y aprendizaje automático.
 
-## Ejercicio AR(1)
+## Ejercicio AR(1) {.unnumbered}
 
 Sea:
 
@@ -982,7 +982,7 @@ $$
 2. Calcule la media.
 3. Pronostique un paso si $Y_t=10$ y $\mathbb{E}(\varepsilon)=0$.
 
-## Ejercicio de métricas
+## Ejercicio de métricas {.unnumbered}
 
 Observados:
 
@@ -1003,7 +1003,7 @@ Calcule:
 3. RMSE;
 4. MAPE.
 
-## Ejercicio de validación
+## Ejercicio de validación {.unnumbered}
 
 Diseñe una validación de origen móvil para 60 meses:
 
@@ -1013,7 +1013,7 @@ Diseñe una validación de origen móvil para 60 meses:
 
 Indique las particiones sucesivas.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Diseñe un sistema para pronosticar PM10 diario que incluya:
 
@@ -1033,7 +1033,7 @@ Diseñe un sistema para pronosticar PM10 diario que incluya:
 14. monitoreo de drift;
 15. limitaciones ambientales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrollaron los fundamentos de las series de tiempo y su relación con aprendizaje automático.
 

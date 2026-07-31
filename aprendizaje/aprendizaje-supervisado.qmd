@@ -8,9 +8,9 @@ El aprendizaje supervisado estudia métodos capaces de construir una regla de pr
 
 Desde el punto de vista matemático, el aprendizaje supervisado puede formularse como un problema de selección de funciones. Se dispone de una familia de modelos posibles y se busca aquel que minimice una medida de error, no solamente sobre los datos observados, sino también sobre datos futuros provenientes del mismo proceso generador.
 
-Esta distinción entre ajuste y generalización es central. Un modelo puede describir muy bien la muestra de entrenamiento y, sin embargo, producir predicciones deficientes fuera de ella. Por esta razón, la teoría del aprendizaje automático estudia funciones de pérdida, riesgo esperado, riesgo empírico, complejidad de modelos, regularización y validación.
+Esta distinción entre ajuste y generalización es central. Un modelo puede describir muy bien la muestra de entrenamiento y, sin embargo, producir predicciones deficientes fuera de ella. Por esta razón, la teoría del aprendizaje automático estudia funciones de pérdida, riesgo esperado\index{Riesgo esperado}, riesgo empírico\index{Riesgo empírico}, complejidad de modelos, regularización y validación.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 El aprendizaje supervisado utiliza pares entrada–salida para construir una función predictiva.
 :::
 
@@ -33,7 +33,7 @@ Al finalizar el capítulo, el lector podrá:
 13. interpretar ruido irreducible;
 14. relacionar estos conceptos con regresión y clasificación.
 
-::: {.callout-important title="Hipótesis de muestreo"}
+::: {.callout-important title="Hipótesis de muestreo" appearance="default" icon="true"}
 La formulación elemental supone observaciones independientes e idénticamente distribuidas:
 
 $$
@@ -461,7 +461,7 @@ $$
 
 Este riesgo puede calcularse directamente.
 
-::: {.callout-note title="Riesgo esperado y riesgo empírico"}
+::: {.callout-note title="Riesgo esperado y riesgo empírico" appearance="default" icon="true"}
 El riesgo esperado depende de la distribución desconocida:
 
 $$

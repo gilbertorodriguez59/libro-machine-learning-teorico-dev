@@ -100,9 +100,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-acff971833d9769290026d534105daaa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9eafe632e7dad85bfa3861adb50d4958.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-81941997783c18544bf38817c4a37418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9eafe632e7dad85bfa3861adb50d4958.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -592,6 +592,12 @@ window.Quarto = {
  <span class="menu-text">Referencias</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../indice-tematico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice temático</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -599,7 +605,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
+    <h2 id="toc-title">En este capítulo</h2>
    
   <ul class="collapse">
   <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
@@ -671,8 +677,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<section id="introducción" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introducción">Introducción</h2>
 <p>El agrupamiento jerárquico construye una sucesión de grupos anidados y representa el resultado mediante un <strong>dendrograma</strong>. A diferencia de K-means, no exige fijar el número de conglomerados antes de iniciar el análisis.</p>
 <p>Existen dos estrategias:</p>
 <ul>
@@ -680,9 +686,22 @@ window.Quarto = {
 <li><strong>divisiva:</strong> comienza con un solo grupo y realiza separaciones.</li>
 </ul>
 <p>El resultado depende de dos decisiones fundamentales: la distancia entre observaciones y el criterio de enlace utilizado para medir distancia entre grupos.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Definición esencial">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Definición esencial
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El agrupamiento jerárquico construye una secuencia de particiones anidadas. El dendrograma resume las fusiones, pero su forma depende de la distancia y del criterio de enlace.</p>
+</div>
+</div>
 </section>
-<section id="objetivos" class="level2">
-<h2 class="anchored" data-anchor-id="objetivos">Objetivos</h2>
+<section id="objetivos" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="objetivos">Objetivos</h2>
 <p>Al finalizar el capítulo, el lector podrá:</p>
 <ol type="1">
 <li>distinguir agrupamiento aglomerativo y divisivo;</li>
@@ -697,8 +716,8 @@ window.Quarto = {
 <li>aplicarlo en R.</li>
 </ol>
 </section>
-<section id="formulación" class="level2">
-<h2 class="anchored" data-anchor-id="formulación">Formulación</h2>
+<section id="formulación" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="formulación">Formulación</h2>
 <p>Considérese una muestra no etiquetada</p>
 <p><span class="math display">\[
 \mathcal{D}_n=\{\mathbf{x}_1,\ldots,\mathbf{x}_n\},
@@ -720,8 +739,8 @@ C_k\cap C_\ell=\varnothing
 \]</span></p>
 <p>El método jerárquico genera varias particiones relacionadas entre sí.</p>
 </section>
-<section id="matriz-de-distancias" class="level2">
-<h2 class="anchored" data-anchor-id="matriz-de-distancias">Matriz de distancias</h2>
+<section id="matriz-de-distancias" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="matriz-de-distancias">Matriz de distancias</h2>
 <p>La información inicial se resume en</p>
 <p><span class="math display">\[
 \mathbf{D}=(d_{ij}),
@@ -737,10 +756,10 @@ d_{ij}=d_{ji},
 d_{ii}=0.
 \]</span></p>
 </section>
-<section id="distancias-frecuentes" class="level2">
-<h2 class="anchored" data-anchor-id="distancias-frecuentes">Distancias frecuentes</h2>
-<section id="euclidiana" class="level3">
-<h3 class="anchored" data-anchor-id="euclidiana">Euclidiana</h3>
+<section id="distancias-frecuentes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="distancias-frecuentes">Distancias frecuentes</h2>
+<section id="euclidiana" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="euclidiana">Euclidiana</h3>
 <p><span class="math display">\[
 d_2(\mathbf{x}_i,\mathbf{x}_j)
 =
@@ -749,16 +768,16 @@ d_2(\mathbf{x}_i,\mathbf{x}_j)
 \right]^{1/2}.
 \]</span></p>
 </section>
-<section id="manhattan" class="level3">
-<h3 class="anchored" data-anchor-id="manhattan">Manhattan</h3>
+<section id="manhattan" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="manhattan">Manhattan</h3>
 <p><span class="math display">\[
 d_1(\mathbf{x}_i,\mathbf{x}_j)
 =
 \sum_{r=1}^{p}|x_{ir}-x_{jr}|.
 \]</span></p>
 </section>
-<section id="minkowski" class="level3">
-<h3 class="anchored" data-anchor-id="minkowski">Minkowski</h3>
+<section id="minkowski" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="minkowski">Minkowski</h3>
 <p><span class="math display">\[
 d_q(\mathbf{x}_i,\mathbf{x}_j)
 =
@@ -769,8 +788,8 @@ d_q(\mathbf{x}_i,\mathbf{x}_j)
 <p>Para datos mixtos puede utilizarse la distancia de Gower.</p>
 </section>
 </section>
-<section id="escalamiento" class="level2">
-<h2 class="anchored" data-anchor-id="escalamiento">Escalamiento</h2>
+<section id="escalamiento" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="escalamiento">Escalamiento</h2>
 <p>Cuando las variables tienen escalas distintas, suele emplearse</p>
 <p><span class="math display">\[
 z_{ij}
@@ -779,8 +798,8 @@ z_{ij}
 \]</span></p>
 <p>Sin estandarización, una variable con valores grandes puede dominar las fusiones.</p>
 </section>
-<section id="agrupamiento-aglomerativo" class="level2">
-<h2 class="anchored" data-anchor-id="agrupamiento-aglomerativo">Agrupamiento aglomerativo</h2>
+<section id="agrupamiento-aglomerativo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="agrupamiento-aglomerativo">Agrupamiento aglomerativo</h2>
 <p>El algoritmo inicia con</p>
 <p><span class="math display">\[
 C_i^{(0)}=\{i\},
@@ -798,19 +817,19 @@ C_i^{(0)}=\{i\},
 </ol>
 </div>
 </section>
-<section id="agrupamiento-divisivo" class="level2">
-<h2 class="anchored" data-anchor-id="agrupamiento-divisivo">Agrupamiento divisivo</h2>
+<section id="agrupamiento-divisivo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="agrupamiento-divisivo">Agrupamiento divisivo</h2>
 <p>El método divisivo inicia con</p>
 <p><span class="math display">\[
 C^{(0)}=\{1,\ldots,n\}
 \]</span></p>
 <p>y divide sucesivamente los grupos. DIANA es un algoritmo divisivo clásico.</p>
 </section>
-<section id="criterios-de-enlace" class="level2">
-<h2 class="anchored" data-anchor-id="criterios-de-enlace">Criterios de enlace</h2>
+<section id="criterios-de-enlace" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="criterios-de-enlace">Criterios de enlace</h2>
 <p>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos grupos.</p>
-<section id="enlace-simple" class="level3">
-<h3 class="anchored" data-anchor-id="enlace-simple">Enlace simple</h3>
+<section id="enlace-simple" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enlace-simple">Enlace simple</h3>
 <p><span class="math display">\[
 d_{\text{simple}}(A,B)
 =
@@ -819,8 +838,8 @@ d(\mathbf{x}_i,\mathbf{x}_j).
 \]</span></p>
 <p>Detecta estructuras alargadas, pero puede sufrir <strong>encadenamiento</strong>, donde grupos distintos se unen por una cadena de puntos intermedios.</p>
 </section>
-<section id="enlace-completo" class="level3">
-<h3 class="anchored" data-anchor-id="enlace-completo">Enlace completo</h3>
+<section id="enlace-completo" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enlace-completo">Enlace completo</h3>
 <p><span class="math display">\[
 d_{\text{completo}}(A,B)
 =
@@ -829,8 +848,8 @@ d(\mathbf{x}_i,\mathbf{x}_j).
 \]</span></p>
 <p>Favorece grupos compactos, aunque puede ser sensible a valores extremos.</p>
 </section>
-<section id="enlace-promedio" class="level3">
-<h3 class="anchored" data-anchor-id="enlace-promedio">Enlace promedio</h3>
+<section id="enlace-promedio" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enlace-promedio">Enlace promedio</h3>
 <p><span class="math display">\[
 d_{\text{promedio}}(A,B)
 =
@@ -841,8 +860,8 @@ d(\mathbf{x}_i,\mathbf{x}_j).
 \]</span></p>
 <p>Representa un compromiso entre enlace simple y completo.</p>
 </section>
-<section id="enlace-por-centroides" class="level3">
-<h3 class="anchored" data-anchor-id="enlace-por-centroides">Enlace por centroides</h3>
+<section id="enlace-por-centroides" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enlace-por-centroides">Enlace por centroides</h3>
 <p><span class="math display">\[
 d_{\text{centroide}}(A,B)
 =
@@ -851,8 +870,8 @@ d_{\text{centroide}}(A,B)
 <p>Puede producir inversiones en el dendrograma.</p>
 </section>
 </section>
-<section id="método-de-ward" class="level2">
-<h2 class="anchored" data-anchor-id="método-de-ward">Método de Ward</h2>
+<section id="método-de-ward" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="método-de-ward">Método de Ward</h2>
 <p>Ward fusiona los grupos que producen el menor aumento en la suma de cuadrados intragrupo.</p>
 <p>Para un grupo <span class="math inline">\(C\)</span>:</p>
 <p><span class="math display">\[
@@ -876,16 +895,26 @@ W(A\cup B)-W(A)-W(B).
 \]</span></p>
 <p>Se fusiona el par con menor incremento.</p>
 </section>
-<section id="relación-entre-ward-y-k-means" class="level2">
-<h2 class="anchored" data-anchor-id="relación-entre-ward-y-k-means">Relación entre Ward y K-means</h2>
+<section id="relación-entre-ward-y-k-means" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="relación-entre-ward-y-k-means">Relación entre Ward y K-means</h2>
 <p>Ambos métodos buscan grupos compactos mediante suma de cuadrados.</p>
 <ul>
 <li>K-means optimiza directamente una partición con <span class="math inline">\(K\)</span> fijo.</li>
 <li>Ward construye una jerarquía completa y permite elegir <span class="math inline">\(K\)</span> después.</li>
 </ul>
+<div id="fig-dendrograma-ward" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Dendrograma de nueve observaciones construido con enlace de Ward">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendrograma-ward-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../estilos/figuras/dendrograma-ward.png" class="img-fluid figure-img" style="width:84.0%" alt="Dendrograma de nueve observaciones construido con enlace de Ward">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendrograma-ward-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;23.1: El dendrograma registra las fusiones y la altura a la que ocurren.
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="dendrograma" class="level2">
-<h2 class="anchored" data-anchor-id="dendrograma">Dendrograma</h2>
+<section id="dendrograma" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="dendrograma">Dendrograma</h2>
 <p>El dendrograma representa las fusiones:</p>
 <ul>
 <li>el eje horizontal contiene observaciones o ramas;</li>
@@ -893,16 +922,16 @@ W(A\cup B)-W(A)-W(B).
 <li>una fusión alta indica mayor diferencia entre grupos.</li>
 </ul>
 </section>
-<section id="corte-del-dendrograma" class="level2">
-<h2 class="anchored" data-anchor-id="corte-del-dendrograma">Corte del dendrograma</h2>
+<section id="corte-del-dendrograma" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="corte-del-dendrograma">Corte del dendrograma</h2>
 <p>Al cortar a una altura <span class="math inline">\(h\)</span>, las ramas interceptadas forman los grupos.</p>
 <p>Otra opción es fijar directamente el número de grupos:</p>
 <p><span class="math display">\[
 K.
 \]</span></p>
 </section>
-<section id="selección-del-número-de-grupos" class="level2">
-<h2 class="anchored" data-anchor-id="selección-del-número-de-grupos">Selección del número de grupos</h2>
+<section id="selección-del-número-de-grupos" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="selección-del-número-de-grupos">Selección del número de grupos</h2>
 <p>Puede utilizarse:</p>
 <ul>
 <li>saltos grandes entre alturas;</li>
@@ -913,16 +942,16 @@ K.
 </ul>
 <p>La inspección visual debe complementarse con criterios cuantitativos.</p>
 </section>
-<section id="distancia-cofenética" class="level2">
-<h2 class="anchored" data-anchor-id="distancia-cofenética">Distancia cofenética</h2>
+<section id="distancia-cofenética" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="distancia-cofenética">Distancia cofenética</h2>
 <p>La distancia cofenética entre dos observaciones es la altura a la que se fusionan por primera vez.</p>
 <p>Se denota por</p>
 <p><span class="math display">\[
 d_{ij}^{coph}.
 \]</span></p>
 </section>
-<section id="correlación-cofenética" class="level2">
-<h2 class="anchored" data-anchor-id="correlación-cofenética">Correlación cofenética</h2>
+<section id="correlación-cofenética" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="correlación-cofenética">Correlación cofenética</h2>
 <p>Compara las distancias originales con las representadas por el dendrograma:</p>
 <p><span class="math display">\[
 r_{coph}
@@ -934,9 +963,10 @@ d_{ij}^{coph}
 \right).
 \]</span></p>
 <p>Un valor alto indica que el dendrograma conserva bien la estructura de distancias.</p>
+<p>La actualización recursiva de distancias puede expresarse mediante la familia de Lance-Williams <span class="citation" data-cites="lance1967general">(<a href="../referencias.html#ref-lance1967general" role="doc-biblioref">Lance y Williams 1967</a>)</span>. Esta formulación permite comparar distintos enlaces dentro de una estructura algebraica común.</p>
 </section>
-<section id="fórmula-de-lance-williams" class="level2">
-<h2 class="anchored" data-anchor-id="fórmula-de-lance-williams">Fórmula de Lance-Williams</h2>
+<section id="fórmula-de-lance-williams" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="fórmula-de-lance-williams">Fórmula de Lance-Williams</h2>
 <p>Las distancias pueden actualizarse mediante</p>
 <p><span class="math display">\[
 d(A\cup B,C)
@@ -968,12 +998,12 @@ d(A\cup B,C)
 \gamma=\frac{1}{2}.
 \]</span></p>
 </section>
-<section id="inversiones" class="level2">
-<h2 class="anchored" data-anchor-id="inversiones">Inversiones</h2>
+<section id="inversiones" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="inversiones">Inversiones</h2>
 <p>Una inversión ocurre cuando una fusión posterior aparece a menor altura que una anterior. Puede presentarse con el enlace por centroides y dificulta la interpretación.</p>
 </section>
-<section id="estabilidad" class="level2">
-<h2 class="anchored" data-anchor-id="estabilidad">Estabilidad</h2>
+<section id="estabilidad" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="estabilidad">Estabilidad</h2>
 <p>Una solución es estable si pequeñas perturbaciones producen grupos semejantes.</p>
 <p>Puede evaluarse mediante:</p>
 <ul>
@@ -984,8 +1014,8 @@ d(A\cup B,C)
 <li>índice de Rand ajustado.</li>
 </ul>
 </section>
-<section id="jaccard-de-grupos" class="level2">
-<h2 class="anchored" data-anchor-id="jaccard-de-grupos">Jaccard de grupos</h2>
+<section id="jaccard-de-grupos" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="jaccard-de-grupos">Jaccard de grupos</h2>
 <p>Para un grupo original <span class="math inline">\(C\)</span> y uno remuestreado <span class="math inline">\(C^*\)</span>:</p>
 <p><span class="math display">\[
 J(C,C^*)
@@ -994,8 +1024,8 @@ J(C,C^*)
 \]</span></p>
 <p>Valores altos indican estabilidad.</p>
 </section>
-<section id="comparación-de-dendrogramas" class="level2">
-<h2 class="anchored" data-anchor-id="comparación-de-dendrogramas">Comparación de dendrogramas</h2>
+<section id="comparación-de-dendrogramas" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="comparación-de-dendrogramas">Comparación de dendrogramas</h2>
 <p>Pueden utilizarse:</p>
 <ul>
 <li>correlación cofenética;</li>
@@ -1003,9 +1033,10 @@ J(C,C^*)
 <li>entanglement;</li>
 <li>comparación de ramas.</li>
 </ul>
+<p>Los algoritmos jerárquicos clásicos son apropiados sobre todo para muestras pequeñas o medianas. Revisiones modernas describen variantes eficientes y los compromisos entre exactitud, memoria y tiempo <span class="citation" data-cites="murtagh2012algorithms">(<a href="../referencias.html#ref-murtagh2012algorithms" role="doc-biblioref">Murtagh y Contreras 2012</a>)</span>.</p>
 </section>
-<section id="complejidad-computacional" class="level2">
-<h2 class="anchored" data-anchor-id="complejidad-computacional">Complejidad computacional</h2>
+<section id="complejidad-computacional" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="complejidad-computacional">Complejidad computacional</h2>
 <p>La matriz de distancias requiere memoria del orden de</p>
 <p><span class="math display">\[
 O(n^2).
@@ -1021,8 +1052,8 @@ O(n^3),
 <p>dependiendo del algoritmo.</p>
 <p>Esto limita el método en muestras muy grandes.</p>
 </section>
-<section id="métodos-escalables" class="level2">
-<h2 class="anchored" data-anchor-id="métodos-escalables">Métodos escalables</h2>
+<section id="métodos-escalables" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="métodos-escalables">Métodos escalables</h2>
 <p>Para grandes volúmenes pueden utilizarse:</p>
 <ul>
 <li>muestreo;</li>
@@ -1032,8 +1063,8 @@ O(n^3),
 <li>clustering híbrido.</li>
 </ul>
 </section>
-<section id="valores-atípicos" class="level2">
-<h2 class="anchored" data-anchor-id="valores-atípicos">Valores atípicos</h2>
+<section id="valores-atípicos" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="valores-atípicos">Valores atípicos</h2>
 <p>Una observación extrema puede:</p>
 <ul>
 <li>formar una rama aislada;</li>
@@ -1043,8 +1074,8 @@ O(n^3),
 </ul>
 <p>Debe analizarse antes de interpretar el dendrograma.</p>
 </section>
-<section id="variables-categóricas-y-mixtas" class="level2">
-<h2 class="anchored" data-anchor-id="variables-categóricas-y-mixtas">Variables categóricas y mixtas</h2>
+<section id="variables-categóricas-y-mixtas" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="variables-categóricas-y-mixtas">Variables categóricas y mixtas</h2>
 <p>La distancia euclidiana no es adecuada directamente para variables categóricas.</p>
 <p>Pueden utilizarse:</p>
 <ul>
@@ -1054,8 +1085,8 @@ O(n^3),
 <li>transformaciones apropiadas.</li>
 </ul>
 </section>
-<section id="distancia-de-jaccard" class="level2">
-<h2 class="anchored" data-anchor-id="distancia-de-jaccard">Distancia de Jaccard</h2>
+<section id="distancia-de-jaccard" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="distancia-de-jaccard">Distancia de Jaccard</h2>
 <p>Para presencia o ausencia:</p>
 <p><span class="math display">\[
 d_J(A,B)
@@ -1065,8 +1096,8 @@ d_J(A,B)
 \]</span></p>
 <p>Es útil cuando la presencia es más informativa que la ausencia.</p>
 </section>
-<section id="visualización" class="level2">
-<h2 class="anchored" data-anchor-id="visualización">Visualización</h2>
+<section id="visualización" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="visualización">Visualización</h2>
 <p>Además del dendrograma:</p>
 <ul>
 <li>heatmap con dendrogramas;</li>
@@ -1076,12 +1107,12 @@ d_J(A,B)
 <li>tanglegrams.</li>
 </ul>
 </section>
-<section id="relación-con-grafos" class="level2">
-<h2 class="anchored" data-anchor-id="relación-con-grafos">Relación con grafos</h2>
+<section id="relación-con-grafos" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="relación-con-grafos">Relación con grafos</h2>
 <p>El enlace simple está relacionado con el árbol de expansión mínima. Cortar sus aristas más largas puede producir la misma partición que un corte del dendrograma de enlace simple.</p>
 </section>
-<section id="comparación-con-k-means" class="level2">
-<h2 class="anchored" data-anchor-id="comparación-con-k-means">Comparación con K-means</h2>
+<section id="comparación-con-k-means" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="comparación-con-k-means">Comparación con K-means</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1124,66 +1155,66 @@ d_J(A,B)
 </tbody>
 </table>
 </section>
-<section id="comparación-con-dbscan" class="level2">
-<h2 class="anchored" data-anchor-id="comparación-con-dbscan">Comparación con DBSCAN</h2>
+<section id="comparación-con-dbscan" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="comparación-con-dbscan">Comparación con DBSCAN</h2>
 <p>DBSCAN detecta grupos por densidad y puede identificar ruido. El agrupamiento jerárquico produce una jerarquía completa, pero no identifica ruido de manera natural.</p>
 </section>
-<section id="conexión-con-r" class="level2">
-<h2 class="anchored" data-anchor-id="conexión-con-r">Conexión con R</h2>
+<section id="conexión-con-r" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="conexión-con-r">Conexión con R</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">pm10 =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">52</span>, <span class="dv">60</span>, <span class="dv">38</span>, <span class="dv">70</span>, <span class="dv">65</span>, <span class="dv">30</span>, <span class="dv">28</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">no2 =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">42</span>, <span class="dv">28</span>, <span class="dv">50</span>, <span class="dv">47</span>, <span class="dv">20</span>, <span class="dv">18</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">temperatura =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">26</span>, <span class="dv">20</span>, <span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">18</span>, <span class="dv">17</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">humedad =</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">45</span>, <span class="dv">48</span>, <span class="dv">75</span>, <span class="dv">78</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>datos_esc <span class="ot">&lt;-</span> <span class="fu">scale</span>(datos)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>distancias <span class="ot">&lt;-</span> <span class="fu">dist</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  datos_esc,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"euclidean"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>modelo_completo <span class="ot">&lt;-</span> <span class="fu">hclust</span>(</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  distancias,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"complete"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  modelo_completo,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Agrupamiento jerárquico"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">""</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">sub =</span> <span class="st">""</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>grupos <span class="ot">&lt;-</span> <span class="fu">cutree</span>(</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  modelo_completo,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">3</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>grupos</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>modelo_ward <span class="ot">&lt;-</span> <span class="fu">hclust</span>(</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  distancias,</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"ward.D2"</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo_ward)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>dist_coph <span class="ot">&lt;-</span> <span class="fu">cophenetic</span>(modelo_ward)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.vector</span>(distancias),</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.vector</span>(dist_coph)</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-lst-cap="Dendrograma, corte y correlación cofenética en R"><pre class="sourceCode numberSource r code-overflow-wrap number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="at">pm10 =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">52</span>, <span class="dv">60</span>, <span class="dv">38</span>, <span class="dv">70</span>, <span class="dv">65</span>, <span class="dv">30</span>, <span class="dv">28</span>),</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="at">no2 =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">42</span>, <span class="dv">28</span>, <span class="dv">50</span>, <span class="dv">47</span>, <span class="dv">20</span>, <span class="dv">18</span>),</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="at">temperatura =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">26</span>, <span class="dv">20</span>, <span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">18</span>, <span class="dv">17</span>),</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">humedad =</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">45</span>, <span class="dv">48</span>, <span class="dv">75</span>, <span class="dv">78</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>datos_esc <span class="ot">&lt;-</span> <span class="fu">scale</span>(datos)</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>distancias <span class="ot">&lt;-</span> <span class="fu">dist</span>(</span>
+<span id="cb1-11"><a href="#cb1-11"></a>  datos_esc,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="at">method =</span> <span class="st">"euclidean"</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>modelo_completo <span class="ot">&lt;-</span> <span class="fu">hclust</span>(</span>
+<span id="cb1-16"><a href="#cb1-16"></a>  distancias,</span>
+<span id="cb1-17"><a href="#cb1-17"></a>  <span class="at">method =</span> <span class="st">"complete"</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="fu">plot</span>(</span>
+<span id="cb1-21"><a href="#cb1-21"></a>  modelo_completo,</span>
+<span id="cb1-22"><a href="#cb1-22"></a>  <span class="at">main =</span> <span class="st">"Agrupamiento jerárquico"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23"></a>  <span class="at">xlab =</span> <span class="st">""</span>,</span>
+<span id="cb1-24"><a href="#cb1-24"></a>  <span class="at">sub =</span> <span class="st">""</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a>)</span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a>grupos <span class="ot">&lt;-</span> <span class="fu">cutree</span>(</span>
+<span id="cb1-28"><a href="#cb1-28"></a>  modelo_completo,</span>
+<span id="cb1-29"><a href="#cb1-29"></a>  <span class="at">k =</span> <span class="dv">3</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a>)</span>
+<span id="cb1-31"><a href="#cb1-31"></a></span>
+<span id="cb1-32"><a href="#cb1-32"></a>grupos</span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a>modelo_ward <span class="ot">&lt;-</span> <span class="fu">hclust</span>(</span>
+<span id="cb1-35"><a href="#cb1-35"></a>  distancias,</span>
+<span id="cb1-36"><a href="#cb1-36"></a>  <span class="at">method =</span> <span class="st">"ward.D2"</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>)</span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="fu">plot</span>(modelo_ward)</span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a>dist_coph <span class="ot">&lt;-</span> <span class="fu">cophenetic</span>(modelo_ward)</span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="fu">cor</span>(</span>
+<span id="cb1-44"><a href="#cb1-44"></a>  <span class="fu">as.vector</span>(distancias),</span>
+<span id="cb1-45"><a href="#cb1-45"></a>  <span class="fu">as.vector</span>(dist_coph)</span>
+<span id="cb1-46"><a href="#cb1-46"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
-<section id="ejemplo-numérico" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-numérico">Ejemplo numérico</h2>
+<section id="ejemplo-numérico" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejemplo-numérico">Ejemplo numérico</h2>
 <p>Considérese:</p>
 <p><span class="math display">\[
 1,\;2,\;5,\;9.
@@ -1197,8 +1228,8 @@ d(1,2)=1.
 \min\{4,3\}=3.
 \]</span></p>
 </section>
-<section id="ejemplo-de-enlaces" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-de-enlaces">Ejemplo de enlaces</h2>
+<section id="ejemplo-de-enlaces" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejemplo-de-enlaces">Ejemplo de enlaces</h2>
 <p>Sean</p>
 <p><span class="math display">\[
 A=\{1,2\},
@@ -1224,8 +1255,8 @@ d_{\text{promedio}}(A,B)
 5.5.
 \]</span></p>
 </section>
-<section id="ejemplo-de-ward" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-de-ward">Ejemplo de Ward</h2>
+<section id="ejemplo-de-ward" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejemplo-de-ward">Ejemplo de Ward</h2>
 <p>Sean</p>
 <p><span class="math display">\[
 |A|=3,
@@ -1245,8 +1276,8 @@ d_{\text{promedio}}(A,B)
 19.2.
 \]</span></p>
 </section>
-<section id="ventajas" class="level2">
-<h2 class="anchored" data-anchor-id="ventajas">Ventajas</h2>
+<section id="ventajas" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ventajas">Ventajas</h2>
 <ol type="1">
 <li>produce una jerarquía completa;</li>
 <li>no exige fijar <span class="math inline">\(K\)</span> inicialmente;</li>
@@ -1256,8 +1287,8 @@ d_{\text{promedio}}(A,B)
 <li>puede trabajar con datos mixtos usando distancias adecuadas.</li>
 </ol>
 </section>
-<section id="limitaciones" class="level2">
-<h2 class="anchored" data-anchor-id="limitaciones">Limitaciones</h2>
+<section id="limitaciones" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="limitaciones">Limitaciones</h2>
 <ol type="1">
 <li>costo elevado;</li>
 <li>sensibilidad a escala;</li>
@@ -1268,8 +1299,8 @@ d_{\text{promedio}}(A,B)
 <li>dificultad con muestras grandes.</li>
 </ol>
 </section>
-<section id="errores-frecuentes" class="level2">
-<h2 class="anchored" data-anchor-id="errores-frecuentes">Errores frecuentes</h2>
+<section id="errores-frecuentes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="errores-frecuentes">Errores frecuentes</h2>
 <ol type="1">
 <li>no estandarizar;</li>
 <li>elegir el enlace sin justificarlo;</li>
@@ -1283,8 +1314,8 @@ d_{\text{promedio}}(A,B)
 <li>inferir causalidad a partir de los grupos.</li>
 </ol>
 </section>
-<section id="ejercicios-conceptuales" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicios-conceptuales">Ejercicios conceptuales</h2>
+<section id="ejercicios-conceptuales" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicios-conceptuales">Ejercicios conceptuales</h2>
 <ol type="1">
 <li>Compare métodos aglomerativos y divisivos.</li>
 <li>¿Qué representa el dendrograma?</li>
@@ -1298,8 +1329,8 @@ d_{\text{promedio}}(A,B)
 <li>Compare agrupamiento jerárquico y K-means.</li>
 </ol>
 </section>
-<section id="ejercicio-de-distancias" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicio-de-distancias">Ejercicio de distancias</h2>
+<section id="ejercicio-de-distancias" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicio-de-distancias">Ejercicio de distancias</h2>
 <p>Considere</p>
 <p><span class="math display">\[
 (1,1),\;(2,1),\;(5,4),\;(6,5).
@@ -1312,8 +1343,8 @@ d_{\text{promedio}}(A,B)
 <li>Compare los resultados.</li>
 </ol>
 </section>
-<section id="ejercicio-de-ward" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicio-de-ward">Ejercicio de Ward</h2>
+<section id="ejercicio-de-ward" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicio-de-ward">Ejercicio de Ward</h2>
 <p>Considere</p>
 <p><span class="math display">\[
 |A|=4,
@@ -1326,8 +1357,8 @@ d_{\text{promedio}}(A,B)
 \]</span></p>
 <p>Calcule el incremento de Ward.</p>
 </section>
-<section id="ejercicio-aplicado" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicio-aplicado">Ejercicio aplicado</h2>
+<section id="ejercicio-aplicado" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicio-aplicado">Ejercicio aplicado</h2>
 <p>Agrupe estaciones de calidad del aire utilizando:</p>
 <ul>
 <li>PM10;</li>
@@ -1356,22 +1387,28 @@ d_{\text{promedio}}(A,B)
 <li>limitaciones ambientales.</li>
 </ol>
 </section>
-<section id="resumen" class="level2">
-<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
+<section id="resumen" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="resumen">Resumen</h2>
 <p>En este capítulo se desarrolló el agrupamiento jerárquico como método para construir grupos anidados.</p>
 <p>Se estudiaron los enfoques aglomerativo y divisivo, las matrices de distancia, los enlaces simple, completo, promedio, por centroides y Ward.</p>
 <p>También se analizaron dendrogramas, alturas, cortes, distancias cofenéticas, fórmula de Lance-Williams, estabilidad, valores atípicos, complejidad y comparación con K-means.</p>
 </section>
 <section id="referencias-del-capítulo" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="referencias-del-capítulo">Referencias del capítulo</h2>
-<p>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en <span class="citation" data-cites="ward1963hierarchical">Ward (<a href="../referencias.html#ref-ward1963hierarchical" role="doc-biblioref">1963</a>)</span>; <span class="citation" data-cites="mardia1979multivariate">Mardia et&nbsp;al. (<a href="../referencias.html#ref-mardia1979multivariate" role="doc-biblioref">1979</a>)</span>.</p>
+<p>Los fundamentos se apoyan en <span class="citation" data-cites="ward1963hierarchical">Ward (<a href="../referencias.html#ref-ward1963hierarchical" role="doc-biblioref">1963</a>)</span>, <span class="citation" data-cites="lance1967general">Lance y Williams (<a href="../referencias.html#ref-lance1967general" role="doc-biblioref">1967</a>)</span>, <span class="citation" data-cites="murtagh2012algorithms">Murtagh y Contreras (<a href="../referencias.html#ref-murtagh2012algorithms" role="doc-biblioref">2012</a>)</span> y <span class="citation" data-cites="mardia1979multivariate">Mardia et&nbsp;al. (<a href="../referencias.html#ref-mardia1979multivariate" role="doc-biblioref">1979</a>)</span>.</p>
 
 
 <!-- -->
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-lance1967general" class="csl-entry" role="listitem">
+Lance, G. N., y W. T. Williams. 1967. <span>«A General Theory of Classificatory Sorting Strategies: 1. Hierarchical Systems»</span>. <em>The Computer Journal</em> 9 (4): 373-80. <a href="https://doi.org/10.1093/comjnl/9.4.373">https://doi.org/10.1093/comjnl/9.4.373</a>.
+</div>
 <div id="ref-mardia1979multivariate" class="csl-entry" role="listitem">
 Mardia, Kanti V., John T. Kent, y John M. Bibby. 1979. <em>Multivariate Analysis</em>. Academic Press.
+</div>
+<div id="ref-murtagh2012algorithms" class="csl-entry" role="listitem">
+Murtagh, Fionn, y Pedro Contreras. 2012. <span>«Algorithms for Hierarchical Clustering: An Overview»</span>. <em>Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery</em> 2 (1): 86-97. <a href="https://doi.org/10.1002/widm.53">https://doi.org/10.1002/widm.53</a>.
 </div>
 <div id="ref-ward1963hierarchical" class="csl-entry" role="listitem">
 Ward, Joe H. 1963. <span>«Hierarchical Grouping to Optimize an Objective Function»</span>. <em>Journal of the American Statistical Association</em> 58 (301): 236-44. <a href="https://doi.org/10.1080/01621459.1963.10500845">https://doi.org/10.1080/01621459.1963.10500845</a>.
@@ -1846,738 +1883,752 @@ Ward, Joe H. 1963. <span>«Hierarchical Grouping to Optimize an Objective Functi
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../no-supervisado/kmeans.html" class="pagination-link" aria-label="Agrupamiento mediante K-means">
+      <a href="../no-supervisado/kmeans.html" class="pagination-link" aria-label="Agrupamiento mediante K-means\index{K-means}">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Agrupamiento mediante K-means</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../no-supervisado/reglas-asociacion.html" class="pagination-link" aria-label="Reglas de asociación">
+      <a href="../no-supervisado/reglas-asociacion.html" class="pagination-link" aria-label="Reglas de asociación\index{Reglas de asociación}">
         <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reglas de asociación</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Agrupamiento jerárquico {#sec-agrupamiento-jerarquico}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>El agrupamiento jerárquico construye una sucesión de grupos anidados y representa el resultado mediante un **dendrograma**. A diferencia de K-means, no exige fijar el número de conglomerados antes de iniciar el análisis.</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Existen dos estrategias:</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**aglomerativa:** comienza con una observación por grupo y realiza fusiones;</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**divisiva:** comienza con un solo grupo y realiza separaciones.</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>El resultado depende de dos decisiones fundamentales: la distancia entre observaciones y el criterio de enlace utilizado para medir distancia entre grupos.</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Al finalizar el capítulo, el lector podrá:</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>distinguir agrupamiento aglomerativo y divisivo;</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>construir e interpretar una matriz de distancias;</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>definir enlace simple, completo, promedio y Ward;</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>interpretar un dendrograma y sus alturas;</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>seleccionar el número de grupos;</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>calcular distancias cofenéticas;</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>evaluar estabilidad;</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>comparar agrupamiento jerárquico con K-means;</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>reconocer sus ventajas y limitaciones;</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>aplicarlo en R.</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Formulación</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>Considérese una muestra no etiquetada</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>\mathcal{D}_n=<span class="sc">\{</span>\mathbf{x}_1,\ldots,\mathbf{x}_n<span class="sc">\}</span>,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>\mathbf{x}_i\in\mathbb{R}^p.</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>Una partición de las observaciones es una colección</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>\mathcal{P}=<span class="sc">\{</span>C_1,\ldots,C_K<span class="sc">\}</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>tal que</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>C_k\cap C_\ell=\varnothing</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>\quad (k\neq \ell),</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>\bigcup_{k=1}^{K}C_k=<span class="sc">\{</span>1,\ldots,n<span class="sc">\}</span>.</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>El método jerárquico genera varias particiones relacionadas entre sí.</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matriz de distancias</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>La información inicial se resume en</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>\mathbf{D}=(d_{ij}),</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>donde</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>d_{ij}=d(\mathbf{x}_i,\mathbf{x}_j).</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>La matriz satisface</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>d_{ij}=d_{ji},</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>d_{ii}=0.</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Distancias frecuentes</span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### Euclidiana</span></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>d_2(\mathbf{x}_i,\mathbf{x}_j)</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>\left[</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>\sum_{r=1}^{p}(x_{ir}-x_{jr})^2</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>\right]^{1/2}.</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="fu">### Manhattan</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>d_1(\mathbf{x}_i,\mathbf{x}_j)</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>\sum_{r=1}^{p}|x_{ir}-x_{jr}|.</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Minkowski</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>d_q(\mathbf{x}_i,\mathbf{x}_j)</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>\left[</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>\sum_{r=1}^{p}|x_{ir}-x_{jr}|^q</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>\right]^{1/q}.</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>Para datos mixtos puede utilizarse la distancia de Gower.</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Escalamiento</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>Cuando las variables tienen escalas distintas, suele emplearse</span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>z_{ij}</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>\frac{x_{ij}-\overline{x}_j}{s_j}.</span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>Sin estandarización, una variable con valores grandes puede dominar las fusiones.</span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## Agrupamiento aglomerativo</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>El algoritmo inicia con</span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>C_i^{(0)}=<span class="sc">\{</span>i<span class="sc">\}</span>,</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>\qquad i=1,\ldots,n.</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>En cada paso se fusionan los dos grupos más cercanos. Después de $n-1$ fusiones queda un solo grupo.</span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>::: {#def-algoritmo-aglomerativo}</span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>iniciar con $n$ grupos unitarios;</span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>calcular distancias entre grupos;</span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>fusionar el par más cercano;</span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>actualizar las distancias;</span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>repetir hasta formar un único grupo.</span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## Agrupamiento divisivo</span></span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>El método divisivo inicia con</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>C^{(0)}=<span class="sc">\{</span>1,\ldots,n<span class="sc">\}</span></span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>y divide sucesivamente los grupos. DIANA es un algoritmo divisivo clásico.</span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="fu">## Criterios de enlace</span></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>Sean $A$ y $B$ dos grupos.</span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="fu">### Enlace simple</span></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>d_{\text{simple}}(A,B)</span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>\min_{i\in A,\;j\in B}</span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>d(\mathbf{x}_i,\mathbf{x}_j).</span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>Detecta estructuras alargadas, pero puede sufrir **encadenamiento**, donde grupos distintos se unen por una cadena de puntos intermedios.</span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="fu">### Enlace completo</span></span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>d_{\text{completo}}(A,B)</span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>\max_{i\in A,\;j\in B}</span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>d(\mathbf{x}_i,\mathbf{x}_j).</span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>Favorece grupos compactos, aunque puede ser sensible a valores extremos.</span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a><span class="fu">### Enlace promedio</span></span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>d_{\text{promedio}}(A,B)</span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>\frac{1}{|A||B|}</span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>\sum_{i\in A}</span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>\sum_{j\in B}</span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>d(\mathbf{x}_i,\mathbf{x}_j).</span>
-<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>Representa un compromiso entre enlace simple y completo.</span>
-<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a><span class="fu">### Enlace por centroides</span></span>
-<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>d_{\text{centroide}}(A,B)</span>
-<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a><span class="sc">\|</span>\boldsymbol{\mu}_A-\boldsymbol{\mu}_B<span class="sc">\|</span>_2.</span>
-<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>Puede producir inversiones en el dendrograma.</span>
-<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a><span class="fu">## Método de Ward</span></span>
-<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>Ward fusiona los grupos que producen el menor aumento en la suma de cuadrados intragrupo.</span>
-<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>Para un grupo $C$:</span>
-<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a>W(C)</span>
-<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>\sum_{i\in C}</span>
-<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a><span class="sc">\|</span>\mathbf{x}_i-\boldsymbol{\mu}_C<span class="sc">\|</span>_2^2.</span>
-<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a>El costo de fusionar $A$ y $B$ es</span>
-<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>\Delta(A,B)</span>
-<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>W(A\cup B)-W(A)-W(B).</span>
-<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a>También puede escribirse como</span>
-<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>\Delta(A,B)</span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>\frac{|A||B|}{|A|+|B|}</span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a><span class="sc">\|</span>\boldsymbol{\mu}_A-\boldsymbol{\mu}_B<span class="sc">\|</span>_2^2.</span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>Se fusiona el par con menor incremento.</span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## Relación entre Ward y K-means</span></span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>Ambos métodos buscan grupos compactos mediante suma de cuadrados.</span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>K-means optimiza directamente una partición con $K$ fijo.</span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ward construye una jerarquía completa y permite elegir $K$ después.</span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dendrograma</span></span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>El dendrograma representa las fusiones:</span>
-<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>el eje horizontal contiene observaciones o ramas;</span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>el eje vertical muestra la altura de fusión;</span>
-<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>una fusión alta indica mayor diferencia entre grupos.</span>
-<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a><span class="fu">## Corte del dendrograma</span></span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>Al cortar a una altura $h$, las ramas interceptadas forman los grupos.</span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>Otra opción es fijar directamente el número de grupos:</span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>K.</span>
-<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a><span class="fu">## Selección del número de grupos</span></span>
-<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>Puede utilizarse:</span>
-<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>saltos grandes entre alturas;</span>
-<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>silueta;</span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>índice Gap;</span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>estabilidad por remuestreo;</span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>conocimiento del problema.</span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>La inspección visual debe complementarse con criterios cuantitativos.</span>
-<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a><span class="fu">## Distancia cofenética</span></span>
-<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>La distancia cofenética entre dos observaciones es la altura a la que se fusionan por primera vez.</span>
-<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>Se denota por</span>
-<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>d_{ij}^{coph}.</span>
-<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlación cofenética</span></span>
-<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>Compara las distancias originales con las representadas por el dendrograma:</span>
-<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a>r_{coph}</span>
-<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>\operatorname{cor}</span>
-<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a>\left(</span>
-<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a>d_{ij},</span>
-<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a>d_{ij}^{coph}</span>
-<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>\right).</span>
-<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>Un valor alto indica que el dendrograma conserva bien la estructura de distancias.</span>
-<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fórmula de Lance-Williams</span></span>
-<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a>Las distancias pueden actualizarse mediante</span>
-<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a>d(A\cup B,C)</span>
-<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>\alpha_A d(A,C)</span>
-<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a>+</span>
-<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a>\alpha_B d(B,C)</span>
-<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>+</span>
-<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>\beta d(A,B)</span>
-<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>+</span>
-<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>\gamma</span>
-<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>d(A,C)-d(B,C)<span class="pp">|</span>.</span>
-<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a>Los coeficientes dependen del enlace.</span>
-<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a>Para enlace simple:</span>
-<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a>\alpha_A=\alpha_B=\frac{1}{2},</span>
-<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a>\beta=0,</span>
-<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a>\gamma=-\frac{1}{2}.</span>
-<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a>Para enlace completo:</span>
-<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a>\alpha_A=\alpha_B=\frac{1}{2},</span>
-<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a>\beta=0,</span>
-<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a>\gamma=\frac{1}{2}.</span>
-<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inversiones</span></span>
-<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a>Una inversión ocurre cuando una fusión posterior aparece a menor altura que una anterior. Puede presentarse con el enlace por centroides y dificulta la interpretación.</span>
-<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estabilidad</span></span>
-<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a>Una solución es estable si pequeñas perturbaciones producen grupos semejantes.</span>
-<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a>Puede evaluarse mediante:</span>
-<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>bootstrap;</span>
-<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>submuestreo;</span>
-<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>comparación de dendrogramas;</span>
-<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>coeficiente de Jaccard;</span>
-<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>índice de Rand ajustado.</span>
-<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a><span class="fu">## Jaccard de grupos</span></span>
-<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a>Para un grupo original $C$ y uno remuestreado $C^*$:</span>
-<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a>J(C,C^*)</span>
-<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a>\frac{|C\cap C^*|}{|C\cup C^*|}.</span>
-<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a>Valores altos indican estabilidad.</span>
-<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparación de dendrogramas</span></span>
-<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a>Pueden utilizarse:</span>
-<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>correlación cofenética;</span>
-<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>tanglegrams;</span>
-<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>entanglement;</span>
-<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>comparación de ramas.</span>
-<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complejidad computacional</span></span>
-<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a>La matriz de distancias requiere memoria del orden de</span>
-<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a>O(n^2).</span>
-<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a>El tiempo puede variar entre</span>
-<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a>O(n^2)</span>
-<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a>O(n^3),</span>
-<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a>dependiendo del algoritmo.</span>
-<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a>Esto limita el método en muestras muy grandes.</span>
-<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-399"><a href="#cb2-399" aria-hidden="true" tabindex="-1"></a><span class="fu">## Métodos escalables</span></span>
-<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-401"><a href="#cb2-401" aria-hidden="true" tabindex="-1"></a>Para grandes volúmenes pueden utilizarse:</span>
-<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-403"><a href="#cb2-403" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>muestreo;</span>
-<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>preagrupamiento;</span>
-<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>aproximaciones;</span>
-<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>BIRCH;</span>
-<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>clustering híbrido.</span>
-<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a><span class="fu">## Valores atípicos</span></span>
-<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a>Una observación extrema puede:</span>
-<span id="cb2-412"><a href="#cb2-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>formar una rama aislada;</span>
-<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>aumentar las alturas;</span>
-<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>cambiar fusiones posteriores;</span>
-<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>distorsionar el número de grupos.</span>
-<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a>Debe analizarse antes de interpretar el dendrograma.</span>
-<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variables categóricas y mixtas</span></span>
-<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-422"><a href="#cb2-422" aria-hidden="true" tabindex="-1"></a>La distancia euclidiana no es adecuada directamente para variables categóricas.</span>
-<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-424"><a href="#cb2-424" aria-hidden="true" tabindex="-1"></a>Pueden utilizarse:</span>
-<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-426"><a href="#cb2-426" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gower;</span>
-<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Jaccard;</span>
-<span id="cb2-428"><a href="#cb2-428" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>coincidencia simple;</span>
-<span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>transformaciones apropiadas.</span>
-<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a><span class="fu">## Distancia de Jaccard</span></span>
-<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a>Para presencia o ausencia:</span>
-<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a>d_J(A,B)</span>
-<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a>1-</span>
-<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a>\frac{|A\cap B|}{|A\cup B|}.</span>
-<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a>Es útil cuando la presencia es más informativa que la ausencia.</span>
-<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualización</span></span>
-<span id="cb2-445"><a href="#cb2-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a>Además del dendrograma:</span>
-<span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>heatmap con dendrogramas;</span>
-<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>proyección PCA;</span>
-<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>gráficos de silueta;</span>
-<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>perfiles de grupos;</span>
-<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>tanglegrams.</span>
-<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a><span class="fu">## Relación con grafos</span></span>
-<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a>El enlace simple está relacionado con el árbol de expansión mínima. Cortar sus aristas más largas puede producir la misma partición que un corte del dendrograma de enlace simple.</span>
-<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparación con K-means</span></span>
-<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Aspecto <span class="pp">|</span> Jerárquico <span class="pp">|</span> K-means <span class="pp">|</span></span>
-<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Resultado <span class="pp">|</span> Jerarquía <span class="pp">|</span> Una partición <span class="pp">|</span></span>
-<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Número de grupos <span class="pp">|</span> Puede elegirse después <span class="pp">|</span> Se fija antes <span class="pp">|</span></span>
-<span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Distancias <span class="pp">|</span> Variadas <span class="pp">|</span> Euclidiana cuadrática <span class="pp">|</span></span>
-<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Escalabilidad <span class="pp">|</span> Menor <span class="pp">|</span> Mayor <span class="pp">|</span></span>
-<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Forma de grupos <span class="pp">|</span> Depende del enlace <span class="pp">|</span> Compactos y esféricos <span class="pp">|</span></span>
-<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reversibilidad <span class="pp">|</span> Fusiones irreversibles <span class="pp">|</span> Reasignaciones iterativas <span class="pp">|</span></span>
-<span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparación con DBSCAN</span></span>
-<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a>DBSCAN detecta grupos por densidad y puede identificar ruido. El agrupamiento jerárquico produce una jerarquía completa, pero no identifica ruido de manera natural.</span>
-<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conexión con R</span></span>
-<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a>  <span class="at">pm10 =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">52</span>, <span class="dv">60</span>, <span class="dv">38</span>, <span class="dv">70</span>, <span class="dv">65</span>, <span class="dv">30</span>, <span class="dv">28</span>),</span>
-<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a>  <span class="at">no2 =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">42</span>, <span class="dv">28</span>, <span class="dv">50</span>, <span class="dv">47</span>, <span class="dv">20</span>, <span class="dv">18</span>),</span>
-<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a>  <span class="at">temperatura =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">26</span>, <span class="dv">20</span>, <span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">18</span>, <span class="dv">17</span>),</span>
-<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a>  <span class="at">humedad =</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">45</span>, <span class="dv">48</span>, <span class="dv">75</span>, <span class="dv">78</span>)</span>
-<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a>datos_esc <span class="ot">&lt;-</span> <span class="fu">scale</span>(datos)</span>
-<span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a>distancias <span class="ot">&lt;-</span> <span class="fu">dist</span>(</span>
-<span id="cb2-490"><a href="#cb2-490" aria-hidden="true" tabindex="-1"></a>  datos_esc,</span>
-<span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"euclidean"</span></span>
-<span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-493"><a href="#cb2-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-494"><a href="#cb2-494" aria-hidden="true" tabindex="-1"></a>modelo_completo <span class="ot">&lt;-</span> <span class="fu">hclust</span>(</span>
-<span id="cb2-495"><a href="#cb2-495" aria-hidden="true" tabindex="-1"></a>  distancias,</span>
-<span id="cb2-496"><a href="#cb2-496" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"complete"</span></span>
-<span id="cb2-497"><a href="#cb2-497" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-498"><a href="#cb2-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-499"><a href="#cb2-499" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a>  modelo_completo,</span>
-<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Agrupamiento jerárquico"</span>,</span>
-<span id="cb2-502"><a href="#cb2-502" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">""</span>,</span>
-<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a>  <span class="at">sub =</span> <span class="st">""</span></span>
-<span id="cb2-504"><a href="#cb2-504" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-505"><a href="#cb2-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-506"><a href="#cb2-506" aria-hidden="true" tabindex="-1"></a>grupos <span class="ot">&lt;-</span> <span class="fu">cutree</span>(</span>
-<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a>  modelo_completo,</span>
-<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">3</span></span>
-<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a>grupos</span>
-<span id="cb2-512"><a href="#cb2-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-513"><a href="#cb2-513" aria-hidden="true" tabindex="-1"></a>modelo_ward <span class="ot">&lt;-</span> <span class="fu">hclust</span>(</span>
-<span id="cb2-514"><a href="#cb2-514" aria-hidden="true" tabindex="-1"></a>  distancias,</span>
-<span id="cb2-515"><a href="#cb2-515" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"ward.D2"</span></span>
-<span id="cb2-516"><a href="#cb2-516" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-517"><a href="#cb2-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-518"><a href="#cb2-518" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo_ward)</span>
-<span id="cb2-519"><a href="#cb2-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-520"><a href="#cb2-520" aria-hidden="true" tabindex="-1"></a>dist_coph <span class="ot">&lt;-</span> <span class="fu">cophenetic</span>(modelo_ward)</span>
-<span id="cb2-521"><a href="#cb2-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-522"><a href="#cb2-522" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(</span>
-<span id="cb2-523"><a href="#cb2-523" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.vector</span>(distancias),</span>
-<span id="cb2-524"><a href="#cb2-524" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.vector</span>(dist_coph)</span>
-<span id="cb2-525"><a href="#cb2-525" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-526"><a href="#cb2-526" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-527"><a href="#cb2-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-528"><a href="#cb2-528" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejemplo numérico</span></span>
-<span id="cb2-529"><a href="#cb2-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-530"><a href="#cb2-530" aria-hidden="true" tabindex="-1"></a>Considérese:</span>
-<span id="cb2-531"><a href="#cb2-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-532"><a href="#cb2-532" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-533"><a href="#cb2-533" aria-hidden="true" tabindex="-1"></a>1,\;2,\;5,\;9.</span>
-<span id="cb2-534"><a href="#cb2-534" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-535"><a href="#cb2-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-536"><a href="#cb2-536" aria-hidden="true" tabindex="-1"></a>La primera fusión ocurre entre 1 y 2 porque</span>
-<span id="cb2-537"><a href="#cb2-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-538"><a href="#cb2-538" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-539"><a href="#cb2-539" aria-hidden="true" tabindex="-1"></a>d(1,2)=1.</span>
-<span id="cb2-540"><a href="#cb2-540" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-541"><a href="#cb2-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-542"><a href="#cb2-542" aria-hidden="true" tabindex="-1"></a>Con enlace simple, la distancia entre $<span class="sc">\{</span>1,2<span class="sc">\}</span>$ y $<span class="sc">\{</span>5<span class="sc">\}</span>$ es</span>
-<span id="cb2-543"><a href="#cb2-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-544"><a href="#cb2-544" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-545"><a href="#cb2-545" aria-hidden="true" tabindex="-1"></a>\min<span class="sc">\{</span>4,3<span class="sc">\}</span>=3.</span>
-<span id="cb2-546"><a href="#cb2-546" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-547"><a href="#cb2-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-548"><a href="#cb2-548" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejemplo de enlaces</span></span>
-<span id="cb2-549"><a href="#cb2-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-550"><a href="#cb2-550" aria-hidden="true" tabindex="-1"></a>Sean</span>
-<span id="cb2-551"><a href="#cb2-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-552"><a href="#cb2-552" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-553"><a href="#cb2-553" aria-hidden="true" tabindex="-1"></a>A=<span class="sc">\{</span>1,2<span class="sc">\}</span>,</span>
-<span id="cb2-554"><a href="#cb2-554" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-555"><a href="#cb2-555" aria-hidden="true" tabindex="-1"></a>B=<span class="sc">\{</span>5,9<span class="sc">\}</span>.</span>
-<span id="cb2-556"><a href="#cb2-556" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-557"><a href="#cb2-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-558"><a href="#cb2-558" aria-hidden="true" tabindex="-1"></a>Las distancias cruzadas son</span>
-<span id="cb2-559"><a href="#cb2-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-560"><a href="#cb2-560" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-561"><a href="#cb2-561" aria-hidden="true" tabindex="-1"></a>4,\;8,\;3,\;7.</span>
-<span id="cb2-562"><a href="#cb2-562" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-563"><a href="#cb2-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-564"><a href="#cb2-564" aria-hidden="true" tabindex="-1"></a>Por tanto:</span>
-<span id="cb2-565"><a href="#cb2-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-566"><a href="#cb2-566" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-567"><a href="#cb2-567" aria-hidden="true" tabindex="-1"></a>d_{\text{simple}}(A,B)=3,</span>
-<span id="cb2-568"><a href="#cb2-568" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-569"><a href="#cb2-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-570"><a href="#cb2-570" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-571"><a href="#cb2-571" aria-hidden="true" tabindex="-1"></a>d_{\text{completo}}(A,B)=8,</span>
-<span id="cb2-572"><a href="#cb2-572" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-573"><a href="#cb2-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-574"><a href="#cb2-574" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-575"><a href="#cb2-575" aria-hidden="true" tabindex="-1"></a>d_{\text{promedio}}(A,B)</span>
-<span id="cb2-576"><a href="#cb2-576" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-577"><a href="#cb2-577" aria-hidden="true" tabindex="-1"></a>\frac{4+8+3+7}{4}</span>
-<span id="cb2-578"><a href="#cb2-578" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-579"><a href="#cb2-579" aria-hidden="true" tabindex="-1"></a>5.5.</span>
-<span id="cb2-580"><a href="#cb2-580" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-581"><a href="#cb2-581" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-582"><a href="#cb2-582" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejemplo de Ward</span></span>
-<span id="cb2-583"><a href="#cb2-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-584"><a href="#cb2-584" aria-hidden="true" tabindex="-1"></a>Sean</span>
-<span id="cb2-585"><a href="#cb2-585" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-586"><a href="#cb2-586" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-587"><a href="#cb2-587" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>A<span class="pp">|</span>=3,</span>
-<span id="cb2-588"><a href="#cb2-588" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-589"><a href="#cb2-589" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>B<span class="pp">|</span>=2,</span>
-<span id="cb2-590"><a href="#cb2-590" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-591"><a href="#cb2-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-592"><a href="#cb2-592" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-593"><a href="#cb2-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-594"><a href="#cb2-594" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-595"><a href="#cb2-595" aria-hidden="true" tabindex="-1"></a><span class="sc">\|</span>\boldsymbol{\mu}_A-\boldsymbol{\mu}_B<span class="sc">\|</span>_2=4.</span>
-<span id="cb2-596"><a href="#cb2-596" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-597"><a href="#cb2-597" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-598"><a href="#cb2-598" aria-hidden="true" tabindex="-1"></a>Entonces</span>
-<span id="cb2-599"><a href="#cb2-599" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-600"><a href="#cb2-600" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-601"><a href="#cb2-601" aria-hidden="true" tabindex="-1"></a>\Delta(A,B)</span>
-<span id="cb2-602"><a href="#cb2-602" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-603"><a href="#cb2-603" aria-hidden="true" tabindex="-1"></a>\frac{3(2)}{3+2}(4^2)</span>
-<span id="cb2-604"><a href="#cb2-604" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-605"><a href="#cb2-605" aria-hidden="true" tabindex="-1"></a>19.2.</span>
-<span id="cb2-606"><a href="#cb2-606" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-607"><a href="#cb2-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-608"><a href="#cb2-608" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ventajas</span></span>
-<span id="cb2-609"><a href="#cb2-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-610"><a href="#cb2-610" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>produce una jerarquía completa;</span>
-<span id="cb2-611"><a href="#cb2-611" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>no exige fijar $K$ inicialmente;</span>
-<span id="cb2-612"><a href="#cb2-612" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>admite distintas métricas;</span>
-<span id="cb2-613"><a href="#cb2-613" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>proporciona una visualización interpretativa;</span>
-<span id="cb2-614"><a href="#cb2-614" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>detecta estructuras anidadas;</span>
-<span id="cb2-615"><a href="#cb2-615" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>puede trabajar con datos mixtos usando distancias adecuadas.</span>
-<span id="cb2-616"><a href="#cb2-616" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-617"><a href="#cb2-617" aria-hidden="true" tabindex="-1"></a><span class="fu">## Limitaciones</span></span>
-<span id="cb2-618"><a href="#cb2-618" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-619"><a href="#cb2-619" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>costo elevado;</span>
-<span id="cb2-620"><a href="#cb2-620" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>sensibilidad a escala;</span>
-<span id="cb2-621"><a href="#cb2-621" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>sensibilidad a valores atípicos;</span>
-<span id="cb2-622"><a href="#cb2-622" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>dependencia del enlace;</span>
-<span id="cb2-623"><a href="#cb2-623" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>fusiones irreversibles;</span>
-<span id="cb2-624"><a href="#cb2-624" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>selección del corte potencialmente subjetiva;</span>
-<span id="cb2-625"><a href="#cb2-625" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>dificultad con muestras grandes.</span>
-<span id="cb2-626"><a href="#cb2-626" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-627"><a href="#cb2-627" aria-hidden="true" tabindex="-1"></a><span class="fu">## Errores frecuentes</span></span>
-<span id="cb2-628"><a href="#cb2-628" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-629"><a href="#cb2-629" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>no estandarizar;</span>
-<span id="cb2-630"><a href="#cb2-630" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>elegir el enlace sin justificarlo;</span>
-<span id="cb2-631"><a href="#cb2-631" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>interpretar el dendrograma como una verdad única;</span>
-<span id="cb2-632"><a href="#cb2-632" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>ignorar valores extremos;</span>
-<span id="cb2-633"><a href="#cb2-633" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>usar Euclidiana con variables mixtas;</span>
-<span id="cb2-634"><a href="#cb2-634" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>seleccionar grupos solo visualmente;</span>
-<span id="cb2-635"><a href="#cb2-635" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>no evaluar estabilidad;</span>
-<span id="cb2-636"><a href="#cb2-636" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>confundir altura de fusión con tamaño;</span>
-<span id="cb2-637"><a href="#cb2-637" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>interpretar etiquetas como ordenadas;</span>
-<span id="cb2-638"><a href="#cb2-638" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>inferir causalidad a partir de los grupos.</span>
-<span id="cb2-639"><a href="#cb2-639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-640"><a href="#cb2-640" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicios conceptuales</span></span>
-<span id="cb2-641"><a href="#cb2-641" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-642"><a href="#cb2-642" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compare métodos aglomerativos y divisivos.</span>
-<span id="cb2-643"><a href="#cb2-643" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>¿Qué representa el dendrograma?</span>
-<span id="cb2-644"><a href="#cb2-644" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Explique enlace simple, completo y promedio.</span>
-<span id="cb2-645"><a href="#cb2-645" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>¿Qué es el encadenamiento?</span>
-<span id="cb2-646"><a href="#cb2-646" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>¿Por qué Ward se relaciona con K-means?</span>
-<span id="cb2-647"><a href="#cb2-647" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>¿Qué representa la altura de fusión?</span>
-<span id="cb2-648"><a href="#cb2-648" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>¿Qué es la distancia cofenética?</span>
-<span id="cb2-649"><a href="#cb2-649" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>¿Cómo se selecciona el número de grupos?</span>
-<span id="cb2-650"><a href="#cb2-650" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>¿Por qué afectan los valores atípicos?</span>
-<span id="cb2-651"><a href="#cb2-651" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Compare agrupamiento jerárquico y K-means.</span>
-<span id="cb2-652"><a href="#cb2-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-653"><a href="#cb2-653" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicio de distancias</span></span>
-<span id="cb2-654"><a href="#cb2-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-655"><a href="#cb2-655" aria-hidden="true" tabindex="-1"></a>Considere</span>
-<span id="cb2-656"><a href="#cb2-656" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-657"><a href="#cb2-657" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-658"><a href="#cb2-658" aria-hidden="true" tabindex="-1"></a>(1,1),\;(2,1),\;(5,4),\;(6,5).</span>
-<span id="cb2-659"><a href="#cb2-659" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-660"><a href="#cb2-660" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-661"><a href="#cb2-661" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Calcule la matriz euclidiana.</span>
-<span id="cb2-662"><a href="#cb2-662" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identifique la primera fusión.</span>
-<span id="cb2-663"><a href="#cb2-663" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Continúe con enlace simple.</span>
-<span id="cb2-664"><a href="#cb2-664" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Repita con enlace completo.</span>
-<span id="cb2-665"><a href="#cb2-665" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Compare los resultados.</span>
-<span id="cb2-666"><a href="#cb2-666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-667"><a href="#cb2-667" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicio de Ward</span></span>
-<span id="cb2-668"><a href="#cb2-668" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-669"><a href="#cb2-669" aria-hidden="true" tabindex="-1"></a>Considere</span>
-<span id="cb2-670"><a href="#cb2-670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-671"><a href="#cb2-671" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-672"><a href="#cb2-672" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>A<span class="pp">|</span>=4,</span>
-<span id="cb2-673"><a href="#cb2-673" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-674"><a href="#cb2-674" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>B<span class="pp">|</span>=6,</span>
-<span id="cb2-675"><a href="#cb2-675" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-676"><a href="#cb2-676" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-677"><a href="#cb2-677" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-678"><a href="#cb2-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-679"><a href="#cb2-679" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-680"><a href="#cb2-680" aria-hidden="true" tabindex="-1"></a><span class="sc">\|</span>\boldsymbol{\mu}_A-\boldsymbol{\mu}_B<span class="sc">\|</span>_2^2=9.</span>
-<span id="cb2-681"><a href="#cb2-681" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-682"><a href="#cb2-682" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-683"><a href="#cb2-683" aria-hidden="true" tabindex="-1"></a>Calcule el incremento de Ward.</span>
-<span id="cb2-684"><a href="#cb2-684" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-685"><a href="#cb2-685" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicio aplicado</span></span>
-<span id="cb2-686"><a href="#cb2-686" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-687"><a href="#cb2-687" aria-hidden="true" tabindex="-1"></a>Agrupe estaciones de calidad del aire utilizando:</span>
-<span id="cb2-688"><a href="#cb2-688" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-689"><a href="#cb2-689" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>PM10;</span>
-<span id="cb2-690"><a href="#cb2-690" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>PM2.5;</span>
-<span id="cb2-691"><a href="#cb2-691" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>NO2;</span>
-<span id="cb2-692"><a href="#cb2-692" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ozono;</span>
-<span id="cb2-693"><a href="#cb2-693" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>temperatura;</span>
-<span id="cb2-694"><a href="#cb2-694" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>humedad;</span>
-<span id="cb2-695"><a href="#cb2-695" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>viento.</span>
-<span id="cb2-696"><a href="#cb2-696" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-697"><a href="#cb2-697" aria-hidden="true" tabindex="-1"></a>Incluya:</span>
-<span id="cb2-698"><a href="#cb2-698" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-699"><a href="#cb2-699" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>limpieza;</span>
-<span id="cb2-700"><a href="#cb2-700" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>faltantes;</span>
-<span id="cb2-701"><a href="#cb2-701" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>valores atípicos;</span>
-<span id="cb2-702"><a href="#cb2-702" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>estandarización;</span>
-<span id="cb2-703"><a href="#cb2-703" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>elección de distancia;</span>
-<span id="cb2-704"><a href="#cb2-704" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>comparación de enlaces;</span>
-<span id="cb2-705"><a href="#cb2-705" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>dendrogramas;</span>
-<span id="cb2-706"><a href="#cb2-706" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>correlación cofenética;</span>
-<span id="cb2-707"><a href="#cb2-707" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>selección de grupos;</span>
-<span id="cb2-708"><a href="#cb2-708" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>silueta;</span>
-<span id="cb2-709"><a href="#cb2-709" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>estabilidad por bootstrap;</span>
-<span id="cb2-710"><a href="#cb2-710" aria-hidden="true" tabindex="-1"></a><span class="ss">12. </span>perfiles;</span>
-<span id="cb2-711"><a href="#cb2-711" aria-hidden="true" tabindex="-1"></a><span class="ss">13. </span>comparación con K-means;</span>
-<span id="cb2-712"><a href="#cb2-712" aria-hidden="true" tabindex="-1"></a><span class="ss">14. </span>limitaciones ambientales.</span>
-<span id="cb2-713"><a href="#cb2-713" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-714"><a href="#cb2-714" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resumen</span></span>
-<span id="cb2-715"><a href="#cb2-715" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-716"><a href="#cb2-716" aria-hidden="true" tabindex="-1"></a>En este capítulo se desarrolló el agrupamiento jerárquico como método para construir grupos anidados.</span>
-<span id="cb2-717"><a href="#cb2-717" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-718"><a href="#cb2-718" aria-hidden="true" tabindex="-1"></a>Se estudiaron los enfoques aglomerativo y divisivo, las matrices de distancia, los enlaces simple, completo, promedio, por centroides y Ward.</span>
-<span id="cb2-719"><a href="#cb2-719" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-720"><a href="#cb2-720" aria-hidden="true" tabindex="-1"></a>También se analizaron dendrogramas, alturas, cortes, distancias cofenéticas, fórmula de Lance-Williams, estabilidad, valores atípicos, complejidad y comparación con K-means.</span>
-<span id="cb2-721"><a href="#cb2-721" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-722"><a href="#cb2-722" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
-<span id="cb2-723"><a href="#cb2-723" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-724"><a href="#cb2-724" aria-hidden="true" tabindex="-1"></a>Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @ward1963hierarchical; @mardia1979multivariate.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu"># Agrupamiento jerárquico\index{Agrupamiento jerárquico} {#sec-agrupamiento-jerarquico}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">## Introducción {.unnumbered}</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>El agrupamiento jerárquico construye una sucesión de grupos anidados y representa el resultado mediante un **dendrograma\index{Dendrograma}**. A diferencia de K-means, no exige fijar el número de conglomerados antes de iniciar el análisis.</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>Existen dos estrategias:</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="ss">- </span>**aglomerativa:** comienza con una observación por grupo y realiza fusiones;</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="ss">- </span>**divisiva:** comienza con un solo grupo y realiza separaciones.</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>El resultado depende de dos decisiones fundamentales: la distancia entre observaciones y el criterio de enlace utilizado para medir distancia entre grupos.</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a>::: {.callout-important title="Definición esencial" appearance="default" icon="true"}</span>
+<span id="cb2-15"><a href="#cb2-15"></a>El agrupamiento jerárquico construye una secuencia de particiones anidadas. El dendrograma resume las fusiones, pero su forma depende de la distancia y del criterio de enlace.</span>
+<span id="cb2-16"><a href="#cb2-16"></a>:::</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="fu">## Objetivos {.unnumbered}</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a></span>
+<span id="cb2-20"><a href="#cb2-20"></a>Al finalizar el capítulo, el lector podrá:</span>
+<span id="cb2-21"><a href="#cb2-21"></a></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="ss">1. </span>distinguir agrupamiento aglomerativo y divisivo;</span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="ss">2. </span>construir e interpretar una matriz de distancias;</span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="ss">3. </span>definir enlace simple, completo, promedio y Ward\index{Método de Ward};</span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="ss">4. </span>interpretar un dendrograma y sus alturas;</span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="ss">5. </span>seleccionar el número de grupos;</span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="ss">6. </span>calcular distancias cofenéticas;</span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="ss">7. </span>evaluar estabilidad;</span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="ss">8. </span>comparar agrupamiento jerárquico con K-means;</span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="ss">9. </span>reconocer sus ventajas y limitaciones;</span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="ss">10. </span>aplicarlo en R.</span>
+<span id="cb2-32"><a href="#cb2-32"></a></span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="fu">## Formulación {.unnumbered}</span></span>
+<span id="cb2-34"><a href="#cb2-34"></a></span>
+<span id="cb2-35"><a href="#cb2-35"></a>Considérese una muestra no etiquetada</span>
+<span id="cb2-36"><a href="#cb2-36"></a></span>
+<span id="cb2-37"><a href="#cb2-37"></a>$$</span>
+<span id="cb2-38"><a href="#cb2-38"></a>\mathcal{D}_n=<span class="sc">\{</span>\mathbf{x}_1,\ldots,\mathbf{x}_n<span class="sc">\}</span>,</span>
+<span id="cb2-39"><a href="#cb2-39"></a>\qquad</span>
+<span id="cb2-40"><a href="#cb2-40"></a>\mathbf{x}_i\in\mathbb{R}^p.</span>
+<span id="cb2-41"><a href="#cb2-41"></a>$$</span>
+<span id="cb2-42"><a href="#cb2-42"></a></span>
+<span id="cb2-43"><a href="#cb2-43"></a>Una partición de las observaciones es una colección</span>
+<span id="cb2-44"><a href="#cb2-44"></a></span>
+<span id="cb2-45"><a href="#cb2-45"></a>$$</span>
+<span id="cb2-46"><a href="#cb2-46"></a>\mathcal{P}=<span class="sc">\{</span>C_1,\ldots,C_K<span class="sc">\}</span></span>
+<span id="cb2-47"><a href="#cb2-47"></a>$$</span>
+<span id="cb2-48"><a href="#cb2-48"></a></span>
+<span id="cb2-49"><a href="#cb2-49"></a>tal que</span>
+<span id="cb2-50"><a href="#cb2-50"></a></span>
+<span id="cb2-51"><a href="#cb2-51"></a>$$</span>
+<span id="cb2-52"><a href="#cb2-52"></a>C_k\cap C_\ell=\varnothing</span>
+<span id="cb2-53"><a href="#cb2-53"></a>\quad (k\neq \ell),</span>
+<span id="cb2-54"><a href="#cb2-54"></a>$$</span>
+<span id="cb2-55"><a href="#cb2-55"></a></span>
+<span id="cb2-56"><a href="#cb2-56"></a>y</span>
+<span id="cb2-57"><a href="#cb2-57"></a></span>
+<span id="cb2-58"><a href="#cb2-58"></a>$$</span>
+<span id="cb2-59"><a href="#cb2-59"></a>\bigcup_{k=1}^{K}C_k=<span class="sc">\{</span>1,\ldots,n<span class="sc">\}</span>.</span>
+<span id="cb2-60"><a href="#cb2-60"></a>$$</span>
+<span id="cb2-61"><a href="#cb2-61"></a></span>
+<span id="cb2-62"><a href="#cb2-62"></a>El método jerárquico genera varias particiones relacionadas entre sí.</span>
+<span id="cb2-63"><a href="#cb2-63"></a></span>
+<span id="cb2-64"><a href="#cb2-64"></a><span class="fu">## Matriz de distancias {.unnumbered}</span></span>
+<span id="cb2-65"><a href="#cb2-65"></a></span>
+<span id="cb2-66"><a href="#cb2-66"></a>La información inicial se resume en</span>
+<span id="cb2-67"><a href="#cb2-67"></a></span>
+<span id="cb2-68"><a href="#cb2-68"></a>$$</span>
+<span id="cb2-69"><a href="#cb2-69"></a>\mathbf{D}=(d_{ij}),</span>
+<span id="cb2-70"><a href="#cb2-70"></a>$$</span>
+<span id="cb2-71"><a href="#cb2-71"></a></span>
+<span id="cb2-72"><a href="#cb2-72"></a>donde</span>
+<span id="cb2-73"><a href="#cb2-73"></a></span>
+<span id="cb2-74"><a href="#cb2-74"></a>$$</span>
+<span id="cb2-75"><a href="#cb2-75"></a>d_{ij}=d(\mathbf{x}_i,\mathbf{x}_j).</span>
+<span id="cb2-76"><a href="#cb2-76"></a>$$</span>
+<span id="cb2-77"><a href="#cb2-77"></a></span>
+<span id="cb2-78"><a href="#cb2-78"></a>La matriz satisface</span>
+<span id="cb2-79"><a href="#cb2-79"></a></span>
+<span id="cb2-80"><a href="#cb2-80"></a>$$</span>
+<span id="cb2-81"><a href="#cb2-81"></a>d_{ij}=d_{ji},</span>
+<span id="cb2-82"><a href="#cb2-82"></a>\qquad</span>
+<span id="cb2-83"><a href="#cb2-83"></a>d_{ii}=0.</span>
+<span id="cb2-84"><a href="#cb2-84"></a>$$</span>
+<span id="cb2-85"><a href="#cb2-85"></a></span>
+<span id="cb2-86"><a href="#cb2-86"></a><span class="fu">## Distancias frecuentes {.unnumbered}</span></span>
+<span id="cb2-87"><a href="#cb2-87"></a></span>
+<span id="cb2-88"><a href="#cb2-88"></a><span class="fu">### Euclidiana {.unnumbered}</span></span>
+<span id="cb2-89"><a href="#cb2-89"></a></span>
+<span id="cb2-90"><a href="#cb2-90"></a>$$</span>
+<span id="cb2-91"><a href="#cb2-91"></a>d_2(\mathbf{x}_i,\mathbf{x}_j)</span>
+<span id="cb2-92"><a href="#cb2-92"></a>=</span>
+<span id="cb2-93"><a href="#cb2-93"></a>\left[</span>
+<span id="cb2-94"><a href="#cb2-94"></a>\sum_{r=1}^{p}(x_{ir}-x_{jr})^2</span>
+<span id="cb2-95"><a href="#cb2-95"></a>\right]^{1/2}.</span>
+<span id="cb2-96"><a href="#cb2-96"></a>$$</span>
+<span id="cb2-97"><a href="#cb2-97"></a></span>
+<span id="cb2-98"><a href="#cb2-98"></a><span class="fu">### Manhattan {.unnumbered}</span></span>
+<span id="cb2-99"><a href="#cb2-99"></a></span>
+<span id="cb2-100"><a href="#cb2-100"></a>$$</span>
+<span id="cb2-101"><a href="#cb2-101"></a>d_1(\mathbf{x}_i,\mathbf{x}_j)</span>
+<span id="cb2-102"><a href="#cb2-102"></a>=</span>
+<span id="cb2-103"><a href="#cb2-103"></a>\sum_{r=1}^{p}|x_{ir}-x_{jr}|.</span>
+<span id="cb2-104"><a href="#cb2-104"></a>$$</span>
+<span id="cb2-105"><a href="#cb2-105"></a></span>
+<span id="cb2-106"><a href="#cb2-106"></a><span class="fu">### Minkowski {.unnumbered}</span></span>
+<span id="cb2-107"><a href="#cb2-107"></a></span>
+<span id="cb2-108"><a href="#cb2-108"></a>$$</span>
+<span id="cb2-109"><a href="#cb2-109"></a>d_q(\mathbf{x}_i,\mathbf{x}_j)</span>
+<span id="cb2-110"><a href="#cb2-110"></a>=</span>
+<span id="cb2-111"><a href="#cb2-111"></a>\left[</span>
+<span id="cb2-112"><a href="#cb2-112"></a>\sum_{r=1}^{p}|x_{ir}-x_{jr}|^q</span>
+<span id="cb2-113"><a href="#cb2-113"></a>\right]^{1/q}.</span>
+<span id="cb2-114"><a href="#cb2-114"></a>$$</span>
+<span id="cb2-115"><a href="#cb2-115"></a></span>
+<span id="cb2-116"><a href="#cb2-116"></a>Para datos mixtos puede utilizarse la distancia de Gower.</span>
+<span id="cb2-117"><a href="#cb2-117"></a></span>
+<span id="cb2-118"><a href="#cb2-118"></a><span class="fu">## Escalamiento {.unnumbered}</span></span>
+<span id="cb2-119"><a href="#cb2-119"></a></span>
+<span id="cb2-120"><a href="#cb2-120"></a>Cuando las variables tienen escalas distintas, suele emplearse</span>
+<span id="cb2-121"><a href="#cb2-121"></a></span>
+<span id="cb2-122"><a href="#cb2-122"></a>$$</span>
+<span id="cb2-123"><a href="#cb2-123"></a>z_{ij}</span>
+<span id="cb2-124"><a href="#cb2-124"></a>=</span>
+<span id="cb2-125"><a href="#cb2-125"></a>\frac{x_{ij}-\overline{x}_j}{s_j}.</span>
+<span id="cb2-126"><a href="#cb2-126"></a>$$</span>
+<span id="cb2-127"><a href="#cb2-127"></a></span>
+<span id="cb2-128"><a href="#cb2-128"></a>Sin estandarización, una variable con valores grandes puede dominar las fusiones.</span>
+<span id="cb2-129"><a href="#cb2-129"></a></span>
+<span id="cb2-130"><a href="#cb2-130"></a><span class="fu">## Agrupamiento aglomerativo {.unnumbered}</span></span>
+<span id="cb2-131"><a href="#cb2-131"></a></span>
+<span id="cb2-132"><a href="#cb2-132"></a>El algoritmo inicia con</span>
+<span id="cb2-133"><a href="#cb2-133"></a></span>
+<span id="cb2-134"><a href="#cb2-134"></a>$$</span>
+<span id="cb2-135"><a href="#cb2-135"></a>C_i^{(0)}=<span class="sc">\{</span>i<span class="sc">\}</span>,</span>
+<span id="cb2-136"><a href="#cb2-136"></a>\qquad i=1,\ldots,n.</span>
+<span id="cb2-137"><a href="#cb2-137"></a>$$</span>
+<span id="cb2-138"><a href="#cb2-138"></a></span>
+<span id="cb2-139"><a href="#cb2-139"></a>En cada paso se fusionan los dos grupos más cercanos. Después de $n-1$ fusiones queda un solo grupo.</span>
+<span id="cb2-140"><a href="#cb2-140"></a></span>
+<span id="cb2-141"><a href="#cb2-141"></a>::: {#def-algoritmo-aglomerativo}</span>
+<span id="cb2-142"><a href="#cb2-142"></a><span class="ss">1. </span>iniciar con $n$ grupos unitarios;</span>
+<span id="cb2-143"><a href="#cb2-143"></a><span class="ss">2. </span>calcular distancias entre grupos;</span>
+<span id="cb2-144"><a href="#cb2-144"></a><span class="ss">3. </span>fusionar el par más cercano;</span>
+<span id="cb2-145"><a href="#cb2-145"></a><span class="ss">4. </span>actualizar las distancias;</span>
+<span id="cb2-146"><a href="#cb2-146"></a><span class="ss">5. </span>repetir hasta formar un único grupo.</span>
+<span id="cb2-147"><a href="#cb2-147"></a>:::</span>
+<span id="cb2-148"><a href="#cb2-148"></a></span>
+<span id="cb2-149"><a href="#cb2-149"></a><span class="fu">## Agrupamiento divisivo {.unnumbered}</span></span>
+<span id="cb2-150"><a href="#cb2-150"></a></span>
+<span id="cb2-151"><a href="#cb2-151"></a>El método divisivo inicia con</span>
+<span id="cb2-152"><a href="#cb2-152"></a></span>
+<span id="cb2-153"><a href="#cb2-153"></a>$$</span>
+<span id="cb2-154"><a href="#cb2-154"></a>C^{(0)}=<span class="sc">\{</span>1,\ldots,n<span class="sc">\}</span></span>
+<span id="cb2-155"><a href="#cb2-155"></a>$$</span>
+<span id="cb2-156"><a href="#cb2-156"></a></span>
+<span id="cb2-157"><a href="#cb2-157"></a>y divide sucesivamente los grupos. DIANA es un algoritmo divisivo clásico.</span>
+<span id="cb2-158"><a href="#cb2-158"></a></span>
+<span id="cb2-159"><a href="#cb2-159"></a><span class="fu">## Criterios de enlace {.unnumbered}</span></span>
+<span id="cb2-160"><a href="#cb2-160"></a></span>
+<span id="cb2-161"><a href="#cb2-161"></a>Sean $A$ y $B$ dos grupos.</span>
+<span id="cb2-162"><a href="#cb2-162"></a></span>
+<span id="cb2-163"><a href="#cb2-163"></a><span class="fu">### Enlace simple {.unnumbered}</span></span>
+<span id="cb2-164"><a href="#cb2-164"></a></span>
+<span id="cb2-165"><a href="#cb2-165"></a>$$</span>
+<span id="cb2-166"><a href="#cb2-166"></a>d_{\text{simple}}(A,B)</span>
+<span id="cb2-167"><a href="#cb2-167"></a>=</span>
+<span id="cb2-168"><a href="#cb2-168"></a>\min_{i\in A,\;j\in B}</span>
+<span id="cb2-169"><a href="#cb2-169"></a>d(\mathbf{x}_i,\mathbf{x}_j).</span>
+<span id="cb2-170"><a href="#cb2-170"></a>$$</span>
+<span id="cb2-171"><a href="#cb2-171"></a></span>
+<span id="cb2-172"><a href="#cb2-172"></a>Detecta estructuras alargadas, pero puede sufrir **encadenamiento**, donde grupos distintos se unen por una cadena de puntos intermedios.</span>
+<span id="cb2-173"><a href="#cb2-173"></a></span>
+<span id="cb2-174"><a href="#cb2-174"></a><span class="fu">### Enlace completo {.unnumbered}</span></span>
+<span id="cb2-175"><a href="#cb2-175"></a></span>
+<span id="cb2-176"><a href="#cb2-176"></a>$$</span>
+<span id="cb2-177"><a href="#cb2-177"></a>d_{\text{completo}}(A,B)</span>
+<span id="cb2-178"><a href="#cb2-178"></a>=</span>
+<span id="cb2-179"><a href="#cb2-179"></a>\max_{i\in A,\;j\in B}</span>
+<span id="cb2-180"><a href="#cb2-180"></a>d(\mathbf{x}_i,\mathbf{x}_j).</span>
+<span id="cb2-181"><a href="#cb2-181"></a>$$</span>
+<span id="cb2-182"><a href="#cb2-182"></a></span>
+<span id="cb2-183"><a href="#cb2-183"></a>Favorece grupos compactos, aunque puede ser sensible a valores extremos.</span>
+<span id="cb2-184"><a href="#cb2-184"></a></span>
+<span id="cb2-185"><a href="#cb2-185"></a><span class="fu">### Enlace promedio {.unnumbered}</span></span>
+<span id="cb2-186"><a href="#cb2-186"></a></span>
+<span id="cb2-187"><a href="#cb2-187"></a>$$</span>
+<span id="cb2-188"><a href="#cb2-188"></a>d_{\text{promedio}}(A,B)</span>
+<span id="cb2-189"><a href="#cb2-189"></a>=</span>
+<span id="cb2-190"><a href="#cb2-190"></a>\frac{1}{|A||B|}</span>
+<span id="cb2-191"><a href="#cb2-191"></a>\sum_{i\in A}</span>
+<span id="cb2-192"><a href="#cb2-192"></a>\sum_{j\in B}</span>
+<span id="cb2-193"><a href="#cb2-193"></a>d(\mathbf{x}_i,\mathbf{x}_j).</span>
+<span id="cb2-194"><a href="#cb2-194"></a>$$</span>
+<span id="cb2-195"><a href="#cb2-195"></a></span>
+<span id="cb2-196"><a href="#cb2-196"></a>Representa un compromiso entre enlace simple y completo.</span>
+<span id="cb2-197"><a href="#cb2-197"></a></span>
+<span id="cb2-198"><a href="#cb2-198"></a><span class="fu">### Enlace por centroides {.unnumbered}</span></span>
+<span id="cb2-199"><a href="#cb2-199"></a></span>
+<span id="cb2-200"><a href="#cb2-200"></a>$$</span>
+<span id="cb2-201"><a href="#cb2-201"></a>d_{\text{centroide}}(A,B)</span>
+<span id="cb2-202"><a href="#cb2-202"></a>=</span>
+<span id="cb2-203"><a href="#cb2-203"></a><span class="sc">\|</span>\boldsymbol{\mu}_A-\boldsymbol{\mu}_B<span class="sc">\|</span>_2.</span>
+<span id="cb2-204"><a href="#cb2-204"></a>$$</span>
+<span id="cb2-205"><a href="#cb2-205"></a></span>
+<span id="cb2-206"><a href="#cb2-206"></a>Puede producir inversiones en el dendrograma.</span>
+<span id="cb2-207"><a href="#cb2-207"></a></span>
+<span id="cb2-208"><a href="#cb2-208"></a><span class="fu">## Método de Ward {.unnumbered}</span></span>
+<span id="cb2-209"><a href="#cb2-209"></a></span>
+<span id="cb2-210"><a href="#cb2-210"></a>Ward fusiona los grupos que producen el menor aumento en la suma de cuadrados intragrupo.</span>
+<span id="cb2-211"><a href="#cb2-211"></a></span>
+<span id="cb2-212"><a href="#cb2-212"></a>Para un grupo $C$:</span>
+<span id="cb2-213"><a href="#cb2-213"></a></span>
+<span id="cb2-214"><a href="#cb2-214"></a>$$</span>
+<span id="cb2-215"><a href="#cb2-215"></a>W(C)</span>
+<span id="cb2-216"><a href="#cb2-216"></a>=</span>
+<span id="cb2-217"><a href="#cb2-217"></a>\sum_{i\in C}</span>
+<span id="cb2-218"><a href="#cb2-218"></a><span class="sc">\|</span>\mathbf{x}_i-\boldsymbol{\mu}_C<span class="sc">\|</span>_2^2.</span>
+<span id="cb2-219"><a href="#cb2-219"></a>$$</span>
+<span id="cb2-220"><a href="#cb2-220"></a></span>
+<span id="cb2-221"><a href="#cb2-221"></a>El costo de fusionar $A$ y $B$ es</span>
+<span id="cb2-222"><a href="#cb2-222"></a></span>
+<span id="cb2-223"><a href="#cb2-223"></a>$$</span>
+<span id="cb2-224"><a href="#cb2-224"></a>\Delta(A,B)</span>
+<span id="cb2-225"><a href="#cb2-225"></a>=</span>
+<span id="cb2-226"><a href="#cb2-226"></a>W(A\cup B)-W(A)-W(B).</span>
+<span id="cb2-227"><a href="#cb2-227"></a>$$</span>
+<span id="cb2-228"><a href="#cb2-228"></a></span>
+<span id="cb2-229"><a href="#cb2-229"></a>También puede escribirse como</span>
+<span id="cb2-230"><a href="#cb2-230"></a></span>
+<span id="cb2-231"><a href="#cb2-231"></a>$$</span>
+<span id="cb2-232"><a href="#cb2-232"></a>\Delta(A,B)</span>
+<span id="cb2-233"><a href="#cb2-233"></a>=</span>
+<span id="cb2-234"><a href="#cb2-234"></a>\frac{|A||B|}{|A|+|B|}</span>
+<span id="cb2-235"><a href="#cb2-235"></a><span class="sc">\|</span>\boldsymbol{\mu}_A-\boldsymbol{\mu}_B<span class="sc">\|</span>_2^2.</span>
+<span id="cb2-236"><a href="#cb2-236"></a>$$</span>
+<span id="cb2-237"><a href="#cb2-237"></a></span>
+<span id="cb2-238"><a href="#cb2-238"></a>Se fusiona el par con menor incremento.</span>
+<span id="cb2-239"><a href="#cb2-239"></a></span>
+<span id="cb2-240"><a href="#cb2-240"></a><span class="fu">## Relación entre Ward y K-means {.unnumbered}</span></span>
+<span id="cb2-241"><a href="#cb2-241"></a></span>
+<span id="cb2-242"><a href="#cb2-242"></a>Ambos métodos buscan grupos compactos mediante suma de cuadrados.</span>
+<span id="cb2-243"><a href="#cb2-243"></a></span>
+<span id="cb2-244"><a href="#cb2-244"></a><span class="ss">- </span>K-means optimiza directamente una partición con $K$ fijo.</span>
+<span id="cb2-245"><a href="#cb2-245"></a><span class="ss">- </span>Ward construye una jerarquía completa y permite elegir $K$ después.</span>
+<span id="cb2-246"><a href="#cb2-246"></a></span>
+<span id="cb2-247"><a href="#cb2-247"></a><span class="al">![El dendrograma registra las fusiones y la altura a la que ocurren.](../estilos/figuras/dendrograma-ward.png)</span>{#fig-dendrograma-ward width=84% fig-alt="Dendrograma de nueve observaciones construido con enlace de Ward"}</span>
+<span id="cb2-248"><a href="#cb2-248"></a></span>
+<span id="cb2-249"><a href="#cb2-249"></a><span class="fu">## Dendrograma {.unnumbered}</span></span>
+<span id="cb2-250"><a href="#cb2-250"></a></span>
+<span id="cb2-251"><a href="#cb2-251"></a>El dendrograma representa las fusiones:</span>
+<span id="cb2-252"><a href="#cb2-252"></a></span>
+<span id="cb2-253"><a href="#cb2-253"></a><span class="ss">- </span>el eje horizontal contiene observaciones o ramas;</span>
+<span id="cb2-254"><a href="#cb2-254"></a><span class="ss">- </span>el eje vertical muestra la altura de fusión;</span>
+<span id="cb2-255"><a href="#cb2-255"></a><span class="ss">- </span>una fusión alta indica mayor diferencia entre grupos.</span>
+<span id="cb2-256"><a href="#cb2-256"></a></span>
+<span id="cb2-257"><a href="#cb2-257"></a><span class="fu">## Corte del dendrograma {.unnumbered}</span></span>
+<span id="cb2-258"><a href="#cb2-258"></a></span>
+<span id="cb2-259"><a href="#cb2-259"></a>Al cortar a una altura $h$, las ramas interceptadas forman los grupos.</span>
+<span id="cb2-260"><a href="#cb2-260"></a></span>
+<span id="cb2-261"><a href="#cb2-261"></a>Otra opción es fijar directamente el número de grupos:</span>
+<span id="cb2-262"><a href="#cb2-262"></a></span>
+<span id="cb2-263"><a href="#cb2-263"></a>$$</span>
+<span id="cb2-264"><a href="#cb2-264"></a>K.</span>
+<span id="cb2-265"><a href="#cb2-265"></a>$$</span>
+<span id="cb2-266"><a href="#cb2-266"></a></span>
+<span id="cb2-267"><a href="#cb2-267"></a><span class="fu">## Selección del número de grupos {.unnumbered}</span></span>
+<span id="cb2-268"><a href="#cb2-268"></a></span>
+<span id="cb2-269"><a href="#cb2-269"></a>Puede utilizarse:</span>
+<span id="cb2-270"><a href="#cb2-270"></a></span>
+<span id="cb2-271"><a href="#cb2-271"></a><span class="ss">- </span>saltos grandes entre alturas;</span>
+<span id="cb2-272"><a href="#cb2-272"></a><span class="ss">- </span>silueta;</span>
+<span id="cb2-273"><a href="#cb2-273"></a><span class="ss">- </span>índice Gap;</span>
+<span id="cb2-274"><a href="#cb2-274"></a><span class="ss">- </span>estabilidad por remuestreo;</span>
+<span id="cb2-275"><a href="#cb2-275"></a><span class="ss">- </span>conocimiento del problema.</span>
+<span id="cb2-276"><a href="#cb2-276"></a></span>
+<span id="cb2-277"><a href="#cb2-277"></a>La inspección visual debe complementarse con criterios cuantitativos.</span>
+<span id="cb2-278"><a href="#cb2-278"></a></span>
+<span id="cb2-279"><a href="#cb2-279"></a><span class="fu">## Distancia cofenética {.unnumbered}</span></span>
+<span id="cb2-280"><a href="#cb2-280"></a></span>
+<span id="cb2-281"><a href="#cb2-281"></a>La distancia cofenética entre dos observaciones es la altura a la que se fusionan por primera vez.</span>
+<span id="cb2-282"><a href="#cb2-282"></a></span>
+<span id="cb2-283"><a href="#cb2-283"></a>Se denota por</span>
+<span id="cb2-284"><a href="#cb2-284"></a></span>
+<span id="cb2-285"><a href="#cb2-285"></a>$$</span>
+<span id="cb2-286"><a href="#cb2-286"></a>d_{ij}^{coph}.</span>
+<span id="cb2-287"><a href="#cb2-287"></a>$$</span>
+<span id="cb2-288"><a href="#cb2-288"></a></span>
+<span id="cb2-289"><a href="#cb2-289"></a><span class="fu">## Correlación cofenética {.unnumbered}</span></span>
+<span id="cb2-290"><a href="#cb2-290"></a></span>
+<span id="cb2-291"><a href="#cb2-291"></a>Compara las distancias originales con las representadas por el dendrograma:</span>
+<span id="cb2-292"><a href="#cb2-292"></a></span>
+<span id="cb2-293"><a href="#cb2-293"></a>$$</span>
+<span id="cb2-294"><a href="#cb2-294"></a>r_{coph}</span>
+<span id="cb2-295"><a href="#cb2-295"></a>=</span>
+<span id="cb2-296"><a href="#cb2-296"></a>\operatorname{cor}</span>
+<span id="cb2-297"><a href="#cb2-297"></a>\left(</span>
+<span id="cb2-298"><a href="#cb2-298"></a>d_{ij},</span>
+<span id="cb2-299"><a href="#cb2-299"></a>d_{ij}^{coph}</span>
+<span id="cb2-300"><a href="#cb2-300"></a>\right).</span>
+<span id="cb2-301"><a href="#cb2-301"></a>$$</span>
+<span id="cb2-302"><a href="#cb2-302"></a></span>
+<span id="cb2-303"><a href="#cb2-303"></a>Un valor alto indica que el dendrograma conserva bien la estructura de distancias.</span>
+<span id="cb2-304"><a href="#cb2-304"></a></span>
+<span id="cb2-305"><a href="#cb2-305"></a>La actualización recursiva de distancias puede expresarse mediante la familia de Lance-Williams <span class="co">[</span><span class="ot">@lance1967general</span><span class="co">]</span>. Esta formulación permite comparar distintos enlaces dentro de una estructura algebraica común.</span>
+<span id="cb2-306"><a href="#cb2-306"></a></span>
+<span id="cb2-307"><a href="#cb2-307"></a><span class="fu">## Fórmula de Lance-Williams {.unnumbered}</span></span>
+<span id="cb2-308"><a href="#cb2-308"></a></span>
+<span id="cb2-309"><a href="#cb2-309"></a>Las distancias pueden actualizarse mediante</span>
+<span id="cb2-310"><a href="#cb2-310"></a></span>
+<span id="cb2-311"><a href="#cb2-311"></a>$$</span>
+<span id="cb2-312"><a href="#cb2-312"></a>d(A\cup B,C)</span>
+<span id="cb2-313"><a href="#cb2-313"></a>=</span>
+<span id="cb2-314"><a href="#cb2-314"></a>\alpha_A d(A,C)</span>
+<span id="cb2-315"><a href="#cb2-315"></a>+</span>
+<span id="cb2-316"><a href="#cb2-316"></a>\alpha_B d(B,C)</span>
+<span id="cb2-317"><a href="#cb2-317"></a>+</span>
+<span id="cb2-318"><a href="#cb2-318"></a>\beta d(A,B)</span>
+<span id="cb2-319"><a href="#cb2-319"></a>+</span>
+<span id="cb2-320"><a href="#cb2-320"></a>\gamma</span>
+<span id="cb2-321"><a href="#cb2-321"></a><span class="pp">|</span>d(A,C)-d(B,C)<span class="pp">|</span>.</span>
+<span id="cb2-322"><a href="#cb2-322"></a>$$</span>
+<span id="cb2-323"><a href="#cb2-323"></a></span>
+<span id="cb2-324"><a href="#cb2-324"></a>Los coeficientes dependen del enlace.</span>
+<span id="cb2-325"><a href="#cb2-325"></a></span>
+<span id="cb2-326"><a href="#cb2-326"></a>Para enlace simple:</span>
+<span id="cb2-327"><a href="#cb2-327"></a></span>
+<span id="cb2-328"><a href="#cb2-328"></a>$$</span>
+<span id="cb2-329"><a href="#cb2-329"></a>\alpha_A=\alpha_B=\frac{1}{2},</span>
+<span id="cb2-330"><a href="#cb2-330"></a>\qquad</span>
+<span id="cb2-331"><a href="#cb2-331"></a>\beta=0,</span>
+<span id="cb2-332"><a href="#cb2-332"></a>\qquad</span>
+<span id="cb2-333"><a href="#cb2-333"></a>\gamma=-\frac{1}{2}.</span>
+<span id="cb2-334"><a href="#cb2-334"></a>$$</span>
+<span id="cb2-335"><a href="#cb2-335"></a></span>
+<span id="cb2-336"><a href="#cb2-336"></a>Para enlace completo:</span>
+<span id="cb2-337"><a href="#cb2-337"></a></span>
+<span id="cb2-338"><a href="#cb2-338"></a>$$</span>
+<span id="cb2-339"><a href="#cb2-339"></a>\alpha_A=\alpha_B=\frac{1}{2},</span>
+<span id="cb2-340"><a href="#cb2-340"></a>\qquad</span>
+<span id="cb2-341"><a href="#cb2-341"></a>\beta=0,</span>
+<span id="cb2-342"><a href="#cb2-342"></a>\qquad</span>
+<span id="cb2-343"><a href="#cb2-343"></a>\gamma=\frac{1}{2}.</span>
+<span id="cb2-344"><a href="#cb2-344"></a>$$</span>
+<span id="cb2-345"><a href="#cb2-345"></a></span>
+<span id="cb2-346"><a href="#cb2-346"></a><span class="fu">## Inversiones {.unnumbered}</span></span>
+<span id="cb2-347"><a href="#cb2-347"></a></span>
+<span id="cb2-348"><a href="#cb2-348"></a>Una inversión ocurre cuando una fusión posterior aparece a menor altura que una anterior. Puede presentarse con el enlace por centroides y dificulta la interpretación.</span>
+<span id="cb2-349"><a href="#cb2-349"></a></span>
+<span id="cb2-350"><a href="#cb2-350"></a><span class="fu">## Estabilidad {.unnumbered}</span></span>
+<span id="cb2-351"><a href="#cb2-351"></a></span>
+<span id="cb2-352"><a href="#cb2-352"></a>Una solución es estable si pequeñas perturbaciones producen grupos semejantes.</span>
+<span id="cb2-353"><a href="#cb2-353"></a></span>
+<span id="cb2-354"><a href="#cb2-354"></a>Puede evaluarse mediante:</span>
+<span id="cb2-355"><a href="#cb2-355"></a></span>
+<span id="cb2-356"><a href="#cb2-356"></a><span class="ss">- </span>bootstrap;</span>
+<span id="cb2-357"><a href="#cb2-357"></a><span class="ss">- </span>submuestreo;</span>
+<span id="cb2-358"><a href="#cb2-358"></a><span class="ss">- </span>comparación de dendrogramas;</span>
+<span id="cb2-359"><a href="#cb2-359"></a><span class="ss">- </span>coeficiente de Jaccard;</span>
+<span id="cb2-360"><a href="#cb2-360"></a><span class="ss">- </span>índice de Rand ajustado.</span>
+<span id="cb2-361"><a href="#cb2-361"></a></span>
+<span id="cb2-362"><a href="#cb2-362"></a><span class="fu">## Jaccard de grupos {.unnumbered}</span></span>
+<span id="cb2-363"><a href="#cb2-363"></a></span>
+<span id="cb2-364"><a href="#cb2-364"></a>Para un grupo original $C$ y uno remuestreado $C^*$:</span>
+<span id="cb2-365"><a href="#cb2-365"></a></span>
+<span id="cb2-366"><a href="#cb2-366"></a>$$</span>
+<span id="cb2-367"><a href="#cb2-367"></a>J(C,C^*)</span>
+<span id="cb2-368"><a href="#cb2-368"></a>=</span>
+<span id="cb2-369"><a href="#cb2-369"></a>\frac{|C\cap C^*|}{|C\cup C^*|}.</span>
+<span id="cb2-370"><a href="#cb2-370"></a>$$</span>
+<span id="cb2-371"><a href="#cb2-371"></a></span>
+<span id="cb2-372"><a href="#cb2-372"></a>Valores altos indican estabilidad.</span>
+<span id="cb2-373"><a href="#cb2-373"></a></span>
+<span id="cb2-374"><a href="#cb2-374"></a><span class="fu">## Comparación de dendrogramas {.unnumbered}</span></span>
+<span id="cb2-375"><a href="#cb2-375"></a></span>
+<span id="cb2-376"><a href="#cb2-376"></a>Pueden utilizarse:</span>
+<span id="cb2-377"><a href="#cb2-377"></a></span>
+<span id="cb2-378"><a href="#cb2-378"></a><span class="ss">- </span>correlación cofenética;</span>
+<span id="cb2-379"><a href="#cb2-379"></a><span class="ss">- </span>tanglegrams;</span>
+<span id="cb2-380"><a href="#cb2-380"></a><span class="ss">- </span>entanglement;</span>
+<span id="cb2-381"><a href="#cb2-381"></a><span class="ss">- </span>comparación de ramas.</span>
+<span id="cb2-382"><a href="#cb2-382"></a></span>
+<span id="cb2-383"><a href="#cb2-383"></a>Los algoritmos jerárquicos clásicos son apropiados sobre todo para muestras pequeñas o medianas. Revisiones modernas describen variantes eficientes y los compromisos entre exactitud, memoria y tiempo <span class="co">[</span><span class="ot">@murtagh2012algorithms</span><span class="co">]</span>.</span>
+<span id="cb2-384"><a href="#cb2-384"></a></span>
+<span id="cb2-385"><a href="#cb2-385"></a><span class="fu">## Complejidad computacional {.unnumbered}</span></span>
+<span id="cb2-386"><a href="#cb2-386"></a></span>
+<span id="cb2-387"><a href="#cb2-387"></a>La matriz de distancias requiere memoria del orden de</span>
+<span id="cb2-388"><a href="#cb2-388"></a></span>
+<span id="cb2-389"><a href="#cb2-389"></a>$$</span>
+<span id="cb2-390"><a href="#cb2-390"></a>O(n^2).</span>
+<span id="cb2-391"><a href="#cb2-391"></a>$$</span>
+<span id="cb2-392"><a href="#cb2-392"></a></span>
+<span id="cb2-393"><a href="#cb2-393"></a>El tiempo puede variar entre</span>
+<span id="cb2-394"><a href="#cb2-394"></a></span>
+<span id="cb2-395"><a href="#cb2-395"></a>$$</span>
+<span id="cb2-396"><a href="#cb2-396"></a>O(n^2)</span>
+<span id="cb2-397"><a href="#cb2-397"></a>$$</span>
+<span id="cb2-398"><a href="#cb2-398"></a></span>
+<span id="cb2-399"><a href="#cb2-399"></a>y</span>
+<span id="cb2-400"><a href="#cb2-400"></a></span>
+<span id="cb2-401"><a href="#cb2-401"></a>$$</span>
+<span id="cb2-402"><a href="#cb2-402"></a>O(n^3),</span>
+<span id="cb2-403"><a href="#cb2-403"></a>$$</span>
+<span id="cb2-404"><a href="#cb2-404"></a></span>
+<span id="cb2-405"><a href="#cb2-405"></a>dependiendo del algoritmo.</span>
+<span id="cb2-406"><a href="#cb2-406"></a></span>
+<span id="cb2-407"><a href="#cb2-407"></a>Esto limita el método en muestras muy grandes.</span>
+<span id="cb2-408"><a href="#cb2-408"></a></span>
+<span id="cb2-409"><a href="#cb2-409"></a><span class="fu">## Métodos escalables {.unnumbered}</span></span>
+<span id="cb2-410"><a href="#cb2-410"></a></span>
+<span id="cb2-411"><a href="#cb2-411"></a>Para grandes volúmenes pueden utilizarse:</span>
+<span id="cb2-412"><a href="#cb2-412"></a></span>
+<span id="cb2-413"><a href="#cb2-413"></a><span class="ss">- </span>muestreo;</span>
+<span id="cb2-414"><a href="#cb2-414"></a><span class="ss">- </span>preagrupamiento;</span>
+<span id="cb2-415"><a href="#cb2-415"></a><span class="ss">- </span>aproximaciones;</span>
+<span id="cb2-416"><a href="#cb2-416"></a><span class="ss">- </span>BIRCH;</span>
+<span id="cb2-417"><a href="#cb2-417"></a><span class="ss">- </span>clustering híbrido.</span>
+<span id="cb2-418"><a href="#cb2-418"></a></span>
+<span id="cb2-419"><a href="#cb2-419"></a><span class="fu">## Valores atípicos {.unnumbered}</span></span>
+<span id="cb2-420"><a href="#cb2-420"></a></span>
+<span id="cb2-421"><a href="#cb2-421"></a>Una observación extrema puede:</span>
+<span id="cb2-422"><a href="#cb2-422"></a></span>
+<span id="cb2-423"><a href="#cb2-423"></a><span class="ss">- </span>formar una rama aislada;</span>
+<span id="cb2-424"><a href="#cb2-424"></a><span class="ss">- </span>aumentar las alturas;</span>
+<span id="cb2-425"><a href="#cb2-425"></a><span class="ss">- </span>cambiar fusiones posteriores;</span>
+<span id="cb2-426"><a href="#cb2-426"></a><span class="ss">- </span>distorsionar el número de grupos.</span>
+<span id="cb2-427"><a href="#cb2-427"></a></span>
+<span id="cb2-428"><a href="#cb2-428"></a>Debe analizarse antes de interpretar el dendrograma.</span>
+<span id="cb2-429"><a href="#cb2-429"></a></span>
+<span id="cb2-430"><a href="#cb2-430"></a><span class="fu">## Variables categóricas y mixtas {.unnumbered}</span></span>
+<span id="cb2-431"><a href="#cb2-431"></a></span>
+<span id="cb2-432"><a href="#cb2-432"></a>La distancia euclidiana no es adecuada directamente para variables categóricas.</span>
+<span id="cb2-433"><a href="#cb2-433"></a></span>
+<span id="cb2-434"><a href="#cb2-434"></a>Pueden utilizarse:</span>
+<span id="cb2-435"><a href="#cb2-435"></a></span>
+<span id="cb2-436"><a href="#cb2-436"></a><span class="ss">- </span>Gower;</span>
+<span id="cb2-437"><a href="#cb2-437"></a><span class="ss">- </span>Jaccard;</span>
+<span id="cb2-438"><a href="#cb2-438"></a><span class="ss">- </span>coincidencia simple;</span>
+<span id="cb2-439"><a href="#cb2-439"></a><span class="ss">- </span>transformaciones apropiadas.</span>
+<span id="cb2-440"><a href="#cb2-440"></a></span>
+<span id="cb2-441"><a href="#cb2-441"></a><span class="fu">## Distancia de Jaccard {.unnumbered}</span></span>
+<span id="cb2-442"><a href="#cb2-442"></a></span>
+<span id="cb2-443"><a href="#cb2-443"></a>Para presencia o ausencia:</span>
+<span id="cb2-444"><a href="#cb2-444"></a></span>
+<span id="cb2-445"><a href="#cb2-445"></a>$$</span>
+<span id="cb2-446"><a href="#cb2-446"></a>d_J(A,B)</span>
+<span id="cb2-447"><a href="#cb2-447"></a>=</span>
+<span id="cb2-448"><a href="#cb2-448"></a>1-</span>
+<span id="cb2-449"><a href="#cb2-449"></a>\frac{|A\cap B|}{|A\cup B|}.</span>
+<span id="cb2-450"><a href="#cb2-450"></a>$$</span>
+<span id="cb2-451"><a href="#cb2-451"></a></span>
+<span id="cb2-452"><a href="#cb2-452"></a>Es útil cuando la presencia es más informativa que la ausencia.</span>
+<span id="cb2-453"><a href="#cb2-453"></a></span>
+<span id="cb2-454"><a href="#cb2-454"></a><span class="fu">## Visualización {.unnumbered}</span></span>
+<span id="cb2-455"><a href="#cb2-455"></a></span>
+<span id="cb2-456"><a href="#cb2-456"></a>Además del dendrograma:</span>
+<span id="cb2-457"><a href="#cb2-457"></a></span>
+<span id="cb2-458"><a href="#cb2-458"></a><span class="ss">- </span>heatmap con dendrogramas;</span>
+<span id="cb2-459"><a href="#cb2-459"></a><span class="ss">- </span>proyección PCA;</span>
+<span id="cb2-460"><a href="#cb2-460"></a><span class="ss">- </span>gráficos de silueta;</span>
+<span id="cb2-461"><a href="#cb2-461"></a><span class="ss">- </span>perfiles de grupos;</span>
+<span id="cb2-462"><a href="#cb2-462"></a><span class="ss">- </span>tanglegrams.</span>
+<span id="cb2-463"><a href="#cb2-463"></a></span>
+<span id="cb2-464"><a href="#cb2-464"></a><span class="fu">## Relación con grafos {.unnumbered}</span></span>
+<span id="cb2-465"><a href="#cb2-465"></a></span>
+<span id="cb2-466"><a href="#cb2-466"></a>El enlace simple está relacionado con el árbol de expansión mínima. Cortar sus aristas más largas puede producir la misma partición que un corte del dendrograma de enlace simple.</span>
+<span id="cb2-467"><a href="#cb2-467"></a></span>
+<span id="cb2-468"><a href="#cb2-468"></a><span class="fu">## Comparación con K-means {.unnumbered}</span></span>
+<span id="cb2-469"><a href="#cb2-469"></a></span>
+<span id="cb2-470"><a href="#cb2-470"></a><span class="pp">|</span> Aspecto <span class="pp">|</span> Jerárquico <span class="pp">|</span> K-means <span class="pp">|</span></span>
+<span id="cb2-471"><a href="#cb2-471"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb2-472"><a href="#cb2-472"></a><span class="pp">|</span> Resultado <span class="pp">|</span> Jerarquía <span class="pp">|</span> Una partición <span class="pp">|</span></span>
+<span id="cb2-473"><a href="#cb2-473"></a><span class="pp">|</span> Número de grupos <span class="pp">|</span> Puede elegirse después <span class="pp">|</span> Se fija antes <span class="pp">|</span></span>
+<span id="cb2-474"><a href="#cb2-474"></a><span class="pp">|</span> Distancias <span class="pp">|</span> Variadas <span class="pp">|</span> Euclidiana cuadrática <span class="pp">|</span></span>
+<span id="cb2-475"><a href="#cb2-475"></a><span class="pp">|</span> Escalabilidad <span class="pp">|</span> Menor <span class="pp">|</span> Mayor <span class="pp">|</span></span>
+<span id="cb2-476"><a href="#cb2-476"></a><span class="pp">|</span> Forma de grupos <span class="pp">|</span> Depende del enlace <span class="pp">|</span> Compactos y esféricos <span class="pp">|</span></span>
+<span id="cb2-477"><a href="#cb2-477"></a><span class="pp">|</span> Reversibilidad <span class="pp">|</span> Fusiones irreversibles <span class="pp">|</span> Reasignaciones iterativas <span class="pp">|</span></span>
+<span id="cb2-478"><a href="#cb2-478"></a></span>
+<span id="cb2-479"><a href="#cb2-479"></a><span class="fu">## Comparación con DBSCAN {.unnumbered}</span></span>
+<span id="cb2-480"><a href="#cb2-480"></a></span>
+<span id="cb2-481"><a href="#cb2-481"></a>DBSCAN detecta grupos por densidad y puede identificar ruido. El agrupamiento jerárquico produce una jerarquía completa, pero no identifica ruido de manera natural.</span>
+<span id="cb2-482"><a href="#cb2-482"></a></span>
+<span id="cb2-483"><a href="#cb2-483"></a><span class="fu">## Conexión con R {.unnumbered}</span></span>
+<span id="cb2-484"><a href="#cb2-484"></a></span>
+<span id="cb2-487"><a href="#cb2-487"></a><span class="in">```{r}</span></span>
+<span id="cb2-488"><a href="#cb2-488"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-489"><a href="#cb2-489"></a><span class="co">#| label: lst-jerarquico-r</span></span>
+<span id="cb2-490"><a href="#cb2-490"></a><span class="co">#| lst-cap: "Dendrograma, corte y correlación cofenética en R"</span></span>
+<span id="cb2-491"><a href="#cb2-491"></a><span class="co">#| code-line-numbers: true</span></span>
+<span id="cb2-492"><a href="#cb2-492"></a><span class="co">#| code-overflow: wrap</span></span>
+<span id="cb2-493"><a href="#cb2-493"></a></span>
+<span id="cb2-494"><a href="#cb2-494"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-495"><a href="#cb2-495"></a>  <span class="at">pm10 =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">52</span>, <span class="dv">60</span>, <span class="dv">38</span>, <span class="dv">70</span>, <span class="dv">65</span>, <span class="dv">30</span>, <span class="dv">28</span>),</span>
+<span id="cb2-496"><a href="#cb2-496"></a>  <span class="at">no2 =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">42</span>, <span class="dv">28</span>, <span class="dv">50</span>, <span class="dv">47</span>, <span class="dv">20</span>, <span class="dv">18</span>),</span>
+<span id="cb2-497"><a href="#cb2-497"></a>  <span class="at">temperatura =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">26</span>, <span class="dv">20</span>, <span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">18</span>, <span class="dv">17</span>),</span>
+<span id="cb2-498"><a href="#cb2-498"></a>  <span class="at">humedad =</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">45</span>, <span class="dv">48</span>, <span class="dv">75</span>, <span class="dv">78</span>)</span>
+<span id="cb2-499"><a href="#cb2-499"></a>)</span>
+<span id="cb2-500"><a href="#cb2-500"></a></span>
+<span id="cb2-501"><a href="#cb2-501"></a>datos_esc <span class="ot">&lt;-</span> <span class="fu">scale</span>(datos)</span>
+<span id="cb2-502"><a href="#cb2-502"></a></span>
+<span id="cb2-503"><a href="#cb2-503"></a>distancias <span class="ot">&lt;-</span> <span class="fu">dist</span>(</span>
+<span id="cb2-504"><a href="#cb2-504"></a>  datos_esc,</span>
+<span id="cb2-505"><a href="#cb2-505"></a>  <span class="at">method =</span> <span class="st">"euclidean"</span></span>
+<span id="cb2-506"><a href="#cb2-506"></a>)</span>
+<span id="cb2-507"><a href="#cb2-507"></a></span>
+<span id="cb2-508"><a href="#cb2-508"></a>modelo_completo <span class="ot">&lt;-</span> <span class="fu">hclust</span>(</span>
+<span id="cb2-509"><a href="#cb2-509"></a>  distancias,</span>
+<span id="cb2-510"><a href="#cb2-510"></a>  <span class="at">method =</span> <span class="st">"complete"</span></span>
+<span id="cb2-511"><a href="#cb2-511"></a>)</span>
+<span id="cb2-512"><a href="#cb2-512"></a></span>
+<span id="cb2-513"><a href="#cb2-513"></a><span class="fu">plot</span>(</span>
+<span id="cb2-514"><a href="#cb2-514"></a>  modelo_completo,</span>
+<span id="cb2-515"><a href="#cb2-515"></a>  <span class="at">main =</span> <span class="st">"Agrupamiento jerárquico"</span>,</span>
+<span id="cb2-516"><a href="#cb2-516"></a>  <span class="at">xlab =</span> <span class="st">""</span>,</span>
+<span id="cb2-517"><a href="#cb2-517"></a>  <span class="at">sub =</span> <span class="st">""</span></span>
+<span id="cb2-518"><a href="#cb2-518"></a>)</span>
+<span id="cb2-519"><a href="#cb2-519"></a></span>
+<span id="cb2-520"><a href="#cb2-520"></a>grupos <span class="ot">&lt;-</span> <span class="fu">cutree</span>(</span>
+<span id="cb2-521"><a href="#cb2-521"></a>  modelo_completo,</span>
+<span id="cb2-522"><a href="#cb2-522"></a>  <span class="at">k =</span> <span class="dv">3</span></span>
+<span id="cb2-523"><a href="#cb2-523"></a>)</span>
+<span id="cb2-524"><a href="#cb2-524"></a></span>
+<span id="cb2-525"><a href="#cb2-525"></a>grupos</span>
+<span id="cb2-526"><a href="#cb2-526"></a></span>
+<span id="cb2-527"><a href="#cb2-527"></a>modelo_ward <span class="ot">&lt;-</span> <span class="fu">hclust</span>(</span>
+<span id="cb2-528"><a href="#cb2-528"></a>  distancias,</span>
+<span id="cb2-529"><a href="#cb2-529"></a>  <span class="at">method =</span> <span class="st">"ward.D2"</span></span>
+<span id="cb2-530"><a href="#cb2-530"></a>)</span>
+<span id="cb2-531"><a href="#cb2-531"></a></span>
+<span id="cb2-532"><a href="#cb2-532"></a><span class="fu">plot</span>(modelo_ward)</span>
+<span id="cb2-533"><a href="#cb2-533"></a></span>
+<span id="cb2-534"><a href="#cb2-534"></a>dist_coph <span class="ot">&lt;-</span> <span class="fu">cophenetic</span>(modelo_ward)</span>
+<span id="cb2-535"><a href="#cb2-535"></a></span>
+<span id="cb2-536"><a href="#cb2-536"></a><span class="fu">cor</span>(</span>
+<span id="cb2-537"><a href="#cb2-537"></a>  <span class="fu">as.vector</span>(distancias),</span>
+<span id="cb2-538"><a href="#cb2-538"></a>  <span class="fu">as.vector</span>(dist_coph)</span>
+<span id="cb2-539"><a href="#cb2-539"></a>)</span>
+<span id="cb2-540"><a href="#cb2-540"></a><span class="in">```</span></span>
+<span id="cb2-541"><a href="#cb2-541"></a></span>
+<span id="cb2-542"><a href="#cb2-542"></a><span class="fu">## Ejemplo numérico {.unnumbered}</span></span>
+<span id="cb2-543"><a href="#cb2-543"></a></span>
+<span id="cb2-544"><a href="#cb2-544"></a>Considérese:</span>
+<span id="cb2-545"><a href="#cb2-545"></a></span>
+<span id="cb2-546"><a href="#cb2-546"></a>$$</span>
+<span id="cb2-547"><a href="#cb2-547"></a>1,\;2,\;5,\;9.</span>
+<span id="cb2-548"><a href="#cb2-548"></a>$$</span>
+<span id="cb2-549"><a href="#cb2-549"></a></span>
+<span id="cb2-550"><a href="#cb2-550"></a>La primera fusión ocurre entre 1 y 2 porque</span>
+<span id="cb2-551"><a href="#cb2-551"></a></span>
+<span id="cb2-552"><a href="#cb2-552"></a>$$</span>
+<span id="cb2-553"><a href="#cb2-553"></a>d(1,2)=1.</span>
+<span id="cb2-554"><a href="#cb2-554"></a>$$</span>
+<span id="cb2-555"><a href="#cb2-555"></a></span>
+<span id="cb2-556"><a href="#cb2-556"></a>Con enlace simple, la distancia entre $<span class="sc">\{</span>1,2<span class="sc">\}</span>$ y $<span class="sc">\{</span>5<span class="sc">\}</span>$ es</span>
+<span id="cb2-557"><a href="#cb2-557"></a></span>
+<span id="cb2-558"><a href="#cb2-558"></a>$$</span>
+<span id="cb2-559"><a href="#cb2-559"></a>\min<span class="sc">\{</span>4,3<span class="sc">\}</span>=3.</span>
+<span id="cb2-560"><a href="#cb2-560"></a>$$</span>
+<span id="cb2-561"><a href="#cb2-561"></a></span>
+<span id="cb2-562"><a href="#cb2-562"></a><span class="fu">## Ejemplo de enlaces {.unnumbered}</span></span>
+<span id="cb2-563"><a href="#cb2-563"></a></span>
+<span id="cb2-564"><a href="#cb2-564"></a>Sean</span>
+<span id="cb2-565"><a href="#cb2-565"></a></span>
+<span id="cb2-566"><a href="#cb2-566"></a>$$</span>
+<span id="cb2-567"><a href="#cb2-567"></a>A=<span class="sc">\{</span>1,2<span class="sc">\}</span>,</span>
+<span id="cb2-568"><a href="#cb2-568"></a>\qquad</span>
+<span id="cb2-569"><a href="#cb2-569"></a>B=<span class="sc">\{</span>5,9<span class="sc">\}</span>.</span>
+<span id="cb2-570"><a href="#cb2-570"></a>$$</span>
+<span id="cb2-571"><a href="#cb2-571"></a></span>
+<span id="cb2-572"><a href="#cb2-572"></a>Las distancias cruzadas son</span>
+<span id="cb2-573"><a href="#cb2-573"></a></span>
+<span id="cb2-574"><a href="#cb2-574"></a>$$</span>
+<span id="cb2-575"><a href="#cb2-575"></a>4,\;8,\;3,\;7.</span>
+<span id="cb2-576"><a href="#cb2-576"></a>$$</span>
+<span id="cb2-577"><a href="#cb2-577"></a></span>
+<span id="cb2-578"><a href="#cb2-578"></a>Por tanto:</span>
+<span id="cb2-579"><a href="#cb2-579"></a></span>
+<span id="cb2-580"><a href="#cb2-580"></a>$$</span>
+<span id="cb2-581"><a href="#cb2-581"></a>d_{\text{simple}}(A,B)=3,</span>
+<span id="cb2-582"><a href="#cb2-582"></a>$$</span>
+<span id="cb2-583"><a href="#cb2-583"></a></span>
+<span id="cb2-584"><a href="#cb2-584"></a>$$</span>
+<span id="cb2-585"><a href="#cb2-585"></a>d_{\text{completo}}(A,B)=8,</span>
+<span id="cb2-586"><a href="#cb2-586"></a>$$</span>
+<span id="cb2-587"><a href="#cb2-587"></a></span>
+<span id="cb2-588"><a href="#cb2-588"></a>$$</span>
+<span id="cb2-589"><a href="#cb2-589"></a>d_{\text{promedio}}(A,B)</span>
+<span id="cb2-590"><a href="#cb2-590"></a>=</span>
+<span id="cb2-591"><a href="#cb2-591"></a>\frac{4+8+3+7}{4}</span>
+<span id="cb2-592"><a href="#cb2-592"></a>=</span>
+<span id="cb2-593"><a href="#cb2-593"></a>5.5.</span>
+<span id="cb2-594"><a href="#cb2-594"></a>$$</span>
+<span id="cb2-595"><a href="#cb2-595"></a></span>
+<span id="cb2-596"><a href="#cb2-596"></a><span class="fu">## Ejemplo de Ward {.unnumbered}</span></span>
+<span id="cb2-597"><a href="#cb2-597"></a></span>
+<span id="cb2-598"><a href="#cb2-598"></a>Sean</span>
+<span id="cb2-599"><a href="#cb2-599"></a></span>
+<span id="cb2-600"><a href="#cb2-600"></a>$$</span>
+<span id="cb2-601"><a href="#cb2-601"></a><span class="pp">|</span>A<span class="pp">|</span>=3,</span>
+<span id="cb2-602"><a href="#cb2-602"></a>\qquad</span>
+<span id="cb2-603"><a href="#cb2-603"></a><span class="pp">|</span>B<span class="pp">|</span>=2,</span>
+<span id="cb2-604"><a href="#cb2-604"></a>$$</span>
+<span id="cb2-605"><a href="#cb2-605"></a></span>
+<span id="cb2-606"><a href="#cb2-606"></a>y</span>
+<span id="cb2-607"><a href="#cb2-607"></a></span>
+<span id="cb2-608"><a href="#cb2-608"></a>$$</span>
+<span id="cb2-609"><a href="#cb2-609"></a><span class="sc">\|</span>\boldsymbol{\mu}_A-\boldsymbol{\mu}_B<span class="sc">\|</span>_2=4.</span>
+<span id="cb2-610"><a href="#cb2-610"></a>$$</span>
+<span id="cb2-611"><a href="#cb2-611"></a></span>
+<span id="cb2-612"><a href="#cb2-612"></a>Entonces</span>
+<span id="cb2-613"><a href="#cb2-613"></a></span>
+<span id="cb2-614"><a href="#cb2-614"></a>$$</span>
+<span id="cb2-615"><a href="#cb2-615"></a>\Delta(A,B)</span>
+<span id="cb2-616"><a href="#cb2-616"></a>=</span>
+<span id="cb2-617"><a href="#cb2-617"></a>\frac{3(2)}{3+2}(4^2)</span>
+<span id="cb2-618"><a href="#cb2-618"></a>=</span>
+<span id="cb2-619"><a href="#cb2-619"></a>19.2.</span>
+<span id="cb2-620"><a href="#cb2-620"></a>$$</span>
+<span id="cb2-621"><a href="#cb2-621"></a></span>
+<span id="cb2-622"><a href="#cb2-622"></a><span class="fu">## Ventajas {.unnumbered}</span></span>
+<span id="cb2-623"><a href="#cb2-623"></a></span>
+<span id="cb2-624"><a href="#cb2-624"></a><span class="ss">1. </span>produce una jerarquía completa;</span>
+<span id="cb2-625"><a href="#cb2-625"></a><span class="ss">2. </span>no exige fijar $K$ inicialmente;</span>
+<span id="cb2-626"><a href="#cb2-626"></a><span class="ss">3. </span>admite distintas métricas;</span>
+<span id="cb2-627"><a href="#cb2-627"></a><span class="ss">4. </span>proporciona una visualización interpretativa;</span>
+<span id="cb2-628"><a href="#cb2-628"></a><span class="ss">5. </span>detecta estructuras anidadas;</span>
+<span id="cb2-629"><a href="#cb2-629"></a><span class="ss">6. </span>puede trabajar con datos mixtos usando distancias adecuadas.</span>
+<span id="cb2-630"><a href="#cb2-630"></a></span>
+<span id="cb2-631"><a href="#cb2-631"></a><span class="fu">## Limitaciones {.unnumbered}</span></span>
+<span id="cb2-632"><a href="#cb2-632"></a></span>
+<span id="cb2-633"><a href="#cb2-633"></a><span class="ss">1. </span>costo elevado;</span>
+<span id="cb2-634"><a href="#cb2-634"></a><span class="ss">2. </span>sensibilidad a escala;</span>
+<span id="cb2-635"><a href="#cb2-635"></a><span class="ss">3. </span>sensibilidad a valores atípicos;</span>
+<span id="cb2-636"><a href="#cb2-636"></a><span class="ss">4. </span>dependencia del enlace;</span>
+<span id="cb2-637"><a href="#cb2-637"></a><span class="ss">5. </span>fusiones irreversibles;</span>
+<span id="cb2-638"><a href="#cb2-638"></a><span class="ss">6. </span>selección del corte potencialmente subjetiva;</span>
+<span id="cb2-639"><a href="#cb2-639"></a><span class="ss">7. </span>dificultad con muestras grandes.</span>
+<span id="cb2-640"><a href="#cb2-640"></a></span>
+<span id="cb2-641"><a href="#cb2-641"></a><span class="fu">## Errores frecuentes {.unnumbered}</span></span>
+<span id="cb2-642"><a href="#cb2-642"></a></span>
+<span id="cb2-643"><a href="#cb2-643"></a><span class="ss">1. </span>no estandarizar;</span>
+<span id="cb2-644"><a href="#cb2-644"></a><span class="ss">2. </span>elegir el enlace sin justificarlo;</span>
+<span id="cb2-645"><a href="#cb2-645"></a><span class="ss">3. </span>interpretar el dendrograma como una verdad única;</span>
+<span id="cb2-646"><a href="#cb2-646"></a><span class="ss">4. </span>ignorar valores extremos;</span>
+<span id="cb2-647"><a href="#cb2-647"></a><span class="ss">5. </span>usar Euclidiana con variables mixtas;</span>
+<span id="cb2-648"><a href="#cb2-648"></a><span class="ss">6. </span>seleccionar grupos solo visualmente;</span>
+<span id="cb2-649"><a href="#cb2-649"></a><span class="ss">7. </span>no evaluar estabilidad;</span>
+<span id="cb2-650"><a href="#cb2-650"></a><span class="ss">8. </span>confundir altura de fusión con tamaño;</span>
+<span id="cb2-651"><a href="#cb2-651"></a><span class="ss">9. </span>interpretar etiquetas como ordenadas;</span>
+<span id="cb2-652"><a href="#cb2-652"></a><span class="ss">10. </span>inferir causalidad a partir de los grupos.</span>
+<span id="cb2-653"><a href="#cb2-653"></a></span>
+<span id="cb2-654"><a href="#cb2-654"></a><span class="fu">## Ejercicios conceptuales {.unnumbered}</span></span>
+<span id="cb2-655"><a href="#cb2-655"></a></span>
+<span id="cb2-656"><a href="#cb2-656"></a><span class="ss">1. </span>Compare métodos aglomerativos y divisivos.</span>
+<span id="cb2-657"><a href="#cb2-657"></a><span class="ss">2. </span>¿Qué representa el dendrograma?</span>
+<span id="cb2-658"><a href="#cb2-658"></a><span class="ss">3. </span>Explique enlace simple, completo y promedio.</span>
+<span id="cb2-659"><a href="#cb2-659"></a><span class="ss">4. </span>¿Qué es el encadenamiento?</span>
+<span id="cb2-660"><a href="#cb2-660"></a><span class="ss">5. </span>¿Por qué Ward se relaciona con K-means?</span>
+<span id="cb2-661"><a href="#cb2-661"></a><span class="ss">6. </span>¿Qué representa la altura de fusión?</span>
+<span id="cb2-662"><a href="#cb2-662"></a><span class="ss">7. </span>¿Qué es la distancia cofenética?</span>
+<span id="cb2-663"><a href="#cb2-663"></a><span class="ss">8. </span>¿Cómo se selecciona el número de grupos?</span>
+<span id="cb2-664"><a href="#cb2-664"></a><span class="ss">9. </span>¿Por qué afectan los valores atípicos?</span>
+<span id="cb2-665"><a href="#cb2-665"></a><span class="ss">10. </span>Compare agrupamiento jerárquico y K-means.</span>
+<span id="cb2-666"><a href="#cb2-666"></a></span>
+<span id="cb2-667"><a href="#cb2-667"></a><span class="fu">## Ejercicio de distancias {.unnumbered}</span></span>
+<span id="cb2-668"><a href="#cb2-668"></a></span>
+<span id="cb2-669"><a href="#cb2-669"></a>Considere</span>
+<span id="cb2-670"><a href="#cb2-670"></a></span>
+<span id="cb2-671"><a href="#cb2-671"></a>$$</span>
+<span id="cb2-672"><a href="#cb2-672"></a>(1,1),\;(2,1),\;(5,4),\;(6,5).</span>
+<span id="cb2-673"><a href="#cb2-673"></a>$$</span>
+<span id="cb2-674"><a href="#cb2-674"></a></span>
+<span id="cb2-675"><a href="#cb2-675"></a><span class="ss">1. </span>Calcule la matriz euclidiana.</span>
+<span id="cb2-676"><a href="#cb2-676"></a><span class="ss">2. </span>Identifique la primera fusión.</span>
+<span id="cb2-677"><a href="#cb2-677"></a><span class="ss">3. </span>Continúe con enlace simple.</span>
+<span id="cb2-678"><a href="#cb2-678"></a><span class="ss">4. </span>Repita con enlace completo.</span>
+<span id="cb2-679"><a href="#cb2-679"></a><span class="ss">5. </span>Compare los resultados.</span>
+<span id="cb2-680"><a href="#cb2-680"></a></span>
+<span id="cb2-681"><a href="#cb2-681"></a><span class="fu">## Ejercicio de Ward {.unnumbered}</span></span>
+<span id="cb2-682"><a href="#cb2-682"></a></span>
+<span id="cb2-683"><a href="#cb2-683"></a>Considere</span>
+<span id="cb2-684"><a href="#cb2-684"></a></span>
+<span id="cb2-685"><a href="#cb2-685"></a>$$</span>
+<span id="cb2-686"><a href="#cb2-686"></a><span class="pp">|</span>A<span class="pp">|</span>=4,</span>
+<span id="cb2-687"><a href="#cb2-687"></a>\qquad</span>
+<span id="cb2-688"><a href="#cb2-688"></a><span class="pp">|</span>B<span class="pp">|</span>=6,</span>
+<span id="cb2-689"><a href="#cb2-689"></a>$$</span>
+<span id="cb2-690"><a href="#cb2-690"></a></span>
+<span id="cb2-691"><a href="#cb2-691"></a>y</span>
+<span id="cb2-692"><a href="#cb2-692"></a></span>
+<span id="cb2-693"><a href="#cb2-693"></a>$$</span>
+<span id="cb2-694"><a href="#cb2-694"></a><span class="sc">\|</span>\boldsymbol{\mu}_A-\boldsymbol{\mu}_B<span class="sc">\|</span>_2^2=9.</span>
+<span id="cb2-695"><a href="#cb2-695"></a>$$</span>
+<span id="cb2-696"><a href="#cb2-696"></a></span>
+<span id="cb2-697"><a href="#cb2-697"></a>Calcule el incremento de Ward.</span>
+<span id="cb2-698"><a href="#cb2-698"></a></span>
+<span id="cb2-699"><a href="#cb2-699"></a><span class="fu">## Ejercicio aplicado {.unnumbered}</span></span>
+<span id="cb2-700"><a href="#cb2-700"></a></span>
+<span id="cb2-701"><a href="#cb2-701"></a>Agrupe estaciones de calidad del aire utilizando:</span>
+<span id="cb2-702"><a href="#cb2-702"></a></span>
+<span id="cb2-703"><a href="#cb2-703"></a><span class="ss">- </span>PM10;</span>
+<span id="cb2-704"><a href="#cb2-704"></a><span class="ss">- </span>PM2.5;</span>
+<span id="cb2-705"><a href="#cb2-705"></a><span class="ss">- </span>NO2;</span>
+<span id="cb2-706"><a href="#cb2-706"></a><span class="ss">- </span>ozono;</span>
+<span id="cb2-707"><a href="#cb2-707"></a><span class="ss">- </span>temperatura;</span>
+<span id="cb2-708"><a href="#cb2-708"></a><span class="ss">- </span>humedad;</span>
+<span id="cb2-709"><a href="#cb2-709"></a><span class="ss">- </span>viento.</span>
+<span id="cb2-710"><a href="#cb2-710"></a></span>
+<span id="cb2-711"><a href="#cb2-711"></a>Incluya:</span>
+<span id="cb2-712"><a href="#cb2-712"></a></span>
+<span id="cb2-713"><a href="#cb2-713"></a><span class="ss">1. </span>limpieza;</span>
+<span id="cb2-714"><a href="#cb2-714"></a><span class="ss">2. </span>faltantes;</span>
+<span id="cb2-715"><a href="#cb2-715"></a><span class="ss">3. </span>valores atípicos;</span>
+<span id="cb2-716"><a href="#cb2-716"></a><span class="ss">4. </span>estandarización;</span>
+<span id="cb2-717"><a href="#cb2-717"></a><span class="ss">5. </span>elección de distancia;</span>
+<span id="cb2-718"><a href="#cb2-718"></a><span class="ss">6. </span>comparación de enlaces;</span>
+<span id="cb2-719"><a href="#cb2-719"></a><span class="ss">7. </span>dendrogramas;</span>
+<span id="cb2-720"><a href="#cb2-720"></a><span class="ss">8. </span>correlación cofenética;</span>
+<span id="cb2-721"><a href="#cb2-721"></a><span class="ss">9. </span>selección de grupos;</span>
+<span id="cb2-722"><a href="#cb2-722"></a><span class="ss">10. </span>silueta;</span>
+<span id="cb2-723"><a href="#cb2-723"></a><span class="ss">11. </span>estabilidad por bootstrap;</span>
+<span id="cb2-724"><a href="#cb2-724"></a><span class="ss">12. </span>perfiles;</span>
+<span id="cb2-725"><a href="#cb2-725"></a><span class="ss">13. </span>comparación con K-means;</span>
+<span id="cb2-726"><a href="#cb2-726"></a><span class="ss">14. </span>limitaciones ambientales.</span>
+<span id="cb2-727"><a href="#cb2-727"></a></span>
+<span id="cb2-728"><a href="#cb2-728"></a><span class="fu">## Resumen {.unnumbered}</span></span>
+<span id="cb2-729"><a href="#cb2-729"></a></span>
+<span id="cb2-730"><a href="#cb2-730"></a>En este capítulo se desarrolló el agrupamiento jerárquico como método para construir grupos anidados.</span>
+<span id="cb2-731"><a href="#cb2-731"></a></span>
+<span id="cb2-732"><a href="#cb2-732"></a>Se estudiaron los enfoques aglomerativo y divisivo, las matrices de distancia, los enlaces simple, completo, promedio, por centroides y Ward.</span>
+<span id="cb2-733"><a href="#cb2-733"></a></span>
+<span id="cb2-734"><a href="#cb2-734"></a>También se analizaron dendrogramas, alturas, cortes, distancias cofenéticas, fórmula de Lance-Williams, estabilidad, valores atípicos, complejidad y comparación con K-means.</span>
+<span id="cb2-735"><a href="#cb2-735"></a></span>
+<span id="cb2-736"><a href="#cb2-736"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-737"><a href="#cb2-737"></a></span>
+<span id="cb2-738"><a href="#cb2-738"></a>Los fundamentos se apoyan en @ward1963hierarchical, @lance1967general, @murtagh2012algorithms y @mardia1979multivariate.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

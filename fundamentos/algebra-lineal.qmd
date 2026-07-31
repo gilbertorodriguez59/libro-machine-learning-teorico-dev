@@ -2,13 +2,13 @@
 
 ## Introducción {.unnumbered}
 
-El álgebra lineal proporciona la estructura matemática de los datos multivariados y de numerosos algoritmos. Vectores, matrices, productos internos, proyecciones, valores propios y descomposición en valores singulares aparecen directamente en regresión, PCA, SVM y redes neuronales [@strang2016introduction; @axler2015linear; @bishop2006pattern].
+El álgebra lineal proporciona la estructura matemática de los datos multivariados y de numerosos algoritmos. Vector\index{Vectores}es, matrices, productos internos, proyecciones, valores propios y descomposición en valores singulares\index{Descomposición en valores singulares} aparecen directamente en regresión, PCA, SVM y redes neuronales [@strang2016introduction; @axler2015linear; @bishop2006pattern].
 
 El álgebra lineal constituye uno de los lenguajes fundamentales del aprendizaje automático. Los conjuntos de datos se representan mediante vectores y matrices; los modelos lineales utilizan combinaciones lineales; el análisis de componentes principales depende de valores y vectores propios; las redes neuronales realizan sucesivas transformaciones matriciales; y numerosos algoritmos se formulan como problemas de proyección, factorización u optimización en espacios vectoriales.
 
 Este capítulo desarrolla los conceptos esenciales de álgebra lineal que se utilizarán a lo largo del libro. El objetivo no es presentar únicamente reglas de cálculo, sino explicar el significado geométrico y estadístico de cada operación.
 
-::: {.callout-important title="Idea central"}
+::: {.callout-important title="Idea central" appearance="default" icon="true"}
 El álgebra lineal permite representar datos, transformaciones, proyecciones y descomposiciones mediante vectores y matrices.
 :::
 
@@ -36,7 +36,7 @@ En todo el capítulo se utilizarán las siguientes convenciones:
 
 - los vectores se consideran columnas;
 - $\mathbf{x}\in\mathbb{R}^{p}$ tiene dimensión $p\times1$;
-- una matriz de datos $\mathbf{X}\in\mathbb{R}^{n\times p}$ contiene observaciones en filas y variables en columnas;
+- una matriz\index{Matrices} de datos $\mathbf{X}\in\mathbb{R}^{n\times p}$ contiene observaciones en filas y variables en columnas;
 - $\mathbf{X}^{\mathsf T}\in\mathbb{R}^{p\times n}$;
 - el producto $\mathbf{A}\mathbf{B}$ existe únicamente si el número de columnas de $\mathbf{A}$ coincide con el número de filas de $\mathbf{B}$.
 
@@ -1126,7 +1126,7 @@ $$
 \lambda\mathbf{v}.
 $$
 
-El escalar $\lambda$ se denomina valor propio asociado.
+El escalar $\lambda$ se denomina valor propio\index{Valores propios} asociado.
 :::
 
 La ecuación puede escribirse como
@@ -1198,7 +1198,7 @@ Un vector propio conserva su dirección bajo la transformación lineal $\mathbf{
 
 Esta propiedad será esencial en PCA, donde los vectores propios de la matriz de covarianza determinan las direcciones principales de variabilidad.
 
-::: {.callout-note title="Hipótesis de la descomposición espectral"}
+::: {.callout-note title="Hipótesis de la descomposición espectral" appearance="default" icon="true"}
 La descomposición ortogonal
 
 $$
@@ -1266,7 +1266,7 @@ $$
 
 La matriz $\boldsymbol{\Sigma}$ es simétrica y semidefinida positiva.
 
-::: {.callout-important title="SVD y rango"}
+::: {.callout-important title="SVD y rango" appearance="default" icon="true"}
 Toda matriz real $\mathbf{X}\in\mathbb{R}^{n\times p}$ admite una descomposición en valores singulares. Si su rango es $r$, existen exactamente $r$ valores singulares positivos. La SVD no requiere que la matriz sea cuadrada ni invertible [@strang2016introduction].
 :::
 

@@ -1,8 +1,8 @@
-# Agrupamiento jerárquico {#sec-agrupamiento-jerarquico}
+# Agrupamiento jerárquico\index{Agrupamiento jerárquico} {#sec-agrupamiento-jerarquico}
 
-## Introducción
+## Introducción {.unnumbered}
 
-El agrupamiento jerárquico construye una sucesión de grupos anidados y representa el resultado mediante un **dendrograma**. A diferencia de K-means, no exige fijar el número de conglomerados antes de iniciar el análisis.
+El agrupamiento jerárquico construye una sucesión de grupos anidados y representa el resultado mediante un **dendrograma\index{Dendrograma}**. A diferencia de K-means, no exige fijar el número de conglomerados antes de iniciar el análisis.
 
 Existen dos estrategias:
 
@@ -11,13 +11,17 @@ Existen dos estrategias:
 
 El resultado depende de dos decisiones fundamentales: la distancia entre observaciones y el criterio de enlace utilizado para medir distancia entre grupos.
 
-## Objetivos
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
+El agrupamiento jerárquico construye una secuencia de particiones anidadas. El dendrograma resume las fusiones, pero su forma depende de la distancia y del criterio de enlace.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
 1. distinguir agrupamiento aglomerativo y divisivo;
 2. construir e interpretar una matriz de distancias;
-3. definir enlace simple, completo, promedio y Ward;
+3. definir enlace simple, completo, promedio y Ward\index{Método de Ward};
 4. interpretar un dendrograma y sus alturas;
 5. seleccionar el número de grupos;
 6. calcular distancias cofenéticas;
@@ -26,7 +30,7 @@ Al finalizar el capítulo, el lector podrá:
 9. reconocer sus ventajas y limitaciones;
 10. aplicarlo en R.
 
-## Formulación
+## Formulación {.unnumbered}
 
 Considérese una muestra no etiquetada
 
@@ -57,7 +61,7 @@ $$
 
 El método jerárquico genera varias particiones relacionadas entre sí.
 
-## Matriz de distancias
+## Matriz de distancias {.unnumbered}
 
 La información inicial se resume en
 
@@ -79,9 +83,9 @@ d_{ij}=d_{ji},
 d_{ii}=0.
 $$
 
-## Distancias frecuentes
+## Distancias frecuentes {.unnumbered}
 
-### Euclidiana
+### Euclidiana {.unnumbered}
 
 $$
 d_2(\mathbf{x}_i,\mathbf{x}_j)
@@ -91,7 +95,7 @@ d_2(\mathbf{x}_i,\mathbf{x}_j)
 \right]^{1/2}.
 $$
 
-### Manhattan
+### Manhattan {.unnumbered}
 
 $$
 d_1(\mathbf{x}_i,\mathbf{x}_j)
@@ -99,7 +103,7 @@ d_1(\mathbf{x}_i,\mathbf{x}_j)
 \sum_{r=1}^{p}|x_{ir}-x_{jr}|.
 $$
 
-### Minkowski
+### Minkowski {.unnumbered}
 
 $$
 d_q(\mathbf{x}_i,\mathbf{x}_j)
@@ -111,7 +115,7 @@ $$
 
 Para datos mixtos puede utilizarse la distancia de Gower.
 
-## Escalamiento
+## Escalamiento {.unnumbered}
 
 Cuando las variables tienen escalas distintas, suele emplearse
 
@@ -123,7 +127,7 @@ $$
 
 Sin estandarización, una variable con valores grandes puede dominar las fusiones.
 
-## Agrupamiento aglomerativo
+## Agrupamiento aglomerativo {.unnumbered}
 
 El algoritmo inicia con
 
@@ -142,7 +146,7 @@ En cada paso se fusionan los dos grupos más cercanos. Después de $n-1$ fusione
 5. repetir hasta formar un único grupo.
 :::
 
-## Agrupamiento divisivo
+## Agrupamiento divisivo {.unnumbered}
 
 El método divisivo inicia con
 
@@ -152,11 +156,11 @@ $$
 
 y divide sucesivamente los grupos. DIANA es un algoritmo divisivo clásico.
 
-## Criterios de enlace
+## Criterios de enlace {.unnumbered}
 
 Sean $A$ y $B$ dos grupos.
 
-### Enlace simple
+### Enlace simple {.unnumbered}
 
 $$
 d_{\text{simple}}(A,B)
@@ -167,7 +171,7 @@ $$
 
 Detecta estructuras alargadas, pero puede sufrir **encadenamiento**, donde grupos distintos se unen por una cadena de puntos intermedios.
 
-### Enlace completo
+### Enlace completo {.unnumbered}
 
 $$
 d_{\text{completo}}(A,B)
@@ -178,7 +182,7 @@ $$
 
 Favorece grupos compactos, aunque puede ser sensible a valores extremos.
 
-### Enlace promedio
+### Enlace promedio {.unnumbered}
 
 $$
 d_{\text{promedio}}(A,B)
@@ -191,7 +195,7 @@ $$
 
 Representa un compromiso entre enlace simple y completo.
 
-### Enlace por centroides
+### Enlace por centroides {.unnumbered}
 
 $$
 d_{\text{centroide}}(A,B)
@@ -201,7 +205,7 @@ $$
 
 Puede producir inversiones en el dendrograma.
 
-## Método de Ward
+## Método de Ward {.unnumbered}
 
 Ward fusiona los grupos que producen el menor aumento en la suma de cuadrados intragrupo.
 
@@ -233,14 +237,16 @@ $$
 
 Se fusiona el par con menor incremento.
 
-## Relación entre Ward y K-means
+## Relación entre Ward y K-means {.unnumbered}
 
 Ambos métodos buscan grupos compactos mediante suma de cuadrados.
 
 - K-means optimiza directamente una partición con $K$ fijo.
 - Ward construye una jerarquía completa y permite elegir $K$ después.
 
-## Dendrograma
+![El dendrograma registra las fusiones y la altura a la que ocurren.](../estilos/figuras/dendrograma-ward.png){#fig-dendrograma-ward width=84% fig-alt="Dendrograma de nueve observaciones construido con enlace de Ward"}
+
+## Dendrograma {.unnumbered}
 
 El dendrograma representa las fusiones:
 
@@ -248,7 +254,7 @@ El dendrograma representa las fusiones:
 - el eje vertical muestra la altura de fusión;
 - una fusión alta indica mayor diferencia entre grupos.
 
-## Corte del dendrograma
+## Corte del dendrograma {.unnumbered}
 
 Al cortar a una altura $h$, las ramas interceptadas forman los grupos.
 
@@ -258,7 +264,7 @@ $$
 K.
 $$
 
-## Selección del número de grupos
+## Selección del número de grupos {.unnumbered}
 
 Puede utilizarse:
 
@@ -270,7 +276,7 @@ Puede utilizarse:
 
 La inspección visual debe complementarse con criterios cuantitativos.
 
-## Distancia cofenética
+## Distancia cofenética {.unnumbered}
 
 La distancia cofenética entre dos observaciones es la altura a la que se fusionan por primera vez.
 
@@ -280,7 +286,7 @@ $$
 d_{ij}^{coph}.
 $$
 
-## Correlación cofenética
+## Correlación cofenética {.unnumbered}
 
 Compara las distancias originales con las representadas por el dendrograma:
 
@@ -296,7 +302,9 @@ $$
 
 Un valor alto indica que el dendrograma conserva bien la estructura de distancias.
 
-## Fórmula de Lance-Williams
+La actualización recursiva de distancias puede expresarse mediante la familia de Lance-Williams [@lance1967general]. Esta formulación permite comparar distintos enlaces dentro de una estructura algebraica común.
+
+## Fórmula de Lance-Williams {.unnumbered}
 
 Las distancias pueden actualizarse mediante
 
@@ -335,11 +343,11 @@ $$
 \gamma=\frac{1}{2}.
 $$
 
-## Inversiones
+## Inversiones {.unnumbered}
 
 Una inversión ocurre cuando una fusión posterior aparece a menor altura que una anterior. Puede presentarse con el enlace por centroides y dificulta la interpretación.
 
-## Estabilidad
+## Estabilidad {.unnumbered}
 
 Una solución es estable si pequeñas perturbaciones producen grupos semejantes.
 
@@ -351,7 +359,7 @@ Puede evaluarse mediante:
 - coeficiente de Jaccard;
 - índice de Rand ajustado.
 
-## Jaccard de grupos
+## Jaccard de grupos {.unnumbered}
 
 Para un grupo original $C$ y uno remuestreado $C^*$:
 
@@ -363,7 +371,7 @@ $$
 
 Valores altos indican estabilidad.
 
-## Comparación de dendrogramas
+## Comparación de dendrogramas {.unnumbered}
 
 Pueden utilizarse:
 
@@ -372,7 +380,9 @@ Pueden utilizarse:
 - entanglement;
 - comparación de ramas.
 
-## Complejidad computacional
+Los algoritmos jerárquicos clásicos son apropiados sobre todo para muestras pequeñas o medianas. Revisiones modernas describen variantes eficientes y los compromisos entre exactitud, memoria y tiempo [@murtagh2012algorithms].
+
+## Complejidad computacional {.unnumbered}
 
 La matriz de distancias requiere memoria del orden de
 
@@ -396,7 +406,7 @@ dependiendo del algoritmo.
 
 Esto limita el método en muestras muy grandes.
 
-## Métodos escalables
+## Métodos escalables {.unnumbered}
 
 Para grandes volúmenes pueden utilizarse:
 
@@ -406,7 +416,7 @@ Para grandes volúmenes pueden utilizarse:
 - BIRCH;
 - clustering híbrido.
 
-## Valores atípicos
+## Valores atípicos {.unnumbered}
 
 Una observación extrema puede:
 
@@ -417,7 +427,7 @@ Una observación extrema puede:
 
 Debe analizarse antes de interpretar el dendrograma.
 
-## Variables categóricas y mixtas
+## Variables categóricas y mixtas {.unnumbered}
 
 La distancia euclidiana no es adecuada directamente para variables categóricas.
 
@@ -428,7 +438,7 @@ Pueden utilizarse:
 - coincidencia simple;
 - transformaciones apropiadas.
 
-## Distancia de Jaccard
+## Distancia de Jaccard {.unnumbered}
 
 Para presencia o ausencia:
 
@@ -441,7 +451,7 @@ $$
 
 Es útil cuando la presencia es más informativa que la ausencia.
 
-## Visualización
+## Visualización {.unnumbered}
 
 Además del dendrograma:
 
@@ -451,11 +461,11 @@ Además del dendrograma:
 - perfiles de grupos;
 - tanglegrams.
 
-## Relación con grafos
+## Relación con grafos {.unnumbered}
 
 El enlace simple está relacionado con el árbol de expansión mínima. Cortar sus aristas más largas puede producir la misma partición que un corte del dendrograma de enlace simple.
 
-## Comparación con K-means
+## Comparación con K-means {.unnumbered}
 
 | Aspecto | Jerárquico | K-means |
 |---|---|---|
@@ -466,14 +476,18 @@ El enlace simple está relacionado con el árbol de expansión mínima. Cortar s
 | Forma de grupos | Depende del enlace | Compactos y esféricos |
 | Reversibilidad | Fusiones irreversibles | Reasignaciones iterativas |
 
-## Comparación con DBSCAN
+## Comparación con DBSCAN {.unnumbered}
 
 DBSCAN detecta grupos por densidad y puede identificar ruido. El agrupamiento jerárquico produce una jerarquía completa, pero no identifica ruido de manera natural.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
+#| label: lst-jerarquico-r
+#| lst-cap: "Dendrograma, corte y correlación cofenética en R"
+#| code-line-numbers: true
+#| code-overflow: wrap
 
 datos <- data.frame(
   pm10 = c(45, 52, 60, 38, 70, 65, 30, 28),
@@ -523,7 +537,7 @@ cor(
 )
 ```
 
-## Ejemplo numérico
+## Ejemplo numérico {.unnumbered}
 
 Considérese:
 
@@ -543,7 +557,7 @@ $$
 \min\{4,3\}=3.
 $$
 
-## Ejemplo de enlaces
+## Ejemplo de enlaces {.unnumbered}
 
 Sean
 
@@ -577,7 +591,7 @@ d_{\text{promedio}}(A,B)
 5.5.
 $$
 
-## Ejemplo de Ward
+## Ejemplo de Ward {.unnumbered}
 
 Sean
 
@@ -603,7 +617,7 @@ $$
 19.2.
 $$
 
-## Ventajas
+## Ventajas {.unnumbered}
 
 1. produce una jerarquía completa;
 2. no exige fijar $K$ inicialmente;
@@ -612,7 +626,7 @@ $$
 5. detecta estructuras anidadas;
 6. puede trabajar con datos mixtos usando distancias adecuadas.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. costo elevado;
 2. sensibilidad a escala;
@@ -622,7 +636,7 @@ $$
 6. selección del corte potencialmente subjetiva;
 7. dificultad con muestras grandes.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. no estandarizar;
 2. elegir el enlace sin justificarlo;
@@ -635,7 +649,7 @@ $$
 9. interpretar etiquetas como ordenadas;
 10. inferir causalidad a partir de los grupos.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Compare métodos aglomerativos y divisivos.
 2. ¿Qué representa el dendrograma?
@@ -648,7 +662,7 @@ $$
 9. ¿Por qué afectan los valores atípicos?
 10. Compare agrupamiento jerárquico y K-means.
 
-## Ejercicio de distancias
+## Ejercicio de distancias {.unnumbered}
 
 Considere
 
@@ -662,7 +676,7 @@ $$
 4. Repita con enlace completo.
 5. Compare los resultados.
 
-## Ejercicio de Ward
+## Ejercicio de Ward {.unnumbered}
 
 Considere
 
@@ -680,7 +694,7 @@ $$
 
 Calcule el incremento de Ward.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Agrupe estaciones de calidad del aire utilizando:
 
@@ -709,7 +723,7 @@ Incluya:
 13. comparación con K-means;
 14. limitaciones ambientales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló el agrupamiento jerárquico como método para construir grupos anidados.
 
@@ -719,5 +733,4 @@ También se analizaron dendrogramas, alturas, cortes, distancias cofenéticas, f
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @ward1963hierarchical; @mardia1979multivariate.
-
+Los fundamentos se apoyan en @ward1963hierarchical, @lance1967general, @murtagh2012algorithms y @mardia1979multivariate.

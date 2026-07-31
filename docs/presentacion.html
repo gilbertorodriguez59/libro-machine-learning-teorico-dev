@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-acff971833d9769290026d534105daaa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9eafe632e7dad85bfa3861adb50d4958.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-81941997783c18544bf38817c4a37418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9eafe632e7dad85bfa3861adb50d4958.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -544,6 +544,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Referencias</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./indice-tematico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice temático</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -551,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
+    <h2 id="toc-title">En este capítulo</h2>
    
   <ul class="collapse">
   <li><a href="#organización-de-la-obra" id="toc-organización-de-la-obra" class="nav-link active" data-scroll-target="#organización-de-la-obra">Organización de la obra</a></li>
@@ -592,8 +598,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>su implementación computacional con datos reales.</li>
 </ol>
 <p>El contenido se presenta de forma gradual. Cada capítulo comienza con una explicación conceptual del problema, seguida de la notación matemática necesaria, definiciones formales, proposiciones, teoremas, demostraciones y derivaciones. Posteriormente se desarrollan ejemplos numéricos manuales y se establece la conexión con los algoritmos estudiados en el volumen práctico.</p>
-<section id="organización-de-la-obra" class="level2">
-<h2 class="anchored" data-anchor-id="organización-de-la-obra">Organización de la obra</h2>
+<section id="organización-de-la-obra" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="organización-de-la-obra">Organización de la obra</h2>
 <p>La obra se organiza en seis partes:</p>
 <ol type="1">
 <li>fundamentos matemáticos;</li>
@@ -1087,37 +1093,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Presentación</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>El aprendizaje automático se ha convertido en una de las áreas más importantes de la ciencia de datos, la inteligencia artificial, la estadística y la computación moderna. Sus métodos permiten construir sistemas capaces de identificar patrones, realizar predicciones, clasificar observaciones, descubrir estructuras ocultas y apoyar la toma de decisiones a partir de datos.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Sin embargo, el uso adecuado de estos métodos requiere algo más que aprender a ejecutar funciones en un lenguaje de programación. Detrás de cada algoritmo existen conceptos matemáticos que determinan su funcionamiento, sus alcances, sus limitaciones y las condiciones bajo las cuales sus resultados pueden considerarse confiables.</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>El presente libro tiene como propósito desarrollar, de manera rigurosa y progresiva, los fundamentos matemáticos de los principales métodos de aprendizaje automático. Se estudian los conceptos de álgebra lineal, probabilidad, estadística, cálculo multivariable y optimización que permiten formular y comprender los algoritmos de regresión, clasificación, reducción de dimensionalidad, agrupamiento y aprendizaje basado en reglas.</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>La obra ha sido concebida como el complemento teórico del libro *Aprendizaje y Clasificación Automática con R*. Mientras que aquel volumen se orienta principalmente a la aplicación de los algoritmos mediante datos reales, programación en R, visualización e interpretación de resultados, este segundo volumen se concentra en su formulación matemática, sus derivaciones, propiedades y fundamentos teóricos.</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Ambos libros pueden estudiarse de manera independiente. No obstante, su utilización conjunta permitirá al lector relacionar tres niveles fundamentales del aprendizaje automático:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>la formulación matemática del problema;</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>el procedimiento algorítmico utilizado para resolverlo;</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>su implementación computacional con datos reales.</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>El contenido se presenta de forma gradual. Cada capítulo comienza con una explicación conceptual del problema, seguida de la notación matemática necesaria, definiciones formales, proposiciones, teoremas, demostraciones y derivaciones. Posteriormente se desarrollan ejemplos numéricos manuales y se establece la conexión con los algoritmos estudiados en el volumen práctico.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Organización de la obra</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>La obra se organiza en seis partes:</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>fundamentos matemáticos;</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>fundamentos del aprendizaje automático;</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>modelos de regresión;</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>métodos de clasificación;</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>aprendizaje no supervisado;</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>temas avanzados.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Cada capítulo incluye referencias académicas específicas, mientras que la bibliografía consolidada aparece al final del libro.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu"># Presentación</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>El aprendizaje automático se ha convertido en una de las áreas más importantes de la ciencia de datos, la inteligencia artificial, la estadística y la computación moderna. Sus métodos permiten construir sistemas capaces de identificar patrones, realizar predicciones, clasificar observaciones, descubrir estructuras ocultas y apoyar la toma de decisiones a partir de datos.</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>Sin embargo, el uso adecuado de estos métodos requiere algo más que aprender a ejecutar funciones en un lenguaje de programación. Detrás de cada algoritmo existen conceptos matemáticos que determinan su funcionamiento, sus alcances, sus limitaciones y las condiciones bajo las cuales sus resultados pueden considerarse confiables.</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>El presente libro tiene como propósito desarrollar, de manera rigurosa y progresiva, los fundamentos matemáticos de los principales métodos de aprendizaje automático. Se estudian los conceptos de álgebra lineal, probabilidad, estadística, cálculo multivariable y optimización que permiten formular y comprender los algoritmos de regresión, clasificación, reducción de dimensionalidad, agrupamiento y aprendizaje basado en reglas.</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>La obra ha sido concebida como el complemento teórico del libro *Aprendizaje y Clasificación Automática con R*. Mientras que aquel volumen se orienta principalmente a la aplicación de los algoritmos mediante datos reales, programación en R, visualización e interpretación de resultados, este segundo volumen se concentra en su formulación matemática, sus derivaciones, propiedades y fundamentos teóricos.</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>Ambos libros pueden estudiarse de manera independiente. No obstante, su utilización conjunta permitirá al lector relacionar tres niveles fundamentales del aprendizaje automático:</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="ss">1. </span>la formulación matemática del problema;</span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="ss">2. </span>el procedimiento algorítmico utilizado para resolverlo;</span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="ss">3. </span>su implementación computacional con datos reales.</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>El contenido se presenta de forma gradual. Cada capítulo comienza con una explicación conceptual del problema, seguida de la notación matemática necesaria, definiciones formales, proposiciones, teoremas, demostraciones y derivaciones. Posteriormente se desarrollan ejemplos numéricos manuales y se establece la conexión con los algoritmos estudiados en el volumen práctico.</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="fu">## Organización de la obra {.unnumbered}</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a></span>
+<span id="cb1-22"><a href="#cb1-22"></a>La obra se organiza en seis partes:</span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="ss">1. </span>fundamentos matemáticos;</span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="ss">2. </span>fundamentos del aprendizaje automático;</span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="ss">3. </span>modelos de regresión;</span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="ss">4. </span>métodos de clasificación;</span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="ss">5. </span>aprendizaje no supervisado;</span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="ss">6. </span>temas avanzados.</span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a>Cada capítulo incluye referencias académicas específicas, mientras que la bibliografía consolidada aparece al final del libro.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

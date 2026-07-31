@@ -1,6 +1,6 @@
-# Reglas de asociación {#sec-reglas-asociacion}
+# Reglas de asociación\index{Reglas de asociación} {#sec-reglas-asociacion}
 
-## Introducción
+## Introducción {.unnumbered}
 
 Las reglas de asociación permiten descubrir relaciones de coocurrencia en bases de datos transaccionales. Su formulación clásica surgió en el análisis de compras, pero se aplica también a diagnósticos, navegación web, incidentes, síntomas, fallas y patrones ambientales.
 
@@ -14,7 +14,11 @@ donde $X$ y $Y$ son conjuntos de elementos disjuntos. La regla no expresa causal
 
 El algoritmo Apriori explota una propiedad de antimonotonicidad para evitar evaluar todos los subconjuntos posibles [@agrawal1994fast]. Otros métodos, como FP-growth, eliminan la generación explícita de candidatos mediante una estructura comprimida [@han2000mining].
 
-## Objetivos
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
+Una regla $X\Rightarrow Y$ resume una coocurrencia entre conjuntos de elementos. Soporte\index{Soporte}, confianza\index{Confianza} y lift\index{Lift} describen frecuencia, probabilidad condicional y desviación respecto de la independencia.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -31,7 +35,7 @@ Al finalizar el capítulo, el lector podrá:
 11. evaluar significancia y utilidad;
 12. aplicar reglas de asociación en R.
 
-## Base transaccional
+## Base transaccional {.unnumbered}
 
 Sea
 
@@ -57,7 +61,7 @@ $$
 \{T_1,\ldots,T_n\}.
 $$
 
-## Itemset
+## Itemset {.unnumbered}
 
 Un itemset es cualquier subconjunto
 
@@ -73,7 +77,7 @@ $$
 
 Si $|X|=k$, se denomina $k$-itemset.
 
-## Regla de asociación
+## Regla de asociación {.unnumbered}
 
 Una regla es una implicación
 
@@ -89,7 +93,7 @@ $$
 
 $X$ es el antecedente y $Y$ el consecuente.
 
-## Soporte de un itemset
+## Soporte de un itemset {.unnumbered}
 
 El soporte absoluto es
 
@@ -117,7 +121,9 @@ supp(X)
 \widehat{P}(X).
 $$
 
-## Soporte de una regla
+![Una regla relaciona antecedente y consecuente y se evalúa mediante soporte, confianza y lift.](../estilos/figuras/reglas-medidas.png){#fig-reglas-medidas width=88% fig-alt="Diagrama del antecedente, regla, consecuente y medidas de asociación"}
+
+## Soporte de una regla {.unnumbered}
 
 El soporte de
 
@@ -135,7 +141,7 @@ $$
 
 Mide la frecuencia conjunta del antecedente y el consecuente.
 
-## Confianza
+## Confianza {.unnumbered}
 
 La confianza es
 
@@ -153,13 +159,13 @@ conf(X\Rightarrow Y)
 \widehat{P}(Y\mid X).
 $$
 
-## Limitación de la confianza
+## Limitación de la confianza {.unnumbered}
 
 Una confianza alta puede deberse simplemente a que $Y$ es muy frecuente.
 
 Por ello, debe compararse con el soporte marginal del consecuente.
 
-## Lift
+## Lift {.unnumbered}
 
 El lift es
 
@@ -184,7 +190,7 @@ Interpretación:
 - $lift=1$: independencia empírica;
 - $lift<1$: asociación negativa.
 
-## Leverage
+## Leverage {.unnumbered}
 
 El leverage es
 
@@ -198,7 +204,7 @@ $$
 
 Mide la diferencia absoluta respecto de la independencia.
 
-## Conviction
+## Conviction {.unnumbered}
 
 La conviction se define como
 
@@ -211,7 +217,7 @@ $$
 
 Valores grandes indican que la regla comete menos errores de los esperados bajo independencia.
 
-## Cobertura
+## Cobertura {.unnumbered}
 
 La cobertura de la regla es
 
@@ -223,7 +229,7 @@ $$
 
 Mide qué proporción de transacciones satisface el antecedente.
 
-## Ejemplo básico
+## Ejemplo básico {.unnumbered}
 
 Considérese:
 
@@ -265,7 +271,7 @@ lift
 1.25.
 $$
 
-## Conjuntos frecuentes
+## Conjuntos frecuentes {.unnumbered}
 
 Dado un umbral mínimo
 
@@ -281,7 +287,7 @@ $$
 
 El problema central consiste en encontrar todos los itemsets frecuentes.
 
-## Explosión combinatoria
+## Explosión combinatoria {.unnumbered}
 
 Con $m$ elementos existen
 
@@ -293,7 +299,7 @@ itemsets no vacíos.
 
 Una búsqueda exhaustiva se vuelve inviable cuando $m$ es grande.
 
-## Propiedad Apriori
+## Propiedad Apriori {.unnumbered}
 
 ::: {#thm-propiedad-apriori}
 Si un itemset es frecuente, todos sus subconjuntos también son frecuentes.
@@ -301,7 +307,7 @@ Si un itemset es frecuente, todos sus subconjuntos también son frecuentes.
 
 Equivalentemente, si un itemset no es frecuente, ninguno de sus superconjuntos puede ser frecuente.
 
-## Demostración
+## Demostración {.unnumbered}
 
 Si
 
@@ -323,7 +329,9 @@ $$
 
 Si $A$ no alcanza el soporte mínimo, ningún superconjunto $B$ puede alcanzarlo.
 
-## Algoritmo Apriori
+El problema de minería de reglas fue formalizado por @agrawal1993mining. Apriori aprovecha la antimonotonicidad del soporte para podar candidatos, mientras FP-growth evita su generación explícita [@agrawal1994fast; @han2000mining].
+
+## Algoritmo Apriori {.unnumbered}
 
 Apriori procede por niveles:
 
@@ -333,7 +341,7 @@ Apriori procede por niveles:
 4. contar soportes;
 5. repetir para tamaños sucesivos.
 
-## Generación de candidatos
+## Generación de candidatos {.unnumbered}
 
 A partir de
 
@@ -349,7 +357,7 @@ $$
 
 Después se eliminan candidatos que contienen algún subconjunto no frecuente.
 
-## Pseudocódigo de Apriori
+## Pseudocódigo de Apriori {.unnumbered}
 
 1. calcular $L_1$;
 2. para $k=2,3,\ldots$:
@@ -359,7 +367,7 @@ Después se eliminan candidatos que contienen algún subconjunto no frecuente.
    - conservar itemsets con soporte mínimo;
 3. detener cuando $L_k$ sea vacío.
 
-## Generación de reglas
+## Generación de reglas {.unnumbered}
 
 Para cada itemset frecuente $Z$ y cada subconjunto no vacío
 
@@ -375,11 +383,11 @@ $$
 
 La regla se conserva si alcanza la confianza mínima.
 
-## Monotonicidad de la confianza
+## Monotonicidad de la confianza {.unnumbered}
 
 La confianza no es antimonótona en general. Sin embargo, durante la generación de reglas puede aprovecharse que, para un itemset fijo, ampliar el consecuente no aumenta la confianza.
 
-## Eclat
+## Eclat {.unnumbered}
 
 Eclat utiliza una representación vertical.
 
@@ -397,7 +405,7 @@ TID(X\cup Y)
 TID(X)\cap TID(Y).
 $$
 
-## FP-growth
+## FP-growth {.unnumbered}
 
 FP-growth comprime la base en un árbol de patrones frecuentes y extrae itemsets sin generar candidatos explícitos [@han2000mining].
 
@@ -410,7 +418,7 @@ Sus pasos generales son:
 5. extraer bases condicionales;
 6. generar patrones frecuentes.
 
-## Reglas redundantes
+## Reglas redundantes {.unnumbered}
 
 Una regla puede ser redundante si otra regla más general tiene igual o mejor desempeño.
 
@@ -428,19 +436,19 @@ $$
 
 tienen la misma confianza, añadir $B$ no aporta información predictiva.
 
-## Itemsets cerrados
+## Itemsets cerrados {.unnumbered}
 
 Un itemset frecuente $X$ es cerrado si no existe un superconjunto con el mismo soporte.
 
 Los itemsets cerrados proporcionan una representación más compacta.
 
-## Itemsets maximales
+## Itemsets maximales {.unnumbered}
 
 Un itemset frecuente es maximal si ningún superconjunto suyo es frecuente.
 
 Los maximales son aún más compactos, pero pierden información exacta de soportes de subconjuntos.
 
-## Restricciones
+## Restricciones {.unnumbered}
 
 El espacio de búsqueda puede reducirse imponiendo:
 
@@ -451,7 +459,7 @@ El espacio de búsqueda puede reducirse imponiendo:
 - soporte o confianza mínimos;
 - restricciones de categorías.
 
-## Discretización
+## Discretización {.unnumbered}
 
 Variables numéricas deben convertirse normalmente en intervalos:
 
@@ -468,7 +476,11 @@ La discretización puede ser:
 
 Los resultados dependen fuertemente de los cortes.
 
-## Significancia estadística
+::: {.callout-warning title="Interés estadístico y utilidad práctica" appearance="default" icon="true"}
+Un lift elevado con soporte mínimo puede corresponder a muy pocas transacciones. Las reglas deben evaluarse por frecuencia, estabilidad, significancia, novedad y posibilidad de acción; ninguna medida aislada es suficiente.
+:::
+
+## Significancia estadística {.unnumbered}
 
 Lift alto no garantiza significancia, especialmente con soporte bajo.
 
@@ -479,7 +491,7 @@ Puede utilizarse una tabla $2\times2$ y aplicar:
 - intervalos;
 - corrección por comparaciones múltiples.
 
-## Tabla de contingencia
+## Tabla de contingencia {.unnumbered}
 
 Para dos eventos $X$ y $Y$:
 
@@ -490,7 +502,7 @@ Para dos eventos $X$ y $Y$:
 
 Las medidas de asociación se derivan de estas frecuencias.
 
-## Múltiples comparaciones
+## Múltiples comparaciones {.unnumbered}
 
 La minería puede producir miles de reglas. Evaluar cada una al nivel usual genera falsos positivos.
 
@@ -501,7 +513,7 @@ Deben considerarse:
 - control de FDR;
 - validación en una muestra independiente.
 
-## Asociación no es causalidad
+## Asociación no es causalidad {.unnumbered}
 
 La regla
 
@@ -519,7 +531,7 @@ La coocurrencia puede deberse a:
 - patrones de consumo;
 - artefactos de discretización.
 
-## Reglas negativas
+## Reglas negativas {.unnumbered}
 
 También pueden estudiarse reglas como
 
@@ -529,7 +541,7 @@ $$
 
 Su análisis requiere considerar cuidadosamente soportes y universo de elementos.
 
-## Reglas secuenciales
+## Reglas secuenciales {.unnumbered}
 
 Las reglas de asociación tradicionales ignoran el orden temporal.
 
@@ -539,7 +551,7 @@ $$
 A\to B\to C.
 $$
 
-## Reglas ponderadas
+## Reglas ponderadas {.unnumbered}
 
 En algunos problemas los elementos tienen importancia, utilidad o costo diferentes.
 
@@ -551,7 +563,7 @@ Las reglas ponderadas incorporan:
 - utilidad;
 - severidad.
 
-## Evaluación práctica
+## Evaluación práctica {.unnumbered}
 
 Una buena regla debe equilibrar:
 
@@ -563,7 +575,7 @@ Una buena regla debe equilibrar:
 - estabilidad;
 - posibilidad de acción.
 
-## Reglas y predicción
+## Reglas y predicción {.unnumbered}
 
 Las reglas pueden utilizarse como características o como clasificadores.
 
@@ -573,7 +585,7 @@ $$
 X\Rightarrow Y=c.
 $$
 
-## Complejidad
+## Complejidad {.unnumbered}
 
 El costo depende de:
 
@@ -585,12 +597,16 @@ El costo depende de:
 
 Un soporte demasiado bajo puede generar una explosión de resultados.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 El paquete `arules` proporciona infraestructura para transacciones, itemsets y reglas [@hahsler2005arules].
 
 ```{r}
 #| eval: false
+#| label: lst-reglas-r
+#| lst-cap: "Extracción y ordenamiento de reglas de asociación en R"
+#| code-line-numbers: true
+#| code-overflow: wrap
 
 library(arules)
 
@@ -627,7 +643,7 @@ reglas_filtradas <- subset(
 )
 ```
 
-## Aplicación ambiental
+## Aplicación ambiental {.unnumbered}
 
 Una transacción puede representar un día o una estación. Los elementos podrían ser:
 
@@ -647,7 +663,7 @@ $$
 
 Debe interpretarse como asociación empírica, no como mecanismo causal probado.
 
-## Ventajas
+## Ventajas {.unnumbered}
 
 1. produce patrones fáciles de comunicar;
 2. no requiere variable objetivo;
@@ -656,7 +672,7 @@ Debe interpretarse como asociación empírica, no como mecanismo causal probado.
 5. ofrece medidas intuitivas;
 6. admite restricciones de dominio.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. explosión combinatoria;
 2. muchas reglas triviales;
@@ -667,7 +683,7 @@ Debe interpretarse como asociación empírica, no como mecanismo causal probado.
 7. múltiples comparaciones;
 8. dificultad para evaluar utilidad real.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. interpretar confianza sin considerar soporte;
 2. ignorar el soporte del consecuente;
@@ -680,7 +696,7 @@ Debe interpretarse como asociación empírica, no como mecanismo causal probado.
 9. ignorar múltiples comparaciones;
 10. confundir coocurrencia con secuencia temporal.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Defina transacción, itemset y regla.
 2. Compare soporte y confianza.
@@ -693,7 +709,7 @@ Debe interpretarse como asociación empírica, no como mecanismo causal probado.
 9. ¿Por qué deben corregirse múltiples comparaciones?
 10. Explique por qué asociación no es causalidad.
 
-## Ejercicio de medidas
+## Ejercicio de medidas {.unnumbered}
 
 En 1,000 transacciones:
 
@@ -710,7 +726,7 @@ Calcule:
 5. lift;
 6. leverage.
 
-## Ejercicio Apriori
+## Ejercicio Apriori {.unnumbered}
 
 Considere:
 
@@ -742,7 +758,7 @@ Con soporte mínimo 0.4:
 4. genere $C_3$;
 5. obtenga las reglas con confianza mínima 0.7.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Diseñe un análisis de reglas para accidentes de tránsito donde cada accidente se represente por elementos como:
 
@@ -766,7 +782,7 @@ Incluya:
 9. validación;
 10. limitaciones causales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrollaron los fundamentos matemáticos de las reglas de asociación.
 
@@ -776,4 +792,4 @@ También se estudiaron Eclat, FP-growth, itemsets cerrados y maximales, restricc
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos históricos y algorítmicos se apoyan en @agrawal1994fast, @han2000mining y @hahsler2005arules.
+Los fundamentos se apoyan en @agrawal1993mining, @agrawal1994fast, @han2000mining y @hahsler2005arules.

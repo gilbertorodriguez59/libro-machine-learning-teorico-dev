@@ -2,7 +2,7 @@
 
 ## Introducción {.unnumbered}
 
-La teoría de clasificación estudia cómo asignar una observación a una categoría minimizando una pérdida esperada. La regla de Bayes constituye el referente óptimo bajo la distribución verdadera, mientras que los clasificadores aprendidos intentan aproximarla a partir de datos finitos [@duda2001pattern; @devroye1996probabilistic; @bishop2006pattern].
+La teoría de clasificación estudia cómo asignar una observación a una categoría minimizando una pérdida esperada. La regla de Bayes\index{Regla de Bayes} constituye el referente óptimo bajo la distribución verdadera, mientras que los clasificadores aprendidos intentan aproximarla a partir de datos finitos [@duda2001pattern; @devroye1996probabilistic; @bishop2006pattern].
 
 La clasificación consiste en asignar una etiqueta discreta a una observación a partir de sus características. En un problema binario, la respuesta puede pertenecer a una de dos clases; en un problema multiclase, puede pertenecer a una de varias categorías.
 
@@ -10,7 +10,7 @@ Desde el punto de vista matemático, un clasificador es una función que divide 
 
 En este capítulo se desarrollan la regla de Bayes, el riesgo condicional, el error de Bayes, las fronteras de decisión y las principales métricas de evaluación.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 Clasificar consiste en asignar una observación a una categoría minimizando una pérdida esperada.
 :::
 
@@ -204,7 +204,7 @@ f(\mathbf{x})
 \eta_k(\mathbf{x}).
 $$
 
-Esta regla será óptima bajo pérdida 0-1.
+Esta regla será óptima bajo pérdida 0-1\index{Pérdida 0-1}.
 
 ## Función de pérdida general {.unnumbered}
 
@@ -250,7 +250,7 @@ f^{*}(\mathbf{x})
 R(j\mid\mathbf{x}).
 $$
 
-::: {.callout-note title="Probabilidades posteriores"}
+::: {.callout-note title="Probabilidades posteriores" appearance="default" icon="true"}
 En clasificación binaria se define
 
 $$
@@ -755,7 +755,7 @@ $$
 
 Por tanto, la exactitud puede ser engañosa en datos desbalanceados.
 
-::: {.callout-note title="Clasificación y calibración"}
+::: {.callout-note title="Clasificación y calibración" appearance="default" icon="true"}
 Un clasificador puede tener buena exactitud y probabilidades mal calibradas. La discriminación evalúa orden o separación entre clases; la calibración evalúa si una probabilidad pronosticada de, por ejemplo, 0.8 corresponde aproximadamente a una frecuencia observada de 0.8.
 :::
 

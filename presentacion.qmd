@@ -17,7 +17,7 @@ Ambos libros pueden estudiarse de manera independiente. No obstante, su utilizac
 El contenido se presenta de forma gradual. Cada capítulo comienza con una explicación conceptual del problema, seguida de la notación matemática necesaria, definiciones formales, proposiciones, teoremas, demostraciones y derivaciones. Posteriormente se desarrollan ejemplos numéricos manuales y se establece la conexión con los algoritmos estudiados en el volumen práctico.
 
 
-## Organización de la obra
+## Organización de la obra {.unnumbered}
 
 La obra se organiza en seis partes:
 

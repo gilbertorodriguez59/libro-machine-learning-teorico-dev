@@ -76,3 +76,56 @@ table {
 .callout-warning .callout-header {
   font-weight: 700;
 }
+
+/* Ajustes editoriales v0.32 */
+main.content p {
+  margin-bottom: 0.58rem;
+}
+
+main.content h2,
+main.content h3,
+main.content h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.48rem;
+}
+
+main.content ul,
+main.content ol {
+  margin-bottom: 0.65rem;
+}
+
+div.sourceCode,
+pre.sourceCode,
+.cell-code {
+  border: 1px solid #b8c7d5;
+  border-left: 5px solid #1f4e79;
+  border-radius: 0.5rem;
+  background: #f4f7fa;
+  box-shadow: 0 0.15rem 0.35rem rgba(31, 78, 121, 0.08);
+}
+
+div.sourceCode::before {
+  content: "Código R";
+  display: block;
+  padding: 0.38rem 0.75rem;
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #1f4e79;
+  border-radius: 0.42rem 0.42rem 0 0;
+}
+
+.callout.callout-style-default {
+  box-shadow: 0 0.14rem 0.36rem rgba(0, 0, 0, 0.07);
+}
+
+figure {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+figcaption {
+  font-size: 0.92rem;
+  text-align: center;
+}

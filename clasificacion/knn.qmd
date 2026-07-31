@@ -1,4 +1,4 @@
-# Vecinos más cercanos, k-NN {#sec-knn}
+# Vecinos más cercanos, k-NN\index{K-NN} {#sec-knn}
 
 ## Introducción {.unnumbered}
 
@@ -10,7 +10,7 @@ A diferencia de modelos paramétricos como la regresión lineal o la regresión 
 
 En clasificación, la clase de una observación nueva se decide mediante voto mayoritario entre sus $k$ vecinos más cercanos. En regresión, la predicción se obtiene promediando las respuestas de esos vecinos. Desde un punto de vista teórico, $k$-NN puede interpretarse como una aproximación local del riesgo condicional o de la función de regresión.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 K-NN predice usando las observaciones más cercanas según una métrica.
 :::
 
@@ -80,7 +80,7 @@ que satisface, para cualesquiera $\mathbf{x},\mathbf{z},\mathbf{w}\in\mathcal{X}
 3. $d(\mathbf{x},\mathbf{z})=d(\mathbf{z},\mathbf{x})$;
 4. $d(\mathbf{x},\mathbf{w})\le d(\mathbf{x},\mathbf{z})+d(\mathbf{z},\mathbf{w})$.
 
-::: {.callout-important title="Escala y geometría"}
+::: {.callout-important title="Escala y geometría" appearance="default" icon="true"}
 La noción de cercanía no es absoluta: depende de la representación y de la métrica. Antes de aplicar k-NN deben justificarse el escalamiento, la selección de variables y el tratamiento de variables categóricas.
 :::
 
@@ -330,7 +330,7 @@ En 1-NN, cada observación de entrenamiento es su propio vecino más cercano si 
 
 Sin embargo, ese resultado no refleja necesariamente el error de generalización. Para estimar desempeño predictivo es necesario emplear validación cruzada o un conjunto de prueba.
 
-::: {.callout-note title="Compromiso sesgo-varianza"}
+::: {.callout-note title="Compromiso sesgo-varianza" appearance="default" icon="true"}
 Valores pequeños de $k$ producen fronteras flexibles y alta varianza. Valores grandes suavizan la frontera, pero pueden aumentar el sesgo. El valor de $k$ debe elegirse mediante validación.
 :::
 
@@ -515,11 +515,11 @@ Por ello, en problemas de alta dimensión es importante considerar:
 - ponderación de características;
 - distancias especializadas.
 
-::: {.callout-warning title="Dimensión alta"}
+::: {.callout-warning title="Dimensión alta" appearance="default" icon="true"}
 Cuando la dimensión crece, las distancias tienden a perder contraste y las vecindades necesitan abarcar regiones amplias para contener suficientes observaciones. La reducción o selección de variables puede ser esencial.
 :::
 
-## Maldición de la dimensionalidad {.unnumbered}
+## Maldición de la dimensionalidad\index{Maldición de la dimensionalidad} {.unnumbered}
 
 A medida que la dimensión $p$ crece, los puntos tienden a parecerse entre sí en términos relativos de distancia. Esto reduce el carácter local de la vecindad y puede degradar severamente el método.
 

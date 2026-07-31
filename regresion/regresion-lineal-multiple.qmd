@@ -1,4 +1,4 @@
-# Regresión lineal múltiple {#sec-regresion-lineal-multiple}
+# Regresión lineal múltiple\index{Regresión lineal múltiple} {#sec-regresion-lineal-multiple}
 
 ## Introducción {.unnumbered}
 
@@ -6,11 +6,11 @@ La regresión lineal múltiple extiende el modelo lineal a varios predictores. C
 
 La regresión lineal múltiple extiende la regresión lineal simple al estudio simultáneo de varias variables explicativas. Su objetivo es modelar el valor esperado de una respuesta $Y$ mediante una combinación lineal de $p$ características.
 
-Este modelo permite analizar el efecto parcial de cada variable manteniendo constantes las demás, construir predicciones, evaluar hipótesis conjuntas, incorporar variables categóricas, representar interacciones y estudiar problemas de multicolinealidad.
+Este modelo permite analizar el efecto parcial de cada variable manteniendo constantes las demás, construir predicciones, evaluar hipótesis conjuntas, incorporar variables categóricas, representar interacciones y estudiar problemas de multicolinealidad\index{Multicolinealidad}.
 
 La formulación matricial es especialmente importante porque permite expresar de manera compacta la estimación, la inferencia y la geometría del modelo.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 La regresión lineal múltiple modela una respuesta mediante varios predictores.
 :::
 
@@ -897,7 +897,7 @@ t_{\alpha/2,n-p-1}
 SE_{pred}.
 $$
 
-::: {.callout-note title="Interacciones"}
+::: {.callout-note title="Interacciones" appearance="default" icon="true"}
 Con un término de interacción, el efecto de una variable depende del valor de otra. Los efectos principales dejan de representar efectos globales constantes.
 :::
 
@@ -1110,7 +1110,7 @@ La multicolinealidad puede producir:
 
 Puede existir una prueba $F$ global significativa junto con pruebas $t$ individuales no significativas.
 
-::: {.callout-warning title="Multicolinealidad"}
+::: {.callout-warning title="Multicolinealidad" appearance="default" icon="true"}
 La multicolinealidad no introduce necesariamente sesgo, pero aumenta la varianza de los coeficientes y puede volver inestables sus signos e interpretaciones.
 :::
 

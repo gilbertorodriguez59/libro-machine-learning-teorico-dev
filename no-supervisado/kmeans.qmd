@@ -1,14 +1,18 @@
-# Agrupamiento mediante K-means {#sec-kmeans}
+# Agrupamiento mediante K-means\index{K-means} {#sec-kmeans}
 
-## Introducción
+## Introducción {.unnumbered}
 
 K-means es uno de los algoritmos más conocidos de aprendizaje no supervisado. Su objetivo consiste en dividir un conjunto de observaciones en $K$ grupos de manera que las observaciones dentro de cada grupo sean lo más semejantes posible y los grupos entre sí sean diferentes.
 
-El método representa cada grupo mediante un centroide. La asignación de observaciones y la actualización de centroides se realizan de forma iterativa hasta alcanzar una solución estable.
+El método representa cada grupo mediante un centroide\index{Centroides}. La asignación de observaciones y la actualización de centroides se realizan de forma iterativa hasta alcanzar una solución estable.
 
 K-means es conceptualmente sencillo, computacionalmente eficiente y ampliamente utilizado en segmentación, compresión, análisis exploratorio y preprocesamiento. Sin embargo, su desempeño depende de la escala de las variables, de la inicialización, de la forma de los grupos y de la elección del número de conglomerados.
 
-## Objetivos
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
+K-means divide las observaciones en $K$ grupos y representa cada grupo por su media. El algoritmo alterna asignaciones y actualización de centroides para reducir la suma de cuadrados intragrupo.
+:::
+
+## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
 
@@ -21,13 +25,13 @@ Al finalizar el capítulo, el lector podrá:
 7. analizar el efecto de la inicialización;
 8. comprender K-means++;
 9. seleccionar el número de grupos;
-10. interpretar inercia, silueta y separación;
+10. interpretar inercia, silueta\index{Silueta} y separación;
 11. reconocer limitaciones geométricas;
 12. analizar sensibilidad a escala y valores atípicos;
 13. relacionar K-means con mezcla de gaussianas;
 14. aplicar el método en R.
 
-## Formulación del problema
+## Formulación del problema {.unnumbered}
 
 Considérese una muestra no etiquetada
 
@@ -66,7 +70,7 @@ $$
 \{1,\ldots,n\}.
 $$
 
-## Centroides
+## Centroides {.unnumbered}
 
 El centroide del grupo $C_k$ es
 
@@ -80,7 +84,9 @@ $$
 
 Cada centroide representa la media vectorial de las observaciones asignadas al grupo.
 
-## Función objetivo
+![Los centroides resumen cada grupo y determinan regiones de asignación por proximidad.](../estilos/figuras/kmeans-centroides.png){#fig-kmeans-centroides width=82% fig-alt="Tres grupos de puntos y sus centroides"}
+
+## Función objetivo {.unnumbered}
 
 K-means minimiza la suma de cuadrados dentro de los grupos:
 
@@ -100,7 +106,7 @@ Esta cantidad también se conoce como:
 - suma de cuadrados intragrupo;
 - within-cluster sum of squares.
 
-## Variables indicadoras
+## Variables indicadoras {.unnumbered}
 
 Defínase
 
@@ -134,7 +140,7 @@ r_{ik}
 \right\|_2^2.
 $$
 
-## Optimización alternante
+## Optimización alternante {.unnumbered}
 
 El problema es difícil de resolver globalmente porque las asignaciones son discretas.
 
@@ -144,7 +150,7 @@ K-means utiliza optimización alternante:
 2. fijar asignaciones y optimizar centroides;
 3. repetir.
 
-## Paso de asignación
+## Paso de asignación {.unnumbered}
 
 Dados los centroides, cada observación se asigna al centroide más cercano:
 
@@ -162,7 +168,7 @@ k=
 \end{cases}
 $$
 
-## Paso de actualización
+## Paso de actualización {.unnumbered}
 
 Dadas las asignaciones, el centroide óptimo es la media:
 
@@ -177,7 +183,7 @@ r_{ik}\mathbf{x}_i
 }.
 $$
 
-## Derivación del centroide
+## Derivación del centroide {.unnumbered}
 
 Para un grupo fijo, se minimiza
 
@@ -219,7 +225,9 @@ $$
 \sum_{i\in C_k}\mathbf{x}_i.
 $$
 
-## Algoritmo de Lloyd
+La formulación moderna de K-means se relaciona con los trabajos de @macqueen1967some y @lloyd1982least. Cada paso reduce o mantiene la función objetivo, pero la solución final depende de la inicialización.
+
+## Algoritmo de Lloyd {.unnumbered}
 
 ::: {#def-algoritmo-lloyd}
 El algoritmo clásico de K-means es:
@@ -230,7 +238,7 @@ El algoritmo clásico de K-means es:
 4. repetir hasta que las asignaciones o centroides dejen de cambiar.
 :::
 
-## Pseudocódigo
+## Pseudocódigo {.unnumbered}
 
 Dado $K$:
 
@@ -241,7 +249,7 @@ Dado $K$:
 5. detener si la reducción de $J$ es menor que una tolerancia;
 6. de otro modo, volver al paso 2.
 
-## Convergencia
+## Convergencia {.unnumbered}
 
 Cada paso de asignación no aumenta la función objetivo.
 
@@ -257,7 +265,7 @@ $$
 
 Como $J\geq 0$, la secuencia converge.
 
-## Convergencia local
+## Convergencia local {.unnumbered}
 
 La convergencia no garantiza alcanzar el mínimo global.
 
@@ -268,7 +276,7 @@ K-means puede quedar atrapado en un mínimo local dependiendo de:
 - número de grupos;
 - presencia de valores atípicos.
 
-## Inicialización aleatoria
+## Inicialización aleatoria {.unnumbered}
 
 Una estrategia simple consiste en seleccionar aleatoriamente $K$ observaciones como centroides.
 
@@ -278,7 +286,7 @@ Esta estrategia puede producir:
 - soluciones pobres;
 - alta variabilidad entre ejecuciones.
 
-## Reinicios múltiples
+## Reinicios múltiples {.unnumbered}
 
 Para reducir dependencia de la inicialización:
 
@@ -288,7 +296,7 @@ Para reducir dependencia de la inicialización:
 
 En R, este comportamiento se controla con `nstart`.
 
-## K-means++
+## K-means++ {.unnumbered}
 
 K-means++ mejora la selección inicial:
 
@@ -299,7 +307,7 @@ K-means++ mejora la selección inicial:
 
 Esto favorece centroides iniciales bien separados.
 
-## Cota de K-means++
+## Cota de K-means++ {.unnumbered}
 
 K-means++ proporciona una garantía esperada de aproximación del orden de
 
@@ -309,7 +317,7 @@ $$
 
 respecto del óptimo global.
 
-## Distancia euclidiana
+## Distancia euclidiana {.unnumbered}
 
 K-means está ligado a la distancia euclidiana cuadrática:
 
@@ -323,25 +331,25 @@ $$
 
 Cambiar la distancia requiere modificar también la definición del representante del grupo.
 
-## Relación entre media y distancia cuadrática
+## Relación entre media y distancia cuadrática {.unnumbered}
 
 La media es el punto que minimiza la suma de distancias euclidianas cuadráticas.
 
 Por ello, K-means no puede reemplazar arbitrariamente la distancia euclidiana por otra sin cambiar el algoritmo.
 
-## K-medians
+## K-medians {.unnumbered}
 
 Si se utiliza distancia Manhattan, el representante adecuado es la mediana.
 
 El método resultante se denomina K-medians.
 
-## K-medoids
+## K-medoids {.unnumbered}
 
 K-medoids representa cada grupo mediante una observación real del conjunto.
 
 Es más robusto frente a valores atípicos y permite distancias más generales.
 
-## Geometría de los grupos
+## Geometría de los grupos {.unnumbered}
 
 K-means funciona mejor cuando los grupos son:
 
@@ -351,7 +359,7 @@ K-means funciona mejor cuando los grupos son:
 - bien separados;
 - describibles mediante centroides.
 
-## Regiones de Voronoi
+## Regiones de Voronoi {.unnumbered}
 
 Dados los centroides, el espacio se divide en regiones:
 
@@ -373,7 +381,7 @@ $$
 
 Cada región es una celda de Voronoi.
 
-## Fronteras entre grupos
+## Fronteras entre grupos {.unnumbered}
 
 La frontera entre dos centroides satisface
 
@@ -389,7 +397,7 @@ $$
 
 Al simplificar, se obtiene un hiperplano.
 
-## Escalamiento
+## Escalamiento {.unnumbered}
 
 K-means depende fuertemente de la escala.
 
@@ -403,7 +411,7 @@ z_{ij}
 \frac{x_{ij}-\overline{x}_j}{s_j}.
 $$
 
-## Valores atípicos
+## Valores atípicos {.unnumbered}
 
 La media y la distancia cuadrática son sensibles a valores extremos.
 
@@ -414,7 +422,7 @@ Un valor atípico puede:
 - alterar asignaciones;
 - aumentar la inercia.
 
-## Grupos vacíos
+## Grupos vacíos {.unnumbered}
 
 Durante una actualización, un grupo puede quedar sin observaciones.
 
@@ -425,7 +433,7 @@ Estrategias:
 - dividir el grupo con mayor dispersión;
 - reiniciar el algoritmo.
 
-## Elección del número de grupos
+## Elección del número de grupos {.unnumbered}
 
 El valor de $K$ es un hiperparámetro.
 
@@ -440,7 +448,7 @@ Se utilizan:
 - conocimiento del dominio;
 - desempeño posterior.
 
-## Método del codo
+## Método del codo {.unnumbered}
 
 Se calcula
 
@@ -456,7 +464,9 @@ $$
 
 Como $W_K$ disminuye al aumentar $K$, se busca un punto donde la mejora adicional se vuelve pequeña.
 
-## Coeficiente de silueta
+El coeficiente de silueta combina compactación y separación y permite comparar particiones con distintos valores de $K$ [@rousseeuw1987silhouettes]. No reemplaza la interpretación sustantiva ni la evaluación de estabilidad.
+
+## Coeficiente de silueta {.unnumbered}
 
 Para la observación $i$:
 
@@ -481,7 +491,7 @@ $$
 -1\leq s(i)\leq 1.
 $$
 
-## Interpretación de la silueta
+## Interpretación de la silueta {.unnumbered}
 
 - valor cercano a 1: buena asignación;
 - valor cercano a 0: observación en frontera;
@@ -489,13 +499,13 @@ $$
 
 La silueta promedio resume la calidad global.
 
-## Índice Gap
+## Índice Gap {.unnumbered}
 
 El índice Gap compara la dispersión observada con la esperada bajo una distribución de referencia sin estructura de grupos.
 
 Se selecciona un valor de $K$ cuya mejora sea significativa respecto del caso aleatorio.
 
-## Estabilidad del agrupamiento
+## Estabilidad del agrupamiento {.unnumbered}
 
 Un agrupamiento es estable si pequeñas modificaciones en los datos producen grupos semejantes.
 
@@ -506,13 +516,13 @@ Puede evaluarse mediante:
 - perturbaciones;
 - índices de concordancia.
 
-## Índice de Rand ajustado
+## Índice de Rand ajustado {.unnumbered}
 
 Si se comparan dos particiones, el índice de Rand ajustado mide su concordancia corrigiendo el acuerdo esperado por azar.
 
 Su valor máximo es 1.
 
-## Evaluación sin etiquetas
+## Evaluación sin etiquetas {.unnumbered}
 
 Sin etiquetas verdaderas se utilizan criterios internos:
 
@@ -522,7 +532,7 @@ Sin etiquetas verdaderas se utilizan criterios internos:
 - compactación;
 - estabilidad.
 
-## Evaluación con etiquetas externas
+## Evaluación con etiquetas externas {.unnumbered}
 
 Si existen etiquetas de referencia, pueden utilizarse:
 
@@ -534,7 +544,7 @@ Si existen etiquetas de referencia, pueden utilizarse:
 
 Las etiquetas no intervienen en el ajuste, solo en la evaluación.
 
-## Relación con mezcla de gaussianas
+## Relación con mezcla de gaussianas {.unnumbered}
 
 K-means puede interpretarse como un caso límite de una mezcla de gaussianas con:
 
@@ -543,7 +553,7 @@ K-means puede interpretarse como un caso límite de una mezcla de gaussianas con
 - asignación dura;
 - probabilidades uniformes.
 
-## Mezclas gaussianas
+## Mezclas gaussianas {.unnumbered}
 
 Una mezcla gaussiana modela
 
@@ -563,7 +573,7 @@ $$
 
 A diferencia de K-means, produce asignaciones probabilísticas.
 
-## Asignación dura y blanda
+## Asignación dura y blanda {.unnumbered}
 
 K-means usa
 
@@ -583,7 +593,7 @@ $$
 \sum_{k=1}^{K}\gamma_{ik}=1.
 $$
 
-## K-means como cuantización vectorial
+## K-means como cuantización vectorial {.unnumbered}
 
 K-means puede utilizarse para representar cada observación mediante su centroide más cercano.
 
@@ -596,25 +606,25 @@ Aplicaciones:
 - diccionarios visuales;
 - compresión de señales.
 
-## K-means en imágenes
+## K-means en imágenes {.unnumbered}
 
 Cada píxel puede representarse por un vector RGB.
 
 K-means agrupa colores y reemplaza cada píxel por el color de su centroide.
 
-## K-means en datos grandes
+## K-means en datos grandes {.unnumbered}
 
 Para grandes volúmenes se utiliza mini-batch K-means.
 
 En cada iteración se actualizan centroides con un subconjunto pequeño de observaciones.
 
-## Mini-batch K-means
+## Mini-batch K-means {.unnumbered}
 
 Reduce el costo computacional y permite trabajar con datos masivos.
 
 Puede sacrificar algo de precisión a cambio de velocidad.
 
-## Complejidad computacional
+## Complejidad computacional {.unnumbered}
 
 El costo aproximado por iteración es
 
@@ -628,7 +638,7 @@ $$
 O(nKpT).
 $$
 
-## Memoria
+## Memoria {.unnumbered}
 
 La implementación básica necesita almacenar:
 
@@ -637,7 +647,7 @@ La implementación básica necesita almacenar:
 - las asignaciones;
 - distancias temporales.
 
-## Datos categóricos
+## Datos categóricos {.unnumbered}
 
 K-means no es adecuado directamente para variables categóricas.
 
@@ -648,7 +658,7 @@ Alternativas:
 - distancias de Gower;
 - clustering jerárquico.
 
-## K-modes
+## K-modes {.unnumbered}
 
 K-modes utiliza:
 
@@ -656,7 +666,7 @@ K-modes utiliza:
 - discrepancia categórica;
 - datos nominales.
 
-## K-prototypes
+## K-prototypes {.unnumbered}
 
 K-prototypes combina:
 
@@ -664,7 +674,7 @@ K-prototypes combina:
 - modas para categóricas;
 - una función de costo mixta.
 
-## Reducción de dimensionalidad previa
+## Reducción de dimensionalidad previa {.unnumbered}
 
 PCA puede aplicarse antes de K-means para:
 
@@ -675,13 +685,13 @@ PCA puede aplicarse antes de K-means para:
 
 Pero también puede eliminar componentes importantes para separar grupos.
 
-## Fuga de información
+## Fuga de información {.unnumbered}
 
 En un análisis predictivo posterior, cualquier escalamiento o PCA debe aprenderse con los datos de entrenamiento.
 
 En clustering puramente exploratorio, debe documentarse claramente el conjunto utilizado.
 
-## Interpretación de centroides
+## Interpretación de centroides {.unnumbered}
 
 Los centroides pueden describirse mediante perfiles:
 
@@ -697,7 +707,7 @@ $$
 
 Cada componente representa la media de una variable dentro del grupo.
 
-## Etiquetas de los grupos
+## Etiquetas de los grupos {.unnumbered}
 
 Los números de grupo son arbitrarios.
 
@@ -705,19 +715,19 @@ Cambiar las etiquetas no cambia la solución.
 
 Por ejemplo, los grupos 1 y 2 pueden intercambiarse sin modificar la partición.
 
-## No identificabilidad de etiquetas
+## No identificabilidad de etiquetas {.unnumbered}
 
 Este fenómeno se conoce como permutación de etiquetas.
 
 La interpretación debe basarse en centroides y características, no en el número asignado.
 
-## Sensibilidad al orden
+## Sensibilidad al orden {.unnumbered}
 
 Una implementación determinista con inicialización fija no depende del orden.
 
 Sin embargo, algoritmos en línea o mini-batch pueden verse afectados por el orden de llegada.
 
-## Reproducibilidad
+## Reproducibilidad {.unnumbered}
 
 Debe fijarse una semilla aleatoria y reportarse:
 
@@ -727,10 +737,14 @@ Debe fijarse una semilla aleatoria y reportarse:
 - escalamiento;
 - criterio de selección.
 
-## Conexión con R
+## Conexión con R {.unnumbered}
 
 ```{r}
 #| eval: false
+#| label: lst-kmeans-r
+#| lst-cap: "Agrupamiento K-means y método del codo en R"
+#| code-line-numbers: true
+#| code-overflow: wrap
 
 datos <- data.frame(
   pm10 = c(45, 52, 60, 38, 70, 65, 30, 28),
@@ -774,7 +788,7 @@ plot(
 )
 ```
 
-## Ejemplo numérico
+## Ejemplo numérico {.unnumbered}
 
 Considérese el conjunto unidimensional:
 
@@ -820,7 +834,7 @@ $$
 
 El algoritmo converge inmediatamente.
 
-## Ejemplo de función objetivo
+## Ejemplo de función objetivo {.unnumbered}
 
 Para el primer grupo:
 
@@ -840,7 +854,7 @@ $$
 J=4.
 $$
 
-## Ejemplo de sensibilidad a escala
+## Ejemplo de sensibilidad a escala {.unnumbered}
 
 Supóngase que una variable se mide entre 0 y 1 y otra entre 0 y 10000.
 
@@ -848,7 +862,11 @@ Sin estandarización, la segunda variable dominará la distancia.
 
 Esto puede producir grupos definidos casi exclusivamente por ella.
 
-## Ventajas
+::: {.callout-warning title="El agrupamiento no descubre automáticamente grupos verdaderos" appearance="default" icon="true"}
+Un algoritmo siempre puede producir una partición cuando se le solicita. La existencia matemática de grupos no implica que estos sean estables, naturales o útiles. El resultado debe evaluarse mediante geometría, estabilidad y conocimiento del dominio [@jain2010clustering].
+:::
+
+## Ventajas {.unnumbered}
 
 1. sencillo;
 2. eficiente;
@@ -858,7 +876,7 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
 6. centroides interpretables;
 7. apropiado para grupos compactos y esféricos.
 
-## Limitaciones
+## Limitaciones {.unnumbered}
 
 1. requiere elegir $K$;
 2. depende de inicialización;
@@ -869,7 +887,7 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
 7. supone estructura aproximadamente esférica;
 8. no es adecuado directamente para datos categóricos.
 
-## Errores frecuentes
+## Errores frecuentes {.unnumbered}
 
 1. no estandarizar;
 2. usar un solo inicio;
@@ -882,7 +900,7 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
 9. confundir compactación con utilidad práctica;
 10. concluir causalidad a partir de grupos.
 
-## Ejercicios conceptuales
+## Ejercicios conceptuales {.unnumbered}
 
 1. Explique la función objetivo de K-means.
 2. ¿Por qué el centroide es la media?
@@ -897,7 +915,7 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
 11. ¿Qué ocurre con grupos no esféricos?
 12. ¿Cómo se evalúa estabilidad?
 
-## Ejercicio de asignación
+## Ejercicio de asignación {.unnumbered}
 
 Considere los puntos
 
@@ -918,7 +936,7 @@ $$
 3. Recalcule los centroides.
 4. Calcule la función objetivo.
 
-## Ejercicio de centroides
+## Ejercicio de centroides {.unnumbered}
 
 Los puntos de un grupo son
 
@@ -930,7 +948,7 @@ $$
 2. Calcule la suma de cuadrados respecto del centroide.
 3. Compare con el punto $(3,3)$ como representante.
 
-## Ejercicio de silueta
+## Ejercicio de silueta {.unnumbered}
 
 Para una observación:
 
@@ -951,7 +969,7 @@ a(i)=5,
 b(i)=4.
 $$
 
-## Ejercicio del codo
+## Ejercicio del codo {.unnumbered}
 
 Se obtiene:
 
@@ -969,7 +987,7 @@ Se obtiene:
 3. Justifique la elección.
 4. Explique por qué el criterio no es concluyente.
 
-## Ejercicio aplicado
+## Ejercicio aplicado {.unnumbered}
 
 Se desea agrupar estaciones de calidad del aire usando:
 
@@ -998,7 +1016,7 @@ Diseñe un análisis que incluya:
 13. análisis temporal;
 14. limitaciones ambientales.
 
-## Resumen
+## Resumen {.unnumbered}
 
 En este capítulo se desarrolló K-means como método de agrupamiento basado en centroides.
 
@@ -1010,5 +1028,4 @@ Finalmente, se estudiaron sensibilidad a escala, valores atípicos, grupos no es
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @lloyd1982least; @arthur2007kmeans.
-
+Los fundamentos se apoyan en @macqueen1967some, @lloyd1982least, @arthur2007kmeans, @rousseeuw1987silhouettes y @jain2010clustering.

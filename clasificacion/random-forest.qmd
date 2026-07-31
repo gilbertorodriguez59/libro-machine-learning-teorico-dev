@@ -1,4 +1,4 @@
-# Random Forest {#sec-random-forest}
+# Random Forest\index{Random Forest} {#sec-random-forest}
 
 ## Introducción {.unnumbered}
 
@@ -10,7 +10,7 @@ Un árbol profundo suele tener bajo sesgo y alta varianza. Random Forest disminu
 
 El método puede utilizarse tanto en clasificación como en regresión. Además, proporciona estimaciones internas del error mediante observaciones out-of-bag, medidas de importancia de variables y herramientas para analizar proximidad entre observaciones.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 Random Forest combina muchos árboles aleatorizados para reducir varianza.
 :::
 

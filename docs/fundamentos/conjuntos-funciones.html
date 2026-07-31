@@ -100,9 +100,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-acff971833d9769290026d534105daaa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9eafe632e7dad85bfa3861adb50d4958.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-81941997783c18544bf38817c4a37418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9eafe632e7dad85bfa3861adb50d4958.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -592,6 +592,12 @@ window.Quarto = {
  <span class="menu-text">Referencias</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../indice-tematico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice temático</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -599,7 +605,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
+    <h2 id="toc-title">En este capítulo</h2>
    
   <ul class="collapse">
   <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
@@ -1381,15 +1387,15 @@ y_i=f^{*}(\mathbf{x}_i)+\varepsilon_i
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">pm10 =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">75</span>, <span class="dv">112</span>, <span class="dv">46</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">temperatura =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">27</span>, <span class="dv">21</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">humedad =</span> <span class="fu">c</span>(<span class="dv">64</span>, <span class="dv">52</span>, <span class="dv">43</span>, <span class="dv">58</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">calidad =</span> <span class="fu">c</span>(<span class="st">"buena"</span>, <span class="st">"regular"</span>, <span class="st">"mala"</span>, <span class="st">"buena"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">"pm10"</span>, <span class="st">"temperatura"</span>, <span class="st">"humedad"</span>)])</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> datos<span class="sc">$</span>calidad</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="at">pm10 =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">75</span>, <span class="dv">112</span>, <span class="dv">46</span>),</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="at">temperatura =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">27</span>, <span class="dv">21</span>),</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="at">humedad =</span> <span class="fu">c</span>(<span class="dv">64</span>, <span class="dv">52</span>, <span class="dv">43</span>, <span class="dv">58</span>),</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">calidad =</span> <span class="fu">c</span>(<span class="st">"buena"</span>, <span class="st">"regular"</span>, <span class="st">"mala"</span>, <span class="st">"buena"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">"pm10"</span>, <span class="st">"temperatura"</span>, <span class="st">"humedad"</span>)])</span>
+<span id="cb1-9"><a href="#cb1-9"></a>y <span class="ot">&lt;-</span> datos<span class="sc">$</span>calidad</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Matemáticamente,</p>
@@ -2002,1005 +2008,1005 @@ Hastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. <em>The Elements of 
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lenguaje matemático, conjuntos y funciones {#sec-conjuntos-funciones}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción {.unnumbered}</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>El lenguaje de conjuntos, relaciones y funciones permite expresar con precisión los objetos que aparecen en aprendizaje automático: espacios de entrada, espacios de salida, muestras, hipótesis y funciones de pérdida. La presentación de este capítulo sigue la notación matemática habitual empleada en textos de reconocimiento de patrones y aprendizaje estadístico <span class="co">[</span><span class="ot">@bishop2006pattern; @hastie2009elements</span><span class="co">]</span>.</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>El aprendizaje automático se construye sobre objetos matemáticos bien definidos: conjuntos de datos, espacios de características, funciones de predicción, reglas de decisión y medidas de error. Antes de estudiar algoritmos concretos, es necesario establecer un lenguaje común que permita expresar estos elementos con precisión.</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>En este capítulo se revisan los conceptos de conjuntos, relaciones y funciones, y se muestra cómo aparecen de manera natural en la formulación de problemas de aprendizaje automático.</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Idea central"}</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Una **función** asigna a cada elemento del dominio exactamente un elemento del codominio.</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Objetivos {.unnumbered}</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>Al finalizar el capítulo, el lector podrá:</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>reconocer y utilizar la notación básica de conjuntos;</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>distinguir entre elemento, subconjunto, unión, intersección y complemento;</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>interpretar el producto cartesiano;</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>definir formalmente una función;</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>distinguir dominio, codominio e imagen;</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>identificar funciones inyectivas, suprayectivas y biyectivas;</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>utilizar funciones indicadoras;</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>representar formalmente conjuntos de entrenamiento;</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>distinguir matemáticamente entre regresión y clasificación.</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Convenciones y alcance matemático {.unnumbered}</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>En este libro se trabajará principalmente con conjuntos finitos, subconjuntos de espacios euclidianos y funciones entre espacios de dimensión finita. Salvo indicación contraria:</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\mathbb{N}=<span class="sc">\{</span>1,2,3,\ldots<span class="sc">\}</span>$;</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\mathbb{R}^{p}$ representa el espacio de vectores reales de dimensión $p$;</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>una muestra de tamaño $n$ se indexa mediante $i=1,\ldots,n$;</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>las funciones se consideran bien definidas en todo su dominio;</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>la igualdad entre funciones exige igualdad de dominio, codominio y valores.</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>Esta precisión evita identificar una función únicamente con su fórmula. Dos expresiones algebraicas iguales pueden representar funciones distintas si sus dominios o codominios son diferentes.</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conjuntos numéricos {.unnumbered}</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>Los conjuntos numéricos más utilizados son:</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>\mathbb{N}=<span class="sc">\{</span>1,2,3,\ldots<span class="sc">\}</span>,</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>\mathbb{Z}=<span class="sc">\{</span>\ldots,-2,-1,0,1,2,\ldots<span class="sc">\}</span>,</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>\mathbb{Q}</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>\left<span class="sc">\{</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>\frac{a}{b}:a,b\in\mathbb{Z},\ b\neq 0</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>\right<span class="sc">\}</span>,</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>\mathbb{R},</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>que representa el conjunto de los números reales.</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>En aprendizaje automático también se utiliza frecuentemente el espacio</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>\mathbb{R}^{p}</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>\left<span class="sc">\{</span></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>(x_1,\ldots,x_p):x_j\in\mathbb{R}</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>\right<span class="sc">\}</span>.</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>Cada elemento de $\mathbb{R}^{p}$ es un vector con $p$ componentes.</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>::: {#exm-vector-caracteristicas}</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>Una observación ambiental puede representarse mediante</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>\mathbf{x}</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>42.3<span class="sc">\\</span></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>18.7<span class="sc">\\</span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>61.0</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>\in\mathbb{R}^{3},</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>donde las componentes podrían corresponder a concentración de partículas, temperatura y humedad.</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## Concepto de conjunto {.unnumbered}</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>::: {#def-conjunto}</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>Un **conjunto** es una colección bien definida de objetos. Los objetos que forman parte del conjunto se denominan elementos.</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>Si $x$ pertenece a un conjunto $A$, se escribe</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>x\in A.</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>Si no pertenece, se escribe</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>x\notin A.</span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>Por ejemplo, si</span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>A=<span class="sc">\{</span>2,4,6,8<span class="sc">\}</span>,</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>entonces</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>4\in A</span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>5\notin A.</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="fu">## Formas de especificar conjuntos {.unnumbered}</span></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>Un conjunto puede describirse por extensión o por comprensión.</span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="fu">### Por extensión {.unnumbered}</span></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>Se enumeran sus elementos:</span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>A=<span class="sc">\{</span>1,2,3,4,5<span class="sc">\}</span>.</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### Por comprensión {.unnumbered}</span></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>Se especifica una propiedad que deben satisfacer sus elementos:</span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>A=<span class="sc">\{</span>x\in\mathbb{N}:1\leq x\leq 5<span class="sc">\}</span>.</span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>La expresión después de los dos puntos se interpreta como “tal que”.</span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="fu">## Igualdad de conjuntos {.unnumbered}</span></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>Dos conjuntos $A$ y $B$ son iguales si contienen exactamente los mismos elementos:</span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>A=B</span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>\iff</span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>(\forall x)(x\in A\Leftrightarrow x\in B).</span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>El orden de los elementos no importa. Por ejemplo,</span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>1,2,3<span class="sc">\}</span>=<span class="sc">\{</span>3,1,2<span class="sc">\}</span>.</span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>La repetición tampoco modifica un conjunto:</span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>1,1,2,3<span class="sc">\}</span>=<span class="sc">\{</span>1,2,3<span class="sc">\}</span>.</span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Subconjuntos {.unnumbered}</span></span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>::: {#def-subconjunto}</span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>Se dice que $A$ es un subconjunto de $B$ si cada elemento de $A$ también pertenece a $B$.</span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>Formalmente,</span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>A\subseteq B</span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>\iff</span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>(\forall x)(x\in A\Rightarrow x\in B).</span>
-<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>Si además $A\neq B$, entonces $A$ es un subconjunto propio de $B$.</span>
-<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>::: {#exm-subconjunto}</span>
-<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>Sean</span>
-<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>A=<span class="sc">\{</span>1,2<span class="sc">\}</span>,</span>
-<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>B=<span class="sc">\{</span>1,2,3,4<span class="sc">\}</span>.</span>
-<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>Entonces</span>
-<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>A\subseteq B.</span>
-<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conjunto vacío {.unnumbered}</span></span>
-<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>El conjunto que no contiene elementos se denomina conjunto vacío y se denota por</span>
-<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>\varnothing.</span>
-<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>El conjunto vacío es subconjunto de todo conjunto:</span>
-<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>\varnothing\subseteq A.</span>
-<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operaciones entre conjuntos {.unnumbered}</span></span>
-<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a><span class="fu">### Unión {.unnumbered}</span></span>
-<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>La unión de $A$ y $B$ es el conjunto de elementos que pertenecen a $A$, a $B$ o a ambos:</span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>A\cup B</span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>x:x\in A\ \text{o}\ x\in B<span class="sc">\}</span>.</span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### Intersección {.unnumbered}</span></span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>La intersección contiene los elementos comunes:</span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>A\cap B</span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>x:x\in A\ \text{y}\ x\in B<span class="sc">\}</span>.</span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a><span class="fu">### Diferencia {.unnumbered}</span></span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>La diferencia $A\setminus B$ contiene los elementos de $A$ que no pertenecen a $B$:</span>
-<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>A\setminus B</span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>x:x\in A\ \text{y}\ x\notin B<span class="sc">\}</span>.</span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a><span class="fu">### Complemento {.unnumbered}</span></span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>Si $U$ es el conjunto universal, el complemento de $A$ es</span>
-<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>A^{c}=U\setminus A.</span>
-<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>::: {#exm-operaciones-conjuntos}</span>
-<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>Sean</span>
-<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>A=<span class="sc">\{</span>1,2,3,4<span class="sc">\}</span>,</span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>B=<span class="sc">\{</span>3,4,5,6<span class="sc">\}</span>.</span>
-<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>Entonces</span>
-<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>A\cup B=<span class="sc">\{</span>1,2,3,4,5,6<span class="sc">\}</span>,</span>
-<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>A\cap B=<span class="sc">\{</span>3,4<span class="sc">\}</span>,</span>
-<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a>A\setminus B=<span class="sc">\{</span>1,2<span class="sc">\}</span>,</span>
-<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>B\setminus A=<span class="sc">\{</span>5,6<span class="sc">\}</span>.</span>
-<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a><span class="fu">## Propiedades fundamentales {.unnumbered}</span></span>
-<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a>Para cualesquiera conjuntos $A$, $B$ y $C$ se cumplen:</span>
-<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conmutatividad {.unnumbered}</span></span>
-<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a>A\cup B=B\cup A,</span>
-<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a>A\cap B=B\cap A.</span>
-<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a><span class="fu">### Asociatividad {.unnumbered}</span></span>
-<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>(A\cup B)\cup C=A\cup(B\cup C),</span>
-<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>(A\cap B)\cap C=A\cap(B\cap C).</span>
-<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distributividad {.unnumbered}</span></span>
-<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a>A\cap(B\cup C)</span>
-<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a>(A\cap B)\cup(A\cap C),</span>
-<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a>A\cup(B\cap C)</span>
-<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a>(A\cup B)\cap(A\cup C).</span>
-<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-331"><a href="#cb2-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-332"><a href="#cb2-332" aria-hidden="true" tabindex="-1"></a><span class="fu">### Leyes de De Morgan {.unnumbered}</span></span>
-<span id="cb2-333"><a href="#cb2-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-334"><a href="#cb2-334" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-335"><a href="#cb2-335" aria-hidden="true" tabindex="-1"></a>(A\cup B)^c=A^c\cap B^c,</span>
-<span id="cb2-336"><a href="#cb2-336" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-337"><a href="#cb2-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-338"><a href="#cb2-338" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-339"><a href="#cb2-339" aria-hidden="true" tabindex="-1"></a>(A\cap B)^c=A^c\cup B^c.</span>
-<span id="cb2-340"><a href="#cb2-340" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-341"><a href="#cb2-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-342"><a href="#cb2-342" aria-hidden="true" tabindex="-1"></a>Estas propiedades serán importantes posteriormente en probabilidad, reglas de asociación y teoría de clasificación.</span>
-<span id="cb2-343"><a href="#cb2-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-344"><a href="#cb2-344" aria-hidden="true" tabindex="-1"></a><span class="fu">## Producto cartesiano {.unnumbered}</span></span>
-<span id="cb2-345"><a href="#cb2-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-346"><a href="#cb2-346" aria-hidden="true" tabindex="-1"></a>::: {#def-producto-cartesiano}</span>
-<span id="cb2-347"><a href="#cb2-347" aria-hidden="true" tabindex="-1"></a>El producto cartesiano de dos conjuntos $A$ y $B$ se define como</span>
-<span id="cb2-348"><a href="#cb2-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-349"><a href="#cb2-349" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-350"><a href="#cb2-350" aria-hidden="true" tabindex="-1"></a>A\times B</span>
-<span id="cb2-351"><a href="#cb2-351" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-352"><a href="#cb2-352" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>(a,b):a\in A,\ b\in B<span class="sc">\}</span>.</span>
-<span id="cb2-353"><a href="#cb2-353" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-354"><a href="#cb2-354" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-355"><a href="#cb2-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-356"><a href="#cb2-356" aria-hidden="true" tabindex="-1"></a>Si</span>
-<span id="cb2-357"><a href="#cb2-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-358"><a href="#cb2-358" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-359"><a href="#cb2-359" aria-hidden="true" tabindex="-1"></a>A=<span class="sc">\{</span>1,2<span class="sc">\}</span>,</span>
-<span id="cb2-360"><a href="#cb2-360" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-361"><a href="#cb2-361" aria-hidden="true" tabindex="-1"></a>B=<span class="sc">\{</span>a,b<span class="sc">\}</span>,</span>
-<span id="cb2-362"><a href="#cb2-362" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-363"><a href="#cb2-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-364"><a href="#cb2-364" aria-hidden="true" tabindex="-1"></a>entonces</span>
-<span id="cb2-365"><a href="#cb2-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-366"><a href="#cb2-366" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-367"><a href="#cb2-367" aria-hidden="true" tabindex="-1"></a>A\times B</span>
-<span id="cb2-368"><a href="#cb2-368" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-369"><a href="#cb2-369" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>(1,a),(1,b),(2,a),(2,b)<span class="sc">\}</span>.</span>
-<span id="cb2-370"><a href="#cb2-370" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-371"><a href="#cb2-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-372"><a href="#cb2-372" aria-hidden="true" tabindex="-1"></a>El producto cartesiano permite representar observaciones con varias características. En general,</span>
-<span id="cb2-373"><a href="#cb2-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-374"><a href="#cb2-374" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-375"><a href="#cb2-375" aria-hidden="true" tabindex="-1"></a>\mathbb{R}^{p}</span>
-<span id="cb2-376"><a href="#cb2-376" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-377"><a href="#cb2-377" aria-hidden="true" tabindex="-1"></a>\underbrace{</span>
-<span id="cb2-378"><a href="#cb2-378" aria-hidden="true" tabindex="-1"></a>\mathbb{R}\times\cdots\times\mathbb{R}</span>
-<span id="cb2-379"><a href="#cb2-379" aria-hidden="true" tabindex="-1"></a>}_{p\text{ veces}}.</span>
-<span id="cb2-380"><a href="#cb2-380" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-381"><a href="#cb2-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-382"><a href="#cb2-382" aria-hidden="true" tabindex="-1"></a><span class="fu">## Relaciones {.unnumbered}</span></span>
-<span id="cb2-383"><a href="#cb2-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-384"><a href="#cb2-384" aria-hidden="true" tabindex="-1"></a>::: {#def-relacion}</span>
-<span id="cb2-385"><a href="#cb2-385" aria-hidden="true" tabindex="-1"></a>Una relación entre los conjuntos $A$ y $B$ es cualquier subconjunto de $A\times B$.</span>
-<span id="cb2-386"><a href="#cb2-386" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-387"><a href="#cb2-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-388"><a href="#cb2-388" aria-hidden="true" tabindex="-1"></a>Una relación $R$ puede escribirse como</span>
-<span id="cb2-389"><a href="#cb2-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-390"><a href="#cb2-390" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-391"><a href="#cb2-391" aria-hidden="true" tabindex="-1"></a>R\subseteq A\times B.</span>
-<span id="cb2-392"><a href="#cb2-392" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-393"><a href="#cb2-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-394"><a href="#cb2-394" aria-hidden="true" tabindex="-1"></a>Si $(a,b)\in R$, se dice que $a$ está relacionado con $b$.</span>
-<span id="cb2-395"><a href="#cb2-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-396"><a href="#cb2-396" aria-hidden="true" tabindex="-1"></a>En clasificación, una muestra etiquetada puede verse como un conjunto de pares ordenados que relaciona cada observación con una clase.</span>
-<span id="cb2-397"><a href="#cb2-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-398"><a href="#cb2-398" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Relación y función"}</span>
-<span id="cb2-399"><a href="#cb2-399" aria-hidden="true" tabindex="-1"></a>Toda función es una relación, pero no toda relación es una función. Para que una relación $f\subseteq A\times B$ sea una función de $A$ en $B$, cada elemento de $A$ debe aparecer exactamente una vez como primera componente.</span>
-<span id="cb2-400"><a href="#cb2-400" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-401"><a href="#cb2-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-402"><a href="#cb2-402" aria-hidden="true" tabindex="-1"></a><span class="fu">## Funciones {.unnumbered}</span></span>
-<span id="cb2-403"><a href="#cb2-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-404"><a href="#cb2-404" aria-hidden="true" tabindex="-1"></a>::: {#def-funcion}</span>
-<span id="cb2-405"><a href="#cb2-405" aria-hidden="true" tabindex="-1"></a>Una función $f$ de un conjunto $A$ a un conjunto $B$ es una regla que asigna a cada elemento de $A$ exactamente un elemento de $B$.</span>
-<span id="cb2-406"><a href="#cb2-406" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-407"><a href="#cb2-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-408"><a href="#cb2-408" aria-hidden="true" tabindex="-1"></a>Se escribe</span>
-<span id="cb2-409"><a href="#cb2-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-410"><a href="#cb2-410" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-411"><a href="#cb2-411" aria-hidden="true" tabindex="-1"></a>f:A\longrightarrow B.</span>
-<span id="cb2-412"><a href="#cb2-412" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-413"><a href="#cb2-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-414"><a href="#cb2-414" aria-hidden="true" tabindex="-1"></a>El conjunto $A$ es el dominio y $B$ es el codominio.</span>
-<span id="cb2-415"><a href="#cb2-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-416"><a href="#cb2-416" aria-hidden="true" tabindex="-1"></a>Si $x\in A$, el valor asignado se denota por $f(x)$.</span>
-<span id="cb2-417"><a href="#cb2-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-418"><a href="#cb2-418" aria-hidden="true" tabindex="-1"></a>::: {#exm-funcion-real}</span>
-<span id="cb2-419"><a href="#cb2-419" aria-hidden="true" tabindex="-1"></a>Sea</span>
-<span id="cb2-420"><a href="#cb2-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-421"><a href="#cb2-421" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-422"><a href="#cb2-422" aria-hidden="true" tabindex="-1"></a>f:\mathbb{R}\longrightarrow\mathbb{R}</span>
-<span id="cb2-423"><a href="#cb2-423" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-424"><a href="#cb2-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-425"><a href="#cb2-425" aria-hidden="true" tabindex="-1"></a>definida por</span>
-<span id="cb2-426"><a href="#cb2-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-427"><a href="#cb2-427" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-428"><a href="#cb2-428" aria-hidden="true" tabindex="-1"></a>f(x)=2x+1.</span>
-<span id="cb2-429"><a href="#cb2-429" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-430"><a href="#cb2-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-431"><a href="#cb2-431" aria-hidden="true" tabindex="-1"></a>Entonces</span>
-<span id="cb2-432"><a href="#cb2-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-433"><a href="#cb2-433" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-434"><a href="#cb2-434" aria-hidden="true" tabindex="-1"></a>f(3)=7.</span>
-<span id="cb2-435"><a href="#cb2-435" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-436"><a href="#cb2-436" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-437"><a href="#cb2-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-438"><a href="#cb2-438" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dominio, codominio e imagen {.unnumbered}</span></span>
-<span id="cb2-439"><a href="#cb2-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-440"><a href="#cb2-440" aria-hidden="true" tabindex="-1"></a>Para una función</span>
-<span id="cb2-441"><a href="#cb2-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-442"><a href="#cb2-442" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-443"><a href="#cb2-443" aria-hidden="true" tabindex="-1"></a>f:A\to B,</span>
-<span id="cb2-444"><a href="#cb2-444" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-445"><a href="#cb2-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-446"><a href="#cb2-446" aria-hidden="true" tabindex="-1"></a>el dominio es $A$ y el codominio es $B$.</span>
-<span id="cb2-447"><a href="#cb2-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-448"><a href="#cb2-448" aria-hidden="true" tabindex="-1"></a>La imagen de $f$ es</span>
-<span id="cb2-449"><a href="#cb2-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-450"><a href="#cb2-450" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-451"><a href="#cb2-451" aria-hidden="true" tabindex="-1"></a>\operatorname{Im}(f)</span>
-<span id="cb2-452"><a href="#cb2-452" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-453"><a href="#cb2-453" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>f(x):x\in A<span class="sc">\}</span>.</span>
-<span id="cb2-454"><a href="#cb2-454" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-455"><a href="#cb2-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-456"><a href="#cb2-456" aria-hidden="true" tabindex="-1"></a>Siempre se cumple</span>
-<span id="cb2-457"><a href="#cb2-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-458"><a href="#cb2-458" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-459"><a href="#cb2-459" aria-hidden="true" tabindex="-1"></a>\operatorname{Im}(f)\subseteq B.</span>
-<span id="cb2-460"><a href="#cb2-460" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-461"><a href="#cb2-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-462"><a href="#cb2-462" aria-hidden="true" tabindex="-1"></a>El codominio y la imagen no necesariamente coinciden.</span>
-<span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a><span class="fu">## Imagen e imagen inversa de conjuntos {.unnumbered}</span></span>
-<span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a>Si $C\subseteq A$, la imagen de $C$ es</span>
-<span id="cb2-467"><a href="#cb2-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-468"><a href="#cb2-468" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-469"><a href="#cb2-469" aria-hidden="true" tabindex="-1"></a>f(C)</span>
-<span id="cb2-470"><a href="#cb2-470" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-471"><a href="#cb2-471" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>f(x):x\in C<span class="sc">\}</span>.</span>
-<span id="cb2-472"><a href="#cb2-472" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-473"><a href="#cb2-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-474"><a href="#cb2-474" aria-hidden="true" tabindex="-1"></a>Si $D\subseteq B$, la imagen inversa de $D$ es</span>
-<span id="cb2-475"><a href="#cb2-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-476"><a href="#cb2-476" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-477"><a href="#cb2-477" aria-hidden="true" tabindex="-1"></a>f^{-1}(D)</span>
-<span id="cb2-478"><a href="#cb2-478" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-479"><a href="#cb2-479" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>x\in A:f(x)\in D<span class="sc">\}</span>.</span>
-<span id="cb2-480"><a href="#cb2-480" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-481"><a href="#cb2-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-482"><a href="#cb2-482" aria-hidden="true" tabindex="-1"></a>La notación $f^{-1}(D)$ no exige que $f$ sea invertible.</span>
-<span id="cb2-483"><a href="#cb2-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-484"><a href="#cb2-484" aria-hidden="true" tabindex="-1"></a><span class="fu">## Funciones inyectivas, suprayectivas y biyectivas {.unnumbered}</span></span>
-<span id="cb2-485"><a href="#cb2-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-486"><a href="#cb2-486" aria-hidden="true" tabindex="-1"></a><span class="fu">### Función inyectiva {.unnumbered}</span></span>
-<span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a>::: {#def-inyectiva}</span>
-<span id="cb2-489"><a href="#cb2-489" aria-hidden="true" tabindex="-1"></a>Una función $f:A\to B$ es inyectiva si elementos distintos del dominio tienen imágenes distintas.</span>
-<span id="cb2-490"><a href="#cb2-490" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-491"><a href="#cb2-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-492"><a href="#cb2-492" aria-hidden="true" tabindex="-1"></a>Equivalentemente,</span>
-<span id="cb2-493"><a href="#cb2-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-494"><a href="#cb2-494" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-495"><a href="#cb2-495" aria-hidden="true" tabindex="-1"></a>f(x_1)=f(x_2)</span>
-<span id="cb2-496"><a href="#cb2-496" aria-hidden="true" tabindex="-1"></a>\Rightarrow</span>
-<span id="cb2-497"><a href="#cb2-497" aria-hidden="true" tabindex="-1"></a>x_1=x_2.</span>
-<span id="cb2-498"><a href="#cb2-498" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-499"><a href="#cb2-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-500"><a href="#cb2-500" aria-hidden="true" tabindex="-1"></a><span class="fu">### Función suprayectiva {.unnumbered}</span></span>
-<span id="cb2-501"><a href="#cb2-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-502"><a href="#cb2-502" aria-hidden="true" tabindex="-1"></a>::: {#def-suprayectiva}</span>
-<span id="cb2-503"><a href="#cb2-503" aria-hidden="true" tabindex="-1"></a>Una función $f:A\to B$ es suprayectiva si cada elemento de $B$ es imagen de al menos un elemento de $A$.</span>
-<span id="cb2-504"><a href="#cb2-504" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-505"><a href="#cb2-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-506"><a href="#cb2-506" aria-hidden="true" tabindex="-1"></a>Formalmente,</span>
-<span id="cb2-507"><a href="#cb2-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-508"><a href="#cb2-508" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-509"><a href="#cb2-509" aria-hidden="true" tabindex="-1"></a>(\forall y\in B)(\exists x\in A)</span>
-<span id="cb2-510"><a href="#cb2-510" aria-hidden="true" tabindex="-1"></a>\quad</span>
-<span id="cb2-511"><a href="#cb2-511" aria-hidden="true" tabindex="-1"></a>f(x)=y.</span>
-<span id="cb2-512"><a href="#cb2-512" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-513"><a href="#cb2-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-514"><a href="#cb2-514" aria-hidden="true" tabindex="-1"></a><span class="fu">### Función biyectiva {.unnumbered}</span></span>
-<span id="cb2-515"><a href="#cb2-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-516"><a href="#cb2-516" aria-hidden="true" tabindex="-1"></a>::: {#def-biyectiva}</span>
-<span id="cb2-517"><a href="#cb2-517" aria-hidden="true" tabindex="-1"></a>Una función es biyectiva si es simultáneamente inyectiva y suprayectiva.</span>
-<span id="cb2-518"><a href="#cb2-518" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-519"><a href="#cb2-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-520"><a href="#cb2-520" aria-hidden="true" tabindex="-1"></a>Las funciones biyectivas poseen una función inversa.</span>
-<span id="cb2-521"><a href="#cb2-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-522"><a href="#cb2-522" aria-hidden="true" tabindex="-1"></a><span class="fu">## Composición de funciones {.unnumbered}</span></span>
-<span id="cb2-523"><a href="#cb2-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-524"><a href="#cb2-524" aria-hidden="true" tabindex="-1"></a>Sean</span>
-<span id="cb2-525"><a href="#cb2-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-526"><a href="#cb2-526" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-527"><a href="#cb2-527" aria-hidden="true" tabindex="-1"></a>f:A\to B</span>
-<span id="cb2-528"><a href="#cb2-528" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-529"><a href="#cb2-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-530"><a href="#cb2-530" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-531"><a href="#cb2-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-532"><a href="#cb2-532" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-533"><a href="#cb2-533" aria-hidden="true" tabindex="-1"></a>g:B\to C.</span>
-<span id="cb2-534"><a href="#cb2-534" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-535"><a href="#cb2-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-536"><a href="#cb2-536" aria-hidden="true" tabindex="-1"></a>La composición de $g$ con $f$ se define como</span>
-<span id="cb2-537"><a href="#cb2-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-538"><a href="#cb2-538" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-539"><a href="#cb2-539" aria-hidden="true" tabindex="-1"></a>(g\circ f)(x)=g(f(x)).</span>
-<span id="cb2-540"><a href="#cb2-540" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-541"><a href="#cb2-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-542"><a href="#cb2-542" aria-hidden="true" tabindex="-1"></a>La composición es esencial en redes neuronales, donde cada capa aplica una transformación a la salida de la capa anterior.</span>
-<span id="cb2-543"><a href="#cb2-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-544"><a href="#cb2-544" aria-hidden="true" tabindex="-1"></a>::: {#exm-composicion}</span>
-<span id="cb2-545"><a href="#cb2-545" aria-hidden="true" tabindex="-1"></a>Sean</span>
-<span id="cb2-546"><a href="#cb2-546" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-547"><a href="#cb2-547" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-548"><a href="#cb2-548" aria-hidden="true" tabindex="-1"></a>f(x)=2x+1,</span>
-<span id="cb2-549"><a href="#cb2-549" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-550"><a href="#cb2-550" aria-hidden="true" tabindex="-1"></a>g(x)=x^2.</span>
-<span id="cb2-551"><a href="#cb2-551" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-552"><a href="#cb2-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-553"><a href="#cb2-553" aria-hidden="true" tabindex="-1"></a>Entonces</span>
-<span id="cb2-554"><a href="#cb2-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-555"><a href="#cb2-555" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-556"><a href="#cb2-556" aria-hidden="true" tabindex="-1"></a>(g\circ f)(x)</span>
-<span id="cb2-557"><a href="#cb2-557" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-558"><a href="#cb2-558" aria-hidden="true" tabindex="-1"></a>(2x+1)^2.</span>
-<span id="cb2-559"><a href="#cb2-559" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-560"><a href="#cb2-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-561"><a href="#cb2-561" aria-hidden="true" tabindex="-1"></a>En cambio,</span>
-<span id="cb2-562"><a href="#cb2-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-563"><a href="#cb2-563" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-564"><a href="#cb2-564" aria-hidden="true" tabindex="-1"></a>(f\circ g)(x)</span>
-<span id="cb2-565"><a href="#cb2-565" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-566"><a href="#cb2-566" aria-hidden="true" tabindex="-1"></a>2x^2+1.</span>
-<span id="cb2-567"><a href="#cb2-567" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-568"><a href="#cb2-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-569"><a href="#cb2-569" aria-hidden="true" tabindex="-1"></a>En general,</span>
-<span id="cb2-570"><a href="#cb2-570" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-571"><a href="#cb2-571" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-572"><a href="#cb2-572" aria-hidden="true" tabindex="-1"></a>g\circ f\neq f\circ g.</span>
-<span id="cb2-573"><a href="#cb2-573" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-574"><a href="#cb2-574" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-575"><a href="#cb2-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-576"><a href="#cb2-576" aria-hidden="true" tabindex="-1"></a><span class="fu">## Función indicadora {.unnumbered}</span></span>
-<span id="cb2-577"><a href="#cb2-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-578"><a href="#cb2-578" aria-hidden="true" tabindex="-1"></a>::: {#def-indicadora}</span>
-<span id="cb2-579"><a href="#cb2-579" aria-hidden="true" tabindex="-1"></a>Sea $A$ un conjunto. La función indicadora de $A$ se define por</span>
-<span id="cb2-580"><a href="#cb2-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-581"><a href="#cb2-581" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-582"><a href="#cb2-582" aria-hidden="true" tabindex="-1"></a>\mathbb{I}_{A}(x)</span>
-<span id="cb2-583"><a href="#cb2-583" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-584"><a href="#cb2-584" aria-hidden="true" tabindex="-1"></a>\begin{cases}</span>
-<span id="cb2-585"><a href="#cb2-585" aria-hidden="true" tabindex="-1"></a>1, &amp; x\in A,<span class="sc">\\</span></span>
-<span id="cb2-586"><a href="#cb2-586" aria-hidden="true" tabindex="-1"></a>0, &amp; x\notin A.</span>
-<span id="cb2-587"><a href="#cb2-587" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
-<span id="cb2-588"><a href="#cb2-588" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-589"><a href="#cb2-589" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-590"><a href="#cb2-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-591"><a href="#cb2-591" aria-hidden="true" tabindex="-1"></a>También se utiliza la notación</span>
-<span id="cb2-592"><a href="#cb2-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-593"><a href="#cb2-593" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-594"><a href="#cb2-594" aria-hidden="true" tabindex="-1"></a>\mathbb{I}(x\in A).</span>
-<span id="cb2-595"><a href="#cb2-595" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-596"><a href="#cb2-596" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-597"><a href="#cb2-597" aria-hidden="true" tabindex="-1"></a>En clasificación, la función indicadora permite contar observaciones de una clase:</span>
-<span id="cb2-598"><a href="#cb2-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-599"><a href="#cb2-599" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-600"><a href="#cb2-600" aria-hidden="true" tabindex="-1"></a>n_k</span>
-<span id="cb2-601"><a href="#cb2-601" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-602"><a href="#cb2-602" aria-hidden="true" tabindex="-1"></a>\sum_{i=1}^{n}</span>
-<span id="cb2-603"><a href="#cb2-603" aria-hidden="true" tabindex="-1"></a>\mathbb{I}(y_i=k).</span>
-<span id="cb2-604"><a href="#cb2-604" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-605"><a href="#cb2-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-606"><a href="#cb2-606" aria-hidden="true" tabindex="-1"></a>La proporción de observaciones de la clase $k$ es</span>
-<span id="cb2-607"><a href="#cb2-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-608"><a href="#cb2-608" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-609"><a href="#cb2-609" aria-hidden="true" tabindex="-1"></a>\widehat{p}_k</span>
-<span id="cb2-610"><a href="#cb2-610" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-611"><a href="#cb2-611" aria-hidden="true" tabindex="-1"></a>\frac{1}{n}</span>
-<span id="cb2-612"><a href="#cb2-612" aria-hidden="true" tabindex="-1"></a>\sum_{i=1}^{n}</span>
-<span id="cb2-613"><a href="#cb2-613" aria-hidden="true" tabindex="-1"></a>\mathbb{I}(y_i=k).</span>
-<span id="cb2-614"><a href="#cb2-614" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-615"><a href="#cb2-615" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-616"><a href="#cb2-616" aria-hidden="true" tabindex="-1"></a>Esta expresión aparecerá en árboles de decisión, matrices de confusión y medidas de evaluación.</span>
-<span id="cb2-617"><a href="#cb2-617" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-618"><a href="#cb2-618" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sumatorias y productorias {.unnumbered}</span></span>
-<span id="cb2-619"><a href="#cb2-619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-620"><a href="#cb2-620" aria-hidden="true" tabindex="-1"></a>La sumatoria</span>
-<span id="cb2-621"><a href="#cb2-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-622"><a href="#cb2-622" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-623"><a href="#cb2-623" aria-hidden="true" tabindex="-1"></a>\sum_{i=1}^{n}x_i</span>
-<span id="cb2-624"><a href="#cb2-624" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-625"><a href="#cb2-625" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-626"><a href="#cb2-626" aria-hidden="true" tabindex="-1"></a>representa</span>
-<span id="cb2-627"><a href="#cb2-627" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-628"><a href="#cb2-628" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-629"><a href="#cb2-629" aria-hidden="true" tabindex="-1"></a>x_1+x_2+\cdots+x_n.</span>
-<span id="cb2-630"><a href="#cb2-630" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-631"><a href="#cb2-631" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-632"><a href="#cb2-632" aria-hidden="true" tabindex="-1"></a>La productoria</span>
-<span id="cb2-633"><a href="#cb2-633" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-634"><a href="#cb2-634" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-635"><a href="#cb2-635" aria-hidden="true" tabindex="-1"></a>\prod_{i=1}^{n}x_i</span>
-<span id="cb2-636"><a href="#cb2-636" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-637"><a href="#cb2-637" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-638"><a href="#cb2-638" aria-hidden="true" tabindex="-1"></a>representa</span>
-<span id="cb2-639"><a href="#cb2-639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-640"><a href="#cb2-640" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-641"><a href="#cb2-641" aria-hidden="true" tabindex="-1"></a>x_1x_2\cdots x_n.</span>
-<span id="cb2-642"><a href="#cb2-642" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-643"><a href="#cb2-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-644"><a href="#cb2-644" aria-hidden="true" tabindex="-1"></a>La media aritmética de una muestra es</span>
-<span id="cb2-645"><a href="#cb2-645" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-646"><a href="#cb2-646" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-647"><a href="#cb2-647" aria-hidden="true" tabindex="-1"></a>\bar{x}</span>
-<span id="cb2-648"><a href="#cb2-648" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-649"><a href="#cb2-649" aria-hidden="true" tabindex="-1"></a>\frac{1}{n}</span>
-<span id="cb2-650"><a href="#cb2-650" aria-hidden="true" tabindex="-1"></a>\sum_{i=1}^{n}x_i.</span>
-<span id="cb2-651"><a href="#cb2-651" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-652"><a href="#cb2-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-653"><a href="#cb2-653" aria-hidden="true" tabindex="-1"></a>La productoria será especialmente importante en funciones de verosimilitud.</span>
-<span id="cb2-654"><a href="#cb2-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-655"><a href="#cb2-655" aria-hidden="true" tabindex="-1"></a><span class="fu">## Representación formal de datos {.unnumbered}</span></span>
-<span id="cb2-656"><a href="#cb2-656" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-657"><a href="#cb2-657" aria-hidden="true" tabindex="-1"></a>Sea</span>
-<span id="cb2-658"><a href="#cb2-658" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-659"><a href="#cb2-659" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-660"><a href="#cb2-660" aria-hidden="true" tabindex="-1"></a>\mathcal{X}\subseteq\mathbb{R}^{p}</span>
-<span id="cb2-661"><a href="#cb2-661" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-662"><a href="#cb2-662" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-663"><a href="#cb2-663" aria-hidden="true" tabindex="-1"></a>el espacio de características y sea $\mathcal{Y}$ el espacio de respuestas.</span>
-<span id="cb2-664"><a href="#cb2-664" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-665"><a href="#cb2-665" aria-hidden="true" tabindex="-1"></a>Un conjunto de datos supervisado se representa como</span>
-<span id="cb2-666"><a href="#cb2-666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-667"><a href="#cb2-667" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-668"><a href="#cb2-668" aria-hidden="true" tabindex="-1"></a>\mathcal{D}</span>
-<span id="cb2-669"><a href="#cb2-669" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-670"><a href="#cb2-670" aria-hidden="true" tabindex="-1"></a>\left<span class="sc">\{</span></span>
-<span id="cb2-671"><a href="#cb2-671" aria-hidden="true" tabindex="-1"></a>(\mathbf{x}_i,y_i)</span>
-<span id="cb2-672"><a href="#cb2-672" aria-hidden="true" tabindex="-1"></a>\right<span class="sc">\}</span>_{i=1}^{n}</span>
-<span id="cb2-673"><a href="#cb2-673" aria-hidden="true" tabindex="-1"></a>\subseteq</span>
-<span id="cb2-674"><a href="#cb2-674" aria-hidden="true" tabindex="-1"></a>\mathcal{X}\times\mathcal{Y}.</span>
-<span id="cb2-675"><a href="#cb2-675" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-676"><a href="#cb2-676" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-677"><a href="#cb2-677" aria-hidden="true" tabindex="-1"></a>Cada vector</span>
-<span id="cb2-678"><a href="#cb2-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-679"><a href="#cb2-679" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-680"><a href="#cb2-680" aria-hidden="true" tabindex="-1"></a>\mathbf{x}_i</span>
-<span id="cb2-681"><a href="#cb2-681" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-682"><a href="#cb2-682" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb2-683"><a href="#cb2-683" aria-hidden="true" tabindex="-1"></a>x_{i1}<span class="sc">\\</span></span>
-<span id="cb2-684"><a href="#cb2-684" aria-hidden="true" tabindex="-1"></a>x_{i2}<span class="sc">\\</span></span>
-<span id="cb2-685"><a href="#cb2-685" aria-hidden="true" tabindex="-1"></a>\vdots<span class="sc">\\</span></span>
-<span id="cb2-686"><a href="#cb2-686" aria-hidden="true" tabindex="-1"></a>x_{ip}</span>
-<span id="cb2-687"><a href="#cb2-687" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb2-688"><a href="#cb2-688" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-689"><a href="#cb2-689" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-690"><a href="#cb2-690" aria-hidden="true" tabindex="-1"></a>contiene los valores de las $p$ características de la observación $i$.</span>
-<span id="cb2-691"><a href="#cb2-691" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-692"><a href="#cb2-692" aria-hidden="true" tabindex="-1"></a>La matriz de datos se representa como</span>
-<span id="cb2-693"><a href="#cb2-693" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-694"><a href="#cb2-694" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-695"><a href="#cb2-695" aria-hidden="true" tabindex="-1"></a>\mathbf{X}</span>
-<span id="cb2-696"><a href="#cb2-696" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-697"><a href="#cb2-697" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb2-698"><a href="#cb2-698" aria-hidden="true" tabindex="-1"></a>x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p}<span class="sc">\\</span></span>
-<span id="cb2-699"><a href="#cb2-699" aria-hidden="true" tabindex="-1"></a>x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p}<span class="sc">\\</span></span>
-<span id="cb2-700"><a href="#cb2-700" aria-hidden="true" tabindex="-1"></a>\vdots &amp; \vdots &amp; \ddots &amp; \vdots<span class="sc">\\</span></span>
-<span id="cb2-701"><a href="#cb2-701" aria-hidden="true" tabindex="-1"></a>x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np}</span>
-<span id="cb2-702"><a href="#cb2-702" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}</span>
-<span id="cb2-703"><a href="#cb2-703" aria-hidden="true" tabindex="-1"></a>\in\mathbb{R}^{n\times p}.</span>
-<span id="cb2-704"><a href="#cb2-704" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-705"><a href="#cb2-705" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-706"><a href="#cb2-706" aria-hidden="true" tabindex="-1"></a>El vector de respuestas es</span>
-<span id="cb2-707"><a href="#cb2-707" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-708"><a href="#cb2-708" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-709"><a href="#cb2-709" aria-hidden="true" tabindex="-1"></a>\mathbf{y}</span>
-<span id="cb2-710"><a href="#cb2-710" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-711"><a href="#cb2-711" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb2-712"><a href="#cb2-712" aria-hidden="true" tabindex="-1"></a>y_1<span class="sc">\\</span></span>
-<span id="cb2-713"><a href="#cb2-713" aria-hidden="true" tabindex="-1"></a>y_2<span class="sc">\\</span></span>
-<span id="cb2-714"><a href="#cb2-714" aria-hidden="true" tabindex="-1"></a>\vdots<span class="sc">\\</span></span>
-<span id="cb2-715"><a href="#cb2-715" aria-hidden="true" tabindex="-1"></a>y_n</span>
-<span id="cb2-716"><a href="#cb2-716" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}.</span>
-<span id="cb2-717"><a href="#cb2-717" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-718"><a href="#cb2-718" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-719"><a href="#cb2-719" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regresión y clasificación {.unnumbered}</span></span>
-<span id="cb2-720"><a href="#cb2-720" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-721"><a href="#cb2-721" aria-hidden="true" tabindex="-1"></a><span class="fu">### Regresión {.unnumbered}</span></span>
-<span id="cb2-722"><a href="#cb2-722" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-723"><a href="#cb2-723" aria-hidden="true" tabindex="-1"></a>En un problema de regresión, la respuesta es numérica:</span>
-<span id="cb2-724"><a href="#cb2-724" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-725"><a href="#cb2-725" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-726"><a href="#cb2-726" aria-hidden="true" tabindex="-1"></a>\mathcal{Y}\subseteq\mathbb{R}.</span>
-<span id="cb2-727"><a href="#cb2-727" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-728"><a href="#cb2-728" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-729"><a href="#cb2-729" aria-hidden="true" tabindex="-1"></a>Se busca una función</span>
-<span id="cb2-730"><a href="#cb2-730" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-731"><a href="#cb2-731" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-732"><a href="#cb2-732" aria-hidden="true" tabindex="-1"></a>f:\mathcal{X}\to\mathbb{R}.</span>
-<span id="cb2-733"><a href="#cb2-733" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-734"><a href="#cb2-734" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-735"><a href="#cb2-735" aria-hidden="true" tabindex="-1"></a>Por ejemplo, estimar la concentración de un contaminante:</span>
-<span id="cb2-736"><a href="#cb2-736" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-737"><a href="#cb2-737" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-738"><a href="#cb2-738" aria-hidden="true" tabindex="-1"></a>f(\mathbf{x})</span>
-<span id="cb2-739"><a href="#cb2-739" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-740"><a href="#cb2-740" aria-hidden="true" tabindex="-1"></a>\widehat{y}.</span>
-<span id="cb2-741"><a href="#cb2-741" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-742"><a href="#cb2-742" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-743"><a href="#cb2-743" aria-hidden="true" tabindex="-1"></a><span class="fu">### Clasificación binaria {.unnumbered}</span></span>
-<span id="cb2-744"><a href="#cb2-744" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-745"><a href="#cb2-745" aria-hidden="true" tabindex="-1"></a>En clasificación binaria,</span>
-<span id="cb2-746"><a href="#cb2-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-747"><a href="#cb2-747" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-748"><a href="#cb2-748" aria-hidden="true" tabindex="-1"></a>\mathcal{Y}=<span class="sc">\{</span>0,1<span class="sc">\}</span></span>
-<span id="cb2-749"><a href="#cb2-749" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-750"><a href="#cb2-750" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-751"><a href="#cb2-751" aria-hidden="true" tabindex="-1"></a>o bien</span>
-<span id="cb2-752"><a href="#cb2-752" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-753"><a href="#cb2-753" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-754"><a href="#cb2-754" aria-hidden="true" tabindex="-1"></a>\mathcal{Y}=<span class="sc">\{</span>-1,1<span class="sc">\}</span>.</span>
-<span id="cb2-755"><a href="#cb2-755" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-756"><a href="#cb2-756" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-757"><a href="#cb2-757" aria-hidden="true" tabindex="-1"></a>La función de clasificación tiene la forma</span>
-<span id="cb2-758"><a href="#cb2-758" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-759"><a href="#cb2-759" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-760"><a href="#cb2-760" aria-hidden="true" tabindex="-1"></a>f:\mathcal{X}\to<span class="sc">\{</span>0,1<span class="sc">\}</span>.</span>
-<span id="cb2-761"><a href="#cb2-761" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-762"><a href="#cb2-762" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-763"><a href="#cb2-763" aria-hidden="true" tabindex="-1"></a><span class="fu">### Clasificación multiclase {.unnumbered}</span></span>
-<span id="cb2-764"><a href="#cb2-764" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-765"><a href="#cb2-765" aria-hidden="true" tabindex="-1"></a>En clasificación multiclase,</span>
-<span id="cb2-766"><a href="#cb2-766" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-767"><a href="#cb2-767" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-768"><a href="#cb2-768" aria-hidden="true" tabindex="-1"></a>\mathcal{Y}</span>
-<span id="cb2-769"><a href="#cb2-769" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-770"><a href="#cb2-770" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>1,2,\ldots,K<span class="sc">\}</span>.</span>
-<span id="cb2-771"><a href="#cb2-771" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-772"><a href="#cb2-772" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-773"><a href="#cb2-773" aria-hidden="true" tabindex="-1"></a>Entonces</span>
-<span id="cb2-774"><a href="#cb2-774" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-775"><a href="#cb2-775" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-776"><a href="#cb2-776" aria-hidden="true" tabindex="-1"></a>f:\mathcal{X}\to<span class="sc">\{</span>1,\ldots,K<span class="sc">\}</span>.</span>
-<span id="cb2-777"><a href="#cb2-777" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-778"><a href="#cb2-778" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-779"><a href="#cb2-779" aria-hidden="true" tabindex="-1"></a><span class="fu">## Función objetivo desconocida {.unnumbered}</span></span>
-<span id="cb2-780"><a href="#cb2-780" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-781"><a href="#cb2-781" aria-hidden="true" tabindex="-1"></a>En aprendizaje supervisado se supone que existe una relación entre las características y la respuesta. Puede representarse idealmente mediante una función desconocida</span>
-<span id="cb2-782"><a href="#cb2-782" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-783"><a href="#cb2-783" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-784"><a href="#cb2-784" aria-hidden="true" tabindex="-1"></a>f^{*}:\mathcal{X}\to\mathcal{Y}.</span>
-<span id="cb2-785"><a href="#cb2-785" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-786"><a href="#cb2-786" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-787"><a href="#cb2-787" aria-hidden="true" tabindex="-1"></a>Los datos satisfacen aproximadamente</span>
-<span id="cb2-788"><a href="#cb2-788" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-789"><a href="#cb2-789" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-790"><a href="#cb2-790" aria-hidden="true" tabindex="-1"></a>y_i=f^{*}(\mathbf{x}_i)+\varepsilon_i</span>
-<span id="cb2-791"><a href="#cb2-791" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-792"><a href="#cb2-792" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-793"><a href="#cb2-793" aria-hidden="true" tabindex="-1"></a>en regresión, donde $\varepsilon_i$ representa variación aleatoria o error.</span>
-<span id="cb2-794"><a href="#cb2-794" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-795"><a href="#cb2-795" aria-hidden="true" tabindex="-1"></a>El objetivo del aprendizaje consiste en construir una aproximación</span>
-<span id="cb2-796"><a href="#cb2-796" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-797"><a href="#cb2-797" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-798"><a href="#cb2-798" aria-hidden="true" tabindex="-1"></a>\widehat{f}\approx f^{*}.</span>
-<span id="cb2-799"><a href="#cb2-799" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-800"><a href="#cb2-800" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-801"><a href="#cb2-801" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="Función objetivo y datos observados"}</span>
-<span id="cb2-802"><a href="#cb2-802" aria-hidden="true" tabindex="-1"></a>En aprendizaje supervisado se supone que existe alguna relación entre $\mathbf{X}$ y $Y$, pero normalmente no se observa una función objetivo determinista exacta. Una formulación más general utiliza una distribución conjunta $P_{X,Y}$ y busca una función que minimice el riesgo esperado. Esta distinción se desarrollará en los capítulos de aprendizaje supervisado y teoría de generalización.</span>
-<span id="cb2-803"><a href="#cb2-803" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-804"><a href="#cb2-804" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-805"><a href="#cb2-805" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejemplo integrado {.unnumbered}</span></span>
-<span id="cb2-806"><a href="#cb2-806" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-807"><a href="#cb2-807" aria-hidden="true" tabindex="-1"></a>Supóngase que se desea clasificar la calidad del aire utilizando tres variables:</span>
-<span id="cb2-808"><a href="#cb2-808" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-809"><a href="#cb2-809" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>concentración de partículas PM10;</span>
-<span id="cb2-810"><a href="#cb2-810" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>temperatura;</span>
-<span id="cb2-811"><a href="#cb2-811" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>humedad relativa.</span>
-<span id="cb2-812"><a href="#cb2-812" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-813"><a href="#cb2-813" aria-hidden="true" tabindex="-1"></a>El espacio de características es</span>
-<span id="cb2-814"><a href="#cb2-814" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-815"><a href="#cb2-815" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-816"><a href="#cb2-816" aria-hidden="true" tabindex="-1"></a>\mathcal{X}\subseteq\mathbb{R}^{3}.</span>
-<span id="cb2-817"><a href="#cb2-817" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-818"><a href="#cb2-818" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-819"><a href="#cb2-819" aria-hidden="true" tabindex="-1"></a>La respuesta puede definirse como</span>
-<span id="cb2-820"><a href="#cb2-820" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-821"><a href="#cb2-821" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-822"><a href="#cb2-822" aria-hidden="true" tabindex="-1"></a>\mathcal{Y}</span>
-<span id="cb2-823"><a href="#cb2-823" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-824"><a href="#cb2-824" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>\text{buena},\text{regular},\text{mala}<span class="sc">\}</span>.</span>
-<span id="cb2-825"><a href="#cb2-825" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-826"><a href="#cb2-826" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-827"><a href="#cb2-827" aria-hidden="true" tabindex="-1"></a>Una observación es</span>
-<span id="cb2-828"><a href="#cb2-828" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-829"><a href="#cb2-829" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-830"><a href="#cb2-830" aria-hidden="true" tabindex="-1"></a>\mathbf{x}_i</span>
-<span id="cb2-831"><a href="#cb2-831" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-832"><a href="#cb2-832" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb2-833"><a href="#cb2-833" aria-hidden="true" tabindex="-1"></a>\text{PM10}_i<span class="sc">\\</span></span>
-<span id="cb2-834"><a href="#cb2-834" aria-hidden="true" tabindex="-1"></a>\text{temperatura}_i<span class="sc">\\</span></span>
-<span id="cb2-835"><a href="#cb2-835" aria-hidden="true" tabindex="-1"></a>\text{humedad}_i</span>
-<span id="cb2-836"><a href="#cb2-836" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}.</span>
-<span id="cb2-837"><a href="#cb2-837" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-838"><a href="#cb2-838" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-839"><a href="#cb2-839" aria-hidden="true" tabindex="-1"></a>El conjunto de entrenamiento es</span>
-<span id="cb2-840"><a href="#cb2-840" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-841"><a href="#cb2-841" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-842"><a href="#cb2-842" aria-hidden="true" tabindex="-1"></a>\mathcal{D}</span>
-<span id="cb2-843"><a href="#cb2-843" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-844"><a href="#cb2-844" aria-hidden="true" tabindex="-1"></a>\left<span class="sc">\{</span></span>
-<span id="cb2-845"><a href="#cb2-845" aria-hidden="true" tabindex="-1"></a>(\mathbf{x}_i,y_i)</span>
-<span id="cb2-846"><a href="#cb2-846" aria-hidden="true" tabindex="-1"></a>\right<span class="sc">\}</span>_{i=1}^{n}.</span>
-<span id="cb2-847"><a href="#cb2-847" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-848"><a href="#cb2-848" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-849"><a href="#cb2-849" aria-hidden="true" tabindex="-1"></a>El clasificador buscado es una función</span>
-<span id="cb2-850"><a href="#cb2-850" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-851"><a href="#cb2-851" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-852"><a href="#cb2-852" aria-hidden="true" tabindex="-1"></a>\widehat{f}:\mathbb{R}^{3}</span>
-<span id="cb2-853"><a href="#cb2-853" aria-hidden="true" tabindex="-1"></a>\to</span>
-<span id="cb2-854"><a href="#cb2-854" aria-hidden="true" tabindex="-1"></a><span class="sc">\{</span>\text{buena},\text{regular},\text{mala}<span class="sc">\}</span>.</span>
-<span id="cb2-855"><a href="#cb2-855" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-856"><a href="#cb2-856" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-857"><a href="#cb2-857" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conexión con R {.unnumbered}</span></span>
-<span id="cb2-858"><a href="#cb2-858" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-859"><a href="#cb2-859" aria-hidden="true" tabindex="-1"></a>En R, una tabla de datos puede interpretarse como una representación computacional de la matriz $\mathbf{X}$ y del vector $\mathbf{y}$.</span>
-<span id="cb2-860"><a href="#cb2-860" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-863"><a href="#cb2-863" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-864"><a href="#cb2-864" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb2-865"><a href="#cb2-865" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-866"><a href="#cb2-866" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-867"><a href="#cb2-867" aria-hidden="true" tabindex="-1"></a>  <span class="at">pm10 =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">75</span>, <span class="dv">112</span>, <span class="dv">46</span>),</span>
-<span id="cb2-868"><a href="#cb2-868" aria-hidden="true" tabindex="-1"></a>  <span class="at">temperatura =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">27</span>, <span class="dv">21</span>),</span>
-<span id="cb2-869"><a href="#cb2-869" aria-hidden="true" tabindex="-1"></a>  <span class="at">humedad =</span> <span class="fu">c</span>(<span class="dv">64</span>, <span class="dv">52</span>, <span class="dv">43</span>, <span class="dv">58</span>),</span>
-<span id="cb2-870"><a href="#cb2-870" aria-hidden="true" tabindex="-1"></a>  <span class="at">calidad =</span> <span class="fu">c</span>(<span class="st">"buena"</span>, <span class="st">"regular"</span>, <span class="st">"mala"</span>, <span class="st">"buena"</span>)</span>
-<span id="cb2-871"><a href="#cb2-871" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-872"><a href="#cb2-872" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-873"><a href="#cb2-873" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">"pm10"</span>, <span class="st">"temperatura"</span>, <span class="st">"humedad"</span>)])</span>
-<span id="cb2-874"><a href="#cb2-874" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> datos<span class="sc">$</span>calidad</span>
-<span id="cb2-875"><a href="#cb2-875" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-876"><a href="#cb2-876" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-877"><a href="#cb2-877" aria-hidden="true" tabindex="-1"></a>Matemáticamente,</span>
-<span id="cb2-878"><a href="#cb2-878" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-879"><a href="#cb2-879" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-880"><a href="#cb2-880" aria-hidden="true" tabindex="-1"></a>\mathbf{X}\in\mathbb{R}^{4\times 3}</span>
-<span id="cb2-881"><a href="#cb2-881" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-882"><a href="#cb2-882" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-883"><a href="#cb2-883" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-884"><a href="#cb2-884" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-885"><a href="#cb2-885" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-886"><a href="#cb2-886" aria-hidden="true" tabindex="-1"></a>\mathbf{y}</span>
-<span id="cb2-887"><a href="#cb2-887" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-888"><a href="#cb2-888" aria-hidden="true" tabindex="-1"></a>\begin{pmatrix}</span>
-<span id="cb2-889"><a href="#cb2-889" aria-hidden="true" tabindex="-1"></a>\text{buena}<span class="sc">\\</span></span>
-<span id="cb2-890"><a href="#cb2-890" aria-hidden="true" tabindex="-1"></a>\text{regular}<span class="sc">\\</span></span>
-<span id="cb2-891"><a href="#cb2-891" aria-hidden="true" tabindex="-1"></a>\text{mala}<span class="sc">\\</span></span>
-<span id="cb2-892"><a href="#cb2-892" aria-hidden="true" tabindex="-1"></a>\text{buena}</span>
-<span id="cb2-893"><a href="#cb2-893" aria-hidden="true" tabindex="-1"></a>\end{pmatrix}.</span>
-<span id="cb2-894"><a href="#cb2-894" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-895"><a href="#cb2-895" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-896"><a href="#cb2-896" aria-hidden="true" tabindex="-1"></a><span class="fu">## Errores frecuentes {.unnumbered}</span></span>
-<span id="cb2-897"><a href="#cb2-897" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-898"><a href="#cb2-898" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Confundir un elemento con un subconjunto.</span>
-<span id="cb2-899"><a href="#cb2-899" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Suponer que el codominio y la imagen siempre son iguales.</span>
-<span id="cb2-900"><a href="#cb2-900" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Confundir $f^{-1}(D)$ con la función inversa.</span>
-<span id="cb2-901"><a href="#cb2-901" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Olvidar que una función debe asignar exactamente una salida a cada entrada.</span>
-<span id="cb2-902"><a href="#cb2-902" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Considerar que el orden de los elementos cambia un conjunto.</span>
-<span id="cb2-903"><a href="#cb2-903" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Confundir una observación $\mathbf{x}_i$ con toda la matriz $\mathbf{X}$.</span>
-<span id="cb2-904"><a href="#cb2-904" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Suponer que toda clasificación utiliza únicamente las etiquetas $0$ y $1$.</span>
-<span id="cb2-905"><a href="#cb2-905" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-906"><a href="#cb2-906" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ejercicios {.unnumbered}</span></span>
-<span id="cb2-907"><a href="#cb2-907" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-908"><a href="#cb2-908" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicios conceptuales {.unnumbered}</span></span>
-<span id="cb2-909"><a href="#cb2-909" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-910"><a href="#cb2-910" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Explique la diferencia entre $x\in A$ y $<span class="sc">\{</span>x<span class="sc">\}</span>\subseteq A$.</span>
-<span id="cb2-911"><a href="#cb2-911" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Explique la diferencia entre dominio, codominio e imagen.</span>
-<span id="cb2-912"><a href="#cb2-912" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>¿Por qué una función de clasificación puede considerarse una regla de decisión?</span>
-<span id="cb2-913"><a href="#cb2-913" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>¿Qué diferencia existe entre $\mathbb{R}^{p}$ y $\mathbb{R}^{n\times p}$?</span>
-<span id="cb2-914"><a href="#cb2-914" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>¿Por qué el conjunto de entrenamiento es un subconjunto de $\mathcal{X}\times\mathcal{Y}$?</span>
-<span id="cb2-915"><a href="#cb2-915" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-916"><a href="#cb2-916" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicios de conjuntos {.unnumbered}</span></span>
-<span id="cb2-917"><a href="#cb2-917" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-918"><a href="#cb2-918" aria-hidden="true" tabindex="-1"></a>Sean</span>
-<span id="cb2-919"><a href="#cb2-919" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-920"><a href="#cb2-920" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-921"><a href="#cb2-921" aria-hidden="true" tabindex="-1"></a>A=<span class="sc">\{</span>1,2,3,4,5<span class="sc">\}</span></span>
-<span id="cb2-922"><a href="#cb2-922" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-923"><a href="#cb2-923" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-924"><a href="#cb2-924" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb2-925"><a href="#cb2-925" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-926"><a href="#cb2-926" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-927"><a href="#cb2-927" aria-hidden="true" tabindex="-1"></a>B=<span class="sc">\{</span>4,5,6,7<span class="sc">\}</span>.</span>
-<span id="cb2-928"><a href="#cb2-928" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-929"><a href="#cb2-929" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-930"><a href="#cb2-930" aria-hidden="true" tabindex="-1"></a>Determine:</span>
-<span id="cb2-931"><a href="#cb2-931" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-932"><a href="#cb2-932" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$A\cup B$;</span>
-<span id="cb2-933"><a href="#cb2-933" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$A\cap B$;</span>
-<span id="cb2-934"><a href="#cb2-934" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>$A\setminus B$;</span>
-<span id="cb2-935"><a href="#cb2-935" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>$B\setminus A$.</span>
-<span id="cb2-936"><a href="#cb2-936" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-937"><a href="#cb2-937" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicios de funciones {.unnumbered}</span></span>
-<span id="cb2-938"><a href="#cb2-938" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-939"><a href="#cb2-939" aria-hidden="true" tabindex="-1"></a>Sea</span>
-<span id="cb2-940"><a href="#cb2-940" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-941"><a href="#cb2-941" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-942"><a href="#cb2-942" aria-hidden="true" tabindex="-1"></a>f:\mathbb{R}\to\mathbb{R},</span>
-<span id="cb2-943"><a href="#cb2-943" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-944"><a href="#cb2-944" aria-hidden="true" tabindex="-1"></a>f(x)=3x-2.</span>
-<span id="cb2-945"><a href="#cb2-945" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-946"><a href="#cb2-946" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-947"><a href="#cb2-947" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Calcule $f(0)$, $f(2)$ y $f(-1)$.</span>
-<span id="cb2-948"><a href="#cb2-948" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Determine la imagen del conjunto $<span class="sc">\{</span>0,1,2<span class="sc">\}</span>$.</span>
-<span id="cb2-949"><a href="#cb2-949" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Determine $f^{-1}(<span class="sc">\{</span>1,4<span class="sc">\}</span>)$.</span>
-<span id="cb2-950"><a href="#cb2-950" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Analice si $f$ es inyectiva.</span>
-<span id="cb2-951"><a href="#cb2-951" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Analice si $f$ es suprayectiva.</span>
-<span id="cb2-952"><a href="#cb2-952" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-953"><a href="#cb2-953" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ejercicio de clasificación {.unnumbered}</span></span>
-<span id="cb2-954"><a href="#cb2-954" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-955"><a href="#cb2-955" aria-hidden="true" tabindex="-1"></a>Considere las observaciones:</span>
-<span id="cb2-956"><a href="#cb2-956" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-957"><a href="#cb2-957" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-958"><a href="#cb2-958" aria-hidden="true" tabindex="-1"></a>\mathbf{x}_1=(20,60),</span>
-<span id="cb2-959"><a href="#cb2-959" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-960"><a href="#cb2-960" aria-hidden="true" tabindex="-1"></a>\mathbf{x}_2=(45,48),</span>
-<span id="cb2-961"><a href="#cb2-961" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-962"><a href="#cb2-962" aria-hidden="true" tabindex="-1"></a>\mathbf{x}_3=(80,35),</span>
-<span id="cb2-963"><a href="#cb2-963" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-964"><a href="#cb2-964" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-965"><a href="#cb2-965" aria-hidden="true" tabindex="-1"></a>con etiquetas</span>
-<span id="cb2-966"><a href="#cb2-966" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-967"><a href="#cb2-967" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-968"><a href="#cb2-968" aria-hidden="true" tabindex="-1"></a>y_1=\text{baja},</span>
-<span id="cb2-969"><a href="#cb2-969" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-970"><a href="#cb2-970" aria-hidden="true" tabindex="-1"></a>y_2=\text{media},</span>
-<span id="cb2-971"><a href="#cb2-971" aria-hidden="true" tabindex="-1"></a>\qquad</span>
-<span id="cb2-972"><a href="#cb2-972" aria-hidden="true" tabindex="-1"></a>y_3=\text{alta}.</span>
-<span id="cb2-973"><a href="#cb2-973" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-974"><a href="#cb2-974" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-975"><a href="#cb2-975" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Identifique $\mathcal{X}$ y $\mathcal{Y}$.</span>
-<span id="cb2-976"><a href="#cb2-976" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Escriba formalmente el conjunto de entrenamiento.</span>
-<span id="cb2-977"><a href="#cb2-977" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Construya la matriz $\mathbf{X}$.</span>
-<span id="cb2-978"><a href="#cb2-978" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Construya el vector $\mathbf{y}$.</span>
-<span id="cb2-979"><a href="#cb2-979" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Escriba el tipo de función que representaría al clasificador.</span>
-<span id="cb2-980"><a href="#cb2-980" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-981"><a href="#cb2-981" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resumen {.unnumbered}</span></span>
-<span id="cb2-982"><a href="#cb2-982" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-983"><a href="#cb2-983" aria-hidden="true" tabindex="-1"></a>En este capítulo se estableció el lenguaje matemático básico del libro. Se definieron conjuntos, subconjuntos, operaciones entre conjuntos, productos cartesianos, relaciones y funciones. También se introdujeron dominio, codominio, imagen, composición y función indicadora.</span>
-<span id="cb2-984"><a href="#cb2-984" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-985"><a href="#cb2-985" aria-hidden="true" tabindex="-1"></a>Finalmente, se formuló un conjunto de datos supervisado como</span>
-<span id="cb2-986"><a href="#cb2-986" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-987"><a href="#cb2-987" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-988"><a href="#cb2-988" aria-hidden="true" tabindex="-1"></a>\mathcal{D}</span>
-<span id="cb2-989"><a href="#cb2-989" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb2-990"><a href="#cb2-990" aria-hidden="true" tabindex="-1"></a>\left<span class="sc">\{</span></span>
-<span id="cb2-991"><a href="#cb2-991" aria-hidden="true" tabindex="-1"></a>(\mathbf{x}_i,y_i)</span>
-<span id="cb2-992"><a href="#cb2-992" aria-hidden="true" tabindex="-1"></a>\right<span class="sc">\}</span>_{i=1}^{n}</span>
-<span id="cb2-993"><a href="#cb2-993" aria-hidden="true" tabindex="-1"></a>\subseteq</span>
-<span id="cb2-994"><a href="#cb2-994" aria-hidden="true" tabindex="-1"></a>\mathcal{X}\times\mathcal{Y},</span>
-<span id="cb2-995"><a href="#cb2-995" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-996"><a href="#cb2-996" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-997"><a href="#cb2-997" aria-hidden="true" tabindex="-1"></a>y se distinguieron formalmente los problemas de regresión y clasificación. Esta notación será utilizada en todos los capítulos posteriores.</span>
-<span id="cb2-998"><a href="#cb2-998" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-999"><a href="#cb2-999" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
-<span id="cb2-1000"><a href="#cb2-1000" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-1001"><a href="#cb2-1001" aria-hidden="true" tabindex="-1"></a>Los fundamentos y la notación de este capítulo se apoyan principalmente en @bishop2006pattern y @hastie2009elements.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu"># Lenguaje matemático, conjunto\index{Conjuntos}s y funciones {#sec-conjuntos-funciones}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">## Introducción {.unnumbered}</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>El lenguaje de conjuntos, relaciones y funciones permite expresar con precisión los objetos que aparecen en aprendizaje automático: espacios de entrada, espacios de salida, muestras, hipótesis y funciones de pérdida. La presentación de este capítulo sigue la notación matemática habitual empleada en textos de reconocimiento de patrones y aprendizaje estadístico <span class="co">[</span><span class="ot">@bishop2006pattern; @hastie2009elements</span><span class="co">]</span>.</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>El aprendizaje automático se construye sobre objetos matemáticos bien definidos: conjuntos de datos, espacios de características, funciones de predicción, reglas de decisión y medidas de error. Antes de estudiar algoritmos concretos, es necesario establecer un lenguaje común que permita expresar estos elementos con precisión.</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a>En este capítulo se revisan los conceptos de conjuntos, relaciones y funciones, y se muestra cómo aparecen de manera natural en la formulación de problemas de aprendizaje automático.</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a>::: {.callout-important title="Idea central" appearance="default" icon="true"}</span>
+<span id="cb2-12"><a href="#cb2-12"></a>Una **función\index{Función}** asigna a cada elemento del dominio\index{Dominio} exactamente un elemento del codominio.</span>
+<span id="cb2-13"><a href="#cb2-13"></a>:::</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="fu">## Objetivos {.unnumbered}</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a>Al finalizar el capítulo, el lector podrá:</span>
+<span id="cb2-18"><a href="#cb2-18"></a></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="ss">1. </span>reconocer y utilizar la notación básica de conjuntos;</span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="ss">2. </span>distinguir entre elemento, subconjunto, unión, intersección y complemento;</span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="ss">3. </span>interpretar el producto cartesiano;</span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="ss">4. </span>definir formalmente una función;</span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="ss">5. </span>distinguir dominio, codominio e imagen;</span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="ss">6. </span>identificar funciones inyectivas, suprayectivas y biyectivas;</span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="ss">7. </span>utilizar funciones indicadoras;</span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="ss">8. </span>representar formalmente conjuntos de entrenamiento;</span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="ss">9. </span>distinguir matemáticamente entre regresión y clasificación.</span>
+<span id="cb2-28"><a href="#cb2-28"></a></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="fu">## Convenciones y alcance matemático {.unnumbered}</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a></span>
+<span id="cb2-31"><a href="#cb2-31"></a>En este libro se trabajará principalmente con conjuntos finitos, subconjuntos de espacios euclidianos y funciones entre espacios de dimensión finita. Salvo indicación contraria:</span>
+<span id="cb2-32"><a href="#cb2-32"></a></span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="ss">- </span>$\mathbb{N}=<span class="sc">\{</span>1,2,3,\ldots<span class="sc">\}</span>$;</span>
+<span id="cb2-34"><a href="#cb2-34"></a><span class="ss">- </span>$\mathbb{R}^{p}$ representa el espacio de vectores reales de dimensión $p$;</span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="ss">- </span>una muestra de tamaño $n$ se indexa mediante $i=1,\ldots,n$;</span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="ss">- </span>las funciones se consideran bien definidas en todo su dominio;</span>
+<span id="cb2-37"><a href="#cb2-37"></a><span class="ss">- </span>la igualdad entre funciones exige igualdad de dominio, codominio y valores.</span>
+<span id="cb2-38"><a href="#cb2-38"></a></span>
+<span id="cb2-39"><a href="#cb2-39"></a>Esta precisión evita identificar una función únicamente con su fórmula. Dos expresiones algebraicas iguales pueden representar funciones distintas si sus dominios o codominios son diferentes.</span>
+<span id="cb2-40"><a href="#cb2-40"></a></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="fu">## Conjuntos numéricos {.unnumbered}</span></span>
+<span id="cb2-42"><a href="#cb2-42"></a></span>
+<span id="cb2-43"><a href="#cb2-43"></a>Los conjuntos numéricos más utilizados son:</span>
+<span id="cb2-44"><a href="#cb2-44"></a></span>
+<span id="cb2-45"><a href="#cb2-45"></a>$$</span>
+<span id="cb2-46"><a href="#cb2-46"></a>\mathbb{N}=<span class="sc">\{</span>1,2,3,\ldots<span class="sc">\}</span>,</span>
+<span id="cb2-47"><a href="#cb2-47"></a>$$</span>
+<span id="cb2-48"><a href="#cb2-48"></a></span>
+<span id="cb2-49"><a href="#cb2-49"></a>$$</span>
+<span id="cb2-50"><a href="#cb2-50"></a>\mathbb{Z}=<span class="sc">\{</span>\ldots,-2,-1,0,1,2,\ldots<span class="sc">\}</span>,</span>
+<span id="cb2-51"><a href="#cb2-51"></a>$$</span>
+<span id="cb2-52"><a href="#cb2-52"></a></span>
+<span id="cb2-53"><a href="#cb2-53"></a>$$</span>
+<span id="cb2-54"><a href="#cb2-54"></a>\mathbb{Q}</span>
+<span id="cb2-55"><a href="#cb2-55"></a>=</span>
+<span id="cb2-56"><a href="#cb2-56"></a>\left<span class="sc">\{</span></span>
+<span id="cb2-57"><a href="#cb2-57"></a>\frac{a}{b}:a,b\in\mathbb{Z},\ b\neq 0</span>
+<span id="cb2-58"><a href="#cb2-58"></a>\right<span class="sc">\}</span>,</span>
+<span id="cb2-59"><a href="#cb2-59"></a>$$</span>
+<span id="cb2-60"><a href="#cb2-60"></a></span>
+<span id="cb2-61"><a href="#cb2-61"></a>y</span>
+<span id="cb2-62"><a href="#cb2-62"></a></span>
+<span id="cb2-63"><a href="#cb2-63"></a>$$</span>
+<span id="cb2-64"><a href="#cb2-64"></a>\mathbb{R},</span>
+<span id="cb2-65"><a href="#cb2-65"></a>$$</span>
+<span id="cb2-66"><a href="#cb2-66"></a></span>
+<span id="cb2-67"><a href="#cb2-67"></a>que representa el conjunto de los números reales.</span>
+<span id="cb2-68"><a href="#cb2-68"></a></span>
+<span id="cb2-69"><a href="#cb2-69"></a>En aprendizaje automático también se utiliza frecuentemente el espacio</span>
+<span id="cb2-70"><a href="#cb2-70"></a></span>
+<span id="cb2-71"><a href="#cb2-71"></a>$$</span>
+<span id="cb2-72"><a href="#cb2-72"></a>\mathbb{R}^{p}</span>
+<span id="cb2-73"><a href="#cb2-73"></a>=</span>
+<span id="cb2-74"><a href="#cb2-74"></a>\left<span class="sc">\{</span></span>
+<span id="cb2-75"><a href="#cb2-75"></a>(x_1,\ldots,x_p):x_j\in\mathbb{R}</span>
+<span id="cb2-76"><a href="#cb2-76"></a>\right<span class="sc">\}</span>.</span>
+<span id="cb2-77"><a href="#cb2-77"></a>$$</span>
+<span id="cb2-78"><a href="#cb2-78"></a></span>
+<span id="cb2-79"><a href="#cb2-79"></a>Cada elemento de $\mathbb{R}^{p}$ es un vector con $p$ componentes.</span>
+<span id="cb2-80"><a href="#cb2-80"></a></span>
+<span id="cb2-81"><a href="#cb2-81"></a>::: {#exm-vector-caracteristicas}</span>
+<span id="cb2-82"><a href="#cb2-82"></a>Una observación ambiental puede representarse mediante</span>
+<span id="cb2-83"><a href="#cb2-83"></a></span>
+<span id="cb2-84"><a href="#cb2-84"></a>$$</span>
+<span id="cb2-85"><a href="#cb2-85"></a>\mathbf{x}</span>
+<span id="cb2-86"><a href="#cb2-86"></a>=</span>
+<span id="cb2-87"><a href="#cb2-87"></a>\begin{pmatrix}</span>
+<span id="cb2-88"><a href="#cb2-88"></a>42.3<span class="sc">\\</span></span>
+<span id="cb2-89"><a href="#cb2-89"></a>18.7<span class="sc">\\</span></span>
+<span id="cb2-90"><a href="#cb2-90"></a>61.0</span>
+<span id="cb2-91"><a href="#cb2-91"></a>\end{pmatrix}</span>
+<span id="cb2-92"><a href="#cb2-92"></a>\in\mathbb{R}^{3},</span>
+<span id="cb2-93"><a href="#cb2-93"></a>$$</span>
+<span id="cb2-94"><a href="#cb2-94"></a></span>
+<span id="cb2-95"><a href="#cb2-95"></a>donde las componentes podrían corresponder a concentración de partículas, temperatura y humedad.</span>
+<span id="cb2-96"><a href="#cb2-96"></a>:::</span>
+<span id="cb2-97"><a href="#cb2-97"></a></span>
+<span id="cb2-98"><a href="#cb2-98"></a><span class="fu">## Concepto de conjunto {.unnumbered}</span></span>
+<span id="cb2-99"><a href="#cb2-99"></a></span>
+<span id="cb2-100"><a href="#cb2-100"></a>::: {#def-conjunto}</span>
+<span id="cb2-101"><a href="#cb2-101"></a>Un **conjunto** es una colección bien definida de objetos. Los objetos que forman parte del conjunto se denominan elementos.</span>
+<span id="cb2-102"><a href="#cb2-102"></a>:::</span>
+<span id="cb2-103"><a href="#cb2-103"></a></span>
+<span id="cb2-104"><a href="#cb2-104"></a>Si $x$ pertenece a un conjunto $A$, se escribe</span>
+<span id="cb2-105"><a href="#cb2-105"></a></span>
+<span id="cb2-106"><a href="#cb2-106"></a>$$</span>
+<span id="cb2-107"><a href="#cb2-107"></a>x\in A.</span>
+<span id="cb2-108"><a href="#cb2-108"></a>$$</span>
+<span id="cb2-109"><a href="#cb2-109"></a></span>
+<span id="cb2-110"><a href="#cb2-110"></a>Si no pertenece, se escribe</span>
+<span id="cb2-111"><a href="#cb2-111"></a></span>
+<span id="cb2-112"><a href="#cb2-112"></a>$$</span>
+<span id="cb2-113"><a href="#cb2-113"></a>x\notin A.</span>
+<span id="cb2-114"><a href="#cb2-114"></a>$$</span>
+<span id="cb2-115"><a href="#cb2-115"></a></span>
+<span id="cb2-116"><a href="#cb2-116"></a>Por ejemplo, si</span>
+<span id="cb2-117"><a href="#cb2-117"></a></span>
+<span id="cb2-118"><a href="#cb2-118"></a>$$</span>
+<span id="cb2-119"><a href="#cb2-119"></a>A=<span class="sc">\{</span>2,4,6,8<span class="sc">\}</span>,</span>
+<span id="cb2-120"><a href="#cb2-120"></a>$$</span>
+<span id="cb2-121"><a href="#cb2-121"></a></span>
+<span id="cb2-122"><a href="#cb2-122"></a>entonces</span>
+<span id="cb2-123"><a href="#cb2-123"></a></span>
+<span id="cb2-124"><a href="#cb2-124"></a>$$</span>
+<span id="cb2-125"><a href="#cb2-125"></a>4\in A</span>
+<span id="cb2-126"><a href="#cb2-126"></a>$$</span>
+<span id="cb2-127"><a href="#cb2-127"></a></span>
+<span id="cb2-128"><a href="#cb2-128"></a>y</span>
+<span id="cb2-129"><a href="#cb2-129"></a></span>
+<span id="cb2-130"><a href="#cb2-130"></a>$$</span>
+<span id="cb2-131"><a href="#cb2-131"></a>5\notin A.</span>
+<span id="cb2-132"><a href="#cb2-132"></a>$$</span>
+<span id="cb2-133"><a href="#cb2-133"></a></span>
+<span id="cb2-134"><a href="#cb2-134"></a><span class="fu">## Formas de especificar conjuntos {.unnumbered}</span></span>
+<span id="cb2-135"><a href="#cb2-135"></a></span>
+<span id="cb2-136"><a href="#cb2-136"></a>Un conjunto puede describirse por extensión o por comprensión.</span>
+<span id="cb2-137"><a href="#cb2-137"></a></span>
+<span id="cb2-138"><a href="#cb2-138"></a><span class="fu">### Por extensión {.unnumbered}</span></span>
+<span id="cb2-139"><a href="#cb2-139"></a></span>
+<span id="cb2-140"><a href="#cb2-140"></a>Se enumeran sus elementos:</span>
+<span id="cb2-141"><a href="#cb2-141"></a></span>
+<span id="cb2-142"><a href="#cb2-142"></a>$$</span>
+<span id="cb2-143"><a href="#cb2-143"></a>A=<span class="sc">\{</span>1,2,3,4,5<span class="sc">\}</span>.</span>
+<span id="cb2-144"><a href="#cb2-144"></a>$$</span>
+<span id="cb2-145"><a href="#cb2-145"></a></span>
+<span id="cb2-146"><a href="#cb2-146"></a><span class="fu">### Por comprensión {.unnumbered}</span></span>
+<span id="cb2-147"><a href="#cb2-147"></a></span>
+<span id="cb2-148"><a href="#cb2-148"></a>Se especifica una propiedad que deben satisfacer sus elementos:</span>
+<span id="cb2-149"><a href="#cb2-149"></a></span>
+<span id="cb2-150"><a href="#cb2-150"></a>$$</span>
+<span id="cb2-151"><a href="#cb2-151"></a>A=<span class="sc">\{</span>x\in\mathbb{N}:1\leq x\leq 5<span class="sc">\}</span>.</span>
+<span id="cb2-152"><a href="#cb2-152"></a>$$</span>
+<span id="cb2-153"><a href="#cb2-153"></a></span>
+<span id="cb2-154"><a href="#cb2-154"></a>La expresión después de los dos puntos se interpreta como “tal que”.</span>
+<span id="cb2-155"><a href="#cb2-155"></a></span>
+<span id="cb2-156"><a href="#cb2-156"></a><span class="fu">## Igualdad de conjuntos {.unnumbered}</span></span>
+<span id="cb2-157"><a href="#cb2-157"></a></span>
+<span id="cb2-158"><a href="#cb2-158"></a>Dos conjuntos $A$ y $B$ son iguales si contienen exactamente los mismos elementos:</span>
+<span id="cb2-159"><a href="#cb2-159"></a></span>
+<span id="cb2-160"><a href="#cb2-160"></a>$$</span>
+<span id="cb2-161"><a href="#cb2-161"></a>A=B</span>
+<span id="cb2-162"><a href="#cb2-162"></a>\iff</span>
+<span id="cb2-163"><a href="#cb2-163"></a>(\forall x)(x\in A\Leftrightarrow x\in B).</span>
+<span id="cb2-164"><a href="#cb2-164"></a>$$</span>
+<span id="cb2-165"><a href="#cb2-165"></a></span>
+<span id="cb2-166"><a href="#cb2-166"></a>El orden de los elementos no importa. Por ejemplo,</span>
+<span id="cb2-167"><a href="#cb2-167"></a></span>
+<span id="cb2-168"><a href="#cb2-168"></a>$$</span>
+<span id="cb2-169"><a href="#cb2-169"></a><span class="sc">\{</span>1,2,3<span class="sc">\}</span>=<span class="sc">\{</span>3,1,2<span class="sc">\}</span>.</span>
+<span id="cb2-170"><a href="#cb2-170"></a>$$</span>
+<span id="cb2-171"><a href="#cb2-171"></a></span>
+<span id="cb2-172"><a href="#cb2-172"></a>La repetición tampoco modifica un conjunto:</span>
+<span id="cb2-173"><a href="#cb2-173"></a></span>
+<span id="cb2-174"><a href="#cb2-174"></a>$$</span>
+<span id="cb2-175"><a href="#cb2-175"></a><span class="sc">\{</span>1,1,2,3<span class="sc">\}</span>=<span class="sc">\{</span>1,2,3<span class="sc">\}</span>.</span>
+<span id="cb2-176"><a href="#cb2-176"></a>$$</span>
+<span id="cb2-177"><a href="#cb2-177"></a></span>
+<span id="cb2-178"><a href="#cb2-178"></a><span class="fu">## Subconjuntos {.unnumbered}</span></span>
+<span id="cb2-179"><a href="#cb2-179"></a></span>
+<span id="cb2-180"><a href="#cb2-180"></a>::: {#def-subconjunto}</span>
+<span id="cb2-181"><a href="#cb2-181"></a>Se dice que $A$ es un subconjunto de $B$ si cada elemento de $A$ también pertenece a $B$.</span>
+<span id="cb2-182"><a href="#cb2-182"></a>:::</span>
+<span id="cb2-183"><a href="#cb2-183"></a></span>
+<span id="cb2-184"><a href="#cb2-184"></a>Formalmente,</span>
+<span id="cb2-185"><a href="#cb2-185"></a></span>
+<span id="cb2-186"><a href="#cb2-186"></a>$$</span>
+<span id="cb2-187"><a href="#cb2-187"></a>A\subseteq B</span>
+<span id="cb2-188"><a href="#cb2-188"></a>\iff</span>
+<span id="cb2-189"><a href="#cb2-189"></a>(\forall x)(x\in A\Rightarrow x\in B).</span>
+<span id="cb2-190"><a href="#cb2-190"></a>$$</span>
+<span id="cb2-191"><a href="#cb2-191"></a></span>
+<span id="cb2-192"><a href="#cb2-192"></a>Si además $A\neq B$, entonces $A$ es un subconjunto propio de $B$.</span>
+<span id="cb2-193"><a href="#cb2-193"></a></span>
+<span id="cb2-194"><a href="#cb2-194"></a>::: {#exm-subconjunto}</span>
+<span id="cb2-195"><a href="#cb2-195"></a>Sean</span>
+<span id="cb2-196"><a href="#cb2-196"></a></span>
+<span id="cb2-197"><a href="#cb2-197"></a>$$</span>
+<span id="cb2-198"><a href="#cb2-198"></a>A=<span class="sc">\{</span>1,2<span class="sc">\}</span>,</span>
+<span id="cb2-199"><a href="#cb2-199"></a>\qquad</span>
+<span id="cb2-200"><a href="#cb2-200"></a>B=<span class="sc">\{</span>1,2,3,4<span class="sc">\}</span>.</span>
+<span id="cb2-201"><a href="#cb2-201"></a>$$</span>
+<span id="cb2-202"><a href="#cb2-202"></a></span>
+<span id="cb2-203"><a href="#cb2-203"></a>Entonces</span>
+<span id="cb2-204"><a href="#cb2-204"></a></span>
+<span id="cb2-205"><a href="#cb2-205"></a>$$</span>
+<span id="cb2-206"><a href="#cb2-206"></a>A\subseteq B.</span>
+<span id="cb2-207"><a href="#cb2-207"></a>$$</span>
+<span id="cb2-208"><a href="#cb2-208"></a>:::</span>
+<span id="cb2-209"><a href="#cb2-209"></a></span>
+<span id="cb2-210"><a href="#cb2-210"></a><span class="fu">## Conjunto vacío {.unnumbered}</span></span>
+<span id="cb2-211"><a href="#cb2-211"></a></span>
+<span id="cb2-212"><a href="#cb2-212"></a>El conjunto que no contiene elementos se denomina conjunto vacío y se denota por</span>
+<span id="cb2-213"><a href="#cb2-213"></a></span>
+<span id="cb2-214"><a href="#cb2-214"></a>$$</span>
+<span id="cb2-215"><a href="#cb2-215"></a>\varnothing.</span>
+<span id="cb2-216"><a href="#cb2-216"></a>$$</span>
+<span id="cb2-217"><a href="#cb2-217"></a></span>
+<span id="cb2-218"><a href="#cb2-218"></a>El conjunto vacío es subconjunto de todo conjunto:</span>
+<span id="cb2-219"><a href="#cb2-219"></a></span>
+<span id="cb2-220"><a href="#cb2-220"></a>$$</span>
+<span id="cb2-221"><a href="#cb2-221"></a>\varnothing\subseteq A.</span>
+<span id="cb2-222"><a href="#cb2-222"></a>$$</span>
+<span id="cb2-223"><a href="#cb2-223"></a></span>
+<span id="cb2-224"><a href="#cb2-224"></a><span class="fu">## Operaciones entre conjuntos {.unnumbered}</span></span>
+<span id="cb2-225"><a href="#cb2-225"></a></span>
+<span id="cb2-226"><a href="#cb2-226"></a><span class="fu">### Unión {.unnumbered}</span></span>
+<span id="cb2-227"><a href="#cb2-227"></a></span>
+<span id="cb2-228"><a href="#cb2-228"></a>La unión de $A$ y $B$ es el conjunto de elementos que pertenecen a $A$, a $B$ o a ambos:</span>
+<span id="cb2-229"><a href="#cb2-229"></a></span>
+<span id="cb2-230"><a href="#cb2-230"></a>$$</span>
+<span id="cb2-231"><a href="#cb2-231"></a>A\cup B</span>
+<span id="cb2-232"><a href="#cb2-232"></a>=</span>
+<span id="cb2-233"><a href="#cb2-233"></a><span class="sc">\{</span>x:x\in A\ \text{o}\ x\in B<span class="sc">\}</span>.</span>
+<span id="cb2-234"><a href="#cb2-234"></a>$$</span>
+<span id="cb2-235"><a href="#cb2-235"></a></span>
+<span id="cb2-236"><a href="#cb2-236"></a><span class="fu">### Intersección {.unnumbered}</span></span>
+<span id="cb2-237"><a href="#cb2-237"></a></span>
+<span id="cb2-238"><a href="#cb2-238"></a>La intersección contiene los elementos comunes:</span>
+<span id="cb2-239"><a href="#cb2-239"></a></span>
+<span id="cb2-240"><a href="#cb2-240"></a>$$</span>
+<span id="cb2-241"><a href="#cb2-241"></a>A\cap B</span>
+<span id="cb2-242"><a href="#cb2-242"></a>=</span>
+<span id="cb2-243"><a href="#cb2-243"></a><span class="sc">\{</span>x:x\in A\ \text{y}\ x\in B<span class="sc">\}</span>.</span>
+<span id="cb2-244"><a href="#cb2-244"></a>$$</span>
+<span id="cb2-245"><a href="#cb2-245"></a></span>
+<span id="cb2-246"><a href="#cb2-246"></a><span class="fu">### Diferencia {.unnumbered}</span></span>
+<span id="cb2-247"><a href="#cb2-247"></a></span>
+<span id="cb2-248"><a href="#cb2-248"></a>La diferencia $A\setminus B$ contiene los elementos de $A$ que no pertenecen a $B$:</span>
+<span id="cb2-249"><a href="#cb2-249"></a></span>
+<span id="cb2-250"><a href="#cb2-250"></a>$$</span>
+<span id="cb2-251"><a href="#cb2-251"></a>A\setminus B</span>
+<span id="cb2-252"><a href="#cb2-252"></a>=</span>
+<span id="cb2-253"><a href="#cb2-253"></a><span class="sc">\{</span>x:x\in A\ \text{y}\ x\notin B<span class="sc">\}</span>.</span>
+<span id="cb2-254"><a href="#cb2-254"></a>$$</span>
+<span id="cb2-255"><a href="#cb2-255"></a></span>
+<span id="cb2-256"><a href="#cb2-256"></a><span class="fu">### Complemento {.unnumbered}</span></span>
+<span id="cb2-257"><a href="#cb2-257"></a></span>
+<span id="cb2-258"><a href="#cb2-258"></a>Si $U$ es el conjunto universal, el complemento de $A$ es</span>
+<span id="cb2-259"><a href="#cb2-259"></a></span>
+<span id="cb2-260"><a href="#cb2-260"></a>$$</span>
+<span id="cb2-261"><a href="#cb2-261"></a>A^{c}=U\setminus A.</span>
+<span id="cb2-262"><a href="#cb2-262"></a>$$</span>
+<span id="cb2-263"><a href="#cb2-263"></a></span>
+<span id="cb2-264"><a href="#cb2-264"></a>::: {#exm-operaciones-conjuntos}</span>
+<span id="cb2-265"><a href="#cb2-265"></a>Sean</span>
+<span id="cb2-266"><a href="#cb2-266"></a></span>
+<span id="cb2-267"><a href="#cb2-267"></a>$$</span>
+<span id="cb2-268"><a href="#cb2-268"></a>A=<span class="sc">\{</span>1,2,3,4<span class="sc">\}</span>,</span>
+<span id="cb2-269"><a href="#cb2-269"></a>\qquad</span>
+<span id="cb2-270"><a href="#cb2-270"></a>B=<span class="sc">\{</span>3,4,5,6<span class="sc">\}</span>.</span>
+<span id="cb2-271"><a href="#cb2-271"></a>$$</span>
+<span id="cb2-272"><a href="#cb2-272"></a></span>
+<span id="cb2-273"><a href="#cb2-273"></a>Entonces</span>
+<span id="cb2-274"><a href="#cb2-274"></a></span>
+<span id="cb2-275"><a href="#cb2-275"></a>$$</span>
+<span id="cb2-276"><a href="#cb2-276"></a>A\cup B=<span class="sc">\{</span>1,2,3,4,5,6<span class="sc">\}</span>,</span>
+<span id="cb2-277"><a href="#cb2-277"></a>$$</span>
+<span id="cb2-278"><a href="#cb2-278"></a></span>
+<span id="cb2-279"><a href="#cb2-279"></a>$$</span>
+<span id="cb2-280"><a href="#cb2-280"></a>A\cap B=<span class="sc">\{</span>3,4<span class="sc">\}</span>,</span>
+<span id="cb2-281"><a href="#cb2-281"></a>$$</span>
+<span id="cb2-282"><a href="#cb2-282"></a></span>
+<span id="cb2-283"><a href="#cb2-283"></a>$$</span>
+<span id="cb2-284"><a href="#cb2-284"></a>A\setminus B=<span class="sc">\{</span>1,2<span class="sc">\}</span>,</span>
+<span id="cb2-285"><a href="#cb2-285"></a>$$</span>
+<span id="cb2-286"><a href="#cb2-286"></a></span>
+<span id="cb2-287"><a href="#cb2-287"></a>y</span>
+<span id="cb2-288"><a href="#cb2-288"></a></span>
+<span id="cb2-289"><a href="#cb2-289"></a>$$</span>
+<span id="cb2-290"><a href="#cb2-290"></a>B\setminus A=<span class="sc">\{</span>5,6<span class="sc">\}</span>.</span>
+<span id="cb2-291"><a href="#cb2-291"></a>$$</span>
+<span id="cb2-292"><a href="#cb2-292"></a>:::</span>
+<span id="cb2-293"><a href="#cb2-293"></a></span>
+<span id="cb2-294"><a href="#cb2-294"></a><span class="fu">## Propiedades fundamentales {.unnumbered}</span></span>
+<span id="cb2-295"><a href="#cb2-295"></a></span>
+<span id="cb2-296"><a href="#cb2-296"></a>Para cualesquiera conjuntos $A$, $B$ y $C$ se cumplen:</span>
+<span id="cb2-297"><a href="#cb2-297"></a></span>
+<span id="cb2-298"><a href="#cb2-298"></a><span class="fu">### Conmutatividad {.unnumbered}</span></span>
+<span id="cb2-299"><a href="#cb2-299"></a></span>
+<span id="cb2-300"><a href="#cb2-300"></a>$$</span>
+<span id="cb2-301"><a href="#cb2-301"></a>A\cup B=B\cup A,</span>
+<span id="cb2-302"><a href="#cb2-302"></a>$$</span>
+<span id="cb2-303"><a href="#cb2-303"></a></span>
+<span id="cb2-304"><a href="#cb2-304"></a>$$</span>
+<span id="cb2-305"><a href="#cb2-305"></a>A\cap B=B\cap A.</span>
+<span id="cb2-306"><a href="#cb2-306"></a>$$</span>
+<span id="cb2-307"><a href="#cb2-307"></a></span>
+<span id="cb2-308"><a href="#cb2-308"></a><span class="fu">### Asociatividad {.unnumbered}</span></span>
+<span id="cb2-309"><a href="#cb2-309"></a></span>
+<span id="cb2-310"><a href="#cb2-310"></a>$$</span>
+<span id="cb2-311"><a href="#cb2-311"></a>(A\cup B)\cup C=A\cup(B\cup C),</span>
+<span id="cb2-312"><a href="#cb2-312"></a>$$</span>
+<span id="cb2-313"><a href="#cb2-313"></a></span>
+<span id="cb2-314"><a href="#cb2-314"></a>$$</span>
+<span id="cb2-315"><a href="#cb2-315"></a>(A\cap B)\cap C=A\cap(B\cap C).</span>
+<span id="cb2-316"><a href="#cb2-316"></a>$$</span>
+<span id="cb2-317"><a href="#cb2-317"></a></span>
+<span id="cb2-318"><a href="#cb2-318"></a><span class="fu">### Distributividad {.unnumbered}</span></span>
+<span id="cb2-319"><a href="#cb2-319"></a></span>
+<span id="cb2-320"><a href="#cb2-320"></a>$$</span>
+<span id="cb2-321"><a href="#cb2-321"></a>A\cap(B\cup C)</span>
+<span id="cb2-322"><a href="#cb2-322"></a>=</span>
+<span id="cb2-323"><a href="#cb2-323"></a>(A\cap B)\cup(A\cap C),</span>
+<span id="cb2-324"><a href="#cb2-324"></a>$$</span>
+<span id="cb2-325"><a href="#cb2-325"></a></span>
+<span id="cb2-326"><a href="#cb2-326"></a>$$</span>
+<span id="cb2-327"><a href="#cb2-327"></a>A\cup(B\cap C)</span>
+<span id="cb2-328"><a href="#cb2-328"></a>=</span>
+<span id="cb2-329"><a href="#cb2-329"></a>(A\cup B)\cap(A\cup C).</span>
+<span id="cb2-330"><a href="#cb2-330"></a>$$</span>
+<span id="cb2-331"><a href="#cb2-331"></a></span>
+<span id="cb2-332"><a href="#cb2-332"></a><span class="fu">### Leyes de De Morgan {.unnumbered}</span></span>
+<span id="cb2-333"><a href="#cb2-333"></a></span>
+<span id="cb2-334"><a href="#cb2-334"></a>$$</span>
+<span id="cb2-335"><a href="#cb2-335"></a>(A\cup B)^c=A^c\cap B^c,</span>
+<span id="cb2-336"><a href="#cb2-336"></a>$$</span>
+<span id="cb2-337"><a href="#cb2-337"></a></span>
+<span id="cb2-338"><a href="#cb2-338"></a>$$</span>
+<span id="cb2-339"><a href="#cb2-339"></a>(A\cap B)^c=A^c\cup B^c.</span>
+<span id="cb2-340"><a href="#cb2-340"></a>$$</span>
+<span id="cb2-341"><a href="#cb2-341"></a></span>
+<span id="cb2-342"><a href="#cb2-342"></a>Estas propiedades serán importantes posteriormente en probabilidad, reglas de asociación y teoría de clasificación.</span>
+<span id="cb2-343"><a href="#cb2-343"></a></span>
+<span id="cb2-344"><a href="#cb2-344"></a><span class="fu">## Producto cartesiano {.unnumbered}</span></span>
+<span id="cb2-345"><a href="#cb2-345"></a></span>
+<span id="cb2-346"><a href="#cb2-346"></a>::: {#def-producto-cartesiano}</span>
+<span id="cb2-347"><a href="#cb2-347"></a>El producto cartesiano de dos conjuntos $A$ y $B$ se define como</span>
+<span id="cb2-348"><a href="#cb2-348"></a></span>
+<span id="cb2-349"><a href="#cb2-349"></a>$$</span>
+<span id="cb2-350"><a href="#cb2-350"></a>A\times B</span>
+<span id="cb2-351"><a href="#cb2-351"></a>=</span>
+<span id="cb2-352"><a href="#cb2-352"></a><span class="sc">\{</span>(a,b):a\in A,\ b\in B<span class="sc">\}</span>.</span>
+<span id="cb2-353"><a href="#cb2-353"></a>$$</span>
+<span id="cb2-354"><a href="#cb2-354"></a>:::</span>
+<span id="cb2-355"><a href="#cb2-355"></a></span>
+<span id="cb2-356"><a href="#cb2-356"></a>Si</span>
+<span id="cb2-357"><a href="#cb2-357"></a></span>
+<span id="cb2-358"><a href="#cb2-358"></a>$$</span>
+<span id="cb2-359"><a href="#cb2-359"></a>A=<span class="sc">\{</span>1,2<span class="sc">\}</span>,</span>
+<span id="cb2-360"><a href="#cb2-360"></a>\qquad</span>
+<span id="cb2-361"><a href="#cb2-361"></a>B=<span class="sc">\{</span>a,b<span class="sc">\}</span>,</span>
+<span id="cb2-362"><a href="#cb2-362"></a>$$</span>
+<span id="cb2-363"><a href="#cb2-363"></a></span>
+<span id="cb2-364"><a href="#cb2-364"></a>entonces</span>
+<span id="cb2-365"><a href="#cb2-365"></a></span>
+<span id="cb2-366"><a href="#cb2-366"></a>$$</span>
+<span id="cb2-367"><a href="#cb2-367"></a>A\times B</span>
+<span id="cb2-368"><a href="#cb2-368"></a>=</span>
+<span id="cb2-369"><a href="#cb2-369"></a><span class="sc">\{</span>(1,a),(1,b),(2,a),(2,b)<span class="sc">\}</span>.</span>
+<span id="cb2-370"><a href="#cb2-370"></a>$$</span>
+<span id="cb2-371"><a href="#cb2-371"></a></span>
+<span id="cb2-372"><a href="#cb2-372"></a>El producto cartesiano permite representar observaciones con varias características. En general,</span>
+<span id="cb2-373"><a href="#cb2-373"></a></span>
+<span id="cb2-374"><a href="#cb2-374"></a>$$</span>
+<span id="cb2-375"><a href="#cb2-375"></a>\mathbb{R}^{p}</span>
+<span id="cb2-376"><a href="#cb2-376"></a>=</span>
+<span id="cb2-377"><a href="#cb2-377"></a>\underbrace{</span>
+<span id="cb2-378"><a href="#cb2-378"></a>\mathbb{R}\times\cdots\times\mathbb{R}</span>
+<span id="cb2-379"><a href="#cb2-379"></a>}_{p\text{ veces}}.</span>
+<span id="cb2-380"><a href="#cb2-380"></a>$$</span>
+<span id="cb2-381"><a href="#cb2-381"></a></span>
+<span id="cb2-382"><a href="#cb2-382"></a><span class="fu">## Relaciones {.unnumbered}</span></span>
+<span id="cb2-383"><a href="#cb2-383"></a></span>
+<span id="cb2-384"><a href="#cb2-384"></a>::: {#def-relacion}</span>
+<span id="cb2-385"><a href="#cb2-385"></a>Una relación entre los conjuntos $A$ y $B$ es cualquier subconjunto de $A\times B$.</span>
+<span id="cb2-386"><a href="#cb2-386"></a>:::</span>
+<span id="cb2-387"><a href="#cb2-387"></a></span>
+<span id="cb2-388"><a href="#cb2-388"></a>Una relación $R$ puede escribirse como</span>
+<span id="cb2-389"><a href="#cb2-389"></a></span>
+<span id="cb2-390"><a href="#cb2-390"></a>$$</span>
+<span id="cb2-391"><a href="#cb2-391"></a>R\subseteq A\times B.</span>
+<span id="cb2-392"><a href="#cb2-392"></a>$$</span>
+<span id="cb2-393"><a href="#cb2-393"></a></span>
+<span id="cb2-394"><a href="#cb2-394"></a>Si $(a,b)\in R$, se dice que $a$ está relacionado con $b$.</span>
+<span id="cb2-395"><a href="#cb2-395"></a></span>
+<span id="cb2-396"><a href="#cb2-396"></a>En clasificación, una muestra etiquetada puede verse como un conjunto de pares ordenados que relaciona cada observación con una clase.</span>
+<span id="cb2-397"><a href="#cb2-397"></a></span>
+<span id="cb2-398"><a href="#cb2-398"></a>::: {.callout-note title="Relación y función" appearance="default" icon="true"}</span>
+<span id="cb2-399"><a href="#cb2-399"></a>Toda función es una relación, pero no toda relación es una función. Para que una relación $f\subseteq A\times B$ sea una función de $A$ en $B$, cada elemento de $A$ debe aparecer exactamente una vez como primera componente.</span>
+<span id="cb2-400"><a href="#cb2-400"></a>:::</span>
+<span id="cb2-401"><a href="#cb2-401"></a></span>
+<span id="cb2-402"><a href="#cb2-402"></a><span class="fu">## Funciones {.unnumbered}</span></span>
+<span id="cb2-403"><a href="#cb2-403"></a></span>
+<span id="cb2-404"><a href="#cb2-404"></a>::: {#def-funcion}</span>
+<span id="cb2-405"><a href="#cb2-405"></a>Una función $f$ de un conjunto $A$ a un conjunto $B$ es una regla que asigna a cada elemento de $A$ exactamente un elemento de $B$.</span>
+<span id="cb2-406"><a href="#cb2-406"></a>:::</span>
+<span id="cb2-407"><a href="#cb2-407"></a></span>
+<span id="cb2-408"><a href="#cb2-408"></a>Se escribe</span>
+<span id="cb2-409"><a href="#cb2-409"></a></span>
+<span id="cb2-410"><a href="#cb2-410"></a>$$</span>
+<span id="cb2-411"><a href="#cb2-411"></a>f:A\longrightarrow B.</span>
+<span id="cb2-412"><a href="#cb2-412"></a>$$</span>
+<span id="cb2-413"><a href="#cb2-413"></a></span>
+<span id="cb2-414"><a href="#cb2-414"></a>El conjunto $A$ es el dominio y $B$ es el codominio.</span>
+<span id="cb2-415"><a href="#cb2-415"></a></span>
+<span id="cb2-416"><a href="#cb2-416"></a>Si $x\in A$, el valor asignado se denota por $f(x)$.</span>
+<span id="cb2-417"><a href="#cb2-417"></a></span>
+<span id="cb2-418"><a href="#cb2-418"></a>::: {#exm-funcion-real}</span>
+<span id="cb2-419"><a href="#cb2-419"></a>Sea</span>
+<span id="cb2-420"><a href="#cb2-420"></a></span>
+<span id="cb2-421"><a href="#cb2-421"></a>$$</span>
+<span id="cb2-422"><a href="#cb2-422"></a>f:\mathbb{R}\longrightarrow\mathbb{R}</span>
+<span id="cb2-423"><a href="#cb2-423"></a>$$</span>
+<span id="cb2-424"><a href="#cb2-424"></a></span>
+<span id="cb2-425"><a href="#cb2-425"></a>definida por</span>
+<span id="cb2-426"><a href="#cb2-426"></a></span>
+<span id="cb2-427"><a href="#cb2-427"></a>$$</span>
+<span id="cb2-428"><a href="#cb2-428"></a>f(x)=2x+1.</span>
+<span id="cb2-429"><a href="#cb2-429"></a>$$</span>
+<span id="cb2-430"><a href="#cb2-430"></a></span>
+<span id="cb2-431"><a href="#cb2-431"></a>Entonces</span>
+<span id="cb2-432"><a href="#cb2-432"></a></span>
+<span id="cb2-433"><a href="#cb2-433"></a>$$</span>
+<span id="cb2-434"><a href="#cb2-434"></a>f(3)=7.</span>
+<span id="cb2-435"><a href="#cb2-435"></a>$$</span>
+<span id="cb2-436"><a href="#cb2-436"></a>:::</span>
+<span id="cb2-437"><a href="#cb2-437"></a></span>
+<span id="cb2-438"><a href="#cb2-438"></a><span class="fu">## Dominio, codominio e imagen {.unnumbered}</span></span>
+<span id="cb2-439"><a href="#cb2-439"></a></span>
+<span id="cb2-440"><a href="#cb2-440"></a>Para una función</span>
+<span id="cb2-441"><a href="#cb2-441"></a></span>
+<span id="cb2-442"><a href="#cb2-442"></a>$$</span>
+<span id="cb2-443"><a href="#cb2-443"></a>f:A\to B,</span>
+<span id="cb2-444"><a href="#cb2-444"></a>$$</span>
+<span id="cb2-445"><a href="#cb2-445"></a></span>
+<span id="cb2-446"><a href="#cb2-446"></a>el dominio es $A$ y el codominio es $B$.</span>
+<span id="cb2-447"><a href="#cb2-447"></a></span>
+<span id="cb2-448"><a href="#cb2-448"></a>La imagen de $f$ es</span>
+<span id="cb2-449"><a href="#cb2-449"></a></span>
+<span id="cb2-450"><a href="#cb2-450"></a>$$</span>
+<span id="cb2-451"><a href="#cb2-451"></a>\operatorname{Im}(f)</span>
+<span id="cb2-452"><a href="#cb2-452"></a>=</span>
+<span id="cb2-453"><a href="#cb2-453"></a><span class="sc">\{</span>f(x):x\in A<span class="sc">\}</span>.</span>
+<span id="cb2-454"><a href="#cb2-454"></a>$$</span>
+<span id="cb2-455"><a href="#cb2-455"></a></span>
+<span id="cb2-456"><a href="#cb2-456"></a>Siempre se cumple</span>
+<span id="cb2-457"><a href="#cb2-457"></a></span>
+<span id="cb2-458"><a href="#cb2-458"></a>$$</span>
+<span id="cb2-459"><a href="#cb2-459"></a>\operatorname{Im}(f)\subseteq B.</span>
+<span id="cb2-460"><a href="#cb2-460"></a>$$</span>
+<span id="cb2-461"><a href="#cb2-461"></a></span>
+<span id="cb2-462"><a href="#cb2-462"></a>El codominio y la imagen no necesariamente coinciden.</span>
+<span id="cb2-463"><a href="#cb2-463"></a></span>
+<span id="cb2-464"><a href="#cb2-464"></a><span class="fu">## Imagen e imagen inversa de conjuntos {.unnumbered}</span></span>
+<span id="cb2-465"><a href="#cb2-465"></a></span>
+<span id="cb2-466"><a href="#cb2-466"></a>Si $C\subseteq A$, la imagen de $C$ es</span>
+<span id="cb2-467"><a href="#cb2-467"></a></span>
+<span id="cb2-468"><a href="#cb2-468"></a>$$</span>
+<span id="cb2-469"><a href="#cb2-469"></a>f(C)</span>
+<span id="cb2-470"><a href="#cb2-470"></a>=</span>
+<span id="cb2-471"><a href="#cb2-471"></a><span class="sc">\{</span>f(x):x\in C<span class="sc">\}</span>.</span>
+<span id="cb2-472"><a href="#cb2-472"></a>$$</span>
+<span id="cb2-473"><a href="#cb2-473"></a></span>
+<span id="cb2-474"><a href="#cb2-474"></a>Si $D\subseteq B$, la imagen inversa de $D$ es</span>
+<span id="cb2-475"><a href="#cb2-475"></a></span>
+<span id="cb2-476"><a href="#cb2-476"></a>$$</span>
+<span id="cb2-477"><a href="#cb2-477"></a>f^{-1}(D)</span>
+<span id="cb2-478"><a href="#cb2-478"></a>=</span>
+<span id="cb2-479"><a href="#cb2-479"></a><span class="sc">\{</span>x\in A:f(x)\in D<span class="sc">\}</span>.</span>
+<span id="cb2-480"><a href="#cb2-480"></a>$$</span>
+<span id="cb2-481"><a href="#cb2-481"></a></span>
+<span id="cb2-482"><a href="#cb2-482"></a>La notación $f^{-1}(D)$ no exige que $f$ sea invertible.</span>
+<span id="cb2-483"><a href="#cb2-483"></a></span>
+<span id="cb2-484"><a href="#cb2-484"></a><span class="fu">## Funciones inyectivas, suprayectivas y biyectivas {.unnumbered}</span></span>
+<span id="cb2-485"><a href="#cb2-485"></a></span>
+<span id="cb2-486"><a href="#cb2-486"></a><span class="fu">### Función inyectiva {.unnumbered}</span></span>
+<span id="cb2-487"><a href="#cb2-487"></a></span>
+<span id="cb2-488"><a href="#cb2-488"></a>::: {#def-inyectiva}</span>
+<span id="cb2-489"><a href="#cb2-489"></a>Una función $f:A\to B$ es inyectiva si elementos distintos del dominio tienen imágenes distintas.</span>
+<span id="cb2-490"><a href="#cb2-490"></a>:::</span>
+<span id="cb2-491"><a href="#cb2-491"></a></span>
+<span id="cb2-492"><a href="#cb2-492"></a>Equivalentemente,</span>
+<span id="cb2-493"><a href="#cb2-493"></a></span>
+<span id="cb2-494"><a href="#cb2-494"></a>$$</span>
+<span id="cb2-495"><a href="#cb2-495"></a>f(x_1)=f(x_2)</span>
+<span id="cb2-496"><a href="#cb2-496"></a>\Rightarrow</span>
+<span id="cb2-497"><a href="#cb2-497"></a>x_1=x_2.</span>
+<span id="cb2-498"><a href="#cb2-498"></a>$$</span>
+<span id="cb2-499"><a href="#cb2-499"></a></span>
+<span id="cb2-500"><a href="#cb2-500"></a><span class="fu">### Función suprayectiva {.unnumbered}</span></span>
+<span id="cb2-501"><a href="#cb2-501"></a></span>
+<span id="cb2-502"><a href="#cb2-502"></a>::: {#def-suprayectiva}</span>
+<span id="cb2-503"><a href="#cb2-503"></a>Una función $f:A\to B$ es suprayectiva si cada elemento de $B$ es imagen de al menos un elemento de $A$.</span>
+<span id="cb2-504"><a href="#cb2-504"></a>:::</span>
+<span id="cb2-505"><a href="#cb2-505"></a></span>
+<span id="cb2-506"><a href="#cb2-506"></a>Formalmente,</span>
+<span id="cb2-507"><a href="#cb2-507"></a></span>
+<span id="cb2-508"><a href="#cb2-508"></a>$$</span>
+<span id="cb2-509"><a href="#cb2-509"></a>(\forall y\in B)(\exists x\in A)</span>
+<span id="cb2-510"><a href="#cb2-510"></a>\quad</span>
+<span id="cb2-511"><a href="#cb2-511"></a>f(x)=y.</span>
+<span id="cb2-512"><a href="#cb2-512"></a>$$</span>
+<span id="cb2-513"><a href="#cb2-513"></a></span>
+<span id="cb2-514"><a href="#cb2-514"></a><span class="fu">### Función biyectiva {.unnumbered}</span></span>
+<span id="cb2-515"><a href="#cb2-515"></a></span>
+<span id="cb2-516"><a href="#cb2-516"></a>::: {#def-biyectiva}</span>
+<span id="cb2-517"><a href="#cb2-517"></a>Una función es biyectiva si es simultáneamente inyectiva y suprayectiva.</span>
+<span id="cb2-518"><a href="#cb2-518"></a>:::</span>
+<span id="cb2-519"><a href="#cb2-519"></a></span>
+<span id="cb2-520"><a href="#cb2-520"></a>Las funciones biyectivas poseen una función inversa.</span>
+<span id="cb2-521"><a href="#cb2-521"></a></span>
+<span id="cb2-522"><a href="#cb2-522"></a><span class="fu">## Composición de funciones {.unnumbered}</span></span>
+<span id="cb2-523"><a href="#cb2-523"></a></span>
+<span id="cb2-524"><a href="#cb2-524"></a>Sean</span>
+<span id="cb2-525"><a href="#cb2-525"></a></span>
+<span id="cb2-526"><a href="#cb2-526"></a>$$</span>
+<span id="cb2-527"><a href="#cb2-527"></a>f:A\to B</span>
+<span id="cb2-528"><a href="#cb2-528"></a>$$</span>
+<span id="cb2-529"><a href="#cb2-529"></a></span>
+<span id="cb2-530"><a href="#cb2-530"></a>y</span>
+<span id="cb2-531"><a href="#cb2-531"></a></span>
+<span id="cb2-532"><a href="#cb2-532"></a>$$</span>
+<span id="cb2-533"><a href="#cb2-533"></a>g:B\to C.</span>
+<span id="cb2-534"><a href="#cb2-534"></a>$$</span>
+<span id="cb2-535"><a href="#cb2-535"></a></span>
+<span id="cb2-536"><a href="#cb2-536"></a>La composición de $g$ con $f$ se define como</span>
+<span id="cb2-537"><a href="#cb2-537"></a></span>
+<span id="cb2-538"><a href="#cb2-538"></a>$$</span>
+<span id="cb2-539"><a href="#cb2-539"></a>(g\circ f)(x)=g(f(x)).</span>
+<span id="cb2-540"><a href="#cb2-540"></a>$$</span>
+<span id="cb2-541"><a href="#cb2-541"></a></span>
+<span id="cb2-542"><a href="#cb2-542"></a>La composición es esencial en redes neuronales, donde cada capa aplica una transformación a la salida de la capa anterior.</span>
+<span id="cb2-543"><a href="#cb2-543"></a></span>
+<span id="cb2-544"><a href="#cb2-544"></a>::: {#exm-composicion}</span>
+<span id="cb2-545"><a href="#cb2-545"></a>Sean</span>
+<span id="cb2-546"><a href="#cb2-546"></a></span>
+<span id="cb2-547"><a href="#cb2-547"></a>$$</span>
+<span id="cb2-548"><a href="#cb2-548"></a>f(x)=2x+1,</span>
+<span id="cb2-549"><a href="#cb2-549"></a>\qquad</span>
+<span id="cb2-550"><a href="#cb2-550"></a>g(x)=x^2.</span>
+<span id="cb2-551"><a href="#cb2-551"></a>$$</span>
+<span id="cb2-552"><a href="#cb2-552"></a></span>
+<span id="cb2-553"><a href="#cb2-553"></a>Entonces</span>
+<span id="cb2-554"><a href="#cb2-554"></a></span>
+<span id="cb2-555"><a href="#cb2-555"></a>$$</span>
+<span id="cb2-556"><a href="#cb2-556"></a>(g\circ f)(x)</span>
+<span id="cb2-557"><a href="#cb2-557"></a>=</span>
+<span id="cb2-558"><a href="#cb2-558"></a>(2x+1)^2.</span>
+<span id="cb2-559"><a href="#cb2-559"></a>$$</span>
+<span id="cb2-560"><a href="#cb2-560"></a></span>
+<span id="cb2-561"><a href="#cb2-561"></a>En cambio,</span>
+<span id="cb2-562"><a href="#cb2-562"></a></span>
+<span id="cb2-563"><a href="#cb2-563"></a>$$</span>
+<span id="cb2-564"><a href="#cb2-564"></a>(f\circ g)(x)</span>
+<span id="cb2-565"><a href="#cb2-565"></a>=</span>
+<span id="cb2-566"><a href="#cb2-566"></a>2x^2+1.</span>
+<span id="cb2-567"><a href="#cb2-567"></a>$$</span>
+<span id="cb2-568"><a href="#cb2-568"></a></span>
+<span id="cb2-569"><a href="#cb2-569"></a>En general,</span>
+<span id="cb2-570"><a href="#cb2-570"></a></span>
+<span id="cb2-571"><a href="#cb2-571"></a>$$</span>
+<span id="cb2-572"><a href="#cb2-572"></a>g\circ f\neq f\circ g.</span>
+<span id="cb2-573"><a href="#cb2-573"></a>$$</span>
+<span id="cb2-574"><a href="#cb2-574"></a>:::</span>
+<span id="cb2-575"><a href="#cb2-575"></a></span>
+<span id="cb2-576"><a href="#cb2-576"></a><span class="fu">## Función indicadora {.unnumbered}</span></span>
+<span id="cb2-577"><a href="#cb2-577"></a></span>
+<span id="cb2-578"><a href="#cb2-578"></a>::: {#def-indicadora}</span>
+<span id="cb2-579"><a href="#cb2-579"></a>Sea $A$ un conjunto. La función indicadora de $A$ se define por</span>
+<span id="cb2-580"><a href="#cb2-580"></a></span>
+<span id="cb2-581"><a href="#cb2-581"></a>$$</span>
+<span id="cb2-582"><a href="#cb2-582"></a>\mathbb{I}_{A}(x)</span>
+<span id="cb2-583"><a href="#cb2-583"></a>=</span>
+<span id="cb2-584"><a href="#cb2-584"></a>\begin{cases}</span>
+<span id="cb2-585"><a href="#cb2-585"></a>1, &amp; x\in A,<span class="sc">\\</span></span>
+<span id="cb2-586"><a href="#cb2-586"></a>0, &amp; x\notin A.</span>
+<span id="cb2-587"><a href="#cb2-587"></a>\end{cases}</span>
+<span id="cb2-588"><a href="#cb2-588"></a>$$</span>
+<span id="cb2-589"><a href="#cb2-589"></a>:::</span>
+<span id="cb2-590"><a href="#cb2-590"></a></span>
+<span id="cb2-591"><a href="#cb2-591"></a>También se utiliza la notación</span>
+<span id="cb2-592"><a href="#cb2-592"></a></span>
+<span id="cb2-593"><a href="#cb2-593"></a>$$</span>
+<span id="cb2-594"><a href="#cb2-594"></a>\mathbb{I}(x\in A).</span>
+<span id="cb2-595"><a href="#cb2-595"></a>$$</span>
+<span id="cb2-596"><a href="#cb2-596"></a></span>
+<span id="cb2-597"><a href="#cb2-597"></a>En clasificación, la función indicadora permite contar observaciones de una clase:</span>
+<span id="cb2-598"><a href="#cb2-598"></a></span>
+<span id="cb2-599"><a href="#cb2-599"></a>$$</span>
+<span id="cb2-600"><a href="#cb2-600"></a>n_k</span>
+<span id="cb2-601"><a href="#cb2-601"></a>=</span>
+<span id="cb2-602"><a href="#cb2-602"></a>\sum_{i=1}^{n}</span>
+<span id="cb2-603"><a href="#cb2-603"></a>\mathbb{I}(y_i=k).</span>
+<span id="cb2-604"><a href="#cb2-604"></a>$$</span>
+<span id="cb2-605"><a href="#cb2-605"></a></span>
+<span id="cb2-606"><a href="#cb2-606"></a>La proporción de observaciones de la clase $k$ es</span>
+<span id="cb2-607"><a href="#cb2-607"></a></span>
+<span id="cb2-608"><a href="#cb2-608"></a>$$</span>
+<span id="cb2-609"><a href="#cb2-609"></a>\widehat{p}_k</span>
+<span id="cb2-610"><a href="#cb2-610"></a>=</span>
+<span id="cb2-611"><a href="#cb2-611"></a>\frac{1}{n}</span>
+<span id="cb2-612"><a href="#cb2-612"></a>\sum_{i=1}^{n}</span>
+<span id="cb2-613"><a href="#cb2-613"></a>\mathbb{I}(y_i=k).</span>
+<span id="cb2-614"><a href="#cb2-614"></a>$$</span>
+<span id="cb2-615"><a href="#cb2-615"></a></span>
+<span id="cb2-616"><a href="#cb2-616"></a>Esta expresión aparecerá en árboles de decisión, matrices de confusión y medidas de evaluación.</span>
+<span id="cb2-617"><a href="#cb2-617"></a></span>
+<span id="cb2-618"><a href="#cb2-618"></a><span class="fu">## Sumatorias y productorias {.unnumbered}</span></span>
+<span id="cb2-619"><a href="#cb2-619"></a></span>
+<span id="cb2-620"><a href="#cb2-620"></a>La sumatoria</span>
+<span id="cb2-621"><a href="#cb2-621"></a></span>
+<span id="cb2-622"><a href="#cb2-622"></a>$$</span>
+<span id="cb2-623"><a href="#cb2-623"></a>\sum_{i=1}^{n}x_i</span>
+<span id="cb2-624"><a href="#cb2-624"></a>$$</span>
+<span id="cb2-625"><a href="#cb2-625"></a></span>
+<span id="cb2-626"><a href="#cb2-626"></a>representa</span>
+<span id="cb2-627"><a href="#cb2-627"></a></span>
+<span id="cb2-628"><a href="#cb2-628"></a>$$</span>
+<span id="cb2-629"><a href="#cb2-629"></a>x_1+x_2+\cdots+x_n.</span>
+<span id="cb2-630"><a href="#cb2-630"></a>$$</span>
+<span id="cb2-631"><a href="#cb2-631"></a></span>
+<span id="cb2-632"><a href="#cb2-632"></a>La productoria</span>
+<span id="cb2-633"><a href="#cb2-633"></a></span>
+<span id="cb2-634"><a href="#cb2-634"></a>$$</span>
+<span id="cb2-635"><a href="#cb2-635"></a>\prod_{i=1}^{n}x_i</span>
+<span id="cb2-636"><a href="#cb2-636"></a>$$</span>
+<span id="cb2-637"><a href="#cb2-637"></a></span>
+<span id="cb2-638"><a href="#cb2-638"></a>representa</span>
+<span id="cb2-639"><a href="#cb2-639"></a></span>
+<span id="cb2-640"><a href="#cb2-640"></a>$$</span>
+<span id="cb2-641"><a href="#cb2-641"></a>x_1x_2\cdots x_n.</span>
+<span id="cb2-642"><a href="#cb2-642"></a>$$</span>
+<span id="cb2-643"><a href="#cb2-643"></a></span>
+<span id="cb2-644"><a href="#cb2-644"></a>La media aritmética de una muestra es</span>
+<span id="cb2-645"><a href="#cb2-645"></a></span>
+<span id="cb2-646"><a href="#cb2-646"></a>$$</span>
+<span id="cb2-647"><a href="#cb2-647"></a>\bar{x}</span>
+<span id="cb2-648"><a href="#cb2-648"></a>=</span>
+<span id="cb2-649"><a href="#cb2-649"></a>\frac{1}{n}</span>
+<span id="cb2-650"><a href="#cb2-650"></a>\sum_{i=1}^{n}x_i.</span>
+<span id="cb2-651"><a href="#cb2-651"></a>$$</span>
+<span id="cb2-652"><a href="#cb2-652"></a></span>
+<span id="cb2-653"><a href="#cb2-653"></a>La productoria será especialmente importante en funciones de verosimilitud.</span>
+<span id="cb2-654"><a href="#cb2-654"></a></span>
+<span id="cb2-655"><a href="#cb2-655"></a><span class="fu">## Representación formal de datos {.unnumbered}</span></span>
+<span id="cb2-656"><a href="#cb2-656"></a></span>
+<span id="cb2-657"><a href="#cb2-657"></a>Sea</span>
+<span id="cb2-658"><a href="#cb2-658"></a></span>
+<span id="cb2-659"><a href="#cb2-659"></a>$$</span>
+<span id="cb2-660"><a href="#cb2-660"></a>\mathcal{X}\subseteq\mathbb{R}^{p}</span>
+<span id="cb2-661"><a href="#cb2-661"></a>$$</span>
+<span id="cb2-662"><a href="#cb2-662"></a></span>
+<span id="cb2-663"><a href="#cb2-663"></a>el espacio de características y sea $\mathcal{Y}$ el espacio de respuestas.</span>
+<span id="cb2-664"><a href="#cb2-664"></a></span>
+<span id="cb2-665"><a href="#cb2-665"></a>Un conjunto de datos supervisado se representa como</span>
+<span id="cb2-666"><a href="#cb2-666"></a></span>
+<span id="cb2-667"><a href="#cb2-667"></a>$$</span>
+<span id="cb2-668"><a href="#cb2-668"></a>\mathcal{D}</span>
+<span id="cb2-669"><a href="#cb2-669"></a>=</span>
+<span id="cb2-670"><a href="#cb2-670"></a>\left<span class="sc">\{</span></span>
+<span id="cb2-671"><a href="#cb2-671"></a>(\mathbf{x}_i,y_i)</span>
+<span id="cb2-672"><a href="#cb2-672"></a>\right<span class="sc">\}</span>_{i=1}^{n}</span>
+<span id="cb2-673"><a href="#cb2-673"></a>\subseteq</span>
+<span id="cb2-674"><a href="#cb2-674"></a>\mathcal{X}\times\mathcal{Y}.</span>
+<span id="cb2-675"><a href="#cb2-675"></a>$$</span>
+<span id="cb2-676"><a href="#cb2-676"></a></span>
+<span id="cb2-677"><a href="#cb2-677"></a>Cada vector</span>
+<span id="cb2-678"><a href="#cb2-678"></a></span>
+<span id="cb2-679"><a href="#cb2-679"></a>$$</span>
+<span id="cb2-680"><a href="#cb2-680"></a>\mathbf{x}_i</span>
+<span id="cb2-681"><a href="#cb2-681"></a>=</span>
+<span id="cb2-682"><a href="#cb2-682"></a>\begin{pmatrix}</span>
+<span id="cb2-683"><a href="#cb2-683"></a>x_{i1}<span class="sc">\\</span></span>
+<span id="cb2-684"><a href="#cb2-684"></a>x_{i2}<span class="sc">\\</span></span>
+<span id="cb2-685"><a href="#cb2-685"></a>\vdots<span class="sc">\\</span></span>
+<span id="cb2-686"><a href="#cb2-686"></a>x_{ip}</span>
+<span id="cb2-687"><a href="#cb2-687"></a>\end{pmatrix}</span>
+<span id="cb2-688"><a href="#cb2-688"></a>$$</span>
+<span id="cb2-689"><a href="#cb2-689"></a></span>
+<span id="cb2-690"><a href="#cb2-690"></a>contiene los valores de las $p$ características de la observación $i$.</span>
+<span id="cb2-691"><a href="#cb2-691"></a></span>
+<span id="cb2-692"><a href="#cb2-692"></a>La matriz de datos se representa como</span>
+<span id="cb2-693"><a href="#cb2-693"></a></span>
+<span id="cb2-694"><a href="#cb2-694"></a>$$</span>
+<span id="cb2-695"><a href="#cb2-695"></a>\mathbf{X}</span>
+<span id="cb2-696"><a href="#cb2-696"></a>=</span>
+<span id="cb2-697"><a href="#cb2-697"></a>\begin{pmatrix}</span>
+<span id="cb2-698"><a href="#cb2-698"></a>x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p}<span class="sc">\\</span></span>
+<span id="cb2-699"><a href="#cb2-699"></a>x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p}<span class="sc">\\</span></span>
+<span id="cb2-700"><a href="#cb2-700"></a>\vdots &amp; \vdots &amp; \ddots &amp; \vdots<span class="sc">\\</span></span>
+<span id="cb2-701"><a href="#cb2-701"></a>x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np}</span>
+<span id="cb2-702"><a href="#cb2-702"></a>\end{pmatrix}</span>
+<span id="cb2-703"><a href="#cb2-703"></a>\in\mathbb{R}^{n\times p}.</span>
+<span id="cb2-704"><a href="#cb2-704"></a>$$</span>
+<span id="cb2-705"><a href="#cb2-705"></a></span>
+<span id="cb2-706"><a href="#cb2-706"></a>El vector de respuestas es</span>
+<span id="cb2-707"><a href="#cb2-707"></a></span>
+<span id="cb2-708"><a href="#cb2-708"></a>$$</span>
+<span id="cb2-709"><a href="#cb2-709"></a>\mathbf{y}</span>
+<span id="cb2-710"><a href="#cb2-710"></a>=</span>
+<span id="cb2-711"><a href="#cb2-711"></a>\begin{pmatrix}</span>
+<span id="cb2-712"><a href="#cb2-712"></a>y_1<span class="sc">\\</span></span>
+<span id="cb2-713"><a href="#cb2-713"></a>y_2<span class="sc">\\</span></span>
+<span id="cb2-714"><a href="#cb2-714"></a>\vdots<span class="sc">\\</span></span>
+<span id="cb2-715"><a href="#cb2-715"></a>y_n</span>
+<span id="cb2-716"><a href="#cb2-716"></a>\end{pmatrix}.</span>
+<span id="cb2-717"><a href="#cb2-717"></a>$$</span>
+<span id="cb2-718"><a href="#cb2-718"></a></span>
+<span id="cb2-719"><a href="#cb2-719"></a><span class="fu">## Regresión y clasificación {.unnumbered}</span></span>
+<span id="cb2-720"><a href="#cb2-720"></a></span>
+<span id="cb2-721"><a href="#cb2-721"></a><span class="fu">### Regresión {.unnumbered}</span></span>
+<span id="cb2-722"><a href="#cb2-722"></a></span>
+<span id="cb2-723"><a href="#cb2-723"></a>En un problema de regresión, la respuesta es numérica:</span>
+<span id="cb2-724"><a href="#cb2-724"></a></span>
+<span id="cb2-725"><a href="#cb2-725"></a>$$</span>
+<span id="cb2-726"><a href="#cb2-726"></a>\mathcal{Y}\subseteq\mathbb{R}.</span>
+<span id="cb2-727"><a href="#cb2-727"></a>$$</span>
+<span id="cb2-728"><a href="#cb2-728"></a></span>
+<span id="cb2-729"><a href="#cb2-729"></a>Se busca una función</span>
+<span id="cb2-730"><a href="#cb2-730"></a></span>
+<span id="cb2-731"><a href="#cb2-731"></a>$$</span>
+<span id="cb2-732"><a href="#cb2-732"></a>f:\mathcal{X}\to\mathbb{R}.</span>
+<span id="cb2-733"><a href="#cb2-733"></a>$$</span>
+<span id="cb2-734"><a href="#cb2-734"></a></span>
+<span id="cb2-735"><a href="#cb2-735"></a>Por ejemplo, estimar la concentración de un contaminante:</span>
+<span id="cb2-736"><a href="#cb2-736"></a></span>
+<span id="cb2-737"><a href="#cb2-737"></a>$$</span>
+<span id="cb2-738"><a href="#cb2-738"></a>f(\mathbf{x})</span>
+<span id="cb2-739"><a href="#cb2-739"></a>=</span>
+<span id="cb2-740"><a href="#cb2-740"></a>\widehat{y}.</span>
+<span id="cb2-741"><a href="#cb2-741"></a>$$</span>
+<span id="cb2-742"><a href="#cb2-742"></a></span>
+<span id="cb2-743"><a href="#cb2-743"></a><span class="fu">### Clasificación binaria {.unnumbered}</span></span>
+<span id="cb2-744"><a href="#cb2-744"></a></span>
+<span id="cb2-745"><a href="#cb2-745"></a>En clasificación binaria,</span>
+<span id="cb2-746"><a href="#cb2-746"></a></span>
+<span id="cb2-747"><a href="#cb2-747"></a>$$</span>
+<span id="cb2-748"><a href="#cb2-748"></a>\mathcal{Y}=<span class="sc">\{</span>0,1<span class="sc">\}</span></span>
+<span id="cb2-749"><a href="#cb2-749"></a>$$</span>
+<span id="cb2-750"><a href="#cb2-750"></a></span>
+<span id="cb2-751"><a href="#cb2-751"></a>o bien</span>
+<span id="cb2-752"><a href="#cb2-752"></a></span>
+<span id="cb2-753"><a href="#cb2-753"></a>$$</span>
+<span id="cb2-754"><a href="#cb2-754"></a>\mathcal{Y}=<span class="sc">\{</span>-1,1<span class="sc">\}</span>.</span>
+<span id="cb2-755"><a href="#cb2-755"></a>$$</span>
+<span id="cb2-756"><a href="#cb2-756"></a></span>
+<span id="cb2-757"><a href="#cb2-757"></a>La función de clasificación tiene la forma</span>
+<span id="cb2-758"><a href="#cb2-758"></a></span>
+<span id="cb2-759"><a href="#cb2-759"></a>$$</span>
+<span id="cb2-760"><a href="#cb2-760"></a>f:\mathcal{X}\to<span class="sc">\{</span>0,1<span class="sc">\}</span>.</span>
+<span id="cb2-761"><a href="#cb2-761"></a>$$</span>
+<span id="cb2-762"><a href="#cb2-762"></a></span>
+<span id="cb2-763"><a href="#cb2-763"></a><span class="fu">### Clasificación multiclase {.unnumbered}</span></span>
+<span id="cb2-764"><a href="#cb2-764"></a></span>
+<span id="cb2-765"><a href="#cb2-765"></a>En clasificación multiclase,</span>
+<span id="cb2-766"><a href="#cb2-766"></a></span>
+<span id="cb2-767"><a href="#cb2-767"></a>$$</span>
+<span id="cb2-768"><a href="#cb2-768"></a>\mathcal{Y}</span>
+<span id="cb2-769"><a href="#cb2-769"></a>=</span>
+<span id="cb2-770"><a href="#cb2-770"></a><span class="sc">\{</span>1,2,\ldots,K<span class="sc">\}</span>.</span>
+<span id="cb2-771"><a href="#cb2-771"></a>$$</span>
+<span id="cb2-772"><a href="#cb2-772"></a></span>
+<span id="cb2-773"><a href="#cb2-773"></a>Entonces</span>
+<span id="cb2-774"><a href="#cb2-774"></a></span>
+<span id="cb2-775"><a href="#cb2-775"></a>$$</span>
+<span id="cb2-776"><a href="#cb2-776"></a>f:\mathcal{X}\to<span class="sc">\{</span>1,\ldots,K<span class="sc">\}</span>.</span>
+<span id="cb2-777"><a href="#cb2-777"></a>$$</span>
+<span id="cb2-778"><a href="#cb2-778"></a></span>
+<span id="cb2-779"><a href="#cb2-779"></a><span class="fu">## Función objetivo desconocida {.unnumbered}</span></span>
+<span id="cb2-780"><a href="#cb2-780"></a></span>
+<span id="cb2-781"><a href="#cb2-781"></a>En aprendizaje supervisado se supone que existe una relación entre las características y la respuesta. Puede representarse idealmente mediante una función desconocida</span>
+<span id="cb2-782"><a href="#cb2-782"></a></span>
+<span id="cb2-783"><a href="#cb2-783"></a>$$</span>
+<span id="cb2-784"><a href="#cb2-784"></a>f^{*}:\mathcal{X}\to\mathcal{Y}.</span>
+<span id="cb2-785"><a href="#cb2-785"></a>$$</span>
+<span id="cb2-786"><a href="#cb2-786"></a></span>
+<span id="cb2-787"><a href="#cb2-787"></a>Los datos satisfacen aproximadamente</span>
+<span id="cb2-788"><a href="#cb2-788"></a></span>
+<span id="cb2-789"><a href="#cb2-789"></a>$$</span>
+<span id="cb2-790"><a href="#cb2-790"></a>y_i=f^{*}(\mathbf{x}_i)+\varepsilon_i</span>
+<span id="cb2-791"><a href="#cb2-791"></a>$$</span>
+<span id="cb2-792"><a href="#cb2-792"></a></span>
+<span id="cb2-793"><a href="#cb2-793"></a>en regresión, donde $\varepsilon_i$ representa variación aleatoria o error.</span>
+<span id="cb2-794"><a href="#cb2-794"></a></span>
+<span id="cb2-795"><a href="#cb2-795"></a>El objetivo del aprendizaje consiste en construir una aproximación</span>
+<span id="cb2-796"><a href="#cb2-796"></a></span>
+<span id="cb2-797"><a href="#cb2-797"></a>$$</span>
+<span id="cb2-798"><a href="#cb2-798"></a>\widehat{f}\approx f^{*}.</span>
+<span id="cb2-799"><a href="#cb2-799"></a>$$</span>
+<span id="cb2-800"><a href="#cb2-800"></a></span>
+<span id="cb2-801"><a href="#cb2-801"></a>::: {.callout-important title="Función objetivo y datos observados" appearance="default" icon="true"}</span>
+<span id="cb2-802"><a href="#cb2-802"></a>En aprendizaje supervisado se supone que existe alguna relación entre $\mathbf{X}$ y $Y$, pero normalmente no se observa una función objetivo determinista exacta. Una formulación más general utiliza una distribución conjunta $P_{X,Y}$ y busca una función que minimice el riesgo esperado. Esta distinción se desarrollará en los capítulos de aprendizaje supervisado y teoría de generalización.</span>
+<span id="cb2-803"><a href="#cb2-803"></a>:::</span>
+<span id="cb2-804"><a href="#cb2-804"></a></span>
+<span id="cb2-805"><a href="#cb2-805"></a><span class="fu">## Ejemplo integrado {.unnumbered}</span></span>
+<span id="cb2-806"><a href="#cb2-806"></a></span>
+<span id="cb2-807"><a href="#cb2-807"></a>Supóngase que se desea clasificar la calidad del aire utilizando tres variables:</span>
+<span id="cb2-808"><a href="#cb2-808"></a></span>
+<span id="cb2-809"><a href="#cb2-809"></a><span class="ss">1. </span>concentración de partículas PM10;</span>
+<span id="cb2-810"><a href="#cb2-810"></a><span class="ss">2. </span>temperatura;</span>
+<span id="cb2-811"><a href="#cb2-811"></a><span class="ss">3. </span>humedad relativa.</span>
+<span id="cb2-812"><a href="#cb2-812"></a></span>
+<span id="cb2-813"><a href="#cb2-813"></a>El espacio de características es</span>
+<span id="cb2-814"><a href="#cb2-814"></a></span>
+<span id="cb2-815"><a href="#cb2-815"></a>$$</span>
+<span id="cb2-816"><a href="#cb2-816"></a>\mathcal{X}\subseteq\mathbb{R}^{3}.</span>
+<span id="cb2-817"><a href="#cb2-817"></a>$$</span>
+<span id="cb2-818"><a href="#cb2-818"></a></span>
+<span id="cb2-819"><a href="#cb2-819"></a>La respuesta puede definirse como</span>
+<span id="cb2-820"><a href="#cb2-820"></a></span>
+<span id="cb2-821"><a href="#cb2-821"></a>$$</span>
+<span id="cb2-822"><a href="#cb2-822"></a>\mathcal{Y}</span>
+<span id="cb2-823"><a href="#cb2-823"></a>=</span>
+<span id="cb2-824"><a href="#cb2-824"></a><span class="sc">\{</span>\text{buena},\text{regular},\text{mala}<span class="sc">\}</span>.</span>
+<span id="cb2-825"><a href="#cb2-825"></a>$$</span>
+<span id="cb2-826"><a href="#cb2-826"></a></span>
+<span id="cb2-827"><a href="#cb2-827"></a>Una observación es</span>
+<span id="cb2-828"><a href="#cb2-828"></a></span>
+<span id="cb2-829"><a href="#cb2-829"></a>$$</span>
+<span id="cb2-830"><a href="#cb2-830"></a>\mathbf{x}_i</span>
+<span id="cb2-831"><a href="#cb2-831"></a>=</span>
+<span id="cb2-832"><a href="#cb2-832"></a>\begin{pmatrix}</span>
+<span id="cb2-833"><a href="#cb2-833"></a>\text{PM10}_i<span class="sc">\\</span></span>
+<span id="cb2-834"><a href="#cb2-834"></a>\text{temperatura}_i<span class="sc">\\</span></span>
+<span id="cb2-835"><a href="#cb2-835"></a>\text{humedad}_i</span>
+<span id="cb2-836"><a href="#cb2-836"></a>\end{pmatrix}.</span>
+<span id="cb2-837"><a href="#cb2-837"></a>$$</span>
+<span id="cb2-838"><a href="#cb2-838"></a></span>
+<span id="cb2-839"><a href="#cb2-839"></a>El conjunto de entrenamiento es</span>
+<span id="cb2-840"><a href="#cb2-840"></a></span>
+<span id="cb2-841"><a href="#cb2-841"></a>$$</span>
+<span id="cb2-842"><a href="#cb2-842"></a>\mathcal{D}</span>
+<span id="cb2-843"><a href="#cb2-843"></a>=</span>
+<span id="cb2-844"><a href="#cb2-844"></a>\left<span class="sc">\{</span></span>
+<span id="cb2-845"><a href="#cb2-845"></a>(\mathbf{x}_i,y_i)</span>
+<span id="cb2-846"><a href="#cb2-846"></a>\right<span class="sc">\}</span>_{i=1}^{n}.</span>
+<span id="cb2-847"><a href="#cb2-847"></a>$$</span>
+<span id="cb2-848"><a href="#cb2-848"></a></span>
+<span id="cb2-849"><a href="#cb2-849"></a>El clasificador buscado es una función</span>
+<span id="cb2-850"><a href="#cb2-850"></a></span>
+<span id="cb2-851"><a href="#cb2-851"></a>$$</span>
+<span id="cb2-852"><a href="#cb2-852"></a>\widehat{f}:\mathbb{R}^{3}</span>
+<span id="cb2-853"><a href="#cb2-853"></a>\to</span>
+<span id="cb2-854"><a href="#cb2-854"></a><span class="sc">\{</span>\text{buena},\text{regular},\text{mala}<span class="sc">\}</span>.</span>
+<span id="cb2-855"><a href="#cb2-855"></a>$$</span>
+<span id="cb2-856"><a href="#cb2-856"></a></span>
+<span id="cb2-857"><a href="#cb2-857"></a><span class="fu">## Conexión con R {.unnumbered}</span></span>
+<span id="cb2-858"><a href="#cb2-858"></a></span>
+<span id="cb2-859"><a href="#cb2-859"></a>En R, una tabla de datos puede interpretarse como una representación computacional de la matriz $\mathbf{X}$ y del vector $\mathbf{y}$.</span>
+<span id="cb2-860"><a href="#cb2-860"></a></span>
+<span id="cb2-863"><a href="#cb2-863"></a><span class="in">```{r}</span></span>
+<span id="cb2-864"><a href="#cb2-864"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-865"><a href="#cb2-865"></a></span>
+<span id="cb2-866"><a href="#cb2-866"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-867"><a href="#cb2-867"></a>  <span class="at">pm10 =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">75</span>, <span class="dv">112</span>, <span class="dv">46</span>),</span>
+<span id="cb2-868"><a href="#cb2-868"></a>  <span class="at">temperatura =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">27</span>, <span class="dv">21</span>),</span>
+<span id="cb2-869"><a href="#cb2-869"></a>  <span class="at">humedad =</span> <span class="fu">c</span>(<span class="dv">64</span>, <span class="dv">52</span>, <span class="dv">43</span>, <span class="dv">58</span>),</span>
+<span id="cb2-870"><a href="#cb2-870"></a>  <span class="at">calidad =</span> <span class="fu">c</span>(<span class="st">"buena"</span>, <span class="st">"regular"</span>, <span class="st">"mala"</span>, <span class="st">"buena"</span>)</span>
+<span id="cb2-871"><a href="#cb2-871"></a>)</span>
+<span id="cb2-872"><a href="#cb2-872"></a></span>
+<span id="cb2-873"><a href="#cb2-873"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">"pm10"</span>, <span class="st">"temperatura"</span>, <span class="st">"humedad"</span>)])</span>
+<span id="cb2-874"><a href="#cb2-874"></a>y <span class="ot">&lt;-</span> datos<span class="sc">$</span>calidad</span>
+<span id="cb2-875"><a href="#cb2-875"></a><span class="in">```</span></span>
+<span id="cb2-876"><a href="#cb2-876"></a></span>
+<span id="cb2-877"><a href="#cb2-877"></a>Matemáticamente,</span>
+<span id="cb2-878"><a href="#cb2-878"></a></span>
+<span id="cb2-879"><a href="#cb2-879"></a>$$</span>
+<span id="cb2-880"><a href="#cb2-880"></a>\mathbf{X}\in\mathbb{R}^{4\times 3}</span>
+<span id="cb2-881"><a href="#cb2-881"></a>$$</span>
+<span id="cb2-882"><a href="#cb2-882"></a></span>
+<span id="cb2-883"><a href="#cb2-883"></a>y</span>
+<span id="cb2-884"><a href="#cb2-884"></a></span>
+<span id="cb2-885"><a href="#cb2-885"></a>$$</span>
+<span id="cb2-886"><a href="#cb2-886"></a>\mathbf{y}</span>
+<span id="cb2-887"><a href="#cb2-887"></a>=</span>
+<span id="cb2-888"><a href="#cb2-888"></a>\begin{pmatrix}</span>
+<span id="cb2-889"><a href="#cb2-889"></a>\text{buena}<span class="sc">\\</span></span>
+<span id="cb2-890"><a href="#cb2-890"></a>\text{regular}<span class="sc">\\</span></span>
+<span id="cb2-891"><a href="#cb2-891"></a>\text{mala}<span class="sc">\\</span></span>
+<span id="cb2-892"><a href="#cb2-892"></a>\text{buena}</span>
+<span id="cb2-893"><a href="#cb2-893"></a>\end{pmatrix}.</span>
+<span id="cb2-894"><a href="#cb2-894"></a>$$</span>
+<span id="cb2-895"><a href="#cb2-895"></a></span>
+<span id="cb2-896"><a href="#cb2-896"></a><span class="fu">## Errores frecuentes {.unnumbered}</span></span>
+<span id="cb2-897"><a href="#cb2-897"></a></span>
+<span id="cb2-898"><a href="#cb2-898"></a><span class="ss">1. </span>Confundir un elemento con un subconjunto.</span>
+<span id="cb2-899"><a href="#cb2-899"></a><span class="ss">2. </span>Suponer que el codominio y la imagen siempre son iguales.</span>
+<span id="cb2-900"><a href="#cb2-900"></a><span class="ss">3. </span>Confundir $f^{-1}(D)$ con la función inversa.</span>
+<span id="cb2-901"><a href="#cb2-901"></a><span class="ss">4. </span>Olvidar que una función debe asignar exactamente una salida a cada entrada.</span>
+<span id="cb2-902"><a href="#cb2-902"></a><span class="ss">5. </span>Considerar que el orden de los elementos cambia un conjunto.</span>
+<span id="cb2-903"><a href="#cb2-903"></a><span class="ss">6. </span>Confundir una observación $\mathbf{x}_i$ con toda la matriz $\mathbf{X}$.</span>
+<span id="cb2-904"><a href="#cb2-904"></a><span class="ss">7. </span>Suponer que toda clasificación utiliza únicamente las etiquetas $0$ y $1$.</span>
+<span id="cb2-905"><a href="#cb2-905"></a></span>
+<span id="cb2-906"><a href="#cb2-906"></a><span class="fu">## Ejercicios {.unnumbered}</span></span>
+<span id="cb2-907"><a href="#cb2-907"></a></span>
+<span id="cb2-908"><a href="#cb2-908"></a><span class="fu">### Ejercicios conceptuales {.unnumbered}</span></span>
+<span id="cb2-909"><a href="#cb2-909"></a></span>
+<span id="cb2-910"><a href="#cb2-910"></a><span class="ss">1. </span>Explique la diferencia entre $x\in A$ y $<span class="sc">\{</span>x<span class="sc">\}</span>\subseteq A$.</span>
+<span id="cb2-911"><a href="#cb2-911"></a><span class="ss">2. </span>Explique la diferencia entre dominio, codominio e imagen.</span>
+<span id="cb2-912"><a href="#cb2-912"></a><span class="ss">3. </span>¿Por qué una función de clasificación puede considerarse una regla de decisión?</span>
+<span id="cb2-913"><a href="#cb2-913"></a><span class="ss">4. </span>¿Qué diferencia existe entre $\mathbb{R}^{p}$ y $\mathbb{R}^{n\times p}$?</span>
+<span id="cb2-914"><a href="#cb2-914"></a><span class="ss">5. </span>¿Por qué el conjunto de entrenamiento es un subconjunto de $\mathcal{X}\times\mathcal{Y}$?</span>
+<span id="cb2-915"><a href="#cb2-915"></a></span>
+<span id="cb2-916"><a href="#cb2-916"></a><span class="fu">### Ejercicios de conjuntos {.unnumbered}</span></span>
+<span id="cb2-917"><a href="#cb2-917"></a></span>
+<span id="cb2-918"><a href="#cb2-918"></a>Sean</span>
+<span id="cb2-919"><a href="#cb2-919"></a></span>
+<span id="cb2-920"><a href="#cb2-920"></a>$$</span>
+<span id="cb2-921"><a href="#cb2-921"></a>A=<span class="sc">\{</span>1,2,3,4,5<span class="sc">\}</span></span>
+<span id="cb2-922"><a href="#cb2-922"></a>$$</span>
+<span id="cb2-923"><a href="#cb2-923"></a></span>
+<span id="cb2-924"><a href="#cb2-924"></a>y</span>
+<span id="cb2-925"><a href="#cb2-925"></a></span>
+<span id="cb2-926"><a href="#cb2-926"></a>$$</span>
+<span id="cb2-927"><a href="#cb2-927"></a>B=<span class="sc">\{</span>4,5,6,7<span class="sc">\}</span>.</span>
+<span id="cb2-928"><a href="#cb2-928"></a>$$</span>
+<span id="cb2-929"><a href="#cb2-929"></a></span>
+<span id="cb2-930"><a href="#cb2-930"></a>Determine:</span>
+<span id="cb2-931"><a href="#cb2-931"></a></span>
+<span id="cb2-932"><a href="#cb2-932"></a><span class="ss">1. </span>$A\cup B$;</span>
+<span id="cb2-933"><a href="#cb2-933"></a><span class="ss">2. </span>$A\cap B$;</span>
+<span id="cb2-934"><a href="#cb2-934"></a><span class="ss">3. </span>$A\setminus B$;</span>
+<span id="cb2-935"><a href="#cb2-935"></a><span class="ss">4. </span>$B\setminus A$.</span>
+<span id="cb2-936"><a href="#cb2-936"></a></span>
+<span id="cb2-937"><a href="#cb2-937"></a><span class="fu">### Ejercicios de funciones {.unnumbered}</span></span>
+<span id="cb2-938"><a href="#cb2-938"></a></span>
+<span id="cb2-939"><a href="#cb2-939"></a>Sea</span>
+<span id="cb2-940"><a href="#cb2-940"></a></span>
+<span id="cb2-941"><a href="#cb2-941"></a>$$</span>
+<span id="cb2-942"><a href="#cb2-942"></a>f:\mathbb{R}\to\mathbb{R},</span>
+<span id="cb2-943"><a href="#cb2-943"></a>\qquad</span>
+<span id="cb2-944"><a href="#cb2-944"></a>f(x)=3x-2.</span>
+<span id="cb2-945"><a href="#cb2-945"></a>$$</span>
+<span id="cb2-946"><a href="#cb2-946"></a></span>
+<span id="cb2-947"><a href="#cb2-947"></a><span class="ss">1. </span>Calcule $f(0)$, $f(2)$ y $f(-1)$.</span>
+<span id="cb2-948"><a href="#cb2-948"></a><span class="ss">2. </span>Determine la imagen del conjunto $<span class="sc">\{</span>0,1,2<span class="sc">\}</span>$.</span>
+<span id="cb2-949"><a href="#cb2-949"></a><span class="ss">3. </span>Determine $f^{-1}(<span class="sc">\{</span>1,4<span class="sc">\}</span>)$.</span>
+<span id="cb2-950"><a href="#cb2-950"></a><span class="ss">4. </span>Analice si $f$ es inyectiva.</span>
+<span id="cb2-951"><a href="#cb2-951"></a><span class="ss">5. </span>Analice si $f$ es suprayectiva.</span>
+<span id="cb2-952"><a href="#cb2-952"></a></span>
+<span id="cb2-953"><a href="#cb2-953"></a><span class="fu">### Ejercicio de clasificación {.unnumbered}</span></span>
+<span id="cb2-954"><a href="#cb2-954"></a></span>
+<span id="cb2-955"><a href="#cb2-955"></a>Considere las observaciones:</span>
+<span id="cb2-956"><a href="#cb2-956"></a></span>
+<span id="cb2-957"><a href="#cb2-957"></a>$$</span>
+<span id="cb2-958"><a href="#cb2-958"></a>\mathbf{x}_1=(20,60),</span>
+<span id="cb2-959"><a href="#cb2-959"></a>\qquad</span>
+<span id="cb2-960"><a href="#cb2-960"></a>\mathbf{x}_2=(45,48),</span>
+<span id="cb2-961"><a href="#cb2-961"></a>\qquad</span>
+<span id="cb2-962"><a href="#cb2-962"></a>\mathbf{x}_3=(80,35),</span>
+<span id="cb2-963"><a href="#cb2-963"></a>$$</span>
+<span id="cb2-964"><a href="#cb2-964"></a></span>
+<span id="cb2-965"><a href="#cb2-965"></a>con etiquetas</span>
+<span id="cb2-966"><a href="#cb2-966"></a></span>
+<span id="cb2-967"><a href="#cb2-967"></a>$$</span>
+<span id="cb2-968"><a href="#cb2-968"></a>y_1=\text{baja},</span>
+<span id="cb2-969"><a href="#cb2-969"></a>\qquad</span>
+<span id="cb2-970"><a href="#cb2-970"></a>y_2=\text{media},</span>
+<span id="cb2-971"><a href="#cb2-971"></a>\qquad</span>
+<span id="cb2-972"><a href="#cb2-972"></a>y_3=\text{alta}.</span>
+<span id="cb2-973"><a href="#cb2-973"></a>$$</span>
+<span id="cb2-974"><a href="#cb2-974"></a></span>
+<span id="cb2-975"><a href="#cb2-975"></a><span class="ss">1. </span>Identifique $\mathcal{X}$ y $\mathcal{Y}$.</span>
+<span id="cb2-976"><a href="#cb2-976"></a><span class="ss">2. </span>Escriba formalmente el conjunto de entrenamiento.</span>
+<span id="cb2-977"><a href="#cb2-977"></a><span class="ss">3. </span>Construya la matriz $\mathbf{X}$.</span>
+<span id="cb2-978"><a href="#cb2-978"></a><span class="ss">4. </span>Construya el vector $\mathbf{y}$.</span>
+<span id="cb2-979"><a href="#cb2-979"></a><span class="ss">5. </span>Escriba el tipo de función que representaría al clasificador.</span>
+<span id="cb2-980"><a href="#cb2-980"></a></span>
+<span id="cb2-981"><a href="#cb2-981"></a><span class="fu">## Resumen {.unnumbered}</span></span>
+<span id="cb2-982"><a href="#cb2-982"></a></span>
+<span id="cb2-983"><a href="#cb2-983"></a>En este capítulo se estableció el lenguaje matemático básico del libro. Se definieron conjuntos, subconjuntos, operaciones entre conjuntos, productos cartesianos, relaciones y funciones. También se introdujeron dominio, codominio, imagen, composición y función indicadora.</span>
+<span id="cb2-984"><a href="#cb2-984"></a></span>
+<span id="cb2-985"><a href="#cb2-985"></a>Finalmente, se formuló un conjunto de datos supervisado como</span>
+<span id="cb2-986"><a href="#cb2-986"></a></span>
+<span id="cb2-987"><a href="#cb2-987"></a>$$</span>
+<span id="cb2-988"><a href="#cb2-988"></a>\mathcal{D}</span>
+<span id="cb2-989"><a href="#cb2-989"></a>=</span>
+<span id="cb2-990"><a href="#cb2-990"></a>\left<span class="sc">\{</span></span>
+<span id="cb2-991"><a href="#cb2-991"></a>(\mathbf{x}_i,y_i)</span>
+<span id="cb2-992"><a href="#cb2-992"></a>\right<span class="sc">\}</span>_{i=1}^{n}</span>
+<span id="cb2-993"><a href="#cb2-993"></a>\subseteq</span>
+<span id="cb2-994"><a href="#cb2-994"></a>\mathcal{X}\times\mathcal{Y},</span>
+<span id="cb2-995"><a href="#cb2-995"></a>$$</span>
+<span id="cb2-996"><a href="#cb2-996"></a></span>
+<span id="cb2-997"><a href="#cb2-997"></a>y se distinguieron formalmente los problemas de regresión y clasificación. Esta notación será utilizada en todos los capítulos posteriores.</span>
+<span id="cb2-998"><a href="#cb2-998"></a></span>
+<span id="cb2-999"><a href="#cb2-999"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb2-1000"><a href="#cb2-1000"></a></span>
+<span id="cb2-1001"><a href="#cb2-1001"></a>Los fundamentos y la notación de este capítulo se apoyan principalmente en @bishop2006pattern y @hastie2009elements.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

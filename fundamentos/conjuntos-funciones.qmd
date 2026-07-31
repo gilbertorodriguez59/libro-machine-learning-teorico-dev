@@ -1,4 +1,4 @@
-# Lenguaje matemático, conjuntos y funciones {#sec-conjuntos-funciones}
+# Lenguaje matemático, conjunto\index{Conjuntos}s y funciones {#sec-conjuntos-funciones}
 
 ## Introducción {.unnumbered}
 
@@ -8,8 +8,8 @@ El aprendizaje automático se construye sobre objetos matemáticos bien definido
 
 En este capítulo se revisan los conceptos de conjuntos, relaciones y funciones, y se muestra cómo aparecen de manera natural en la formulación de problemas de aprendizaje automático.
 
-::: {.callout-important title="Idea central"}
-Una **función** asigna a cada elemento del dominio exactamente un elemento del codominio.
+::: {.callout-important title="Idea central" appearance="default" icon="true"}
+Una **función\index{Función}** asigna a cada elemento del dominio\index{Dominio} exactamente un elemento del codominio.
 :::
 
 ## Objetivos {.unnumbered}
@@ -395,7 +395,7 @@ Si $(a,b)\in R$, se dice que $a$ está relacionado con $b$.
 
 En clasificación, una muestra etiquetada puede verse como un conjunto de pares ordenados que relaciona cada observación con una clase.
 
-::: {.callout-note title="Relación y función"}
+::: {.callout-note title="Relación y función" appearance="default" icon="true"}
 Toda función es una relación, pero no toda relación es una función. Para que una relación $f\subseteq A\times B$ sea una función de $A$ en $B$, cada elemento de $A$ debe aparecer exactamente una vez como primera componente.
 :::
 
@@ -798,7 +798,7 @@ $$
 \widehat{f}\approx f^{*}.
 $$
 
-::: {.callout-important title="Función objetivo y datos observados"}
+::: {.callout-important title="Función objetivo y datos observados" appearance="default" icon="true"}
 En aprendizaje supervisado se supone que existe alguna relación entre $\mathbf{X}$ y $Y$, pero normalmente no se observa una función objetivo determinista exacta. Una formulación más general utiliza una distribución conjunta $P_{X,Y}$ y busca una función que minimice el riesgo esperado. Esta distinción se desarrollará en los capítulos de aprendizaje supervisado y teoría de generalización.
 :::
 

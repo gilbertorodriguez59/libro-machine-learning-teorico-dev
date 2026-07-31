@@ -1,4 +1,4 @@
-# Regresión logística {#sec-regresion-logistica}
+# Regresión logística\index{Regresión logística} {#sec-regresion-logistica}
 
 ## Introducción {.unnumbered}
 
@@ -18,7 +18,7 @@ $$
 
 Para garantizar que la predicción permanezca entre 0 y 1 se utiliza la función logística. Los parámetros se estiman por máxima verosimilitud mediante métodos iterativos.
 
-::: {.callout-important title="Definición esencial"}
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
 La regresión logística modela la probabilidad de una clase mediante el logit.
 :::
 
@@ -27,7 +27,7 @@ La regresión logística modela la probabilidad de una clase mediante el logit.
 Al finalizar el capítulo, el lector podrá:
 
 1. formular un modelo de regresión logística;
-2. interpretar probabilidades, odds y logit;
+2. interpretar probabilidades, odds\index{Odds} y logit;
 3. interpretar coeficientes y odds ratios;
 4. construir la verosimilitud Bernoulli;
 5. derivar gradiente y Hessiana;
@@ -61,7 +61,7 @@ $$
 \pi_i=P(Y_i=1\mid\mathbf{x}_i).
 $$
 
-::: {.callout-note title="Odds y logit"}
+::: {.callout-note title="Odds y logit" appearance="default" icon="true"}
 Un coeficiente implica que, manteniendo los demás predictores constantes, las odds se multiplican por $e^{\beta_j}$ por cada unidad adicional del predictor.
 :::
 
@@ -340,7 +340,7 @@ L(\boldsymbol{\beta})
 \pi_i^{y_i}(1-\pi_i)^{1-y_i}.
 $$
 
-::: {.callout-important title="Estimación por máxima verosimilitud"}
+::: {.callout-important title="Estimación por máxima verosimilitud" appearance="default" icon="true"}
 No existe en general una fórmula cerrada para los estimadores logísticos. Se utilizan procedimientos iterativos como Newton-Raphson o IRLS.
 :::
 
@@ -877,7 +877,7 @@ y_i\log\pi_i
 \right].
 $$
 
-::: {.callout-warning title="Separación completa"}
+::: {.callout-warning title="Separación completa" appearance="default" icon="true"}
 Si una combinación lineal separa perfectamente las clases, los estimadores de máxima verosimilitud pueden divergir. Puede utilizarse penalización o correcciones específicas.
 :::
 

@@ -2,7 +2,7 @@
 
 ## Introducción {.unnumbered}
 
-El entrenamiento de numerosos modelos consiste en minimizar una función respecto de vectores o matrices de parámetros. El cálculo multivariable aporta gradientes, Jacobianas y Hessianas; la optimización convexa permite distinguir mínimos locales y globales y establecer condiciones de optimalidad [@apostol1967calculus; @boyd2004convex; @bishop2006pattern].
+El entrenamiento de numerosos modelos consiste en minimizar una función respecto de vectores o matrices de parámetros. El cálculo multivariable aporta gradiente\index{Gradiente}s, Jacobianas y Hessiana\index{Hessiana}s; la optimización convex\index{Convexidad}a permite distinguir mínimos locales y globales y establecer condiciones de optimalidad [@apostol1967calculus; @boyd2004convex; @bishop2006pattern].
 
 El cálculo multivariable y la optimización permiten describir cómo cambia una función cuando cambian varios parámetros al mismo tiempo. En aprendizaje automático, los modelos dependen de vectores o matrices de parámetros, y su entrenamiento consiste casi siempre en minimizar una función de pérdida.
 
@@ -10,7 +10,7 @@ La regresión lineal minimiza una suma de errores cuadrados; la regresión logí
 
 Este capítulo desarrolla las herramientas necesarias para formular y analizar estos procesos.
 
-::: {.callout-important title="Idea central"}
+::: {.callout-important title="Idea central" appearance="default" icon="true"}
 Entrenar un modelo suele significar minimizar una función de pérdida respecto de sus parámetros.
 :::
 
@@ -223,7 +223,7 @@ $$
 $$
 :::
 
-::: {.callout-note title="Gradiente y sistema de coordenadas"}
+::: {.callout-note title="Gradiente y sistema de coordenadas" appearance="default" icon="true"}
 El gradiente representa la dirección de máximo incremento local bajo el producto interno euclidiano. En geometrías o parametrizaciones diferentes, la noción de dirección más pronunciada puede cambiar.
 :::
 
@@ -597,7 +597,7 @@ entonces:
 - si es indefinida, es punto silla;
 - si es semidefinida, la prueba puede ser inconclusa.
 
-::: {.callout-important title="Criterio de la Hessiana"}
+::: {.callout-important title="Criterio de la Hessiana" appearance="default" icon="true"}
 En un punto crítico $\mathbf{x}^*$:
 
 - si $\nabla^2f(\mathbf{x}^*)$ es definida positiva, existe un mínimo local estricto;
@@ -746,7 +746,7 @@ para todo $\mathbf{x}$.
 
 Es estrictamente convexa si la Hessiana es definida positiva.
 
-::: {.callout-note title="Convexidad y mínimos globales"}
+::: {.callout-note title="Convexidad y mínimos globales" appearance="default" icon="true"}
 Si $f$ es convexa sobre un conjunto convexo, todo mínimo local es global. Si además es estrictamente convexa, puede existir como máximo un minimizador global. La existencia del mínimo requiere condiciones adicionales, como continuidad y coercividad o compacidad del dominio.
 :::
 
@@ -793,7 +793,7 @@ donde $\eta_t>0$ es la tasa de aprendizaje.
 
 El método avanza en dirección opuesta al gradiente.
 
-::: {.callout-warning title="Descenso por gradiente"}
+::: {.callout-warning title="Descenso por gradiente" appearance="default" icon="true"}
 La actualización
 
 $$
@@ -1203,7 +1203,7 @@ $$
 
 Estas condiciones son fundamentales en máquinas de vectores de soporte.
 
-::: {.callout-important title="Condiciones KKT"}
+::: {.callout-important title="Condiciones KKT" appearance="default" icon="true"}
 Las condiciones KKT son necesarias bajo condiciones de regularidad. En problemas convexos, con funciones diferenciables y una condición de factibilidad como Slater, también son suficientes para optimalidad global.
 :::
 

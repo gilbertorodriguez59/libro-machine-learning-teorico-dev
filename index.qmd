@@ -1,7 +1,4 @@
 ---
-title: "Fundamentos Matemáticos del Aprendizaje Automático"
-subtitle: "Teoría, demostraciones y formulación rigurosa"
-author: "MI Jesús Gilberto Rodríguez Escobedo"
 title-block-style: none
 ---
 

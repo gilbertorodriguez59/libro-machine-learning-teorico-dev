@@ -187,6 +187,8 @@ Depende de la escala de $\mathbf{w}$ y $b$.
 El margen depende de la escala de las variables. Por ello, SVM suele requerir centrado y estandarización, especialmente con kernels que utilizan distancias.
 :::
 
+![La SVM lineal busca una frontera con margen máximo y depende de los vectores de soporte.](../estilos/figuras/svm-margen.png){#fig-svm-margen width=84% fig-alt="Dos clases separadas por una recta central y dos márgenes paralelos"}
+
 ## Margen geométrico {.unnumbered}
 
 El margen geométrico es
@@ -1519,5 +1521,4 @@ Finalmente, se analizaron clasificación multiclase, SVR, escalamiento, calibrac
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @cortes1995support; @vapnik1998statistical.
-
+Los fundamentos se apoyan en @cortes1995support, @vapnik1998statistical, @bishop2006pattern y @hastie2009elements.

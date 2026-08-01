@@ -210,6 +210,8 @@ $$
 Entropía y Gini se utilizan para construir el árbol porque son más sensibles a cambios en las probabilidades de clase que el error de clasificación. Una menor impureza local no garantiza por sí sola mejor desempeño fuera de muestra.
 :::
 
+![Un árbol de decisión aplica particiones sucesivas mediante reglas interpretables.](../estilos/figuras/arbol-decision-esquema.png){#fig-arbol-esquema width=78% fig-alt="Esquema de un árbol con nodo raíz, nodos internos y hojas"}
+
 ## Entropía {.unnumbered}
 
 ::: {#def-entropia-arbol}
@@ -495,6 +497,8 @@ Un árbol sin control puede aprender particularidades y ruido de la muestra. Est
 ::: {.callout-important title="Crecimiento y poda" appearance="default" icon="true"}
 En CART suele crecerse un árbol amplio y después podarse mediante complejidad-costo. La poda debe seleccionarse con validación para equilibrar ajuste y complejidad.
 :::
+
+Los árboles de clasificación y regresión fueron sistematizados por @breiman1984cart, mientras que @quinlan1986induction y @quinlan1993c45 desarrollaron esquemas de partición e inducción ampliamente utilizados.
 
 ## Poda {.unnumbered}
 
@@ -1043,5 +1047,4 @@ Finalmente, se analizaron profundidad, sobreajuste, poda por complejidad de cost
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @breiman1984cart; @quinlan1986induction.
-
+Los fundamentos se apoyan en @breiman1984cart, @quinlan1986induction, @quinlan1993c45 y @hastie2009elements.

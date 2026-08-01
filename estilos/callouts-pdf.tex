@@ -6,6 +6,7 @@
 \usepackage{imakeidx}
 \usepackage{etoolbox}
 \usepackage{fvextra}
+\usepackage[automark,headsepline]{scrlayer-scrpage}
 
 \makeindex[intoc=true, columns=2, columnseprule=true]
 
@@ -20,10 +21,10 @@
 \displaywidowpenalty=10000
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.32em}
-\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
-\setlength{\floatsep}{9pt plus 2pt minus 2pt}
-\setlength{\intextsep}{9pt plus 2pt minus 2pt}
+\setlength{\parskip}{0.26em}
+\setlength{\textfloatsep}{9pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
 
 \captionsetup{
   font=small,
@@ -32,23 +33,34 @@
   skip=5pt
 }
 
+\clearpairofpagestyles
+\automark[section]{chapter}
+\ihead{\headmark}
+\ohead{\pagemark}
+\addtokomafont{pagehead}{\small\sffamily}
+\addtokomafont{pagenumber}{\small\sffamily}
+\pagestyle{scrheadings}
+
+\KOMAoptions{toc=flat}
+\BeforeTOCHead[toc]{\clearpage\thispagestyle{plain}}
+\BeforeStartingTOC[toc]{\begingroup\small\setlength{\parskip}{0pt}}
+\AfterStartingTOC[toc]{\endgroup}
+
 \pretocmd{\section}{\Needspace{5\baselineskip}}{}{}
 \pretocmd{\subsection}{\Needspace{4\baselineskip}}{}{}
 \pretocmd{\subsubsection}{\Needspace{3\baselineskip}}{}{}
 
 \RedeclareSectionCommand[
-  beforeskip=-0.72\baselineskip,
-  afterskip=0.28\baselineskip
+  beforeskip=-0.70\baselineskip,
+  afterskip=0.24\baselineskip
 ]{section}
-
 \RedeclareSectionCommand[
-  beforeskip=-0.58\baselineskip,
-  afterskip=0.20\baselineskip
+  beforeskip=-0.56\baselineskip,
+  afterskip=0.18\baselineskip
 ]{subsection}
-
 \RedeclareSectionCommand[
-  beforeskip=-0.45\baselineskip,
-  afterskip=0.15\baselineskip
+  beforeskip=-0.42\baselineskip,
+  afterskip=0.12\baselineskip
 ]{subsubsection}
 
 \tcbset{
@@ -65,8 +77,6 @@
   fonttitle=\bfseries
 }
 
-% Ajuste seguro de líneas largas en código.
-% Se conserva el entorno Shaded estándar de Quarto/Pandoc.
 \fvset{
   breaklines=true,
   breakanywhere=true,

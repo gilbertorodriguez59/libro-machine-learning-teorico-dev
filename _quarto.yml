@@ -112,11 +112,15 @@ format:
     toc-title: "Contenido"
     number-sections: true
     code-line-numbers: true
+    code-block-bg: "#F4F7FA"
+    code-block-border-left: "#1F4E79"
     keep-tex: true
     geometry:
       - top=2.2cm
       - bottom=2.2cm
-      - left=2.7cm
-      - right=2.4cm
+      - left=2.6cm
+      - right=2.3cm
+      - headsep=0.6cm
+      - headheight=15pt
     fontsize: 10.5pt
-    linestretch: 1.08
+    linestretch: 1.06

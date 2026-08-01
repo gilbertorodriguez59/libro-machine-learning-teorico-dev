@@ -2,7 +2,7 @@
 
 En esta obra se utilizarán las siguientes convenciones:
 
-- Los escalares se representan mediante letras minúsculas: $x$, $y$, $\alpha$, $\beta$.
+- Los escalares se representan mediante letras minúsculas: $x$, $y$, $\alpha$, $\lambda$, $c$.
 - Los vectores se representan en negritas minúsculas: $\mathbf{x}$, $\mathbf{y}$, $\boldsymbol{\beta}$.
 - Las matrices se representan en negritas mayúsculas: $\mathbf{X}$, $\mathbf{A}$, $\boldsymbol{\Sigma}$.
 - Los conjuntos se representan mediante letras caligráficas o mayúsculas: $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{D}$.

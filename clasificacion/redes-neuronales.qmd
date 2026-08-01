@@ -167,6 +167,8 @@ Esta limitación motivó el uso de capas ocultas y activaciones no lineales.
 Si todas las activaciones fueran lineales, la composición de múltiples capas sería equivalente a una sola transformación lineal. La capacidad no lineal proviene de las funciones de activación.
 :::
 
+![La neurona artificial abstrae la recepción, integración y transmisión de señales de la neurona biológica.](../estilos/figuras/neurona-natural-artificial.png){#fig-neurona-natural-artificial width=84% fig-alt="Comparación de neurona natural y neurona artificial"}
+
 ## Red multicapa {.unnumbered}
 
 Una red multicapa contiene:
@@ -544,6 +546,8 @@ Es el enfoque más utilizado.
 ::: {.callout-note title="Retropropagación no es el optimizador" appearance="default" icon="true"}
 La retropropagación calcula gradientes eficientemente. El optimizador —SGD, momentum, Adam u otro— utiliza esos gradientes para actualizar los parámetros.
 :::
+
+![Una red neuronal multicapa transforma entradas en salidas mediante capas ocultas y activaciones no lineales.](../estilos/figuras/red-neuronal-arquitectura.png){#fig-red-neuronal-arquitectura width=84% fig-alt="Arquitectura con capa de entrada, dos ocultas y capa de salida"}
 
 ## Retropropagación {.unnumbered}
 
@@ -1061,6 +1065,8 @@ Una red con demasiada capacidad puede memorizar la muestra.
 El teorema garantiza capacidad de aproximación bajo determinadas condiciones, pero no asegura entrenamiento eficiente, buena generalización ni una arquitectura pequeña [@hornik1989multilayer].
 :::
 
+La historia formal de las neuronas artificiales parte de @mcculloch1943logical y del perceptrón de @rosenblatt1958perceptron. Las arquitecturas profundas modernas se analizan en @goodfellow2016deep, mientras que @rumelhart1986learning explicó la retropropagación de manera operativa.
+
 ## Teorema de aproximación universal {.unnumbered}
 
 Bajo condiciones adecuadas, una red con una capa oculta y suficientes unidades puede aproximar arbitrariamente bien funciones continuas sobre conjuntos compactos.
@@ -1576,5 +1582,4 @@ Finalmente, se estudiaron inicialización, regularización, dropout, normalizaci
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @rumelhart1986learning; @bishop2006pattern.
-
+Los fundamentos se apoyan en @mcculloch1943logical, @rosenblatt1958perceptron, @rumelhart1986learning, @hornik1989multilayer, @goodfellow2016deep, @glorot2010understanding, @he2015delving y @srivastava2014dropout.

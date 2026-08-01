@@ -13,7 +13,7 @@
   oneside,
   open=any]{scrreprt}
 \usepackage{xcolor}
-\usepackage[top=2.2cm,bottom=2.2cm,left=2.7cm,right=2.4cm]{geometry}
+\usepackage[top=2.2cm,bottom=2.2cm,left=2.6cm,right=2.3cm,headsep=0.6cm,headheight=15pt]{geometry}
 \usepackage{amsmath,amssymb}
 \setcounter{secnumdepth}{0}
 \usepackage{iftex}
@@ -202,6 +202,7 @@
 \usepackage{imakeidx}
 \usepackage{etoolbox}
 \usepackage{fvextra}
+\usepackage[automark,headsepline]{scrlayer-scrpage}
 
 \makeindex[intoc=true, columns=2, columnseprule=true]
 
@@ -216,10 +217,10 @@
 \displaywidowpenalty=10000
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.32em}
-\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
-\setlength{\floatsep}{9pt plus 2pt minus 2pt}
-\setlength{\intextsep}{9pt plus 2pt minus 2pt}
+\setlength{\parskip}{0.26em}
+\setlength{\textfloatsep}{9pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
 
 \captionsetup{
   font=small,
@@ -228,23 +229,34 @@
   skip=5pt
 }
 
+\clearpairofpagestyles
+\automark[section]{chapter}
+\ihead{\headmark}
+\ohead{\pagemark}
+\addtokomafont{pagehead}{\small\sffamily}
+\addtokomafont{pagenumber}{\small\sffamily}
+\pagestyle{scrheadings}
+
+\KOMAoptions{toc=flat}
+\BeforeTOCHead[toc]{\clearpage\thispagestyle{plain}}
+\BeforeStartingTOC[toc]{\begingroup\small\setlength{\parskip}{0pt}}
+\AfterStartingTOC[toc]{\endgroup}
+
 \pretocmd{\section}{\Needspace{5\baselineskip}}{}{}
 \pretocmd{\subsection}{\Needspace{4\baselineskip}}{}{}
 \pretocmd{\subsubsection}{\Needspace{3\baselineskip}}{}{}
 
 \RedeclareSectionCommand[
-  beforeskip=-0.72\baselineskip,
-  afterskip=0.28\baselineskip
+  beforeskip=-0.70\baselineskip,
+  afterskip=0.24\baselineskip
 ]{section}
-
 \RedeclareSectionCommand[
-  beforeskip=-0.58\baselineskip,
-  afterskip=0.20\baselineskip
+  beforeskip=-0.56\baselineskip,
+  afterskip=0.18\baselineskip
 ]{subsection}
-
 \RedeclareSectionCommand[
-  beforeskip=-0.45\baselineskip,
-  afterskip=0.15\baselineskip
+  beforeskip=-0.42\baselineskip,
+  afterskip=0.12\baselineskip
 ]{subsubsection}
 
 \tcbset{
@@ -261,8 +273,6 @@
   fonttitle=\bfseries
 }
 
-% Ajuste seguro de líneas largas en código.
-% Se conserva el entorno Shaded estándar de Quarto/Pandoc.
 \fvset{
   breaklines=true,
   breakanywhere=true,
@@ -325,10 +335,10 @@
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{remark}
 \AtBeginDocument{\renewcommand*{\proofname}{Demostración}}
 \newtheorem*{remark}{Observación}
@@ -341,6 +351,18 @@
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{HTML}{1F4E79}}{}
+\makeatother
+\makeatletter
+\@ifundefined{codebgcolor}{\definecolor{codebgcolor}{HTML}{F4F7FA}}{}
+\makeatother
+\makeatletter
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, breakable, colback={codebgcolor}, enhanced, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -371,6 +393,8 @@ de regresión, clasificación y análisis de datos}
 \begin{document}
 \maketitle
 
+\clearpage
+\thispagestyle{empty}
 \begin{titlepage}
 \thispagestyle{empty}
 \newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
@@ -389,15 +413,13 @@ de regresión, clasificación y análisis de datos}
 \tableofcontents
 }
 
-\setstretch{1.08}
+\setstretch{1.06}
 \bookmarksetup{startatroot}
 
-\chapter{Fundamentos Matemáticos del Aprendizaje
-Automático}\label{fundamentos-matemuxe1ticos-del-aprendizaje-automuxe1tico}
+\chapter*{Descargar el libro en PDF}\label{descargar-el-libro-en-pdf}
+\addcontentsline{toc}{chapter}{Descargar el libro en PDF}
 
-Teoría, demostraciones y formulación rigurosa
-
-\hfill\break
+\markboth{Descargar el libro en PDF}{Descargar el libro en PDF}
 
 \bookmarksetup{startatroot}
 
@@ -590,7 +612,7 @@ En esta obra se utilizarán las siguientes convenciones:
 \tightlist
 \item
   Los escalares se representan mediante letras minúsculas: \(x\), \(y\),
-  \(\alpha\), \(\beta\).
+  \(\alpha\), \(\lambda\), \(c\).
 \item
   Los vectores se representan en negritas minúsculas: \(\mathbf{x}\),
   \(\mathbf{y}\), \(\boldsymbol{\beta}\).
@@ -21562,6 +21584,19 @@ selección de variables y el tratamiento de variables categóricas.
 
 \end{tcolorbox}
 
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.84\linewidth,height=\textheight,keepaspectratio,alt={Tres clases con regiones de decisión inducidas por K-NN}]{clasificacion/../estilos/figuras/knn-frontera.png}
+
+}
+
+\caption{\label{fig-knn-frontera}La elección de \(k\) y de la métrica
+determina regiones de decisión distintas.}
+
+\end{figure}%
+
 \section*{Distancia euclidiana}\label{distancia-euclidiana-1}
 \addcontentsline{toc}{section}{Distancia euclidiana}
 
@@ -21920,6 +21955,11 @@ Valores grandes suavizan la frontera, pero pueden aumentar el sesgo. El
 valor de \(k\) debe elegirse mediante validación.
 
 \end{tcolorbox}
+
+La regla de vecinos cercanos se apoya en resultados clásicos de Cover y
+Hart (1967) y Stone (1977). La figura Figura~\ref{fig-knn-frontera}
+ilustra cómo la clasificación depende de vecindades locales y de la
+escala.
 
 \section*{Selección de k}\label{selecciuxf3n-de-k}
 \addcontentsline{toc}{section}{Selección de k}
@@ -22838,8 +22878,8 @@ capítulo}\label{referencias-del-capuxedtulo-11}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Cover y Hart (1967); Stone (1977); Duda et~al. (2001).
+Los fundamentos se apoyan en Cover y Hart (1967), Stone (1977), Duda
+et~al. (2001) y Hastie et~al. (2009).
 
 \chapter{\texorpdfstring{Árbol\index{Árboles de decisión}es de
 decisión}{Árboles de decisión}}\label{sec-arboles-decision}
@@ -23144,6 +23184,19 @@ clasificación. Una menor impureza local no garantiza por sí sola mejor
 desempeño fuera de muestra.
 
 \end{tcolorbox}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.78\linewidth,height=\textheight,keepaspectratio,alt={Esquema de un árbol con nodo raíz, nodos internos y hojas}]{clasificacion/../estilos/figuras/arbol-decision-esquema.png}
+
+}
+
+\caption{\label{fig-arbol-esquema}Un árbol de decisión aplica
+particiones sucesivas mediante reglas interpretables.}
+
+\end{figure}%
 
 \section*{Entropía}\label{entropuxeda}
 \addcontentsline{toc}{section}{Entropía}
@@ -23588,6 +23641,10 @@ complejidad-costo. La poda debe seleccionarse con validación para
 equilibrar ajuste y complejidad.
 
 \end{tcolorbox}
+
+Los árboles de clasificación y regresión fueron sistematizados por
+Breiman et~al. (1984), mientras que Quinlan (1986) y Quinlan (1993)
+desarrollaron esquemas de partición e inducción ampliamente utilizados.
 
 \section*{Poda}\label{poda}
 \addcontentsline{toc}{section}{Poda}
@@ -24508,8 +24565,8 @@ capítulo}\label{referencias-del-capuxedtulo-12}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Breiman et~al. (1984); Quinlan (1986).
+Los fundamentos se apoyan en Breiman et~al. (1984), Quinlan (1986),
+Quinlan (1993) y Hastie et~al. (2009).
 
 \chapter{\texorpdfstring{Random
 Forest\index{Random Forest}}{Random Forest}}\label{sec-random-forest}
@@ -25631,8 +25688,8 @@ capítulo}\label{referencias-del-capuxedtulo-13}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Breiman (2001); Hastie et~al. (2009).
+Los fundamentos se apoyan en Breiman (2001), Hastie et~al. (2009) y
+James et~al. (2021).
 
 \chapter{\texorpdfstring{Máquinas de vectores de
 soporte\index{Máquinas de vectores de soporte},
@@ -25903,6 +25960,19 @@ requerir centrado y estandarización, especialmente con kernels que
 utilizan distancias.
 
 \end{tcolorbox}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.84\linewidth,height=\textheight,keepaspectratio,alt={Dos clases separadas por una recta central y dos márgenes paralelos}]{clasificacion/../estilos/figuras/svm-margen.png}
+
+}
+
+\caption{\label{fig-svm-margen}La SVM lineal busca una frontera con
+margen máximo y depende de los vectores de soporte.}
+
+\end{figure}%
 
 \section*{Margen geométrico}\label{margen-geomuxe9trico}
 \addcontentsline{toc}{section}{Margen geométrico}
@@ -27731,8 +27801,8 @@ capítulo}\label{referencias-del-capuxedtulo-14}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Cortes y Vapnik (1995); Vapnik (1998).
+Los fundamentos se apoyan en Cortes y Vapnik (1995), Vapnik (1998),
+Bishop (2006) y Hastie et~al. (2009).
 
 \chapter{\texorpdfstring{Redes neuronales\index{Redes neuronales}
 artificiales}{Redes neuronales artificiales}}\label{sec-redes-neuronales}
@@ -27981,6 +28051,20 @@ capas sería equivalente a una sola transformación lineal. La capacidad
 no lineal proviene de las funciones de activación.
 
 \end{tcolorbox}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.84\linewidth,height=\textheight,keepaspectratio,alt={Comparación de neurona natural y neurona artificial}]{clasificacion/../estilos/figuras/neurona-natural-artificial.png}
+
+}
+
+\caption{\label{fig-neurona-natural-artificial}La neurona artificial
+abstrae la recepción, integración y transmisión de señales de la neurona
+biológica.}
+
+\end{figure}%
 
 \section*{Red multicapa}\label{red-multicapa}
 \addcontentsline{toc}{section}{Red multicapa}
@@ -28431,6 +28515,20 @@ La retropropagación calcula gradientes eficientemente. El optimizador
 los parámetros.
 
 \end{tcolorbox}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.84\linewidth,height=\textheight,keepaspectratio,alt={Arquitectura con capa de entrada, dos ocultas y capa de salida}]{clasificacion/../estilos/figuras/red-neuronal-arquitectura.png}
+
+}
+
+\caption{\label{fig-red-neuronal-arquitectura}Una red neuronal multicapa
+transforma entradas en salidas mediante capas ocultas y activaciones no
+lineales.}
+
+\end{figure}%
 
 \section*{Retropropagación}\label{retropropagaciuxf3n}
 \addcontentsline{toc}{section}{Retropropagación}
@@ -29111,6 +29209,11 @@ condiciones, pero no asegura entrenamiento eficiente, buena
 generalización ni una arquitectura pequeña (Hornik et~al. 1989).
 
 \end{tcolorbox}
+
+La historia formal de las neuronas artificiales parte de McCulloch y
+Pitts (1943) y del perceptrón de Rosenblatt (1958). Las arquitecturas
+profundas modernas se analizan en Goodfellow et~al. (2016), mientras que
+Rumelhart et~al. (1986) explicó la retropropagación de manera operativa.
 
 \section*{Teorema de aproximación
 universal}\label{teorema-de-aproximaciuxf3n-universal}
@@ -29923,8 +30026,10 @@ capítulo}\label{referencias-del-capuxedtulo-15}
 
 \markright{Referencias del capítulo}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan
-principalmente en Rumelhart et~al. (1986); Bishop (2006).
+Los fundamentos se apoyan en McCulloch y Pitts (1943), Rosenblatt
+(1958), Rumelhart et~al. (1986), Hornik et~al. (1989), Goodfellow et~al.
+(2016), Glorot y Bengio (2010), He et~al. (2015) y Srivastava et~al.
+(2014).
 
 \part{V. Aprendizaje no supervisado}
 
@@ -37629,6 +37734,10 @@ Training Deep Feedforward Neural Networks»}. \emph{Proceedings of the
 Thirteenth International Conference on Artificial Intelligence and
 Statistics}, 249-56.
 
+\bibitem[\citeproctext]{ref-goodfellow2016deep}
+Goodfellow, Ian, Yoshua Bengio, y Aaron Courville. 2016. \emph{Deep
+Learning}. MIT Press.
+
 \bibitem[\citeproctext]{ref-hahsler2005arules}
 Hahsler, Michael, Bettina Grün, y Kurt Hornik. 2005. {«arules: A
 Computational Environment for Mining Association Rules and Frequent Item
@@ -37727,6 +37836,11 @@ McAllester, David A. 1999. {«PAC-Bayesian Model Averaging»}.
 \emph{Proceedings of the Twelfth Annual Conference on Computational
 Learning Theory}, 164-70.
 
+\bibitem[\citeproctext]{ref-mcculloch1943logical}
+McCulloch, Warren S., y Walter Pitts. 1943. {«A Logical Calculus of the
+Ideas Immanent in Nervous Activity»}. \emph{The Bulletin of Mathematical
+Biophysics} 5: 115-33. \url{https://doi.org/10.1007/BF02478259}.
+
 \bibitem[\citeproctext]{ref-mohri2018foundations}
 Mohri, Mehryar, Afshin Rostamizadeh, y Ameet Talwalkar. 2018.
 \emph{Foundations of Machine Learning}. 2.ª ed. MIT Press.
@@ -37757,6 +37871,11 @@ Learning} 1: 81-106. \url{https://doi.org/10.1007/BF00116251}.
 \bibitem[\citeproctext]{ref-quinlan1993c45}
 Quinlan, J. Ross. 1993. \emph{C4.5: Programs for Machine Learning}.
 Morgan Kaufmann.
+
+\bibitem[\citeproctext]{ref-rosenblatt1958perceptron}
+Rosenblatt, Frank. 1958. {«The Perceptron: A Probabilistic Model for
+Information Storage and Organization in the Brain»}. \emph{Psychological
+Review} 65 (6): 386-408. \url{https://doi.org/10.1037/h0042519}.
 
 \bibitem[\citeproctext]{ref-ross2019first}
 Ross, Sheldon M. 2019. \emph{A First Course in Probability}. 10.ª ed.

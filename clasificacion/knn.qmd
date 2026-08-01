@@ -84,6 +84,8 @@ que satisface, para cualesquiera $\mathbf{x},\mathbf{z},\mathbf{w}\in\mathcal{X}
 La noción de cercanía no es absoluta: depende de la representación y de la métrica. Antes de aplicar k-NN deben justificarse el escalamiento, la selección de variables y el tratamiento de variables categóricas.
 :::
 
+![La elección de $k$ y de la métrica determina regiones de decisión distintas.](../estilos/figuras/knn-frontera.png){#fig-knn-frontera width=84% fig-alt="Tres clases con regiones de decisión inducidas por K-NN"}
+
 ## Distancia euclidiana {.unnumbered}
 
 La distancia más común en $\mathbb{R}^p$ es la euclidiana:
@@ -333,6 +335,8 @@ Sin embargo, ese resultado no refleja necesariamente el error de generalización
 ::: {.callout-note title="Compromiso sesgo-varianza" appearance="default" icon="true"}
 Valores pequeños de $k$ producen fronteras flexibles y alta varianza. Valores grandes suavizan la frontera, pero pueden aumentar el sesgo. El valor de $k$ debe elegirse mediante validación.
 :::
+
+La regla de vecinos cercanos se apoya en resultados clásicos de @cover1967nearest y @stone1977consistent. La figura @fig-knn-frontera ilustra cómo la clasificación depende de vecindades locales y de la escala.
 
 ## Selección de k {.unnumbered}
 
@@ -850,5 +854,4 @@ Finalmente, se estudiaron sus costos computacionales, su relación con la regla 
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @cover1967nearest; @stone1977consistent; @duda2001pattern.
-
+Los fundamentos se apoyan en @cover1967nearest, @stone1977consistent, @duda2001pattern y @hastie2009elements.

@@ -410,3 +410,14 @@
 - Se conserva el entorno estándar de código generado por Quarto/Pandoc.
 - Se mantiene el ajuste de líneas largas mediante `fvextra`.
 - Se conservan recuadros, figuras, contenido reducido e índice temático.
+
+## Versión 0.33
+
+- Corrección de la portada PDF para que aparezca como primera página.
+- Ajustes del contenido inicial del PDF para reducir cortes al borde de página.
+- Corrección de notación general para distinguir escalares y vectores.
+- Se añadieron encabezados superiores con capítulo, sección y paginación.
+- Se agregaron figuras nuevas para K-NN, árboles de decisión, Random Forest, SVM y redes neuronales.
+- Se agregaron imágenes de neurona natural vs. artificial y de arquitectura de red neuronal.
+- Se ampliaron referencias bibliográficas y citas dentro del texto en capítulos 12 a 16.
+- Se incorporó `REVISION_PROFESIONAL_v0.33.md`.

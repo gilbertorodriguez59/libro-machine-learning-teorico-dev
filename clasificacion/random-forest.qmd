@@ -693,5 +693,4 @@ Finalmente, se comparó Random Forest con árboles individuales, $k$-NN y boosti
 
 ## Referencias del capítulo {.unnumbered}
 
-Los fundamentos y resultados desarrollados en este capítulo se apoyan principalmente en @breiman2001random; @hastie2009elements.
-
+Los fundamentos se apoyan en @breiman2001random, @hastie2009elements y @james2021introduction.

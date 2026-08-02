@@ -1548,6 +1548,32 @@ También se desarrollaron pruebas para la pendiente, intervalos de confianza y p
 
 La regresión lineal simple constituye la base para la regresión múltiple, la regularización y numerosos modelos de aprendizaje supervisado.
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo MCO-Lineal-Simple
+Entrada:
+  D = {(x_i, y_i)}_{i=1}^n, con x_i, y_i ∈ ℝ
+Salida:
+  \hatβ_0, \hatβ_1 y \hat f(x) = \hatβ_0 + \hatβ_1 x
+
+1. Calcular
+      \bar x = (1/n) \sum_{i=1}^n x_i,
+      \bar y = (1/n) \sum_{i=1}^n y_i.
+2. Calcular
+      S_{xx} = \sum_{i=1}^n (x_i - \bar x)^2,
+      S_{xy} = \sum_{i=1}^n (x_i - \bar x)(y_i - \bar y).
+3. Estimar
+      \hatβ_1 = S_{xy}/S_{xx},
+      \hatβ_0 = \bar y - \hatβ_1 \bar x.
+4. Para cada observación, obtener
+      \hat y_i = \hatβ_0 + \hatβ_1 x_i,
+      e_i = y_i - \hat y_i.
+5. Devolver el modelo ajustado \hat f.
+```
+:::
+
 ## Referencias del capítulo {.unnumbered}
 
 Los fundamentos se apoyan en @montgomery2021introduction, @seber2012linear, @hastie2009elements y @james2021introduction.

@@ -1,86 +1,89 @@
 {
   "index.qmd": {
-    "index.html": "2792b2ad"
+    "index.html": "48e48340"
+  },
+  "prefacio.qmd": {
+    "prefacio.html": "f5f37a4c"
   },
   "presentacion.qmd": {
-    "presentacion.html": "2c0962dd"
+    "presentacion.html": "7589a73f"
   },
   "introduccion.qmd": {
-    "introduccion.html": "db844b93"
+    "introduccion.html": "ac557400"
   },
   "notacion.qmd": {
-    "notacion.html": "c7e7c403"
+    "notacion.html": "7bd4820d"
   },
   "fundamentos/conjuntos-funciones.qmd": {
-    "conjuntos-funciones.html": "4118bc85"
+    "conjuntos-funciones.html": "b3c85664"
   },
   "fundamentos/algebra-lineal.qmd": {
-    "algebra-lineal.html": "8c3c4cc9"
+    "algebra-lineal.html": "d527550b"
   },
   "fundamentos/probabilidad-estadistica.qmd": {
-    "probabilidad-estadistica.html": "857aa547"
+    "probabilidad-estadistica.html": "17055365"
   },
   "fundamentos/calculo-optimizacion.qmd": {
-    "calculo-optimizacion.html": "9a74a543"
+    "calculo-optimizacion.html": "7c8d7c95"
   },
   "aprendizaje/aprendizaje-supervisado.qmd": {
-    "aprendizaje-supervisado.html": "157ef4c0"
+    "aprendizaje-supervisado.html": "c6d8caeb"
   },
   "aprendizaje/teoria-clasificacion.qmd": {
-    "teoria-clasificacion.html": "1371be35"
+    "teoria-clasificacion.html": "867d8f03"
   },
   "aprendizaje/evaluacion-modelos.qmd": {
-    "evaluacion-modelos.html": "da3001a3"
+    "evaluacion-modelos.html": "2e98074e"
   },
   "aprendizaje/regularizacion.qmd": {
-    "regularizacion.html": "504e9a58"
+    "regularizacion.html": "196bf121"
   },
   "regresion/regresion-lineal-simple.qmd": {
-    "regresion-lineal-simple.html": "6389ae37"
+    "regresion-lineal-simple.html": "14f0e1b5"
   },
   "regresion/regresion-lineal-multiple.qmd": {
-    "regresion-lineal-multiple.html": "4b50c0fe"
+    "regresion-lineal-multiple.html": "67162d74"
   },
   "regresion/regresion-logistica.qmd": {
-    "regresion-logistica.html": "6ee8877d"
+    "regresion-logistica.html": "e34bdabf"
   },
   "clasificacion/knn.qmd": {
-    "knn.html": "0a1e18dd"
+    "knn.html": "7fa0d54a"
   },
   "clasificacion/arboles-decision.qmd": {
-    "arboles-decision.html": "f7b5b5a6"
+    "arboles-decision.html": "a410c20a"
   },
   "clasificacion/random-forest.qmd": {
-    "random-forest.html": "8689e390"
+    "random-forest.html": "8c7731c9"
   },
   "clasificacion/svm.qmd": {
-    "svm.html": "658a1da7"
+    "svm.html": "d0644b00"
   },
   "clasificacion/redes-neuronales.qmd": {
-    "redes-neuronales.html": "8e1454e7"
+    "redes-neuronales.html": "aa23a86a"
   },
   "no-supervisado/pca.qmd": {
-    "pca.html": "f70d0031"
+    "pca.html": "714aa4af"
   },
   "no-supervisado/kmeans.qmd": {
-    "kmeans.html": "f6a7bdf7"
+    "kmeans.html": "7deec2d9"
   },
   "no-supervisado/agrupamiento-jerarquico.qmd": {
-    "agrupamiento-jerarquico.html": "6fa2571c"
+    "agrupamiento-jerarquico.html": "7f7dd944"
   },
   "no-supervisado/reglas-asociacion.qmd": {
-    "reglas-asociacion.html": "0654a540"
+    "reglas-asociacion.html": "8f8561ba"
   },
   "avanzados/teoria-generalizacion.qmd": {
-    "teoria-generalizacion.html": "b6c4de65"
+    "teoria-generalizacion.html": "eec37c2d"
   },
   "avanzados/series-tiempo.qmd": {
-    "series-tiempo.html": "39058ff0"
+    "series-tiempo.html": "918343fe"
   },
   "referencias.qmd": {
-    "referencias.html": "6d5cb016"
+    "referencias.html": "f5945531"
   },
   "indice-tematico.qmd": {
-    "indice-tematico.html": "9dcb12e7"
+    "indice-tematico.html": "7c0e624c"
   }
 }

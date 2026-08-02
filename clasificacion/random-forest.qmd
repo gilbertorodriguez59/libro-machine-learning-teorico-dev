@@ -571,6 +571,30 @@ $$
 \widehat{f}_{RF}(\mathbf{x})=12.
 $$
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo Random-Forest
+Entrada:
+  D = {(x_i, y_i)}_{i=1}^n, número de árboles B, número de variables m
+Salida:
+  bosque {T_b}_{b=1}^B
+
+Para b = 1,...,B:
+1. Generar una muestra bootstrap D^{(b)} a partir de D.
+2. Construir un árbol T_b sobre D^{(b)}:
+   a) en cada nodo seleccionar aleatoriamente m variables;
+   b) elegir la mejor partición sólo entre esas m variables;
+   c) crecer el árbol hasta el criterio de parada establecido.
+Predicción:
+3. Para clasificación:
+      \hat y(x) = voto mayoritario{T_b(x)}_{b=1}^B.
+   Para regresión:
+      \hat f(x) = (1/B)\sum_{b=1}^B T_b(x).
+```
+:::
+
 ## Ventajas {.unnumbered}
 
 1. reduce la varianza de los árboles;

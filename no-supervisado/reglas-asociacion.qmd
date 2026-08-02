@@ -663,6 +663,34 @@ $$
 
 Debe interpretarse como asociación empírica, no como mecanismo causal probado.
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo Apriori
+Entrada:
+  base de transacciones \mathcal{T}, soporte mínimo s_0, confianza mínima c_0
+Salida:
+  conjunto de reglas fuertes
+
+1. Calcular el conjunto de itemsets frecuentes de tamaño 1:
+      L_1 = {X : soporte(X) ≥ s_0}.
+2. Para k = 2,3,...:
+   a) Generar candidatos C_k a partir de L_{k-1}.
+   b) Podar candidatos que contengan subconjuntos no frecuentes.
+   c) Calcular el soporte de cada candidato en C_k.
+   d) Conservar
+         L_k = {X ∈ C_k : soporte(X) ≥ s_0}.
+   e) Detener si L_k = ∅.
+3. Para cada itemset frecuente X y cada partición A ∪ B = X, A∩B=∅:
+   a) formar la regla A ⇒ B;
+   b) calcular
+         confianza(A ⇒ B) = soporte(A∪B)/soporte(A).
+   c) conservar la regla si confianza ≥ c_0.
+4. Reportar también lift y otras medidas de interés.
+```
+:::
+
 ## Ventajas {.unnumbered}
 
 1. produce patrones fáciles de comunicar;

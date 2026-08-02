@@ -334,11 +334,11 @@
 \newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
 \usepackage{amsthm}
 \theoremstyle{definition}
-\newtheorem{definition}{Definición}[chapter]
+\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[chapter]
 \theoremstyle{definition}
-\newtheorem{example}{Ejemplo}[chapter]
+\newtheorem{definition}{Definición}[chapter]
 \theoremstyle{remark}
 \AtBeginDocument{\renewcommand*{\proofname}{Demostración}}
 \newtheorem*{remark}{Observación}
@@ -369,7 +369,7 @@
 \urlstyle{same}
 \hypersetup{
   pdftitle={Fundamentos Matemáticos del Aprendizaje Automático},
-  pdfauthor={MI Jesús Gilberto Rodríguez Escobedo},
+  pdfauthor={Jesús Gilberto Rodríguez Escobedo},
   pdflang={es},
   colorlinks=true,
   linkcolor={blue},
@@ -388,24 +388,10 @@
 \makeatother
 \subtitle{Teoría, demostraciones y formulación rigurosa de los métodos
 de regresión, clasificación y análisis de datos}
-\author{MI Jesús Gilberto Rodríguez Escobedo}
-\date{2026-07-31}
+\author{Jesús Gilberto Rodríguez Escobedo}
+\date{2026-08-02}
 \begin{document}
 \maketitle
-
-\clearpage
-\thispagestyle{empty}
-\begin{titlepage}
-\thispagestyle{empty}
-\newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
-\noindent
-\includegraphics[
-  width=\paperwidth,
-  height=\paperheight
-]{estilos/portadas/portada-teorico-pdf.png}
-\restoregeometry
-\end{titlepage}
-\clearpage
 
 \renewcommand*\contentsname{Contenido}
 {
@@ -416,53 +402,124 @@ de regresión, clasificación y análisis de datos}
 \setstretch{1.06}
 \bookmarksetup{startatroot}
 
-\chapter*{Descargar el libro en PDF}\label{descargar-el-libro-en-pdf}
-\addcontentsline{toc}{chapter}{Descargar el libro en PDF}
-
-\markboth{Descargar el libro en PDF}{Descargar el libro en PDF}
-
-\bookmarksetup{startatroot}
-
 \chapter*{Bienvenida}\label{bienvenida}
 \addcontentsline{toc}{chapter}{Bienvenida}
 
 \markboth{Bienvenida}{Bienvenida}
 
-Este libro desarrolla los fundamentos matemáticos de los principales
-métodos de aprendizaje automático. Su propósito es explicar no solamente
-cómo se ejecutan los algoritmos, sino por qué funcionan, cuáles son sus
-supuestos y qué propiedades justifican su utilización.
+\thispagestyle{empty}
+\begin{titlepage}
+\newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
+\noindent\includegraphics[
+  width=\paperwidth,
+  height=\paperheight
+]{estilos/portadas/portada-teorico-pdf.png}
+\restoregeometry
+\end{titlepage}
+\clearpage
 
-La obra complementa el libro práctico \emph{Aprendizaje y Clasificación
-Automática con R}. Ambos volúmenes pueden estudiarse por separado,
-aunque su lectura conjunta permite conectar la formulación matemática,
-el algoritmo y su implementación computacional.
+\bookmarksetup{startatroot}
 
-\section*{Objetivos generales}\label{objetivos-generales}
-\addcontentsline{toc}{section}{Objetivos generales}
+\chapter*{Prefacio}\label{prefacio}
+\addcontentsline{toc}{chapter}{Prefacio}
 
-\markright{Objetivos generales}
+\markboth{Prefacio}{Prefacio}
 
-Al finalizar el libro, el lector podrá:
+Este libro nace de una convicción que ha acompañado mi trayectoria
+académica y profesional: los métodos de aprendizaje automático se
+comprenden mejor cuando se estudian desde sus fundamentos matemáticos y,
+al mismo tiempo, se relacionan con problemas reales, implementaciones
+computacionales e interpretaciones claras.
 
-\begin{itemize}
+Mi formación inicial en Física y Matemáticas me llevó a valorar el rigor
+de las definiciones, la precisión de la notación y la importancia de
+comprender por qué un método funciona. Posteriormente, mis estudios en
+Ciencias de la Computación, Inteligencia Artificial e Ingeniería de la
+Computación ampliaron esa perspectiva hacia el diseño de algoritmos, los
+sistemas inteligentes y la solución de problemas mediante modelos
+computacionales.
+
+A lo largo de varias décadas de docencia universitaria en México y Chile
+he impartido cursos de matemáticas, estadística, computación,
+inteligencia artificial, minería de datos y áreas relacionadas. Esta
+experiencia me ha mostrado que muchos estudiantes pueden ejecutar un
+algoritmo, obtener una gráfica o interpretar una métrica, pero todavía
+encuentran dificultades para reconocer la estructura matemática que
+sostiene el procedimiento. También he observado el problema contrario:
+una exposición excesivamente abstracta puede alejar al lector de las
+aplicaciones que dan sentido a la teoría.
+
+Por ello, \emph{Fundamentos Matemáticos del Aprendizaje Automático}
+busca construir un puente entre ambos extremos. El propósito no es
+presentar una colección de fórmulas aisladas ni un manual de
+programación, sino desarrollar una comprensión progresiva de los
+conceptos que aparecen una y otra vez en los modelos de aprendizaje
+automático: espacios vectoriales, probabilidad, optimización, riesgo,
+regularización, generalización, clasificación, regresión y agrupamiento.
+
+La obra está pensada principalmente para estudiantes y profesores de
+ingeniería, matemáticas, computación y ciencias aplicadas. Sin embargo,
+también puede resultar útil para profesionales que ya utilizan
+herramientas de análisis de datos y desean comprender con mayor
+profundidad los supuestos, las posibilidades y las limitaciones de los
+algoritmos.
+
+Cada capítulo intenta conservar cuatro principios:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  representar formalmente problemas de aprendizaje automático;
+  \textbf{Rigor sin oscuridad.} Las definiciones y resultados
+  matemáticos deben formularse con precisión, pero explicarse de manera
+  accesible.
 \item
-  comprender los fundamentos algebraicos, probabilísticos y estadísticos
-  de los modelos;
+  \textbf{Interpretación antes que mecanización.} Una fórmula adquiere
+  sentido cuando se comprende qué representa cada término y qué problema
+  permite resolver.
 \item
-  derivar los principales algoritmos de regresión, clasificación y
-  agrupamiento;
+  \textbf{Relación entre teoría y práctica.} Los desarrollos matemáticos
+  se acompañan de ejemplos, representaciones gráficas y código en R.
 \item
-  interpretar funciones de pérdida, criterios de optimización y métodos
-  de regularización;
-\item
-  analizar supuestos, limitaciones y propiedades de generalización;
-\item
-  relacionar la teoría matemática con implementaciones en R.
-\end{itemize}
+  \textbf{Pensamiento crítico.} Ningún método es universal; todo modelo
+  depende de supuestos, decisiones de diseño, calidad de los datos y
+  criterios de evaluación.
+\end{enumerate}
+
+Este volumen complementa el libro práctico \emph{Aprendizaje y
+Clasificación Automática con R}. Mientras aquel se orienta
+principalmente a la implementación y al análisis aplicado, el presente
+texto profundiza en la estructura matemática de los métodos. Ambos
+pueden leerse de forma independiente, aunque fueron concebidos para
+dialogar entre sí.
+
+El libro también refleja mi interés permanente por la educación apoyada
+en tecnología y por los sistemas inteligentes orientados al aprendizaje.
+Desde mis primeros trabajos en informática educativa, multimedia y
+sistemas tutoriales inteligentes, he considerado que la tecnología
+alcanza su mayor valor cuando ayuda al estudiante a construir
+conocimiento y no solamente a reproducir procedimientos.
+
+No pretendo que esta obra cierre los temas que aborda. El aprendizaje
+automático es un campo en evolución constante y cada capítulo abre
+caminos hacia desarrollos más avanzados. Mi aspiración es más modesta y,
+al mismo tiempo, más esencial: ofrecer una base sólida desde la cual el
+lector pueda continuar estudiando, investigando y aplicando estos
+métodos con mayor autonomía y criterio.
+
+Agradezco a los estudiantes, colegas e instituciones que, a lo largo de
+mi vida académica, han contribuido directa o indirectamente a la
+construcción de estas ideas. Las preguntas formuladas en el aula, los
+proyectos desarrollados y los desafíos encontrados en la práctica han
+sido parte fundamental de este libro.
+
+Espero que estas páginas permitan al lector descubrir que detrás de cada
+algoritmo existe una idea matemática comprensible, y que esa comprensión
+puede transformar la manera de utilizar la inteligencia artificial y el
+aprendizaje automático.
+
+\textbf{Jesús Gilberto Rodríguez Escobedo}\\
+San Luis Potosí, México
 
 \bookmarksetup{startatroot}
 
@@ -17488,6 +17545,39 @@ La regresión lineal simple constituye la base para la regresión
 múltiple, la regularización y numerosos modelos de aprendizaje
 supervisado.
 
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo MCO{-}Lineal{-}Simple}
+\NormalTok{Entrada:}
+\NormalTok{  D = \{(x\_i, y\_i)\}\_\{i=1\}\^{}n, con x\_i, y\_i ∈ ℝ}
+\NormalTok{Salida:}
+\NormalTok{  \textbackslash{}hatβ\_0, \textbackslash{}hatβ\_1 y \textbackslash{}hat f(x) = \textbackslash{}hatβ\_0 + \textbackslash{}hatβ\_1 x}
+
+\NormalTok{1. Calcular}
+\NormalTok{      \textbackslash{}bar x = (1/n) \textbackslash{}sum\_\{i=1\}\^{}n x\_i,}
+\NormalTok{      \textbackslash{}bar y = (1/n) \textbackslash{}sum\_\{i=1\}\^{}n y\_i.}
+\NormalTok{2. Calcular}
+\NormalTok{      S\_\{xx\} = \textbackslash{}sum\_\{i=1\}\^{}n (x\_i {-} \textbackslash{}bar x)\^{}2,}
+\NormalTok{      S\_\{xy\} = \textbackslash{}sum\_\{i=1\}\^{}n (x\_i {-} \textbackslash{}bar x)(y\_i {-} \textbackslash{}bar y).}
+\NormalTok{3. Estimar}
+\NormalTok{      \textbackslash{}hatβ\_1 = S\_\{xy\}/S\_\{xx\},}
+\NormalTok{      \textbackslash{}hatβ\_0 = \textbackslash{}bar y {-} \textbackslash{}hatβ\_1 \textbackslash{}bar x.}
+\NormalTok{4. Para cada observación, obtener}
+\NormalTok{      \textbackslash{}hat y\_i = \textbackslash{}hatβ\_0 + \textbackslash{}hatβ\_1 x\_i,}
+\NormalTok{      e\_i = y\_i {-} \textbackslash{}hat y\_i.}
+\NormalTok{5. Devolver el modelo ajustado \textbackslash{}hat f.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
 \section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-8}
 \addcontentsline{toc}{section}{Referencias del capítulo}
 
@@ -19782,6 +19872,38 @@ variables, apalancamiento, influencia y diagnóstico. Estos fundamentos
 preparan el estudio de regresión logística y modelos lineales más
 avanzados.
 
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-1}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo MCO{-}Lineal{-}Múltiple}
+\NormalTok{Entrada:}
+\NormalTok{  X ∈ ℝ\^{}\{n×(p+1)\} con primera columna de unos, y ∈ ℝ\^{}n}
+\NormalTok{Salida:}
+\NormalTok{  \textbackslash{}hatβ ∈ ℝ\^{}\{p+1\}, \textbackslash{}hat y y residuos e}
+
+\NormalTok{1. Formar la matriz normal A = X\^{}T X y el vector b = X\^{}T y.}
+\NormalTok{2. Resolver el sistema lineal}
+\NormalTok{      A \textbackslash{}hatβ = b}
+\NormalTok{   o, si A es invertible,}
+\NormalTok{      \textbackslash{}hatβ = (X\^{}T X)\^{}\{{-}1\} X\^{}T y.}
+\NormalTok{3. Calcular}
+\NormalTok{      \textbackslash{}hat y = X \textbackslash{}hatβ,}
+\NormalTok{      e = y {-} \textbackslash{}hat y.}
+\NormalTok{4. Evaluar}
+\NormalTok{      SSR = ||\textbackslash{}hat y {-} \textbackslash{}bar y \textbackslash{}mathbf\{1\}||\^{}2,}
+\NormalTok{      SSE = ||e||\^{}2.}
+\NormalTok{5. Devolver \textbackslash{}hatβ y el modelo \textbackslash{}hat f(x)=x\^{}T\textbackslash{}hatβ.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
 \section*{Referencias del capítulo}\label{referencias-del-capuxedtulo-9}
 \addcontentsline{toc}{section}{Referencias del capítulo}
 
@@ -21418,6 +21540,41 @@ Finalmente, se presentaron inferencia, deviance, pseudo-\(R^2\),
 predicción, selección de umbral, discriminación, calibración,
 separación, influencia, regularización y extensión multinomial.
 
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-2}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo Regresión{-}Logística}
+\NormalTok{Entrada:}
+\NormalTok{  D = \{(x\_i, y\_i)\}\_\{i=1\}\^{}n, con y\_i ∈ \{0,1\}}
+\NormalTok{Salida:}
+\NormalTok{  \textbackslash{}hatβ y \textbackslash{}hat p\_i = P(Y\_i=1|x\_i)}
+
+\NormalTok{1. Inicializar β\^{}\{(0)\}.}
+\NormalTok{2. Para t = 0,1,2,... hasta convergencia:}
+\NormalTok{   a) Calcular}
+\NormalTok{         η\_i\^{}\{(t)\} = x\_i\^{}T β\^{}\{(t)\},}
+\NormalTok{         p\_i\^{}\{(t)\} = 1/(1 + e\^{}\{{-}η\_i\^{}\{(t)\}\}).}
+\NormalTok{   b) Calcular el gradiente}
+\NormalTok{         g\^{}\{(t)\} = X\^{}T (y {-} p\^{}\{(t)\}).}
+\NormalTok{   c) Calcular la Hessiana}
+\NormalTok{         H\^{}\{(t)\} = {-}X\^{}T W\^{}\{(t)\} X,}
+\NormalTok{      donde W\^{}\{(t)\} = diag(p\_i\^{}\{(t)\}(1{-}p\_i\^{}\{(t)\})).}
+\NormalTok{   d) Actualizar por Newton{-}Raphson/IRLS:}
+\NormalTok{         β\^{}\{(t+1)\} = β\^{}\{(t)\} {-} [H\^{}\{(t)\}]\^{}\{{-}1\} g\^{}\{(t)\}.}
+\NormalTok{3. Definir \textbackslash{}hatβ = β\^{}\{(t+1)\}.}
+\NormalTok{4. Clasificar mediante}
+\NormalTok{      \textbackslash{}hat y(x)=1 si \textbackslash{}hat p(x) ≥ c, y 0 en otro caso.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
 \section*{Referencias del
 capítulo}\label{referencias-del-capuxedtulo-10}
 \addcontentsline{toc}{section}{Referencias del capítulo}
@@ -22571,6 +22728,37 @@ Entonces, para \(k=4\),
 
 Si se usan pesos proporcionales a la cercanía, la predicción puede
 desplazarse hacia los vecinos más próximos.
+
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-3}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo KNN}
+\NormalTok{Entrada:}
+\NormalTok{  D = \{(x\_i, y\_i)\}\_\{i=1\}\^{}n, k ∈ ℕ}
+\NormalTok{Salida:}
+\NormalTok{  Regla de clasificación h\_k}
+
+\NormalTok{Predicción para una nueva observación x:}
+\NormalTok{1. Para i = 1,...,n calcular la distancia}
+\NormalTok{      d\_i(x) = ||x {-} x\_i||.}
+\NormalTok{2. Reordenar los índices de modo que}
+\NormalTok{      d\_\{π(1)\}(x) ≤ d\_\{π(2)\}(x) ≤ ... ≤ d\_\{π(n)\}(x).}
+\NormalTok{3. Definir el vecindario}
+\NormalTok{      N\_k(x) = \{π(1), ..., π(k)\}.}
+\NormalTok{4. Para cada clase c, calcular el voto}
+\NormalTok{      v\_c(x) = \textbackslash{}sum\_\{j∈N\_k(x)\} I(y\_j = c).}
+\NormalTok{5. Devolver}
+\NormalTok{      h\_k(x) = argmax\_c v\_c(x).}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
 
 \section*{Ventajas}\label{ventajas}
 \addcontentsline{toc}{section}{Ventajas}
@@ -24250,6 +24438,37 @@ la predicción es
 \widehat{c}_2=18.
 \]
 
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-4}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo Árbol{-}de{-}Decisión}
+\NormalTok{Entrada:}
+\NormalTok{  nodo t con subconjunto D\_t}
+\NormalTok{Salida:}
+\NormalTok{  subárbol T\_t}
+
+\NormalTok{1. Si D\_t es puro o se cumple un criterio de parada,}
+\NormalTok{      declarar t como hoja y asignar su clase/predicción.}
+\NormalTok{2. Para cada variable j y cada punto de corte s factible:}
+\NormalTok{      calcular la impureza de la partición}
+\NormalTok{         D\_t\^{}L(j,s), D\_t\^{}R(j,s).}
+\NormalTok{3. Seleccionar (j*, s*) que minimice la impureza o maximice la ganancia.}
+\NormalTok{4. Crear dos nodos hijos:}
+\NormalTok{      t\_L con D\_t\^{}L(j*,s*),}
+\NormalTok{      t\_R con D\_t\^{}R(j*,s*).}
+\NormalTok{5. Aplicar recursivamente el procedimiento a t\_L y t\_R.}
+\NormalTok{6. Si se usa poda, seleccionar el subárbol óptimo según un criterio de complejidad.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
 \section*{Ventajas}\label{ventajas-1}
 \addcontentsline{toc}{section}{Ventajas}
 
@@ -25425,6 +25644,37 @@ la predicción es
 \[
 \widehat{f}_{RF}(\mathbf{x})=12.
 \]
+
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-5}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo Random{-}Forest}
+\NormalTok{Entrada:}
+\NormalTok{  D = \{(x\_i, y\_i)\}\_\{i=1\}\^{}n, número de árboles B, número de variables m}
+\NormalTok{Salida:}
+\NormalTok{  bosque \{T\_b\}\_\{b=1\}\^{}B}
+
+\NormalTok{Para b = 1,...,B:}
+\NormalTok{1. Generar una muestra bootstrap D\^{}\{(b)\} a partir de D.}
+\NormalTok{2. Construir un árbol T\_b sobre D\^{}\{(b)\}:}
+\NormalTok{   a) en cada nodo seleccionar aleatoriamente m variables;}
+\NormalTok{   b) elegir la mejor partición sólo entre esas m variables;}
+\NormalTok{   c) crecer el árbol hasta el criterio de parada establecido.}
+\NormalTok{Predicción:}
+\NormalTok{3. Para clasificación:}
+\NormalTok{      \textbackslash{}hat y(x) = voto mayoritario\{T\_b(x)\}\_\{b=1\}\^{}B.}
+\NormalTok{   Para regresión:}
+\NormalTok{      \textbackslash{}hat f(x) = (1/B)\textbackslash{}sum\_\{b=1\}\^{}B T\_b(x).}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
 
 \section*{Ventajas}\label{ventajas-2}
 \addcontentsline{toc}{section}{Ventajas}
@@ -27056,6 +27306,36 @@ y_i-
 \xi_i,\xi_i^*\geq 0.
 \]
 
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-6}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo SVM{-}Lineal}
+\NormalTok{Entrada:}
+\NormalTok{  D = \{(x\_i, y\_i)\}\_\{i=1\}\^{}n, con y\_i ∈ \{{-}1,+1\}, C \textgreater{} 0}
+\NormalTok{Salida:}
+\NormalTok{  hiperplano separador \textbackslash{}hat f(x)=sign(w\^{}T x + b)}
+
+\NormalTok{1. Resolver el problema de optimización}
+\NormalTok{      minimizar\_\{w,b,ξ\}   (1/2)||w||\^{}2 + C\textbackslash{}sum\_\{i=1\}\^{}n ξ\_i}
+\NormalTok{      sujeto a            y\_i(w\^{}T x\_i + b) ≥ 1 {-} ξ\_i,}
+\NormalTok{                          ξ\_i ≥ 0.}
+\NormalTok{2. Obtener la solución (\textbackslash{}hat w, \textbackslash{}hat b, \textbackslash{}hat ξ).}
+\NormalTok{3. Identificar los vectores de soporte:}
+\NormalTok{      i tales que y\_i(\textbackslash{}hat w\^{}T x\_i + \textbackslash{}hat b) ≤ 1.}
+\NormalTok{4. Definir la regla de decisión}
+\NormalTok{      \textbackslash{}hat y(x)=sign(\textbackslash{}hat w\^{}T x + \textbackslash{}hat b).}
+\NormalTok{5. En la versión con kernel, reemplazar x\_i\^{}T x\_j por K(x\_i,x\_j).}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
 \section*{Ventajas de SVM}\label{ventajas-de-svm}
 \addcontentsline{toc}{section}{Ventajas de SVM}
 
@@ -28060,9 +28340,10 @@ no lineal proviene de las funciones de activación.
 
 }
 
-\caption{\label{fig-neurona-natural-artificial}La neurona artificial
-abstrae la recepción, integración y transmisión de señales de la neurona
-biológica.}
+\caption{\label{fig-neurona-natural-artificial}La comparación entre
+neurona biológica y neurona artificial muestra con mayor claridad la
+analogía entre recepción de señales, integración y producción de una
+respuesta.}
 
 \end{figure}%
 
@@ -28529,6 +28810,16 @@ transforma entradas en salidas mediante capas ocultas y activaciones no
 lineales.}
 
 \end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Lectura conceptual de la figura}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+En la neurona biológica, las dendritas reciben señales, el soma las
+integra y el axón transmite la respuesta.\\
+En la neurona artificial, las entradas se ponderan, se suman con un
+sesgo y luego se transforman mediante una función de activación para
+producir la salida.
+
+\end{tcolorbox}
 
 \section*{Retropropagación}\label{retropropagaciuxf3n}
 \addcontentsline{toc}{section}{Retropropagación}
@@ -29698,6 +29989,41 @@ Entonces
 \]
 
 La clase predicha es la primera.
+
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-7}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo Retropropagación con descenso por gradiente}
+\NormalTok{Entrada:}
+\NormalTok{  D = \{(x\_i, y\_i)\}\_\{i=1\}\^{}n, arquitectura de red, tasa η}
+\NormalTok{Salida:}
+\NormalTok{  parámetros Θ = \{W\^{}\{(\textbackslash{}ell)\}, b\^{}\{(\textbackslash{}ell)\}\}\_\{\textbackslash{}ell=1\}\^{}L}
+
+\NormalTok{1. Inicializar aleatoriamente Θ.}
+\NormalTok{2. Repetir hasta convergencia:}
+\NormalTok{   Para cada par (x\_i, y\_i):}
+\NormalTok{   a) Propagación hacia adelante:}
+\NormalTok{         a\^{}\{(0)\} = x\_i,}
+\NormalTok{         z\^{}\{(\textbackslash{}ell)\} = W\^{}\{(\textbackslash{}ell)\} a\^{}\{(\textbackslash{}ell{-}1)\} + b\^{}\{(\textbackslash{}ell)\},}
+\NormalTok{         a\^{}\{(\textbackslash{}ell)\} = φ\^{}\{(\textbackslash{}ell)\}(z\^{}\{(\textbackslash{}ell)\}),   \textbackslash{}ell=1,...,L.}
+\NormalTok{   b) Calcular la pérdida \textbackslash{}mathcal\{L\}(y\_i, a\^{}\{(L)\}).}
+\NormalTok{   c) Propagación hacia atrás:}
+\NormalTok{         δ\^{}\{(L)\} = ∇\_\{a\^{}\{(L)\}\}\textbackslash{}mathcal\{L\} \textbackslash{}odot φ\textquotesingle{}\^{}\{(L)\}(z\^{}\{(L)\}),}
+\NormalTok{         δ\^{}\{(\textbackslash{}ell)\} = ((W\^{}\{(\textbackslash{}ell+1)\})\^{}T δ\^{}\{(\textbackslash{}ell+1)\}) \textbackslash{}odot φ\textquotesingle{}\^{}\{(\textbackslash{}ell)\}(z\^{}\{(\textbackslash{}ell)\}).}
+\NormalTok{   d) Actualizar:}
+\NormalTok{         W\^{}\{(\textbackslash{}ell)\} ← W\^{}\{(\textbackslash{}ell)\} {-} η δ\^{}\{(\textbackslash{}ell)\} (a\^{}\{(\textbackslash{}ell{-}1)\})\^{}T,}
+\NormalTok{         b\^{}\{(\textbackslash{}ell)\} ← b\^{}\{(\textbackslash{}ell)\} {-} η δ\^{}\{(\textbackslash{}ell)\}.}
+\NormalTok{3. Devolver la red entrenada.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
 
 \section*{Ventajas}\label{ventajas-3}
 \addcontentsline{toc}{section}{Ventajas}
@@ -31303,6 +31629,39 @@ Después se suma la media original:
 +
 \overline{\mathbf{x}}.
 \]
+
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-8}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo PCA}
+\NormalTok{Entrada:}
+\NormalTok{  X ∈ ℝ\^{}\{n×p\}}
+\NormalTok{Salida:}
+\NormalTok{  componentes principales, cargas y puntuaciones}
+
+\NormalTok{1. Centrar los datos:}
+\NormalTok{      X\_c = X {-} \textbackslash{}mathbf\{1\}\textbackslash{}bar x\^{}T.}
+\NormalTok{2. Si es necesario, escalar las variables.}
+\NormalTok{3. Calcular la matriz}
+\NormalTok{      S = (1/(n{-}1)) X\_c\^{}T X\_c}
+\NormalTok{   o la matriz de correlación.}
+\NormalTok{4. Resolver el problema espectral}
+\NormalTok{      S v\_j = λ\_j v\_j,   j=1,...,p,}
+\NormalTok{   con λ\_1 ≥ λ\_2 ≥ ... ≥ λ\_p.}
+\NormalTok{5. Formar las puntuaciones:}
+\NormalTok{      z\_\{ij\} = x\_i\^{}T v\_j.}
+\NormalTok{6. Seleccionar las primeras m componentes y reconstruir, si se desea,}
+\NormalTok{      \textbackslash{}hat X\_m = Z\_m V\_m\^{}T.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
 
 \section*{Ventajas}\label{ventajas-4}
 \addcontentsline{toc}{section}{Ventajas}
@@ -32955,6 +33314,34 @@ estabilidad y conocimiento del dominio (Jain 2010).
 
 \end{tcolorbox}
 
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-9}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo K{-}means}
+\NormalTok{Entrada:}
+\NormalTok{  X = \{x\_i\}\_\{i=1\}\^{}n ⊂ ℝ\^{}p, número de grupos K}
+\NormalTok{Salida:}
+\NormalTok{  partición \{C\_1,...,C\_K\} y centroides \{μ\_1,...,μ\_K\}}
+
+\NormalTok{1. Inicializar centroides μ\_1\^{}\{(0)\},...,μ\_K\^{}\{(0)\}.}
+\NormalTok{2. Repetir hasta convergencia:}
+\NormalTok{   a) Asignación:}
+\NormalTok{         C\_k\^{}\{(t)\} = \{x\_i : ||x\_i {-} μ\_k\^{}\{(t)\}||\^{}2 ≤ ||x\_i {-} μ\_\textbackslash{}ell\^{}\{(t)\}||\^{}2, ∀\textbackslash{}ell \}.}
+\NormalTok{   b) Actualización:}
+\NormalTok{         μ\_k\^{}\{(t+1)\} = (1/|C\_k\^{}\{(t)\}|)\textbackslash{}sum\_\{x\_i∈C\_k\^{}\{(t)\}\} x\_i.}
+\NormalTok{3. Detener cuando no cambian las asignaciones o la reducción en la función objetivo es despreciable.}
+\NormalTok{4. Devolver la partición final y los centroides.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
 \section*{Ventajas}\label{ventajas-5}
 \addcontentsline{toc}{section}{Ventajas}
 
@@ -34156,6 +34543,38 @@ Entonces
 =
 19.2.
 \]
+
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-10}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo Jerárquico{-}Aglomerativo}
+\NormalTok{Entrada:}
+\NormalTok{  observaciones \{x\_i\}\_\{i=1\}\^{}n y una distancia d}
+\NormalTok{Salida:}
+\NormalTok{  dendrograma}
+
+\NormalTok{1. Inicializar n grupos:}
+\NormalTok{      C\_i\^{}\{(0)\} = \{x\_i\},   i=1,...,n.}
+\NormalTok{2. Calcular la matriz de distancias entre grupos.}
+\NormalTok{3. Para t = 0,1,...,n{-}2:}
+\NormalTok{   a) Encontrar los grupos más próximos}
+\NormalTok{         (C\_r\^{}\{(t)\}, C\_s\^{}\{(t)\}).}
+\NormalTok{   b) Fusionarlos:}
+\NormalTok{         C\_u\^{}\{(t+1)\} = C\_r\^{}\{(t)\} ∪ C\_s\^{}\{(t)\}.}
+\NormalTok{   c) Actualizar las distancias entre C\_u\^{}\{(t+1)\} y los demás grupos}
+\NormalTok{      según el criterio de enlace seleccionado.}
+\NormalTok{4. Registrar cada fusión y su altura.}
+\NormalTok{5. Devolver el dendrograma y la secuencia de particiones.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
 
 \section*{Ventajas}\label{ventajas-6}
 \addcontentsline{toc}{section}{Ventajas}
@@ -35385,6 +35804,41 @@ Una regla posible sería
 
 Debe interpretarse como asociación empírica, no como mecanismo causal
 probado.
+
+\section*{Seudocódigo formal}\label{seudocuxf3digo-formal-11}
+\addcontentsline{toc}{section}{Seudocódigo formal}
+
+\markright{Seudocódigo formal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo Apriori}
+\NormalTok{Entrada:}
+\NormalTok{  base de transacciones \textbackslash{}mathcal\{T\}, soporte mínimo s\_0, confianza mínima c\_0}
+\NormalTok{Salida:}
+\NormalTok{  conjunto de reglas fuertes}
+
+\NormalTok{1. Calcular el conjunto de itemsets frecuentes de tamaño 1:}
+\NormalTok{      L\_1 = \{X : soporte(X) ≥ s\_0\}.}
+\NormalTok{2. Para k = 2,3,...:}
+\NormalTok{   a) Generar candidatos C\_k a partir de L\_\{k{-}1\}.}
+\NormalTok{   b) Podar candidatos que contengan subconjuntos no frecuentes.}
+\NormalTok{   c) Calcular el soporte de cada candidato en C\_k.}
+\NormalTok{   d) Conservar}
+\NormalTok{         L\_k = \{X ∈ C\_k : soporte(X) ≥ s\_0\}.}
+\NormalTok{   e) Detener si L\_k = ∅.}
+\NormalTok{3. Para cada itemset frecuente X y cada partición A ∪ B = X, A∩B=∅:}
+\NormalTok{   a) formar la regla A ⇒ B;}
+\NormalTok{   b) calcular}
+\NormalTok{         confianza(A ⇒ B) = soporte(A∪B)/soporte(A).}
+\NormalTok{   c) conservar la regla si confianza ≥ c\_0.}
+\NormalTok{4. Reportar también lift y otras medidas de interés.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
 
 \section*{Ventajas}\label{ventajas-7}
 \addcontentsline{toc}{section}{Ventajas}
@@ -37958,7 +38412,171 @@ Function»}. \emph{Journal of the American Statistical Association} 58
 
 \markboth{Índice temático}{Índice temático}
 
-\printindex
+Este índice resume los conceptos principales del libro y orienta al
+lector hacia el capítulo donde se desarrollan.
+
+\section*{A--C}\label{ac}
+\addcontentsline{toc}{section}{A--C}
+
+\markright{A--C}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Análisis de componentes principales (PCA):} reducción de
+  dimensionalidad, varianza explicada, componentes ortogonales. Véase el
+  capítulo \textbf{Análisis de Componentes Principales}.
+\item
+  \textbf{Árboles de decisión:} entropía, índice de Gini, partición
+  recursiva, poda. Véase el capítulo \textbf{Árboles de decisión}.
+\item
+  \textbf{Clasificación:} regla de Bayes, riesgo de clasificación,
+  frontera de decisión. Véase \textbf{Teoría de clasificación}.
+\item
+  \textbf{Convexidad:} funciones convexas, conjuntos convexos y
+  optimización. Véase \textbf{Cálculo y optimización}.
+\item
+  \textbf{Covarianza y correlación:} estructura de dependencia entre
+  variables. Véase \textbf{Probabilidad y estadística} y \textbf{PCA}.
+\end{itemize}
+
+\section*{D--H}\label{dh}
+\addcontentsline{toc}{section}{D--H}
+
+\markright{D--H}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dendrograma:} representación jerárquica de fusiones entre
+  grupos. Véase \textbf{Agrupamiento jerárquico}.
+\item
+  \textbf{Dimensión VC:} capacidad de un conjunto de funciones de
+  clasificación. Véase \textbf{Teoría de generalización}.
+\item
+  \textbf{Distancia euclidiana y métricas:} base geométrica de varios
+  métodos de aprendizaje. Véase \textbf{K-NN} y \textbf{K-means}.
+\item
+  \textbf{Dropout:} técnica de regularización en redes neuronales. Véase
+  \textbf{Redes neuronales}.
+\item
+  \textbf{Espacios vectoriales:} base algebraica de regresión, PCA y
+  SVM. Véase \textbf{Álgebra lineal}.
+\item
+  \textbf{Esperanza matemática:} valor esperado y momentos. Véase
+  \textbf{Probabilidad y estadística}.
+\item
+  \textbf{Hessiana:} matriz de segundas derivadas en optimización. Véase
+  \textbf{Cálculo y optimización}.
+\end{itemize}
+
+\section*{I--M}\label{im}
+\addcontentsline{toc}{section}{I--M}
+
+\markright{I--M}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Inferencia y evaluación:} validación cruzada, sesgo, varianza
+  y error de prueba. Véase \textbf{Evaluación de modelos}.
+\item
+  \textbf{Kernels:} transformación implícita del espacio para SVM. Véase
+  \textbf{SVM}.
+\item
+  \textbf{K-means:} partición en centroides, suma de cuadrados
+  intragrupo, silueta. Véase \textbf{K-means}.
+\item
+  \textbf{K-NN:} clasificación basada en vecinos cercanos. Véase
+  \textbf{K-NN}.
+\item
+  \textbf{Lasso y Ridge:} regularización en modelos lineales. Véase
+  \textbf{Regularización}.
+\item
+  \textbf{Lift:} medida de interés en reglas de asociación. Véase
+  \textbf{Reglas de asociación}.
+\item
+  \textbf{Margen:} separación geométrica en SVM. Véase \textbf{SVM}.
+\item
+  \textbf{Matrices y valores propios:} conceptos centrales para modelos
+  lineales y PCA. Véase \textbf{Álgebra lineal}.
+\item
+  \textbf{Multicolinealidad:} dependencia lineal entre variables
+  explicativas. Véase \textbf{Regresión lineal múltiple}.
+\end{itemize}
+
+\section*{N--R}\label{nr}
+\addcontentsline{toc}{section}{N--R}
+
+\markright{N--R}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Neurona artificial:} suma ponderada, sesgo y activación. Véase
+  \textbf{Redes neuronales}.
+\item
+  \textbf{Odds y logit:} formulación de la regresión logística. Véase
+  \textbf{Regresión logística}.
+\item
+  \textbf{Optimización:} gradiente, descenso, convexidad y condiciones
+  de optimalidad. Véase \textbf{Cálculo y optimización}.
+\item
+  \textbf{Pérdida 0-1:} criterio de error en clasificación. Véase
+  \textbf{Teoría de clasificación}.
+\item
+  \textbf{Probabilidad condicional y Bayes:} base de inferencia y
+  clasificación probabilística. Véase \textbf{Probabilidad y
+  estadística}.
+\item
+  \textbf{Random Forest:} ensamble de árboles con bootstrap y selección
+  aleatoria de variables. Véase \textbf{Random Forest}.
+\item
+  \textbf{Reglas de asociación:} soporte, confianza y lift. Véase
+  \textbf{Reglas de asociación}.
+\item
+  \textbf{Regresión lineal:} estimación por mínimos cuadrados. Véase
+  \textbf{Regresión lineal simple} y \textbf{Regresión lineal múltiple}.
+\item
+  \textbf{Regresión logística:} modelo lineal generalizado para
+  clasificación binaria. Véase \textbf{Regresión logística}.
+\item
+  \textbf{Regularización:} control de complejidad del modelo. Véase
+  \textbf{Regularización}.
+\item
+  \textbf{Riesgo empírico y riesgo esperado:} nociones centrales del
+  aprendizaje supervisado. Véase \textbf{Aprendizaje supervisado}.
+\end{itemize}
+
+\section*{S--Z}\label{sz}
+\addcontentsline{toc}{section}{S--Z}
+
+\markright{S--Z}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Series de tiempo:} dependencia temporal, autocorrelación y
+  predicción. Véase \textbf{Series de tiempo}.
+\item
+  \textbf{Silueta:} medida de calidad para agrupamiento. Véase
+  \textbf{K-means}.
+\item
+  \textbf{Soporte:} frecuencia de aparición en reglas de asociación.
+  Véase \textbf{Reglas de asociación}.
+\item
+  \textbf{SVM:} margen máximo, vectores de soporte y kernels. Véase
+  \textbf{SVM}.
+\item
+  \textbf{Validación cruzada:} estimación del error fuera de muestra.
+  Véase \textbf{Evaluación de modelos}.
+\item
+  \textbf{Valores singulares:} base del análisis matricial y de PCA.
+  Véase \textbf{Álgebra lineal}.
+\item
+  \textbf{Vectores de soporte:} observaciones críticas que definen la
+  frontera SVM. Véase \textbf{SVM}.
+\end{itemize}
 
 
 

@@ -318,7 +318,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Descargar el libro en PDF</span></a>
+ <span class="menu-text">Bienvenida</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -560,8 +566,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#ac" id="toc-ac" class="nav-link active" data-scroll-target="#ac">A–C</a></li>
-  <li><a href="#dm" id="toc-dm" class="nav-link" data-scroll-target="#dm">D–M</a></li>
-  <li><a href="#nz" id="toc-nz" class="nav-link" data-scroll-target="#nz">N–Z</a></li>
+  <li><a href="#dh" id="toc-dh" class="nav-link" data-scroll-target="#dh">D–H</a></li>
+  <li><a href="#im" id="toc-im" class="nav-link" data-scroll-target="#im">I–M</a></li>
+  <li><a href="#nr" id="toc-nr" class="nav-link" data-scroll-target="#nr">N–R</a></li>
+  <li><a href="#sz" id="toc-sz" class="nav-link" data-scroll-target="#sz">S–Z</a></li>
   </ul>
 </nav>
     </div>
@@ -588,40 +596,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Este índice agrupa los conceptos principales y dirige al capítulo donde se desarrollan.</p>
+<p>Este índice resume los conceptos principales del libro y orienta al lector hacia el capítulo donde se desarrollan.</p>
 <section id="ac" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ac">A–C</h2>
 <ul>
-<li><strong>Análisis de componentes principales:</strong> <a href="./no-supervisado/pca.html">PCA</a></li>
-<li><strong>Árboles de decisión:</strong> <a href="./clasificacion/arboles-decision.html">Árboles de decisión</a></li>
-<li><strong>Autocorrelación y ARIMA:</strong> <a href="./avanzados/series-tiempo.html">Series de tiempo</a></li>
-<li><strong>Clasificación y regla de Bayes:</strong> <a href="./aprendizaje/teoria-clasificacion.html">Teoría de clasificación</a></li>
-<li><strong>Convexidad y gradiente:</strong> <a href="./fundamentos/calculo-optimizacion.html">Cálculo y optimización</a></li>
+<li><strong>Análisis de componentes principales (PCA):</strong> reducción de dimensionalidad, varianza explicada, componentes ortogonales. Véase el capítulo <strong>Análisis de Componentes Principales</strong>.</li>
+<li><strong>Árboles de decisión:</strong> entropía, índice de Gini, partición recursiva, poda. Véase el capítulo <strong>Árboles de decisión</strong>.</li>
+<li><strong>Clasificación:</strong> regla de Bayes, riesgo de clasificación, frontera de decisión. Véase <strong>Teoría de clasificación</strong>.</li>
+<li><strong>Convexidad:</strong> funciones convexas, conjuntos convexos y optimización. Véase <strong>Cálculo y optimización</strong>.</li>
+<li><strong>Covarianza y correlación:</strong> estructura de dependencia entre variables. Véase <strong>Probabilidad y estadística</strong> y <strong>PCA</strong>.</li>
 </ul>
 </section>
-<section id="dm" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="dm">D–M</h2>
+<section id="dh" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="dh">D–H</h2>
 <ul>
-<li><strong>Dendrograma y método de Ward:</strong> <a href="./no-supervisado/agrupamiento-jerarquico.html">Agrupamiento jerárquico</a></li>
-<li><strong>Dimensión VC y aprendizaje PAC:</strong> <a href="./avanzados/teoria-generalizacion.html">Teoría de generalización</a></li>
-<li><strong>K-means y silueta:</strong> <a href="./no-supervisado/kmeans.html">K-means</a></li>
-<li><strong>K-NN y distancia:</strong> <a href="./clasificacion/knn.html">K-NN</a></li>
-<li><strong>Kernels y margen:</strong> <a href="./clasificacion/svm.html">SVM</a></li>
-<li><strong>Matrices, vectores y valores propios:</strong> <a href="./fundamentos/algebra-lineal.html">Álgebra lineal</a></li>
-<li><strong>Multicolinealidad:</strong> <a href="./regresion/regresion-lineal-multiple.html">Regresión lineal múltiple</a></li>
+<li><strong>Dendrograma:</strong> representación jerárquica de fusiones entre grupos. Véase <strong>Agrupamiento jerárquico</strong>.</li>
+<li><strong>Dimensión VC:</strong> capacidad de un conjunto de funciones de clasificación. Véase <strong>Teoría de generalización</strong>.</li>
+<li><strong>Distancia euclidiana y métricas:</strong> base geométrica de varios métodos de aprendizaje. Véase <strong>K-NN</strong> y <strong>K-means</strong>.</li>
+<li><strong>Dropout:</strong> técnica de regularización en redes neuronales. Véase <strong>Redes neuronales</strong>.</li>
+<li><strong>Espacios vectoriales:</strong> base algebraica de regresión, PCA y SVM. Véase <strong>Álgebra lineal</strong>.</li>
+<li><strong>Esperanza matemática:</strong> valor esperado y momentos. Véase <strong>Probabilidad y estadística</strong>.</li>
+<li><strong>Hessiana:</strong> matriz de segundas derivadas en optimización. Véase <strong>Cálculo y optimización</strong>.</li>
 </ul>
 </section>
-<section id="nz" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="nz">N–Z</h2>
+<section id="im" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="im">I–M</h2>
 <ul>
-<li><strong>Probabilidad y máxima verosimilitud:</strong> <a href="./fundamentos/probabilidad-estadistica.html">Probabilidad y estadística</a></li>
-<li><strong>Random Forest y observaciones OOB:</strong> <a href="./clasificacion/random-forest.html">Random Forest</a></li>
-<li><strong>Redes neuronales y retropropagación:</strong> <a href="./clasificacion/redes-neuronales.html">Redes neuronales</a></li>
-<li><strong>Reglas de asociación, soporte, confianza y lift:</strong> <a href="./no-supervisado/reglas-asociacion.html">Reglas de asociación</a></li>
-<li><strong>Regularización, Ridge y Lasso:</strong> <a href="./aprendizaje/regularizacion.html">Regularización</a></li>
-<li><strong>Regresión lineal:</strong> <a href="./regresion/regresion-lineal-simple.html">Regresión lineal simple</a></li>
-<li><strong>Regresión logística y odds:</strong> <a href="./regresion/regresion-logistica.html">Regresión logística</a></li>
-<li><strong>Validación cruzada y métricas:</strong> <a href="./aprendizaje/evaluacion-modelos.html">Evaluación de modelos</a></li>
+<li><strong>Inferencia y evaluación:</strong> validación cruzada, sesgo, varianza y error de prueba. Véase <strong>Evaluación de modelos</strong>.</li>
+<li><strong>Kernels:</strong> transformación implícita del espacio para SVM. Véase <strong>SVM</strong>.</li>
+<li><strong>K-means:</strong> partición en centroides, suma de cuadrados intragrupo, silueta. Véase <strong>K-means</strong>.</li>
+<li><strong>K-NN:</strong> clasificación basada en vecinos cercanos. Véase <strong>K-NN</strong>.</li>
+<li><strong>Lasso y Ridge:</strong> regularización en modelos lineales. Véase <strong>Regularización</strong>.</li>
+<li><strong>Lift:</strong> medida de interés en reglas de asociación. Véase <strong>Reglas de asociación</strong>.</li>
+<li><strong>Margen:</strong> separación geométrica en SVM. Véase <strong>SVM</strong>.</li>
+<li><strong>Matrices y valores propios:</strong> conceptos centrales para modelos lineales y PCA. Véase <strong>Álgebra lineal</strong>.</li>
+<li><strong>Multicolinealidad:</strong> dependencia lineal entre variables explicativas. Véase <strong>Regresión lineal múltiple</strong>.</li>
+</ul>
+</section>
+<section id="nr" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="nr">N–R</h2>
+<ul>
+<li><strong>Neurona artificial:</strong> suma ponderada, sesgo y activación. Véase <strong>Redes neuronales</strong>.</li>
+<li><strong>Odds y logit:</strong> formulación de la regresión logística. Véase <strong>Regresión logística</strong>.</li>
+<li><strong>Optimización:</strong> gradiente, descenso, convexidad y condiciones de optimalidad. Véase <strong>Cálculo y optimización</strong>.</li>
+<li><strong>Pérdida 0-1:</strong> criterio de error en clasificación. Véase <strong>Teoría de clasificación</strong>.</li>
+<li><strong>Probabilidad condicional y Bayes:</strong> base de inferencia y clasificación probabilística. Véase <strong>Probabilidad y estadística</strong>.</li>
+<li><strong>Random Forest:</strong> ensamble de árboles con bootstrap y selección aleatoria de variables. Véase <strong>Random Forest</strong>.</li>
+<li><strong>Reglas de asociación:</strong> soporte, confianza y lift. Véase <strong>Reglas de asociación</strong>.</li>
+<li><strong>Regresión lineal:</strong> estimación por mínimos cuadrados. Véase <strong>Regresión lineal simple</strong> y <strong>Regresión lineal múltiple</strong>.</li>
+<li><strong>Regresión logística:</strong> modelo lineal generalizado para clasificación binaria. Véase <strong>Regresión logística</strong>.</li>
+<li><strong>Regularización:</strong> control de complejidad del modelo. Véase <strong>Regularización</strong>.</li>
+<li><strong>Riesgo empírico y riesgo esperado:</strong> nociones centrales del aprendizaje supervisado. Véase <strong>Aprendizaje supervisado</strong>.</li>
+</ul>
+</section>
+<section id="sz" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sz">S–Z</h2>
+<ul>
+<li><strong>Series de tiempo:</strong> dependencia temporal, autocorrelación y predicción. Véase <strong>Series de tiempo</strong>.</li>
+<li><strong>Silueta:</strong> medida de calidad para agrupamiento. Véase <strong>K-means</strong>.</li>
+<li><strong>Soporte:</strong> frecuencia de aparición en reglas de asociación. Véase <strong>Reglas de asociación</strong>.</li>
+<li><strong>SVM:</strong> margen máximo, vectores de soporte y kernels. Véase <strong>SVM</strong>.</li>
+<li><strong>Validación cruzada:</strong> estimación del error fuera de muestra. Véase <strong>Evaluación de modelos</strong>.</li>
+<li><strong>Valores singulares:</strong> base del análisis matricial y de PCA. Véase <strong>Álgebra lineal</strong>.</li>
+<li><strong>Vectores de soporte:</strong> observaciones críticas que definen la frontera SVM. Véase <strong>SVM</strong>.</li>
 </ul>
 
 
@@ -1105,48 +1142,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu"># Índice temático {.unnumbered}</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb1-3"><a href="#cb1-3"></a>Este índice resume los conceptos principales del libro y orienta al lector hacia el capítulo donde se desarrollan.</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="in">```{=latex}</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="in">\printindex</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="in">```</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a>:::</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">## A–C {.unnumbered}</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="ss">- </span>**Análisis de componentes principales (PCA):** reducción de dimensionalidad, varianza explicada, componentes ortogonales. Véase el capítulo **Análisis de Componentes Principales**.</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="ss">- </span>**Árboles de decisión:** entropía, índice de Gini, partición recursiva, poda. Véase el capítulo **Árboles de decisión**.</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="ss">- </span>**Clasificación:** regla de Bayes, riesgo de clasificación, frontera de decisión. Véase **Teoría de clasificación**.</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="ss">- </span>**Convexidad:** funciones convexas, conjuntos convexos y optimización. Véase **Cálculo y optimización**.</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="ss">- </span>**Covarianza y correlación:** estructura de dependencia entre variables. Véase **Probabilidad y estadística** y **PCA**.</span>
 <span id="cb1-12"><a href="#cb1-12"></a></span>
-<span id="cb1-13"><a href="#cb1-13"></a>Este índice agrupa los conceptos principales y dirige al capítulo donde se desarrollan.</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="fu">## D–H {.unnumbered}</span></span>
 <span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="fu">## A–C {.unnumbered}</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="ss">- </span>**Análisis de componentes principales:** <span class="co">[</span><span class="ot">PCA</span><span class="co">](no-supervisado/pca.qmd)</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">- </span>**Árboles de decisión:** <span class="co">[</span><span class="ot">Árboles de decisión</span><span class="co">](clasificacion/arboles-decision.qmd)</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="ss">- </span>**Autocorrelación y ARIMA:** <span class="co">[</span><span class="ot">Series de tiempo</span><span class="co">](avanzados/series-tiempo.qmd)</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="ss">- </span>**Clasificación y regla de Bayes:** <span class="co">[</span><span class="ot">Teoría de clasificación</span><span class="co">](aprendizaje/teoria-clasificacion.qmd)</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="ss">- </span>**Convexidad y gradiente:** <span class="co">[</span><span class="ot">Cálculo y optimización</span><span class="co">](fundamentos/calculo-optimizacion.qmd)</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="ss">- </span>**Dendrograma:** representación jerárquica de fusiones entre grupos. Véase **Agrupamiento jerárquico**.</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="ss">- </span>**Dimensión VC:** capacidad de un conjunto de funciones de clasificación. Véase **Teoría de generalización**.</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="ss">- </span>**Distancia euclidiana y métricas:** base geométrica de varios métodos de aprendizaje. Véase **K-NN** y **K-means**.</span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">- </span>**Dropout:** técnica de regularización en redes neuronales. Véase **Redes neuronales**.</span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="ss">- </span>**Espacios vectoriales:** base algebraica de regresión, PCA y SVM. Véase **Álgebra lineal**.</span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="ss">- </span>**Esperanza matemática:** valor esperado y momentos. Véase **Probabilidad y estadística**.</span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ss">- </span>**Hessiana:** matriz de segundas derivadas en optimización. Véase **Cálculo y optimización**.</span>
 <span id="cb1-22"><a href="#cb1-22"></a></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="fu">## D–M {.unnumbered}</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="fu">## I–M {.unnumbered}</span></span>
 <span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="ss">- </span>**Dendrograma y método de Ward:** <span class="co">[</span><span class="ot">Agrupamiento jerárquico</span><span class="co">](no-supervisado/agrupamiento-jerarquico.qmd)</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="ss">- </span>**Dimensión VC y aprendizaje PAC:** <span class="co">[</span><span class="ot">Teoría de generalización</span><span class="co">](avanzados/teoria-generalizacion.qmd)</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="ss">- </span>**K-means y silueta:** <span class="co">[</span><span class="ot">K-means</span><span class="co">](no-supervisado/kmeans.qmd)</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="ss">- </span>**K-NN y distancia:** <span class="co">[</span><span class="ot">K-NN</span><span class="co">](clasificacion/knn.qmd)</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a><span class="ss">- </span>**Kernels y margen:** <span class="co">[</span><span class="ot">SVM</span><span class="co">](clasificacion/svm.qmd)</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="ss">- </span>**Matrices, vectores y valores propios:** <span class="co">[</span><span class="ot">Álgebra lineal</span><span class="co">](fundamentos/algebra-lineal.qmd)</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="ss">- </span>**Multicolinealidad:** <span class="co">[</span><span class="ot">Regresión lineal múltiple</span><span class="co">](regresion/regresion-lineal-multiple.qmd)</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a></span>
-<span id="cb1-33"><a href="#cb1-33"></a><span class="fu">## N–Z {.unnumbered}</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="ss">- </span>**Inferencia y evaluación:** validación cruzada, sesgo, varianza y error de prueba. Véase **Evaluación de modelos**.</span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="ss">- </span>**Kernels:** transformación implícita del espacio para SVM. Véase **SVM**.</span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="ss">- </span>**K-means:** partición en centroides, suma de cuadrados intragrupo, silueta. Véase **K-means**.</span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="ss">- </span>**K-NN:** clasificación basada en vecinos cercanos. Véase **K-NN**.</span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="ss">- </span>**Lasso y Ridge:** regularización en modelos lineales. Véase **Regularización**.</span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="ss">- </span>**Lift:** medida de interés en reglas de asociación. Véase **Reglas de asociación**.</span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="ss">- </span>**Margen:** separación geométrica en SVM. Véase **SVM**.</span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="ss">- </span>**Matrices y valores propios:** conceptos centrales para modelos lineales y PCA. Véase **Álgebra lineal**.</span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="ss">- </span>**Multicolinealidad:** dependencia lineal entre variables explicativas. Véase **Regresión lineal múltiple**.</span>
 <span id="cb1-34"><a href="#cb1-34"></a></span>
-<span id="cb1-35"><a href="#cb1-35"></a><span class="ss">- </span>**Probabilidad y máxima verosimilitud:** <span class="co">[</span><span class="ot">Probabilidad y estadística</span><span class="co">](fundamentos/probabilidad-estadistica.qmd)</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a><span class="ss">- </span>**Random Forest y observaciones OOB:** <span class="co">[</span><span class="ot">Random Forest</span><span class="co">](clasificacion/random-forest.qmd)</span></span>
-<span id="cb1-37"><a href="#cb1-37"></a><span class="ss">- </span>**Redes neuronales y retropropagación:** <span class="co">[</span><span class="ot">Redes neuronales</span><span class="co">](clasificacion/redes-neuronales.qmd)</span></span>
-<span id="cb1-38"><a href="#cb1-38"></a><span class="ss">- </span>**Reglas de asociación, soporte, confianza y lift:** <span class="co">[</span><span class="ot">Reglas de asociación</span><span class="co">](no-supervisado/reglas-asociacion.qmd)</span></span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="ss">- </span>**Regularización, Ridge y Lasso:** <span class="co">[</span><span class="ot">Regularización</span><span class="co">](aprendizaje/regularizacion.qmd)</span></span>
-<span id="cb1-40"><a href="#cb1-40"></a><span class="ss">- </span>**Regresión lineal:** <span class="co">[</span><span class="ot">Regresión lineal simple</span><span class="co">](regresion/regresion-lineal-simple.qmd)</span></span>
-<span id="cb1-41"><a href="#cb1-41"></a><span class="ss">- </span>**Regresión logística y odds:** <span class="co">[</span><span class="ot">Regresión logística</span><span class="co">](regresion/regresion-logistica.qmd)</span></span>
-<span id="cb1-42"><a href="#cb1-42"></a><span class="ss">- </span>**Validación cruzada y métricas:** <span class="co">[</span><span class="ot">Evaluación de modelos</span><span class="co">](aprendizaje/evaluacion-modelos.qmd)</span></span>
-<span id="cb1-43"><a href="#cb1-43"></a></span>
-<span id="cb1-44"><a href="#cb1-44"></a>:::</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="fu">## N–R {.unnumbered}</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="ss">- </span>**Neurona artificial:** suma ponderada, sesgo y activación. Véase **Redes neuronales**.</span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="ss">- </span>**Odds y logit:** formulación de la regresión logística. Véase **Regresión logística**.</span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="ss">- </span>**Optimización:** gradiente, descenso, convexidad y condiciones de optimalidad. Véase **Cálculo y optimización**.</span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="ss">- </span>**Pérdida 0-1:** criterio de error en clasificación. Véase **Teoría de clasificación**.</span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="ss">- </span>**Probabilidad condicional y Bayes:** base de inferencia y clasificación probabilística. Véase **Probabilidad y estadística**.</span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="ss">- </span>**Random Forest:** ensamble de árboles con bootstrap y selección aleatoria de variables. Véase **Random Forest**.</span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="ss">- </span>**Reglas de asociación:** soporte, confianza y lift. Véase **Reglas de asociación**.</span>
+<span id="cb1-44"><a href="#cb1-44"></a><span class="ss">- </span>**Regresión lineal:** estimación por mínimos cuadrados. Véase **Regresión lineal simple** y **Regresión lineal múltiple**.</span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="ss">- </span>**Regresión logística:** modelo lineal generalizado para clasificación binaria. Véase **Regresión logística**.</span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="ss">- </span>**Regularización:** control de complejidad del modelo. Véase **Regularización**.</span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="ss">- </span>**Riesgo empírico y riesgo esperado:** nociones centrales del aprendizaje supervisado. Véase **Aprendizaje supervisado**.</span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a><span class="fu">## S–Z {.unnumbered}</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a></span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="ss">- </span>**Series de tiempo:** dependencia temporal, autocorrelación y predicción. Véase **Series de tiempo**.</span>
+<span id="cb1-52"><a href="#cb1-52"></a><span class="ss">- </span>**Silueta:** medida de calidad para agrupamiento. Véase **K-means**.</span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="ss">- </span>**Soporte:** frecuencia de aparición en reglas de asociación. Véase **Reglas de asociación**.</span>
+<span id="cb1-54"><a href="#cb1-54"></a><span class="ss">- </span>**SVM:** margen máximo, vectores de soporte y kernels. Véase **SVM**.</span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="ss">- </span>**Validación cruzada:** estimación del error fuera de muestra. Véase **Evaluación de modelos**.</span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="ss">- </span>**Valores singulares:** base del análisis matricial y de PCA. Véase **Álgebra lineal**.</span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="ss">- </span>**Vectores de soporte:** observaciones críticas que definen la frontera SVM. Véase **SVM**.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1158,7 +1208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>MI Jesús Gilberto Rodríguez Escobedo</p>
+<p>Jesús Gilberto Rodríguez Escobedo</p>
 </div>
   </div>
 </footer>

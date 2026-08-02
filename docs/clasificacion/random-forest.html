@@ -367,7 +367,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Descargar el libro en PDF</span></a>
+ <span class="menu-text">Bienvenida</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -648,6 +654,7 @@ window.Quarto = {
   <li><a href="#ejemplo-de-bootstrap" id="toc-ejemplo-de-bootstrap" class="nav-link" data-scroll-target="#ejemplo-de-bootstrap">Ejemplo de bootstrap</a></li>
   <li><a href="#ejemplo-de-votación" id="toc-ejemplo-de-votación" class="nav-link" data-scroll-target="#ejemplo-de-votación">Ejemplo de votación</a></li>
   <li><a href="#ejemplo-de-regresión" id="toc-ejemplo-de-regresión" class="nav-link" data-scroll-target="#ejemplo-de-regresión">Ejemplo de regresión</a></li>
+  <li><a href="#seudocódigo-formal" id="toc-seudocódigo-formal" class="nav-link" data-scroll-target="#seudocódigo-formal">Seudocódigo formal</a></li>
   <li><a href="#ventajas" id="toc-ventajas" class="nav-link" data-scroll-target="#ventajas">Ventajas</a></li>
   <li><a href="#limitaciones" id="toc-limitaciones" class="nav-link" data-scroll-target="#limitaciones">Limitaciones</a></li>
   <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes">Errores frecuentes</a></li>
@@ -1204,6 +1211,38 @@ A,\;A,\;B,\;A,\;B,\;A,\;A,
 <p><span class="math display">\[
 \widehat{f}_{RF}(\mathbf{x})=12.
 \]</span></p>
+</section>
+<section id="seudocódigo-formal" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="seudocódigo-formal">Seudocódigo formal</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Seudocódigo matemático formal">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Seudocódigo matemático formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>Algoritmo Random-Forest</span>
+<span id="cb2-2"><a href="#cb2-2"></a>Entrada:</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  D = {(x_i, y_i)}_{i=1}^n, número de árboles B, número de variables m</span>
+<span id="cb2-4"><a href="#cb2-4"></a>Salida:</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  bosque {T_b}_{b=1}^B</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>Para b = 1,...,B:</span>
+<span id="cb2-8"><a href="#cb2-8"></a>1. Generar una muestra bootstrap D^{(b)} a partir de D.</span>
+<span id="cb2-9"><a href="#cb2-9"></a>2. Construir un árbol T_b sobre D^{(b)}:</span>
+<span id="cb2-10"><a href="#cb2-10"></a>   a) en cada nodo seleccionar aleatoriamente m variables;</span>
+<span id="cb2-11"><a href="#cb2-11"></a>   b) elegir la mejor partición sólo entre esas m variables;</span>
+<span id="cb2-12"><a href="#cb2-12"></a>   c) crecer el árbol hasta el criterio de parada establecido.</span>
+<span id="cb2-13"><a href="#cb2-13"></a>Predicción:</span>
+<span id="cb2-14"><a href="#cb2-14"></a>3. Para clasificación:</span>
+<span id="cb2-15"><a href="#cb2-15"></a>      \hat y(x) = voto mayoritario{T_b(x)}_{b=1}^B.</span>
+<span id="cb2-16"><a href="#cb2-16"></a>   Para regresión:</span>
+<span id="cb2-17"><a href="#cb2-17"></a>      \hat f(x) = (1/B)\sum_{b=1}^B T_b(x).</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </section>
 <section id="ventajas" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ventajas">Ventajas</h2>
@@ -1853,702 +1892,726 @@ James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. <em>An 
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu"># Random Forest\index{Random Forest} {#sec-random-forest}</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">## Introducción {.unnumbered}</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>Random Forest combina árboles construidos con muestras bootstrap y selección aleatoria de variables. La aleatorización reduce la correlación entre árboles y la promediación disminuye la varianza del ensamble <span class="co">[</span><span class="ot">@breiman2001random; @hastie2009elements</span><span class="co">]</span>.</span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a>Random Forest es un método de ensamble que combina muchos árboles de decisión construidos sobre muestras bootstrap y con selección aleatoria de variables en cada división. Su propósito principal es reducir la alta varianza de los árboles individuales sin perder su capacidad para representar relaciones no lineales e interacciones complejas.</span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a>Un árbol profundo suele tener bajo sesgo y alta varianza. Random Forest disminuye la varianza mediante promediación. Sin embargo, para que esta reducción sea efectiva, los árboles deben ser no solo precisos, sino también poco correlacionados. La selección aleatoria de variables en cada nodo cumple precisamente esta función: introduce diversidad entre árboles.</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a>El método puede utilizarse tanto en clasificación como en regresión. Además, proporciona estimaciones internas del error mediante observaciones out-of-bag, medidas de importancia de variables y herramientas para analizar proximidad entre observaciones.</span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a>::: {.callout-important title="Definición esencial" appearance="default" icon="true"}</span>
-<span id="cb2-14"><a href="#cb2-14"></a>Random Forest combina muchos árboles aleatorizados para reducir varianza.</span>
-<span id="cb2-15"><a href="#cb2-15"></a>:::</span>
-<span id="cb2-16"><a href="#cb2-16"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="fu">## Objetivos {.unnumbered}</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a></span>
-<span id="cb2-19"><a href="#cb2-19"></a>Al finalizar el capítulo, el lector podrá:</span>
-<span id="cb2-20"><a href="#cb2-20"></a></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="ss">1. </span>explicar la idea de ensamble;</span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="ss">2. </span>formular el método bagging;</span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="ss">3. </span>comprender el muestreo bootstrap;</span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="ss">4. </span>definir observaciones out-of-bag;</span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="ss">5. </span>formular Random Forest para clasificación y regresión;</span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="ss">6. </span>interpretar el papel del número de árboles;</span>
-<span id="cb2-27"><a href="#cb2-27"></a><span class="ss">7. </span>interpretar el hiperparámetro <span class="in">`mtry`</span>;</span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="ss">8. </span>analizar la reducción de varianza;</span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="ss">9. </span>comprender el efecto de la correlación entre árboles;</span>
-<span id="cb2-30"><a href="#cb2-30"></a><span class="ss">10. </span>calcular error out-of-bag;</span>
-<span id="cb2-31"><a href="#cb2-31"></a><span class="ss">11. </span>interpretar importancia por impureza;</span>
-<span id="cb2-32"><a href="#cb2-32"></a><span class="ss">12. </span>interpretar importancia por permutación;</span>
-<span id="cb2-33"><a href="#cb2-33"></a><span class="ss">13. </span>reconocer sesgos de las medidas de importancia;</span>
-<span id="cb2-34"><a href="#cb2-34"></a><span class="ss">14. </span>analizar proximidades;</span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="ss">15. </span>estudiar consistencia, sesgo y varianza;</span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="ss">16. </span>comparar Random Forest con árboles individuales y boosting.</span>
-<span id="cb2-37"><a href="#cb2-37"></a></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="fu">## Ensambles {.unnumbered}</span></span>
-<span id="cb2-39"><a href="#cb2-39"></a></span>
-<span id="cb2-40"><a href="#cb2-40"></a>::: {#def-ensamble}</span>
-<span id="cb2-41"><a href="#cb2-41"></a>Un ensamble combina las predicciones de varios modelos base para producir una predicción final.</span>
-<span id="cb2-42"><a href="#cb2-42"></a>:::</span>
-<span id="cb2-43"><a href="#cb2-43"></a></span>
-<span id="cb2-44"><a href="#cb2-44"></a>Sea</span>
-<span id="cb2-45"><a href="#cb2-45"></a></span>
-<span id="cb2-46"><a href="#cb2-46"></a>$$</span>
-<span id="cb2-47"><a href="#cb2-47"></a>\widehat{f}^{(1)}(\mathbf{x}),\ldots,\widehat{f}^{(B)}(\mathbf{x})</span>
-<span id="cb2-48"><a href="#cb2-48"></a>$$</span>
-<span id="cb2-49"><a href="#cb2-49"></a></span>
-<span id="cb2-50"><a href="#cb2-50"></a>un conjunto de modelos.</span>
-<span id="cb2-51"><a href="#cb2-51"></a></span>
-<span id="cb2-52"><a href="#cb2-52"></a>En regresión,</span>
-<span id="cb2-53"><a href="#cb2-53"></a></span>
-<span id="cb2-54"><a href="#cb2-54"></a>$$</span>
-<span id="cb2-55"><a href="#cb2-55"></a>\widehat{f}_{ens}(\mathbf{x})</span>
-<span id="cb2-56"><a href="#cb2-56"></a>=</span>
-<span id="cb2-57"><a href="#cb2-57"></a>\frac{1}{B}\sum_{b=1}^{B}\widehat{f}^{(b)}(\mathbf{x}).</span>
-<span id="cb2-58"><a href="#cb2-58"></a>$$</span>
-<span id="cb2-59"><a href="#cb2-59"></a></span>
-<span id="cb2-60"><a href="#cb2-60"></a>En clasificación,</span>
-<span id="cb2-61"><a href="#cb2-61"></a></span>
-<span id="cb2-62"><a href="#cb2-62"></a>$$</span>
-<span id="cb2-63"><a href="#cb2-63"></a>\widehat{g}_{ens}(\mathbf{x})</span>
-<span id="cb2-64"><a href="#cb2-64"></a>=</span>
-<span id="cb2-65"><a href="#cb2-65"></a>\operatorname{mode}</span>
-<span id="cb2-66"><a href="#cb2-66"></a>\left<span class="sc">\{</span></span>
-<span id="cb2-67"><a href="#cb2-67"></a>\widehat{g}^{(1)}(\mathbf{x}),\ldots,\widehat{g}^{(B)}(\mathbf{x})</span>
-<span id="cb2-68"><a href="#cb2-68"></a>\right<span class="sc">\}</span>.</span>
-<span id="cb2-69"><a href="#cb2-69"></a>$$</span>
-<span id="cb2-70"><a href="#cb2-70"></a></span>
-<span id="cb2-71"><a href="#cb2-71"></a><span class="fu">## Reducción de varianza {.unnumbered}</span></span>
-<span id="cb2-72"><a href="#cb2-72"></a></span>
-<span id="cb2-73"><a href="#cb2-73"></a>Supóngase que cada predictor tiene varianza $\sigma_f^2$ y que la correlación entre dos predictores cualesquiera es $\rho$. La varianza del promedio es aproximadamente</span>
-<span id="cb2-74"><a href="#cb2-74"></a></span>
-<span id="cb2-75"><a href="#cb2-75"></a>$$</span>
-<span id="cb2-76"><a href="#cb2-76"></a>\operatorname{Var}</span>
-<span id="cb2-77"><a href="#cb2-77"></a>\left[</span>
-<span id="cb2-78"><a href="#cb2-78"></a>\frac{1}{B}\sum_{b=1}^{B}\widehat{f}^{(b)}(\mathbf{x})</span>
-<span id="cb2-79"><a href="#cb2-79"></a>\right]</span>
-<span id="cb2-80"><a href="#cb2-80"></a>=</span>
-<span id="cb2-81"><a href="#cb2-81"></a>\rho\sigma_f^2</span>
-<span id="cb2-82"><a href="#cb2-82"></a>+</span>
-<span id="cb2-83"><a href="#cb2-83"></a>\frac{1-\rho}{B}\sigma_f^2.</span>
-<span id="cb2-84"><a href="#cb2-84"></a>$$</span>
-<span id="cb2-85"><a href="#cb2-85"></a></span>
-<span id="cb2-86"><a href="#cb2-86"></a>Cuando $B$ crece,</span>
-<span id="cb2-87"><a href="#cb2-87"></a></span>
-<span id="cb2-88"><a href="#cb2-88"></a>$$</span>
-<span id="cb2-89"><a href="#cb2-89"></a>\operatorname{Var}\to\rho\sigma_f^2.</span>
-<span id="cb2-90"><a href="#cb2-90"></a>$$</span>
-<span id="cb2-91"><a href="#cb2-91"></a></span>
-<span id="cb2-92"><a href="#cb2-92"></a>Por tanto, aumentar el número de modelos reduce una parte de la varianza, pero la correlación entre modelos limita la reducción total.</span>
-<span id="cb2-93"><a href="#cb2-93"></a></span>
-<span id="cb2-94"><a href="#cb2-94"></a><span class="fu">## Bagging {.unnumbered}</span></span>
-<span id="cb2-95"><a href="#cb2-95"></a></span>
-<span id="cb2-96"><a href="#cb2-96"></a>Bagging significa *Bootstrap Aggregating*. El procedimiento es:</span>
-<span id="cb2-97"><a href="#cb2-97"></a></span>
-<span id="cb2-98"><a href="#cb2-98"></a><span class="ss">1. </span>generar una muestra bootstrap;</span>
-<span id="cb2-99"><a href="#cb2-99"></a><span class="ss">2. </span>ajustar un árbol profundo;</span>
-<span id="cb2-100"><a href="#cb2-100"></a><span class="ss">3. </span>repetir el proceso $B$ veces;</span>
-<span id="cb2-101"><a href="#cb2-101"></a><span class="ss">4. </span>combinar las predicciones.</span>
-<span id="cb2-102"><a href="#cb2-102"></a></span>
-<span id="cb2-103"><a href="#cb2-103"></a>En regresión,</span>
-<span id="cb2-104"><a href="#cb2-104"></a></span>
-<span id="cb2-105"><a href="#cb2-105"></a>$$</span>
-<span id="cb2-106"><a href="#cb2-106"></a>\widehat{f}_{bag}(\mathbf{x})</span>
-<span id="cb2-107"><a href="#cb2-107"></a>=</span>
-<span id="cb2-108"><a href="#cb2-108"></a>\frac{1}{B}\sum_{b=1}^{B}\widehat{f}^{(b)}(\mathbf{x}).</span>
-<span id="cb2-109"><a href="#cb2-109"></a>$$</span>
-<span id="cb2-110"><a href="#cb2-110"></a></span>
-<span id="cb2-111"><a href="#cb2-111"></a>En clasificación,</span>
-<span id="cb2-112"><a href="#cb2-112"></a></span>
-<span id="cb2-113"><a href="#cb2-113"></a>$$</span>
-<span id="cb2-114"><a href="#cb2-114"></a>\widehat{g}_{bag}(\mathbf{x})</span>
-<span id="cb2-115"><a href="#cb2-115"></a>=</span>
-<span id="cb2-116"><a href="#cb2-116"></a>\arg\max_c</span>
-<span id="cb2-117"><a href="#cb2-117"></a>\sum_{b=1}^{B}</span>
-<span id="cb2-118"><a href="#cb2-118"></a>\mathbb{I}</span>
-<span id="cb2-119"><a href="#cb2-119"></a>\left[</span>
-<span id="cb2-120"><a href="#cb2-120"></a>\widehat{g}^{(b)}(\mathbf{x})=c</span>
-<span id="cb2-121"><a href="#cb2-121"></a>\right].</span>
-<span id="cb2-122"><a href="#cb2-122"></a>$$</span>
-<span id="cb2-123"><a href="#cb2-123"></a></span>
-<span id="cb2-124"><a href="#cb2-124"></a><span class="fu">## Muestreo bootstrap {.unnumbered}</span></span>
-<span id="cb2-125"><a href="#cb2-125"></a></span>
-<span id="cb2-126"><a href="#cb2-126"></a>Para cada árbol $b$, se selecciona una muestra</span>
-<span id="cb2-127"><a href="#cb2-127"></a></span>
-<span id="cb2-128"><a href="#cb2-128"></a>$$</span>
-<span id="cb2-129"><a href="#cb2-129"></a>\mathcal{D}^{*(b)}</span>
-<span id="cb2-130"><a href="#cb2-130"></a>$$</span>
-<span id="cb2-131"><a href="#cb2-131"></a></span>
-<span id="cb2-132"><a href="#cb2-132"></a>de tamaño $n$ con reemplazo a partir de la muestra original.</span>
-<span id="cb2-133"><a href="#cb2-133"></a></span>
-<span id="cb2-134"><a href="#cb2-134"></a>La probabilidad de que una observación no sea seleccionada es</span>
-<span id="cb2-135"><a href="#cb2-135"></a></span>
-<span id="cb2-136"><a href="#cb2-136"></a>$$</span>
-<span id="cb2-137"><a href="#cb2-137"></a>\left(1-\frac{1}{n}\right)^n.</span>
-<span id="cb2-138"><a href="#cb2-138"></a>$$</span>
-<span id="cb2-139"><a href="#cb2-139"></a></span>
-<span id="cb2-140"><a href="#cb2-140"></a>Cuando $n$ es grande,</span>
-<span id="cb2-141"><a href="#cb2-141"></a></span>
-<span id="cb2-142"><a href="#cb2-142"></a>$$</span>
-<span id="cb2-143"><a href="#cb2-143"></a>\left(1-\frac{1}{n}\right)^n</span>
-<span id="cb2-144"><a href="#cb2-144"></a>\approx e^{-1}\approx0.368.</span>
-<span id="cb2-145"><a href="#cb2-145"></a>$$</span>
-<span id="cb2-146"><a href="#cb2-146"></a></span>
-<span id="cb2-147"><a href="#cb2-147"></a>Por tanto, aproximadamente el 63.2 por ciento de las observaciones aparece al menos una vez en una muestra bootstrap.</span>
-<span id="cb2-148"><a href="#cb2-148"></a></span>
-<span id="cb2-149"><a href="#cb2-149"></a><span class="fu">## Observaciones out-of-bag {.unnumbered}</span></span>
-<span id="cb2-150"><a href="#cb2-150"></a></span>
-<span id="cb2-151"><a href="#cb2-151"></a>::: {#def-oob}</span>
-<span id="cb2-152"><a href="#cb2-152"></a>Las observaciones que no aparecen en la muestra bootstrap del árbol $b$ se denominan out-of-bag para ese árbol.</span>
-<span id="cb2-153"><a href="#cb2-153"></a>:::</span>
-<span id="cb2-154"><a href="#cb2-154"></a></span>
-<span id="cb2-155"><a href="#cb2-155"></a>El conjunto OOB del árbol $b$ se denota por</span>
-<span id="cb2-156"><a href="#cb2-156"></a></span>
-<span id="cb2-157"><a href="#cb2-157"></a>$$</span>
-<span id="cb2-158"><a href="#cb2-158"></a>\mathcal{O}^{(b)}.</span>
-<span id="cb2-159"><a href="#cb2-159"></a>$$</span>
-<span id="cb2-160"><a href="#cb2-160"></a></span>
-<span id="cb2-161"><a href="#cb2-161"></a>Cada observación queda fuera de aproximadamente el 36.8 por ciento de los árboles.</span>
-<span id="cb2-162"><a href="#cb2-162"></a></span>
-<span id="cb2-163"><a href="#cb2-163"></a><span class="fu">## Error out-of-bag {.unnumbered}</span></span>
-<span id="cb2-164"><a href="#cb2-164"></a></span>
-<span id="cb2-165"><a href="#cb2-165"></a>En regresión, la predicción OOB de la observación $i$ es</span>
-<span id="cb2-166"><a href="#cb2-166"></a></span>
-<span id="cb2-167"><a href="#cb2-167"></a>$$</span>
-<span id="cb2-168"><a href="#cb2-168"></a>\widehat{y}_{i,OOB}</span>
-<span id="cb2-169"><a href="#cb2-169"></a>=</span>
-<span id="cb2-170"><a href="#cb2-170"></a>\frac{1}{B_i}</span>
-<span id="cb2-171"><a href="#cb2-171"></a>\sum_{b:i\in\mathcal{O}^{(b)}}</span>
-<span id="cb2-172"><a href="#cb2-172"></a>\widehat{f}^{(b)}(\mathbf{x}_i).</span>
-<span id="cb2-173"><a href="#cb2-173"></a>$$</span>
-<span id="cb2-174"><a href="#cb2-174"></a></span>
-<span id="cb2-175"><a href="#cb2-175"></a>El error es</span>
-<span id="cb2-176"><a href="#cb2-176"></a></span>
-<span id="cb2-177"><a href="#cb2-177"></a>$$</span>
-<span id="cb2-178"><a href="#cb2-178"></a>MSE_{OOB}</span>
-<span id="cb2-179"><a href="#cb2-179"></a>=</span>
-<span id="cb2-180"><a href="#cb2-180"></a>\frac{1}{n}</span>
-<span id="cb2-181"><a href="#cb2-181"></a>\sum_{i=1}^{n}</span>
-<span id="cb2-182"><a href="#cb2-182"></a>\left(y_i-\widehat{y}_{i,OOB}\right)^2.</span>
-<span id="cb2-183"><a href="#cb2-183"></a>$$</span>
-<span id="cb2-184"><a href="#cb2-184"></a></span>
-<span id="cb2-185"><a href="#cb2-185"></a>En clasificación,</span>
-<span id="cb2-186"><a href="#cb2-186"></a></span>
-<span id="cb2-187"><a href="#cb2-187"></a>$$</span>
-<span id="cb2-188"><a href="#cb2-188"></a>Err_{OOB}</span>
-<span id="cb2-189"><a href="#cb2-189"></a>=</span>
-<span id="cb2-190"><a href="#cb2-190"></a>\frac{1}{n}</span>
-<span id="cb2-191"><a href="#cb2-191"></a>\sum_{i=1}^{n}</span>
-<span id="cb2-192"><a href="#cb2-192"></a>\mathbb{I}</span>
-<span id="cb2-193"><a href="#cb2-193"></a>\left(y_i\neq\widehat{y}_{i,OOB}\right).</span>
-<span id="cb2-194"><a href="#cb2-194"></a>$$</span>
-<span id="cb2-195"><a href="#cb2-195"></a></span>
-<span id="cb2-196"><a href="#cb2-196"></a><span class="fu">## Limitación de bagging {.unnumbered}</span></span>
-<span id="cb2-197"><a href="#cb2-197"></a></span>
-<span id="cb2-198"><a href="#cb2-198"></a>Aunque bagging reduce varianza, los árboles pueden seguir siendo muy correlacionados. Si una variable es dominante, muchos árboles elegirán esa misma variable en la raíz.</span>
-<span id="cb2-199"><a href="#cb2-199"></a></span>
-<span id="cb2-200"><a href="#cb2-200"></a>Random Forest introduce aleatoriedad adicional para reducir esta correlación.</span>
-<span id="cb2-201"><a href="#cb2-201"></a></span>
-<span id="cb2-202"><a href="#cb2-202"></a><span class="fu">## Definición de Random Forest {.unnumbered}</span></span>
-<span id="cb2-203"><a href="#cb2-203"></a></span>
-<span id="cb2-204"><a href="#cb2-204"></a>::: {#def-random-forest}</span>
-<span id="cb2-205"><a href="#cb2-205"></a>Random Forest es un ensamble de árboles construidos mediante muestras bootstrap y selección aleatoria de un subconjunto de variables candidatas en cada nodo.</span>
-<span id="cb2-206"><a href="#cb2-206"></a>:::</span>
-<span id="cb2-207"><a href="#cb2-207"></a></span>
-<span id="cb2-208"><a href="#cb2-208"></a>Para cada árbol:</span>
-<span id="cb2-209"><a href="#cb2-209"></a></span>
-<span id="cb2-210"><a href="#cb2-210"></a><span class="ss">1. </span>se genera una muestra bootstrap;</span>
-<span id="cb2-211"><a href="#cb2-211"></a><span class="ss">2. </span>se inicia un árbol sin podar;</span>
-<span id="cb2-212"><a href="#cb2-212"></a><span class="ss">3. </span>en cada nodo se selecciona aleatoriamente un subconjunto de variables;</span>
-<span id="cb2-213"><a href="#cb2-213"></a><span class="ss">4. </span>se busca la mejor división únicamente dentro de ese subconjunto;</span>
-<span id="cb2-214"><a href="#cb2-214"></a><span class="ss">5. </span>se continúa hasta cumplir una regla de parada;</span>
-<span id="cb2-215"><a href="#cb2-215"></a><span class="ss">6. </span>se combina la predicción con la de los demás árboles.</span>
-<span id="cb2-216"><a href="#cb2-216"></a></span>
-<span id="cb2-217"><a href="#cb2-217"></a><span class="fu">## Parámetro mtry {.unnumbered}</span></span>
-<span id="cb2-218"><a href="#cb2-218"></a></span>
-<span id="cb2-219"><a href="#cb2-219"></a>El número de variables consideradas en cada división se denota por</span>
-<span id="cb2-220"><a href="#cb2-220"></a></span>
-<span id="cb2-221"><a href="#cb2-221"></a>$$</span>
-<span id="cb2-222"><a href="#cb2-222"></a>m_{try}.</span>
-<span id="cb2-223"><a href="#cb2-223"></a>$$</span>
-<span id="cb2-224"><a href="#cb2-224"></a></span>
-<span id="cb2-225"><a href="#cb2-225"></a>Valores iniciales frecuentes son:</span>
-<span id="cb2-226"><a href="#cb2-226"></a></span>
-<span id="cb2-227"><a href="#cb2-227"></a><span class="ss">- </span>clasificación:</span>
-<span id="cb2-228"><a href="#cb2-228"></a>  $$</span>
-<span id="cb2-229"><a href="#cb2-229"></a>  m_{try}\approx\sqrt{p};</span>
-<span id="cb2-230"><a href="#cb2-230"></a>  $$</span>
-<span id="cb2-231"><a href="#cb2-231"></a><span class="ss">- </span>regresión:</span>
-<span id="cb2-232"><a href="#cb2-232"></a>  $$</span>
-<span id="cb2-233"><a href="#cb2-233"></a>  m_{try}\approx\frac{p}{3}.</span>
-<span id="cb2-234"><a href="#cb2-234"></a>  $$</span>
-<span id="cb2-235"><a href="#cb2-235"></a></span>
-<span id="cb2-236"><a href="#cb2-236"></a>Estas son reglas prácticas, no valores universales.</span>
-<span id="cb2-237"><a href="#cb2-237"></a></span>
-<span id="cb2-238"><a href="#cb2-238"></a><span class="fu">## Efecto de mtry {.unnumbered}</span></span>
-<span id="cb2-239"><a href="#cb2-239"></a></span>
-<span id="cb2-240"><a href="#cb2-240"></a>Si $m_{try}=p$, Random Forest se aproxima a bagging.</span>
-<span id="cb2-241"><a href="#cb2-241"></a></span>
-<span id="cb2-242"><a href="#cb2-242"></a>Si $m_{try}$ es pequeño:</span>
-<span id="cb2-243"><a href="#cb2-243"></a></span>
-<span id="cb2-244"><a href="#cb2-244"></a><span class="ss">- </span>disminuye la correlación entre árboles;</span>
-<span id="cb2-245"><a href="#cb2-245"></a><span class="ss">- </span>puede aumentar el sesgo;</span>
-<span id="cb2-246"><a href="#cb2-246"></a><span class="ss">- </span>aumenta la diversidad.</span>
-<span id="cb2-247"><a href="#cb2-247"></a></span>
-<span id="cb2-248"><a href="#cb2-248"></a>Si $m_{try}$ es grande:</span>
-<span id="cb2-249"><a href="#cb2-249"></a></span>
-<span id="cb2-250"><a href="#cb2-250"></a><span class="ss">- </span>cada árbol puede ser más fuerte;</span>
-<span id="cb2-251"><a href="#cb2-251"></a><span class="ss">- </span>aumenta la correlación;</span>
-<span id="cb2-252"><a href="#cb2-252"></a><span class="ss">- </span>puede disminuir el beneficio de la promediación.</span>
-<span id="cb2-253"><a href="#cb2-253"></a></span>
-<span id="cb2-254"><a href="#cb2-254"></a><span class="fu">## Número de árboles {.unnumbered}</span></span>
-<span id="cb2-255"><a href="#cb2-255"></a></span>
-<span id="cb2-256"><a href="#cb2-256"></a>El número de árboles se denota por $B$. A diferencia de boosting, aumentar $B$ no suele producir sobreajuste importante. El error tiende a estabilizarse, aunque el tiempo y la memoria aumentan.</span>
-<span id="cb2-257"><a href="#cb2-257"></a></span>
-<span id="cb2-258"><a href="#cb2-258"></a><span class="fu">## Clasificación {.unnumbered}</span></span>
-<span id="cb2-259"><a href="#cb2-259"></a></span>
-<span id="cb2-260"><a href="#cb2-260"></a>La predicción es</span>
-<span id="cb2-261"><a href="#cb2-261"></a></span>
-<span id="cb2-262"><a href="#cb2-262"></a>$$</span>
-<span id="cb2-263"><a href="#cb2-263"></a>\widehat{g}_{RF}(\mathbf{x})</span>
-<span id="cb2-264"><a href="#cb2-264"></a>=</span>
-<span id="cb2-265"><a href="#cb2-265"></a>\arg\max_c</span>
-<span id="cb2-266"><a href="#cb2-266"></a>\sum_{b=1}^{B}</span>
-<span id="cb2-267"><a href="#cb2-267"></a>\mathbb{I}</span>
-<span id="cb2-268"><a href="#cb2-268"></a>\left[</span>
-<span id="cb2-269"><a href="#cb2-269"></a>\widehat{g}^{(b)}(\mathbf{x})=c</span>
-<span id="cb2-270"><a href="#cb2-270"></a>\right].</span>
-<span id="cb2-271"><a href="#cb2-271"></a>$$</span>
-<span id="cb2-272"><a href="#cb2-272"></a></span>
-<span id="cb2-273"><a href="#cb2-273"></a>La proporción de votos puede utilizarse como estimación probabilística:</span>
-<span id="cb2-274"><a href="#cb2-274"></a></span>
-<span id="cb2-275"><a href="#cb2-275"></a>$$</span>
-<span id="cb2-276"><a href="#cb2-276"></a>\widehat{P}(Y=c\mid\mathbf{x})</span>
-<span id="cb2-277"><a href="#cb2-277"></a>=</span>
-<span id="cb2-278"><a href="#cb2-278"></a>\frac{1}{B}</span>
-<span id="cb2-279"><a href="#cb2-279"></a>\sum_{b=1}^{B}</span>
-<span id="cb2-280"><a href="#cb2-280"></a>\mathbb{I}</span>
-<span id="cb2-281"><a href="#cb2-281"></a>\left[</span>
-<span id="cb2-282"><a href="#cb2-282"></a>\widehat{g}^{(b)}(\mathbf{x})=c</span>
-<span id="cb2-283"><a href="#cb2-283"></a>\right].</span>
-<span id="cb2-284"><a href="#cb2-284"></a>$$</span>
-<span id="cb2-285"><a href="#cb2-285"></a></span>
-<span id="cb2-286"><a href="#cb2-286"></a><span class="fu">## Regresión {.unnumbered}</span></span>
-<span id="cb2-287"><a href="#cb2-287"></a></span>
-<span id="cb2-288"><a href="#cb2-288"></a>La predicción es</span>
-<span id="cb2-289"><a href="#cb2-289"></a></span>
-<span id="cb2-290"><a href="#cb2-290"></a>$$</span>
-<span id="cb2-291"><a href="#cb2-291"></a>\widehat{f}_{RF}(\mathbf{x})</span>
-<span id="cb2-292"><a href="#cb2-292"></a>=</span>
-<span id="cb2-293"><a href="#cb2-293"></a>\frac{1}{B}</span>
-<span id="cb2-294"><a href="#cb2-294"></a>\sum_{b=1}^{B}</span>
-<span id="cb2-295"><a href="#cb2-295"></a>\widehat{f}^{(b)}(\mathbf{x}).</span>
-<span id="cb2-296"><a href="#cb2-296"></a>$$</span>
-<span id="cb2-297"><a href="#cb2-297"></a></span>
-<span id="cb2-298"><a href="#cb2-298"></a><span class="fu">## Fuerza y correlación {.unnumbered}</span></span>
-<span id="cb2-299"><a href="#cb2-299"></a></span>
-<span id="cb2-300"><a href="#cb2-300"></a>El desempeño del bosque depende de:</span>
-<span id="cb2-301"><a href="#cb2-301"></a></span>
-<span id="cb2-302"><a href="#cb2-302"></a><span class="ss">- </span>la fuerza predictiva de los árboles;</span>
-<span id="cb2-303"><a href="#cb2-303"></a><span class="ss">- </span>la correlación entre ellos.</span>
-<span id="cb2-304"><a href="#cb2-304"></a></span>
-<span id="cb2-305"><a href="#cb2-305"></a>Un bosque mejora cuando los árboles son suficientemente precisos y al mismo tiempo poco correlacionados.</span>
-<span id="cb2-306"><a href="#cb2-306"></a></span>
-<span id="cb2-307"><a href="#cb2-307"></a><span class="fu">## Margen de clasificación {.unnumbered}</span></span>
-<span id="cb2-308"><a href="#cb2-308"></a></span>
-<span id="cb2-309"><a href="#cb2-309"></a>Defina</span>
-<span id="cb2-310"><a href="#cb2-310"></a></span>
-<span id="cb2-311"><a href="#cb2-311"></a>$$</span>
-<span id="cb2-312"><a href="#cb2-312"></a>\widehat{P}_B(c\mid\mathbf{x})</span>
-<span id="cb2-313"><a href="#cb2-313"></a>=</span>
-<span id="cb2-314"><a href="#cb2-314"></a>\frac{1}{B}</span>
-<span id="cb2-315"><a href="#cb2-315"></a>\sum_{b=1}^{B}</span>
-<span id="cb2-316"><a href="#cb2-316"></a>\mathbb{I}</span>
-<span id="cb2-317"><a href="#cb2-317"></a>\left[</span>
-<span id="cb2-318"><a href="#cb2-318"></a>\widehat{g}^{(b)}(\mathbf{x})=c</span>
-<span id="cb2-319"><a href="#cb2-319"></a>\right].</span>
-<span id="cb2-320"><a href="#cb2-320"></a>$$</span>
-<span id="cb2-321"><a href="#cb2-321"></a></span>
-<span id="cb2-322"><a href="#cb2-322"></a>El margen es</span>
-<span id="cb2-323"><a href="#cb2-323"></a></span>
-<span id="cb2-324"><a href="#cb2-324"></a>$$</span>
-<span id="cb2-325"><a href="#cb2-325"></a>mg(\mathbf{x},y)</span>
-<span id="cb2-326"><a href="#cb2-326"></a>=</span>
-<span id="cb2-327"><a href="#cb2-327"></a>\widehat{P}_B(y\mid\mathbf{x})</span>
-<span id="cb2-328"><a href="#cb2-328"></a>-</span>
-<span id="cb2-329"><a href="#cb2-329"></a>\max_{c\neq y}\widehat{P}_B(c\mid\mathbf{x}).</span>
-<span id="cb2-330"><a href="#cb2-330"></a>$$</span>
-<span id="cb2-331"><a href="#cb2-331"></a></span>
-<span id="cb2-332"><a href="#cb2-332"></a>Un margen positivo indica clasificación correcta.</span>
-<span id="cb2-333"><a href="#cb2-333"></a></span>
-<span id="cb2-334"><a href="#cb2-334"></a><span class="fu">## Importancia por impureza {.unnumbered}</span></span>
-<span id="cb2-335"><a href="#cb2-335"></a></span>
-<span id="cb2-336"><a href="#cb2-336"></a>La importancia de la variable $j$ puede definirse como</span>
-<span id="cb2-337"><a href="#cb2-337"></a></span>
-<span id="cb2-338"><a href="#cb2-338"></a>$$</span>
-<span id="cb2-339"><a href="#cb2-339"></a>MDI_j</span>
-<span id="cb2-340"><a href="#cb2-340"></a>=</span>
-<span id="cb2-341"><a href="#cb2-341"></a>\frac{1}{B}</span>
-<span id="cb2-342"><a href="#cb2-342"></a>\sum_{b=1}^{B}</span>
-<span id="cb2-343"><a href="#cb2-343"></a>\sum_{t\in T_b:v(t)=j}</span>
-<span id="cb2-344"><a href="#cb2-344"></a>\frac{n_t}{n}\Delta I_t.</span>
-<span id="cb2-345"><a href="#cb2-345"></a>$$</span>
-<span id="cb2-346"><a href="#cb2-346"></a></span>
-<span id="cb2-347"><a href="#cb2-347"></a>Esta medida se conoce como *Mean Decrease in Impurity*.</span>
-<span id="cb2-348"><a href="#cb2-348"></a></span>
-<span id="cb2-349"><a href="#cb2-349"></a><span class="fu">## Sesgo de la importancia por impureza {.unnumbered}</span></span>
-<span id="cb2-350"><a href="#cb2-350"></a></span>
-<span id="cb2-351"><a href="#cb2-351"></a>MDI puede favorecer variables continuas, con muchos valores distintos o categóricas con muchos niveles. No debe interpretarse como evidencia causal.</span>
-<span id="cb2-352"><a href="#cb2-352"></a></span>
-<span id="cb2-353"><a href="#cb2-353"></a><span class="fu">## Importancia por permutación {.unnumbered}</span></span>
-<span id="cb2-354"><a href="#cb2-354"></a></span>
-<span id="cb2-355"><a href="#cb2-355"></a>La importancia por permutación compara el error OOB antes y después de permutar una variable:</span>
-<span id="cb2-356"><a href="#cb2-356"></a></span>
-<span id="cb2-357"><a href="#cb2-357"></a>$$</span>
-<span id="cb2-358"><a href="#cb2-358"></a>MDA_j</span>
-<span id="cb2-359"><a href="#cb2-359"></a>=</span>
-<span id="cb2-360"><a href="#cb2-360"></a>Err_{OOB}^{perm(j)}</span>
-<span id="cb2-361"><a href="#cb2-361"></a>-</span>
-<span id="cb2-362"><a href="#cb2-362"></a>Err_{OOB}^{base}.</span>
-<span id="cb2-363"><a href="#cb2-363"></a>$$</span>
-<span id="cb2-364"><a href="#cb2-364"></a></span>
-<span id="cb2-365"><a href="#cb2-365"></a>También se conoce como *Mean Decrease in Accuracy*.</span>
-<span id="cb2-366"><a href="#cb2-366"></a></span>
-<span id="cb2-367"><a href="#cb2-367"></a><span class="fu">## Variables correlacionadas {.unnumbered}</span></span>
-<span id="cb2-368"><a href="#cb2-368"></a></span>
-<span id="cb2-369"><a href="#cb2-369"></a>Si dos variables contienen información semejante, permutar una puede producir un aumento pequeño del error porque la otra conserva parte de la señal. La importancia puede repartirse entre variables correlacionadas.</span>
-<span id="cb2-370"><a href="#cb2-370"></a></span>
-<span id="cb2-371"><a href="#cb2-371"></a><span class="fu">## Proximidades {.unnumbered}</span></span>
-<span id="cb2-372"><a href="#cb2-372"></a></span>
-<span id="cb2-373"><a href="#cb2-373"></a>Random Forest puede definir una proximidad entre observaciones:</span>
-<span id="cb2-374"><a href="#cb2-374"></a></span>
-<span id="cb2-375"><a href="#cb2-375"></a>$$</span>
-<span id="cb2-376"><a href="#cb2-376"></a>Prox(i,j)</span>
-<span id="cb2-377"><a href="#cb2-377"></a>=</span>
-<span id="cb2-378"><a href="#cb2-378"></a>\frac{1}{B}</span>
-<span id="cb2-379"><a href="#cb2-379"></a>\sum_{b=1}^{B}</span>
-<span id="cb2-380"><a href="#cb2-380"></a>\mathbb{I}</span>
-<span id="cb2-381"><a href="#cb2-381"></a>\left[</span>
-<span id="cb2-382"><a href="#cb2-382"></a>\mathbf{x}_i</span>
-<span id="cb2-383"><a href="#cb2-383"></a>\text{ y }</span>
-<span id="cb2-384"><a href="#cb2-384"></a>\mathbf{x}_j</span>
-<span id="cb2-385"><a href="#cb2-385"></a>\text{ terminan en la misma hoja}</span>
-<span id="cb2-386"><a href="#cb2-386"></a>\right].</span>
-<span id="cb2-387"><a href="#cb2-387"></a>$$</span>
-<span id="cb2-388"><a href="#cb2-388"></a></span>
-<span id="cb2-389"><a href="#cb2-389"></a>Puede utilizarse para visualización, detección de valores atípicos, agrupamiento e imputación.</span>
-<span id="cb2-390"><a href="#cb2-390"></a></span>
-<span id="cb2-391"><a href="#cb2-391"></a><span class="fu">## Desbalance de clases {.unnumbered}</span></span>
-<span id="cb2-392"><a href="#cb2-392"></a></span>
-<span id="cb2-393"><a href="#cb2-393"></a>Random Forest puede favorecer la clase mayoritaria. Algunas estrategias son:</span>
-<span id="cb2-394"><a href="#cb2-394"></a></span>
-<span id="cb2-395"><a href="#cb2-395"></a><span class="ss">- </span>pesos por clase;</span>
-<span id="cb2-396"><a href="#cb2-396"></a><span class="ss">- </span>bootstrap balanceado;</span>
-<span id="cb2-397"><a href="#cb2-397"></a><span class="ss">- </span>submuestreo de la clase mayoritaria;</span>
-<span id="cb2-398"><a href="#cb2-398"></a><span class="ss">- </span>ajuste del umbral;</span>
-<span id="cb2-399"><a href="#cb2-399"></a><span class="ss">- </span>Balanced Random Forest.</span>
-<span id="cb2-400"><a href="#cb2-400"></a></span>
-<span id="cb2-401"><a href="#cb2-401"></a><span class="fu">## Probabilidades y calibración {.unnumbered}</span></span>
-<span id="cb2-402"><a href="#cb2-402"></a></span>
-<span id="cb2-403"><a href="#cb2-403"></a>La proporción de votos se interpreta frecuentemente como probabilidad, pero puede no estar bien calibrada. Puede ser necesario aplicar calibración de Platt, regresión isotónica o validación cruzada.</span>
-<span id="cb2-404"><a href="#cb2-404"></a></span>
-<span id="cb2-405"><a href="#cb2-405"></a><span class="fu">## Variables categóricas y datos faltantes {.unnumbered}</span></span>
-<span id="cb2-406"><a href="#cb2-406"></a></span>
-<span id="cb2-407"><a href="#cb2-407"></a>El tratamiento depende de la implementación. Pueden utilizarse imputación, categorías especiales o codificación. Todo preprocesamiento debe aprenderse únicamente con los datos de entrenamiento.</span>
-<span id="cb2-408"><a href="#cb2-408"></a></span>
-<span id="cb2-409"><a href="#cb2-409"></a><span class="fu">## Escalamiento {.unnumbered}</span></span>
-<span id="cb2-410"><a href="#cb2-410"></a></span>
-<span id="cb2-411"><a href="#cb2-411"></a>Random Forest no requiere normalmente estandarización, ya que las divisiones dependen del orden dentro de cada variable.</span>
-<span id="cb2-412"><a href="#cb2-412"></a></span>
-<span id="cb2-413"><a href="#cb2-413"></a><span class="fu">## Interacciones {.unnumbered}</span></span>
-<span id="cb2-414"><a href="#cb2-414"></a></span>
-<span id="cb2-415"><a href="#cb2-415"></a>El bosque representa interacciones automáticamente porque cada ruta de un árbol combina múltiples condiciones. Sin embargo, su interpretación es menos transparente que en un árbol individual.</span>
-<span id="cb2-416"><a href="#cb2-416"></a></span>
-<span id="cb2-417"><a href="#cb2-417"></a><span class="fu">## Dependencia parcial {.unnumbered}</span></span>
-<span id="cb2-418"><a href="#cb2-418"></a></span>
-<span id="cb2-419"><a href="#cb2-419"></a>Para una variable $X_j$,</span>
-<span id="cb2-420"><a href="#cb2-420"></a></span>
-<span id="cb2-421"><a href="#cb2-421"></a>$$</span>
-<span id="cb2-422"><a href="#cb2-422"></a>PD_j(x_j)</span>
-<span id="cb2-423"><a href="#cb2-423"></a>=</span>
-<span id="cb2-424"><a href="#cb2-424"></a>\mathbb{E}_{\mathbf{X}_{-j}}</span>
-<span id="cb2-425"><a href="#cb2-425"></a>\left[</span>
-<span id="cb2-426"><a href="#cb2-426"></a>\widehat{f}(x_j,\mathbf{X}_{-j})</span>
-<span id="cb2-427"><a href="#cb2-427"></a>\right].</span>
-<span id="cb2-428"><a href="#cb2-428"></a>$$</span>
-<span id="cb2-429"><a href="#cb2-429"></a></span>
-<span id="cb2-430"><a href="#cb2-430"></a>Su estimación es</span>
-<span id="cb2-431"><a href="#cb2-431"></a></span>
-<span id="cb2-432"><a href="#cb2-432"></a>$$</span>
-<span id="cb2-433"><a href="#cb2-433"></a>\widehat{PD}_j(x_j)</span>
-<span id="cb2-434"><a href="#cb2-434"></a>=</span>
-<span id="cb2-435"><a href="#cb2-435"></a>\frac{1}{n}</span>
-<span id="cb2-436"><a href="#cb2-436"></a>\sum_{i=1}^{n}</span>
-<span id="cb2-437"><a href="#cb2-437"></a>\widehat{f}(x_j,\mathbf{x}_{i,-j}).</span>
-<span id="cb2-438"><a href="#cb2-438"></a>$$</span>
-<span id="cb2-439"><a href="#cb2-439"></a></span>
-<span id="cb2-440"><a href="#cb2-440"></a>Si las variables están correlacionadas, pueden evaluarse combinaciones poco realistas.</span>
-<span id="cb2-441"><a href="#cb2-441"></a></span>
-<span id="cb2-442"><a href="#cb2-442"></a><span class="fu">## Complejidad computacional {.unnumbered}</span></span>
-<span id="cb2-443"><a href="#cb2-443"></a></span>
-<span id="cb2-444"><a href="#cb2-444"></a>El costo depende del número de árboles, observaciones, variables candidatas y profundidad. Los árboles pueden construirse en paralelo porque son independientes.</span>
-<span id="cb2-445"><a href="#cb2-445"></a></span>
-<span id="cb2-446"><a href="#cb2-446"></a><span class="fu">## Sesgo y varianza {.unnumbered}</span></span>
-<span id="cb2-447"><a href="#cb2-447"></a></span>
-<span id="cb2-448"><a href="#cb2-448"></a>Comparado con un árbol individual:</span>
-<span id="cb2-449"><a href="#cb2-449"></a></span>
-<span id="cb2-450"><a href="#cb2-450"></a><span class="ss">- </span>el sesgo puede ser semejante o ligeramente mayor;</span>
-<span id="cb2-451"><a href="#cb2-451"></a><span class="ss">- </span>la varianza suele disminuir considerablemente;</span>
-<span id="cb2-452"><a href="#cb2-452"></a><span class="ss">- </span>la estabilidad aumenta.</span>
-<span id="cb2-453"><a href="#cb2-453"></a></span>
-<span id="cb2-454"><a href="#cb2-454"></a><span class="fu">## Hiperparámetros principales {.unnumbered}</span></span>
-<span id="cb2-455"><a href="#cb2-455"></a></span>
-<span id="cb2-456"><a href="#cb2-456"></a>Los principales son:</span>
-<span id="cb2-457"><a href="#cb2-457"></a></span>
-<span id="cb2-458"><a href="#cb2-458"></a><span class="ss">- </span><span class="in">`ntree`</span>;</span>
-<span id="cb2-459"><a href="#cb2-459"></a><span class="ss">- </span><span class="in">`mtry`</span>;</span>
-<span id="cb2-460"><a href="#cb2-460"></a><span class="ss">- </span>profundidad máxima;</span>
-<span id="cb2-461"><a href="#cb2-461"></a><span class="ss">- </span>tamaño mínimo de hoja;</span>
-<span id="cb2-462"><a href="#cb2-462"></a><span class="ss">- </span>tamaño de muestra por árbol;</span>
-<span id="cb2-463"><a href="#cb2-463"></a><span class="ss">- </span>criterio de división;</span>
-<span id="cb2-464"><a href="#cb2-464"></a><span class="ss">- </span>pesos por clase.</span>
-<span id="cb2-465"><a href="#cb2-465"></a></span>
-<span id="cb2-466"><a href="#cb2-466"></a><span class="fu">## Selección de hiperparámetros {.unnumbered}</span></span>
-<span id="cb2-467"><a href="#cb2-467"></a></span>
-<span id="cb2-468"><a href="#cb2-468"></a>Puede utilizarse error OOB, validación cruzada, búsqueda en rejilla, búsqueda aleatoria u optimización bayesiana. El conjunto de prueba final no debe intervenir.</span>
-<span id="cb2-469"><a href="#cb2-469"></a></span>
-<span id="cb2-470"><a href="#cb2-470"></a><span class="fu">## Pseudocódigo {.unnumbered}</span></span>
-<span id="cb2-471"><a href="#cb2-471"></a></span>
-<span id="cb2-472"><a href="#cb2-472"></a>::: {#def-pseudocodigo-rf}</span>
-<span id="cb2-473"><a href="#cb2-473"></a>Para $b=1,\ldots,B$:</span>
-<span id="cb2-474"><a href="#cb2-474"></a></span>
-<span id="cb2-475"><a href="#cb2-475"></a><span class="ss">1. </span>generar una muestra bootstrap;</span>
-<span id="cb2-476"><a href="#cb2-476"></a><span class="ss">2. </span>hacer crecer un árbol;</span>
-<span id="cb2-477"><a href="#cb2-477"></a><span class="ss">3. </span>seleccionar aleatoriamente $m_{try}$ variables en cada nodo;</span>
-<span id="cb2-478"><a href="#cb2-478"></a><span class="ss">4. </span>elegir la mejor división entre esas variables;</span>
-<span id="cb2-479"><a href="#cb2-479"></a><span class="ss">5. </span>continuar hasta cumplir una regla de parada.</span>
-<span id="cb2-480"><a href="#cb2-480"></a></span>
-<span id="cb2-481"><a href="#cb2-481"></a>Finalmente, promediar en regresión o votar en clasificación.</span>
-<span id="cb2-482"><a href="#cb2-482"></a>:::</span>
-<span id="cb2-483"><a href="#cb2-483"></a></span>
-<span id="cb2-484"><a href="#cb2-484"></a><span class="fu">## Comparación con bagging {.unnumbered}</span></span>
-<span id="cb2-485"><a href="#cb2-485"></a></span>
-<span id="cb2-486"><a href="#cb2-486"></a>Bagging utiliza todas las variables en cada nodo. Random Forest usa un subconjunto aleatorio para reducir correlación entre árboles.</span>
-<span id="cb2-487"><a href="#cb2-487"></a></span>
-<span id="cb2-488"><a href="#cb2-488"></a><span class="fu">## Comparación con boosting {.unnumbered}</span></span>
-<span id="cb2-489"><a href="#cb2-489"></a></span>
-<span id="cb2-490"><a href="#cb2-490"></a>Random Forest construye árboles independientes y es paralelizable. Boosting construye árboles secuencialmente para corregir errores previos.</span>
-<span id="cb2-491"><a href="#cb2-491"></a></span>
-<span id="cb2-492"><a href="#cb2-492"></a><span class="fu">## Comparación con k-NN {.unnumbered}</span></span>
-<span id="cb2-493"><a href="#cb2-493"></a></span>
-<span id="cb2-494"><a href="#cb2-494"></a>Random Forest no requiere escalamiento, tolera mejor alta dimensión y proporciona medidas de importancia. $k$-NN depende fuertemente de la métrica y de la escala.</span>
-<span id="cb2-495"><a href="#cb2-495"></a></span>
-<span id="cb2-496"><a href="#cb2-496"></a><span class="fu">## Conexión con R {.unnumbered}</span></span>
-<span id="cb2-497"><a href="#cb2-497"></a></span>
-<span id="cb2-500"><a href="#cb2-500"></a><span class="in">```{r}</span></span>
-<span id="cb2-501"><a href="#cb2-501"></a><span class="co">#| eval: false</span></span>
-<span id="cb2-502"><a href="#cb2-502"></a></span>
-<span id="cb2-503"><a href="#cb2-503"></a><span class="fu">library</span>(randomForest)</span>
-<span id="cb2-504"><a href="#cb2-504"></a></span>
-<span id="cb2-505"><a href="#cb2-505"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb2-506"><a href="#cb2-506"></a></span>
-<span id="cb2-507"><a href="#cb2-507"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-508"><a href="#cb2-508"></a>  <span class="at">severo =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"Sí"</span>, <span class="st">"Sí"</span>, <span class="st">"Sí"</span>, <span class="st">"No"</span>, <span class="st">"Sí"</span>)),</span>
-<span id="cb2-509"><a href="#cb2-509"></a>  <span class="at">velocidad =</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">42</span>, <span class="dv">48</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">55</span>, <span class="dv">90</span>),</span>
-<span id="cb2-510"><a href="#cb2-510"></a>  <span class="at">noche =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)),</span>
-<span id="cb2-511"><a href="#cb2-511"></a>  <span class="at">lluvia =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb2-512"><a href="#cb2-512"></a>)</span>
-<span id="cb2-513"><a href="#cb2-513"></a></span>
-<span id="cb2-514"><a href="#cb2-514"></a>modelo <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(</span>
-<span id="cb2-515"><a href="#cb2-515"></a>  severo <span class="sc">~</span> velocidad <span class="sc">+</span> noche <span class="sc">+</span> lluvia,</span>
-<span id="cb2-516"><a href="#cb2-516"></a>  <span class="at">data =</span> datos,</span>
-<span id="cb2-517"><a href="#cb2-517"></a>  <span class="at">ntree =</span> <span class="dv">500</span>,</span>
-<span id="cb2-518"><a href="#cb2-518"></a>  <span class="at">mtry =</span> <span class="dv">2</span>,</span>
-<span id="cb2-519"><a href="#cb2-519"></a>  <span class="at">importance =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-520"><a href="#cb2-520"></a>  <span class="at">proximity =</span> <span class="cn">TRUE</span></span>
-<span id="cb2-521"><a href="#cb2-521"></a>)</span>
-<span id="cb2-522"><a href="#cb2-522"></a></span>
-<span id="cb2-523"><a href="#cb2-523"></a>modelo</span>
-<span id="cb2-524"><a href="#cb2-524"></a>modelo<span class="sc">$</span>err.rate</span>
-<span id="cb2-525"><a href="#cb2-525"></a><span class="fu">importance</span>(modelo)</span>
-<span id="cb2-526"><a href="#cb2-526"></a><span class="fu">varImpPlot</span>(modelo)</span>
-<span id="cb2-527"><a href="#cb2-527"></a><span class="fu">predict</span>(modelo, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb2-528"><a href="#cb2-528"></a><span class="fu">predict</span>(modelo, <span class="at">type =</span> <span class="st">"prob"</span>)</span>
-<span id="cb2-529"><a href="#cb2-529"></a>modelo<span class="sc">$</span>proximity</span>
-<span id="cb2-530"><a href="#cb2-530"></a><span class="in">```</span></span>
-<span id="cb2-531"><a href="#cb2-531"></a></span>
-<span id="cb2-532"><a href="#cb2-532"></a><span class="fu">## Ejemplo de bootstrap {.unnumbered}</span></span>
-<span id="cb2-533"><a href="#cb2-533"></a></span>
-<span id="cb2-534"><a href="#cb2-534"></a>Para la muestra</span>
-<span id="cb2-535"><a href="#cb2-535"></a></span>
-<span id="cb2-536"><a href="#cb2-536"></a>$$</span>
-<span id="cb2-537"><a href="#cb2-537"></a><span class="sc">\{</span>1,2,3,4,5<span class="sc">\}</span>,</span>
-<span id="cb2-538"><a href="#cb2-538"></a>$$</span>
-<span id="cb2-539"><a href="#cb2-539"></a></span>
-<span id="cb2-540"><a href="#cb2-540"></a>una muestra bootstrap podría ser</span>
-<span id="cb2-541"><a href="#cb2-541"></a></span>
-<span id="cb2-542"><a href="#cb2-542"></a>$$</span>
-<span id="cb2-543"><a href="#cb2-543"></a><span class="sc">\{</span>2,2,4,5,5<span class="sc">\}</span>.</span>
-<span id="cb2-544"><a href="#cb2-544"></a>$$</span>
-<span id="cb2-545"><a href="#cb2-545"></a></span>
-<span id="cb2-546"><a href="#cb2-546"></a>Las observaciones 1 y 3 son out-of-bag para ese árbol.</span>
-<span id="cb2-547"><a href="#cb2-547"></a></span>
-<span id="cb2-548"><a href="#cb2-548"></a><span class="fu">## Ejemplo de votación {.unnumbered}</span></span>
-<span id="cb2-549"><a href="#cb2-549"></a></span>
-<span id="cb2-550"><a href="#cb2-550"></a>Si siete árboles producen</span>
-<span id="cb2-551"><a href="#cb2-551"></a></span>
-<span id="cb2-552"><a href="#cb2-552"></a>$$</span>
-<span id="cb2-553"><a href="#cb2-553"></a>A,\;A,\;B,\;A,\;B,\;A,\;A,</span>
-<span id="cb2-554"><a href="#cb2-554"></a>$$</span>
-<span id="cb2-555"><a href="#cb2-555"></a></span>
-<span id="cb2-556"><a href="#cb2-556"></a>la clase predicha es $A$, con proporción de votos</span>
-<span id="cb2-557"><a href="#cb2-557"></a></span>
-<span id="cb2-558"><a href="#cb2-558"></a>$$</span>
-<span id="cb2-559"><a href="#cb2-559"></a>\widehat{P}(A\mid\mathbf{x})=\frac{5}{7}.</span>
-<span id="cb2-560"><a href="#cb2-560"></a>$$</span>
-<span id="cb2-561"><a href="#cb2-561"></a></span>
-<span id="cb2-562"><a href="#cb2-562"></a><span class="fu">## Ejemplo de regresión {.unnumbered}</span></span>
-<span id="cb2-563"><a href="#cb2-563"></a></span>
-<span id="cb2-564"><a href="#cb2-564"></a>Si cinco árboles predicen</span>
-<span id="cb2-565"><a href="#cb2-565"></a></span>
-<span id="cb2-566"><a href="#cb2-566"></a>$$</span>
-<span id="cb2-567"><a href="#cb2-567"></a>10,\;12,\;11,\;15,\;12,</span>
-<span id="cb2-568"><a href="#cb2-568"></a>$$</span>
-<span id="cb2-569"><a href="#cb2-569"></a></span>
-<span id="cb2-570"><a href="#cb2-570"></a>la predicción es</span>
-<span id="cb2-571"><a href="#cb2-571"></a></span>
-<span id="cb2-572"><a href="#cb2-572"></a>$$</span>
-<span id="cb2-573"><a href="#cb2-573"></a>\widehat{f}_{RF}(\mathbf{x})=12.</span>
-<span id="cb2-574"><a href="#cb2-574"></a>$$</span>
-<span id="cb2-575"><a href="#cb2-575"></a></span>
-<span id="cb2-576"><a href="#cb2-576"></a><span class="fu">## Ventajas {.unnumbered}</span></span>
-<span id="cb2-577"><a href="#cb2-577"></a></span>
-<span id="cb2-578"><a href="#cb2-578"></a><span class="ss">1. </span>reduce la varianza de los árboles;</span>
-<span id="cb2-579"><a href="#cb2-579"></a><span class="ss">2. </span>maneja relaciones no lineales;</span>
-<span id="cb2-580"><a href="#cb2-580"></a><span class="ss">3. </span>modela interacciones;</span>
-<span id="cb2-581"><a href="#cb2-581"></a><span class="ss">4. </span>no requiere escalamiento;</span>
-<span id="cb2-582"><a href="#cb2-582"></a><span class="ss">5. </span>proporciona error OOB;</span>
-<span id="cb2-583"><a href="#cb2-583"></a><span class="ss">6. </span>funciona en clasificación y regresión;</span>
-<span id="cb2-584"><a href="#cb2-584"></a><span class="ss">7. </span>tolera muchas variables;</span>
-<span id="cb2-585"><a href="#cb2-585"></a><span class="ss">8. </span>es paralelizable.</span>
-<span id="cb2-586"><a href="#cb2-586"></a></span>
-<span id="cb2-587"><a href="#cb2-587"></a><span class="fu">## Limitaciones {.unnumbered}</span></span>
-<span id="cb2-588"><a href="#cb2-588"></a></span>
-<span id="cb2-589"><a href="#cb2-589"></a><span class="ss">1. </span>menor interpretabilidad que un árbol;</span>
-<span id="cb2-590"><a href="#cb2-590"></a><span class="ss">2. </span>mayor costo computacional;</span>
-<span id="cb2-591"><a href="#cb2-591"></a><span class="ss">3. </span>importancia sesgada en ciertos casos;</span>
-<span id="cb2-592"><a href="#cb2-592"></a><span class="ss">4. </span>probabilidades no siempre calibradas;</span>
-<span id="cb2-593"><a href="#cb2-593"></a><span class="ss">5. </span>mayor uso de memoria;</span>
-<span id="cb2-594"><a href="#cb2-594"></a><span class="ss">6. </span>extrapolación pobre en regresión.</span>
-<span id="cb2-595"><a href="#cb2-595"></a></span>
-<span id="cb2-596"><a href="#cb2-596"></a><span class="fu">## Errores frecuentes {.unnumbered}</span></span>
-<span id="cb2-597"><a href="#cb2-597"></a></span>
-<span id="cb2-598"><a href="#cb2-598"></a><span class="ss">1. </span>interpretar importancia como causalidad;</span>
-<span id="cb2-599"><a href="#cb2-599"></a><span class="ss">2. </span>usar solo importancia por impureza;</span>
-<span id="cb2-600"><a href="#cb2-600"></a><span class="ss">3. </span>ignorar variables correlacionadas;</span>
-<span id="cb2-601"><a href="#cb2-601"></a><span class="ss">4. </span>seleccionar hiperparámetros con el conjunto de prueba;</span>
-<span id="cb2-602"><a href="#cb2-602"></a><span class="ss">5. </span>evaluar únicamente exactitud;</span>
-<span id="cb2-603"><a href="#cb2-603"></a><span class="ss">6. </span>ignorar calibración;</span>
-<span id="cb2-604"><a href="#cb2-604"></a><span class="ss">7. </span>omitir clases desbalanceadas;</span>
-<span id="cb2-605"><a href="#cb2-605"></a><span class="ss">8. </span>preprocesar fuera del ciclo de validación.</span>
-<span id="cb2-606"><a href="#cb2-606"></a></span>
-<span id="cb2-607"><a href="#cb2-607"></a><span class="fu">## Ejercicios conceptuales {.unnumbered}</span></span>
-<span id="cb2-608"><a href="#cb2-608"></a></span>
-<span id="cb2-609"><a href="#cb2-609"></a><span class="ss">1. </span>Explique por qué un bosque reduce varianza.</span>
-<span id="cb2-610"><a href="#cb2-610"></a><span class="ss">2. </span>¿Qué función cumple el bootstrap?</span>
-<span id="cb2-611"><a href="#cb2-611"></a><span class="ss">3. </span>¿Qué son las observaciones OOB?</span>
-<span id="cb2-612"><a href="#cb2-612"></a><span class="ss">4. </span>¿Por qué se seleccionan variables aleatoriamente?</span>
-<span id="cb2-613"><a href="#cb2-613"></a><span class="ss">5. </span>¿Qué ocurre si <span class="in">`mtry = p`</span>?</span>
-<span id="cb2-614"><a href="#cb2-614"></a><span class="ss">6. </span>Compare MDI y MDA.</span>
-<span id="cb2-615"><a href="#cb2-615"></a><span class="ss">7. </span>¿Cómo afectan las variables correlacionadas a la importancia?</span>
-<span id="cb2-616"><a href="#cb2-616"></a><span class="ss">8. </span>¿Qué representan las proximidades?</span>
-<span id="cb2-617"><a href="#cb2-617"></a><span class="ss">9. </span>Compare Random Forest y boosting.</span>
-<span id="cb2-618"><a href="#cb2-618"></a><span class="ss">10. </span>¿Por qué no suele requerirse estandarización?</span>
-<span id="cb2-619"><a href="#cb2-619"></a></span>
-<span id="cb2-620"><a href="#cb2-620"></a><span class="fu">## Ejercicio bootstrap {.unnumbered}</span></span>
-<span id="cb2-621"><a href="#cb2-621"></a></span>
-<span id="cb2-622"><a href="#cb2-622"></a>Para una muestra de tamaño $n=200$, calcule aproximadamente:</span>
-<span id="cb2-623"><a href="#cb2-623"></a></span>
-<span id="cb2-624"><a href="#cb2-624"></a><span class="ss">1. </span>la proporción esperada de observaciones OOB;</span>
-<span id="cb2-625"><a href="#cb2-625"></a><span class="ss">2. </span>el número esperado de observaciones OOB por árbol;</span>
-<span id="cb2-626"><a href="#cb2-626"></a><span class="ss">3. </span>el número esperado de observaciones distintas en cada muestra bootstrap.</span>
-<span id="cb2-627"><a href="#cb2-627"></a></span>
-<span id="cb2-628"><a href="#cb2-628"></a><span class="fu">## Ejercicio de varianza {.unnumbered}</span></span>
-<span id="cb2-629"><a href="#cb2-629"></a></span>
-<span id="cb2-630"><a href="#cb2-630"></a>Supóngase</span>
-<span id="cb2-631"><a href="#cb2-631"></a></span>
-<span id="cb2-632"><a href="#cb2-632"></a>$$</span>
-<span id="cb2-633"><a href="#cb2-633"></a>\sigma_f^2=4,</span>
-<span id="cb2-634"><a href="#cb2-634"></a>\qquad</span>
-<span id="cb2-635"><a href="#cb2-635"></a>\rho=0.25,</span>
-<span id="cb2-636"><a href="#cb2-636"></a>\qquad</span>
-<span id="cb2-637"><a href="#cb2-637"></a>B=100.</span>
-<span id="cb2-638"><a href="#cb2-638"></a>$$</span>
-<span id="cb2-639"><a href="#cb2-639"></a></span>
-<span id="cb2-640"><a href="#cb2-640"></a>Calcule la varianza aproximada del promedio y compárela con la varianza de un árbol individual.</span>
-<span id="cb2-641"><a href="#cb2-641"></a></span>
-<span id="cb2-642"><a href="#cb2-642"></a><span class="fu">## Ejercicio de mtry {.unnumbered}</span></span>
-<span id="cb2-643"><a href="#cb2-643"></a></span>
-<span id="cb2-644"><a href="#cb2-644"></a>Para $p=36$ variables:</span>
-<span id="cb2-645"><a href="#cb2-645"></a></span>
-<span id="cb2-646"><a href="#cb2-646"></a><span class="ss">1. </span>proponga un valor inicial para clasificación;</span>
-<span id="cb2-647"><a href="#cb2-647"></a><span class="ss">2. </span>proponga un valor inicial para regresión;</span>
-<span id="cb2-648"><a href="#cb2-648"></a><span class="ss">3. </span>explique qué ocurre si <span class="in">`mtry`</span> es demasiado pequeño;</span>
-<span id="cb2-649"><a href="#cb2-649"></a><span class="ss">4. </span>explique qué ocurre si es demasiado grande.</span>
-<span id="cb2-650"><a href="#cb2-650"></a></span>
-<span id="cb2-651"><a href="#cb2-651"></a><span class="fu">## Ejercicio de importancia {.unnumbered}</span></span>
-<span id="cb2-652"><a href="#cb2-652"></a></span>
-<span id="cb2-653"><a href="#cb2-653"></a><span class="pp">|</span> Variable <span class="pp">|</span> Error base <span class="pp">|</span> Error permutado <span class="pp">|</span></span>
-<span id="cb2-654"><a href="#cb2-654"></a><span class="pp">|---|---:|---:|</span></span>
-<span id="cb2-655"><a href="#cb2-655"></a><span class="pp">|</span> Velocidad <span class="pp">|</span> 0.12 <span class="pp">|</span> 0.25 <span class="pp">|</span></span>
-<span id="cb2-656"><a href="#cb2-656"></a><span class="pp">|</span> Lluvia <span class="pp">|</span> 0.12 <span class="pp">|</span> 0.16 <span class="pp">|</span></span>
-<span id="cb2-657"><a href="#cb2-657"></a><span class="pp">|</span> Hora <span class="pp">|</span> 0.12 <span class="pp">|</span> 0.13 <span class="pp">|</span></span>
-<span id="cb2-658"><a href="#cb2-658"></a><span class="pp">|</span> Viento <span class="pp">|</span> 0.12 <span class="pp">|</span> 0.12 <span class="pp">|</span></span>
-<span id="cb2-659"><a href="#cb2-659"></a></span>
-<span id="cb2-660"><a href="#cb2-660"></a><span class="ss">1. </span>Calcule la importancia por permutación.</span>
-<span id="cb2-661"><a href="#cb2-661"></a><span class="ss">2. </span>Ordene las variables.</span>
-<span id="cb2-662"><a href="#cb2-662"></a><span class="ss">3. </span>Interprete los resultados.</span>
-<span id="cb2-663"><a href="#cb2-663"></a><span class="ss">4. </span>Explique por qué no implican causalidad.</span>
-<span id="cb2-664"><a href="#cb2-664"></a></span>
-<span id="cb2-665"><a href="#cb2-665"></a><span class="fu">## Ejercicio aplicado {.unnumbered}</span></span>
-<span id="cb2-666"><a href="#cb2-666"></a></span>
-<span id="cb2-667"><a href="#cb2-667"></a>Se desea clasificar accidentes severos usando velocidad, hora, vialidad, clima, iluminación, peatones, entidad y municipio.</span>
-<span id="cb2-668"><a href="#cb2-668"></a></span>
-<span id="cb2-669"><a href="#cb2-669"></a>Diseñe un análisis que incluya:</span>
-<span id="cb2-670"><a href="#cb2-670"></a></span>
-<span id="cb2-671"><a href="#cb2-671"></a><span class="ss">1. </span>preparación de datos;</span>
-<span id="cb2-672"><a href="#cb2-672"></a><span class="ss">2. </span>variables categóricas;</span>
-<span id="cb2-673"><a href="#cb2-673"></a><span class="ss">3. </span>selección de <span class="in">`ntree`</span>;</span>
-<span id="cb2-674"><a href="#cb2-674"></a><span class="ss">4. </span>selección de <span class="in">`mtry`</span>;</span>
-<span id="cb2-675"><a href="#cb2-675"></a><span class="ss">5. </span>control de profundidad;</span>
-<span id="cb2-676"><a href="#cb2-676"></a><span class="ss">6. </span>error OOB;</span>
-<span id="cb2-677"><a href="#cb2-677"></a><span class="ss">7. </span>validación cruzada;</span>
-<span id="cb2-678"><a href="#cb2-678"></a><span class="ss">8. </span>sensibilidad y especificidad;</span>
-<span id="cb2-679"><a href="#cb2-679"></a><span class="ss">9. </span>clases desbalanceadas;</span>
-<span id="cb2-680"><a href="#cb2-680"></a><span class="ss">10. </span>importancia por permutación;</span>
-<span id="cb2-681"><a href="#cb2-681"></a><span class="ss">11. </span>calibración;</span>
-<span id="cb2-682"><a href="#cb2-682"></a><span class="ss">12. </span>comparación con árbol individual y regresión logística;</span>
-<span id="cb2-683"><a href="#cb2-683"></a><span class="ss">13. </span>interpretación de proximidades;</span>
-<span id="cb2-684"><a href="#cb2-684"></a><span class="ss">14. </span>limitaciones causales.</span>
-<span id="cb2-685"><a href="#cb2-685"></a></span>
-<span id="cb2-686"><a href="#cb2-686"></a><span class="fu">## Resumen {.unnumbered}</span></span>
-<span id="cb2-687"><a href="#cb2-687"></a></span>
-<span id="cb2-688"><a href="#cb2-688"></a>En este capítulo se desarrolló Random Forest como un ensamble de árboles basado en bootstrap y selección aleatoria de variables.</span>
-<span id="cb2-689"><a href="#cb2-689"></a></span>
-<span id="cb2-690"><a href="#cb2-690"></a>Se explicó bagging, el error out-of-bag, el papel de <span class="in">`mtry`</span>, la relación entre fuerza y correlación, y la reducción de varianza mediante promediación.</span>
-<span id="cb2-691"><a href="#cb2-691"></a></span>
-<span id="cb2-692"><a href="#cb2-692"></a>También se estudiaron importancia por impureza y por permutación, proximidades, desbalance de clases, calibración, dependencia parcial, complejidad computacional y selección de hiperparámetros.</span>
-<span id="cb2-693"><a href="#cb2-693"></a></span>
-<span id="cb2-694"><a href="#cb2-694"></a>Finalmente, se comparó Random Forest con árboles individuales, $k$-NN y boosting.</span>
-<span id="cb2-695"><a href="#cb2-695"></a></span>
-<span id="cb2-696"><a href="#cb2-696"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
-<span id="cb2-697"><a href="#cb2-697"></a></span>
-<span id="cb2-698"><a href="#cb2-698"></a>Los fundamentos se apoyan en @breiman2001random, @hastie2009elements y @james2021introduction.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu"># Random Forest\index{Random Forest} {#sec-random-forest}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">## Introducción {.unnumbered}</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>Random Forest combina árboles construidos con muestras bootstrap y selección aleatoria de variables. La aleatorización reduce la correlación entre árboles y la promediación disminuye la varianza del ensamble <span class="co">[</span><span class="ot">@breiman2001random; @hastie2009elements</span><span class="co">]</span>.</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>Random Forest es un método de ensamble que combina muchos árboles de decisión construidos sobre muestras bootstrap y con selección aleatoria de variables en cada división. Su propósito principal es reducir la alta varianza de los árboles individuales sin perder su capacidad para representar relaciones no lineales e interacciones complejas.</span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a>Un árbol profundo suele tener bajo sesgo y alta varianza. Random Forest disminuye la varianza mediante promediación. Sin embargo, para que esta reducción sea efectiva, los árboles deben ser no solo precisos, sino también poco correlacionados. La selección aleatoria de variables en cada nodo cumple precisamente esta función: introduce diversidad entre árboles.</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a>El método puede utilizarse tanto en clasificación como en regresión. Además, proporciona estimaciones internas del error mediante observaciones out-of-bag, medidas de importancia de variables y herramientas para analizar proximidad entre observaciones.</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a>::: {.callout-important title="Definición esencial" appearance="default" icon="true"}</span>
+<span id="cb3-14"><a href="#cb3-14"></a>Random Forest combina muchos árboles aleatorizados para reducir varianza.</span>
+<span id="cb3-15"><a href="#cb3-15"></a>:::</span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="fu">## Objetivos {.unnumbered}</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a></span>
+<span id="cb3-19"><a href="#cb3-19"></a>Al finalizar el capítulo, el lector podrá:</span>
+<span id="cb3-20"><a href="#cb3-20"></a></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="ss">1. </span>explicar la idea de ensamble;</span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="ss">2. </span>formular el método bagging;</span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="ss">3. </span>comprender el muestreo bootstrap;</span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="ss">4. </span>definir observaciones out-of-bag;</span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="ss">5. </span>formular Random Forest para clasificación y regresión;</span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="ss">6. </span>interpretar el papel del número de árboles;</span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="ss">7. </span>interpretar el hiperparámetro <span class="in">`mtry`</span>;</span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="ss">8. </span>analizar la reducción de varianza;</span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="ss">9. </span>comprender el efecto de la correlación entre árboles;</span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="ss">10. </span>calcular error out-of-bag;</span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="ss">11. </span>interpretar importancia por impureza;</span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="ss">12. </span>interpretar importancia por permutación;</span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="ss">13. </span>reconocer sesgos de las medidas de importancia;</span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="ss">14. </span>analizar proximidades;</span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="ss">15. </span>estudiar consistencia, sesgo y varianza;</span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="ss">16. </span>comparar Random Forest con árboles individuales y boosting.</span>
+<span id="cb3-37"><a href="#cb3-37"></a></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="fu">## Ensambles {.unnumbered}</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a></span>
+<span id="cb3-40"><a href="#cb3-40"></a>::: {#def-ensamble}</span>
+<span id="cb3-41"><a href="#cb3-41"></a>Un ensamble combina las predicciones de varios modelos base para producir una predicción final.</span>
+<span id="cb3-42"><a href="#cb3-42"></a>:::</span>
+<span id="cb3-43"><a href="#cb3-43"></a></span>
+<span id="cb3-44"><a href="#cb3-44"></a>Sea</span>
+<span id="cb3-45"><a href="#cb3-45"></a></span>
+<span id="cb3-46"><a href="#cb3-46"></a>$$</span>
+<span id="cb3-47"><a href="#cb3-47"></a>\widehat{f}^{(1)}(\mathbf{x}),\ldots,\widehat{f}^{(B)}(\mathbf{x})</span>
+<span id="cb3-48"><a href="#cb3-48"></a>$$</span>
+<span id="cb3-49"><a href="#cb3-49"></a></span>
+<span id="cb3-50"><a href="#cb3-50"></a>un conjunto de modelos.</span>
+<span id="cb3-51"><a href="#cb3-51"></a></span>
+<span id="cb3-52"><a href="#cb3-52"></a>En regresión,</span>
+<span id="cb3-53"><a href="#cb3-53"></a></span>
+<span id="cb3-54"><a href="#cb3-54"></a>$$</span>
+<span id="cb3-55"><a href="#cb3-55"></a>\widehat{f}_{ens}(\mathbf{x})</span>
+<span id="cb3-56"><a href="#cb3-56"></a>=</span>
+<span id="cb3-57"><a href="#cb3-57"></a>\frac{1}{B}\sum_{b=1}^{B}\widehat{f}^{(b)}(\mathbf{x}).</span>
+<span id="cb3-58"><a href="#cb3-58"></a>$$</span>
+<span id="cb3-59"><a href="#cb3-59"></a></span>
+<span id="cb3-60"><a href="#cb3-60"></a>En clasificación,</span>
+<span id="cb3-61"><a href="#cb3-61"></a></span>
+<span id="cb3-62"><a href="#cb3-62"></a>$$</span>
+<span id="cb3-63"><a href="#cb3-63"></a>\widehat{g}_{ens}(\mathbf{x})</span>
+<span id="cb3-64"><a href="#cb3-64"></a>=</span>
+<span id="cb3-65"><a href="#cb3-65"></a>\operatorname{mode}</span>
+<span id="cb3-66"><a href="#cb3-66"></a>\left<span class="sc">\{</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a>\widehat{g}^{(1)}(\mathbf{x}),\ldots,\widehat{g}^{(B)}(\mathbf{x})</span>
+<span id="cb3-68"><a href="#cb3-68"></a>\right<span class="sc">\}</span>.</span>
+<span id="cb3-69"><a href="#cb3-69"></a>$$</span>
+<span id="cb3-70"><a href="#cb3-70"></a></span>
+<span id="cb3-71"><a href="#cb3-71"></a><span class="fu">## Reducción de varianza {.unnumbered}</span></span>
+<span id="cb3-72"><a href="#cb3-72"></a></span>
+<span id="cb3-73"><a href="#cb3-73"></a>Supóngase que cada predictor tiene varianza $\sigma_f^2$ y que la correlación entre dos predictores cualesquiera es $\rho$. La varianza del promedio es aproximadamente</span>
+<span id="cb3-74"><a href="#cb3-74"></a></span>
+<span id="cb3-75"><a href="#cb3-75"></a>$$</span>
+<span id="cb3-76"><a href="#cb3-76"></a>\operatorname{Var}</span>
+<span id="cb3-77"><a href="#cb3-77"></a>\left[</span>
+<span id="cb3-78"><a href="#cb3-78"></a>\frac{1}{B}\sum_{b=1}^{B}\widehat{f}^{(b)}(\mathbf{x})</span>
+<span id="cb3-79"><a href="#cb3-79"></a>\right]</span>
+<span id="cb3-80"><a href="#cb3-80"></a>=</span>
+<span id="cb3-81"><a href="#cb3-81"></a>\rho\sigma_f^2</span>
+<span id="cb3-82"><a href="#cb3-82"></a>+</span>
+<span id="cb3-83"><a href="#cb3-83"></a>\frac{1-\rho}{B}\sigma_f^2.</span>
+<span id="cb3-84"><a href="#cb3-84"></a>$$</span>
+<span id="cb3-85"><a href="#cb3-85"></a></span>
+<span id="cb3-86"><a href="#cb3-86"></a>Cuando $B$ crece,</span>
+<span id="cb3-87"><a href="#cb3-87"></a></span>
+<span id="cb3-88"><a href="#cb3-88"></a>$$</span>
+<span id="cb3-89"><a href="#cb3-89"></a>\operatorname{Var}\to\rho\sigma_f^2.</span>
+<span id="cb3-90"><a href="#cb3-90"></a>$$</span>
+<span id="cb3-91"><a href="#cb3-91"></a></span>
+<span id="cb3-92"><a href="#cb3-92"></a>Por tanto, aumentar el número de modelos reduce una parte de la varianza, pero la correlación entre modelos limita la reducción total.</span>
+<span id="cb3-93"><a href="#cb3-93"></a></span>
+<span id="cb3-94"><a href="#cb3-94"></a><span class="fu">## Bagging {.unnumbered}</span></span>
+<span id="cb3-95"><a href="#cb3-95"></a></span>
+<span id="cb3-96"><a href="#cb3-96"></a>Bagging significa *Bootstrap Aggregating*. El procedimiento es:</span>
+<span id="cb3-97"><a href="#cb3-97"></a></span>
+<span id="cb3-98"><a href="#cb3-98"></a><span class="ss">1. </span>generar una muestra bootstrap;</span>
+<span id="cb3-99"><a href="#cb3-99"></a><span class="ss">2. </span>ajustar un árbol profundo;</span>
+<span id="cb3-100"><a href="#cb3-100"></a><span class="ss">3. </span>repetir el proceso $B$ veces;</span>
+<span id="cb3-101"><a href="#cb3-101"></a><span class="ss">4. </span>combinar las predicciones.</span>
+<span id="cb3-102"><a href="#cb3-102"></a></span>
+<span id="cb3-103"><a href="#cb3-103"></a>En regresión,</span>
+<span id="cb3-104"><a href="#cb3-104"></a></span>
+<span id="cb3-105"><a href="#cb3-105"></a>$$</span>
+<span id="cb3-106"><a href="#cb3-106"></a>\widehat{f}_{bag}(\mathbf{x})</span>
+<span id="cb3-107"><a href="#cb3-107"></a>=</span>
+<span id="cb3-108"><a href="#cb3-108"></a>\frac{1}{B}\sum_{b=1}^{B}\widehat{f}^{(b)}(\mathbf{x}).</span>
+<span id="cb3-109"><a href="#cb3-109"></a>$$</span>
+<span id="cb3-110"><a href="#cb3-110"></a></span>
+<span id="cb3-111"><a href="#cb3-111"></a>En clasificación,</span>
+<span id="cb3-112"><a href="#cb3-112"></a></span>
+<span id="cb3-113"><a href="#cb3-113"></a>$$</span>
+<span id="cb3-114"><a href="#cb3-114"></a>\widehat{g}_{bag}(\mathbf{x})</span>
+<span id="cb3-115"><a href="#cb3-115"></a>=</span>
+<span id="cb3-116"><a href="#cb3-116"></a>\arg\max_c</span>
+<span id="cb3-117"><a href="#cb3-117"></a>\sum_{b=1}^{B}</span>
+<span id="cb3-118"><a href="#cb3-118"></a>\mathbb{I}</span>
+<span id="cb3-119"><a href="#cb3-119"></a>\left[</span>
+<span id="cb3-120"><a href="#cb3-120"></a>\widehat{g}^{(b)}(\mathbf{x})=c</span>
+<span id="cb3-121"><a href="#cb3-121"></a>\right].</span>
+<span id="cb3-122"><a href="#cb3-122"></a>$$</span>
+<span id="cb3-123"><a href="#cb3-123"></a></span>
+<span id="cb3-124"><a href="#cb3-124"></a><span class="fu">## Muestreo bootstrap {.unnumbered}</span></span>
+<span id="cb3-125"><a href="#cb3-125"></a></span>
+<span id="cb3-126"><a href="#cb3-126"></a>Para cada árbol $b$, se selecciona una muestra</span>
+<span id="cb3-127"><a href="#cb3-127"></a></span>
+<span id="cb3-128"><a href="#cb3-128"></a>$$</span>
+<span id="cb3-129"><a href="#cb3-129"></a>\mathcal{D}^{*(b)}</span>
+<span id="cb3-130"><a href="#cb3-130"></a>$$</span>
+<span id="cb3-131"><a href="#cb3-131"></a></span>
+<span id="cb3-132"><a href="#cb3-132"></a>de tamaño $n$ con reemplazo a partir de la muestra original.</span>
+<span id="cb3-133"><a href="#cb3-133"></a></span>
+<span id="cb3-134"><a href="#cb3-134"></a>La probabilidad de que una observación no sea seleccionada es</span>
+<span id="cb3-135"><a href="#cb3-135"></a></span>
+<span id="cb3-136"><a href="#cb3-136"></a>$$</span>
+<span id="cb3-137"><a href="#cb3-137"></a>\left(1-\frac{1}{n}\right)^n.</span>
+<span id="cb3-138"><a href="#cb3-138"></a>$$</span>
+<span id="cb3-139"><a href="#cb3-139"></a></span>
+<span id="cb3-140"><a href="#cb3-140"></a>Cuando $n$ es grande,</span>
+<span id="cb3-141"><a href="#cb3-141"></a></span>
+<span id="cb3-142"><a href="#cb3-142"></a>$$</span>
+<span id="cb3-143"><a href="#cb3-143"></a>\left(1-\frac{1}{n}\right)^n</span>
+<span id="cb3-144"><a href="#cb3-144"></a>\approx e^{-1}\approx0.368.</span>
+<span id="cb3-145"><a href="#cb3-145"></a>$$</span>
+<span id="cb3-146"><a href="#cb3-146"></a></span>
+<span id="cb3-147"><a href="#cb3-147"></a>Por tanto, aproximadamente el 63.2 por ciento de las observaciones aparece al menos una vez en una muestra bootstrap.</span>
+<span id="cb3-148"><a href="#cb3-148"></a></span>
+<span id="cb3-149"><a href="#cb3-149"></a><span class="fu">## Observaciones out-of-bag {.unnumbered}</span></span>
+<span id="cb3-150"><a href="#cb3-150"></a></span>
+<span id="cb3-151"><a href="#cb3-151"></a>::: {#def-oob}</span>
+<span id="cb3-152"><a href="#cb3-152"></a>Las observaciones que no aparecen en la muestra bootstrap del árbol $b$ se denominan out-of-bag para ese árbol.</span>
+<span id="cb3-153"><a href="#cb3-153"></a>:::</span>
+<span id="cb3-154"><a href="#cb3-154"></a></span>
+<span id="cb3-155"><a href="#cb3-155"></a>El conjunto OOB del árbol $b$ se denota por</span>
+<span id="cb3-156"><a href="#cb3-156"></a></span>
+<span id="cb3-157"><a href="#cb3-157"></a>$$</span>
+<span id="cb3-158"><a href="#cb3-158"></a>\mathcal{O}^{(b)}.</span>
+<span id="cb3-159"><a href="#cb3-159"></a>$$</span>
+<span id="cb3-160"><a href="#cb3-160"></a></span>
+<span id="cb3-161"><a href="#cb3-161"></a>Cada observación queda fuera de aproximadamente el 36.8 por ciento de los árboles.</span>
+<span id="cb3-162"><a href="#cb3-162"></a></span>
+<span id="cb3-163"><a href="#cb3-163"></a><span class="fu">## Error out-of-bag {.unnumbered}</span></span>
+<span id="cb3-164"><a href="#cb3-164"></a></span>
+<span id="cb3-165"><a href="#cb3-165"></a>En regresión, la predicción OOB de la observación $i$ es</span>
+<span id="cb3-166"><a href="#cb3-166"></a></span>
+<span id="cb3-167"><a href="#cb3-167"></a>$$</span>
+<span id="cb3-168"><a href="#cb3-168"></a>\widehat{y}_{i,OOB}</span>
+<span id="cb3-169"><a href="#cb3-169"></a>=</span>
+<span id="cb3-170"><a href="#cb3-170"></a>\frac{1}{B_i}</span>
+<span id="cb3-171"><a href="#cb3-171"></a>\sum_{b:i\in\mathcal{O}^{(b)}}</span>
+<span id="cb3-172"><a href="#cb3-172"></a>\widehat{f}^{(b)}(\mathbf{x}_i).</span>
+<span id="cb3-173"><a href="#cb3-173"></a>$$</span>
+<span id="cb3-174"><a href="#cb3-174"></a></span>
+<span id="cb3-175"><a href="#cb3-175"></a>El error es</span>
+<span id="cb3-176"><a href="#cb3-176"></a></span>
+<span id="cb3-177"><a href="#cb3-177"></a>$$</span>
+<span id="cb3-178"><a href="#cb3-178"></a>MSE_{OOB}</span>
+<span id="cb3-179"><a href="#cb3-179"></a>=</span>
+<span id="cb3-180"><a href="#cb3-180"></a>\frac{1}{n}</span>
+<span id="cb3-181"><a href="#cb3-181"></a>\sum_{i=1}^{n}</span>
+<span id="cb3-182"><a href="#cb3-182"></a>\left(y_i-\widehat{y}_{i,OOB}\right)^2.</span>
+<span id="cb3-183"><a href="#cb3-183"></a>$$</span>
+<span id="cb3-184"><a href="#cb3-184"></a></span>
+<span id="cb3-185"><a href="#cb3-185"></a>En clasificación,</span>
+<span id="cb3-186"><a href="#cb3-186"></a></span>
+<span id="cb3-187"><a href="#cb3-187"></a>$$</span>
+<span id="cb3-188"><a href="#cb3-188"></a>Err_{OOB}</span>
+<span id="cb3-189"><a href="#cb3-189"></a>=</span>
+<span id="cb3-190"><a href="#cb3-190"></a>\frac{1}{n}</span>
+<span id="cb3-191"><a href="#cb3-191"></a>\sum_{i=1}^{n}</span>
+<span id="cb3-192"><a href="#cb3-192"></a>\mathbb{I}</span>
+<span id="cb3-193"><a href="#cb3-193"></a>\left(y_i\neq\widehat{y}_{i,OOB}\right).</span>
+<span id="cb3-194"><a href="#cb3-194"></a>$$</span>
+<span id="cb3-195"><a href="#cb3-195"></a></span>
+<span id="cb3-196"><a href="#cb3-196"></a><span class="fu">## Limitación de bagging {.unnumbered}</span></span>
+<span id="cb3-197"><a href="#cb3-197"></a></span>
+<span id="cb3-198"><a href="#cb3-198"></a>Aunque bagging reduce varianza, los árboles pueden seguir siendo muy correlacionados. Si una variable es dominante, muchos árboles elegirán esa misma variable en la raíz.</span>
+<span id="cb3-199"><a href="#cb3-199"></a></span>
+<span id="cb3-200"><a href="#cb3-200"></a>Random Forest introduce aleatoriedad adicional para reducir esta correlación.</span>
+<span id="cb3-201"><a href="#cb3-201"></a></span>
+<span id="cb3-202"><a href="#cb3-202"></a><span class="fu">## Definición de Random Forest {.unnumbered}</span></span>
+<span id="cb3-203"><a href="#cb3-203"></a></span>
+<span id="cb3-204"><a href="#cb3-204"></a>::: {#def-random-forest}</span>
+<span id="cb3-205"><a href="#cb3-205"></a>Random Forest es un ensamble de árboles construidos mediante muestras bootstrap y selección aleatoria de un subconjunto de variables candidatas en cada nodo.</span>
+<span id="cb3-206"><a href="#cb3-206"></a>:::</span>
+<span id="cb3-207"><a href="#cb3-207"></a></span>
+<span id="cb3-208"><a href="#cb3-208"></a>Para cada árbol:</span>
+<span id="cb3-209"><a href="#cb3-209"></a></span>
+<span id="cb3-210"><a href="#cb3-210"></a><span class="ss">1. </span>se genera una muestra bootstrap;</span>
+<span id="cb3-211"><a href="#cb3-211"></a><span class="ss">2. </span>se inicia un árbol sin podar;</span>
+<span id="cb3-212"><a href="#cb3-212"></a><span class="ss">3. </span>en cada nodo se selecciona aleatoriamente un subconjunto de variables;</span>
+<span id="cb3-213"><a href="#cb3-213"></a><span class="ss">4. </span>se busca la mejor división únicamente dentro de ese subconjunto;</span>
+<span id="cb3-214"><a href="#cb3-214"></a><span class="ss">5. </span>se continúa hasta cumplir una regla de parada;</span>
+<span id="cb3-215"><a href="#cb3-215"></a><span class="ss">6. </span>se combina la predicción con la de los demás árboles.</span>
+<span id="cb3-216"><a href="#cb3-216"></a></span>
+<span id="cb3-217"><a href="#cb3-217"></a><span class="fu">## Parámetro mtry {.unnumbered}</span></span>
+<span id="cb3-218"><a href="#cb3-218"></a></span>
+<span id="cb3-219"><a href="#cb3-219"></a>El número de variables consideradas en cada división se denota por</span>
+<span id="cb3-220"><a href="#cb3-220"></a></span>
+<span id="cb3-221"><a href="#cb3-221"></a>$$</span>
+<span id="cb3-222"><a href="#cb3-222"></a>m_{try}.</span>
+<span id="cb3-223"><a href="#cb3-223"></a>$$</span>
+<span id="cb3-224"><a href="#cb3-224"></a></span>
+<span id="cb3-225"><a href="#cb3-225"></a>Valores iniciales frecuentes son:</span>
+<span id="cb3-226"><a href="#cb3-226"></a></span>
+<span id="cb3-227"><a href="#cb3-227"></a><span class="ss">- </span>clasificación:</span>
+<span id="cb3-228"><a href="#cb3-228"></a>  $$</span>
+<span id="cb3-229"><a href="#cb3-229"></a>  m_{try}\approx\sqrt{p};</span>
+<span id="cb3-230"><a href="#cb3-230"></a>  $$</span>
+<span id="cb3-231"><a href="#cb3-231"></a><span class="ss">- </span>regresión:</span>
+<span id="cb3-232"><a href="#cb3-232"></a>  $$</span>
+<span id="cb3-233"><a href="#cb3-233"></a>  m_{try}\approx\frac{p}{3}.</span>
+<span id="cb3-234"><a href="#cb3-234"></a>  $$</span>
+<span id="cb3-235"><a href="#cb3-235"></a></span>
+<span id="cb3-236"><a href="#cb3-236"></a>Estas son reglas prácticas, no valores universales.</span>
+<span id="cb3-237"><a href="#cb3-237"></a></span>
+<span id="cb3-238"><a href="#cb3-238"></a><span class="fu">## Efecto de mtry {.unnumbered}</span></span>
+<span id="cb3-239"><a href="#cb3-239"></a></span>
+<span id="cb3-240"><a href="#cb3-240"></a>Si $m_{try}=p$, Random Forest se aproxima a bagging.</span>
+<span id="cb3-241"><a href="#cb3-241"></a></span>
+<span id="cb3-242"><a href="#cb3-242"></a>Si $m_{try}$ es pequeño:</span>
+<span id="cb3-243"><a href="#cb3-243"></a></span>
+<span id="cb3-244"><a href="#cb3-244"></a><span class="ss">- </span>disminuye la correlación entre árboles;</span>
+<span id="cb3-245"><a href="#cb3-245"></a><span class="ss">- </span>puede aumentar el sesgo;</span>
+<span id="cb3-246"><a href="#cb3-246"></a><span class="ss">- </span>aumenta la diversidad.</span>
+<span id="cb3-247"><a href="#cb3-247"></a></span>
+<span id="cb3-248"><a href="#cb3-248"></a>Si $m_{try}$ es grande:</span>
+<span id="cb3-249"><a href="#cb3-249"></a></span>
+<span id="cb3-250"><a href="#cb3-250"></a><span class="ss">- </span>cada árbol puede ser más fuerte;</span>
+<span id="cb3-251"><a href="#cb3-251"></a><span class="ss">- </span>aumenta la correlación;</span>
+<span id="cb3-252"><a href="#cb3-252"></a><span class="ss">- </span>puede disminuir el beneficio de la promediación.</span>
+<span id="cb3-253"><a href="#cb3-253"></a></span>
+<span id="cb3-254"><a href="#cb3-254"></a><span class="fu">## Número de árboles {.unnumbered}</span></span>
+<span id="cb3-255"><a href="#cb3-255"></a></span>
+<span id="cb3-256"><a href="#cb3-256"></a>El número de árboles se denota por $B$. A diferencia de boosting, aumentar $B$ no suele producir sobreajuste importante. El error tiende a estabilizarse, aunque el tiempo y la memoria aumentan.</span>
+<span id="cb3-257"><a href="#cb3-257"></a></span>
+<span id="cb3-258"><a href="#cb3-258"></a><span class="fu">## Clasificación {.unnumbered}</span></span>
+<span id="cb3-259"><a href="#cb3-259"></a></span>
+<span id="cb3-260"><a href="#cb3-260"></a>La predicción es</span>
+<span id="cb3-261"><a href="#cb3-261"></a></span>
+<span id="cb3-262"><a href="#cb3-262"></a>$$</span>
+<span id="cb3-263"><a href="#cb3-263"></a>\widehat{g}_{RF}(\mathbf{x})</span>
+<span id="cb3-264"><a href="#cb3-264"></a>=</span>
+<span id="cb3-265"><a href="#cb3-265"></a>\arg\max_c</span>
+<span id="cb3-266"><a href="#cb3-266"></a>\sum_{b=1}^{B}</span>
+<span id="cb3-267"><a href="#cb3-267"></a>\mathbb{I}</span>
+<span id="cb3-268"><a href="#cb3-268"></a>\left[</span>
+<span id="cb3-269"><a href="#cb3-269"></a>\widehat{g}^{(b)}(\mathbf{x})=c</span>
+<span id="cb3-270"><a href="#cb3-270"></a>\right].</span>
+<span id="cb3-271"><a href="#cb3-271"></a>$$</span>
+<span id="cb3-272"><a href="#cb3-272"></a></span>
+<span id="cb3-273"><a href="#cb3-273"></a>La proporción de votos puede utilizarse como estimación probabilística:</span>
+<span id="cb3-274"><a href="#cb3-274"></a></span>
+<span id="cb3-275"><a href="#cb3-275"></a>$$</span>
+<span id="cb3-276"><a href="#cb3-276"></a>\widehat{P}(Y=c\mid\mathbf{x})</span>
+<span id="cb3-277"><a href="#cb3-277"></a>=</span>
+<span id="cb3-278"><a href="#cb3-278"></a>\frac{1}{B}</span>
+<span id="cb3-279"><a href="#cb3-279"></a>\sum_{b=1}^{B}</span>
+<span id="cb3-280"><a href="#cb3-280"></a>\mathbb{I}</span>
+<span id="cb3-281"><a href="#cb3-281"></a>\left[</span>
+<span id="cb3-282"><a href="#cb3-282"></a>\widehat{g}^{(b)}(\mathbf{x})=c</span>
+<span id="cb3-283"><a href="#cb3-283"></a>\right].</span>
+<span id="cb3-284"><a href="#cb3-284"></a>$$</span>
+<span id="cb3-285"><a href="#cb3-285"></a></span>
+<span id="cb3-286"><a href="#cb3-286"></a><span class="fu">## Regresión {.unnumbered}</span></span>
+<span id="cb3-287"><a href="#cb3-287"></a></span>
+<span id="cb3-288"><a href="#cb3-288"></a>La predicción es</span>
+<span id="cb3-289"><a href="#cb3-289"></a></span>
+<span id="cb3-290"><a href="#cb3-290"></a>$$</span>
+<span id="cb3-291"><a href="#cb3-291"></a>\widehat{f}_{RF}(\mathbf{x})</span>
+<span id="cb3-292"><a href="#cb3-292"></a>=</span>
+<span id="cb3-293"><a href="#cb3-293"></a>\frac{1}{B}</span>
+<span id="cb3-294"><a href="#cb3-294"></a>\sum_{b=1}^{B}</span>
+<span id="cb3-295"><a href="#cb3-295"></a>\widehat{f}^{(b)}(\mathbf{x}).</span>
+<span id="cb3-296"><a href="#cb3-296"></a>$$</span>
+<span id="cb3-297"><a href="#cb3-297"></a></span>
+<span id="cb3-298"><a href="#cb3-298"></a><span class="fu">## Fuerza y correlación {.unnumbered}</span></span>
+<span id="cb3-299"><a href="#cb3-299"></a></span>
+<span id="cb3-300"><a href="#cb3-300"></a>El desempeño del bosque depende de:</span>
+<span id="cb3-301"><a href="#cb3-301"></a></span>
+<span id="cb3-302"><a href="#cb3-302"></a><span class="ss">- </span>la fuerza predictiva de los árboles;</span>
+<span id="cb3-303"><a href="#cb3-303"></a><span class="ss">- </span>la correlación entre ellos.</span>
+<span id="cb3-304"><a href="#cb3-304"></a></span>
+<span id="cb3-305"><a href="#cb3-305"></a>Un bosque mejora cuando los árboles son suficientemente precisos y al mismo tiempo poco correlacionados.</span>
+<span id="cb3-306"><a href="#cb3-306"></a></span>
+<span id="cb3-307"><a href="#cb3-307"></a><span class="fu">## Margen de clasificación {.unnumbered}</span></span>
+<span id="cb3-308"><a href="#cb3-308"></a></span>
+<span id="cb3-309"><a href="#cb3-309"></a>Defina</span>
+<span id="cb3-310"><a href="#cb3-310"></a></span>
+<span id="cb3-311"><a href="#cb3-311"></a>$$</span>
+<span id="cb3-312"><a href="#cb3-312"></a>\widehat{P}_B(c\mid\mathbf{x})</span>
+<span id="cb3-313"><a href="#cb3-313"></a>=</span>
+<span id="cb3-314"><a href="#cb3-314"></a>\frac{1}{B}</span>
+<span id="cb3-315"><a href="#cb3-315"></a>\sum_{b=1}^{B}</span>
+<span id="cb3-316"><a href="#cb3-316"></a>\mathbb{I}</span>
+<span id="cb3-317"><a href="#cb3-317"></a>\left[</span>
+<span id="cb3-318"><a href="#cb3-318"></a>\widehat{g}^{(b)}(\mathbf{x})=c</span>
+<span id="cb3-319"><a href="#cb3-319"></a>\right].</span>
+<span id="cb3-320"><a href="#cb3-320"></a>$$</span>
+<span id="cb3-321"><a href="#cb3-321"></a></span>
+<span id="cb3-322"><a href="#cb3-322"></a>El margen es</span>
+<span id="cb3-323"><a href="#cb3-323"></a></span>
+<span id="cb3-324"><a href="#cb3-324"></a>$$</span>
+<span id="cb3-325"><a href="#cb3-325"></a>mg(\mathbf{x},y)</span>
+<span id="cb3-326"><a href="#cb3-326"></a>=</span>
+<span id="cb3-327"><a href="#cb3-327"></a>\widehat{P}_B(y\mid\mathbf{x})</span>
+<span id="cb3-328"><a href="#cb3-328"></a>-</span>
+<span id="cb3-329"><a href="#cb3-329"></a>\max_{c\neq y}\widehat{P}_B(c\mid\mathbf{x}).</span>
+<span id="cb3-330"><a href="#cb3-330"></a>$$</span>
+<span id="cb3-331"><a href="#cb3-331"></a></span>
+<span id="cb3-332"><a href="#cb3-332"></a>Un margen positivo indica clasificación correcta.</span>
+<span id="cb3-333"><a href="#cb3-333"></a></span>
+<span id="cb3-334"><a href="#cb3-334"></a><span class="fu">## Importancia por impureza {.unnumbered}</span></span>
+<span id="cb3-335"><a href="#cb3-335"></a></span>
+<span id="cb3-336"><a href="#cb3-336"></a>La importancia de la variable $j$ puede definirse como</span>
+<span id="cb3-337"><a href="#cb3-337"></a></span>
+<span id="cb3-338"><a href="#cb3-338"></a>$$</span>
+<span id="cb3-339"><a href="#cb3-339"></a>MDI_j</span>
+<span id="cb3-340"><a href="#cb3-340"></a>=</span>
+<span id="cb3-341"><a href="#cb3-341"></a>\frac{1}{B}</span>
+<span id="cb3-342"><a href="#cb3-342"></a>\sum_{b=1}^{B}</span>
+<span id="cb3-343"><a href="#cb3-343"></a>\sum_{t\in T_b:v(t)=j}</span>
+<span id="cb3-344"><a href="#cb3-344"></a>\frac{n_t}{n}\Delta I_t.</span>
+<span id="cb3-345"><a href="#cb3-345"></a>$$</span>
+<span id="cb3-346"><a href="#cb3-346"></a></span>
+<span id="cb3-347"><a href="#cb3-347"></a>Esta medida se conoce como *Mean Decrease in Impurity*.</span>
+<span id="cb3-348"><a href="#cb3-348"></a></span>
+<span id="cb3-349"><a href="#cb3-349"></a><span class="fu">## Sesgo de la importancia por impureza {.unnumbered}</span></span>
+<span id="cb3-350"><a href="#cb3-350"></a></span>
+<span id="cb3-351"><a href="#cb3-351"></a>MDI puede favorecer variables continuas, con muchos valores distintos o categóricas con muchos niveles. No debe interpretarse como evidencia causal.</span>
+<span id="cb3-352"><a href="#cb3-352"></a></span>
+<span id="cb3-353"><a href="#cb3-353"></a><span class="fu">## Importancia por permutación {.unnumbered}</span></span>
+<span id="cb3-354"><a href="#cb3-354"></a></span>
+<span id="cb3-355"><a href="#cb3-355"></a>La importancia por permutación compara el error OOB antes y después de permutar una variable:</span>
+<span id="cb3-356"><a href="#cb3-356"></a></span>
+<span id="cb3-357"><a href="#cb3-357"></a>$$</span>
+<span id="cb3-358"><a href="#cb3-358"></a>MDA_j</span>
+<span id="cb3-359"><a href="#cb3-359"></a>=</span>
+<span id="cb3-360"><a href="#cb3-360"></a>Err_{OOB}^{perm(j)}</span>
+<span id="cb3-361"><a href="#cb3-361"></a>-</span>
+<span id="cb3-362"><a href="#cb3-362"></a>Err_{OOB}^{base}.</span>
+<span id="cb3-363"><a href="#cb3-363"></a>$$</span>
+<span id="cb3-364"><a href="#cb3-364"></a></span>
+<span id="cb3-365"><a href="#cb3-365"></a>También se conoce como *Mean Decrease in Accuracy*.</span>
+<span id="cb3-366"><a href="#cb3-366"></a></span>
+<span id="cb3-367"><a href="#cb3-367"></a><span class="fu">## Variables correlacionadas {.unnumbered}</span></span>
+<span id="cb3-368"><a href="#cb3-368"></a></span>
+<span id="cb3-369"><a href="#cb3-369"></a>Si dos variables contienen información semejante, permutar una puede producir un aumento pequeño del error porque la otra conserva parte de la señal. La importancia puede repartirse entre variables correlacionadas.</span>
+<span id="cb3-370"><a href="#cb3-370"></a></span>
+<span id="cb3-371"><a href="#cb3-371"></a><span class="fu">## Proximidades {.unnumbered}</span></span>
+<span id="cb3-372"><a href="#cb3-372"></a></span>
+<span id="cb3-373"><a href="#cb3-373"></a>Random Forest puede definir una proximidad entre observaciones:</span>
+<span id="cb3-374"><a href="#cb3-374"></a></span>
+<span id="cb3-375"><a href="#cb3-375"></a>$$</span>
+<span id="cb3-376"><a href="#cb3-376"></a>Prox(i,j)</span>
+<span id="cb3-377"><a href="#cb3-377"></a>=</span>
+<span id="cb3-378"><a href="#cb3-378"></a>\frac{1}{B}</span>
+<span id="cb3-379"><a href="#cb3-379"></a>\sum_{b=1}^{B}</span>
+<span id="cb3-380"><a href="#cb3-380"></a>\mathbb{I}</span>
+<span id="cb3-381"><a href="#cb3-381"></a>\left[</span>
+<span id="cb3-382"><a href="#cb3-382"></a>\mathbf{x}_i</span>
+<span id="cb3-383"><a href="#cb3-383"></a>\text{ y }</span>
+<span id="cb3-384"><a href="#cb3-384"></a>\mathbf{x}_j</span>
+<span id="cb3-385"><a href="#cb3-385"></a>\text{ terminan en la misma hoja}</span>
+<span id="cb3-386"><a href="#cb3-386"></a>\right].</span>
+<span id="cb3-387"><a href="#cb3-387"></a>$$</span>
+<span id="cb3-388"><a href="#cb3-388"></a></span>
+<span id="cb3-389"><a href="#cb3-389"></a>Puede utilizarse para visualización, detección de valores atípicos, agrupamiento e imputación.</span>
+<span id="cb3-390"><a href="#cb3-390"></a></span>
+<span id="cb3-391"><a href="#cb3-391"></a><span class="fu">## Desbalance de clases {.unnumbered}</span></span>
+<span id="cb3-392"><a href="#cb3-392"></a></span>
+<span id="cb3-393"><a href="#cb3-393"></a>Random Forest puede favorecer la clase mayoritaria. Algunas estrategias son:</span>
+<span id="cb3-394"><a href="#cb3-394"></a></span>
+<span id="cb3-395"><a href="#cb3-395"></a><span class="ss">- </span>pesos por clase;</span>
+<span id="cb3-396"><a href="#cb3-396"></a><span class="ss">- </span>bootstrap balanceado;</span>
+<span id="cb3-397"><a href="#cb3-397"></a><span class="ss">- </span>submuestreo de la clase mayoritaria;</span>
+<span id="cb3-398"><a href="#cb3-398"></a><span class="ss">- </span>ajuste del umbral;</span>
+<span id="cb3-399"><a href="#cb3-399"></a><span class="ss">- </span>Balanced Random Forest.</span>
+<span id="cb3-400"><a href="#cb3-400"></a></span>
+<span id="cb3-401"><a href="#cb3-401"></a><span class="fu">## Probabilidades y calibración {.unnumbered}</span></span>
+<span id="cb3-402"><a href="#cb3-402"></a></span>
+<span id="cb3-403"><a href="#cb3-403"></a>La proporción de votos se interpreta frecuentemente como probabilidad, pero puede no estar bien calibrada. Puede ser necesario aplicar calibración de Platt, regresión isotónica o validación cruzada.</span>
+<span id="cb3-404"><a href="#cb3-404"></a></span>
+<span id="cb3-405"><a href="#cb3-405"></a><span class="fu">## Variables categóricas y datos faltantes {.unnumbered}</span></span>
+<span id="cb3-406"><a href="#cb3-406"></a></span>
+<span id="cb3-407"><a href="#cb3-407"></a>El tratamiento depende de la implementación. Pueden utilizarse imputación, categorías especiales o codificación. Todo preprocesamiento debe aprenderse únicamente con los datos de entrenamiento.</span>
+<span id="cb3-408"><a href="#cb3-408"></a></span>
+<span id="cb3-409"><a href="#cb3-409"></a><span class="fu">## Escalamiento {.unnumbered}</span></span>
+<span id="cb3-410"><a href="#cb3-410"></a></span>
+<span id="cb3-411"><a href="#cb3-411"></a>Random Forest no requiere normalmente estandarización, ya que las divisiones dependen del orden dentro de cada variable.</span>
+<span id="cb3-412"><a href="#cb3-412"></a></span>
+<span id="cb3-413"><a href="#cb3-413"></a><span class="fu">## Interacciones {.unnumbered}</span></span>
+<span id="cb3-414"><a href="#cb3-414"></a></span>
+<span id="cb3-415"><a href="#cb3-415"></a>El bosque representa interacciones automáticamente porque cada ruta de un árbol combina múltiples condiciones. Sin embargo, su interpretación es menos transparente que en un árbol individual.</span>
+<span id="cb3-416"><a href="#cb3-416"></a></span>
+<span id="cb3-417"><a href="#cb3-417"></a><span class="fu">## Dependencia parcial {.unnumbered}</span></span>
+<span id="cb3-418"><a href="#cb3-418"></a></span>
+<span id="cb3-419"><a href="#cb3-419"></a>Para una variable $X_j$,</span>
+<span id="cb3-420"><a href="#cb3-420"></a></span>
+<span id="cb3-421"><a href="#cb3-421"></a>$$</span>
+<span id="cb3-422"><a href="#cb3-422"></a>PD_j(x_j)</span>
+<span id="cb3-423"><a href="#cb3-423"></a>=</span>
+<span id="cb3-424"><a href="#cb3-424"></a>\mathbb{E}_{\mathbf{X}_{-j}}</span>
+<span id="cb3-425"><a href="#cb3-425"></a>\left[</span>
+<span id="cb3-426"><a href="#cb3-426"></a>\widehat{f}(x_j,\mathbf{X}_{-j})</span>
+<span id="cb3-427"><a href="#cb3-427"></a>\right].</span>
+<span id="cb3-428"><a href="#cb3-428"></a>$$</span>
+<span id="cb3-429"><a href="#cb3-429"></a></span>
+<span id="cb3-430"><a href="#cb3-430"></a>Su estimación es</span>
+<span id="cb3-431"><a href="#cb3-431"></a></span>
+<span id="cb3-432"><a href="#cb3-432"></a>$$</span>
+<span id="cb3-433"><a href="#cb3-433"></a>\widehat{PD}_j(x_j)</span>
+<span id="cb3-434"><a href="#cb3-434"></a>=</span>
+<span id="cb3-435"><a href="#cb3-435"></a>\frac{1}{n}</span>
+<span id="cb3-436"><a href="#cb3-436"></a>\sum_{i=1}^{n}</span>
+<span id="cb3-437"><a href="#cb3-437"></a>\widehat{f}(x_j,\mathbf{x}_{i,-j}).</span>
+<span id="cb3-438"><a href="#cb3-438"></a>$$</span>
+<span id="cb3-439"><a href="#cb3-439"></a></span>
+<span id="cb3-440"><a href="#cb3-440"></a>Si las variables están correlacionadas, pueden evaluarse combinaciones poco realistas.</span>
+<span id="cb3-441"><a href="#cb3-441"></a></span>
+<span id="cb3-442"><a href="#cb3-442"></a><span class="fu">## Complejidad computacional {.unnumbered}</span></span>
+<span id="cb3-443"><a href="#cb3-443"></a></span>
+<span id="cb3-444"><a href="#cb3-444"></a>El costo depende del número de árboles, observaciones, variables candidatas y profundidad. Los árboles pueden construirse en paralelo porque son independientes.</span>
+<span id="cb3-445"><a href="#cb3-445"></a></span>
+<span id="cb3-446"><a href="#cb3-446"></a><span class="fu">## Sesgo y varianza {.unnumbered}</span></span>
+<span id="cb3-447"><a href="#cb3-447"></a></span>
+<span id="cb3-448"><a href="#cb3-448"></a>Comparado con un árbol individual:</span>
+<span id="cb3-449"><a href="#cb3-449"></a></span>
+<span id="cb3-450"><a href="#cb3-450"></a><span class="ss">- </span>el sesgo puede ser semejante o ligeramente mayor;</span>
+<span id="cb3-451"><a href="#cb3-451"></a><span class="ss">- </span>la varianza suele disminuir considerablemente;</span>
+<span id="cb3-452"><a href="#cb3-452"></a><span class="ss">- </span>la estabilidad aumenta.</span>
+<span id="cb3-453"><a href="#cb3-453"></a></span>
+<span id="cb3-454"><a href="#cb3-454"></a><span class="fu">## Hiperparámetros principales {.unnumbered}</span></span>
+<span id="cb3-455"><a href="#cb3-455"></a></span>
+<span id="cb3-456"><a href="#cb3-456"></a>Los principales son:</span>
+<span id="cb3-457"><a href="#cb3-457"></a></span>
+<span id="cb3-458"><a href="#cb3-458"></a><span class="ss">- </span><span class="in">`ntree`</span>;</span>
+<span id="cb3-459"><a href="#cb3-459"></a><span class="ss">- </span><span class="in">`mtry`</span>;</span>
+<span id="cb3-460"><a href="#cb3-460"></a><span class="ss">- </span>profundidad máxima;</span>
+<span id="cb3-461"><a href="#cb3-461"></a><span class="ss">- </span>tamaño mínimo de hoja;</span>
+<span id="cb3-462"><a href="#cb3-462"></a><span class="ss">- </span>tamaño de muestra por árbol;</span>
+<span id="cb3-463"><a href="#cb3-463"></a><span class="ss">- </span>criterio de división;</span>
+<span id="cb3-464"><a href="#cb3-464"></a><span class="ss">- </span>pesos por clase.</span>
+<span id="cb3-465"><a href="#cb3-465"></a></span>
+<span id="cb3-466"><a href="#cb3-466"></a><span class="fu">## Selección de hiperparámetros {.unnumbered}</span></span>
+<span id="cb3-467"><a href="#cb3-467"></a></span>
+<span id="cb3-468"><a href="#cb3-468"></a>Puede utilizarse error OOB, validación cruzada, búsqueda en rejilla, búsqueda aleatoria u optimización bayesiana. El conjunto de prueba final no debe intervenir.</span>
+<span id="cb3-469"><a href="#cb3-469"></a></span>
+<span id="cb3-470"><a href="#cb3-470"></a><span class="fu">## Pseudocódigo {.unnumbered}</span></span>
+<span id="cb3-471"><a href="#cb3-471"></a></span>
+<span id="cb3-472"><a href="#cb3-472"></a>::: {#def-pseudocodigo-rf}</span>
+<span id="cb3-473"><a href="#cb3-473"></a>Para $b=1,\ldots,B$:</span>
+<span id="cb3-474"><a href="#cb3-474"></a></span>
+<span id="cb3-475"><a href="#cb3-475"></a><span class="ss">1. </span>generar una muestra bootstrap;</span>
+<span id="cb3-476"><a href="#cb3-476"></a><span class="ss">2. </span>hacer crecer un árbol;</span>
+<span id="cb3-477"><a href="#cb3-477"></a><span class="ss">3. </span>seleccionar aleatoriamente $m_{try}$ variables en cada nodo;</span>
+<span id="cb3-478"><a href="#cb3-478"></a><span class="ss">4. </span>elegir la mejor división entre esas variables;</span>
+<span id="cb3-479"><a href="#cb3-479"></a><span class="ss">5. </span>continuar hasta cumplir una regla de parada.</span>
+<span id="cb3-480"><a href="#cb3-480"></a></span>
+<span id="cb3-481"><a href="#cb3-481"></a>Finalmente, promediar en regresión o votar en clasificación.</span>
+<span id="cb3-482"><a href="#cb3-482"></a>:::</span>
+<span id="cb3-483"><a href="#cb3-483"></a></span>
+<span id="cb3-484"><a href="#cb3-484"></a><span class="fu">## Comparación con bagging {.unnumbered}</span></span>
+<span id="cb3-485"><a href="#cb3-485"></a></span>
+<span id="cb3-486"><a href="#cb3-486"></a>Bagging utiliza todas las variables en cada nodo. Random Forest usa un subconjunto aleatorio para reducir correlación entre árboles.</span>
+<span id="cb3-487"><a href="#cb3-487"></a></span>
+<span id="cb3-488"><a href="#cb3-488"></a><span class="fu">## Comparación con boosting {.unnumbered}</span></span>
+<span id="cb3-489"><a href="#cb3-489"></a></span>
+<span id="cb3-490"><a href="#cb3-490"></a>Random Forest construye árboles independientes y es paralelizable. Boosting construye árboles secuencialmente para corregir errores previos.</span>
+<span id="cb3-491"><a href="#cb3-491"></a></span>
+<span id="cb3-492"><a href="#cb3-492"></a><span class="fu">## Comparación con k-NN {.unnumbered}</span></span>
+<span id="cb3-493"><a href="#cb3-493"></a></span>
+<span id="cb3-494"><a href="#cb3-494"></a>Random Forest no requiere escalamiento, tolera mejor alta dimensión y proporciona medidas de importancia. $k$-NN depende fuertemente de la métrica y de la escala.</span>
+<span id="cb3-495"><a href="#cb3-495"></a></span>
+<span id="cb3-496"><a href="#cb3-496"></a><span class="fu">## Conexión con R {.unnumbered}</span></span>
+<span id="cb3-497"><a href="#cb3-497"></a></span>
+<span id="cb3-500"><a href="#cb3-500"></a><span class="in">```{r}</span></span>
+<span id="cb3-501"><a href="#cb3-501"></a><span class="co">#| eval: false</span></span>
+<span id="cb3-502"><a href="#cb3-502"></a></span>
+<span id="cb3-503"><a href="#cb3-503"></a><span class="fu">library</span>(randomForest)</span>
+<span id="cb3-504"><a href="#cb3-504"></a></span>
+<span id="cb3-505"><a href="#cb3-505"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-506"><a href="#cb3-506"></a></span>
+<span id="cb3-507"><a href="#cb3-507"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-508"><a href="#cb3-508"></a>  <span class="at">severo =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"Sí"</span>, <span class="st">"Sí"</span>, <span class="st">"Sí"</span>, <span class="st">"No"</span>, <span class="st">"Sí"</span>)),</span>
+<span id="cb3-509"><a href="#cb3-509"></a>  <span class="at">velocidad =</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">42</span>, <span class="dv">48</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">55</span>, <span class="dv">90</span>),</span>
+<span id="cb3-510"><a href="#cb3-510"></a>  <span class="at">noche =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)),</span>
+<span id="cb3-511"><a href="#cb3-511"></a>  <span class="at">lluvia =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb3-512"><a href="#cb3-512"></a>)</span>
+<span id="cb3-513"><a href="#cb3-513"></a></span>
+<span id="cb3-514"><a href="#cb3-514"></a>modelo <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(</span>
+<span id="cb3-515"><a href="#cb3-515"></a>  severo <span class="sc">~</span> velocidad <span class="sc">+</span> noche <span class="sc">+</span> lluvia,</span>
+<span id="cb3-516"><a href="#cb3-516"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb3-517"><a href="#cb3-517"></a>  <span class="at">ntree =</span> <span class="dv">500</span>,</span>
+<span id="cb3-518"><a href="#cb3-518"></a>  <span class="at">mtry =</span> <span class="dv">2</span>,</span>
+<span id="cb3-519"><a href="#cb3-519"></a>  <span class="at">importance =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-520"><a href="#cb3-520"></a>  <span class="at">proximity =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-521"><a href="#cb3-521"></a>)</span>
+<span id="cb3-522"><a href="#cb3-522"></a></span>
+<span id="cb3-523"><a href="#cb3-523"></a>modelo</span>
+<span id="cb3-524"><a href="#cb3-524"></a>modelo<span class="sc">$</span>err.rate</span>
+<span id="cb3-525"><a href="#cb3-525"></a><span class="fu">importance</span>(modelo)</span>
+<span id="cb3-526"><a href="#cb3-526"></a><span class="fu">varImpPlot</span>(modelo)</span>
+<span id="cb3-527"><a href="#cb3-527"></a><span class="fu">predict</span>(modelo, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb3-528"><a href="#cb3-528"></a><span class="fu">predict</span>(modelo, <span class="at">type =</span> <span class="st">"prob"</span>)</span>
+<span id="cb3-529"><a href="#cb3-529"></a>modelo<span class="sc">$</span>proximity</span>
+<span id="cb3-530"><a href="#cb3-530"></a><span class="in">```</span></span>
+<span id="cb3-531"><a href="#cb3-531"></a></span>
+<span id="cb3-532"><a href="#cb3-532"></a><span class="fu">## Ejemplo de bootstrap {.unnumbered}</span></span>
+<span id="cb3-533"><a href="#cb3-533"></a></span>
+<span id="cb3-534"><a href="#cb3-534"></a>Para la muestra</span>
+<span id="cb3-535"><a href="#cb3-535"></a></span>
+<span id="cb3-536"><a href="#cb3-536"></a>$$</span>
+<span id="cb3-537"><a href="#cb3-537"></a><span class="sc">\{</span>1,2,3,4,5<span class="sc">\}</span>,</span>
+<span id="cb3-538"><a href="#cb3-538"></a>$$</span>
+<span id="cb3-539"><a href="#cb3-539"></a></span>
+<span id="cb3-540"><a href="#cb3-540"></a>una muestra bootstrap podría ser</span>
+<span id="cb3-541"><a href="#cb3-541"></a></span>
+<span id="cb3-542"><a href="#cb3-542"></a>$$</span>
+<span id="cb3-543"><a href="#cb3-543"></a><span class="sc">\{</span>2,2,4,5,5<span class="sc">\}</span>.</span>
+<span id="cb3-544"><a href="#cb3-544"></a>$$</span>
+<span id="cb3-545"><a href="#cb3-545"></a></span>
+<span id="cb3-546"><a href="#cb3-546"></a>Las observaciones 1 y 3 son out-of-bag para ese árbol.</span>
+<span id="cb3-547"><a href="#cb3-547"></a></span>
+<span id="cb3-548"><a href="#cb3-548"></a><span class="fu">## Ejemplo de votación {.unnumbered}</span></span>
+<span id="cb3-549"><a href="#cb3-549"></a></span>
+<span id="cb3-550"><a href="#cb3-550"></a>Si siete árboles producen</span>
+<span id="cb3-551"><a href="#cb3-551"></a></span>
+<span id="cb3-552"><a href="#cb3-552"></a>$$</span>
+<span id="cb3-553"><a href="#cb3-553"></a>A,\;A,\;B,\;A,\;B,\;A,\;A,</span>
+<span id="cb3-554"><a href="#cb3-554"></a>$$</span>
+<span id="cb3-555"><a href="#cb3-555"></a></span>
+<span id="cb3-556"><a href="#cb3-556"></a>la clase predicha es $A$, con proporción de votos</span>
+<span id="cb3-557"><a href="#cb3-557"></a></span>
+<span id="cb3-558"><a href="#cb3-558"></a>$$</span>
+<span id="cb3-559"><a href="#cb3-559"></a>\widehat{P}(A\mid\mathbf{x})=\frac{5}{7}.</span>
+<span id="cb3-560"><a href="#cb3-560"></a>$$</span>
+<span id="cb3-561"><a href="#cb3-561"></a></span>
+<span id="cb3-562"><a href="#cb3-562"></a><span class="fu">## Ejemplo de regresión {.unnumbered}</span></span>
+<span id="cb3-563"><a href="#cb3-563"></a></span>
+<span id="cb3-564"><a href="#cb3-564"></a>Si cinco árboles predicen</span>
+<span id="cb3-565"><a href="#cb3-565"></a></span>
+<span id="cb3-566"><a href="#cb3-566"></a>$$</span>
+<span id="cb3-567"><a href="#cb3-567"></a>10,\;12,\;11,\;15,\;12,</span>
+<span id="cb3-568"><a href="#cb3-568"></a>$$</span>
+<span id="cb3-569"><a href="#cb3-569"></a></span>
+<span id="cb3-570"><a href="#cb3-570"></a>la predicción es</span>
+<span id="cb3-571"><a href="#cb3-571"></a></span>
+<span id="cb3-572"><a href="#cb3-572"></a>$$</span>
+<span id="cb3-573"><a href="#cb3-573"></a>\widehat{f}_{RF}(\mathbf{x})=12.</span>
+<span id="cb3-574"><a href="#cb3-574"></a>$$</span>
+<span id="cb3-575"><a href="#cb3-575"></a></span>
+<span id="cb3-576"><a href="#cb3-576"></a><span class="fu">## Seudocódigo formal {.unnumbered}</span></span>
+<span id="cb3-577"><a href="#cb3-577"></a></span>
+<span id="cb3-578"><a href="#cb3-578"></a>::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}</span>
+<span id="cb3-579"><a href="#cb3-579"></a><span class="in">```text</span></span>
+<span id="cb3-580"><a href="#cb3-580"></a><span class="in">Algoritmo Random-Forest</span></span>
+<span id="cb3-581"><a href="#cb3-581"></a><span class="in">Entrada:</span></span>
+<span id="cb3-582"><a href="#cb3-582"></a><span class="in">  D = {(x_i, y_i)}_{i=1}^n, número de árboles B, número de variables m</span></span>
+<span id="cb3-583"><a href="#cb3-583"></a><span class="in">Salida:</span></span>
+<span id="cb3-584"><a href="#cb3-584"></a><span class="in">  bosque {T_b}_{b=1}^B</span></span>
+<span id="cb3-585"><a href="#cb3-585"></a></span>
+<span id="cb3-586"><a href="#cb3-586"></a><span class="in">Para b = 1,...,B:</span></span>
+<span id="cb3-587"><a href="#cb3-587"></a><span class="in">1. Generar una muestra bootstrap D^{(b)} a partir de D.</span></span>
+<span id="cb3-588"><a href="#cb3-588"></a><span class="in">2. Construir un árbol T_b sobre D^{(b)}:</span></span>
+<span id="cb3-589"><a href="#cb3-589"></a><span class="in">   a) en cada nodo seleccionar aleatoriamente m variables;</span></span>
+<span id="cb3-590"><a href="#cb3-590"></a><span class="in">   b) elegir la mejor partición sólo entre esas m variables;</span></span>
+<span id="cb3-591"><a href="#cb3-591"></a><span class="in">   c) crecer el árbol hasta el criterio de parada establecido.</span></span>
+<span id="cb3-592"><a href="#cb3-592"></a><span class="in">Predicción:</span></span>
+<span id="cb3-593"><a href="#cb3-593"></a><span class="in">3. Para clasificación:</span></span>
+<span id="cb3-594"><a href="#cb3-594"></a><span class="in">      \hat y(x) = voto mayoritario{T_b(x)}_{b=1}^B.</span></span>
+<span id="cb3-595"><a href="#cb3-595"></a><span class="in">   Para regresión:</span></span>
+<span id="cb3-596"><a href="#cb3-596"></a><span class="in">      \hat f(x) = (1/B)\sum_{b=1}^B T_b(x).</span></span>
+<span id="cb3-597"><a href="#cb3-597"></a><span class="in">```</span></span>
+<span id="cb3-598"><a href="#cb3-598"></a>:::</span>
+<span id="cb3-599"><a href="#cb3-599"></a></span>
+<span id="cb3-600"><a href="#cb3-600"></a><span class="fu">## Ventajas {.unnumbered}</span></span>
+<span id="cb3-601"><a href="#cb3-601"></a></span>
+<span id="cb3-602"><a href="#cb3-602"></a><span class="ss">1. </span>reduce la varianza de los árboles;</span>
+<span id="cb3-603"><a href="#cb3-603"></a><span class="ss">2. </span>maneja relaciones no lineales;</span>
+<span id="cb3-604"><a href="#cb3-604"></a><span class="ss">3. </span>modela interacciones;</span>
+<span id="cb3-605"><a href="#cb3-605"></a><span class="ss">4. </span>no requiere escalamiento;</span>
+<span id="cb3-606"><a href="#cb3-606"></a><span class="ss">5. </span>proporciona error OOB;</span>
+<span id="cb3-607"><a href="#cb3-607"></a><span class="ss">6. </span>funciona en clasificación y regresión;</span>
+<span id="cb3-608"><a href="#cb3-608"></a><span class="ss">7. </span>tolera muchas variables;</span>
+<span id="cb3-609"><a href="#cb3-609"></a><span class="ss">8. </span>es paralelizable.</span>
+<span id="cb3-610"><a href="#cb3-610"></a></span>
+<span id="cb3-611"><a href="#cb3-611"></a><span class="fu">## Limitaciones {.unnumbered}</span></span>
+<span id="cb3-612"><a href="#cb3-612"></a></span>
+<span id="cb3-613"><a href="#cb3-613"></a><span class="ss">1. </span>menor interpretabilidad que un árbol;</span>
+<span id="cb3-614"><a href="#cb3-614"></a><span class="ss">2. </span>mayor costo computacional;</span>
+<span id="cb3-615"><a href="#cb3-615"></a><span class="ss">3. </span>importancia sesgada en ciertos casos;</span>
+<span id="cb3-616"><a href="#cb3-616"></a><span class="ss">4. </span>probabilidades no siempre calibradas;</span>
+<span id="cb3-617"><a href="#cb3-617"></a><span class="ss">5. </span>mayor uso de memoria;</span>
+<span id="cb3-618"><a href="#cb3-618"></a><span class="ss">6. </span>extrapolación pobre en regresión.</span>
+<span id="cb3-619"><a href="#cb3-619"></a></span>
+<span id="cb3-620"><a href="#cb3-620"></a><span class="fu">## Errores frecuentes {.unnumbered}</span></span>
+<span id="cb3-621"><a href="#cb3-621"></a></span>
+<span id="cb3-622"><a href="#cb3-622"></a><span class="ss">1. </span>interpretar importancia como causalidad;</span>
+<span id="cb3-623"><a href="#cb3-623"></a><span class="ss">2. </span>usar solo importancia por impureza;</span>
+<span id="cb3-624"><a href="#cb3-624"></a><span class="ss">3. </span>ignorar variables correlacionadas;</span>
+<span id="cb3-625"><a href="#cb3-625"></a><span class="ss">4. </span>seleccionar hiperparámetros con el conjunto de prueba;</span>
+<span id="cb3-626"><a href="#cb3-626"></a><span class="ss">5. </span>evaluar únicamente exactitud;</span>
+<span id="cb3-627"><a href="#cb3-627"></a><span class="ss">6. </span>ignorar calibración;</span>
+<span id="cb3-628"><a href="#cb3-628"></a><span class="ss">7. </span>omitir clases desbalanceadas;</span>
+<span id="cb3-629"><a href="#cb3-629"></a><span class="ss">8. </span>preprocesar fuera del ciclo de validación.</span>
+<span id="cb3-630"><a href="#cb3-630"></a></span>
+<span id="cb3-631"><a href="#cb3-631"></a><span class="fu">## Ejercicios conceptuales {.unnumbered}</span></span>
+<span id="cb3-632"><a href="#cb3-632"></a></span>
+<span id="cb3-633"><a href="#cb3-633"></a><span class="ss">1. </span>Explique por qué un bosque reduce varianza.</span>
+<span id="cb3-634"><a href="#cb3-634"></a><span class="ss">2. </span>¿Qué función cumple el bootstrap?</span>
+<span id="cb3-635"><a href="#cb3-635"></a><span class="ss">3. </span>¿Qué son las observaciones OOB?</span>
+<span id="cb3-636"><a href="#cb3-636"></a><span class="ss">4. </span>¿Por qué se seleccionan variables aleatoriamente?</span>
+<span id="cb3-637"><a href="#cb3-637"></a><span class="ss">5. </span>¿Qué ocurre si <span class="in">`mtry = p`</span>?</span>
+<span id="cb3-638"><a href="#cb3-638"></a><span class="ss">6. </span>Compare MDI y MDA.</span>
+<span id="cb3-639"><a href="#cb3-639"></a><span class="ss">7. </span>¿Cómo afectan las variables correlacionadas a la importancia?</span>
+<span id="cb3-640"><a href="#cb3-640"></a><span class="ss">8. </span>¿Qué representan las proximidades?</span>
+<span id="cb3-641"><a href="#cb3-641"></a><span class="ss">9. </span>Compare Random Forest y boosting.</span>
+<span id="cb3-642"><a href="#cb3-642"></a><span class="ss">10. </span>¿Por qué no suele requerirse estandarización?</span>
+<span id="cb3-643"><a href="#cb3-643"></a></span>
+<span id="cb3-644"><a href="#cb3-644"></a><span class="fu">## Ejercicio bootstrap {.unnumbered}</span></span>
+<span id="cb3-645"><a href="#cb3-645"></a></span>
+<span id="cb3-646"><a href="#cb3-646"></a>Para una muestra de tamaño $n=200$, calcule aproximadamente:</span>
+<span id="cb3-647"><a href="#cb3-647"></a></span>
+<span id="cb3-648"><a href="#cb3-648"></a><span class="ss">1. </span>la proporción esperada de observaciones OOB;</span>
+<span id="cb3-649"><a href="#cb3-649"></a><span class="ss">2. </span>el número esperado de observaciones OOB por árbol;</span>
+<span id="cb3-650"><a href="#cb3-650"></a><span class="ss">3. </span>el número esperado de observaciones distintas en cada muestra bootstrap.</span>
+<span id="cb3-651"><a href="#cb3-651"></a></span>
+<span id="cb3-652"><a href="#cb3-652"></a><span class="fu">## Ejercicio de varianza {.unnumbered}</span></span>
+<span id="cb3-653"><a href="#cb3-653"></a></span>
+<span id="cb3-654"><a href="#cb3-654"></a>Supóngase</span>
+<span id="cb3-655"><a href="#cb3-655"></a></span>
+<span id="cb3-656"><a href="#cb3-656"></a>$$</span>
+<span id="cb3-657"><a href="#cb3-657"></a>\sigma_f^2=4,</span>
+<span id="cb3-658"><a href="#cb3-658"></a>\qquad</span>
+<span id="cb3-659"><a href="#cb3-659"></a>\rho=0.25,</span>
+<span id="cb3-660"><a href="#cb3-660"></a>\qquad</span>
+<span id="cb3-661"><a href="#cb3-661"></a>B=100.</span>
+<span id="cb3-662"><a href="#cb3-662"></a>$$</span>
+<span id="cb3-663"><a href="#cb3-663"></a></span>
+<span id="cb3-664"><a href="#cb3-664"></a>Calcule la varianza aproximada del promedio y compárela con la varianza de un árbol individual.</span>
+<span id="cb3-665"><a href="#cb3-665"></a></span>
+<span id="cb3-666"><a href="#cb3-666"></a><span class="fu">## Ejercicio de mtry {.unnumbered}</span></span>
+<span id="cb3-667"><a href="#cb3-667"></a></span>
+<span id="cb3-668"><a href="#cb3-668"></a>Para $p=36$ variables:</span>
+<span id="cb3-669"><a href="#cb3-669"></a></span>
+<span id="cb3-670"><a href="#cb3-670"></a><span class="ss">1. </span>proponga un valor inicial para clasificación;</span>
+<span id="cb3-671"><a href="#cb3-671"></a><span class="ss">2. </span>proponga un valor inicial para regresión;</span>
+<span id="cb3-672"><a href="#cb3-672"></a><span class="ss">3. </span>explique qué ocurre si <span class="in">`mtry`</span> es demasiado pequeño;</span>
+<span id="cb3-673"><a href="#cb3-673"></a><span class="ss">4. </span>explique qué ocurre si es demasiado grande.</span>
+<span id="cb3-674"><a href="#cb3-674"></a></span>
+<span id="cb3-675"><a href="#cb3-675"></a><span class="fu">## Ejercicio de importancia {.unnumbered}</span></span>
+<span id="cb3-676"><a href="#cb3-676"></a></span>
+<span id="cb3-677"><a href="#cb3-677"></a><span class="pp">|</span> Variable <span class="pp">|</span> Error base <span class="pp">|</span> Error permutado <span class="pp">|</span></span>
+<span id="cb3-678"><a href="#cb3-678"></a><span class="pp">|---|---:|---:|</span></span>
+<span id="cb3-679"><a href="#cb3-679"></a><span class="pp">|</span> Velocidad <span class="pp">|</span> 0.12 <span class="pp">|</span> 0.25 <span class="pp">|</span></span>
+<span id="cb3-680"><a href="#cb3-680"></a><span class="pp">|</span> Lluvia <span class="pp">|</span> 0.12 <span class="pp">|</span> 0.16 <span class="pp">|</span></span>
+<span id="cb3-681"><a href="#cb3-681"></a><span class="pp">|</span> Hora <span class="pp">|</span> 0.12 <span class="pp">|</span> 0.13 <span class="pp">|</span></span>
+<span id="cb3-682"><a href="#cb3-682"></a><span class="pp">|</span> Viento <span class="pp">|</span> 0.12 <span class="pp">|</span> 0.12 <span class="pp">|</span></span>
+<span id="cb3-683"><a href="#cb3-683"></a></span>
+<span id="cb3-684"><a href="#cb3-684"></a><span class="ss">1. </span>Calcule la importancia por permutación.</span>
+<span id="cb3-685"><a href="#cb3-685"></a><span class="ss">2. </span>Ordene las variables.</span>
+<span id="cb3-686"><a href="#cb3-686"></a><span class="ss">3. </span>Interprete los resultados.</span>
+<span id="cb3-687"><a href="#cb3-687"></a><span class="ss">4. </span>Explique por qué no implican causalidad.</span>
+<span id="cb3-688"><a href="#cb3-688"></a></span>
+<span id="cb3-689"><a href="#cb3-689"></a><span class="fu">## Ejercicio aplicado {.unnumbered}</span></span>
+<span id="cb3-690"><a href="#cb3-690"></a></span>
+<span id="cb3-691"><a href="#cb3-691"></a>Se desea clasificar accidentes severos usando velocidad, hora, vialidad, clima, iluminación, peatones, entidad y municipio.</span>
+<span id="cb3-692"><a href="#cb3-692"></a></span>
+<span id="cb3-693"><a href="#cb3-693"></a>Diseñe un análisis que incluya:</span>
+<span id="cb3-694"><a href="#cb3-694"></a></span>
+<span id="cb3-695"><a href="#cb3-695"></a><span class="ss">1. </span>preparación de datos;</span>
+<span id="cb3-696"><a href="#cb3-696"></a><span class="ss">2. </span>variables categóricas;</span>
+<span id="cb3-697"><a href="#cb3-697"></a><span class="ss">3. </span>selección de <span class="in">`ntree`</span>;</span>
+<span id="cb3-698"><a href="#cb3-698"></a><span class="ss">4. </span>selección de <span class="in">`mtry`</span>;</span>
+<span id="cb3-699"><a href="#cb3-699"></a><span class="ss">5. </span>control de profundidad;</span>
+<span id="cb3-700"><a href="#cb3-700"></a><span class="ss">6. </span>error OOB;</span>
+<span id="cb3-701"><a href="#cb3-701"></a><span class="ss">7. </span>validación cruzada;</span>
+<span id="cb3-702"><a href="#cb3-702"></a><span class="ss">8. </span>sensibilidad y especificidad;</span>
+<span id="cb3-703"><a href="#cb3-703"></a><span class="ss">9. </span>clases desbalanceadas;</span>
+<span id="cb3-704"><a href="#cb3-704"></a><span class="ss">10. </span>importancia por permutación;</span>
+<span id="cb3-705"><a href="#cb3-705"></a><span class="ss">11. </span>calibración;</span>
+<span id="cb3-706"><a href="#cb3-706"></a><span class="ss">12. </span>comparación con árbol individual y regresión logística;</span>
+<span id="cb3-707"><a href="#cb3-707"></a><span class="ss">13. </span>interpretación de proximidades;</span>
+<span id="cb3-708"><a href="#cb3-708"></a><span class="ss">14. </span>limitaciones causales.</span>
+<span id="cb3-709"><a href="#cb3-709"></a></span>
+<span id="cb3-710"><a href="#cb3-710"></a><span class="fu">## Resumen {.unnumbered}</span></span>
+<span id="cb3-711"><a href="#cb3-711"></a></span>
+<span id="cb3-712"><a href="#cb3-712"></a>En este capítulo se desarrolló Random Forest como un ensamble de árboles basado en bootstrap y selección aleatoria de variables.</span>
+<span id="cb3-713"><a href="#cb3-713"></a></span>
+<span id="cb3-714"><a href="#cb3-714"></a>Se explicó bagging, el error out-of-bag, el papel de <span class="in">`mtry`</span>, la relación entre fuerza y correlación, y la reducción de varianza mediante promediación.</span>
+<span id="cb3-715"><a href="#cb3-715"></a></span>
+<span id="cb3-716"><a href="#cb3-716"></a>También se estudiaron importancia por impureza y por permutación, proximidades, desbalance de clases, calibración, dependencia parcial, complejidad computacional y selección de hiperparámetros.</span>
+<span id="cb3-717"><a href="#cb3-717"></a></span>
+<span id="cb3-718"><a href="#cb3-718"></a>Finalmente, se comparó Random Forest con árboles individuales, $k$-NN y boosting.</span>
+<span id="cb3-719"><a href="#cb3-719"></a></span>
+<span id="cb3-720"><a href="#cb3-720"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb3-721"><a href="#cb3-721"></a></span>
+<span id="cb3-722"><a href="#cb3-722"></a>Los fundamentos se apoyan en @breiman2001random, @hastie2009elements y @james2021introduction.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -2561,7 +2624,7 @@ James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. <em>An 
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>MI Jesús Gilberto Rodríguez Escobedo</p>
+<p>Jesús Gilberto Rodríguez Escobedo</p>
 </div>
   </div>
 </footer>

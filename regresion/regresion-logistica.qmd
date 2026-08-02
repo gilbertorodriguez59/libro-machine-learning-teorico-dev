@@ -1240,6 +1240,34 @@ Se estudiaron función logística, odds, logit y odds ratios. También se deriva
 
 Finalmente, se presentaron inferencia, deviance, pseudo-$R^2$, predicción, selección de umbral, discriminación, calibración, separación, influencia, regularización y extensión multinomial.
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo Regresión-Logística
+Entrada:
+  D = {(x_i, y_i)}_{i=1}^n, con y_i ∈ {0,1}
+Salida:
+  \hatβ y \hat p_i = P(Y_i=1|x_i)
+
+1. Inicializar β^{(0)}.
+2. Para t = 0,1,2,... hasta convergencia:
+   a) Calcular
+         η_i^{(t)} = x_i^T β^{(t)},
+         p_i^{(t)} = 1/(1 + e^{-η_i^{(t)}}).
+   b) Calcular el gradiente
+         g^{(t)} = X^T (y - p^{(t)}).
+   c) Calcular la Hessiana
+         H^{(t)} = -X^T W^{(t)} X,
+      donde W^{(t)} = diag(p_i^{(t)}(1-p_i^{(t)})).
+   d) Actualizar por Newton-Raphson/IRLS:
+         β^{(t+1)} = β^{(t)} - [H^{(t)}]^{-1} g^{(t)}.
+3. Definir \hatβ = β^{(t+1)}.
+4. Clasificar mediante
+      \hat y(x)=1 si \hat p(x) ≥ c, y 0 en otro caso.
+```
+:::
+
 ## Referencias del capítulo {.unnumbered}
 
 Los fundamentos se apoyan en @agresti2013categorical, @hosmer2013applied, @bishop2006pattern y @james2021introduction.

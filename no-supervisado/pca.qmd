@@ -944,6 +944,32 @@ $$
 \overline{\mathbf{x}}.
 $$
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo PCA
+Entrada:
+  X ∈ ℝ^{n×p}
+Salida:
+  componentes principales, cargas y puntuaciones
+
+1. Centrar los datos:
+      X_c = X - \mathbf{1}\bar x^T.
+2. Si es necesario, escalar las variables.
+3. Calcular la matriz
+      S = (1/(n-1)) X_c^T X_c
+   o la matriz de correlación.
+4. Resolver el problema espectral
+      S v_j = λ_j v_j,   j=1,...,p,
+   con λ_1 ≥ λ_2 ≥ ... ≥ λ_p.
+5. Formar las puntuaciones:
+      z_{ij} = x_i^T v_j.
+6. Seleccionar las primeras m componentes y reconstruir, si se desea,
+      \hat X_m = Z_m V_m^T.
+```
+:::
+
 ## Ventajas {.unnumbered}
 
 1. reduce dimensionalidad;

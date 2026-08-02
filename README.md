@@ -21,7 +21,7 @@ quarto render
 
 ## Autor
 
-MI Jesús Gilberto Rodríguez Escobedo
+Jesús Gilberto Rodríguez Escobedo
 
 
 ## Portada integrada

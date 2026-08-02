@@ -421,3 +421,27 @@
 - Se agregaron imágenes de neurona natural vs. artificial y de arquitectura de red neuronal.
 - Se ampliaron referencias bibliográficas y citas dentro del texto en capítulos 12 a 16.
 - Se incorporó `REVISION_PROFESIONAL_v0.33.md`.
+
+## Versión 0.34
+
+- Ronda final preestable.
+- Se reemplazó la figura `neurona-natural-artificial.png` por una versión más profesional y detallada.
+- Se mejoró la explicación conceptual asociada a la figura de neurona biológica y artificial.
+- Se añadió una lista de verificación preestable.
+
+## Versión 0.35
+
+- Se eliminó el prefijo “MI” del nombre del autor.
+- El nombre oficial del autor queda como `Jesús Gilberto Rodríguez Escobedo`.
+- Se corrigieron los metadatos, el pie de página, README y ambas portadas.
+- Se añadió `prefacio.qmd` como prefacio tentativo del autor.
+- El prefacio se incorporó después de la portada y antes de la presentación.
+
+## Versión 0.36
+
+- Se eliminó la hoja inicial con el mensaje “Descargar el PDF”.
+- La portada del PDF ahora se genera desde `index.qmd` para aparecer como primera hoja efectiva.
+- Se retiró `include-before-body` de la configuración PDF.
+- Se reemplazó el índice temático vacío por un índice temático manual y no vacío.
+- Se rediseñó la figura de neurona biológica y neurona artificial para evitar empalmes.
+- Se añadieron secciones de seudocódigo matemático formal a los capítulos de métodos principales.

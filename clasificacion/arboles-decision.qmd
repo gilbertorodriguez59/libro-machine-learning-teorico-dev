@@ -905,6 +905,30 @@ $$
 \widehat{c}_2=18.
 $$
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo Árbol-de-Decisión
+Entrada:
+  nodo t con subconjunto D_t
+Salida:
+  subárbol T_t
+
+1. Si D_t es puro o se cumple un criterio de parada,
+      declarar t como hoja y asignar su clase/predicción.
+2. Para cada variable j y cada punto de corte s factible:
+      calcular la impureza de la partición
+         D_t^L(j,s), D_t^R(j,s).
+3. Seleccionar (j*, s*) que minimice la impureza o maximice la ganancia.
+4. Crear dos nodos hijos:
+      t_L con D_t^L(j*,s*),
+      t_R con D_t^R(j*,s*).
+5. Aplicar recursivamente el procedimiento a t_L y t_R.
+6. Si se usa poda, seleccionar el subárbol óptimo según un criterio de complejidad.
+```
+:::
+
 ## Ventajas {.unnumbered}
 
 1. interpretación sencilla;

@@ -706,6 +706,30 @@ $$
 
 Si se usan pesos proporcionales a la cercanía, la predicción puede desplazarse hacia los vecinos más próximos.
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo KNN
+Entrada:
+  D = {(x_i, y_i)}_{i=1}^n, k ∈ ℕ
+Salida:
+  Regla de clasificación h_k
+
+Predicción para una nueva observación x:
+1. Para i = 1,...,n calcular la distancia
+      d_i(x) = ||x - x_i||.
+2. Reordenar los índices de modo que
+      d_{π(1)}(x) ≤ d_{π(2)}(x) ≤ ... ≤ d_{π(n)}(x).
+3. Definir el vecindario
+      N_k(x) = {π(1), ..., π(k)}.
+4. Para cada clase c, calcular el voto
+      v_c(x) = \sum_{j∈N_k(x)} I(y_j = c).
+5. Devolver
+      h_k(x) = argmax_c v_c(x).
+```
+:::
+
 ## Ventajas {.unnumbered}
 
 1. es conceptualmente simple;

@@ -1043,6 +1043,29 @@ $$
 \xi_i,\xi_i^*\geq 0.
 $$
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo SVM-Lineal
+Entrada:
+  D = {(x_i, y_i)}_{i=1}^n, con y_i ∈ {-1,+1}, C > 0
+Salida:
+  hiperplano separador \hat f(x)=sign(w^T x + b)
+
+1. Resolver el problema de optimización
+      minimizar_{w,b,ξ}   (1/2)||w||^2 + C\sum_{i=1}^n ξ_i
+      sujeto a            y_i(w^T x_i + b) ≥ 1 - ξ_i,
+                          ξ_i ≥ 0.
+2. Obtener la solución (\hat w, \hat b, \hat ξ).
+3. Identificar los vectores de soporte:
+      i tales que y_i(\hat w^T x_i + \hat b) ≤ 1.
+4. Definir la regla de decisión
+      \hat y(x)=sign(\hat w^T x + \hat b).
+5. En la versión con kernel, reemplazar x_i^T x_j por K(x_i,x_j).
+```
+:::
+
 ## Ventajas de SVM {.unnumbered}
 
 1. fundamento matemático sólido;

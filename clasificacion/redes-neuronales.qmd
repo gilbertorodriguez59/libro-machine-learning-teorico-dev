@@ -167,7 +167,7 @@ Esta limitación motivó el uso de capas ocultas y activaciones no lineales.
 Si todas las activaciones fueran lineales, la composición de múltiples capas sería equivalente a una sola transformación lineal. La capacidad no lineal proviene de las funciones de activación.
 :::
 
-![La neurona artificial abstrae la recepción, integración y transmisión de señales de la neurona biológica.](../estilos/figuras/neurona-natural-artificial.png){#fig-neurona-natural-artificial width=84% fig-alt="Comparación de neurona natural y neurona artificial"}
+![La comparación entre neurona biológica y neurona artificial muestra con mayor claridad la analogía entre recepción de señales, integración y producción de una respuesta.](../estilos/figuras/neurona-natural-artificial.png){#fig-neurona-natural-artificial width=84% fig-alt="Comparación de neurona natural y neurona artificial"}
 
 ## Red multicapa {.unnumbered}
 
@@ -548,6 +548,11 @@ La retropropagación calcula gradientes eficientemente. El optimizador —SGD, m
 :::
 
 ![Una red neuronal multicapa transforma entradas en salidas mediante capas ocultas y activaciones no lineales.](../estilos/figuras/red-neuronal-arquitectura.png){#fig-red-neuronal-arquitectura width=84% fig-alt="Arquitectura con capa de entrada, dos ocultas y capa de salida"}
+
+::: {.callout-note title="Lectura conceptual de la figura" appearance="default" icon="true"}
+En la neurona biológica, las dendritas reciben señales, el soma las integra y el axón transmite la respuesta.  
+En la neurona artificial, las entradas se ponderan, se suman con un sesgo y luego se transforman mediante una función de activación para producir la salida.
+:::
 
 ## Retropropagación {.unnumbered}
 
@@ -1415,6 +1420,34 @@ $$
 $$
 
 La clase predicha es la primera.
+
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo Retropropagación con descenso por gradiente
+Entrada:
+  D = {(x_i, y_i)}_{i=1}^n, arquitectura de red, tasa η
+Salida:
+  parámetros Θ = {W^{(\ell)}, b^{(\ell)}}_{\ell=1}^L
+
+1. Inicializar aleatoriamente Θ.
+2. Repetir hasta convergencia:
+   Para cada par (x_i, y_i):
+   a) Propagación hacia adelante:
+         a^{(0)} = x_i,
+         z^{(\ell)} = W^{(\ell)} a^{(\ell-1)} + b^{(\ell)},
+         a^{(\ell)} = φ^{(\ell)}(z^{(\ell)}),   \ell=1,...,L.
+   b) Calcular la pérdida \mathcal{L}(y_i, a^{(L)}).
+   c) Propagación hacia atrás:
+         δ^{(L)} = ∇_{a^{(L)}}\mathcal{L} \odot φ'^{(L)}(z^{(L)}),
+         δ^{(\ell)} = ((W^{(\ell+1)})^T δ^{(\ell+1)}) \odot φ'^{(\ell)}(z^{(\ell)}).
+   d) Actualizar:
+         W^{(\ell)} ← W^{(\ell)} - η δ^{(\ell)} (a^{(\ell-1)})^T,
+         b^{(\ell)} ← b^{(\ell)} - η δ^{(\ell)}.
+3. Devolver la red entrenada.
+```
+:::
 
 ## Ventajas {.unnumbered}
 

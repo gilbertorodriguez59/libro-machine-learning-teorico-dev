@@ -14,13 +14,14 @@ resource-files:
 book:
   title: "Fundamentos Matemáticos del Aprendizaje Automático"
   subtitle: "Teoría, demostraciones y formulación rigurosa de los métodos de regresión, clasificación y análisis de datos"
-  author: "MI Jesús Gilberto Rodríguez Escobedo"
+  author: "Jesús Gilberto Rodríguez Escobedo"
   output-file: "fundamentos-matematicos-aprendizaje-automatico"
   date: today
   downloads: [pdf]
 
   chapters:
     - index.qmd
+    - prefacio.qmd
     - presentacion.qmd
     - introduccion.qmd
     - notacion.qmd
@@ -70,7 +71,7 @@ book:
 
   page-footer:
     left: "Fundamentos Matemáticos del Aprendizaje Automático"
-    right: "MI Jesús Gilberto Rodríguez Escobedo"
+    right: "Jesús Gilberto Rodríguez Escobedo"
 
 bibliography: referencias.bib
 
@@ -102,7 +103,6 @@ format:
 
   pdf:
     include-in-header: estilos/callouts-pdf.tex
-    include-before-body: estilos/portadas/portada-pdf.tex
     documentclass: scrreprt
     classoption:
       - oneside

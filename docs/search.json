@@ -4,19 +4,19 @@
     "href": "index.html",
     "title": "Fundamentos Matemáticos del Aprendizaje Automático",
     "section": "",
-    "text": "Bienvenida\nEste libro desarrolla los fundamentos matemáticos de los principales métodos de aprendizaje automático. Su propósito es explicar no solamente cómo se ejecutan los algoritmos, sino por qué funcionan, cuáles son sus supuestos y qué propiedades justifican su utilización.\nLa obra complementa el libro práctico Aprendizaje y Clasificación Automática con R. Ambos volúmenes pueden estudiarse por separado, aunque su lectura conjunta permite conectar la formulación matemática, el algoritmo y su implementación computacional.",
+    "text": "Código\nTeoría, demostraciones y formulación rigurosa de los métodos de regresión, clasificación y análisis de datos\nJesús Gilberto Rodríguez Escobedo\n\n2026-08-02\n\n\n\n\n\nBienvenida\nEste libro desarrolla los fundamentos teóricos y matemáticos de los principales métodos de aprendizaje automático, con énfasis en la formulación rigurosa, la interpretación y la relación con implementaciones en R.\nPuede leerse como complemento del libro práctico Aprendizaje y Clasificación Automática con R.",
     "crumbs": [
-      "Descargar el libro en PDF"
+      "Bienvenida"
     ]
   },
   {
-    "objectID": "index.html#objetivos-generales",
-    "href": "index.html#objetivos-generales",
-    "title": "Fundamentos Matemáticos del Aprendizaje Automático",
-    "section": "Objetivos generales",
-    "text": "Objetivos generales\nAl finalizar el libro, el lector podrá:\n\nrepresentar formalmente problemas de aprendizaje automático;\ncomprender los fundamentos algebraicos, probabilísticos y estadísticos de los modelos;\nderivar los principales algoritmos de regresión, clasificación y agrupamiento;\ninterpretar funciones de pérdida, criterios de optimización y métodos de regularización;\nanalizar supuestos, limitaciones y propiedades de generalización;\nrelacionar la teoría matemática con implementaciones en R.",
+    "objectID": "prefacio.html",
+    "href": "prefacio.html",
+    "title": "Prefacio",
+    "section": "",
+    "text": "Este libro nace de una convicción que ha acompañado mi trayectoria académica y profesional: los métodos de aprendizaje automático se comprenden mejor cuando se estudian desde sus fundamentos matemáticos y, al mismo tiempo, se relacionan con problemas reales, implementaciones computacionales e interpretaciones claras.\nMi formación inicial en Física y Matemáticas me llevó a valorar el rigor de las definiciones, la precisión de la notación y la importancia de comprender por qué un método funciona. Posteriormente, mis estudios en Ciencias de la Computación, Inteligencia Artificial e Ingeniería de la Computación ampliaron esa perspectiva hacia el diseño de algoritmos, los sistemas inteligentes y la solución de problemas mediante modelos computacionales.\nA lo largo de varias décadas de docencia universitaria en México y Chile he impartido cursos de matemáticas, estadística, computación, inteligencia artificial, minería de datos y áreas relacionadas. Esta experiencia me ha mostrado que muchos estudiantes pueden ejecutar un algoritmo, obtener una gráfica o interpretar una métrica, pero todavía encuentran dificultades para reconocer la estructura matemática que sostiene el procedimiento. También he observado el problema contrario: una exposición excesivamente abstracta puede alejar al lector de las aplicaciones que dan sentido a la teoría.\nPor ello, Fundamentos Matemáticos del Aprendizaje Automático busca construir un puente entre ambos extremos. El propósito no es presentar una colección de fórmulas aisladas ni un manual de programación, sino desarrollar una comprensión progresiva de los conceptos que aparecen una y otra vez en los modelos de aprendizaje automático: espacios vectoriales, probabilidad, optimización, riesgo, regularización, generalización, clasificación, regresión y agrupamiento.\nLa obra está pensada principalmente para estudiantes y profesores de ingeniería, matemáticas, computación y ciencias aplicadas. Sin embargo, también puede resultar útil para profesionales que ya utilizan herramientas de análisis de datos y desean comprender con mayor profundidad los supuestos, las posibilidades y las limitaciones de los algoritmos.\nCada capítulo intenta conservar cuatro principios:\n\nRigor sin oscuridad. Las definiciones y resultados matemáticos deben formularse con precisión, pero explicarse de manera accesible.\nInterpretación antes que mecanización. Una fórmula adquiere sentido cuando se comprende qué representa cada término y qué problema permite resolver.\nRelación entre teoría y práctica. Los desarrollos matemáticos se acompañan de ejemplos, representaciones gráficas y código en R.\nPensamiento crítico. Ningún método es universal; todo modelo depende de supuestos, decisiones de diseño, calidad de los datos y criterios de evaluación.\n\nEste volumen complementa el libro práctico Aprendizaje y Clasificación Automática con R. Mientras aquel se orienta principalmente a la implementación y al análisis aplicado, el presente texto profundiza en la estructura matemática de los métodos. Ambos pueden leerse de forma independiente, aunque fueron concebidos para dialogar entre sí.\nEl libro también refleja mi interés permanente por la educación apoyada en tecnología y por los sistemas inteligentes orientados al aprendizaje. Desde mis primeros trabajos en informática educativa, multimedia y sistemas tutoriales inteligentes, he considerado que la tecnología alcanza su mayor valor cuando ayuda al estudiante a construir conocimiento y no solamente a reproducir procedimientos.\nNo pretendo que esta obra cierre los temas que aborda. El aprendizaje automático es un campo en evolución constante y cada capítulo abre caminos hacia desarrollos más avanzados. Mi aspiración es más modesta y, al mismo tiempo, más esencial: ofrecer una base sólida desde la cual el lector pueda continuar estudiando, investigando y aplicando estos métodos con mayor autonomía y criterio.\nAgradezco a los estudiantes, colegas e instituciones que, a lo largo de mi vida académica, han contribuido directa o indirectamente a la construcción de estas ideas. Las preguntas formuladas en el aula, los proyectos desarrollados y los desafíos encontrados en la práctica han sido parte fundamental de este libro.\nEspero que estas páginas permitan al lector descubrir que detrás de cada algoritmo existe una idea matemática comprensible, y que esa comprensión puede transformar la manera de utilizar la inteligencia artificial y el aprendizaje automático.\nJesús Gilberto Rodríguez Escobedo\nSan Luis Potosí, México",
     "crumbs": [
-      "Descargar el libro en PDF"
+      "Prefacio"
     ]
   },
   {
@@ -6000,6 +6000,17 @@
     ]
   },
   {
+    "objectID": "regresion/regresion-lineal-simple.html#seudocódigo-formal",
+    "href": "regresion/regresion-lineal-simple.html#seudocódigo-formal",
+    "title": "12  Regresión lineal simple",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo MCO-Lineal-Simple\nEntrada:\n  D = {(x_i, y_i)}_{i=1}^n, con x_i, y_i ∈ ℝ\nSalida:\n  \\hatβ_0, \\hatβ_1 y \\hat f(x) = \\hatβ_0 + \\hatβ_1 x\n\n1. Calcular\n      \\bar x = (1/n) \\sum_{i=1}^n x_i,\n      \\bar y = (1/n) \\sum_{i=1}^n y_i.\n2. Calcular\n      S_{xx} = \\sum_{i=1}^n (x_i - \\bar x)^2,\n      S_{xy} = \\sum_{i=1}^n (x_i - \\bar x)(y_i - \\bar y).\n3. Estimar\n      \\hatβ_1 = S_{xy}/S_{xx},\n      \\hatβ_0 = \\bar y - \\hatβ_1 \\bar x.\n4. Para cada observación, obtener\n      \\hat y_i = \\hatβ_0 + \\hatβ_1 x_i,\n      e_i = y_i - \\hat y_i.\n5. Devolver el modelo ajustado \\hat f.",
+    "crumbs": [
+      "III. Modelos de regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Regresión lineal simple\\index{Regresión lineal simple}</span>"
+    ]
+  },
+  {
     "objectID": "regresion/regresion-lineal-simple.html#referencias-del-capítulo",
     "href": "regresion/regresion-lineal-simple.html#referencias-del-capítulo",
     "title": "12  Regresión lineal simple",
@@ -6880,6 +6891,17 @@
     ]
   },
   {
+    "objectID": "regresion/regresion-lineal-multiple.html#seudocódigo-formal",
+    "href": "regresion/regresion-lineal-multiple.html#seudocódigo-formal",
+    "title": "13  Regresión lineal múltiple",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo MCO-Lineal-Múltiple\nEntrada:\n  X ∈ ℝ^{n×(p+1)} con primera columna de unos, y ∈ ℝ^n\nSalida:\n  \\hatβ ∈ ℝ^{p+1}, \\hat y y residuos e\n\n1. Formar la matriz normal A = X^T X y el vector b = X^T y.\n2. Resolver el sistema lineal\n      A \\hatβ = b\n   o, si A es invertible,\n      \\hatβ = (X^T X)^{-1} X^T y.\n3. Calcular\n      \\hat y = X \\hatβ,\n      e = y - \\hat y.\n4. Evaluar\n      SSR = ||\\hat y - \\bar y \\mathbf{1}||^2,\n      SSE = ||e||^2.\n5. Devolver \\hatβ y el modelo \\hat f(x)=x^T\\hatβ.",
+    "crumbs": [
+      "III. Modelos de regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Regresión lineal múltiple\\index{Regresión lineal múltiple}</span>"
+    ]
+  },
+  {
     "objectID": "regresion/regresion-lineal-multiple.html#referencias-del-capítulo",
     "href": "regresion/regresion-lineal-multiple.html#referencias-del-capítulo",
     "title": "13  Regresión lineal múltiple",
@@ -7507,6 +7529,17 @@
     ]
   },
   {
+    "objectID": "regresion/regresion-logistica.html#seudocódigo-formal",
+    "href": "regresion/regresion-logistica.html#seudocódigo-formal",
+    "title": "14  Regresión logística",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo Regresión-Logística\nEntrada:\n  D = {(x_i, y_i)}_{i=1}^n, con y_i ∈ {0,1}\nSalida:\n  \\hatβ y \\hat p_i = P(Y_i=1|x_i)\n\n1. Inicializar β^{(0)}.\n2. Para t = 0,1,2,... hasta convergencia:\n   a) Calcular\n         η_i^{(t)} = x_i^T β^{(t)},\n         p_i^{(t)} = 1/(1 + e^{-η_i^{(t)}}).\n   b) Calcular el gradiente\n         g^{(t)} = X^T (y - p^{(t)}).\n   c) Calcular la Hessiana\n         H^{(t)} = -X^T W^{(t)} X,\n      donde W^{(t)} = diag(p_i^{(t)}(1-p_i^{(t)})).\n   d) Actualizar por Newton-Raphson/IRLS:\n         β^{(t+1)} = β^{(t)} - [H^{(t)}]^{-1} g^{(t)}.\n3. Definir \\hatβ = β^{(t+1)}.\n4. Clasificar mediante\n      \\hat y(x)=1 si \\hat p(x) ≥ c, y 0 en otro caso.",
+    "crumbs": [
+      "III. Modelos de regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Regresión logística\\index{Regresión logística}</span>"
+    ]
+  },
+  {
     "objectID": "regresion/regresion-logistica.html#referencias-del-capítulo",
     "href": "regresion/regresion-logistica.html#referencias-del-capítulo",
     "title": "14  Regresión logística",
@@ -8062,6 +8095,17 @@
     "title": "15  Vecinos más cercanos, k-NN",
     "section": "Ejemplo numérico de regresión",
     "text": "Ejemplo numérico de regresión\nSupóngase que las respuestas asociadas a los 4 vecinos más cercanos de un punto son\n\\[\n8,\\;10,\\;11,\\;15.\n\\]\nEntonces, para \\(k=4\\),\n\\[\n\\widehat{m}_4(\\mathbf{x}_0)\n=\n\\frac{8+10+11+15}{4}=11.\n\\]\nSi se usan pesos proporcionales a la cercanía, la predicción puede desplazarse hacia los vecinos más próximos.",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Vecinos más cercanos, k-NN\\index{K-NN}</span>"
+    ]
+  },
+  {
+    "objectID": "clasificacion/knn.html#seudocódigo-formal",
+    "href": "clasificacion/knn.html#seudocódigo-formal",
+    "title": "15  Vecinos más cercanos, k-NN",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo KNN\nEntrada:\n  D = {(x_i, y_i)}_{i=1}^n, k ∈ ℕ\nSalida:\n  Regla de clasificación h_k\n\nPredicción para una nueva observación x:\n1. Para i = 1,...,n calcular la distancia\n      d_i(x) = ||x - x_i||.\n2. Reordenar los índices de modo que\n      d_{π(1)}(x) ≤ d_{π(2)}(x) ≤ ... ≤ d_{π(n)}(x).\n3. Definir el vecindario\n      N_k(x) = {π(1), ..., π(k)}.\n4. Para cada clase c, calcular el voto\n      v_c(x) = \\sum_{j∈N_k(x)} I(y_j = c).\n5. Devolver\n      h_k(x) = argmax_c v_c(x).",
     "crumbs": [
       "IV. Métodos de clasificación",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Vecinos más cercanos, k-NN\\index{K-NN}</span>"
@@ -8827,6 +8871,17 @@
     ]
   },
   {
+    "objectID": "clasificacion/arboles-decision.html#seudocódigo-formal",
+    "href": "clasificacion/arboles-decision.html#seudocódigo-formal",
+    "title": "16  Árboles de decisión",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo Árbol-de-Decisión\nEntrada:\n  nodo t con subconjunto D_t\nSalida:\n  subárbol T_t\n\n1. Si D_t es puro o se cumple un criterio de parada,\n      declarar t como hoja y asignar su clase/predicción.\n2. Para cada variable j y cada punto de corte s factible:\n      calcular la impureza de la partición\n         D_t^L(j,s), D_t^R(j,s).\n3. Seleccionar (j*, s*) que minimice la impureza o maximice la ganancia.\n4. Crear dos nodos hijos:\n      t_L con D_t^L(j*,s*),\n      t_R con D_t^R(j*,s*).\n5. Aplicar recursivamente el procedimiento a t_L y t_R.\n6. Si se usa poda, seleccionar el subárbol óptimo según un criterio de complejidad.",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Árbol\\index{Árboles de decisión}es de decisión</span>"
+    ]
+  },
+  {
     "objectID": "clasificacion/arboles-decision.html#ventajas",
     "href": "clasificacion/arboles-decision.html#ventajas",
     "title": "16  Árboles de decisión",
@@ -9393,6 +9448,17 @@
     "title": "17  Random Forest",
     "section": "Ejemplo de regresión",
     "text": "Ejemplo de regresión\nSi cinco árboles predicen\n\\[\n10,\\;12,\\;11,\\;15,\\;12,\n\\]\nla predicción es\n\\[\n\\widehat{f}_{RF}(\\mathbf{x})=12.\n\\]",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Random Forest\\index{Random Forest}</span>"
+    ]
+  },
+  {
+    "objectID": "clasificacion/random-forest.html#seudocódigo-formal",
+    "href": "clasificacion/random-forest.html#seudocódigo-formal",
+    "title": "17  Random Forest",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo Random-Forest\nEntrada:\n  D = {(x_i, y_i)}_{i=1}^n, número de árboles B, número de variables m\nSalida:\n  bosque {T_b}_{b=1}^B\n\nPara b = 1,...,B:\n1. Generar una muestra bootstrap D^{(b)} a partir de D.\n2. Construir un árbol T_b sobre D^{(b)}:\n   a) en cada nodo seleccionar aleatoriamente m variables;\n   b) elegir la mejor partición sólo entre esas m variables;\n   c) crecer el árbol hasta el criterio de parada establecido.\nPredicción:\n3. Para clasificación:\n      \\hat y(x) = voto mayoritario{T_b(x)}_{b=1}^B.\n   Para regresión:\n      \\hat f(x) = (1/B)\\sum_{b=1}^B T_b(x).",
     "crumbs": [
       "IV. Métodos de clasificación",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>Random Forest\\index{Random Forest}</span>"
@@ -10081,6 +10147,17 @@
     ]
   },
   {
+    "objectID": "clasificacion/svm.html#seudocódigo-formal",
+    "href": "clasificacion/svm.html#seudocódigo-formal",
+    "title": "18  Máquinas de vectores de soporte, SVM",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo SVM-Lineal\nEntrada:\n  D = {(x_i, y_i)}_{i=1}^n, con y_i ∈ {-1,+1}, C &gt; 0\nSalida:\n  hiperplano separador \\hat f(x)=sign(w^T x + b)\n\n1. Resolver el problema de optimización\n      minimizar_{w,b,ξ}   (1/2)||w||^2 + C\\sum_{i=1}^n ξ_i\n      sujeto a            y_i(w^T x_i + b) ≥ 1 - ξ_i,\n                          ξ_i ≥ 0.\n2. Obtener la solución (\\hat w, \\hat b, \\hat ξ).\n3. Identificar los vectores de soporte:\n      i tales que y_i(\\hat w^T x_i + \\hat b) ≤ 1.\n4. Definir la regla de decisión\n      \\hat y(x)=sign(\\hat w^T x + \\hat b).\n5. En la versión con kernel, reemplazar x_i^T x_j por K(x_i,x_j).",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Máquinas de vectores de soporte\\index{Máquinas de vectores de soporte}, SVM</span>"
+    ]
+  },
+  {
     "objectID": "clasificacion/svm.html#ventajas-de-svm",
     "href": "clasificacion/svm.html#ventajas-de-svm",
     "title": "18  Máquinas de vectores de soporte, SVM",
@@ -10459,7 +10536,7 @@
     "href": "clasificacion/redes-neuronales.html#limitación-del-perceptrón",
     "title": "19  Redes neuronales artificiales",
     "section": "Limitación del perceptrón",
-    "text": "Limitación del perceptrón\nEl perceptrón converge si las clases son linealmente separables. No puede resolver problemas como XOR mediante una sola capa lineal.\nEsta limitación motivó el uso de capas ocultas y activaciones no lineales.\n\n\n\n\n\n\nImportanteNecesidad de no linealidad\n\n\n\nSi todas las activaciones fueran lineales, la composición de múltiples capas sería equivalente a una sola transformación lineal. La capacidad no lineal proviene de las funciones de activación.\n\n\n\n\n\n\n\n\nFigura 19.1: La neurona artificial abstrae la recepción, integración y transmisión de señales de la neurona biológica.",
+    "text": "Limitación del perceptrón\nEl perceptrón converge si las clases son linealmente separables. No puede resolver problemas como XOR mediante una sola capa lineal.\nEsta limitación motivó el uso de capas ocultas y activaciones no lineales.\n\n\n\n\n\n\nImportanteNecesidad de no linealidad\n\n\n\nSi todas las activaciones fueran lineales, la composición de múltiples capas sería equivalente a una sola transformación lineal. La capacidad no lineal proviene de las funciones de activación.\n\n\n\n\n\n\n\n\nFigura 19.1: La comparación entre neurona biológica y neurona artificial muestra con mayor claridad la analogía entre recepción de señales, integración y producción de una respuesta.",
     "crumbs": [
       "IV. Métodos de clasificación",
       "<span class='chapter-number'>19</span>  <span class='chapter-title'>Redes neuronales\\index{Redes neuronales} artificiales</span>"
@@ -10668,7 +10745,7 @@
     "href": "clasificacion/redes-neuronales.html#mini-lotes",
     "title": "19  Redes neuronales artificiales",
     "section": "Mini-lotes",
-    "text": "Mini-lotes\nPara un mini-lote \\(\\mathcal{B}\\):\n\\[\nJ_{\\mathcal{B}}(\\Theta)\n=\n\\frac{1}{|\\mathcal{B}|}\n\\sum_{i\\in\\mathcal{B}}\nL_i(\\Theta).\n\\]\nLa actualización usa\n\\[\n\\nabla_{\\Theta}\nJ_{\\mathcal{B}}(\\Theta).\n\\]\nEs el enfoque más utilizado.\n\n\n\n\n\n\nNotaRetropropagación no es el optimizador\n\n\n\nLa retropropagación calcula gradientes eficientemente. El optimizador —SGD, momentum, Adam u otro— utiliza esos gradientes para actualizar los parámetros.\n\n\n\n\n\n\n\n\nFigura 19.2: Una red neuronal multicapa transforma entradas en salidas mediante capas ocultas y activaciones no lineales.",
+    "text": "Mini-lotes\nPara un mini-lote \\(\\mathcal{B}\\):\n\\[\nJ_{\\mathcal{B}}(\\Theta)\n=\n\\frac{1}{|\\mathcal{B}|}\n\\sum_{i\\in\\mathcal{B}}\nL_i(\\Theta).\n\\]\nLa actualización usa\n\\[\n\\nabla_{\\Theta}\nJ_{\\mathcal{B}}(\\Theta).\n\\]\nEs el enfoque más utilizado.\n\n\n\n\n\n\nNotaRetropropagación no es el optimizador\n\n\n\nLa retropropagación calcula gradientes eficientemente. El optimizador —SGD, momentum, Adam u otro— utiliza esos gradientes para actualizar los parámetros.\n\n\n\n\n\n\n\n\nFigura 19.2: Una red neuronal multicapa transforma entradas en salidas mediante capas ocultas y activaciones no lineales.\n\n\n\n\n\n\n\n\n\nNotaLectura conceptual de la figura\n\n\n\nEn la neurona biológica, las dendritas reciben señales, el soma las integra y el axón transmite la respuesta.\nEn la neurona artificial, las entradas se ponderan, se suman con un sesgo y luego se transforman mediante una función de activación para producir la salida.",
     "crumbs": [
       "IV. Métodos de clasificación",
       "<span class='chapter-number'>19</span>  <span class='chapter-title'>Redes neuronales\\index{Redes neuronales} artificiales</span>"
@@ -11186,6 +11263,17 @@
     "title": "19  Redes neuronales artificiales",
     "section": "Ejemplo de softmax",
     "text": "Ejemplo de softmax\nConsidérese\n\\[\n\\mathbf{z}\n=\n\\begin{pmatrix}\n2\\\\\n1\\\\\n0\n\\end{pmatrix}.\n\\]\nEntonces\n\\[\n\\widehat{p}_1\n=\n\\frac{e^2}{e^2+e^1+e^0},\n\\]\n\\[\n\\widehat{p}_2\n=\n\\frac{e^1}{e^2+e^1+e^0},\n\\]\n\\[\n\\widehat{p}_3\n=\n\\frac{e^0}{e^2+e^1+e^0}.\n\\]\nLa clase predicha es la primera.",
+    "crumbs": [
+      "IV. Métodos de clasificación",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Redes neuronales\\index{Redes neuronales} artificiales</span>"
+    ]
+  },
+  {
+    "objectID": "clasificacion/redes-neuronales.html#seudocódigo-formal",
+    "href": "clasificacion/redes-neuronales.html#seudocódigo-formal",
+    "title": "19  Redes neuronales artificiales",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo Retropropagación con descenso por gradiente\nEntrada:\n  D = {(x_i, y_i)}_{i=1}^n, arquitectura de red, tasa η\nSalida:\n  parámetros Θ = {W^{(\\ell)}, b^{(\\ell)}}_{\\ell=1}^L\n\n1. Inicializar aleatoriamente Θ.\n2. Repetir hasta convergencia:\n   Para cada par (x_i, y_i):\n   a) Propagación hacia adelante:\n         a^{(0)} = x_i,\n         z^{(\\ell)} = W^{(\\ell)} a^{(\\ell-1)} + b^{(\\ell)},\n         a^{(\\ell)} = φ^{(\\ell)}(z^{(\\ell)}),   \\ell=1,...,L.\n   b) Calcular la pérdida \\mathcal{L}(y_i, a^{(L)}).\n   c) Propagación hacia atrás:\n         δ^{(L)} = ∇_{a^{(L)}}\\mathcal{L} \\odot φ'^{(L)}(z^{(L)}),\n         δ^{(\\ell)} = ((W^{(\\ell+1)})^T δ^{(\\ell+1)}) \\odot φ'^{(\\ell)}(z^{(\\ell)}).\n   d) Actualizar:\n         W^{(\\ell)} ← W^{(\\ell)} - η δ^{(\\ell)} (a^{(\\ell-1)})^T,\n         b^{(\\ell)} ← b^{(\\ell)} - η δ^{(\\ell)}.\n3. Devolver la red entrenada.",
     "crumbs": [
       "IV. Métodos de clasificación",
       "<span class='chapter-number'>19</span>  <span class='chapter-title'>Redes neuronales\\index{Redes neuronales} artificiales</span>"
@@ -11890,6 +11978,17 @@
     "title": "20  Análisis de Componentes Principales, PCA",
     "section": "Ejemplo de reconstrucción",
     "text": "Ejemplo de reconstrucción\nCon dos variables y una sola componente,\n\\[\n\\widehat{\\mathbf{x}}_c\n=\nt_1\\mathbf{a}_1.\n\\]\nDespués se suma la media original:\n\\[\n\\widehat{\\mathbf{x}}\n=\n\\widehat{\\mathbf{x}}_c\n+\n\\overline{\\mathbf{x}}.\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Análisis de Componentes Principales\\index{Análisis de componentes principales}, PCA</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/pca.html#seudocódigo-formal",
+    "href": "no-supervisado/pca.html#seudocódigo-formal",
+    "title": "20  Análisis de Componentes Principales, PCA",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo PCA\nEntrada:\n  X ∈ ℝ^{n×p}\nSalida:\n  componentes principales, cargas y puntuaciones\n\n1. Centrar los datos:\n      X_c = X - \\mathbf{1}\\bar x^T.\n2. Si es necesario, escalar las variables.\n3. Calcular la matriz\n      S = (1/(n-1)) X_c^T X_c\n   o la matriz de correlación.\n4. Resolver el problema espectral\n      S v_j = λ_j v_j,   j=1,...,p,\n   con λ_1 ≥ λ_2 ≥ ... ≥ λ_p.\n5. Formar las puntuaciones:\n      z_{ij} = x_i^T v_j.\n6. Seleccionar las primeras m componentes y reconstruir, si se desea,\n      \\hat X_m = Z_m V_m^T.",
     "crumbs": [
       "V. Aprendizaje no supervisado",
       "<span class='chapter-number'>20</span>  <span class='chapter-title'>Análisis de Componentes Principales\\index{Análisis de componentes principales}, PCA</span>"
@@ -12688,6 +12787,17 @@
     ]
   },
   {
+    "objectID": "no-supervisado/kmeans.html#seudocódigo-formal",
+    "href": "no-supervisado/kmeans.html#seudocódigo-formal",
+    "title": "21  Agrupamiento mediante K-means",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo K-means\nEntrada:\n  X = {x_i}_{i=1}^n ⊂ ℝ^p, número de grupos K\nSalida:\n  partición {C_1,...,C_K} y centroides {μ_1,...,μ_K}\n\n1. Inicializar centroides μ_1^{(0)},...,μ_K^{(0)}.\n2. Repetir hasta convergencia:\n   a) Asignación:\n         C_k^{(t)} = {x_i : ||x_i - μ_k^{(t)}||^2 ≤ ||x_i - μ_\\ell^{(t)}||^2, ∀\\ell }.\n   b) Actualización:\n         μ_k^{(t+1)} = (1/|C_k^{(t)}|)\\sum_{x_i∈C_k^{(t)}} x_i.\n3. Detener cuando no cambian las asignaciones o la reducción en la función objetivo es despreciable.\n4. Devolver la partición final y los centroides.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Agrupamiento mediante K-means\\index{K-means}</span>"
+    ]
+  },
+  {
     "objectID": "no-supervisado/kmeans.html#ventajas",
     "href": "no-supervisado/kmeans.html#ventajas",
     "title": "21  Agrupamiento mediante K-means",
@@ -13188,6 +13298,17 @@
     "title": "22  Agrupamiento jerárquico",
     "section": "Ejemplo de Ward",
     "text": "Ejemplo de Ward\nSean\n\\[\n|A|=3,\n\\qquad\n|B|=2,\n\\]\ny\n\\[\n\\|\\boldsymbol{\\mu}_A-\\boldsymbol{\\mu}_B\\|_2=4.\n\\]\nEntonces\n\\[\n\\Delta(A,B)\n=\n\\frac{3(2)}{3+2}(4^2)\n=\n19.2.\n\\]",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Agrupamiento jerárquico\\index{Agrupamiento jerárquico}</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/agrupamiento-jerarquico.html#seudocódigo-formal",
+    "href": "no-supervisado/agrupamiento-jerarquico.html#seudocódigo-formal",
+    "title": "22  Agrupamiento jerárquico",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo Jerárquico-Aglomerativo\nEntrada:\n  observaciones {x_i}_{i=1}^n y una distancia d\nSalida:\n  dendrograma\n\n1. Inicializar n grupos:\n      C_i^{(0)} = {x_i},   i=1,...,n.\n2. Calcular la matriz de distancias entre grupos.\n3. Para t = 0,1,...,n-2:\n   a) Encontrar los grupos más próximos\n         (C_r^{(t)}, C_s^{(t)}).\n   b) Fusionarlos:\n         C_u^{(t+1)} = C_r^{(t)} ∪ C_s^{(t)}.\n   c) Actualizar las distancias entre C_u^{(t+1)} y los demás grupos\n      según el criterio de enlace seleccionado.\n4. Registrar cada fusión y su altura.\n5. Devolver el dendrograma y la secuencia de particiones.",
     "crumbs": [
       "V. Aprendizaje no supervisado",
       "<span class='chapter-number'>22</span>  <span class='chapter-title'>Agrupamiento jerárquico\\index{Agrupamiento jerárquico}</span>"
@@ -13760,6 +13881,17 @@
     "title": "23  Reglas de asociación",
     "section": "Aplicación ambiental",
     "text": "Aplicación ambiental\nUna transacción puede representar un día o una estación. Los elementos podrían ser:\n\nPM10_alto;\ntemperatura_alta;\nhumedad_baja;\nviento_bajo;\nozono_alto.\n\nUna regla posible sería\n\\[\n\\{\\text{temperatura alta, viento bajo}\\}\n\\Rightarrow\n\\{\\text{ozono alto}\\}.\n\\]\nDebe interpretarse como asociación empírica, no como mecanismo causal probado.",
+    "crumbs": [
+      "V. Aprendizaje no supervisado",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reglas de asociación\\index{Reglas de asociación}</span>"
+    ]
+  },
+  {
+    "objectID": "no-supervisado/reglas-asociacion.html#seudocódigo-formal",
+    "href": "no-supervisado/reglas-asociacion.html#seudocódigo-formal",
+    "title": "23  Reglas de asociación",
+    "section": "Seudocódigo formal",
+    "text": "Seudocódigo formal\n\n\n\n\n\n\nNotaSeudocódigo matemático formal\n\n\n\nAlgoritmo Apriori\nEntrada:\n  base de transacciones \\mathcal{T}, soporte mínimo s_0, confianza mínima c_0\nSalida:\n  conjunto de reglas fuertes\n\n1. Calcular el conjunto de itemsets frecuentes de tamaño 1:\n      L_1 = {X : soporte(X) ≥ s_0}.\n2. Para k = 2,3,...:\n   a) Generar candidatos C_k a partir de L_{k-1}.\n   b) Podar candidatos que contengan subconjuntos no frecuentes.\n   c) Calcular el soporte de cada candidato en C_k.\n   d) Conservar\n         L_k = {X ∈ C_k : soporte(X) ≥ s_0}.\n   e) Detener si L_k = ∅.\n3. Para cada itemset frecuente X y cada partición A ∪ B = X, A∩B=∅:\n   a) formar la regla A ⇒ B;\n   b) calcular\n         confianza(A ⇒ B) = soporte(A∪B)/soporte(A).\n   c) conservar la regla si confianza ≥ c_0.\n4. Reportar también lift y otras medidas de interés.",
     "crumbs": [
       "V. Aprendizaje no supervisado",
       "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reglas de asociación\\index{Reglas de asociación}</span>"
@@ -15034,7 +15166,7 @@
     "href": "indice-tematico.html",
     "title": "Índice temático",
     "section": "",
-    "text": "A–C\nEste índice agrupa los conceptos principales y dirige al capítulo donde se desarrollan.",
+    "text": "A–C\nEste índice resume los conceptos principales del libro y orienta al lector hacia el capítulo donde se desarrollan.",
     "crumbs": [
       "Índice temático"
     ]
@@ -15044,27 +15176,47 @@
     "href": "indice-tematico.html#ac",
     "title": "Índice temático",
     "section": "",
-    "text": "Análisis de componentes principales: PCA\nÁrboles de decisión: Árboles de decisión\nAutocorrelación y ARIMA: Series de tiempo\nClasificación y regla de Bayes: Teoría de clasificación\nConvexidad y gradiente: Cálculo y optimización",
+    "text": "Análisis de componentes principales (PCA): reducción de dimensionalidad, varianza explicada, componentes ortogonales. Véase el capítulo Análisis de Componentes Principales.\nÁrboles de decisión: entropía, índice de Gini, partición recursiva, poda. Véase el capítulo Árboles de decisión.\nClasificación: regla de Bayes, riesgo de clasificación, frontera de decisión. Véase Teoría de clasificación.\nConvexidad: funciones convexas, conjuntos convexos y optimización. Véase Cálculo y optimización.\nCovarianza y correlación: estructura de dependencia entre variables. Véase Probabilidad y estadística y PCA.",
     "crumbs": [
       "Índice temático"
     ]
   },
   {
-    "objectID": "indice-tematico.html#dm",
-    "href": "indice-tematico.html#dm",
+    "objectID": "indice-tematico.html#dh",
+    "href": "indice-tematico.html#dh",
     "title": "Índice temático",
-    "section": "D–M",
-    "text": "D–M\n\nDendrograma y método de Ward: Agrupamiento jerárquico\nDimensión VC y aprendizaje PAC: Teoría de generalización\nK-means y silueta: K-means\nK-NN y distancia: K-NN\nKernels y margen: SVM\nMatrices, vectores y valores propios: Álgebra lineal\nMulticolinealidad: Regresión lineal múltiple",
+    "section": "D–H",
+    "text": "D–H\n\nDendrograma: representación jerárquica de fusiones entre grupos. Véase Agrupamiento jerárquico.\nDimensión VC: capacidad de un conjunto de funciones de clasificación. Véase Teoría de generalización.\nDistancia euclidiana y métricas: base geométrica de varios métodos de aprendizaje. Véase K-NN y K-means.\nDropout: técnica de regularización en redes neuronales. Véase Redes neuronales.\nEspacios vectoriales: base algebraica de regresión, PCA y SVM. Véase Álgebra lineal.\nEsperanza matemática: valor esperado y momentos. Véase Probabilidad y estadística.\nHessiana: matriz de segundas derivadas en optimización. Véase Cálculo y optimización.",
     "crumbs": [
       "Índice temático"
     ]
   },
   {
-    "objectID": "indice-tematico.html#nz",
-    "href": "indice-tematico.html#nz",
+    "objectID": "indice-tematico.html#im",
+    "href": "indice-tematico.html#im",
     "title": "Índice temático",
-    "section": "N–Z",
-    "text": "N–Z\n\nProbabilidad y máxima verosimilitud: Probabilidad y estadística\nRandom Forest y observaciones OOB: Random Forest\nRedes neuronales y retropropagación: Redes neuronales\nReglas de asociación, soporte, confianza y lift: Reglas de asociación\nRegularización, Ridge y Lasso: Regularización\nRegresión lineal: Regresión lineal simple\nRegresión logística y odds: Regresión logística\nValidación cruzada y métricas: Evaluación de modelos",
+    "section": "I–M",
+    "text": "I–M\n\nInferencia y evaluación: validación cruzada, sesgo, varianza y error de prueba. Véase Evaluación de modelos.\nKernels: transformación implícita del espacio para SVM. Véase SVM.\nK-means: partición en centroides, suma de cuadrados intragrupo, silueta. Véase K-means.\nK-NN: clasificación basada en vecinos cercanos. Véase K-NN.\nLasso y Ridge: regularización en modelos lineales. Véase Regularización.\nLift: medida de interés en reglas de asociación. Véase Reglas de asociación.\nMargen: separación geométrica en SVM. Véase SVM.\nMatrices y valores propios: conceptos centrales para modelos lineales y PCA. Véase Álgebra lineal.\nMulticolinealidad: dependencia lineal entre variables explicativas. Véase Regresión lineal múltiple.",
+    "crumbs": [
+      "Índice temático"
+    ]
+  },
+  {
+    "objectID": "indice-tematico.html#nr",
+    "href": "indice-tematico.html#nr",
+    "title": "Índice temático",
+    "section": "N–R",
+    "text": "N–R\n\nNeurona artificial: suma ponderada, sesgo y activación. Véase Redes neuronales.\nOdds y logit: formulación de la regresión logística. Véase Regresión logística.\nOptimización: gradiente, descenso, convexidad y condiciones de optimalidad. Véase Cálculo y optimización.\nPérdida 0-1: criterio de error en clasificación. Véase Teoría de clasificación.\nProbabilidad condicional y Bayes: base de inferencia y clasificación probabilística. Véase Probabilidad y estadística.\nRandom Forest: ensamble de árboles con bootstrap y selección aleatoria de variables. Véase Random Forest.\nReglas de asociación: soporte, confianza y lift. Véase Reglas de asociación.\nRegresión lineal: estimación por mínimos cuadrados. Véase Regresión lineal simple y Regresión lineal múltiple.\nRegresión logística: modelo lineal generalizado para clasificación binaria. Véase Regresión logística.\nRegularización: control de complejidad del modelo. Véase Regularización.\nRiesgo empírico y riesgo esperado: nociones centrales del aprendizaje supervisado. Véase Aprendizaje supervisado.",
+    "crumbs": [
+      "Índice temático"
+    ]
+  },
+  {
+    "objectID": "indice-tematico.html#sz",
+    "href": "indice-tematico.html#sz",
+    "title": "Índice temático",
+    "section": "S–Z",
+    "text": "S–Z\n\nSeries de tiempo: dependencia temporal, autocorrelación y predicción. Véase Series de tiempo.\nSilueta: medida de calidad para agrupamiento. Véase K-means.\nSoporte: frecuencia de aparición en reglas de asociación. Véase Reglas de asociación.\nSVM: margen máximo, vectores de soporte y kernels. Véase SVM.\nValidación cruzada: estimación del error fuera de muestra. Véase Evaluación de modelos.\nValores singulares: base del análisis matricial y de PCA. Véase Álgebra lineal.\nVectores de soporte: observaciones críticas que definen la frontera SVM. Véase SVM.",
     "crumbs": [
       "Índice temático"
     ]

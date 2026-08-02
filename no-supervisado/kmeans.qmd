@@ -866,6 +866,27 @@ Esto puede producir grupos definidos casi exclusivamente por ella.
 Un algoritmo siempre puede producir una partición cuando se le solicita. La existencia matemática de grupos no implica que estos sean estables, naturales o útiles. El resultado debe evaluarse mediante geometría, estabilidad y conocimiento del dominio [@jain2010clustering].
 :::
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo K-means
+Entrada:
+  X = {x_i}_{i=1}^n ⊂ ℝ^p, número de grupos K
+Salida:
+  partición {C_1,...,C_K} y centroides {μ_1,...,μ_K}
+
+1. Inicializar centroides μ_1^{(0)},...,μ_K^{(0)}.
+2. Repetir hasta convergencia:
+   a) Asignación:
+         C_k^{(t)} = {x_i : ||x_i - μ_k^{(t)}||^2 ≤ ||x_i - μ_\ell^{(t)}||^2, ∀\ell }.
+   b) Actualización:
+         μ_k^{(t+1)} = (1/|C_k^{(t)}|)\sum_{x_i∈C_k^{(t)}} x_i.
+3. Detener cuando no cambian las asignaciones o la reducción en la función objetivo es despreciable.
+4. Devolver la partición final y los centroides.
+```
+:::
+
 ## Ventajas {.unnumbered}
 
 1. sencillo;

@@ -1721,6 +1721,31 @@ También se presentaron pruebas individuales y globales, comparación de modelos
 
 Finalmente, se analizaron multicolinealidad, VIF, selección de variables, apalancamiento, influencia y diagnóstico. Estos fundamentos preparan el estudio de regresión logística y modelos lineales más avanzados.
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo MCO-Lineal-Múltiple
+Entrada:
+  X ∈ ℝ^{n×(p+1)} con primera columna de unos, y ∈ ℝ^n
+Salida:
+  \hatβ ∈ ℝ^{p+1}, \hat y y residuos e
+
+1. Formar la matriz normal A = X^T X y el vector b = X^T y.
+2. Resolver el sistema lineal
+      A \hatβ = b
+   o, si A es invertible,
+      \hatβ = (X^T X)^{-1} X^T y.
+3. Calcular
+      \hat y = X \hatβ,
+      e = y - \hat y.
+4. Evaluar
+      SSR = ||\hat y - \bar y \mathbf{1}||^2,
+      SSE = ||e||^2.
+5. Devolver \hatβ y el modelo \hat f(x)=x^T\hatβ.
+```
+:::
+
 ## Referencias del capítulo {.unnumbered}
 
 Los fundamentos se apoyan en @montgomery2021introduction, @seber2012linear, @hastie2009elements y @mardia1979multivariate.

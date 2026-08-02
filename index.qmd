@@ -2,39 +2,31 @@
 title-block-style: none
 ---
 
-::: {.content-visible when-format="html"}
+::: {.content-visible when-format="pdf"}
 
-![](estilos/portadas/portada-teorico-web.png){.hero-portada-teorico .web-cover-first fig-alt="Portada horizontal del libro Fundamentos Matemáticos del Aprendizaje Automático"}
+```{=latex}
+\thispagestyle{empty}
+\begin{titlepage}
+\newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
+\noindent\includegraphics[
+  width=\paperwidth,
+  height=\paperheight
+]{estilos/portadas/portada-teorico-pdf.png}
+\restoregeometry
+\end{titlepage}
+\clearpage
+```
 
 :::
 
 ::: {.content-visible when-format="html"}
 
-::: {.callout-note appearance="simple" icon="true"}
-## Descargar el libro en PDF {.unnumbered}
-
-Puedes descargar la versión completa del libro mediante el botón **PDF** que aparece junto al título o mediante el siguiente enlace:
-
-[Descargar PDF del libro](fundamentos-matematicos-aprendizaje-automatico.pdf){.btn .btn-primary}
-:::
-
-:::
+![](estilos/portadas/portada-teorico-web.png){.hero-portada title="Portada del libro Fundamentos Matemáticos del Aprendizaje Automático" fig-alt="Portada del libro Fundamentos Matemáticos del Aprendizaje Automático"}
 
 # Bienvenida {.unnumbered}
 
-Este libro desarrolla los fundamentos matemáticos de los principales métodos de aprendizaje automático. Su propósito es explicar no solamente cómo se ejecutan los algoritmos, sino por qué funcionan, cuáles son sus supuestos y qué propiedades justifican su utilización.
+Este libro desarrolla los fundamentos teóricos y matemáticos de los principales métodos de aprendizaje automático, con énfasis en la formulación rigurosa, la interpretación y la relación con implementaciones en R.
 
-La obra complementa el libro práctico *Aprendizaje y Clasificación Automática con R*. Ambos volúmenes pueden estudiarse por separado, aunque su lectura conjunta permite conectar la formulación matemática, el algoritmo y su implementación computacional.
+Puede leerse como complemento del libro práctico **Aprendizaje y Clasificación Automática con R**.
 
-
-
-## Objetivos generales {.unnumbered}
-
-Al finalizar el libro, el lector podrá:
-
-- representar formalmente problemas de aprendizaje automático;
-- comprender los fundamentos algebraicos, probabilísticos y estadísticos de los modelos;
-- derivar los principales algoritmos de regresión, clasificación y agrupamiento;
-- interpretar funciones de pérdida, criterios de optimización y métodos de regularización;
-- analizar supuestos, limitaciones y propiedades de generalización;
-- relacionar la teoría matemática con implementaciones en R.
+:::

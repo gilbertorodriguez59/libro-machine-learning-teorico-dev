@@ -1,0 +1,31 @@
+# Prefacio {.unnumbered}
+
+Este libro nace de una convicción que ha acompañado mi trayectoria académica y profesional: los métodos de aprendizaje automático se comprenden mejor cuando se estudian desde sus fundamentos matemáticos y, al mismo tiempo, se relacionan con problemas reales, implementaciones computacionales e interpretaciones claras.
+
+Mi formación inicial en Física y Matemáticas me llevó a valorar el rigor de las definiciones, la precisión de la notación y la importancia de comprender por qué un método funciona. Posteriormente, mis estudios en Ciencias de la Computación, Inteligencia Artificial e Ingeniería de la Computación ampliaron esa perspectiva hacia el diseño de algoritmos, los sistemas inteligentes y la solución de problemas mediante modelos computacionales.
+
+A lo largo de varias décadas de docencia universitaria en México y Chile he impartido cursos de matemáticas, estadística, computación, inteligencia artificial, minería de datos y áreas relacionadas. Esta experiencia me ha mostrado que muchos estudiantes pueden ejecutar un algoritmo, obtener una gráfica o interpretar una métrica, pero todavía encuentran dificultades para reconocer la estructura matemática que sostiene el procedimiento. También he observado el problema contrario: una exposición excesivamente abstracta puede alejar al lector de las aplicaciones que dan sentido a la teoría.
+
+Por ello, *Fundamentos Matemáticos del Aprendizaje Automático* busca construir un puente entre ambos extremos. El propósito no es presentar una colección de fórmulas aisladas ni un manual de programación, sino desarrollar una comprensión progresiva de los conceptos que aparecen una y otra vez en los modelos de aprendizaje automático: espacios vectoriales, probabilidad, optimización, riesgo, regularización, generalización, clasificación, regresión y agrupamiento.
+
+La obra está pensada principalmente para estudiantes y profesores de ingeniería, matemáticas, computación y ciencias aplicadas. Sin embargo, también puede resultar útil para profesionales que ya utilizan herramientas de análisis de datos y desean comprender con mayor profundidad los supuestos, las posibilidades y las limitaciones de los algoritmos.
+
+Cada capítulo intenta conservar cuatro principios:
+
+1. **Rigor sin oscuridad.** Las definiciones y resultados matemáticos deben formularse con precisión, pero explicarse de manera accesible.
+2. **Interpretación antes que mecanización.** Una fórmula adquiere sentido cuando se comprende qué representa cada término y qué problema permite resolver.
+3. **Relación entre teoría y práctica.** Los desarrollos matemáticos se acompañan de ejemplos, representaciones gráficas y código en R.
+4. **Pensamiento crítico.** Ningún método es universal; todo modelo depende de supuestos, decisiones de diseño, calidad de los datos y criterios de evaluación.
+
+Este volumen complementa el libro práctico *Aprendizaje y Clasificación Automática con R*. Mientras aquel se orienta principalmente a la implementación y al análisis aplicado, el presente texto profundiza en la estructura matemática de los métodos. Ambos pueden leerse de forma independiente, aunque fueron concebidos para dialogar entre sí.
+
+El libro también refleja mi interés permanente por la educación apoyada en tecnología y por los sistemas inteligentes orientados al aprendizaje. Desde mis primeros trabajos en informática educativa, multimedia y sistemas tutoriales inteligentes, he considerado que la tecnología alcanza su mayor valor cuando ayuda al estudiante a construir conocimiento y no solamente a reproducir procedimientos.
+
+No pretendo que esta obra cierre los temas que aborda. El aprendizaje automático es un campo en evolución constante y cada capítulo abre caminos hacia desarrollos más avanzados. Mi aspiración es más modesta y, al mismo tiempo, más esencial: ofrecer una base sólida desde la cual el lector pueda continuar estudiando, investigando y aplicando estos métodos con mayor autonomía y criterio.
+
+Agradezco a los estudiantes, colegas e instituciones que, a lo largo de mi vida académica, han contribuido directa o indirectamente a la construcción de estas ideas. Las preguntas formuladas en el aula, los proyectos desarrollados y los desafíos encontrados en la práctica han sido parte fundamental de este libro.
+
+Espero que estas páginas permitan al lector descubrir que detrás de cada algoritmo existe una idea matemática comprensible, y que esa comprensión puede transformar la manera de utilizar la inteligencia artificial y el aprendizaje automático.
+
+**Jesús Gilberto Rodríguez Escobedo**  
+San Luis Potosí, México

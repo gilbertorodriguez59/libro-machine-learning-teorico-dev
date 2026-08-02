@@ -617,6 +617,31 @@ $$
 19.2.
 $$
 
+## Seudocódigo formal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo Jerárquico-Aglomerativo
+Entrada:
+  observaciones {x_i}_{i=1}^n y una distancia d
+Salida:
+  dendrograma
+
+1. Inicializar n grupos:
+      C_i^{(0)} = {x_i},   i=1,...,n.
+2. Calcular la matriz de distancias entre grupos.
+3. Para t = 0,1,...,n-2:
+   a) Encontrar los grupos más próximos
+         (C_r^{(t)}, C_s^{(t)}).
+   b) Fusionarlos:
+         C_u^{(t+1)} = C_r^{(t)} ∪ C_s^{(t)}.
+   c) Actualizar las distancias entre C_u^{(t+1)} y los demás grupos
+      según el criterio de enlace seleccionado.
+4. Registrar cada fusión y su altura.
+5. Devolver el dendrograma y la secuencia de particiones.
+```
+:::
+
 ## Ventajas {.unnumbered}
 
 1. produce una jerarquía completa;

@@ -600,11 +600,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="ac" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ac">A–C</h2>
 <ul>
-<li><strong>Análisis de componentes principales (PCA):</strong> reducción de dimensionalidad, varianza explicada, componentes ortogonales. Véase el capítulo <strong>Análisis de Componentes Principales</strong>.</li>
-<li><strong>Árboles de decisión:</strong> entropía, índice de Gini, partición recursiva, poda. Véase el capítulo <strong>Árboles de decisión</strong>.</li>
-<li><strong>Clasificación:</strong> regla de Bayes, riesgo de clasificación, frontera de decisión. Véase <strong>Teoría de clasificación</strong>.</li>
-<li><strong>Convexidad:</strong> funciones convexas, conjuntos convexos y optimización. Véase <strong>Cálculo y optimización</strong>.</li>
-<li><strong>Covarianza y correlación:</strong> estructura de dependencia entre variables. Véase <strong>Probabilidad y estadística</strong> y <strong>PCA</strong>.</li>
+<li><p><strong>Análisis de componentes principales (PCA):</strong> reducción de dimensionalidad, varianza explicada, componentes ortogonales. Véase el capítulo <strong>Análisis de Componentes Principales</strong>.</p></li>
+<li><p><strong>Árboles de decisión:</strong> entropía, índice de Gini, partición recursiva, poda. Véase el capítulo <strong>Árboles de decisión</strong>.</p></li>
+<li><p><strong>Clasificación:</strong> regla de Bayes, riesgo de clasificación, frontera de decisión. Véase <strong>Teoría de clasificación</strong>.</p></li>
+<li><p><strong>Convexidad:</strong> funciones convexas, conjuntos convexos y optimización. Véase <strong>Cálculo y optimización</strong>.</p></li>
+<li><p><strong>Covarianza y correlación:</strong> estructura de dependencia entre variables. Véase <strong>Probabilidad y estadística</strong> y <strong>PCA</strong>.</p></li>
+<li><p><strong>Brecha de generalización:</strong> diferencia entre riesgo esperado y riesgo empírico. Véase <strong>Teoría de generalización</strong>.</p></li>
 </ul>
 </section>
 <section id="dh" class="level2 unnumbered">
@@ -638,7 +639,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Neurona artificial:</strong> suma ponderada, sesgo y activación. Véase <strong>Redes neuronales</strong>.</li>
 <li><strong>Odds y logit:</strong> formulación de la regresión logística. Véase <strong>Regresión logística</strong>.</li>
+<li><strong>Origen móvil:</strong> validación cronológica para pronósticos. Véase <strong>Series de tiempo</strong>.</li>
 <li><strong>Optimización:</strong> gradiente, descenso, convexidad y condiciones de optimalidad. Véase <strong>Cálculo y optimización</strong>.</li>
+<li><strong>PAC:</strong> marco probablemente aproximadamente correcto. Véase <strong>Teoría de generalización</strong>.</li>
 <li><strong>Pérdida 0-1:</strong> criterio de error en clasificación. Véase <strong>Teoría de clasificación</strong>.</li>
 <li><strong>Probabilidad condicional y Bayes:</strong> base de inferencia y clasificación probabilística. Véase <strong>Probabilidad y estadística</strong>.</li>
 <li><strong>Random Forest:</strong> ensamble de árboles con bootstrap y selección aleatoria de variables. Véase <strong>Random Forest</strong>.</li>
@@ -1152,51 +1155,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10"></a><span class="ss">- </span>**Convexidad:** funciones convexas, conjuntos convexos y optimización. Véase **Cálculo y optimización**.</span>
 <span id="cb1-11"><a href="#cb1-11"></a><span class="ss">- </span>**Covarianza y correlación:** estructura de dependencia entre variables. Véase **Probabilidad y estadística** y **PCA**.</span>
 <span id="cb1-12"><a href="#cb1-12"></a></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="fu">## D–H {.unnumbered}</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="ss">- </span>**Brecha de generalización:** diferencia entre riesgo esperado y riesgo empírico. Véase **Teoría de generalización**.</span>
 <span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="ss">- </span>**Dendrograma:** representación jerárquica de fusiones entre grupos. Véase **Agrupamiento jerárquico**.</span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="ss">- </span>**Dimensión VC:** capacidad de un conjunto de funciones de clasificación. Véase **Teoría de generalización**.</span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="ss">- </span>**Distancia euclidiana y métricas:** base geométrica de varios métodos de aprendizaje. Véase **K-NN** y **K-means**.</span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">- </span>**Dropout:** técnica de regularización en redes neuronales. Véase **Redes neuronales**.</span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="ss">- </span>**Espacios vectoriales:** base algebraica de regresión, PCA y SVM. Véase **Álgebra lineal**.</span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="ss">- </span>**Esperanza matemática:** valor esperado y momentos. Véase **Probabilidad y estadística**.</span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="ss">- </span>**Hessiana:** matriz de segundas derivadas en optimización. Véase **Cálculo y optimización**.</span>
-<span id="cb1-22"><a href="#cb1-22"></a></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="fu">## I–M {.unnumbered}</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="fu">## D–H {.unnumbered}</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="ss">- </span>**Dendrograma:** representación jerárquica de fusiones entre grupos. Véase **Agrupamiento jerárquico**.</span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">- </span>**Dimensión VC:** capacidad de un conjunto de funciones de clasificación. Véase **Teoría de generalización**.</span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="ss">- </span>**Distancia euclidiana y métricas:** base geométrica de varios métodos de aprendizaje. Véase **K-NN** y **K-means**.</span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="ss">- </span>**Dropout:** técnica de regularización en redes neuronales. Véase **Redes neuronales**.</span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ss">- </span>**Espacios vectoriales:** base algebraica de regresión, PCA y SVM. Véase **Álgebra lineal**.</span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="ss">- </span>**Esperanza matemática:** valor esperado y momentos. Véase **Probabilidad y estadística**.</span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="ss">- </span>**Hessiana:** matriz de segundas derivadas en optimización. Véase **Cálculo y optimización**.</span>
 <span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="ss">- </span>**Inferencia y evaluación:** validación cruzada, sesgo, varianza y error de prueba. Véase **Evaluación de modelos**.</span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="ss">- </span>**Kernels:** transformación implícita del espacio para SVM. Véase **SVM**.</span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="ss">- </span>**K-means:** partición en centroides, suma de cuadrados intragrupo, silueta. Véase **K-means**.</span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="ss">- </span>**K-NN:** clasificación basada en vecinos cercanos. Véase **K-NN**.</span>
-<span id="cb1-29"><a href="#cb1-29"></a><span class="ss">- </span>**Lasso y Ridge:** regularización en modelos lineales. Véase **Regularización**.</span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="ss">- </span>**Lift:** medida de interés en reglas de asociación. Véase **Reglas de asociación**.</span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="ss">- </span>**Margen:** separación geométrica en SVM. Véase **SVM**.</span>
-<span id="cb1-32"><a href="#cb1-32"></a><span class="ss">- </span>**Matrices y valores propios:** conceptos centrales para modelos lineales y PCA. Véase **Álgebra lineal**.</span>
-<span id="cb1-33"><a href="#cb1-33"></a><span class="ss">- </span>**Multicolinealidad:** dependencia lineal entre variables explicativas. Véase **Regresión lineal múltiple**.</span>
-<span id="cb1-34"><a href="#cb1-34"></a></span>
-<span id="cb1-35"><a href="#cb1-35"></a><span class="fu">## N–R {.unnumbered}</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="fu">## I–M {.unnumbered}</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="ss">- </span>**Inferencia y evaluación:** validación cruzada, sesgo, varianza y error de prueba. Véase **Evaluación de modelos**.</span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="ss">- </span>**Kernels:** transformación implícita del espacio para SVM. Véase **SVM**.</span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="ss">- </span>**K-means:** partición en centroides, suma de cuadrados intragrupo, silueta. Véase **K-means**.</span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="ss">- </span>**K-NN:** clasificación basada en vecinos cercanos. Véase **K-NN**.</span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="ss">- </span>**Lasso y Ridge:** regularización en modelos lineales. Véase **Regularización**.</span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="ss">- </span>**Lift:** medida de interés en reglas de asociación. Véase **Reglas de asociación**.</span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="ss">- </span>**Margen:** separación geométrica en SVM. Véase **SVM**.</span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="ss">- </span>**Matrices y valores propios:** conceptos centrales para modelos lineales y PCA. Véase **Álgebra lineal**.</span>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="ss">- </span>**Multicolinealidad:** dependencia lineal entre variables explicativas. Véase **Regresión lineal múltiple**.</span>
 <span id="cb1-36"><a href="#cb1-36"></a></span>
-<span id="cb1-37"><a href="#cb1-37"></a><span class="ss">- </span>**Neurona artificial:** suma ponderada, sesgo y activación. Véase **Redes neuronales**.</span>
-<span id="cb1-38"><a href="#cb1-38"></a><span class="ss">- </span>**Odds y logit:** formulación de la regresión logística. Véase **Regresión logística**.</span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="ss">- </span>**Optimización:** gradiente, descenso, convexidad y condiciones de optimalidad. Véase **Cálculo y optimización**.</span>
-<span id="cb1-40"><a href="#cb1-40"></a><span class="ss">- </span>**Pérdida 0-1:** criterio de error en clasificación. Véase **Teoría de clasificación**.</span>
-<span id="cb1-41"><a href="#cb1-41"></a><span class="ss">- </span>**Probabilidad condicional y Bayes:** base de inferencia y clasificación probabilística. Véase **Probabilidad y estadística**.</span>
-<span id="cb1-42"><a href="#cb1-42"></a><span class="ss">- </span>**Random Forest:** ensamble de árboles con bootstrap y selección aleatoria de variables. Véase **Random Forest**.</span>
-<span id="cb1-43"><a href="#cb1-43"></a><span class="ss">- </span>**Reglas de asociación:** soporte, confianza y lift. Véase **Reglas de asociación**.</span>
-<span id="cb1-44"><a href="#cb1-44"></a><span class="ss">- </span>**Regresión lineal:** estimación por mínimos cuadrados. Véase **Regresión lineal simple** y **Regresión lineal múltiple**.</span>
-<span id="cb1-45"><a href="#cb1-45"></a><span class="ss">- </span>**Regresión logística:** modelo lineal generalizado para clasificación binaria. Véase **Regresión logística**.</span>
-<span id="cb1-46"><a href="#cb1-46"></a><span class="ss">- </span>**Regularización:** control de complejidad del modelo. Véase **Regularización**.</span>
-<span id="cb1-47"><a href="#cb1-47"></a><span class="ss">- </span>**Riesgo empírico y riesgo esperado:** nociones centrales del aprendizaje supervisado. Véase **Aprendizaje supervisado**.</span>
-<span id="cb1-48"><a href="#cb1-48"></a></span>
-<span id="cb1-49"><a href="#cb1-49"></a><span class="fu">## S–Z {.unnumbered}</span></span>
-<span id="cb1-50"><a href="#cb1-50"></a></span>
-<span id="cb1-51"><a href="#cb1-51"></a><span class="ss">- </span>**Series de tiempo:** dependencia temporal, autocorrelación y predicción. Véase **Series de tiempo**.</span>
-<span id="cb1-52"><a href="#cb1-52"></a><span class="ss">- </span>**Silueta:** medida de calidad para agrupamiento. Véase **K-means**.</span>
-<span id="cb1-53"><a href="#cb1-53"></a><span class="ss">- </span>**Soporte:** frecuencia de aparición en reglas de asociación. Véase **Reglas de asociación**.</span>
-<span id="cb1-54"><a href="#cb1-54"></a><span class="ss">- </span>**SVM:** margen máximo, vectores de soporte y kernels. Véase **SVM**.</span>
-<span id="cb1-55"><a href="#cb1-55"></a><span class="ss">- </span>**Validación cruzada:** estimación del error fuera de muestra. Véase **Evaluación de modelos**.</span>
-<span id="cb1-56"><a href="#cb1-56"></a><span class="ss">- </span>**Valores singulares:** base del análisis matricial y de PCA. Véase **Álgebra lineal**.</span>
-<span id="cb1-57"><a href="#cb1-57"></a><span class="ss">- </span>**Vectores de soporte:** observaciones críticas que definen la frontera SVM. Véase **SVM**.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="fu">## N–R {.unnumbered}</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="ss">- </span>**Neurona artificial:** suma ponderada, sesgo y activación. Véase **Redes neuronales**.</span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="ss">- </span>**Odds y logit:** formulación de la regresión logística. Véase **Regresión logística**.</span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="ss">- </span>**Origen móvil:** validación cronológica para pronósticos. Véase **Series de tiempo**.</span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="ss">- </span>**Optimización:** gradiente, descenso, convexidad y condiciones de optimalidad. Véase **Cálculo y optimización**.</span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="ss">- </span>**PAC:** marco probablemente aproximadamente correcto. Véase **Teoría de generalización**.</span>
+<span id="cb1-44"><a href="#cb1-44"></a><span class="ss">- </span>**Pérdida 0-1:** criterio de error en clasificación. Véase **Teoría de clasificación**.</span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="ss">- </span>**Probabilidad condicional y Bayes:** base de inferencia y clasificación probabilística. Véase **Probabilidad y estadística**.</span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="ss">- </span>**Random Forest:** ensamble de árboles con bootstrap y selección aleatoria de variables. Véase **Random Forest**.</span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="ss">- </span>**Reglas de asociación:** soporte, confianza y lift. Véase **Reglas de asociación**.</span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="ss">- </span>**Regresión lineal:** estimación por mínimos cuadrados. Véase **Regresión lineal simple** y **Regresión lineal múltiple**.</span>
+<span id="cb1-49"><a href="#cb1-49"></a><span class="ss">- </span>**Regresión logística:** modelo lineal generalizado para clasificación binaria. Véase **Regresión logística**.</span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="ss">- </span>**Regularización:** control de complejidad del modelo. Véase **Regularización**.</span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="ss">- </span>**Riesgo empírico y riesgo esperado:** nociones centrales del aprendizaje supervisado. Véase **Aprendizaje supervisado**.</span>
+<span id="cb1-52"><a href="#cb1-52"></a></span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="fu">## S–Z {.unnumbered}</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a></span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="ss">- </span>**Series de tiempo:** dependencia temporal, autocorrelación y predicción. Véase **Series de tiempo**.</span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="ss">- </span>**Silueta:** medida de calidad para agrupamiento. Véase **K-means**.</span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="ss">- </span>**Soporte:** frecuencia de aparición en reglas de asociación. Véase **Reglas de asociación**.</span>
+<span id="cb1-58"><a href="#cb1-58"></a><span class="ss">- </span>**SVM:** margen máximo, vectores de soporte y kernels. Véase **SVM**.</span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="ss">- </span>**Validación cruzada:** estimación del error fuera de muestra. Véase **Evaluación de modelos**.</span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="ss">- </span>**Valores singulares:** base del análisis matricial y de PCA. Véase **Álgebra lineal**.</span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="ss">- </span>**Vectores de soporte:** observaciones críticas que definen la frontera SVM. Véase **SVM**.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

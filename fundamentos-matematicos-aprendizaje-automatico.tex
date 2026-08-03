@@ -333,10 +333,10 @@
 \floatname{codelisting}{Listado}
 \newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
 \usepackage{amsthm}
-\theoremstyle{definition}
-\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
 \theoremstyle{remark}
@@ -36121,6 +36121,28 @@ riesgo sobre la población y cómo influyen el tamaño muestral, la
 complejidad del modelo y la regularización (Vapnik y Chervonenkis 1971;
 Valiant 1984; Shalev-Shwartz y Ben-David 2014).
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definición esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+La \textbf{generalización} es la capacidad de un modelo aprendido con
+una muestra de producir un riesgo bajo sobre observaciones nuevas
+generadas por la misma distribución.
+
+\end{tcolorbox}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.82\linewidth,height=\textheight,keepaspectratio,alt={Curvas de riesgo empírico y riesgo esperado frente a la complejidad del modelo}]{avanzados/../estilos/figuras/generalizacion-complejidad.png}
+
+}
+
+\caption{\label{fig-generalizacion-complejidad}La complejidad demasiado
+baja conduce a subajuste y la demasiado alta puede aumentar la brecha de
+generalización.}
+
+\end{figure}%
+
 \section*{Riesgo esperado y riesgo
 empírico}\label{riesgo-esperado-y-riesgo-empuxedrico}
 \addcontentsline{toc}{section}{Riesgo esperado y riesgo empírico}
@@ -36211,6 +36233,51 @@ Con probabilidad al menos \(1-\delta\),
 \[
 R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2/\delta)}{2n}}.
 \]
+
+\section*{Ejemplo numérico de una cota de
+Hoeffding}\label{ejemplo-numuxe9rico-de-una-cota-de-hoeffding}
+\addcontentsline{toc}{section}{Ejemplo numérico de una cota de
+Hoeffding}
+
+\markright{Ejemplo numérico de una cota de Hoeffding}
+
+Supóngase que un clasificador presenta un error empírico de (0.12) sobre
+(n=500) observaciones y se desea una garantía con (\delta=0.05). La
+desviación de Hoeffding es
+
+\[
+\varepsilon
+=
+\sqrt{
+\frac{
+\log(2/\delta)
+}{
+2n
+}
+}
+=
+\sqrt{
+\frac{
+\log(40)
+}{
+1000
+}
+}
+\approx 0.0607.
+\]
+
+Por tanto, con probabilidad al menos (0.95),
+
+\[
+R(f)
+\leq
+0.12+0.0607
+=
+0.1807.
+\]
+
+La cota no afirma que el riesgo real sea exactamente (0.1807); establece
+un límite superior probabilístico bajo los supuestos indicados.
 
 \section*{Clases finitas}\label{clases-finitas}
 \addcontentsline{toc}{section}{Clases finitas}
@@ -36338,7 +36405,8 @@ pérdida. Si
 \]
 
 y \(\beta_n\to0\), la influencia de una observación disminuye con \(n\).
-Los algoritmos regularizados suelen ser más estables.
+Los algoritmos regularizados suelen ser más estables. Esta relación fue
+formalizada, entre otros, por Bousquet y Elisseeff (2002).
 
 \section*{PAC-Bayes}\label{pac-bayes}
 \addcontentsline{toc}{section}{PAC-Bayes}
@@ -36396,7 +36464,9 @@ margen, optimización implícita, estructura de los datos y arquitectura.
 
 El error de prueba puede disminuir, aumentar cerca del umbral de
 interpolación y volver a disminuir en el régimen sobreparametrizado.
-Este comportamiento se denomina doble descenso.
+Este comportamiento se denomina doble descenso y ofrece una explicación
+parcial de la generalización en modelos altamente sobreparametrizados
+(Belkin et~al. 2019).
 
 \section*{Cotas vacías}\label{cotas-vacuxedas}
 \addcontentsline{toc}{section}{Cotas vacías}
@@ -36427,6 +36497,46 @@ algoritmos}\label{conexiuxf3n-con-los-algoritmos}
   Redes neuronales emplean arquitectura, regularización, dropout y
   parada temprana.
 \end{itemize}
+
+\section*{Seudocódigo formal para selección con validación
+anidada}\label{seudocuxf3digo-formal-para-selecciuxf3n-con-validaciuxf3n-anidada}
+\addcontentsline{toc}{section}{Seudocódigo formal para selección con
+validación anidada}
+
+\markright{Seudocódigo formal para selección con validación anidada}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo Validación{-}Cruzada{-}Anidada}
+\NormalTok{Entrada:}
+\NormalTok{  muestra D, familia de modelos \{f\_λ : λ ∈ Λ\},}
+\NormalTok{  particiones externas K\_out e internas K\_in}
+\NormalTok{Salida:}
+\NormalTok{  estimación imparcial del riesgo de selección}
+
+\NormalTok{1. Dividir D en K\_out bloques externos D\_1,...,D\_\{K\_out\}.}
+\NormalTok{2. Para cada bloque externo r:}
+\NormalTok{   a) Definir entrenamiento externo D\^{}\{{-}r\} y prueba externa D\_r.}
+\NormalTok{   b) Para cada λ ∈ Λ:}
+\NormalTok{      i) estimar por validación interna}
+\NormalTok{            \textbackslash{}widehat R\_\{in\}(λ)}
+\NormalTok{         usando K\_in particiones de D\^{}\{{-}r\};}
+\NormalTok{      ii) seleccionar}
+\NormalTok{            \textbackslash{}hat λ\_r = argmin\_\{λ∈Λ\} \textbackslash{}widehat R\_\{in\}(λ).}
+\NormalTok{   c) Ajustar f\_\{\textbackslash{}hat λ\_r\} con todo D\^{}\{{-}r\}.}
+\NormalTok{   d) Evaluar}
+\NormalTok{         \textbackslash{}widehat R\_r =}
+\NormalTok{         (1/|D\_r|)\textbackslash{}sum\_\{(x\_i,y\_i)∈D\_r\}}
+\NormalTok{         L(y\_i,f\_\{\textbackslash{}hat λ\_r\}(x\_i)).}
+\NormalTok{3. Devolver}
+\NormalTok{      \textbackslash{}widehat R\_\{nested\}}
+\NormalTok{      = (1/K\_out)\textbackslash{}sum\_\{r=1\}\^{}\{K\_out\}\textbackslash{}widehat R\_r.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
 
 \section*{Ejemplo en R}\label{ejemplo-en-r}
 \addcontentsline{toc}{section}{Ejemplo en R}
@@ -36515,6 +36625,28 @@ La evaluación correcta exige respetar el orden cronológico. Una
 partición aleatoria puede mezclar pasado y futuro, producir fuga de
 información y generar estimaciones excesivamente optimistas.
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definición esencial}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Una \textbf{serie de tiempo} es una sucesión ordenada de variables
+aleatorias cuya dependencia temporal forma parte de la información del
+problema. Por ello, entrenamiento, validación y prueba deben respetar el
+orden cronológico.
+
+\end{tcolorbox}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.84\linewidth,height=\textheight,keepaspectratio,alt={Serie temporal oscilante con una tendencia ascendente superpuesta}]{avanzados/../estilos/figuras/serie-tendencia-estacionalidad.png}
+
+}
+
+\caption{\label{fig-serie-componentes}Una serie temporal puede combinar
+tendencia, estacionalidad y variación irregular.}
+
+\end{figure}%
+
 \section*{Objetivos}\label{objetivos-20}
 \addcontentsline{toc}{section}{Objetivos}
 
@@ -36559,6 +36691,9 @@ Al finalizar el capítulo, el lector podrá:
 \addcontentsline{toc}{section}{Definición}
 
 \markright{Definición}
+
+La formulación clásica de series temporales puede consultarse en Box
+et~al. (2015), Hamilton (1994) y Brockwell y Davis (2016).
 
 Una serie de tiempo es una colección
 
@@ -37111,6 +37246,16 @@ MASE
 
 Permite comparación entre series.
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, colframe=quarto-callout-warning-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Precaución al comparar métricas}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+MAE y RMSE conservan las unidades de la serie; RMSE penaliza con mayor
+intensidad los errores grandes. MAPE puede ser inestable cuando los
+valores observados son cero o cercanos a cero. MASE facilita
+comparaciones entre series al escalar el error respecto de un pronóstico
+ingenuo.
+
+\end{tcolorbox}
+
 \section*{Pronósticos
 probabilísticos}\label{pronuxf3sticos-probabiluxedsticos}
 \addcontentsline{toc}{section}{Pronósticos probabilísticos}
@@ -37302,6 +37447,19 @@ móvil}\label{validaciuxf3n-con-origen-muxf3vil}
 \addcontentsline{toc}{section}{Validación con origen móvil}
 
 \markright{Validación con origen móvil}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.88\linewidth,height=\textheight,keepaspectratio,alt={Tres cortes temporales con ventanas de entrenamiento y validación sucesivas}]{avanzados/../estilos/figuras/validacion-origen-movil.png}
+
+}
+
+\caption{\label{fig-validacion-origen-movil}En cada corte, el periodo de
+entrenamiento termina antes del periodo de validación.}
+
+\end{figure}%
 
 En cada iteración se entrena con información hasta un tiempo y se evalúa
 en periodos posteriores.
@@ -37696,6 +37854,49 @@ RMSE(h).
 \]
 
 Un modelo puede ser bueno a corto plazo y malo a largo plazo.
+
+\section*{Seudocódigo formal para pronóstico con validación
+temporal}\label{seudocuxf3digo-formal-para-pronuxf3stico-con-validaciuxf3n-temporal}
+\addcontentsline{toc}{section}{Seudocódigo formal para pronóstico con
+validación temporal}
+
+\markright{Seudocódigo formal para pronóstico con validación temporal}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Seudocódigo matemático formal}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{Algoritmo Pronóstico{-}con{-}Origen{-}Móvil}
+\NormalTok{Entrada:}
+\NormalTok{  serie y\_1,...,y\_T, horizonte h,}
+\NormalTok{  puntos de corte τ\_1\textless{}...\textless{}τ\_K,}
+\NormalTok{  algoritmo de ajuste A}
+\NormalTok{Salida:}
+\NormalTok{  errores de validación temporal}
+
+\NormalTok{1. Para k = 1,...,K:}
+\NormalTok{   a) Definir el conjunto de entrenamiento}
+\NormalTok{         D\_k = \{y\_1,...,y\_\{τ\_k\}\}.}
+\NormalTok{   b) Ajustar el modelo}
+\NormalTok{         M\_k = A(D\_k).}
+\NormalTok{   c) Pronosticar}
+\NormalTok{         \textbackslash{}hat y\_\{τ\_k+j|τ\_k\},}
+\NormalTok{         j=1,...,h.}
+\NormalTok{   d) Comparar con los valores observados}
+\NormalTok{         y\_\{τ\_k+1\},...,y\_\{τ\_k+h\}.}
+\NormalTok{   e) Calcular la pérdida por horizonte}
+\NormalTok{         \textbackslash{}ell\_\{k,j\}}
+\NormalTok{         = L(y\_\{τ\_k+j\},}
+\NormalTok{             \textbackslash{}hat y\_\{τ\_k+j|τ\_k\}).}
+\NormalTok{2. Agregar los resultados:}
+\NormalTok{      \textbackslash{}widehat R\_j}
+\NormalTok{      = (1/K)\textbackslash{}sum\_\{k=1\}\^{}K \textbackslash{}ell\_\{k,j\},}
+\NormalTok{      j=1,...,h.}
+\NormalTok{3. Reportar el error global y el error específico por horizonte.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
 
 \section*{Aplicación ambiental}\label{aplicaciuxf3n-ambiental-1}
 \addcontentsline{toc}{section}{Aplicación ambiental}
@@ -38126,9 +38327,21 @@ Bartlett, Peter L., y Shahar Mendelson. 2002. {«Rademacher and Gaussian
 Complexities: Risk Bounds and Structural Results»}. \emph{Journal of
 Machine Learning Research} 3: 463-82.
 
+\bibitem[\citeproctext]{ref-belkin2019reconciling}
+Belkin, Mikhail, Daniel Hsu, Siyuan Ma, y Soumik Mandal. 2019.
+{«Reconciling Modern Machine-Learning Practice and the Classical
+Bias--Variance Trade-Off»}. \emph{Proceedings of the National Academy of
+Sciences} 116 (32): 15849-54.
+\url{https://doi.org/10.1073/pnas.1903070116}.
+
 \bibitem[\citeproctext]{ref-bishop2006pattern}
 Bishop, Christopher M. 2006. \emph{Pattern Recognition and Machine
 Learning}. Springer.
+
+\bibitem[\citeproctext]{ref-bousquet2002stability}
+Bousquet, Olivier, y André Elisseeff. 2002. {«Stability and
+Generalization»}. \emph{Journal of Machine Learning Research} 2:
+499-526.
 
 \bibitem[\citeproctext]{ref-box2015time}
 Box, George E. P., Gwilym M. Jenkins, Gregory C. Reinsel, y Greta M.
@@ -38147,6 +38360,10 @@ Breiman, Leo. 2001. {«Random Forests»}. \emph{Machine Learning} 45:
 \bibitem[\citeproctext]{ref-breiman1984cart}
 Breiman, Leo, Jerome H. Friedman, Richard A. Olshen, y Charles J. Stone.
 1984. \emph{Classification and Regression Trees}.
+
+\bibitem[\citeproctext]{ref-brockwell2016introduction}
+Brockwell, Peter J., y Richard A. Davis. 2016. \emph{Introduction to
+Time Series and Forecasting}. 3.ª ed. Springer.
 
 \bibitem[\citeproctext]{ref-casella2002statistical}
 Casella, George, y Roger L. Berger. 2002. \emph{Statistical Inference}.
@@ -38421,7 +38638,6 @@ lector hacia el capítulo donde se desarrollan.
 \markright{A--C}
 
 \begin{itemize}
-\tightlist
 \item
   \textbf{Análisis de componentes principales (PCA):} reducción de
   dimensionalidad, varianza explicada, componentes ortogonales. Véase el
@@ -38438,6 +38654,9 @@ lector hacia el capítulo donde se desarrollan.
 \item
   \textbf{Covarianza y correlación:} estructura de dependencia entre
   variables. Véase \textbf{Probabilidad y estadística} y \textbf{PCA}.
+\item
+  \textbf{Brecha de generalización:} diferencia entre riesgo esperado y
+  riesgo empírico. Véase \textbf{Teoría de generalización}.
 \end{itemize}
 
 \section*{D--H}\label{dh}
@@ -38519,8 +38738,14 @@ lector hacia el capítulo donde se desarrollan.
   \textbf{Odds y logit:} formulación de la regresión logística. Véase
   \textbf{Regresión logística}.
 \item
+  \textbf{Origen móvil:} validación cronológica para pronósticos. Véase
+  \textbf{Series de tiempo}.
+\item
   \textbf{Optimización:} gradiente, descenso, convexidad y condiciones
   de optimalidad. Véase \textbf{Cálculo y optimización}.
+\item
+  \textbf{PAC:} marco probablemente aproximadamente correcto. Véase
+  \textbf{Teoría de generalización}.
 \item
   \textbf{Pérdida 0-1:} criterio de error en clasificación. Véase
   \textbf{Teoría de clasificación}.

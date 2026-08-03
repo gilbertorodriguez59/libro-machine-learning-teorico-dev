@@ -4,6 +4,12 @@
 
 La finalidad del aprendizaje automático es construir modelos que funcionen con observaciones nuevas. La teoría de generalización estudia cuándo el desempeño observado en la muestra representa adecuadamente el riesgo sobre la población y cómo influyen el tamaño muestral, la complejidad del modelo y la regularización [@vapnik1971uniform; @valiant1984theory; @shalev2014understanding].
 
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
+La **generalización** es la capacidad de un modelo aprendido con una muestra de producir un riesgo bajo sobre observaciones nuevas generadas por la misma distribución.
+:::
+
+![La complejidad demasiado baja conduce a subajuste y la demasiado alta puede aumentar la brecha de generalización.](../estilos/figuras/generalizacion-complejidad.png){#fig-generalizacion-complejidad width=82% fig-alt="Curvas de riesgo empírico y riesgo esperado frente a la complejidad del modelo"}
+
 ## Riesgo esperado y riesgo empírico {.unnumbered}
 
 Para una función $f$ y una pérdida $L$, el riesgo esperado es
@@ -74,6 +80,43 @@ Con probabilidad al menos $1-\delta$,
 $$
 R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2/\delta)}{2n}}.
 $$
+
+## Ejemplo numérico de una cota de Hoeffding {.unnumbered}
+
+Supóngase que un clasificador presenta un error empírico de \(0.12\) sobre \(n=500\) observaciones y se desea una garantía con \(\delta=0.05\). La desviación de Hoeffding es
+
+$$
+\varepsilon
+=
+\sqrt{
+\frac{
+\log(2/\delta)
+}{
+2n
+}
+}
+=
+\sqrt{
+\frac{
+\log(40)
+}{
+1000
+}
+}
+\approx 0.0607.
+$$
+
+Por tanto, con probabilidad al menos \(0.95\),
+
+$$
+R(f)
+\leq
+0.12+0.0607
+=
+0.1807.
+$$
+
+La cota no afirma que el riesgo real sea exactamente \(0.1807\); establece un límite superior probabilístico bajo los supuestos indicados.
 
 ## Clases finitas {.unnumbered}
 
@@ -157,7 +200,7 @@ $$
 |L(z,A(\mathcal D_n))-L(z,A(\mathcal D_n^{(i)}))|\le\beta_n,
 $$
 
-y $\beta_n\to0$, la influencia de una observación disminuye con $n$. Los algoritmos regularizados suelen ser más estables.
+y $\beta_n\to0$, la influencia de una observación disminuye con $n$. Los algoritmos regularizados suelen ser más estables. Esta relación fue formalizada, entre otros, por @bousquet2002stability.
 
 ## PAC-Bayes {.unnumbered}
 
@@ -189,7 +232,7 @@ Las redes modernas pueden tener más parámetros que observaciones y aun así ge
 
 ## Doble descenso {.unnumbered}
 
-El error de prueba puede disminuir, aumentar cerca del umbral de interpolación y volver a disminuir en el régimen sobreparametrizado. Este comportamiento se denomina doble descenso.
+El error de prueba puede disminuir, aumentar cerca del umbral de interpolación y volver a disminuir en el régimen sobreparametrizado. Este comportamiento se denomina doble descenso y ofrece una explicación parcial de la generalización en modelos altamente sobreparametrizados [@belkin2019reconciling].
 
 ## Cotas vacías {.unnumbered}
 
@@ -202,6 +245,37 @@ Una cota puede ser matemáticamente válida pero numéricamente inútil si super
 - Random Forest reduce varianza por promediación.
 - SVM utiliza margen y norma.
 - Redes neuronales emplean arquitectura, regularización, dropout y parada temprana.
+
+## Seudocódigo formal para selección con validación anidada {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo Validación-Cruzada-Anidada
+Entrada:
+  muestra D, familia de modelos {f_λ : λ ∈ Λ},
+  particiones externas K_out e internas K_in
+Salida:
+  estimación imparcial del riesgo de selección
+
+1. Dividir D en K_out bloques externos D_1,...,D_{K_out}.
+2. Para cada bloque externo r:
+   a) Definir entrenamiento externo D^{-r} y prueba externa D_r.
+   b) Para cada λ ∈ Λ:
+      i) estimar por validación interna
+            \widehat R_{in}(λ)
+         usando K_in particiones de D^{-r};
+      ii) seleccionar
+            \hat λ_r = argmin_{λ∈Λ} \widehat R_{in}(λ).
+   c) Ajustar f_{\hat λ_r} con todo D^{-r}.
+   d) Evaluar
+         \widehat R_r =
+         (1/|D_r|)\sum_{(x_i,y_i)∈D_r}
+         L(y_i,f_{\hat λ_r}(x_i)).
+3. Devolver
+      \widehat R_{nested}
+      = (1/K_out)\sum_{r=1}^{K_out}\widehat R_r.
+```
+:::
 
 ## Ejemplo en R {.unnumbered}
 

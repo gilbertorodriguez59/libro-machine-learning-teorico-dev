@@ -445,3 +445,19 @@
 - Se reemplazó el índice temático vacío por un índice temático manual y no vacío.
 - Se rediseñó la figura de neurona biológica y neurona artificial para evitar empalmes.
 - Se añadieron secciones de seudocódigo matemático formal a los capítulos de métodos principales.
+
+## Versión 0.37
+
+- Revisión académica final de los capítulos 21 y 22.
+- Nuevas figuras de generalización y series de tiempo.
+- Ejemplo numérico de cota de Hoeffding.
+- Seudocódigo formal de validación cruzada anidada.
+- Seudocódigo formal de pronóstico con origen móvil.
+- Nuevas referencias sobre estabilidad, doble descenso y series temporales.
+- Ampliación del índice temático.
+
+## Versión 0.37.1
+
+- Se corrigió el error LaTeX `Missing $ inserted`.
+- El ejemplo numérico de la cota de Hoeffding ahora utiliza bloques matemáticos `$$ ... $$` compatibles con Quarto y LuaLaTeX.
+- Se conserva la revisión académica de los capítulos 21 y 22.

@@ -620,6 +620,7 @@ window.Quarto = {
   <li><a href="#exceso-de-riesgo" id="toc-exceso-de-riesgo" class="nav-link" data-scroll-target="#exceso-de-riesgo">Exceso de riesgo</a></li>
   <li><a href="#convergencia-uniforme" id="toc-convergencia-uniforme" class="nav-link" data-scroll-target="#convergencia-uniforme">Convergencia uniforme</a></li>
   <li><a href="#desigualdad-de-hoeffding" id="toc-desigualdad-de-hoeffding" class="nav-link" data-scroll-target="#desigualdad-de-hoeffding">Desigualdad de Hoeffding</a></li>
+  <li><a href="#ejemplo-numérico-de-una-cota-de-hoeffding" id="toc-ejemplo-numérico-de-una-cota-de-hoeffding" class="nav-link" data-scroll-target="#ejemplo-numérico-de-una-cota-de-hoeffding">Ejemplo numérico de una cota de Hoeffding</a></li>
   <li><a href="#clases-finitas" id="toc-clases-finitas" class="nav-link" data-scroll-target="#clases-finitas">Clases finitas</a></li>
   <li><a href="#aprendizaje-pac" id="toc-aprendizaje-pac" class="nav-link" data-scroll-target="#aprendizaje-pac">Aprendizaje PAC</a></li>
   <li><a href="#dimensión-vc" id="toc-dimensión-vc" class="nav-link" data-scroll-target="#dimensión-vc">Dimensión VC</a></li>
@@ -634,6 +635,7 @@ window.Quarto = {
   <li><a href="#doble-descenso" id="toc-doble-descenso" class="nav-link" data-scroll-target="#doble-descenso">Doble descenso</a></li>
   <li><a href="#cotas-vacías" id="toc-cotas-vacías" class="nav-link" data-scroll-target="#cotas-vacías">Cotas vacías</a></li>
   <li><a href="#conexión-con-los-algoritmos" id="toc-conexión-con-los-algoritmos" class="nav-link" data-scroll-target="#conexión-con-los-algoritmos">Conexión con los algoritmos</a></li>
+  <li><a href="#seudocódigo-formal-para-selección-con-validación-anidada" id="toc-seudocódigo-formal-para-selección-con-validación-anidada" class="nav-link" data-scroll-target="#seudocódigo-formal-para-selección-con-validación-anidada">Seudocódigo formal para selección con validación anidada</a></li>
   <li><a href="#ejemplo-en-r" id="toc-ejemplo-en-r" class="nav-link" data-scroll-target="#ejemplo-en-r">Ejemplo en R</a></li>
   <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
@@ -667,6 +669,29 @@ window.Quarto = {
 <section id="introducción" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="introducción">Introducción</h2>
 <p>La finalidad del aprendizaje automático es construir modelos que funcionen con observaciones nuevas. La teoría de generalización estudia cuándo el desempeño observado en la muestra representa adecuadamente el riesgo sobre la población y cómo influyen el tamaño muestral, la complejidad del modelo y la regularización <span class="citation" data-cites="vapnik1971uniform valiant1984theory shalev2014understanding">(<a href="../referencias.html#ref-vapnik1971uniform" role="doc-biblioref">Vapnik y Chervonenkis 1971</a>; <a href="../referencias.html#ref-valiant1984theory" role="doc-biblioref">Valiant 1984</a>; <a href="../referencias.html#ref-shalev2014understanding" role="doc-biblioref">Shalev-Shwartz y Ben-David 2014</a>)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Definición esencial">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Definición esencial
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La <strong>generalización</strong> es la capacidad de un modelo aprendido con una muestra de producir un riesgo bajo sobre observaciones nuevas generadas por la misma distribución.</p>
+</div>
+</div>
+<div id="fig-generalizacion-complejidad" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Curvas de riesgo empírico y riesgo esperado frente a la complejidad del modelo">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-generalizacion-complejidad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../estilos/figuras/generalizacion-complejidad.png" class="img-fluid figure-img" style="width:82.0%" alt="Curvas de riesgo empírico y riesgo esperado frente a la complejidad del modelo">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-generalizacion-complejidad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;24.1: La complejidad demasiado baja conduce a subajuste y la demasiado alta puede aumentar la brecha de generalización.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="riesgo-esperado-y-riesgo-empírico" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="riesgo-esperado-y-riesgo-empírico">Riesgo esperado y riesgo empírico</h2>
@@ -722,6 +747,39 @@ P(|R(f)-\widehat R_n(f)|\ge\varepsilon)\le2e^{-2n\varepsilon^2}.
 <p><span class="math display">\[
 R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2/\delta)}{2n}}.
 \]</span></p>
+</section>
+<section id="ejemplo-numérico-de-una-cota-de-hoeffding" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejemplo-numérico-de-una-cota-de-hoeffding">Ejemplo numérico de una cota de Hoeffding</h2>
+<p>Supóngase que un clasificador presenta un error empírico de (0.12) sobre (n=500) observaciones y se desea una garantía con (). La desviación de Hoeffding es</p>
+<p><span class="math display">\[
+\varepsilon
+=
+\sqrt{
+\frac{
+\log(2/\delta)
+}{
+2n
+}
+}
+=
+\sqrt{
+\frac{
+\log(40)
+}{
+1000
+}
+}
+\approx 0.0607.
+\]</span></p>
+<p>Por tanto, con probabilidad al menos (0.95),</p>
+<p><span class="math display">\[
+R(f)
+\leq
+0.12+0.0607
+=
+0.1807.
+\]</span></p>
+<p>La cota no afirma que el riesgo real sea exactamente (0.1807); establece un límite superior probabilístico bajo los supuestos indicados.</p>
 </section>
 <section id="clases-finitas" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="clases-finitas">Clases finitas</h2>
@@ -789,7 +847,7 @@ R(f)\le\widehat R_n(f)+2\mathfrak R_n(\mathcal F)+\sqrt{\frac{\log(1/\delta)}{2n
 <p><span class="math display">\[
 |L(z,A(\mathcal D_n))-L(z,A(\mathcal D_n^{(i)}))|\le\beta_n,
 \]</span></p>
-<p>y <span class="math inline">\(\beta_n\to0\)</span>, la influencia de una observación disminuye con <span class="math inline">\(n\)</span>. Los algoritmos regularizados suelen ser más estables.</p>
+<p>y <span class="math inline">\(\beta_n\to0\)</span>, la influencia de una observación disminuye con <span class="math inline">\(n\)</span>. Los algoritmos regularizados suelen ser más estables. Esta relación fue formalizada, entre otros, por <span class="citation" data-cites="bousquet2002stability">Bousquet y Elisseeff (<a href="../referencias.html#ref-bousquet2002stability" role="doc-biblioref">2002</a>)</span>.</p>
 </section>
 <section id="pac-bayes" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="pac-bayes">PAC-Bayes</h2>
@@ -817,7 +875,7 @@ P_{train}=P_{test}.
 </section>
 <section id="doble-descenso" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="doble-descenso">Doble descenso</h2>
-<p>El error de prueba puede disminuir, aumentar cerca del umbral de interpolación y volver a disminuir en el régimen sobreparametrizado. Este comportamiento se denomina doble descenso.</p>
+<p>El error de prueba puede disminuir, aumentar cerca del umbral de interpolación y volver a disminuir en el régimen sobreparametrizado. Este comportamiento se denomina doble descenso y ofrece una explicación parcial de la generalización en modelos altamente sobreparametrizados <span class="citation" data-cites="belkin2019reconciling">(<a href="../referencias.html#ref-belkin2019reconciling" role="doc-biblioref">Belkin et&nbsp;al. 2019</a>)</span>.</p>
 </section>
 <section id="cotas-vacías" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="cotas-vacías">Cotas vacías</h2>
@@ -833,16 +891,55 @@ P_{train}=P_{test}.
 <li>Redes neuronales emplean arquitectura, regularización, dropout y parada temprana.</li>
 </ul>
 </section>
+<section id="seudocódigo-formal-para-selección-con-validación-anidada" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="seudocódigo-formal-para-selección-con-validación-anidada">Seudocódigo formal para selección con validación anidada</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Seudocódigo matemático formal">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Seudocódigo matemático formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>Algoritmo Validación-Cruzada-Anidada</span>
+<span id="cb1-2"><a href="#cb1-2"></a>Entrada:</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  muestra D, familia de modelos {f_λ : λ ∈ Λ},</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  particiones externas K_out e internas K_in</span>
+<span id="cb1-5"><a href="#cb1-5"></a>Salida:</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  estimación imparcial del riesgo de selección</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>1. Dividir D en K_out bloques externos D_1,...,D_{K_out}.</span>
+<span id="cb1-9"><a href="#cb1-9"></a>2. Para cada bloque externo r:</span>
+<span id="cb1-10"><a href="#cb1-10"></a>   a) Definir entrenamiento externo D^{-r} y prueba externa D_r.</span>
+<span id="cb1-11"><a href="#cb1-11"></a>   b) Para cada λ ∈ Λ:</span>
+<span id="cb1-12"><a href="#cb1-12"></a>      i) estimar por validación interna</span>
+<span id="cb1-13"><a href="#cb1-13"></a>            \widehat R_{in}(λ)</span>
+<span id="cb1-14"><a href="#cb1-14"></a>         usando K_in particiones de D^{-r};</span>
+<span id="cb1-15"><a href="#cb1-15"></a>      ii) seleccionar</span>
+<span id="cb1-16"><a href="#cb1-16"></a>            \hat λ_r = argmin_{λ∈Λ} \widehat R_{in}(λ).</span>
+<span id="cb1-17"><a href="#cb1-17"></a>   c) Ajustar f_{\hat λ_r} con todo D^{-r}.</span>
+<span id="cb1-18"><a href="#cb1-18"></a>   d) Evaluar</span>
+<span id="cb1-19"><a href="#cb1-19"></a>         \widehat R_r =</span>
+<span id="cb1-20"><a href="#cb1-20"></a>         (1/|D_r|)\sum_{(x_i,y_i)∈D_r}</span>
+<span id="cb1-21"><a href="#cb1-21"></a>         L(y_i,f_{\hat λ_r}(x_i)).</span>
+<span id="cb1-22"><a href="#cb1-22"></a>3. Devolver</span>
+<span id="cb1-23"><a href="#cb1-23"></a>      \widehat R_{nested}</span>
+<span id="cb1-24"><a href="#cb1-24"></a>      = (1/K_out)\sum_{r=1}^{K_out}\widehat R_r.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
 <section id="ejemplo-en-r" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejemplo-en-r">Ejemplo en R</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>simular <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">B=</span><span class="dv">1000</span>) {</span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">mean</span>(<span class="fu">replicate</span>(B, <span class="fu">abs</span>(<span class="fu">mean</span>(<span class="fu">rbinom</span>(n,<span class="dv">1</span>,<span class="fl">0.3</span>))<span class="sc">-</span><span class="fl">0.3</span>)))</span>
-<span id="cb1-4"><a href="#cb1-4"></a>}</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">500</span>,<span class="dv">1000</span>), simular)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>simular <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">B=</span><span class="dv">1000</span>) {</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">mean</span>(<span class="fu">replicate</span>(B, <span class="fu">abs</span>(<span class="fu">mean</span>(<span class="fu">rbinom</span>(n,<span class="dv">1</span>,<span class="fl">0.3</span>))<span class="sc">-</span><span class="fl">0.3</span>)))</span>
+<span id="cb2-4"><a href="#cb2-4"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">500</span>,<span class="dv">1000</span>), simular)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -873,6 +970,12 @@ P_{train}=P_{test}.
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-bartlett2002rademacher" class="csl-entry" role="listitem">
 Bartlett, Peter L., y Shahar Mendelson. 2002. <span>«Rademacher and Gaussian Complexities: Risk Bounds and Structural Results»</span>. <em>Journal of Machine Learning Research</em> 3: 463-82.
+</div>
+<div id="ref-belkin2019reconciling" class="csl-entry" role="listitem">
+Belkin, Mikhail, Daniel Hsu, Siyuan Ma, y Soumik Mandal. 2019. <span>«Reconciling Modern Machine-Learning Practice and the Classical Bias–Variance Trade-Off»</span>. <em>Proceedings of the National Academy of Sciences</em> 116 (32): 15849-54. <a href="https://doi.org/10.1073/pnas.1903070116">https://doi.org/10.1073/pnas.1903070116</a>.
+</div>
+<div id="ref-bousquet2002stability" class="csl-entry" role="listitem">
+Bousquet, Olivier, y André Elisseeff. 2002. <span>«Stability and Generalization»</span>. <em>Journal of Machine Learning Research</em> 2: 499-526.
 </div>
 <div id="ref-mcallester1999pac" class="csl-entry" role="listitem">
 McAllester, David A. 1999. <span>«PAC-Bayesian Model Averaging»</span>. <em>Proceedings of the Twelfth Annual Conference on Computational Learning Theory</em>, 164-70.
@@ -1372,240 +1475,314 @@ Vapnik, Vladimir N., y Alexey Y. Chervonenkis. 1971. <span>«On the Uniform Conv
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu"># Teoría de generalización\index{Generalización} {#sec-teoria-generalizacion}</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">## Introducción {.unnumbered}</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>La finalidad del aprendizaje automático es construir modelos que funcionen con observaciones nuevas. La teoría de generalización estudia cuándo el desempeño observado en la muestra representa adecuadamente el riesgo sobre la población y cómo influyen el tamaño muestral, la complejidad del modelo y la regularización <span class="co">[</span><span class="ot">@vapnik1971uniform; @valiant1984theory; @shalev2014understanding</span><span class="co">]</span>.</span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">## Riesgo esperado y riesgo empírico {.unnumbered}</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a>Para una función $f$ y una pérdida $L$, el riesgo esperado es</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a>$$</span>
-<span id="cb2-12"><a href="#cb2-12"></a>R(f)=\mathbb{E}<span class="co">[</span><span class="ot">L(Y,f(\mathbf{X}))</span><span class="co">]</span>.</span>
-<span id="cb2-13"><a href="#cb2-13"></a>$$</span>
-<span id="cb2-14"><a href="#cb2-14"></a></span>
-<span id="cb2-15"><a href="#cb2-15"></a>Dada una muestra de tamaño $n$, el riesgo empírico es</span>
-<span id="cb2-16"><a href="#cb2-16"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a>$$</span>
-<span id="cb2-18"><a href="#cb2-18"></a>\widehat R_n(f)=\frac{1}{n}\sum_{i=1}^n L(y_i,f(\mathbf{x}_i)).</span>
-<span id="cb2-19"><a href="#cb2-19"></a>$$</span>
-<span id="cb2-20"><a href="#cb2-20"></a></span>
-<span id="cb2-21"><a href="#cb2-21"></a>La diferencia</span>
-<span id="cb2-22"><a href="#cb2-22"></a></span>
-<span id="cb2-23"><a href="#cb2-23"></a>$$</span>
-<span id="cb2-24"><a href="#cb2-24"></a>R(f)-\widehat R_n(f)</span>
-<span id="cb2-25"><a href="#cb2-25"></a>$$</span>
-<span id="cb2-26"><a href="#cb2-26"></a></span>
-<span id="cb2-27"><a href="#cb2-27"></a>se denomina brecha de generalización.</span>
-<span id="cb2-28"><a href="#cb2-28"></a></span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="fu">## Minimización del riesgo empírico {.unnumbered}</span></span>
-<span id="cb2-30"><a href="#cb2-30"></a></span>
-<span id="cb2-31"><a href="#cb2-31"></a>El estimador ERM es</span>
-<span id="cb2-32"><a href="#cb2-32"></a></span>
-<span id="cb2-33"><a href="#cb2-33"></a>$$</span>
-<span id="cb2-34"><a href="#cb2-34"></a>\widehat f_{ERM}=\operatorname*{arg\,min}_{f\in\mathcal F}\widehat R_n(f).</span>
-<span id="cb2-35"><a href="#cb2-35"></a>$$</span>
-<span id="cb2-36"><a href="#cb2-36"></a></span>
-<span id="cb2-37"><a href="#cb2-37"></a>Si el riesgo empírico aproxima uniformemente al riesgo esperado, entonces ERM generaliza.</span>
-<span id="cb2-38"><a href="#cb2-38"></a></span>
-<span id="cb2-39"><a href="#cb2-39"></a><span class="fu">## Exceso de riesgo {.unnumbered}</span></span>
-<span id="cb2-40"><a href="#cb2-40"></a></span>
-<span id="cb2-41"><a href="#cb2-41"></a>Sea $f^*$ el predictor óptimo y $f^*_{\mathcal F}$ el mejor predictor dentro de $\mathcal F$. Entonces</span>
-<span id="cb2-42"><a href="#cb2-42"></a></span>
-<span id="cb2-43"><a href="#cb2-43"></a>$$</span>
-<span id="cb2-44"><a href="#cb2-44"></a>R(\widehat f)-R(f^*)=</span>
-<span id="cb2-45"><a href="#cb2-45"></a><span class="co">[</span><span class="ot">R(\widehat f)-R(f^*_{\mathcal F})</span><span class="co">]</span>+<span class="co">[</span><span class="ot">R(f^*_{\mathcal F})-R(f^*)</span><span class="co">]</span>.</span>
-<span id="cb2-46"><a href="#cb2-46"></a>$$</span>
-<span id="cb2-47"><a href="#cb2-47"></a></span>
-<span id="cb2-48"><a href="#cb2-48"></a>El primer término es error de estimación y el segundo error de aproximación.</span>
-<span id="cb2-49"><a href="#cb2-49"></a></span>
-<span id="cb2-50"><a href="#cb2-50"></a><span class="fu">## Convergencia uniforme {.unnumbered}</span></span>
-<span id="cb2-51"><a href="#cb2-51"></a></span>
-<span id="cb2-52"><a href="#cb2-52"></a>Se busca controlar</span>
-<span id="cb2-53"><a href="#cb2-53"></a></span>
-<span id="cb2-54"><a href="#cb2-54"></a>$$</span>
-<span id="cb2-55"><a href="#cb2-55"></a>\sup_{f\in\mathcal F}|R(f)-\widehat R_n(f)|.</span>
-<span id="cb2-56"><a href="#cb2-56"></a>$$</span>
-<span id="cb2-57"><a href="#cb2-57"></a></span>
-<span id="cb2-58"><a href="#cb2-58"></a>Si esta cantidad es menor que $\varepsilon$, entonces</span>
-<span id="cb2-59"><a href="#cb2-59"></a></span>
-<span id="cb2-60"><a href="#cb2-60"></a>$$</span>
-<span id="cb2-61"><a href="#cb2-61"></a>R(\widehat f_{ERM})\le R(f^*_{\mathcal F})+2\varepsilon.</span>
-<span id="cb2-62"><a href="#cb2-62"></a>$$</span>
-<span id="cb2-63"><a href="#cb2-63"></a></span>
-<span id="cb2-64"><a href="#cb2-64"></a><span class="fu">## Desigualdad de Hoeffding {.unnumbered}</span></span>
-<span id="cb2-65"><a href="#cb2-65"></a></span>
-<span id="cb2-66"><a href="#cb2-66"></a>Si $0\le L\le1$, para un predictor fijo,</span>
-<span id="cb2-67"><a href="#cb2-67"></a></span>
-<span id="cb2-68"><a href="#cb2-68"></a>$$</span>
-<span id="cb2-69"><a href="#cb2-69"></a>P(|R(f)-\widehat R_n(f)|\ge\varepsilon)\le2e^{-2n\varepsilon^2}.</span>
-<span id="cb2-70"><a href="#cb2-70"></a>$$</span>
-<span id="cb2-71"><a href="#cb2-71"></a></span>
-<span id="cb2-72"><a href="#cb2-72"></a>Con probabilidad al menos $1-\delta$,</span>
-<span id="cb2-73"><a href="#cb2-73"></a></span>
-<span id="cb2-74"><a href="#cb2-74"></a>$$</span>
-<span id="cb2-75"><a href="#cb2-75"></a>R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2/\delta)}{2n}}.</span>
-<span id="cb2-76"><a href="#cb2-76"></a>$$</span>
-<span id="cb2-77"><a href="#cb2-77"></a></span>
-<span id="cb2-78"><a href="#cb2-78"></a><span class="fu">## Clases finitas {.unnumbered}</span></span>
-<span id="cb2-79"><a href="#cb2-79"></a></span>
-<span id="cb2-80"><a href="#cb2-80"></a>Si $|\mathcal F|=M$, una unión de eventos produce</span>
-<span id="cb2-81"><a href="#cb2-81"></a></span>
-<span id="cb2-82"><a href="#cb2-82"></a>$$</span>
-<span id="cb2-83"><a href="#cb2-83"></a>R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2M/\delta)}{2n}}</span>
-<span id="cb2-84"><a href="#cb2-84"></a>$$</span>
-<span id="cb2-85"><a href="#cb2-85"></a></span>
-<span id="cb2-86"><a href="#cb2-86"></a>simultáneamente para todos los modelos. La penalización aumenta con $\log M$ y disminuye con $n$.</span>
-<span id="cb2-87"><a href="#cb2-87"></a></span>
-<span id="cb2-88"><a href="#cb2-88"></a><span class="fu">## Aprendizaje PAC\index{Aprendizaje PAC} {.unnumbered}</span></span>
-<span id="cb2-89"><a href="#cb2-89"></a></span>
-<span id="cb2-90"><a href="#cb2-90"></a>PAC significa *Probably Approximately Correct*. Un algoritmo aprende una clase si para todo $\varepsilon&gt;0$ y $\delta&gt;0$ devuelve, con probabilidad al menos $1-\delta$, un predictor cuyo error está a lo sumo $\varepsilon$ del objetivo.</span>
-<span id="cb2-91"><a href="#cb2-91"></a></span>
-<span id="cb2-92"><a href="#cb2-92"></a>En el caso realizable, la complejidad muestral para una clase finita es del orden de</span>
-<span id="cb2-93"><a href="#cb2-93"></a></span>
-<span id="cb2-94"><a href="#cb2-94"></a>$$</span>
-<span id="cb2-95"><a href="#cb2-95"></a>\frac{\log M+\log(1/\delta)}{\varepsilon}.</span>
-<span id="cb2-96"><a href="#cb2-96"></a>$$</span>
-<span id="cb2-97"><a href="#cb2-97"></a></span>
-<span id="cb2-98"><a href="#cb2-98"></a>En el caso agnóstico es del orden de</span>
-<span id="cb2-99"><a href="#cb2-99"></a></span>
-<span id="cb2-100"><a href="#cb2-100"></a>$$</span>
-<span id="cb2-101"><a href="#cb2-101"></a>\frac{\log M+\log(1/\delta)}{\varepsilon^2}.</span>
-<span id="cb2-102"><a href="#cb2-102"></a>$$</span>
-<span id="cb2-103"><a href="#cb2-103"></a></span>
-<span id="cb2-104"><a href="#cb2-104"></a><span class="fu">## Dimensión VC\index{Dimensión VC} {.unnumbered}</span></span>
-<span id="cb2-105"><a href="#cb2-105"></a></span>
-<span id="cb2-106"><a href="#cb2-106"></a>La dimensión VC es el mayor número de puntos que una clase puede fragmentar, es decir, etiquetar de todas las formas binarias posibles.</span>
-<span id="cb2-107"><a href="#cb2-107"></a></span>
-<span id="cb2-108"><a href="#cb2-108"></a><span class="ss">- </span>umbrales en la recta: VC igual a 1;</span>
-<span id="cb2-109"><a href="#cb2-109"></a><span class="ss">- </span>intervalos: VC igual a 2;</span>
-<span id="cb2-110"><a href="#cb2-110"></a><span class="ss">- </span>hiperplanos en $\mathbb R^p$: VC igual a $p+1$.</span>
-<span id="cb2-111"><a href="#cb2-111"></a></span>
-<span id="cb2-112"><a href="#cb2-112"></a><span class="fu">## Función de crecimiento y lema de Sauer {.unnumbered}</span></span>
-<span id="cb2-113"><a href="#cb2-113"></a></span>
-<span id="cb2-114"><a href="#cb2-114"></a>La función de crecimiento $\Pi_{\mathcal F}(n)$ cuenta el máximo número de etiquetaciones inducidas por la clase. Si la dimensión VC es $d$,</span>
-<span id="cb2-115"><a href="#cb2-115"></a></span>
-<span id="cb2-116"><a href="#cb2-116"></a>$$</span>
-<span id="cb2-117"><a href="#cb2-117"></a>\Pi_{\mathcal F}(n)\le\sum_{j=0}^{d}\binom{n}{j}\le\left(\frac{en}{d}\right)^d.</span>
-<span id="cb2-118"><a href="#cb2-118"></a>$$</span>
-<span id="cb2-119"><a href="#cb2-119"></a></span>
-<span id="cb2-120"><a href="#cb2-120"></a>Una cota típica es</span>
-<span id="cb2-121"><a href="#cb2-121"></a></span>
-<span id="cb2-122"><a href="#cb2-122"></a>$$</span>
-<span id="cb2-123"><a href="#cb2-123"></a>R(f)\le\widehat R_n(f)+C\sqrt{\frac{d\log(n/d)+\log(1/\delta)}{n}}.</span>
-<span id="cb2-124"><a href="#cb2-124"></a>$$</span>
-<span id="cb2-125"><a href="#cb2-125"></a></span>
-<span id="cb2-126"><a href="#cb2-126"></a><span class="fu">## Complejidad de Rademacher {.unnumbered}</span></span>
-<span id="cb2-127"><a href="#cb2-127"></a></span>
-<span id="cb2-128"><a href="#cb2-128"></a>La complejidad empírica es</span>
-<span id="cb2-129"><a href="#cb2-129"></a></span>
-<span id="cb2-130"><a href="#cb2-130"></a>$$</span>
-<span id="cb2-131"><a href="#cb2-131"></a>\widehat{\mathfrak R}_n(\mathcal F)=\mathbb E_{\boldsymbol\sigma}\left[\sup_{f\in\mathcal F}\frac1n\sum_{i=1}^n\sigma_i f(\mathbf x_i)\right],</span>
-<span id="cb2-132"><a href="#cb2-132"></a>$$</span>
-<span id="cb2-133"><a href="#cb2-133"></a></span>
-<span id="cb2-134"><a href="#cb2-134"></a>donde $\sigma_i\in<span class="sc">\{</span>-1,+1<span class="sc">\}</span>$. Mide la capacidad de la clase para ajustarse a ruido aleatorio <span class="co">[</span><span class="ot">@bartlett2002rademacher</span><span class="co">]</span>.</span>
-<span id="cb2-135"><a href="#cb2-135"></a></span>
-<span id="cb2-136"><a href="#cb2-136"></a>Una cota típica es</span>
-<span id="cb2-137"><a href="#cb2-137"></a></span>
-<span id="cb2-138"><a href="#cb2-138"></a>$$</span>
-<span id="cb2-139"><a href="#cb2-139"></a>R(f)\le\widehat R_n(f)+2\mathfrak R_n(\mathcal F)+\sqrt{\frac{\log(1/\delta)}{2n}}.</span>
-<span id="cb2-140"><a href="#cb2-140"></a>$$</span>
-<span id="cb2-141"><a href="#cb2-141"></a></span>
-<span id="cb2-142"><a href="#cb2-142"></a><span class="fu">## Regularización, norma y margen {.unnumbered}</span></span>
-<span id="cb2-143"><a href="#cb2-143"></a></span>
-<span id="cb2-144"><a href="#cb2-144"></a>La regularización restringe la clase efectiva. En modelos lineales, limitar $<span class="sc">\|</span>\mathbf w<span class="sc">\|</span>_2$ reduce capacidad. En SVM, un margen grande puede producir cotas que dependen aproximadamente de</span>
-<span id="cb2-145"><a href="#cb2-145"></a></span>
-<span id="cb2-146"><a href="#cb2-146"></a>$$</span>
-<span id="cb2-147"><a href="#cb2-147"></a>\frac{R^2}{\gamma^2},</span>
-<span id="cb2-148"><a href="#cb2-148"></a>$$</span>
-<span id="cb2-149"><a href="#cb2-149"></a></span>
-<span id="cb2-150"><a href="#cb2-150"></a>donde $R$ acota la norma de las entradas y $\gamma$ es el margen.</span>
-<span id="cb2-151"><a href="#cb2-151"></a></span>
-<span id="cb2-152"><a href="#cb2-152"></a><span class="fu">## Estabilidad algorítmica {.unnumbered}</span></span>
-<span id="cb2-153"><a href="#cb2-153"></a></span>
-<span id="cb2-154"><a href="#cb2-154"></a>Un algoritmo es estable si reemplazar una observación cambia poco la pérdida. Si</span>
-<span id="cb2-155"><a href="#cb2-155"></a></span>
-<span id="cb2-156"><a href="#cb2-156"></a>$$</span>
-<span id="cb2-157"><a href="#cb2-157"></a><span class="pp">|</span>L(z,A(\mathcal D_n))-L(z,A(\mathcal D_n^{(i)}))<span class="pp">|</span>\le\beta_n,</span>
-<span id="cb2-158"><a href="#cb2-158"></a>$$</span>
-<span id="cb2-159"><a href="#cb2-159"></a></span>
-<span id="cb2-160"><a href="#cb2-160"></a>y $\beta_n\to0$, la influencia de una observación disminuye con $n$. Los algoritmos regularizados suelen ser más estables.</span>
-<span id="cb2-161"><a href="#cb2-161"></a></span>
-<span id="cb2-162"><a href="#cb2-162"></a><span class="fu">## PAC-Bayes {.unnumbered}</span></span>
-<span id="cb2-163"><a href="#cb2-163"></a></span>
-<span id="cb2-164"><a href="#cb2-164"></a>Las cotas PAC-Bayes consideran una distribución previa $P$ y una posterior $Q$ sobre modelos. La penalización depende de</span>
-<span id="cb2-165"><a href="#cb2-165"></a></span>
-<span id="cb2-166"><a href="#cb2-166"></a>$$</span>
-<span id="cb2-167"><a href="#cb2-167"></a>\sqrt{\frac{KL(Q<span class="sc">\|</span>P)+\log(1/\delta)}{n}}.</span>
-<span id="cb2-168"><a href="#cb2-168"></a>$$</span>
-<span id="cb2-169"><a href="#cb2-169"></a></span>
-<span id="cb2-170"><a href="#cb2-170"></a>Un posterior cercano a una prior simple puede obtener una mejor garantía <span class="co">[</span><span class="ot">@mcallester1999pac</span><span class="co">]</span>.</span>
-<span id="cb2-171"><a href="#cb2-171"></a></span>
-<span id="cb2-172"><a href="#cb2-172"></a><span class="fu">## Selección de modelos {.unnumbered}</span></span>
-<span id="cb2-173"><a href="#cb2-173"></a></span>
-<span id="cb2-174"><a href="#cb2-174"></a>Comparar muchos modelos usando la misma validación puede sobreajustar el conjunto de validación. La validación cruzada anidada separa selección de hiperparámetros y estimación final del desempeño.</span>
-<span id="cb2-175"><a href="#cb2-175"></a></span>
-<span id="cb2-176"><a href="#cb2-176"></a><span class="fu">## Cambio de distribución {.unnumbered}</span></span>
-<span id="cb2-177"><a href="#cb2-177"></a></span>
-<span id="cb2-178"><a href="#cb2-178"></a>Las garantías clásicas suelen suponer</span>
-<span id="cb2-179"><a href="#cb2-179"></a></span>
-<span id="cb2-180"><a href="#cb2-180"></a>$$</span>
-<span id="cb2-181"><a href="#cb2-181"></a>P_{train}=P_{test}.</span>
-<span id="cb2-182"><a href="#cb2-182"></a>$$</span>
-<span id="cb2-183"><a href="#cb2-183"></a></span>
-<span id="cb2-184"><a href="#cb2-184"></a>Cuando esta igualdad falla pueden aparecer *covariate shift*, *concept drift* o cambios estructurales. En esos casos se requieren validación temporal, reponderación, monitoreo y actualización.</span>
-<span id="cb2-185"><a href="#cb2-185"></a></span>
-<span id="cb2-186"><a href="#cb2-186"></a><span class="fu">## Modelos sobreparametrizados {.unnumbered}</span></span>
-<span id="cb2-187"><a href="#cb2-187"></a></span>
-<span id="cb2-188"><a href="#cb2-188"></a>Las redes modernas pueden tener más parámetros que observaciones y aun así generalizar. La complejidad efectiva depende también de normas, margen, optimización implícita, estructura de los datos y arquitectura.</span>
-<span id="cb2-189"><a href="#cb2-189"></a></span>
-<span id="cb2-190"><a href="#cb2-190"></a><span class="fu">## Doble descenso {.unnumbered}</span></span>
-<span id="cb2-191"><a href="#cb2-191"></a></span>
-<span id="cb2-192"><a href="#cb2-192"></a>El error de prueba puede disminuir, aumentar cerca del umbral de interpolación y volver a disminuir en el régimen sobreparametrizado. Este comportamiento se denomina doble descenso.</span>
-<span id="cb2-193"><a href="#cb2-193"></a></span>
-<span id="cb2-194"><a href="#cb2-194"></a><span class="fu">## Cotas vacías {.unnumbered}</span></span>
-<span id="cb2-195"><a href="#cb2-195"></a></span>
-<span id="cb2-196"><a href="#cb2-196"></a>Una cota puede ser matemáticamente válida pero numéricamente inútil si supera el máximo posible del riesgo. Deben distinguirse validez formal y utilidad práctica.</span>
-<span id="cb2-197"><a href="#cb2-197"></a></span>
-<span id="cb2-198"><a href="#cb2-198"></a><span class="fu">## Conexión con los algoritmos {.unnumbered}</span></span>
-<span id="cb2-199"><a href="#cb2-199"></a></span>
-<span id="cb2-200"><a href="#cb2-200"></a><span class="ss">- </span>K-NN controla complejidad mediante $k$.</span>
-<span id="cb2-201"><a href="#cb2-201"></a><span class="ss">- </span>Árboles mediante profundidad y poda.</span>
-<span id="cb2-202"><a href="#cb2-202"></a><span class="ss">- </span>Random Forest reduce varianza por promediación.</span>
-<span id="cb2-203"><a href="#cb2-203"></a><span class="ss">- </span>SVM utiliza margen y norma.</span>
-<span id="cb2-204"><a href="#cb2-204"></a><span class="ss">- </span>Redes neuronales emplean arquitectura, regularización, dropout y parada temprana.</span>
-<span id="cb2-205"><a href="#cb2-205"></a></span>
-<span id="cb2-206"><a href="#cb2-206"></a><span class="fu">## Ejemplo en R {.unnumbered}</span></span>
-<span id="cb2-207"><a href="#cb2-207"></a></span>
-<span id="cb2-210"><a href="#cb2-210"></a><span class="in">```{r}</span></span>
-<span id="cb2-211"><a href="#cb2-211"></a><span class="co">#| eval: false</span></span>
-<span id="cb2-212"><a href="#cb2-212"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb2-213"><a href="#cb2-213"></a>simular <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">B=</span><span class="dv">1000</span>) {</span>
-<span id="cb2-214"><a href="#cb2-214"></a>  <span class="fu">mean</span>(<span class="fu">replicate</span>(B, <span class="fu">abs</span>(<span class="fu">mean</span>(<span class="fu">rbinom</span>(n,<span class="dv">1</span>,<span class="fl">0.3</span>))<span class="sc">-</span><span class="fl">0.3</span>)))</span>
-<span id="cb2-215"><a href="#cb2-215"></a>}</span>
-<span id="cb2-216"><a href="#cb2-216"></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">500</span>,<span class="dv">1000</span>), simular)</span>
-<span id="cb2-217"><a href="#cb2-217"></a><span class="in">```</span></span>
-<span id="cb2-218"><a href="#cb2-218"></a></span>
-<span id="cb2-219"><a href="#cb2-219"></a><span class="fu">## Ejercicios {.unnumbered}</span></span>
-<span id="cb2-220"><a href="#cb2-220"></a></span>
-<span id="cb2-221"><a href="#cb2-221"></a><span class="ss">1. </span>Distinga riesgo esperado y empírico.</span>
-<span id="cb2-222"><a href="#cb2-222"></a><span class="ss">2. </span>Calcule la cota de Hoeffding para $n=500$ y $\delta=0.05$.</span>
-<span id="cb2-223"><a href="#cb2-223"></a><span class="ss">3. </span>Explique la diferencia entre caso realizable y agnóstico.</span>
-<span id="cb2-224"><a href="#cb2-224"></a><span class="ss">4. </span>Determine la dimensión VC de umbrales, intervalos e hiperplanos.</span>
-<span id="cb2-225"><a href="#cb2-225"></a><span class="ss">5. </span>Explique qué mide la complejidad de Rademacher.</span>
-<span id="cb2-226"><a href="#cb2-226"></a><span class="ss">6. </span>Analice cómo la regularización mejora estabilidad.</span>
-<span id="cb2-227"><a href="#cb2-227"></a><span class="ss">7. </span>Diseñe una validación anidada para comparar regresión logística, SVM, Random Forest y una red neuronal.</span>
-<span id="cb2-228"><a href="#cb2-228"></a><span class="ss">8. </span>Explique por qué una cota puede ser vacía.</span>
-<span id="cb2-229"><a href="#cb2-229"></a></span>
-<span id="cb2-230"><a href="#cb2-230"></a><span class="fu">## Resumen {.unnumbered}</span></span>
-<span id="cb2-231"><a href="#cb2-231"></a></span>
-<span id="cb2-232"><a href="#cb2-232"></a>Se estudiaron riesgo esperado, riesgo empírico, convergencia uniforme, Hoeffding, aprendizaje PAC, dimensión VC, complejidad de Rademacher, estabilidad y PAC-Bayes. También se analizaron regularización, selección de modelos, cambio de distribución y sobreparametrización.</span>
-<span id="cb2-233"><a href="#cb2-233"></a></span>
-<span id="cb2-234"><a href="#cb2-234"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
-<span id="cb2-235"><a href="#cb2-235"></a></span>
-<span id="cb2-236"><a href="#cb2-236"></a>Los fundamentos se apoyan en @vapnik1971uniform, @valiant1984theory, @vapnik1998statistical, @shalev2014understanding, @mohri2018foundations, @bartlett2002rademacher y @mcallester1999pac.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu"># Teoría de generalización\index{Generalización} {#sec-teoria-generalizacion}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">## Introducción {.unnumbered}</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>La finalidad del aprendizaje automático es construir modelos que funcionen con observaciones nuevas. La teoría de generalización estudia cuándo el desempeño observado en la muestra representa adecuadamente el riesgo sobre la población y cómo influyen el tamaño muestral, la complejidad del modelo y la regularización <span class="co">[</span><span class="ot">@vapnik1971uniform; @valiant1984theory; @shalev2014understanding</span><span class="co">]</span>.</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>::: {.callout-important title="Definición esencial" appearance="default" icon="true"}</span>
+<span id="cb3-8"><a href="#cb3-8"></a>La **generalización** es la capacidad de un modelo aprendido con una muestra de producir un riesgo bajo sobre observaciones nuevas generadas por la misma distribución.</span>
+<span id="cb3-9"><a href="#cb3-9"></a>:::</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="al">![La complejidad demasiado baja conduce a subajuste y la demasiado alta puede aumentar la brecha de generalización.](../estilos/figuras/generalizacion-complejidad.png)</span>{#fig-generalizacion-complejidad width=82% fig-alt="Curvas de riesgo empírico y riesgo esperado frente a la complejidad del modelo"}</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="fu">## Riesgo esperado y riesgo empírico {.unnumbered}</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a>Para una función $f$ y una pérdida $L$, el riesgo esperado es</span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a>$$</span>
+<span id="cb3-18"><a href="#cb3-18"></a>R(f)=\mathbb{E}<span class="co">[</span><span class="ot">L(Y,f(\mathbf{X}))</span><span class="co">]</span>.</span>
+<span id="cb3-19"><a href="#cb3-19"></a>$$</span>
+<span id="cb3-20"><a href="#cb3-20"></a></span>
+<span id="cb3-21"><a href="#cb3-21"></a>Dada una muestra de tamaño $n$, el riesgo empírico es</span>
+<span id="cb3-22"><a href="#cb3-22"></a></span>
+<span id="cb3-23"><a href="#cb3-23"></a>$$</span>
+<span id="cb3-24"><a href="#cb3-24"></a>\widehat R_n(f)=\frac{1}{n}\sum_{i=1}^n L(y_i,f(\mathbf{x}_i)).</span>
+<span id="cb3-25"><a href="#cb3-25"></a>$$</span>
+<span id="cb3-26"><a href="#cb3-26"></a></span>
+<span id="cb3-27"><a href="#cb3-27"></a>La diferencia</span>
+<span id="cb3-28"><a href="#cb3-28"></a></span>
+<span id="cb3-29"><a href="#cb3-29"></a>$$</span>
+<span id="cb3-30"><a href="#cb3-30"></a>R(f)-\widehat R_n(f)</span>
+<span id="cb3-31"><a href="#cb3-31"></a>$$</span>
+<span id="cb3-32"><a href="#cb3-32"></a></span>
+<span id="cb3-33"><a href="#cb3-33"></a>se denomina brecha de generalización.</span>
+<span id="cb3-34"><a href="#cb3-34"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="fu">## Minimización del riesgo empírico {.unnumbered}</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a></span>
+<span id="cb3-37"><a href="#cb3-37"></a>El estimador ERM es</span>
+<span id="cb3-38"><a href="#cb3-38"></a></span>
+<span id="cb3-39"><a href="#cb3-39"></a>$$</span>
+<span id="cb3-40"><a href="#cb3-40"></a>\widehat f_{ERM}=\operatorname*{arg\,min}_{f\in\mathcal F}\widehat R_n(f).</span>
+<span id="cb3-41"><a href="#cb3-41"></a>$$</span>
+<span id="cb3-42"><a href="#cb3-42"></a></span>
+<span id="cb3-43"><a href="#cb3-43"></a>Si el riesgo empírico aproxima uniformemente al riesgo esperado, entonces ERM generaliza.</span>
+<span id="cb3-44"><a href="#cb3-44"></a></span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="fu">## Exceso de riesgo {.unnumbered}</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a></span>
+<span id="cb3-47"><a href="#cb3-47"></a>Sea $f^*$ el predictor óptimo y $f^*_{\mathcal F}$ el mejor predictor dentro de $\mathcal F$. Entonces</span>
+<span id="cb3-48"><a href="#cb3-48"></a></span>
+<span id="cb3-49"><a href="#cb3-49"></a>$$</span>
+<span id="cb3-50"><a href="#cb3-50"></a>R(\widehat f)-R(f^*)=</span>
+<span id="cb3-51"><a href="#cb3-51"></a><span class="co">[</span><span class="ot">R(\widehat f)-R(f^*_{\mathcal F})</span><span class="co">]</span>+<span class="co">[</span><span class="ot">R(f^*_{\mathcal F})-R(f^*)</span><span class="co">]</span>.</span>
+<span id="cb3-52"><a href="#cb3-52"></a>$$</span>
+<span id="cb3-53"><a href="#cb3-53"></a></span>
+<span id="cb3-54"><a href="#cb3-54"></a>El primer término es error de estimación y el segundo error de aproximación.</span>
+<span id="cb3-55"><a href="#cb3-55"></a></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="fu">## Convergencia uniforme {.unnumbered}</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a></span>
+<span id="cb3-58"><a href="#cb3-58"></a>Se busca controlar</span>
+<span id="cb3-59"><a href="#cb3-59"></a></span>
+<span id="cb3-60"><a href="#cb3-60"></a>$$</span>
+<span id="cb3-61"><a href="#cb3-61"></a>\sup_{f\in\mathcal F}|R(f)-\widehat R_n(f)|.</span>
+<span id="cb3-62"><a href="#cb3-62"></a>$$</span>
+<span id="cb3-63"><a href="#cb3-63"></a></span>
+<span id="cb3-64"><a href="#cb3-64"></a>Si esta cantidad es menor que $\varepsilon$, entonces</span>
+<span id="cb3-65"><a href="#cb3-65"></a></span>
+<span id="cb3-66"><a href="#cb3-66"></a>$$</span>
+<span id="cb3-67"><a href="#cb3-67"></a>R(\widehat f_{ERM})\le R(f^*_{\mathcal F})+2\varepsilon.</span>
+<span id="cb3-68"><a href="#cb3-68"></a>$$</span>
+<span id="cb3-69"><a href="#cb3-69"></a></span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="fu">## Desigualdad de Hoeffding {.unnumbered}</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a></span>
+<span id="cb3-72"><a href="#cb3-72"></a>Si $0\le L\le1$, para un predictor fijo,</span>
+<span id="cb3-73"><a href="#cb3-73"></a></span>
+<span id="cb3-74"><a href="#cb3-74"></a>$$</span>
+<span id="cb3-75"><a href="#cb3-75"></a>P(|R(f)-\widehat R_n(f)|\ge\varepsilon)\le2e^{-2n\varepsilon^2}.</span>
+<span id="cb3-76"><a href="#cb3-76"></a>$$</span>
+<span id="cb3-77"><a href="#cb3-77"></a></span>
+<span id="cb3-78"><a href="#cb3-78"></a>Con probabilidad al menos $1-\delta$,</span>
+<span id="cb3-79"><a href="#cb3-79"></a></span>
+<span id="cb3-80"><a href="#cb3-80"></a>$$</span>
+<span id="cb3-81"><a href="#cb3-81"></a>R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2/\delta)}{2n}}.</span>
+<span id="cb3-82"><a href="#cb3-82"></a>$$</span>
+<span id="cb3-83"><a href="#cb3-83"></a></span>
+<span id="cb3-84"><a href="#cb3-84"></a><span class="fu">## Ejemplo numérico de una cota de Hoeffding {.unnumbered}</span></span>
+<span id="cb3-85"><a href="#cb3-85"></a></span>
+<span id="cb3-86"><a href="#cb3-86"></a>Supóngase que un clasificador presenta un error empírico de <span class="sc">\(</span>0.12<span class="sc">\)</span> sobre <span class="sc">\(</span>n=500<span class="sc">\)</span> observaciones y se desea una garantía con <span class="sc">\(</span>\delta=0.05<span class="sc">\)</span>. La desviación de Hoeffding es</span>
+<span id="cb3-87"><a href="#cb3-87"></a></span>
+<span id="cb3-88"><a href="#cb3-88"></a>$$</span>
+<span id="cb3-89"><a href="#cb3-89"></a>\varepsilon</span>
+<span id="cb3-90"><a href="#cb3-90"></a>=</span>
+<span id="cb3-91"><a href="#cb3-91"></a>\sqrt{</span>
+<span id="cb3-92"><a href="#cb3-92"></a>\frac{</span>
+<span id="cb3-93"><a href="#cb3-93"></a>\log(2/\delta)</span>
+<span id="cb3-94"><a href="#cb3-94"></a>}{</span>
+<span id="cb3-95"><a href="#cb3-95"></a>2n</span>
+<span id="cb3-96"><a href="#cb3-96"></a>}</span>
+<span id="cb3-97"><a href="#cb3-97"></a>}</span>
+<span id="cb3-98"><a href="#cb3-98"></a>=</span>
+<span id="cb3-99"><a href="#cb3-99"></a>\sqrt{</span>
+<span id="cb3-100"><a href="#cb3-100"></a>\frac{</span>
+<span id="cb3-101"><a href="#cb3-101"></a>\log(40)</span>
+<span id="cb3-102"><a href="#cb3-102"></a>}{</span>
+<span id="cb3-103"><a href="#cb3-103"></a>1000</span>
+<span id="cb3-104"><a href="#cb3-104"></a>}</span>
+<span id="cb3-105"><a href="#cb3-105"></a>}</span>
+<span id="cb3-106"><a href="#cb3-106"></a>\approx 0.0607.</span>
+<span id="cb3-107"><a href="#cb3-107"></a>$$</span>
+<span id="cb3-108"><a href="#cb3-108"></a></span>
+<span id="cb3-109"><a href="#cb3-109"></a>Por tanto, con probabilidad al menos <span class="sc">\(</span>0.95<span class="sc">\)</span>,</span>
+<span id="cb3-110"><a href="#cb3-110"></a></span>
+<span id="cb3-111"><a href="#cb3-111"></a>$$</span>
+<span id="cb3-112"><a href="#cb3-112"></a>R(f)</span>
+<span id="cb3-113"><a href="#cb3-113"></a>\leq</span>
+<span id="cb3-114"><a href="#cb3-114"></a>0.12+0.0607</span>
+<span id="cb3-115"><a href="#cb3-115"></a>=</span>
+<span id="cb3-116"><a href="#cb3-116"></a>0.1807.</span>
+<span id="cb3-117"><a href="#cb3-117"></a>$$</span>
+<span id="cb3-118"><a href="#cb3-118"></a></span>
+<span id="cb3-119"><a href="#cb3-119"></a>La cota no afirma que el riesgo real sea exactamente <span class="sc">\(</span>0.1807<span class="sc">\)</span>; establece un límite superior probabilístico bajo los supuestos indicados.</span>
+<span id="cb3-120"><a href="#cb3-120"></a></span>
+<span id="cb3-121"><a href="#cb3-121"></a><span class="fu">## Clases finitas {.unnumbered}</span></span>
+<span id="cb3-122"><a href="#cb3-122"></a></span>
+<span id="cb3-123"><a href="#cb3-123"></a>Si $|\mathcal F|=M$, una unión de eventos produce</span>
+<span id="cb3-124"><a href="#cb3-124"></a></span>
+<span id="cb3-125"><a href="#cb3-125"></a>$$</span>
+<span id="cb3-126"><a href="#cb3-126"></a>R(f)\le\widehat R_n(f)+\sqrt{\frac{\log(2M/\delta)}{2n}}</span>
+<span id="cb3-127"><a href="#cb3-127"></a>$$</span>
+<span id="cb3-128"><a href="#cb3-128"></a></span>
+<span id="cb3-129"><a href="#cb3-129"></a>simultáneamente para todos los modelos. La penalización aumenta con $\log M$ y disminuye con $n$.</span>
+<span id="cb3-130"><a href="#cb3-130"></a></span>
+<span id="cb3-131"><a href="#cb3-131"></a><span class="fu">## Aprendizaje PAC\index{Aprendizaje PAC} {.unnumbered}</span></span>
+<span id="cb3-132"><a href="#cb3-132"></a></span>
+<span id="cb3-133"><a href="#cb3-133"></a>PAC significa *Probably Approximately Correct*. Un algoritmo aprende una clase si para todo $\varepsilon&gt;0$ y $\delta&gt;0$ devuelve, con probabilidad al menos $1-\delta$, un predictor cuyo error está a lo sumo $\varepsilon$ del objetivo.</span>
+<span id="cb3-134"><a href="#cb3-134"></a></span>
+<span id="cb3-135"><a href="#cb3-135"></a>En el caso realizable, la complejidad muestral para una clase finita es del orden de</span>
+<span id="cb3-136"><a href="#cb3-136"></a></span>
+<span id="cb3-137"><a href="#cb3-137"></a>$$</span>
+<span id="cb3-138"><a href="#cb3-138"></a>\frac{\log M+\log(1/\delta)}{\varepsilon}.</span>
+<span id="cb3-139"><a href="#cb3-139"></a>$$</span>
+<span id="cb3-140"><a href="#cb3-140"></a></span>
+<span id="cb3-141"><a href="#cb3-141"></a>En el caso agnóstico es del orden de</span>
+<span id="cb3-142"><a href="#cb3-142"></a></span>
+<span id="cb3-143"><a href="#cb3-143"></a>$$</span>
+<span id="cb3-144"><a href="#cb3-144"></a>\frac{\log M+\log(1/\delta)}{\varepsilon^2}.</span>
+<span id="cb3-145"><a href="#cb3-145"></a>$$</span>
+<span id="cb3-146"><a href="#cb3-146"></a></span>
+<span id="cb3-147"><a href="#cb3-147"></a><span class="fu">## Dimensión VC\index{Dimensión VC} {.unnumbered}</span></span>
+<span id="cb3-148"><a href="#cb3-148"></a></span>
+<span id="cb3-149"><a href="#cb3-149"></a>La dimensión VC es el mayor número de puntos que una clase puede fragmentar, es decir, etiquetar de todas las formas binarias posibles.</span>
+<span id="cb3-150"><a href="#cb3-150"></a></span>
+<span id="cb3-151"><a href="#cb3-151"></a><span class="ss">- </span>umbrales en la recta: VC igual a 1;</span>
+<span id="cb3-152"><a href="#cb3-152"></a><span class="ss">- </span>intervalos: VC igual a 2;</span>
+<span id="cb3-153"><a href="#cb3-153"></a><span class="ss">- </span>hiperplanos en $\mathbb R^p$: VC igual a $p+1$.</span>
+<span id="cb3-154"><a href="#cb3-154"></a></span>
+<span id="cb3-155"><a href="#cb3-155"></a><span class="fu">## Función de crecimiento y lema de Sauer {.unnumbered}</span></span>
+<span id="cb3-156"><a href="#cb3-156"></a></span>
+<span id="cb3-157"><a href="#cb3-157"></a>La función de crecimiento $\Pi_{\mathcal F}(n)$ cuenta el máximo número de etiquetaciones inducidas por la clase. Si la dimensión VC es $d$,</span>
+<span id="cb3-158"><a href="#cb3-158"></a></span>
+<span id="cb3-159"><a href="#cb3-159"></a>$$</span>
+<span id="cb3-160"><a href="#cb3-160"></a>\Pi_{\mathcal F}(n)\le\sum_{j=0}^{d}\binom{n}{j}\le\left(\frac{en}{d}\right)^d.</span>
+<span id="cb3-161"><a href="#cb3-161"></a>$$</span>
+<span id="cb3-162"><a href="#cb3-162"></a></span>
+<span id="cb3-163"><a href="#cb3-163"></a>Una cota típica es</span>
+<span id="cb3-164"><a href="#cb3-164"></a></span>
+<span id="cb3-165"><a href="#cb3-165"></a>$$</span>
+<span id="cb3-166"><a href="#cb3-166"></a>R(f)\le\widehat R_n(f)+C\sqrt{\frac{d\log(n/d)+\log(1/\delta)}{n}}.</span>
+<span id="cb3-167"><a href="#cb3-167"></a>$$</span>
+<span id="cb3-168"><a href="#cb3-168"></a></span>
+<span id="cb3-169"><a href="#cb3-169"></a><span class="fu">## Complejidad de Rademacher {.unnumbered}</span></span>
+<span id="cb3-170"><a href="#cb3-170"></a></span>
+<span id="cb3-171"><a href="#cb3-171"></a>La complejidad empírica es</span>
+<span id="cb3-172"><a href="#cb3-172"></a></span>
+<span id="cb3-173"><a href="#cb3-173"></a>$$</span>
+<span id="cb3-174"><a href="#cb3-174"></a>\widehat{\mathfrak R}_n(\mathcal F)=\mathbb E_{\boldsymbol\sigma}\left[\sup_{f\in\mathcal F}\frac1n\sum_{i=1}^n\sigma_i f(\mathbf x_i)\right],</span>
+<span id="cb3-175"><a href="#cb3-175"></a>$$</span>
+<span id="cb3-176"><a href="#cb3-176"></a></span>
+<span id="cb3-177"><a href="#cb3-177"></a>donde $\sigma_i\in<span class="sc">\{</span>-1,+1<span class="sc">\}</span>$. Mide la capacidad de la clase para ajustarse a ruido aleatorio <span class="co">[</span><span class="ot">@bartlett2002rademacher</span><span class="co">]</span>.</span>
+<span id="cb3-178"><a href="#cb3-178"></a></span>
+<span id="cb3-179"><a href="#cb3-179"></a>Una cota típica es</span>
+<span id="cb3-180"><a href="#cb3-180"></a></span>
+<span id="cb3-181"><a href="#cb3-181"></a>$$</span>
+<span id="cb3-182"><a href="#cb3-182"></a>R(f)\le\widehat R_n(f)+2\mathfrak R_n(\mathcal F)+\sqrt{\frac{\log(1/\delta)}{2n}}.</span>
+<span id="cb3-183"><a href="#cb3-183"></a>$$</span>
+<span id="cb3-184"><a href="#cb3-184"></a></span>
+<span id="cb3-185"><a href="#cb3-185"></a><span class="fu">## Regularización, norma y margen {.unnumbered}</span></span>
+<span id="cb3-186"><a href="#cb3-186"></a></span>
+<span id="cb3-187"><a href="#cb3-187"></a>La regularización restringe la clase efectiva. En modelos lineales, limitar $<span class="sc">\|</span>\mathbf w<span class="sc">\|</span>_2$ reduce capacidad. En SVM, un margen grande puede producir cotas que dependen aproximadamente de</span>
+<span id="cb3-188"><a href="#cb3-188"></a></span>
+<span id="cb3-189"><a href="#cb3-189"></a>$$</span>
+<span id="cb3-190"><a href="#cb3-190"></a>\frac{R^2}{\gamma^2},</span>
+<span id="cb3-191"><a href="#cb3-191"></a>$$</span>
+<span id="cb3-192"><a href="#cb3-192"></a></span>
+<span id="cb3-193"><a href="#cb3-193"></a>donde $R$ acota la norma de las entradas y $\gamma$ es el margen.</span>
+<span id="cb3-194"><a href="#cb3-194"></a></span>
+<span id="cb3-195"><a href="#cb3-195"></a><span class="fu">## Estabilidad algorítmica {.unnumbered}</span></span>
+<span id="cb3-196"><a href="#cb3-196"></a></span>
+<span id="cb3-197"><a href="#cb3-197"></a>Un algoritmo es estable si reemplazar una observación cambia poco la pérdida. Si</span>
+<span id="cb3-198"><a href="#cb3-198"></a></span>
+<span id="cb3-199"><a href="#cb3-199"></a>$$</span>
+<span id="cb3-200"><a href="#cb3-200"></a><span class="pp">|</span>L(z,A(\mathcal D_n))-L(z,A(\mathcal D_n^{(i)}))<span class="pp">|</span>\le\beta_n,</span>
+<span id="cb3-201"><a href="#cb3-201"></a>$$</span>
+<span id="cb3-202"><a href="#cb3-202"></a></span>
+<span id="cb3-203"><a href="#cb3-203"></a>y $\beta_n\to0$, la influencia de una observación disminuye con $n$. Los algoritmos regularizados suelen ser más estables. Esta relación fue formalizada, entre otros, por @bousquet2002stability.</span>
+<span id="cb3-204"><a href="#cb3-204"></a></span>
+<span id="cb3-205"><a href="#cb3-205"></a><span class="fu">## PAC-Bayes {.unnumbered}</span></span>
+<span id="cb3-206"><a href="#cb3-206"></a></span>
+<span id="cb3-207"><a href="#cb3-207"></a>Las cotas PAC-Bayes consideran una distribución previa $P$ y una posterior $Q$ sobre modelos. La penalización depende de</span>
+<span id="cb3-208"><a href="#cb3-208"></a></span>
+<span id="cb3-209"><a href="#cb3-209"></a>$$</span>
+<span id="cb3-210"><a href="#cb3-210"></a>\sqrt{\frac{KL(Q<span class="sc">\|</span>P)+\log(1/\delta)}{n}}.</span>
+<span id="cb3-211"><a href="#cb3-211"></a>$$</span>
+<span id="cb3-212"><a href="#cb3-212"></a></span>
+<span id="cb3-213"><a href="#cb3-213"></a>Un posterior cercano a una prior simple puede obtener una mejor garantía <span class="co">[</span><span class="ot">@mcallester1999pac</span><span class="co">]</span>.</span>
+<span id="cb3-214"><a href="#cb3-214"></a></span>
+<span id="cb3-215"><a href="#cb3-215"></a><span class="fu">## Selección de modelos {.unnumbered}</span></span>
+<span id="cb3-216"><a href="#cb3-216"></a></span>
+<span id="cb3-217"><a href="#cb3-217"></a>Comparar muchos modelos usando la misma validación puede sobreajustar el conjunto de validación. La validación cruzada anidada separa selección de hiperparámetros y estimación final del desempeño.</span>
+<span id="cb3-218"><a href="#cb3-218"></a></span>
+<span id="cb3-219"><a href="#cb3-219"></a><span class="fu">## Cambio de distribución {.unnumbered}</span></span>
+<span id="cb3-220"><a href="#cb3-220"></a></span>
+<span id="cb3-221"><a href="#cb3-221"></a>Las garantías clásicas suelen suponer</span>
+<span id="cb3-222"><a href="#cb3-222"></a></span>
+<span id="cb3-223"><a href="#cb3-223"></a>$$</span>
+<span id="cb3-224"><a href="#cb3-224"></a>P_{train}=P_{test}.</span>
+<span id="cb3-225"><a href="#cb3-225"></a>$$</span>
+<span id="cb3-226"><a href="#cb3-226"></a></span>
+<span id="cb3-227"><a href="#cb3-227"></a>Cuando esta igualdad falla pueden aparecer *covariate shift*, *concept drift* o cambios estructurales. En esos casos se requieren validación temporal, reponderación, monitoreo y actualización.</span>
+<span id="cb3-228"><a href="#cb3-228"></a></span>
+<span id="cb3-229"><a href="#cb3-229"></a><span class="fu">## Modelos sobreparametrizados {.unnumbered}</span></span>
+<span id="cb3-230"><a href="#cb3-230"></a></span>
+<span id="cb3-231"><a href="#cb3-231"></a>Las redes modernas pueden tener más parámetros que observaciones y aun así generalizar. La complejidad efectiva depende también de normas, margen, optimización implícita, estructura de los datos y arquitectura.</span>
+<span id="cb3-232"><a href="#cb3-232"></a></span>
+<span id="cb3-233"><a href="#cb3-233"></a><span class="fu">## Doble descenso {.unnumbered}</span></span>
+<span id="cb3-234"><a href="#cb3-234"></a></span>
+<span id="cb3-235"><a href="#cb3-235"></a>El error de prueba puede disminuir, aumentar cerca del umbral de interpolación y volver a disminuir en el régimen sobreparametrizado. Este comportamiento se denomina doble descenso y ofrece una explicación parcial de la generalización en modelos altamente sobreparametrizados <span class="co">[</span><span class="ot">@belkin2019reconciling</span><span class="co">]</span>.</span>
+<span id="cb3-236"><a href="#cb3-236"></a></span>
+<span id="cb3-237"><a href="#cb3-237"></a><span class="fu">## Cotas vacías {.unnumbered}</span></span>
+<span id="cb3-238"><a href="#cb3-238"></a></span>
+<span id="cb3-239"><a href="#cb3-239"></a>Una cota puede ser matemáticamente válida pero numéricamente inútil si supera el máximo posible del riesgo. Deben distinguirse validez formal y utilidad práctica.</span>
+<span id="cb3-240"><a href="#cb3-240"></a></span>
+<span id="cb3-241"><a href="#cb3-241"></a><span class="fu">## Conexión con los algoritmos {.unnumbered}</span></span>
+<span id="cb3-242"><a href="#cb3-242"></a></span>
+<span id="cb3-243"><a href="#cb3-243"></a><span class="ss">- </span>K-NN controla complejidad mediante $k$.</span>
+<span id="cb3-244"><a href="#cb3-244"></a><span class="ss">- </span>Árboles mediante profundidad y poda.</span>
+<span id="cb3-245"><a href="#cb3-245"></a><span class="ss">- </span>Random Forest reduce varianza por promediación.</span>
+<span id="cb3-246"><a href="#cb3-246"></a><span class="ss">- </span>SVM utiliza margen y norma.</span>
+<span id="cb3-247"><a href="#cb3-247"></a><span class="ss">- </span>Redes neuronales emplean arquitectura, regularización, dropout y parada temprana.</span>
+<span id="cb3-248"><a href="#cb3-248"></a></span>
+<span id="cb3-249"><a href="#cb3-249"></a><span class="fu">## Seudocódigo formal para selección con validación anidada {.unnumbered}</span></span>
+<span id="cb3-250"><a href="#cb3-250"></a></span>
+<span id="cb3-251"><a href="#cb3-251"></a>::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}</span>
+<span id="cb3-252"><a href="#cb3-252"></a><span class="in">```text</span></span>
+<span id="cb3-253"><a href="#cb3-253"></a><span class="in">Algoritmo Validación-Cruzada-Anidada</span></span>
+<span id="cb3-254"><a href="#cb3-254"></a><span class="in">Entrada:</span></span>
+<span id="cb3-255"><a href="#cb3-255"></a><span class="in">  muestra D, familia de modelos {f_λ : λ ∈ Λ},</span></span>
+<span id="cb3-256"><a href="#cb3-256"></a><span class="in">  particiones externas K_out e internas K_in</span></span>
+<span id="cb3-257"><a href="#cb3-257"></a><span class="in">Salida:</span></span>
+<span id="cb3-258"><a href="#cb3-258"></a><span class="in">  estimación imparcial del riesgo de selección</span></span>
+<span id="cb3-259"><a href="#cb3-259"></a></span>
+<span id="cb3-260"><a href="#cb3-260"></a><span class="in">1. Dividir D en K_out bloques externos D_1,...,D_{K_out}.</span></span>
+<span id="cb3-261"><a href="#cb3-261"></a><span class="in">2. Para cada bloque externo r:</span></span>
+<span id="cb3-262"><a href="#cb3-262"></a><span class="in">   a) Definir entrenamiento externo D^{-r} y prueba externa D_r.</span></span>
+<span id="cb3-263"><a href="#cb3-263"></a><span class="in">   b) Para cada λ ∈ Λ:</span></span>
+<span id="cb3-264"><a href="#cb3-264"></a><span class="in">      i) estimar por validación interna</span></span>
+<span id="cb3-265"><a href="#cb3-265"></a><span class="in">            \widehat R_{in}(λ)</span></span>
+<span id="cb3-266"><a href="#cb3-266"></a><span class="in">         usando K_in particiones de D^{-r};</span></span>
+<span id="cb3-267"><a href="#cb3-267"></a><span class="in">      ii) seleccionar</span></span>
+<span id="cb3-268"><a href="#cb3-268"></a><span class="in">            \hat λ_r = argmin_{λ∈Λ} \widehat R_{in}(λ).</span></span>
+<span id="cb3-269"><a href="#cb3-269"></a><span class="in">   c) Ajustar f_{\hat λ_r} con todo D^{-r}.</span></span>
+<span id="cb3-270"><a href="#cb3-270"></a><span class="in">   d) Evaluar</span></span>
+<span id="cb3-271"><a href="#cb3-271"></a><span class="in">         \widehat R_r =</span></span>
+<span id="cb3-272"><a href="#cb3-272"></a><span class="in">         (1/|D_r|)\sum_{(x_i,y_i)∈D_r}</span></span>
+<span id="cb3-273"><a href="#cb3-273"></a><span class="in">         L(y_i,f_{\hat λ_r}(x_i)).</span></span>
+<span id="cb3-274"><a href="#cb3-274"></a><span class="in">3. Devolver</span></span>
+<span id="cb3-275"><a href="#cb3-275"></a><span class="in">      \widehat R_{nested}</span></span>
+<span id="cb3-276"><a href="#cb3-276"></a><span class="in">      = (1/K_out)\sum_{r=1}^{K_out}\widehat R_r.</span></span>
+<span id="cb3-277"><a href="#cb3-277"></a><span class="in">```</span></span>
+<span id="cb3-278"><a href="#cb3-278"></a>:::</span>
+<span id="cb3-279"><a href="#cb3-279"></a></span>
+<span id="cb3-280"><a href="#cb3-280"></a><span class="fu">## Ejemplo en R {.unnumbered}</span></span>
+<span id="cb3-281"><a href="#cb3-281"></a></span>
+<span id="cb3-284"><a href="#cb3-284"></a><span class="in">```{r}</span></span>
+<span id="cb3-285"><a href="#cb3-285"></a><span class="co">#| eval: false</span></span>
+<span id="cb3-286"><a href="#cb3-286"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-287"><a href="#cb3-287"></a>simular <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">B=</span><span class="dv">1000</span>) {</span>
+<span id="cb3-288"><a href="#cb3-288"></a>  <span class="fu">mean</span>(<span class="fu">replicate</span>(B, <span class="fu">abs</span>(<span class="fu">mean</span>(<span class="fu">rbinom</span>(n,<span class="dv">1</span>,<span class="fl">0.3</span>))<span class="sc">-</span><span class="fl">0.3</span>)))</span>
+<span id="cb3-289"><a href="#cb3-289"></a>}</span>
+<span id="cb3-290"><a href="#cb3-290"></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">500</span>,<span class="dv">1000</span>), simular)</span>
+<span id="cb3-291"><a href="#cb3-291"></a><span class="in">```</span></span>
+<span id="cb3-292"><a href="#cb3-292"></a></span>
+<span id="cb3-293"><a href="#cb3-293"></a><span class="fu">## Ejercicios {.unnumbered}</span></span>
+<span id="cb3-294"><a href="#cb3-294"></a></span>
+<span id="cb3-295"><a href="#cb3-295"></a><span class="ss">1. </span>Distinga riesgo esperado y empírico.</span>
+<span id="cb3-296"><a href="#cb3-296"></a><span class="ss">2. </span>Calcule la cota de Hoeffding para $n=500$ y $\delta=0.05$.</span>
+<span id="cb3-297"><a href="#cb3-297"></a><span class="ss">3. </span>Explique la diferencia entre caso realizable y agnóstico.</span>
+<span id="cb3-298"><a href="#cb3-298"></a><span class="ss">4. </span>Determine la dimensión VC de umbrales, intervalos e hiperplanos.</span>
+<span id="cb3-299"><a href="#cb3-299"></a><span class="ss">5. </span>Explique qué mide la complejidad de Rademacher.</span>
+<span id="cb3-300"><a href="#cb3-300"></a><span class="ss">6. </span>Analice cómo la regularización mejora estabilidad.</span>
+<span id="cb3-301"><a href="#cb3-301"></a><span class="ss">7. </span>Diseñe una validación anidada para comparar regresión logística, SVM, Random Forest y una red neuronal.</span>
+<span id="cb3-302"><a href="#cb3-302"></a><span class="ss">8. </span>Explique por qué una cota puede ser vacía.</span>
+<span id="cb3-303"><a href="#cb3-303"></a></span>
+<span id="cb3-304"><a href="#cb3-304"></a><span class="fu">## Resumen {.unnumbered}</span></span>
+<span id="cb3-305"><a href="#cb3-305"></a></span>
+<span id="cb3-306"><a href="#cb3-306"></a>Se estudiaron riesgo esperado, riesgo empírico, convergencia uniforme, Hoeffding, aprendizaje PAC, dimensión VC, complejidad de Rademacher, estabilidad y PAC-Bayes. También se analizaron regularización, selección de modelos, cambio de distribución y sobreparametrización.</span>
+<span id="cb3-307"><a href="#cb3-307"></a></span>
+<span id="cb3-308"><a href="#cb3-308"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb3-309"><a href="#cb3-309"></a></span>
+<span id="cb3-310"><a href="#cb3-310"></a>Los fundamentos se apoyan en @vapnik1971uniform, @valiant1984theory, @vapnik1998statistical, @shalev2014understanding, @mohri2018foundations, @bartlett2002rademacher y @mcallester1999pac.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

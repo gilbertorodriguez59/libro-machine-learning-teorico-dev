@@ -10,6 +10,8 @@ Este índice resume los conceptos principales del libro y orienta al lector haci
 - **Convexidad:** funciones convexas, conjuntos convexos y optimización. Véase **Cálculo y optimización**.
 - **Covarianza y correlación:** estructura de dependencia entre variables. Véase **Probabilidad y estadística** y **PCA**.
 
+- **Brecha de generalización:** diferencia entre riesgo esperado y riesgo empírico. Véase **Teoría de generalización**.
+
 ## D–H {.unnumbered}
 
 - **Dendrograma:** representación jerárquica de fusiones entre grupos. Véase **Agrupamiento jerárquico**.
@@ -36,7 +38,9 @@ Este índice resume los conceptos principales del libro y orienta al lector haci
 
 - **Neurona artificial:** suma ponderada, sesgo y activación. Véase **Redes neuronales**.
 - **Odds y logit:** formulación de la regresión logística. Véase **Regresión logística**.
+- **Origen móvil:** validación cronológica para pronósticos. Véase **Series de tiempo**.
 - **Optimización:** gradiente, descenso, convexidad y condiciones de optimalidad. Véase **Cálculo y optimización**.
+- **PAC:** marco probablemente aproximadamente correcto. Véase **Teoría de generalización**.
 - **Pérdida 0-1:** criterio de error en clasificación. Véase **Teoría de clasificación**.
 - **Probabilidad condicional y Bayes:** base de inferencia y clasificación probabilística. Véase **Probabilidad y estadística**.
 - **Random Forest:** ensamble de árboles con bootstrap y selección aleatoria de variables. Véase **Random Forest**.

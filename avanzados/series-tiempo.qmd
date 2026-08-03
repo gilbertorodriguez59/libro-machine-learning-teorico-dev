@@ -8,6 +8,12 @@ El análisis de series de tiempo busca describir, modelar y pronosticar esta dep
 
 La evaluación correcta exige respetar el orden cronológico. Una partición aleatoria puede mezclar pasado y futuro, producir fuga de información y generar estimaciones excesivamente optimistas.
 
+::: {.callout-important title="Definición esencial" appearance="default" icon="true"}
+Una **serie de tiempo** es una sucesión ordenada de variables aleatorias cuya dependencia temporal forma parte de la información del problema. Por ello, entrenamiento, validación y prueba deben respetar el orden cronológico.
+:::
+
+![Una serie temporal puede combinar tendencia, estacionalidad y variación irregular.](../estilos/figuras/serie-tendencia-estacionalidad.png){#fig-serie-componentes width=84% fig-alt="Serie temporal oscilante con una tendencia ascendente superpuesta"}
+
 ## Objetivos {.unnumbered}
 
 Al finalizar el capítulo, el lector podrá:
@@ -28,6 +34,8 @@ Al finalizar el capítulo, el lector podrá:
 14. comparar enfoques estadísticos y de aprendizaje automático.
 
 ## Definición {.unnumbered}
+
+La formulación clásica de series temporales puede consultarse en @box2015time, @hamilton1994time y @brockwell2016introduction.
 
 Una serie de tiempo es una colección
 
@@ -449,6 +457,10 @@ $$
 
 Permite comparación entre series.
 
+::: {.callout-warning title="Precaución al comparar métricas" appearance="default" icon="true"}
+MAE y RMSE conservan las unidades de la serie; RMSE penaliza con mayor intensidad los errores grandes. MAPE puede ser inestable cuando los valores observados son cero o cercanos a cero. MASE facilita comparaciones entre series al escalar el error respecto de un pronóstico ingenuo.
+:::
+
 ## Pronósticos probabilísticos {.unnumbered}
 
 Un pronóstico completo puede ser una distribución:
@@ -577,6 +589,10 @@ $$
 El futuro nunca debe utilizarse para construir el pasado.
 
 ## Validación con origen móvil {.unnumbered}
+
+
+![En cada corte, el periodo de entrenamiento termina antes del periodo de validación.](../estilos/figuras/validacion-origen-movil.png){#fig-validacion-origen-movil width=88% fig-alt="Tres cortes temporales con ventanas de entrenamiento y validación sucesivas"}
+
 
 En cada iteración se entrena con información hasta un tiempo y se evalúa en periodos posteriores.
 
@@ -827,6 +843,40 @@ RMSE(h).
 $$
 
 Un modelo puede ser bueno a corto plazo y malo a largo plazo.
+
+## Seudocódigo formal para pronóstico con validación temporal {.unnumbered}
+
+::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}
+```text
+Algoritmo Pronóstico-con-Origen-Móvil
+Entrada:
+  serie y_1,...,y_T, horizonte h,
+  puntos de corte τ_1<...<τ_K,
+  algoritmo de ajuste A
+Salida:
+  errores de validación temporal
+
+1. Para k = 1,...,K:
+   a) Definir el conjunto de entrenamiento
+         D_k = {y_1,...,y_{τ_k}}.
+   b) Ajustar el modelo
+         M_k = A(D_k).
+   c) Pronosticar
+         \hat y_{τ_k+j|τ_k},
+         j=1,...,h.
+   d) Comparar con los valores observados
+         y_{τ_k+1},...,y_{τ_k+h}.
+   e) Calcular la pérdida por horizonte
+         \ell_{k,j}
+         = L(y_{τ_k+j},
+             \hat y_{τ_k+j|τ_k}).
+2. Agregar los resultados:
+      \widehat R_j
+      = (1/K)\sum_{k=1}^K \ell_{k,j},
+      j=1,...,h.
+3. Reportar el error global y el error específico por horizonte.
+```
+:::
 
 ## Aplicación ambiental {.unnumbered}
 

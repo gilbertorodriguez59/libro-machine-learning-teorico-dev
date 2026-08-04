@@ -167,7 +167,13 @@ Esta limitación motivó el uso de capas ocultas y activaciones no lineales.
 Si todas las activaciones fueran lineales, la composición de múltiples capas sería equivalente a una sola transformación lineal. La capacidad no lineal proviene de las funciones de activación.
 :::
 
-![La comparación entre neurona biológica y neurona artificial muestra con mayor claridad la analogía entre recepción de señales, integración y producción de una respuesta.](../estilos/figuras/neurona-natural-artificial.png){#fig-neurona-natural-artificial width=84% fig-alt="Comparación de neurona natural y neurona artificial"}
+::: {.callout-note title="Analogía biológica y computacional" appearance="default" icon="true"}
+Las dos figuras siguientes se presentan por separado para destacar con claridad la analogía entre la neurona biológica y la neurona artificial. En particular, en la neurona artificial todas las entradas del vector de características y el sesgo convergen explícitamente al nodo de suma ponderada.
+:::
+
+![Neurona biológica con sus partes principales: dendritas, soma, núcleo, axón, vainas de mielina y terminales axónicas.](../estilos/figuras/neurona-biologica.png){#fig-neurona-biologica width=86% fig-alt="Diagrama de neurona biológica"}
+
+![Neurona artificial con entradas $x_1,\dots,x_5$ y sesgo, todas dirigidas al nodo de suma ponderada $z = \sum_{j=1}^{p} w_j x_j + b$, seguida de la función de activación y la salida $\hat y$.](../estilos/figuras/neurona-artificial.png){#fig-neurona-artificial width=82% fig-alt="Diagrama de neurona artificial"}
 
 ## Red multicapa {.unnumbered}
 

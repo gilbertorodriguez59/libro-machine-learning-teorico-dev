@@ -82,3 +82,36 @@
   breakanywhere=true,
   fontsize=\small
 }
+
+% Sustituir la portada automática de Pandoc/Quarto por la portada gráfica.
+% Al utilizar el propio \maketitle se evita generar una hoja vacía anterior.
+\renewcommand{\maketitle}{%
+  \thispagestyle{empty}%
+  \newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}%
+  \noindent\makebox[0pt][l]{%
+    \raisebox{-\height}[0pt][0pt]{%
+      \includegraphics[
+        width=\paperwidth,
+        height=\paperheight
+      ]{estilos/portadas/portada-teorico-pdf.png}%
+    }%
+  }%
+  \null%
+  \restoregeometry%
+  \clearpage%
+}
+
+% Navegación interna profesional del PDF.
+% Hace clicables el contenido, las referencias cruzadas y los índices.
+\AtBeginDocument{%
+  \hypersetup{
+    colorlinks=true,
+    linkcolor=LibroAzul,
+    citecolor=LibroAzul,
+    urlcolor=LibroAzul,
+    linktoc=all,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+  }%
+}

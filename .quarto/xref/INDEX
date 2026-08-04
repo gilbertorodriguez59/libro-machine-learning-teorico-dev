@@ -1,89 +1,107 @@
 {
   "index.qmd": {
-    "index.html": "3b6cfa8b"
+    "index.html": "f267185b"
+  },
+  "creditos-editoriales.qmd": {
+    "creditos-editoriales.html": "8ed01ed5"
+  },
+  "licencia.qmd": {
+    "licencia.html": "af4bdb32"
   },
   "prefacio.qmd": {
-    "prefacio.html": "5dbb4b62"
+    "prefacio.html": "4a7599c2"
+  },
+  "agradecimientos.qmd": {
+    "agradecimientos.html": "d8683bdd"
   },
   "presentacion.qmd": {
-    "presentacion.html": "c5a7b024"
+    "presentacion.html": "57e58206"
   },
   "introduccion.qmd": {
-    "introduccion.html": "483f7c4e"
+    "introduccion.html": "bcd88dc0"
   },
   "notacion.qmd": {
-    "notacion.html": "d3e00350"
+    "notacion.html": "352c7825"
   },
   "fundamentos/conjuntos-funciones.qmd": {
-    "conjuntos-funciones.html": "d8600fe0"
+    "conjuntos-funciones.html": "9fe18c5c"
   },
   "fundamentos/algebra-lineal.qmd": {
-    "algebra-lineal.html": "dcd04774"
+    "algebra-lineal.html": "ffe490f8"
   },
   "fundamentos/probabilidad-estadistica.qmd": {
-    "probabilidad-estadistica.html": "b5670254"
+    "probabilidad-estadistica.html": "f53ce6d7"
   },
   "fundamentos/calculo-optimizacion.qmd": {
-    "calculo-optimizacion.html": "17e5be0e"
+    "calculo-optimizacion.html": "5d572c7c"
   },
   "aprendizaje/aprendizaje-supervisado.qmd": {
-    "aprendizaje-supervisado.html": "d4b2234f"
+    "aprendizaje-supervisado.html": "3fce686d"
   },
   "aprendizaje/teoria-clasificacion.qmd": {
-    "teoria-clasificacion.html": "d9caa3f2"
+    "teoria-clasificacion.html": "b6ee1de3"
   },
   "aprendizaje/evaluacion-modelos.qmd": {
-    "evaluacion-modelos.html": "7a8fe7c8"
+    "evaluacion-modelos.html": "ceee0f67"
   },
   "aprendizaje/regularizacion.qmd": {
-    "regularizacion.html": "2d953462"
+    "regularizacion.html": "117d4c1b"
   },
   "regresion/regresion-lineal-simple.qmd": {
-    "regresion-lineal-simple.html": "5dbb03f5"
+    "regresion-lineal-simple.html": "a578cb82"
   },
   "regresion/regresion-lineal-multiple.qmd": {
-    "regresion-lineal-multiple.html": "40e479dc"
+    "regresion-lineal-multiple.html": "2bf3f83a"
   },
   "regresion/regresion-logistica.qmd": {
-    "regresion-logistica.html": "fd435c2d"
+    "regresion-logistica.html": "fe6ec995"
   },
   "clasificacion/knn.qmd": {
-    "knn.html": "7c877664"
+    "knn.html": "d876fb3b"
   },
   "clasificacion/arboles-decision.qmd": {
-    "arboles-decision.html": "13a33ce4"
+    "arboles-decision.html": "ee3d9024"
   },
   "clasificacion/random-forest.qmd": {
-    "random-forest.html": "afbd3f80"
+    "random-forest.html": "f9742589"
   },
   "clasificacion/svm.qmd": {
-    "svm.html": "d9e4797c"
+    "svm.html": "5517ae7d"
   },
   "clasificacion/redes-neuronales.qmd": {
-    "redes-neuronales.html": "bfeac9f4"
+    "redes-neuronales.html": "7ec830fc"
   },
   "no-supervisado/pca.qmd": {
-    "pca.html": "4b478310"
+    "pca.html": "39f04171"
   },
   "no-supervisado/kmeans.qmd": {
-    "kmeans.html": "32461aab"
+    "kmeans.html": "0be2566e"
   },
   "no-supervisado/agrupamiento-jerarquico.qmd": {
-    "agrupamiento-jerarquico.html": "400da2c8"
+    "agrupamiento-jerarquico.html": "ad8f738e"
   },
   "no-supervisado/reglas-asociacion.qmd": {
-    "reglas-asociacion.html": "f9681f32"
+    "reglas-asociacion.html": "69348e2b"
   },
   "avanzados/teoria-generalizacion.qmd": {
-    "teoria-generalizacion.html": "c551490d"
+    "teoria-generalizacion.html": "2cf08bc8"
   },
   "avanzados/series-tiempo.qmd": {
-    "series-tiempo.html": "188be02f"
+    "series-tiempo.html": "f311e74b"
+  },
+  "glosario.qmd": {
+    "glosario.html": "dc158081"
   },
   "referencias.qmd": {
-    "referencias.html": "9447a123"
+    "referencias.html": "b307fc66"
+  },
+  "indice-de-figuras.qmd": {
+    "indice-de-figuras.html": "6ecfcad0"
   },
   "indice-tematico.qmd": {
-    "indice-tematico.html": "4e34cf85"
+    "indice-tematico.html": "7048a92d"
+  },
+  "acerca-del-autor.qmd": {
+    "acerca-del-autor.html": "a059b95f"
   }
 }

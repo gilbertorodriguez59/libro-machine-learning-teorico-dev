@@ -1,0 +1,31 @@
+# Índice de figuras {.unnumbered}
+
+Este índice reúne las principales figuras conceptuales del libro. Pulse sobre el número o sobre el título de una figura para ir directamente al lugar donde aparece.
+
+## Modelos de regresión {.unnumbered}
+
+- @fig-regresion-lineal-simple — [Ilustración conceptual de la regresión lineal simple](regresion/regresion-lineal-simple.qmd#fig-regresion-lineal-simple).
+- @fig-regresion-lineal-multiple — [Plano de ajuste y residuos en regresión lineal múltiple](regresion/regresion-lineal-multiple.qmd#fig-regresion-lineal-multiple).
+- @fig-regresion-logistica — [Curva logística, probabilidad y umbral de decisión](regresion/regresion-logistica.qmd#fig-regresion-logistica).
+
+## Métodos de clasificación {.unnumbered}
+
+- @fig-knn-frontera — [Frontera de decisión en K-NN](clasificacion/knn.qmd#fig-knn-frontera).
+- @fig-arbol-esquema — [Esquema conceptual de un árbol de decisión](clasificacion/arboles-decision.qmd#fig-arbol-esquema).
+- @fig-svm-margen — [Hiperplano separador y márgenes en una SVM](clasificacion/svm.qmd#fig-svm-margen).
+- @fig-neurona-biologica — [Neurona biológica: estructura general y partes principales](clasificacion/redes-neuronales.qmd#fig-neurona-biologica).
+- @fig-neurona-artificial — [Neurona artificial: entradas, suma ponderada, activación y salida](clasificacion/redes-neuronales.qmd#fig-neurona-artificial).
+- @fig-red-neuronal-arquitectura — [Arquitectura general de una red neuronal multicapa](clasificacion/redes-neuronales.qmd#fig-red-neuronal-arquitectura).
+
+## Aprendizaje no supervisado {.unnumbered}
+
+- @fig-pca-geometria — [Geometría del análisis de componentes principales](no-supervisado/pca.qmd#fig-pca-geometria).
+- @fig-kmeans-centroides — [Agrupamiento K-means y centroides](no-supervisado/kmeans.qmd#fig-kmeans-centroides).
+- @fig-dendrograma-ward — [Dendrograma en agrupamiento jerárquico](no-supervisado/agrupamiento-jerarquico.qmd#fig-dendrograma-ward).
+- @fig-reglas-medidas — [Soporte, confianza y lift en reglas de asociación](no-supervisado/reglas-asociacion.qmd#fig-reglas-medidas).
+
+## Temas avanzados {.unnumbered}
+
+- @fig-generalizacion-complejidad — [Complejidad del modelo y generalización](avanzados/teoria-generalizacion.qmd#fig-generalizacion-complejidad).
+- @fig-serie-componentes — [Tendencia y estacionalidad en una serie temporal](avanzados/series-tiempo.qmd#fig-serie-componentes).
+- @fig-validacion-origen-movil — [Validación temporal con origen móvil](avanzados/series-tiempo.qmd#fig-validacion-origen-movil).

@@ -1,0 +1,34 @@
+# Créditos editoriales {.unnumbered}
+
+**Título:** *Fundamentos Matemáticos del Aprendizaje Automático*  
+**Subtítulo:** Teoría, demostraciones y formulación rigurosa de los métodos de regresión, clasificación y análisis de datos  
+**Autor:** Jesús Gilberto Rodríguez Escobedo  
+**Lugar de elaboración:** San Luis Potosí, México  
+**Edición:** Primera edición digital, 2026  
+**Formato:** Libro web y PDF  
+**Lenguaje de implementación complementario:** R
+
+Esta obra fue concebida como un texto académico de libre consulta orientado a estudiantes, docentes y profesionales de ingeniería, matemáticas, computación y ciencias aplicadas.
+
+Los nombres comerciales, marcas registradas, bibliotecas y plataformas mencionadas pertenecen a sus respectivos propietarios. Su inclusión tiene fines académicos y descriptivos.
+
+## Cómo citar esta obra {.unnumbered}
+
+> Rodríguez Escobedo, J. G. (2026). *Fundamentos Matemáticos del Aprendizaje Automático: teoría, demostraciones y formulación rigurosa de los métodos de regresión, clasificación y análisis de datos*. Primera edición digital.
+
+## Entrada BibTeX sugerida {.unnumbered}
+
+```bibtex
+@book{rodriguez2026fundamentos,
+  author    = {Rodríguez Escobedo, Jesús Gilberto},
+  title     = {Fundamentos Matemáticos del Aprendizaje Automático},
+  subtitle  = {Teoría, demostraciones y formulación rigurosa de los métodos de regresión, clasificación y análisis de datos},
+  year      = {2026},
+  edition   = {Primera edición digital},
+  address   = {San Luis Potosí, México}
+}
+```
+
+## Nota sobre la edición {.unnumbered}
+
+La versión web permite navegación por capítulos, consulta de referencias y visualización adaptable. La versión PDF conserva la estructura editorial completa y está preparada para lectura, impresión y archivo.

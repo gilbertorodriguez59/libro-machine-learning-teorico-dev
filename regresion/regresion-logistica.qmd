@@ -1240,6 +1240,14 @@ Se estudiaron función logística, odds, logit y odds ratios. También se deriva
 
 Finalmente, se presentaron inferencia, deviance, pseudo-$R^2$, predicción, selección de umbral, discriminación, calibración, separación, influencia, regularización y extensión multinomial.
 
+## Interpretación probabilística {.unnumbered}
+
+La regresión logística transforma una combinación lineal de predictores en una probabilidad mediante la función logística. La decisión de clasificación se obtiene comparando dicha probabilidad con un umbral, usualmente $0.5$.
+
+![Ilustración de la regresión logística mostrando la curva sigmoide, el umbral de decisión y la separación entre las clases 0 y 1.](../estilos/figuras/regresion-logistica-ilustracion.png){#fig-regresion-logistica width=82% fig-alt="Curva logística o sigmoide con probabilidad en el eje vertical y frontera de decisión en 0.5"}
+
+A medida que la combinación lineal $\eta=\beta_0+\beta_1x$ aumenta, la probabilidad $P(Y=1\mid x)$ crece de forma suave desde valores cercanos a 0 hasta valores cercanos a 1.
+
 ## Seudocódigo formal {.unnumbered}
 
 ::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}

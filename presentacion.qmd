@@ -1,4 +1,4 @@
-# Presentación
+# Presentación {.unnumbered}
 
 El aprendizaje automático se ha convertido en una de las áreas más importantes de la ciencia de datos, la inteligencia artificial, la estadística y la computación moderna. Sus métodos permiten construir sistemas capaces de identificar patrones, realizar predicciones, clasificar observaciones, descubrir estructuras ocultas y apoyar la toma de decisiones a partir de datos.
 
@@ -27,5 +27,3 @@ La obra se organiza en seis partes:
 4. métodos de clasificación;
 5. aprendizaje no supervisado;
 6. temas avanzados.
-
-Cada capítulo incluye referencias académicas específicas, mientras que la bibliografía consolidada aparece al final del libro.

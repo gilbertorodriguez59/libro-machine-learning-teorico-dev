@@ -2,31 +2,27 @@
 title-block-style: none
 ---
 
-::: {.content-visible when-format="pdf"}
-
-```{=latex}
-\thispagestyle{empty}
-\begin{titlepage}
-\newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
-\noindent\includegraphics[
-  width=\paperwidth,
-  height=\paperheight
-]{estilos/portadas/portada-teorico-pdf.png}
-\restoregeometry
-\end{titlepage}
-\clearpage
-```
-
-:::
-
 ::: {.content-visible when-format="html"}
 
 ![](estilos/portadas/portada-teorico-web.png){.hero-portada title="Portada del libro Fundamentos Matemáticos del Aprendizaje Automático" fig-alt="Portada del libro Fundamentos Matemáticos del Aprendizaje Automático"}
 
+:::
+
 # Bienvenida {.unnumbered}
 
-Este libro desarrolla los fundamentos teóricos y matemáticos de los principales métodos de aprendizaje automático, con énfasis en la formulación rigurosa, la interpretación y la relación con implementaciones en R.
+Este libro desarrolla los fundamentos matemáticos de los principales métodos de aprendizaje automático. Su propósito es explicar no solamente cómo se ejecutan los algoritmos, sino también por qué funcionan, cuáles son sus supuestos, qué propiedades justifican su utilización y cuáles son sus principales limitaciones.
 
-Puede leerse como complemento del libro práctico **Aprendizaje y Clasificación Automática con R**.
+La obra está dirigida a estudiantes, profesores y profesionales de ingeniería, matemáticas, computación, ciencia de datos y áreas afines que deseen comprender con mayor profundidad los fundamentos de los modelos de regresión, clasificación, agrupamiento y análisis de datos.
 
-:::
+Este volumen complementa el libro práctico *Aprendizaje y Clasificación Automática con R*. Ambos pueden estudiarse de manera independiente, aunque su lectura conjunta permite relacionar la formulación matemática, el algoritmo, la implementación computacional y la interpretación de resultados.
+
+## Objetivos generales {.unnumbered}
+
+Al finalizar el libro, el lector podrá:
+
+- representar formalmente problemas de aprendizaje automático;
+- comprender los fundamentos algebraicos, probabilísticos y estadísticos de los modelos;
+- derivar los principales algoritmos de regresión, clasificación y agrupamiento;
+- interpretar funciones de pérdida, criterios de optimización y métodos de regularización;
+- analizar supuestos, limitaciones y propiedades de generalización;
+- relacionar la teoría matemática con implementaciones en R.

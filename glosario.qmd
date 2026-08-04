@@ -1,0 +1,87 @@
+# Glosario {.unnumbered}
+
+## A–C {.unnumbered}
+
+**ACF:** función de autocorrelación. Mide la correlación entre una serie temporal y sus valores rezagados.
+
+**Algoritmo de aprendizaje:** procedimiento que estima un modelo a partir de datos y un criterio de optimización.
+
+**Aprendizaje no supervisado:** métodos que buscan estructura en datos sin utilizar una variable objetivo conocida.
+
+**Aprendizaje supervisado:** construcción de una función predictiva a partir de pares entrada–salida.
+
+**ARIMA:** familia de modelos autorregresivos integrados de medias móviles.
+
+**Brecha de generalización:** diferencia entre el riesgo esperado y el riesgo empírico.
+
+**Clasificación:** problema de predicción en el que la respuesta pertenece a un conjunto finito de categorías.
+
+**Componente principal:** combinación lineal normalizada de variables que maximiza la varianza proyectada.
+
+**Confianza:** en reglas de asociación, proporción de transacciones con el consecuente entre aquellas que contienen el antecedente.
+
+**Convexidad:** propiedad geométrica que facilita el análisis y la optimización de funciones.
+
+## D–H {.unnumbered}
+
+**Dendrograma:** representación gráfica de las fusiones producidas por un algoritmo de agrupamiento jerárquico.
+
+**Descenso por gradiente:** método iterativo que actualiza parámetros en la dirección opuesta al gradiente.
+
+**Dimensión VC:** medida de la capacidad combinatoria de una clase de clasificadores.
+
+**Entropía:** medida de incertidumbre utilizada, entre otros contextos, en árboles de decisión.
+
+**Estacionariedad:** propiedad de un proceso temporal cuyas características probabilísticas no cambian con el tiempo.
+
+**Función de activación:** transformación aplicada a la suma ponderada de una neurona artificial.
+
+**Función de pérdida:** función que cuantifica la discrepancia entre una predicción y el valor observado.
+
+**Generalización:** capacidad de un modelo para mantener un buen desempeño en observaciones nuevas.
+
+**Gradiente:** vector de derivadas parciales de una función escalar.
+
+## K–R {.unnumbered}
+
+**K-means:** método de agrupamiento que minimiza la suma de cuadrados dentro de los grupos.
+
+**K-NN:** método basado en las etiquetas o valores de las observaciones más cercanas.
+
+**Kernel:** función que representa productos internos en un espacio transformado.
+
+**Lasso:** regularización basada en la norma \(L_1\).
+
+**Lift:** medida de asociación que compara la frecuencia conjunta observada con la esperada bajo independencia.
+
+**Margen:** distancia entre la frontera de decisión y las observaciones críticas en una SVM.
+
+**Matriz de confusión:** tabla que compara clases reales y clases predichas.
+
+**Neurona artificial:** unidad computacional que aplica una activación no lineal a una combinación afín de entradas.
+
+**PCA:** análisis de componentes principales; técnica de reducción de dimensionalidad.
+
+**Regularización:** modificación del criterio de ajuste para controlar la complejidad del modelo.
+
+**Regresión logística:** modelo probabilístico para clasificación que utiliza la función logística.
+
+**Ridge:** regularización basada en la norma \(L_2\).
+
+**Riesgo empírico:** promedio de la pérdida sobre la muestra observada.
+
+**Riesgo esperado:** esperanza de la pérdida respecto de la distribución poblacional.
+
+## S–Z {.unnumbered}
+
+**Seudocódigo:** descripción estructurada de un algoritmo independiente de un lenguaje de programación particular.
+
+**Sobreajuste:** adaptación excesiva a los datos de entrenamiento que perjudica el desempeño fuera de muestra.
+
+**Soporte:** frecuencia relativa de aparición de un conjunto de elementos en una base de transacciones.
+
+**SVM:** máquina de vectores de soporte; método que busca una frontera de gran margen.
+
+**Validación cruzada:** procedimiento para estimar el desempeño fuera de muestra mediante particiones de los datos.
+
+**Vector de soporte:** observación que determina la posición de la frontera de una SVM.

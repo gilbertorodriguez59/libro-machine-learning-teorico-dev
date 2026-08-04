@@ -442,6 +442,20 @@ $$
 (\mathbf{I}-\mathbf{H})\mathbf{y}.
 $$
 
+## Interpretación geométrica de los residuos {.unnumbered}
+
+La interpretación geométrica de la regresión lineal múltiple resulta especialmente útil cuando se analizan los **valores ajustados** y los **residuos**. Si el modelo tiene dos variables explicativas, la superficie ajustada puede visualizarse como un plano en tres dimensiones.
+
+![Ilustración conceptual de la regresión lineal múltiple mediante un plano de ajuste sobre una nube de observaciones.](../estilos/figuras/regresion-lineal-multiple-ilustracion.png){#fig-regresion-lineal-multiple width=82% fig-alt="Gráfico tridimensional con observaciones y un plano de regresión lineal múltiple"}
+
+En esta representación, cada valor ajustado corresponde a la altura del plano sobre el punto $(x_{i1}, x_{i2})$, mientras que el residuo es la distancia vertical entre el valor observado y el plano ajustado. Por tanto,
+
+$$
+e_i = y_i - \hat{y}_i.
+$$
+
+Cuando el número de predictores es mayor que dos, la superficie ajustada deja de ser visualizable como un plano ordinario y pasa a ser un **hiperplano** en dimensión superior, pero la idea geométrica del residuo como discrepancia entre observación y ajuste permanece.
+
 ## Ortogonalidad {.unnumbered}
 
 Los residuos satisfacen
@@ -1749,4 +1763,3 @@ Salida:
 ## Referencias del capítulo {.unnumbered}
 
 Los fundamentos se apoyan en @montgomery2021introduction, @seber2012linear, @hastie2009elements y @mardia1979multivariate.
-

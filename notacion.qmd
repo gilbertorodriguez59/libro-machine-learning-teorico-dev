@@ -1,4 +1,4 @@
-# Notación general
+# Notación general {.unnumbered}
 
 En esta obra se utilizarán las siguientes convenciones:
 

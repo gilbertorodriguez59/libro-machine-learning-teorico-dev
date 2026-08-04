@@ -1,0 +1,11 @@
+# Agradecimientos {.unnumbered}
+
+Este libro es resultado de muchos años de estudio, docencia, investigación y práctica profesional. Su contenido se ha construido a partir de preguntas surgidas en el aula, discusiones con colegas, proyectos desarrollados con estudiantes y experiencias acumuladas en instituciones educativas de México y Chile.
+
+Agradezco especialmente a los estudiantes que, a lo largo de varias décadas, han planteado dudas, señalado dificultades y obligado a buscar explicaciones más claras. Muchas de las decisiones didácticas de esta obra nacieron de observar cómo se comprende —y cómo no se comprende— una definición, una demostración, una fórmula o un algoritmo.
+
+Reconozco también a los profesores, investigadores y profesionales con quienes he compartido proyectos relacionados con matemáticas, computación, inteligencia artificial, tecnología educativa, multimedia y sistemas tutoriales inteligentes.
+
+Expreso mi gratitud a las instituciones en las que he tenido la oportunidad de enseñar y aprender. Cada curso, cada proyecto y cada experiencia profesional aportaron elementos que hoy se reflejan en estas páginas.
+
+Finalmente, agradezco a mi familia por el acompañamiento, la paciencia y el apoyo brindados durante el desarrollo de esta obra.

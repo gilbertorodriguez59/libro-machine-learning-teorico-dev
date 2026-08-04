@@ -278,6 +278,39 @@
   breakanywhere=true,
   fontsize=\small
 }
+
+% Sustituir la portada automática de Pandoc/Quarto por la portada gráfica.
+% Al utilizar el propio \maketitle se evita generar una hoja vacía anterior.
+\renewcommand{\maketitle}{%
+  \thispagestyle{empty}%
+  \newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}%
+  \noindent\makebox[0pt][l]{%
+    \raisebox{-\height}[0pt][0pt]{%
+      \includegraphics[
+        width=\paperwidth,
+        height=\paperheight
+      ]{estilos/portadas/portada-teorico-pdf.png}%
+    }%
+  }%
+  \null%
+  \restoregeometry%
+  \clearpage%
+}
+
+% Navegación interna profesional del PDF.
+% Hace clicables el contenido, las referencias cruzadas y los índices.
+\AtBeginDocument{%
+  \hypersetup{
+    colorlinks=true,
+    linkcolor=LibroAzul,
+    citecolor=LibroAzul,
+    urlcolor=LibroAzul,
+    linktoc=all,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+  }%
+}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
@@ -333,12 +366,12 @@
 \floatname{codelisting}{Listado}
 \newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
 \usepackage{amsthm}
-\theoremstyle{plain}
-\newtheorem{theorem}{Teorema}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Ejemplo}[chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[chapter]
 \theoremstyle{remark}
 \AtBeginDocument{\renewcommand*{\proofname}{Demostración}}
 \newtheorem*{remark}{Observación}
@@ -389,7 +422,7 @@
 \subtitle{Teoría, demostraciones y formulación rigurosa de los métodos
 de regresión, clasificación y análisis de datos}
 \author{Jesús Gilberto Rodríguez Escobedo}
-\date{2026-08-02}
+\date{2026-08-04}
 \begin{document}
 \maketitle
 
@@ -407,16 +440,136 @@ de regresión, clasificación y análisis de datos}
 
 \markboth{Bienvenida}{Bienvenida}
 
-\thispagestyle{empty}
-\begin{titlepage}
-\newgeometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
-\noindent\includegraphics[
-  width=\paperwidth,
-  height=\paperheight
-]{estilos/portadas/portada-teorico-pdf.png}
-\restoregeometry
-\end{titlepage}
-\clearpage
+Este libro desarrolla los fundamentos matemáticos de los principales
+métodos de aprendizaje automático. Su propósito es explicar no solamente
+cómo se ejecutan los algoritmos, sino también por qué funcionan, cuáles
+son sus supuestos, qué propiedades justifican su utilización y cuáles
+son sus principales limitaciones.
+
+La obra está dirigida a estudiantes, profesores y profesionales de
+ingeniería, matemáticas, computación, ciencia de datos y áreas afines
+que deseen comprender con mayor profundidad los fundamentos de los
+modelos de regresión, clasificación, agrupamiento y análisis de datos.
+
+Este volumen complementa el libro práctico \emph{Aprendizaje y
+Clasificación Automática con R}. Ambos pueden estudiarse de manera
+independiente, aunque su lectura conjunta permite relacionar la
+formulación matemática, el algoritmo, la implementación computacional y
+la interpretación de resultados.
+
+\section*{Objetivos generales}\label{objetivos-generales}
+\addcontentsline{toc}{section}{Objetivos generales}
+
+\markright{Objetivos generales}
+
+Al finalizar el libro, el lector podrá:
+
+\begin{itemize}
+\tightlist
+\item
+  representar formalmente problemas de aprendizaje automático;
+\item
+  comprender los fundamentos algebraicos, probabilísticos y estadísticos
+  de los modelos;
+\item
+  derivar los principales algoritmos de regresión, clasificación y
+  agrupamiento;
+\item
+  interpretar funciones de pérdida, criterios de optimización y métodos
+  de regularización;
+\item
+  analizar supuestos, limitaciones y propiedades de generalización;
+\item
+  relacionar la teoría matemática con implementaciones en R.
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Créditos editoriales}\label{cruxe9ditos-editoriales}
+\addcontentsline{toc}{chapter}{Créditos editoriales}
+
+\markboth{Créditos editoriales}{Créditos editoriales}
+
+\textbf{Título:} \emph{Fundamentos Matemáticos del Aprendizaje
+Automático}\\
+\textbf{Subtítulo:} Teoría, demostraciones y formulación rigurosa de los
+métodos de regresión, clasificación y análisis de datos\\
+\textbf{Autor:} Jesús Gilberto Rodríguez Escobedo\\
+\textbf{Lugar de elaboración:} San Luis Potosí, México\\
+\textbf{Edición:} Primera edición digital, 2026\\
+\textbf{Formato:} Libro web y PDF\\
+\textbf{Lenguaje de implementación complementario:} R
+
+Esta obra fue concebida como un texto académico de libre consulta
+orientado a estudiantes, docentes y profesionales de ingeniería,
+matemáticas, computación y ciencias aplicadas.
+
+Los nombres comerciales, marcas registradas, bibliotecas y plataformas
+mencionadas pertenecen a sus respectivos propietarios. Su inclusión
+tiene fines académicos y descriptivos.
+
+\section*{Cómo citar esta obra}\label{cuxf3mo-citar-esta-obra}
+\addcontentsline{toc}{section}{Cómo citar esta obra}
+
+\markright{Cómo citar esta obra}
+
+\begin{quote}
+Rodríguez Escobedo, J. G. (2026). \emph{Fundamentos Matemáticos del
+Aprendizaje Automático: teoría, demostraciones y formulación rigurosa de
+los métodos de regresión, clasificación y análisis de datos}. Primera
+edición digital.
+\end{quote}
+
+\section*{Entrada BibTeX sugerida}\label{entrada-bibtex-sugerida}
+\addcontentsline{toc}{section}{Entrada BibTeX sugerida}
+
+\markright{Entrada BibTeX sugerida}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\VariableTok{@book}\NormalTok{\{}\OtherTok{rodriguez2026fundamentos}\NormalTok{,}
+  \DataTypeTok{author}\NormalTok{    = \{Rodríguez Escobedo, Jesús Gilberto\},}
+  \DataTypeTok{title}\NormalTok{     = \{Fundamentos Matemáticos del Aprendizaje Automático\},}
+  \DataTypeTok{subtitle}\NormalTok{  = \{Teoría, demostraciones y formulación rigurosa de los métodos de regresión, clasificación y análisis de datos\},}
+  \DataTypeTok{year}\NormalTok{      = \{2026\},}
+  \DataTypeTok{edition}\NormalTok{   = \{Primera edición digital\},}
+  \DataTypeTok{address}\NormalTok{   = \{San Luis Potosí, México\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section*{Nota sobre la edición}\label{nota-sobre-la-ediciuxf3n}
+\addcontentsline{toc}{section}{Nota sobre la edición}
+
+\markright{Nota sobre la edición}
+
+La versión web permite navegación por capítulos, consulta de referencias
+y visualización adaptable. La versión PDF conserva la estructura
+editorial completa y está preparada para lectura, impresión y archivo.
+
+\bookmarksetup{startatroot}
+
+\chapter*{Licencia y uso académico}\label{licencia-y-uso-acaduxe9mico}
+\addcontentsline{toc}{chapter}{Licencia y uso académico}
+
+\markboth{Licencia y uso académico}{Licencia y uso académico}
+
+Esta obra se publica con fines educativos y de consulta académica.
+
+Se autoriza su lectura, descarga, uso en cursos y distribución no
+comercial, siempre que se reconozca la autoría y se mantenga la
+referencia completa de la obra.
+
+Para reutilizaciones extensas, adaptaciones, traducciones, publicaciones
+comerciales o incorporación sustancial del contenido en otras obras,
+deberá solicitarse autorización al autor.
+
+La cita recomendada se encuentra en la sección \textbf{Créditos
+editoriales}.
+
+\textbf{Autor:} Jesús Gilberto Rodríguez Escobedo\\
+\textbf{Edición:} Primera edición digital, 2026\\
+\textbf{Lugar:} San Luis Potosí, México
 
 \bookmarksetup{startatroot}
 
@@ -523,7 +676,42 @@ San Luis Potosí, México
 
 \bookmarksetup{startatroot}
 
-\chapter{Presentación}\label{presentaciuxf3n}
+\chapter*{Agradecimientos}\label{agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+
+\markboth{Agradecimientos}{Agradecimientos}
+
+Este libro es resultado de muchos años de estudio, docencia,
+investigación y práctica profesional. Su contenido se ha construido a
+partir de preguntas surgidas en el aula, discusiones con colegas,
+proyectos desarrollados con estudiantes y experiencias acumuladas en
+instituciones educativas de México y Chile.
+
+Agradezco especialmente a los estudiantes que, a lo largo de varias
+décadas, han planteado dudas, señalado dificultades y obligado a buscar
+explicaciones más claras. Muchas de las decisiones didácticas de esta
+obra nacieron de observar cómo se comprende ---y cómo no se comprende---
+una definición, una demostración, una fórmula o un algoritmo.
+
+Reconozco también a los profesores, investigadores y profesionales con
+quienes he compartido proyectos relacionados con matemáticas,
+computación, inteligencia artificial, tecnología educativa, multimedia y
+sistemas tutoriales inteligentes.
+
+Expreso mi gratitud a las instituciones en las que he tenido la
+oportunidad de enseñar y aprender. Cada curso, cada proyecto y cada
+experiencia profesional aportaron elementos que hoy se reflejan en estas
+páginas.
+
+Finalmente, agradezco a mi familia por el acompañamiento, la paciencia y
+el apoyo brindados durante el desarrollo de esta obra.
+
+\bookmarksetup{startatroot}
+
+\chapter*{Presentación}\label{presentaciuxf3n}
+\addcontentsline{toc}{chapter}{Presentación}
+
+\markboth{Presentación}{Presentación}
 
 El aprendizaje automático se ha convertido en una de las áreas más
 importantes de la ciencia de datos, la inteligencia artificial, la
@@ -599,12 +787,12 @@ La obra se organiza en seis partes:
   temas avanzados.
 \end{enumerate}
 
-Cada capítulo incluye referencias académicas específicas, mientras que
-la bibliografía consolidada aparece al final del libro.
-
 \bookmarksetup{startatroot}
 
-\chapter{Introducción}\label{introducciuxf3n}
+\chapter*{Introducción}\label{introducciuxf3n}
+\addcontentsline{toc}{chapter}{Introducción}
+
+\markboth{Introducción}{Introducción}
 
 El aprendizaje automático estudia métodos capaces de construir reglas de
 predicción, clasificación o descripción a partir de datos. Desde el
@@ -661,7 +849,10 @@ algoritmos de aprendizaje automático.
 
 \bookmarksetup{startatroot}
 
-\chapter{Notación general}\label{notaciuxf3n-general}
+\chapter*{Notación general}\label{notaciuxf3n-general}
+\addcontentsline{toc}{chapter}{Notación general}
+
+\markboth{Notación general}{Notación general}
 
 En esta obra se utilizarán las siguientes convenciones:
 
@@ -699,7 +890,7 @@ En esta obra se utilizarán las siguientes convenciones:
   La función indicadora se denota por \(\mathbb{I}(\cdot)\).
 \end{itemize}
 
-\part{I. Fundamentos matemáticos}
+\part{Fundamentos matemáticos}
 
 \chapter{\texorpdfstring{Lenguaje matemático, conjunto\index{Conjuntos}s
 y
@@ -8470,7 +8661,7 @@ posteriores.
 Los fundamentos se apoyan en Apostol (1969), Boyd y Vandenberghe (2004),
 Bishop (2006) y Hastie et~al. (2009).
 
-\part{II. Fundamentos del aprendizaje automático}
+\part{Fundamentos del aprendizaje automático}
 
 \chapter{Formulación matemática del aprendizaje
 supervisado}\label{sec-aprendizaje-supervisado}
@@ -15519,7 +15710,7 @@ clasificación y redes neuronales.
 Los fundamentos se apoyan en Tikhonov (1963), Tibshirani (1996), Hastie
 et~al. (2009) y Bishop (2006).
 
-\part{III. Modelos de regresión}
+\part{Modelos de regresión}
 
 \chapter{\texorpdfstring{Regresión lineal
 simple\index{Regresión lineal simple}}{Regresión lineal simple}}\label{sec-regresion-lineal-simple}
@@ -15940,1610 +16131,44 @@ r_{XY}
 
 donde \(r_{XY}\) es la correlación muestral.
 
-\section*{Interpretación
-geométrica}\label{interpretaciuxf3n-geomuxe9trica-1}
-\addcontentsline{toc}{section}{Interpretación geométrica}
+\section*{Interpretación gráfica de los
+residuos}\label{interpretaciuxf3n-gruxe1fica-de-los-residuos}
+\addcontentsline{toc}{section}{Interpretación gráfica de los residuos}
 
-\markright{Interpretación geométrica}
+\markright{Interpretación gráfica de los residuos}
 
-El vector de respuestas es
+Cuando se estudian los \textbf{errores de regresión} o
+\textbf{residuos}, resulta útil observar la interpretación geométrica
+del modelo. La siguiente figura muestra la recta de regresión, el
+intercepto, la pendiente y las distancias verticales entre los datos
+observados y la recta ajustada.
 
-\[
-\mathbf{y}
-=
-\begin{pmatrix}
-y_1\\
-\vdots\\
-y_n
-\end{pmatrix}.
-\]
+\begin{figure}
 
-El espacio generado por
+\centering{
 
-\[
-\mathbf{1}
-=
-\begin{pmatrix}
-1\\
-\vdots\\
-1
-\end{pmatrix}
-\]
+\includegraphics[width=0.88\linewidth,height=\textheight,keepaspectratio,alt={Diagrama de regresión lineal simple con una nube de puntos, una recta de ajuste, el intercepto, la pendiente y residuos señalados}]{regresion/../estilos/figuras/regresion-lineal-simple-ilustracion.png}
 
-y
-
-\[
-\mathbf{x}
-=
-\begin{pmatrix}
-x_1\\
-\vdots\\
-x_n
-\end{pmatrix}
-\]
-
-es un subespacio de \(\mathbb{R}^{n}\).
-
-El vector ajustado
-
-\[
-\widehat{\mathbf{y}}
-\]
-
-es la proyección ortogonal de \(\mathbf{y}\) sobre ese subespacio.
-
-Por tanto,
-
-\[
-\mathbf{e}
-=
-\mathbf{y}
--
-\widehat{\mathbf{y}}
-\]
-
-es ortogonal a \(\mathbf{1}\) y a \(\mathbf{x}\).
-
-\section*{Propiedades de los
-residuos}\label{propiedades-de-los-residuos}
-\addcontentsline{toc}{section}{Propiedades de los residuos}
-
-\markright{Propiedades de los residuos}
-
-De las ecuaciones normales se obtiene:
-
-\[
-\sum_{i=1}^{n}e_i=0,
-\]
-
-\[
-\sum_{i=1}^{n}x_ie_i=0,
-\]
-
-y
-
-\[
-\sum_{i=1}^{n}\widehat{y}_ie_i=0.
-\]
-
-Además,
-
-\[
-\overline{\widehat{y}}
-=
-\overline{y}.
-\]
-
-\section*{Insesgadez de la pendiente}\label{insesgadez-de-la-pendiente}
-\addcontentsline{toc}{section}{Insesgadez de la pendiente}
-
-\markright{Insesgadez de la pendiente}
-
-Como
-
-\[
-\widehat{\beta}_1
-=
-\frac{
-\sum_{i=1}^{n}
-(x_i-\overline{x})Y_i
-}{
-S_{xx}
-},
-\]
-
-y
-
-\[
-Y_i
-=
-\beta_0+\beta_1x_i+\varepsilon_i,
-\]
-
-se obtiene
-
-\[
-\widehat{\beta}_1
-=
-\beta_1
-+
-\frac{
-\sum_{i=1}^{n}
-(x_i-\overline{x})\varepsilon_i
-}{
-S_{xx}
-}.
-\]
-
-Tomando esperanza,
-
-\[
-\mathbb{E}
-(
-\widehat{\beta}_1
-)
-=
-\beta_1.
-\]
-
-Por tanto, \(\widehat{\beta}_1\) es insesgado.
-
-\section*{Insesgadez del intercepto}\label{insesgadez-del-intercepto}
-\addcontentsline{toc}{section}{Insesgadez del intercepto}
-
-\markright{Insesgadez del intercepto}
-
-Como
-
-\[
-\widehat{\beta}_0
-=
-\overline{Y}
--
-\widehat{\beta}_1\overline{x},
-\]
-
-entonces
-
-\[
-\mathbb{E}
-(
-\widehat{\beta}_0
-)
-=
-\beta_0.
-\]
-
-\section*{Varianza de la pendiente}\label{varianza-de-la-pendiente}
-\addcontentsline{toc}{section}{Varianza de la pendiente}
-
-\markright{Varianza de la pendiente}
-
-Bajo homocedasticidad e independencia,
-
-\[
-\operatorname{Var}
-(
-\widehat{\beta}_1
-)
-=
-\frac{
-\sigma^2
-}{
-S_{xx}
-}.
-\]
-
-La varianza disminuye cuando:
-
-\begin{itemize}
-\tightlist
-\item
-  aumenta \(n\);
-\item
-  aumenta la dispersión de \(X\);
-\item
-  disminuye \(\sigma^2\).
-\end{itemize}
-
-\section*{Varianza del intercepto}\label{varianza-del-intercepto}
-\addcontentsline{toc}{section}{Varianza del intercepto}
-
-\markright{Varianza del intercepto}
-
-\[
-\operatorname{Var}
-(
-\widehat{\beta}_0
-)
-=
-\sigma^2
-\left[
-\frac{1}{n}
-+
-\frac{
-\overline{x}^{\,2}
-}{
-S_{xx}
-}
-\right].
-\]
-
-\section*{Covarianza entre
-estimadores}\label{covarianza-entre-estimadores}
-\addcontentsline{toc}{section}{Covarianza entre estimadores}
-
-\markright{Covarianza entre estimadores}
-
-\[
-\operatorname{Cov}
-(
-\widehat{\beta}_0,
-\widehat{\beta}_1
-)
-=
--
-\frac{
-\overline{x}\sigma^2
-}{
-S_{xx}
-}.
-\]
-
-Si \(X\) se centra, es decir,
-
-\[
-z_i=x_i-\overline{x},
-\]
-
-entonces la covarianza entre intercepto y pendiente se reduce a cero.
-
-\section*{Teorema de Gauss-Markov}\label{teorema-de-gauss-markov}
-\addcontentsline{toc}{section}{Teorema de Gauss-Markov}
-
-\markright{Teorema de Gauss-Markov}
-
-\begin{theorem}[]\protect\hypertarget{thm-gauss-markov-simple}{}\label{thm-gauss-markov-simple}
-
-Bajo linealidad, media cero, homocedasticidad e independencia, los
-estimadores de mínimos cuadrados son los mejores estimadores lineales
-insesgados.
-
-\end{theorem}
-
-La palabra ``mejores'' significa que tienen mínima varianza dentro de la
-clase de estimadores lineales insesgados.
-
-La normalidad no es necesaria para este resultado.
-
-\section*{Estimación de la varianza del
-error}\label{estimaciuxf3n-de-la-varianza-del-error}
-\addcontentsline{toc}{section}{Estimación de la varianza del error}
-
-\markright{Estimación de la varianza del error}
-
-La suma de cuadrados residual es
-
-\[
-SSE
-=
-\sum_{i=1}^{n}
-e_i^2.
-\]
-
-El estimador insesgado de \(\sigma^2\) es
-
-\[
-s^2
-=
-MSE
-=
-\frac{
-SSE
-}{
-n-2
-}.
-\]
-
-Se utilizan \(n-2\) grados de libertad porque se estimaron dos
-parámetros.
-
-\section*{Error estándar residual}\label{error-estuxe1ndar-residual}
-\addcontentsline{toc}{section}{Error estándar residual}
-
-\markright{Error estándar residual}
-
-\[
-s
-=
-\sqrt{
-\frac{
-SSE
-}{
-n-2
-}
-}.
-\]
-
-Este valor estima la desviación estándar de los errores.
-
-\section*{Distribución de los
-estimadores}\label{distribuciuxf3n-de-los-estimadores}
-\addcontentsline{toc}{section}{Distribución de los estimadores}
-
-\markright{Distribución de los estimadores}
-
-Si los errores son normales,
-
-\[
-\widehat{\beta}_1
-\sim
-N
-\left(
-\beta_1,
-\frac{
-\sigma^2
-}{
-S_{xx}
-}
-\right).
-\]
-
-Además,
-
-\[
-\frac{
-\widehat{\beta}_1-\beta_1
-}{
-s/\sqrt{S_{xx}}
-}
-\sim
-t_{n-2}.
-\]
-
-\section*{Error estándar de la
-pendiente}\label{error-estuxe1ndar-de-la-pendiente}
-\addcontentsline{toc}{section}{Error estándar de la pendiente}
-
-\markright{Error estándar de la pendiente}
-
-\[
-SE
-(
-\widehat{\beta}_1
-)
-=
-\frac{s}{\sqrt{S_{xx}}}.
-\]
-
-\section*{Error estándar del
-intercepto}\label{error-estuxe1ndar-del-intercepto}
-\addcontentsline{toc}{section}{Error estándar del intercepto}
-
-\markright{Error estándar del intercepto}
-
-\[
-SE
-(
-\widehat{\beta}_0
-)
-=
-s
-\sqrt{
-\frac{1}{n}
-+
-\frac{
-\overline{x}^{\,2}
-}{
-S_{xx}
-}
-}.
-\]
-
-\section*{Prueba de hipótesis para la
-pendiente}\label{prueba-de-hipuxf3tesis-para-la-pendiente}
-\addcontentsline{toc}{section}{Prueba de hipótesis para la pendiente}
-
-\markright{Prueba de hipótesis para la pendiente}
-
-Se desea contrastar
-
-\[
-H_0:\beta_1=0
-\]
-
-contra
-
-\[
-H_1:\beta_1\neq 0.
-\]
-
-El estadístico es
-
-\[
-t
-=
-\frac{
-\widehat{\beta}_1
-}{
-SE(
-\widehat{\beta}_1
-)
-}.
-\]
-
-Bajo \(H_0\),
-
-\[
-t\sim t_{n-2}.
-\]
-
-Si el valor \(p\) es pequeño, existe evidencia de asociación lineal.
-
-\section*{Interpretación correcta}\label{interpretaciuxf3n-correcta}
-\addcontentsline{toc}{section}{Interpretación correcta}
-
-\markright{Interpretación correcta}
-
-Rechazar
-
-\[
-H_0:\beta_1=0
-\]
-
-indica evidencia de relación lineal, no necesariamente causalidad.
-
-Una pendiente no significativa no demuestra ausencia total de relación;
-puede existir:
-
-\begin{itemize}
-\tightlist
-\item
-  relación no lineal;
-\item
-  poca potencia;
-\item
-  medición deficiente;
-\item
-  rango limitado de \(X\).
-\end{itemize}
-
-\section*{Intervalo de confianza para la
-pendiente}\label{intervalo-de-confianza-para-la-pendiente}
-\addcontentsline{toc}{section}{Intervalo de confianza para la pendiente}
-
-\markright{Intervalo de confianza para la pendiente}
-
-Un intervalo de nivel \(1-\alpha\) es
-
-\[
-\widehat{\beta}_1
-\pm
-t_{\alpha/2,n-2}
-SE(
-\widehat{\beta}_1
-).
-\]
-
-\section*{Intervalo de confianza para el
-intercepto}\label{intervalo-de-confianza-para-el-intercepto}
-\addcontentsline{toc}{section}{Intervalo de confianza para el
-intercepto}
-
-\markright{Intervalo de confianza para el intercepto}
-
-\[
-\widehat{\beta}_0
-\pm
-t_{\alpha/2,n-2}
-SE(
-\widehat{\beta}_0
-).
-\]
-
-\section*{Estimación de la respuesta
-media}\label{estimaciuxf3n-de-la-respuesta-media}
-\addcontentsline{toc}{section}{Estimación de la respuesta media}
-
-\markright{Estimación de la respuesta media}
-
-En un valor \(x_0\),
-
-\[
-\widehat{y}_0
-=
-\widehat{\beta}_0
-+
-\widehat{\beta}_1x_0.
-\]
-
-Su error estándar es
-
-\[
-SE
-(
-\widehat{y}_0^{\,mean}
-)
-=
-s
-\sqrt{
-\frac{1}{n}
-+
-\frac{
-(x_0-\overline{x})^2
-}{
-S_{xx}
-}
-}.
-\]
-
-\section*{Intervalo de confianza para la
-media}\label{intervalo-de-confianza-para-la-media}
-\addcontentsline{toc}{section}{Intervalo de confianza para la media}
-
-\markright{Intervalo de confianza para la media}
-
-\[
-\widehat{y}_0
-\pm
-t_{\alpha/2,n-2}
-s
-\sqrt{
-\frac{1}{n}
-+
-\frac{
-(x_0-\overline{x})^2
-}{
-S_{xx}
-}
-}.
-\]
-
-\section*{Intervalo de predicción}\label{intervalo-de-predicciuxf3n}
-\addcontentsline{toc}{section}{Intervalo de predicción}
-
-\markright{Intervalo de predicción}
-
-Para una nueva observación,
-
-\[
-Y_{new}
-=
-\beta_0+\beta_1x_0+\varepsilon_{new}.
-\]
-
-El error estándar es
-
-\[
-SE
-(
-\widehat{y}_0^{\,pred}
-)
-=
-s
-\sqrt{
-1
-+
-\frac{1}{n}
-+
-\frac{
-(x_0-\overline{x})^2
-}{
-S_{xx}
-}
-}.
-\]
-
-El intervalo de predicción es
-
-\[
-\widehat{y}_0
-\pm
-t_{\alpha/2,n-2}
-s
-\sqrt{
-1
-+
-\frac{1}{n}
-+
-\frac{
-(x_0-\overline{x})^2
-}{
-S_{xx}
-}
-}.
-\]
-
-Es más ancho que el intervalo para la media.
-
-\section*{Descomposición de la
-variabilidad}\label{descomposiciuxf3n-de-la-variabilidad}
-\addcontentsline{toc}{section}{Descomposición de la variabilidad}
-
-\markright{Descomposición de la variabilidad}
-
-La suma total de cuadrados es
-
-\[
-SST
-=
-\sum_{i=1}^{n}
-(y_i-\overline{y})^2.
-\]
-
-La suma explicada es
-
-\[
-SSR
-=
-\sum_{i=1}^{n}
-(\widehat{y}_i-\overline{y})^2.
-\]
-
-La suma residual es
-
-\[
-SSE
-=
-\sum_{i=1}^{n}
-(y_i-\widehat{y}_i)^2.
-\]
-
-Se cumple
-
-\[
-SST
-=
-SSR
-+
-SSE.
-\]
-
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Interpretación de la pendiente}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
-
-La pendiente representa el cambio esperado en la respuesta por una
-unidad adicional del predictor, dentro del rango observado. No debe
-extrapolarse automáticamente.
-
-\end{tcolorbox}
-
-\section*{Coeficiente de
-determinación}\label{coeficiente-de-determinaciuxf3n-1}
-\addcontentsline{toc}{section}{Coeficiente de determinación}
-
-\markright{Coeficiente de determinación}
-
-\begin{definition}[]\protect\hypertarget{def-r2-simple}{}\label{def-r2-simple}
-
-El coeficiente de determinación es
-
-\[
-R^2
-=
-\frac{
-SSR
-}{
-SST
-}
-=
-1-
-\frac{
-SSE
-}{
-SST
-}.
-\]
-
-\end{definition}
-
-En regresión lineal simple con intercepto,
-
-\[
-R^2
-=
-r_{XY}^2.
-\]
-
-\section*{Interpretación del coeficiente de
-determinación}\label{interpretaciuxf3n-del-coeficiente-de-determinaciuxf3n}
-\addcontentsline{toc}{section}{Interpretación del coeficiente de
-determinación}
-
-\markright{Interpretación del coeficiente de determinación}
-
-\(R^2\) representa la proporción de variabilidad de \(Y\) explicada por
-el modelo lineal.
-
-No indica:
-
-\begin{itemize}
-\tightlist
-\item
-  causalidad;
-\item
-  ausencia de sesgo;
-\item
-  validez de supuestos;
-\item
-  capacidad predictiva futura;
-\item
-  calidad absoluta del modelo.
-\end{itemize}
-
-\section*{Tabla ANOVA}\label{tabla-anova}
-\addcontentsline{toc}{section}{Tabla ANOVA}
-
-\markright{Tabla ANOVA}
-
-La descomposición puede organizarse como:
-
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}lrrr@{}}
-\toprule\noalign{}
-Fuente & Suma de cuadrados & gl & Cuadrado medio \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Regresión & \(SSR\) & 1 & \(MSR=SSR\) \\
-Error & \(SSE\) & \(n-2\) & \(MSE=SSE/(n-2)\) \\
-Total & \(SST\) & \(n-1\) & \\
-\end{longtable}
 }
 
-El estadístico es
+\caption{\label{fig-regresion-lineal-simple}Ilustración conceptual de la
+regresión lineal simple, mostrando la recta de regresión, el intercepto
+\(\beta_0\), la pendiente \(\beta_1\) y los residuos.}
+
+\end{figure}%
+
+En esta representación, el residuo de la observación \(i\)-ésima puede
+interpretarse como la distancia vertical entre el valor observado
+\(y_i\) y el valor ajustado \(\hat{y}_i\). Por tanto,
 
 \[
-F
-=
-\frac{
-MSR
-}{
-MSE
-}.
+e_i = y_i - \hat{y}_i.
 \]
 
-En regresión simple,
-
-\[
-F=t^2
-\]
-
-para la prueba de la pendiente.
-
-\section*{Residuos}\label{residuos}
-\addcontentsline{toc}{section}{Residuos}
-
-\markright{Residuos}
-
-Los residuos son
-
-\[
-e_i
-=
-y_i-\widehat{y}_i.
-\]
-
-Se utilizan para evaluar los supuestos.
-
-\section*{Residuos estandarizados}\label{residuos-estandarizados}
-\addcontentsline{toc}{section}{Residuos estandarizados}
-
-\markright{Residuos estandarizados}
-
-Una versión básica es
-
-\[
-r_i
-=
-\frac{e_i}{s}.
-\]
-
-Sin embargo, las varianzas de los residuos no son iguales porque
-dependen del apalancamiento.
-
-\section*{Matriz sombrero}\label{matriz-sombrero}
-\addcontentsline{toc}{section}{Matriz sombrero}
-
-\markright{Matriz sombrero}
-
-En forma matricial,
-
-\[
-\widehat{\mathbf{y}}
-=
-\mathbf{H}\mathbf{y}.
-\]
-
-La matriz
-
-\[
-\mathbf{H}
-=
-\mathbf{X}
-(
-\mathbf{X}^{\mathsf T}\mathbf{X}
-)^{-1}
-\mathbf{X}^{\mathsf T}
-\]
-
-se denomina matriz sombrero.
-
-\section*{Apalancamiento}\label{apalancamiento}
-\addcontentsline{toc}{section}{Apalancamiento}
-
-\markright{Apalancamiento}
-
-Los elementos diagonales
-
-\[
-h_{ii}
-\]
-
-miden apalancamiento.
-
-En regresión simple,
-
-\[
-h_{ii}
-=
-\frac{1}{n}
-+
-\frac{
-(x_i-\overline{x})^2
-}{
-S_{xx}
-}.
-\]
-
-Observaciones alejadas de \(\overline{x}\) tienen mayor apalancamiento.
-
-\section*{Varianza de los residuos}\label{varianza-de-los-residuos}
-\addcontentsline{toc}{section}{Varianza de los residuos}
-
-\markright{Varianza de los residuos}
-
-\[
-\operatorname{Var}(e_i)
-=
-\sigma^2(1-h_{ii}).
-\]
-
-Por ello, los residuos estandarizados internamente son
-
-\[
-r_i
-=
-\frac{
-e_i
-}{
-s\sqrt{1-h_{ii}}
-}.
-\]
-
-\section*{Residuos studentizados}\label{residuos-studentizados}
-\addcontentsline{toc}{section}{Residuos studentizados}
-
-\markright{Residuos studentizados}
-
-Los residuos studentizados externamente utilizan una estimación de
-\(\sigma\) obtenida sin la observación \(i\).
-
-Son útiles para detectar valores atípicos.
-
-\section*{Distancia de Cook}\label{distancia-de-cook}
-\addcontentsline{toc}{section}{Distancia de Cook}
-
-\markright{Distancia de Cook}
-
-La distancia de Cook mide la influencia de una observación sobre el
-ajuste:
-
-\[
-D_i
-=
-\frac{
-e_i^2
-}{
-ps^2
-}
-\frac{
-h_{ii}
-}{
-(1-h_{ii})^2
-},
-\]
-
-donde \(p=2\) en regresión simple con intercepto.
-
-Una observación puede ser influyente si combina:
-
-\begin{itemize}
-\tightlist
-\item
-  residuo grande;
-\item
-  apalancamiento alto.
-\end{itemize}
-
-\section*{Diagnóstico de linealidad}\label{diagnuxf3stico-de-linealidad}
-\addcontentsline{toc}{section}{Diagnóstico de linealidad}
-
-\markright{Diagnóstico de linealidad}
-
-Se examina la gráfica:
-
-\[
-e_i
-\quad
-\text{contra}
-\quad
-\widehat{y}_i.
-\]
-
-Un patrón curvo sugiere relación no lineal.
-
-\section*{Diagnóstico de
-homocedasticidad}\label{diagnuxf3stico-de-homocedasticidad}
-\addcontentsline{toc}{section}{Diagnóstico de homocedasticidad}
-
-\markright{Diagnóstico de homocedasticidad}
-
-Si la dispersión de residuos aumenta o disminuye con \(\widehat{y}\),
-puede existir heterocedasticidad.
-
-\section*{Diagnóstico de normalidad}\label{diagnuxf3stico-de-normalidad}
-\addcontentsline{toc}{section}{Diagnóstico de normalidad}
-
-\markright{Diagnóstico de normalidad}
-
-Puede utilizarse:
-
-\begin{itemize}
-\tightlist
-\item
-  histograma;
-\item
-  gráfico Q-Q;
-\item
-  pruebas formales.
-\end{itemize}
-
-En muestras grandes, pequeñas desviaciones pueden resultar
-significativas sin ser importantes en la práctica.
-
-\section*{Diagnóstico de
-independencia}\label{diagnuxf3stico-de-independencia}
-\addcontentsline{toc}{section}{Diagnóstico de independencia}
-
-\markright{Diagnóstico de independencia}
-
-En datos ordenados temporalmente se analizan:
-
-\begin{itemize}
-\tightlist
-\item
-  residuos contra tiempo;
-\item
-  autocorrelaciones;
-\item
-  prueba de Durbin-Watson.
-\end{itemize}
-
-\section*{Heterocedasticidad}\label{heterocedasticidad}
-\addcontentsline{toc}{section}{Heterocedasticidad}
-
-\markright{Heterocedasticidad}
-
-Si
-
-\[
-\operatorname{Var}(\varepsilon_i\mid x_i)
-=
-\sigma_i^2,
-\]
-
-la varianza no es constante.
-
-Los estimadores de mínimos cuadrados pueden seguir siendo insesgados,
-pero los errores estándar clásicos pueden ser incorrectos.
-
-\section*{Errores estándar robustos}\label{errores-estuxe1ndar-robustos}
-\addcontentsline{toc}{section}{Errores estándar robustos}
-
-\markright{Errores estándar robustos}
-
-Los errores estándar robustos corrigen la estimación de varianza sin
-modificar los coeficientes.
-
-Son útiles cuando existe heterocedasticidad.
-
-\section*{Transformaciones}\label{transformaciones}
-\addcontentsline{toc}{section}{Transformaciones}
-
-\markright{Transformaciones}
-
-Una transformación puede ayudar a:
-
-\begin{itemize}
-\tightlist
-\item
-  linealizar;
-\item
-  estabilizar varianza;
-\item
-  reducir asimetría.
-\end{itemize}
-
-Ejemplos:
-
-\[
-\log(Y),
-\qquad
-\sqrt{Y},
-\qquad
-\log(X).
-\]
-
-La interpretación de los coeficientes cambia.
-
-\section*{Extrapolación}\label{extrapolaciuxf3n}
-\addcontentsline{toc}{section}{Extrapolación}
-
-\markright{Extrapolación}
-
-Predecir fuera del rango observado de \(X\) puede ser peligroso.
-
-Aunque la recta se extienda matemáticamente, la relación real puede
-cambiar.
-
-\section*{Correlación y regresión}\label{correlaciuxf3n-y-regresiuxf3n}
-\addcontentsline{toc}{section}{Correlación y regresión}
-
-\markright{Correlación y regresión}
-
-En regresión simple,
-
-\[
-\widehat{\beta}_1
-=
-r
-\frac{s_Y}{s_X}.
-\]
-
-Sin embargo:
-
-\begin{itemize}
-\tightlist
-\item
-  la correlación es simétrica;
-\item
-  la regresión distingue respuesta y predictor;
-\item
-  cambiar unidades afecta la pendiente;
-\item
-  la correlación no cambia ante cambios lineales de escala positiva.
-\end{itemize}
-
-\section*{Regresión y causalidad}\label{regresiuxf3n-y-causalidad}
-\addcontentsline{toc}{section}{Regresión y causalidad}
-
-\markright{Regresión y causalidad}
-
-Una asociación lineal no implica causalidad.
-
-Pueden existir:
-
-\begin{itemize}
-\tightlist
-\item
-  variables omitidas;
-\item
-  causalidad inversa;
-\item
-  confusión;
-\item
-  selección de muestra;
-\item
-  coincidencia.
-\end{itemize}
-
-\section*{Relación con máxima
-verosimilitud}\label{relaciuxf3n-con-muxe1xima-verosimilitud}
-\addcontentsline{toc}{section}{Relación con máxima verosimilitud}
-
-\markright{Relación con máxima verosimilitud}
-
-Si
-
-\[
-\varepsilon_i
-\sim
-N(0,\sigma^2),
-\]
-
-la verosimilitud es
-
-\[
-L(\beta_0,\beta_1,\sigma^2)
-=
-\prod_{i=1}^{n}
-\frac{1}{
-\sqrt{2\pi\sigma^2}
-}
-\exp
-\left[
--\frac{
-(y_i-\beta_0-\beta_1x_i)^2
-}{
-2\sigma^2
-}
-\right].
-\]
-
-Maximizar esta verosimilitud respecto de \(\beta_0\) y \(\beta_1\)
-equivale a minimizar
-
-\[
-\sum_{i=1}^{n}
-(y_i-\beta_0-\beta_1x_i)^2.
-\]
-
-Por tanto, mínimos cuadrados y máxima verosimilitud coinciden bajo
-normalidad.
-
-\section*{Relación con aprendizaje
-supervisado}\label{relaciuxf3n-con-aprendizaje-supervisado}
-\addcontentsline{toc}{section}{Relación con aprendizaje supervisado}
-
-\markright{Relación con aprendizaje supervisado}
-
-El espacio de hipótesis es
-
-\[
-\mathcal{F}
-=
-\{
-f(x)=\beta_0+\beta_1x
-\}.
-\]
-
-La pérdida es
-
-\[
-L(y,f(x))
-=
-(y-f(x))^2.
-\]
-
-El riesgo empírico es
-
-\[
-\widehat{R}_n(f)
-=
-\frac{1}{n}
-\sum_{i=1}^{n}
-(y_i-f(x_i))^2.
-\]
-
-La regresión lineal simple es, por tanto, un problema de minimización
-del riesgo empírico.
-
-\section*{Conexión con R}\label{conexiuxf3n-con-r-8}
-\addcontentsline{toc}{section}{Conexión con R}
-
-\markright{Conexión con R}
-
-\begin{Shaded}
-\begin{Highlighting}[numbers=left,,]
-\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{temperatura =} \FunctionTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{28}\NormalTok{),}
-  \AttributeTok{pm10 =} \FunctionTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{39}\NormalTok{, }\DecValTok{44}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{57}\NormalTok{, }\DecValTok{63}\NormalTok{)}
-\NormalTok{)}
-
-\NormalTok{modelo }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}
-\NormalTok{  pm10 }\SpecialCharTok{\textasciitilde{}}\NormalTok{ temperatura,}
-  \AttributeTok{data =}\NormalTok{ datos}
-\NormalTok{)}
-
-\FunctionTok{summary}\NormalTok{(modelo)}
-
-\FunctionTok{coef}\NormalTok{(modelo)}
-
-\FunctionTok{confint}\NormalTok{(modelo)}
-
-\FunctionTok{predict}\NormalTok{(}
-\NormalTok{  modelo,}
-  \AttributeTok{newdata =} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{temperatura =} \DecValTok{25}\NormalTok{),}
-  \AttributeTok{interval =} \StringTok{"confidence"}
-\NormalTok{)}
-
-\FunctionTok{predict}\NormalTok{(}
-\NormalTok{  modelo,}
-  \AttributeTok{newdata =} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{temperatura =} \DecValTok{25}\NormalTok{),}
-  \AttributeTok{interval =} \StringTok{"prediction"}
-\NormalTok{)}
-
-\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(modelo)}
-\end{Highlighting}
-\end{Shaded}
-
-\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico}
-\addcontentsline{toc}{section}{Ejemplo numérico}
-
-\markright{Ejemplo numérico}
-
-Considere:
-
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}rr@{}}
-\toprule\noalign{}
-\(x_i\) & \(y_i\) \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-1 & 2 \\
-2 & 3 \\
-3 & 5 \\
-4 & 6 \\
-\end{longtable}
-}
-
-Se tiene
-
-\[
-\overline{x}=2.5,
-\qquad
-\overline{y}=4.
-\]
-
-Además,
-
-\[
-S_{xx}
-=
-(1-2.5)^2+(2-2.5)^2+(3-2.5)^2+(4-2.5)^2
-=
-5.
-\]
-
-Y
-
-\[
-S_{xy}
-=
-(1-2.5)(2-4)
-+
-(2-2.5)(3-4)
-+
-(3-2.5)(5-4)
-+
-(4-2.5)(6-4).
-\]
-
-Por tanto,
-
-\[
-S_{xy}=6.
-\]
-
-Entonces,
-
-\[
-\widehat{\beta}_1
-=
-\frac{6}{5}
-=
-1.2.
-\]
-
-Y
-
-\[
-\widehat{\beta}_0
-=
-4
--
-1.2(2.5)
-=
-1.
-\]
-
-La recta ajustada es
-
-\[
-\widehat{y}
-=
-1+1.2x.
-\]
-
-\section*{Errores frecuentes}\label{errores-frecuentes-8}
-\addcontentsline{toc}{section}{Errores frecuentes}
-
-\markright{Errores frecuentes}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Interpretar el intercepto fuera del rango observado.
-\item
-  Concluir causalidad a partir de una pendiente significativa.
-\item
-  Utilizar \(R^2\) como único criterio de calidad.
-\item
-  Ignorar patrones en los residuos.
-\item
-  Extrapolar lejos del rango de los datos.
-\item
-  Confundir intervalo de confianza con intervalo de predicción.
-\item
-  Ignorar heterocedasticidad.
-\item
-  Eliminar observaciones influyentes sin justificación.
-\item
-  Suponer que normalidad de \(Y\) es requerida; el supuesto se refiere a
-  los errores.
-\item
-  Interpretar una pendiente no significativa como prueba de ausencia de
-  relación.
-\end{enumerate}
-
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-8}
-\addcontentsline{toc}{section}{Ejercicios conceptuales}
-
-\markright{Ejercicios conceptuales}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Explique la diferencia entre función de regresión y recta ajustada.
-\item
-  ¿Qué representa \(\beta_1\)?
-\item
-  ¿Por qué la recta ajustada pasa por \((\overline{x},\overline{y})\)?
-\item
-  ¿Qué significa el teorema de Gauss-Markov?
-\item
-  ¿Por qué se utilizan \(n-2\) grados de libertad?
-\item
-  ¿Qué diferencia existe entre intervalo de confianza y predicción?
-\item
-  ¿Qué mide \(R^2\)?
-\item
-  ¿Qué representa el apalancamiento?
-\item
-  ¿Qué diferencia existe entre valor atípico e influencia?
-\item
-  ¿Por qué la extrapolación puede ser peligrosa?
-\end{enumerate}
-
-\section*{Ejercicio de estimación}\label{ejercicio-de-estimaciuxf3n}
-\addcontentsline{toc}{section}{Ejercicio de estimación}
-
-\markright{Ejercicio de estimación}
-
-Considere los datos:
-
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}rrrrrr@{}}
-\toprule\noalign{}
-\(x\) & 2 & 4 & 6 & 8 & 10 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\(y\) & 5 & 8 & 9 & 13 & 15 \\
-\end{longtable}
-}
-
-Calcule:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(\overline{x}\);
-\item
-  \(\overline{y}\);
-\item
-  \(S_{xx}\);
-\item
-  \(S_{xy}\);
-\item
-  \(\widehat{\beta}_1\);
-\item
-  \(\widehat{\beta}_0\);
-\item
-  los valores ajustados;
-\item
-  los residuos.
-\end{enumerate}
-
-\section*{Ejercicio de inferencia}\label{ejercicio-de-inferencia}
-\addcontentsline{toc}{section}{Ejercicio de inferencia}
-
-\markright{Ejercicio de inferencia}
-
-Supóngase:
-
-\[
-\widehat{\beta}_1=2.4,
-\]
-
-\[
-SE(\widehat{\beta}_1)=0.6,
-\]
-
-\[
-n=20.
-\]
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Calcule el estadístico \(t\).
-\item
-  Evalúe \(H_0:\beta_1=0\).
-\item
-  Construya un intervalo de confianza del \(95\%\).
-\item
-  Interprete el resultado.
-\end{enumerate}
-
-\section*{Ejercicio de ANOVA}\label{ejercicio-de-anova}
-\addcontentsline{toc}{section}{Ejercicio de ANOVA}
-
-\markright{Ejercicio de ANOVA}
-
-Sean:
-
-\[
-SST=200,
-\qquad
-SSE=80,
-\qquad
-n=12.
-\]
-
-Calcule:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(SSR\);
-\item
-  \(R^2\);
-\item
-  \(MSR\);
-\item
-  \(MSE\);
-\item
-  el estadístico \(F\).
-\end{enumerate}
-
-\section*{Ejercicio de predicción}\label{ejercicio-de-predicciuxf3n}
-\addcontentsline{toc}{section}{Ejercicio de predicción}
-
-\markright{Ejercicio de predicción}
-
-Supóngase:
-
-\[
-\widehat{y}
-=
-4+1.5x,
-\]
-
-\[
-s=2,
-\]
-
-\[
-n=25,
-\]
-
-\[
-\overline{x}=10,
-\]
-
-\[
-S_{xx}=200.
-\]
-
-Para \(x_0=12\):
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  calcule la predicción;
-\item
-  calcule el error estándar de la media;
-\item
-  calcule el error estándar de predicción;
-\item
-  compare ambos intervalos.
-\end{enumerate}
-
-\section*{Ejercicio de diagnóstico}\label{ejercicio-de-diagnuxf3stico}
-\addcontentsline{toc}{section}{Ejercicio de diagnóstico}
-
-\markright{Ejercicio de diagnóstico}
-
-Para cada patrón, explique qué posible problema sugiere:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  residuos con forma de U;
-\item
-  residuos con forma de embudo;
-\item
-  un punto con gran apalancamiento y residuo pequeño;
-\item
-  un punto con gran apalancamiento y residuo grande;
-\item
-  residuos autocorrelacionados.
-\end{enumerate}
-
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-6}
-\addcontentsline{toc}{section}{Ejercicio aplicado}
-
-\markright{Ejercicio aplicado}
-
-Se desea estudiar la relación entre temperatura y concentración de PM10.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Defina el modelo.
-\item
-  Interprete \(\beta_0\) y \(\beta_1\).
-\item
-  Indique los supuestos.
-\item
-  Describa la estimación por mínimos cuadrados.
-\item
-  Explique cómo probaría la pendiente.
-\item
-  Explique cómo construiría un intervalo para la media.
-\item
-  Explique cómo construiría un intervalo para una nueva observación.
-\item
-  Proponga gráficos de diagnóstico.
-\item
-  Explique por qué la asociación no implica causalidad.
-\item
-  Indique cuándo sería necesaria una transformación.
-\end{enumerate}
-
-\section*{Resumen}\label{resumen-8}
-\addcontentsline{toc}{section}{Resumen}
-
-\markright{Resumen}
-
-En este capítulo se desarrolló la regresión lineal simple desde su
-formulación probabilística hasta la inferencia y el diagnóstico.
-
-Se derivaron los estimadores de mínimos cuadrados, se estudiaron sus
-propiedades de insesgadez y varianza, y se presentó el teorema de
-Gauss-Markov.
-
-También se desarrollaron pruebas para la pendiente, intervalos de
-confianza y predicción, descomposición ANOVA, coeficiente de
-determinación, análisis de residuos, apalancamiento e influencia.
-
-La regresión lineal simple constituye la base para la regresión
-múltiple, la regularización y numerosos modelos de aprendizaje
-supervisado.
+La pendiente \(\beta_1\) describe el cambio esperado en la respuesta
+cuando la variable explicativa aumenta una unidad, mientras que el
+intercepto \(\beta_0\) corresponde al valor esperado de la respuesta
+cuando \(x=0\).
 
 \section*{Seudocódigo formal}\label{seudocuxf3digo-formal}
 \addcontentsline{toc}{section}{Seudocódigo formal}
@@ -18065,7 +16690,7 @@ Sustituyendo,
 \mathbf{y}.
 \]
 
-\section*{Matriz sombrero}\label{matriz-sombrero-1}
+\section*{Matriz sombrero}\label{matriz-sombrero}
 \addcontentsline{toc}{section}{Matriz sombrero}
 
 \markright{Matriz sombrero}
@@ -18120,7 +16745,7 @@ y
 \mathbf{H}.
 \]
 
-\section*{Residuos}\label{residuos-1}
+\section*{Residuos}\label{residuos}
 \addcontentsline{toc}{section}{Residuos}
 
 \markright{Residuos}
@@ -18149,6 +16774,47 @@ entonces
 (\mathbf{I}-\mathbf{H})\mathbf{y}.
 \]
 
+\section*{Interpretación geométrica de los
+residuos}\label{interpretaciuxf3n-geomuxe9trica-de-los-residuos}
+\addcontentsline{toc}{section}{Interpretación geométrica de los
+residuos}
+
+\markright{Interpretación geométrica de los residuos}
+
+La interpretación geométrica de la regresión lineal múltiple resulta
+especialmente útil cuando se analizan los \textbf{valores ajustados} y
+los \textbf{residuos}. Si el modelo tiene dos variables explicativas, la
+superficie ajustada puede visualizarse como un plano en tres
+dimensiones.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.82\linewidth,height=\textheight,keepaspectratio,alt={Gráfico tridimensional con observaciones y un plano de regresión lineal múltiple}]{regresion/../estilos/figuras/regresion-lineal-multiple-ilustracion.png}
+
+}
+
+\caption{\label{fig-regresion-lineal-multiple}Ilustración conceptual de
+la regresión lineal múltiple mediante un plano de ajuste sobre una nube
+de observaciones.}
+
+\end{figure}%
+
+En esta representación, cada valor ajustado corresponde a la altura del
+plano sobre el punto \((x_{i1}, x_{i2})\), mientras que el residuo es la
+distancia vertical entre el valor observado y el plano ajustado. Por
+tanto,
+
+\[
+e_i = y_i - \hat{y}_i.
+\]
+
+Cuando el número de predictores es mayor que dos, la superficie ajustada
+deja de ser visualizable como un plano ordinario y pasa a ser un
+\textbf{hiperplano} en dimensión superior, pero la idea geométrica del
+residuo como discrepancia entre observación y ajuste permanece.
+
 \section*{Ortogonalidad}\label{ortogonalidad-1}
 \addcontentsline{toc}{section}{Ortogonalidad}
 
@@ -18172,7 +16838,7 @@ Si existe intercepto,
 \]
 
 \section*{Interpretación
-geométrica}\label{interpretaciuxf3n-geomuxe9trica-2}
+geométrica}\label{interpretaciuxf3n-geomuxe9trica-1}
 \addcontentsline{toc}{section}{Interpretación geométrica}
 
 \markright{Interpretación geométrica}
@@ -18248,7 +16914,7 @@ estimadores}\label{matriz-de-covarianza-de-los-estimadores}
 
 Los elementos diagonales proporcionan las varianzas de los coeficientes.
 
-\section*{Teorema de Gauss-Markov}\label{teorema-de-gauss-markov-1}
+\section*{Teorema de Gauss-Markov}\label{teorema-de-gauss-markov}
 \addcontentsline{toc}{section}{Teorema de Gauss-Markov}
 
 \markright{Teorema de Gauss-Markov}
@@ -18267,7 +16933,7 @@ En forma abreviada se denomina BLUE:
 \]
 
 \section*{Estimación de la varianza del
-error}\label{estimaciuxf3n-de-la-varianza-del-error-1}
+error}\label{estimaciuxf3n-de-la-varianza-del-error}
 \addcontentsline{toc}{section}{Estimación de la varianza del error}
 
 \markright{Estimación de la varianza del error}
@@ -18299,7 +16965,7 @@ n-p-1
 \]
 
 \section*{Distribución de los
-estimadores}\label{distribuciuxf3n-de-los-estimadores-1}
+estimadores}\label{distribuciuxf3n-de-los-estimadores}
 \addcontentsline{toc}{section}{Distribución de los estimadores}
 
 \markright{Distribución de los estimadores}
@@ -18476,7 +17142,7 @@ SSE.
 \]
 
 \section*{Coeficiente de
-determinación}\label{coeficiente-de-determinaciuxf3n-2}
+determinación}\label{coeficiente-de-determinaciuxf3n-1}
 \addcontentsline{toc}{section}{Coeficiente de determinación}
 
 \markright{Coeficiente de determinación}
@@ -18659,7 +17325,7 @@ s
 \]
 
 \section*{Intervalo de confianza para la
-media}\label{intervalo-de-confianza-para-la-media-1}
+media}\label{intervalo-de-confianza-para-la-media}
 \addcontentsline{toc}{section}{Intervalo de confianza para la media}
 
 \markright{Intervalo de confianza para la media}
@@ -18671,7 +17337,7 @@ t_{\alpha/2,n-p-1}
 SE_{mean}.
 \]
 
-\section*{Intervalo de predicción}\label{intervalo-de-predicciuxf3n-1}
+\section*{Intervalo de predicción}\label{intervalo-de-predicciuxf3n}
 \addcontentsline{toc}{section}{Intervalo de predicción}
 
 \markright{Intervalo de predicción}
@@ -19153,7 +17819,7 @@ k\log n.
 
 BIC penaliza más fuertemente la complejidad cuando \(n\) es grande.
 
-\section*{Apalancamiento}\label{apalancamiento-1}
+\section*{Apalancamiento}\label{apalancamiento}
 \addcontentsline{toc}{section}{Apalancamiento}
 
 \markright{Apalancamiento}
@@ -19184,7 +17850,7 @@ n
 }.
 \]
 
-\section*{Residuos estandarizados}\label{residuos-estandarizados-1}
+\section*{Residuos estandarizados}\label{residuos-estandarizados}
 \addcontentsline{toc}{section}{Residuos estandarizados}
 
 \markright{Residuos estandarizados}
@@ -19199,7 +17865,7 @@ s\sqrt{1-h_{ii}}
 }.
 \]
 
-\section*{Distancia de Cook}\label{distancia-de-cook-1}
+\section*{Distancia de Cook}\label{distancia-de-cook}
 \addcontentsline{toc}{section}{Distancia de Cook}
 
 \markright{Distancia de Cook}
@@ -19263,8 +17929,7 @@ SE_{(-i)}(\widehat{\beta}_j)
 }.
 \]
 
-\section*{Diagnóstico de
-linealidad}\label{diagnuxf3stico-de-linealidad-1}
+\section*{Diagnóstico de linealidad}\label{diagnuxf3stico-de-linealidad}
 \addcontentsline{toc}{section}{Diagnóstico de linealidad}
 
 \markright{Diagnóstico de linealidad}
@@ -19284,7 +17949,7 @@ Debe analizarse:
 \end{itemize}
 
 \section*{Diagnóstico de
-homocedasticidad}\label{diagnuxf3stico-de-homocedasticidad-1}
+homocedasticidad}\label{diagnuxf3stico-de-homocedasticidad}
 \addcontentsline{toc}{section}{Diagnóstico de homocedasticidad}
 
 \markright{Diagnóstico de homocedasticidad}
@@ -19411,7 +18076,7 @@ Estas técnicas son especialmente útiles cuando \(p\) es grande o existe
 multicolinealidad.
 
 \section*{Relación con aprendizaje
-supervisado}\label{relaciuxf3n-con-aprendizaje-supervisado-1}
+supervisado}\label{relaciuxf3n-con-aprendizaje-supervisado}
 \addcontentsline{toc}{section}{Relación con aprendizaje supervisado}
 
 \markright{Relación con aprendizaje supervisado}
@@ -19442,7 +18107,7 @@ y-f(\mathbf{x})
 
 El estimador minimiza el riesgo empírico.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-9}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-8}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -19543,7 +18208,7 @@ El procedimiento manual consiste en:
   calcular los residuos.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-9}
+\section*{Errores frecuentes}\label{errores-frecuentes-8}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -19577,7 +18242,7 @@ El procedimiento manual consiste en:
   Confundir significancia estadística con importancia práctica.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-9}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-8}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -19804,7 +18469,7 @@ Y
   Interprete la interacción.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-7}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-6}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -19852,7 +18517,7 @@ Diseñe el análisis incluyendo:
   limitaciones causales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-9}
+\section*{Resumen}\label{resumen-8}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -21129,7 +19794,7 @@ Por tanto, la frontera es lineal:
 \]
 
 \section*{Relación con aprendizaje
-supervisado}\label{relaciuxf3n-con-aprendizaje-supervisado-2}
+supervisado}\label{relaciuxf3n-con-aprendizaje-supervisado-1}
 \addcontentsline{toc}{section}{Relación con aprendizaje supervisado}
 
 \markright{Relación con aprendizaje supervisado}
@@ -21152,7 +19817,7 @@ El espacio de hipótesis es
 La pérdida es logarítmica y el ajuste minimiza el riesgo empírico
 correspondiente.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-10}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-9}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -21195,7 +19860,7 @@ correspondiente.
 \end{Highlighting}
 \end{Shaded}
 
-\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico-1}
+\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico}
 \addcontentsline{toc}{section}{Ejemplo numérico}
 
 \markright{Ejemplo numérico}
@@ -21246,7 +19911,7 @@ e^{1.2}\approx3.320.
 Manteniendo constante la velocidad, los odds de severidad son
 aproximadamente 3.32 veces mayores durante la noche.
 
-\section*{Errores frecuentes}\label{errores-frecuentes-10}
+\section*{Errores frecuentes}\label{errores-frecuentes-9}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -21280,7 +19945,7 @@ aproximadamente 3.32 veces mayores durante la noche.
   confundir discriminación con calibración.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-10}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-9}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -21411,7 +20076,7 @@ Supóngase:
 
 Calcule la siguiente iteración.
 
-\section*{Ejercicio de inferencia}\label{ejercicio-de-inferencia-1}
+\section*{Ejercicio de inferencia}\label{ejercicio-de-inferencia}
 \addcontentsline{toc}{section}{Ejercicio de inferencia}
 
 \markright{Ejercicio de inferencia}
@@ -21468,7 +20133,7 @@ La diferencia de parámetros es 2.
   Interprete.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-8}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-7}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -21524,7 +20189,7 @@ Diseñe el análisis incluyendo:
   limitaciones causales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-10}
+\section*{Resumen}\label{resumen-9}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -21539,6 +20204,35 @@ explicó Newton-Raphson mediante IRLS.
 Finalmente, se presentaron inferencia, deviance, pseudo-\(R^2\),
 predicción, selección de umbral, discriminación, calibración,
 separación, influencia, regularización y extensión multinomial.
+
+\section*{Interpretación
+probabilística}\label{interpretaciuxf3n-probabiluxedstica}
+\addcontentsline{toc}{section}{Interpretación probabilística}
+
+\markright{Interpretación probabilística}
+
+La regresión logística transforma una combinación lineal de predictores
+en una probabilidad mediante la función logística. La decisión de
+clasificación se obtiene comparando dicha probabilidad con un umbral,
+usualmente \(0.5\).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.82\linewidth,height=\textheight,keepaspectratio,alt={Curva logística o sigmoide con probabilidad en el eje vertical y frontera de decisión en 0.5}]{regresion/../estilos/figuras/regresion-logistica-ilustracion.png}
+
+}
+
+\caption{\label{fig-regresion-logistica}Ilustración de la regresión
+logística mostrando la curva sigmoide, el umbral de decisión y la
+separación entre las clases 0 y 1.}
+
+\end{figure}%
+
+A medida que la combinación lineal \(\eta=\beta_0+\beta_1x\) aumenta, la
+probabilidad \(P(Y=1\mid x)\) crece de forma suave desde valores
+cercanos a 0 hasta valores cercanos a 1.
 
 \section*{Seudocódigo formal}\label{seudocuxf3digo-formal-2}
 \addcontentsline{toc}{section}{Seudocódigo formal}
@@ -21584,7 +20278,7 @@ capítulo}\label{referencias-del-capuxedtulo-10}
 Los fundamentos se apoyan en Agresti (2013), Hosmer et~al. (2013),
 Bishop (2006) y James et~al. (2021).
 
-\part{IV. Métodos de clasificación}
+\part{Métodos de clasificación}
 
 \chapter{\texorpdfstring{Vecinos más cercanos,
 k-NN\index{K-NN}}{Vecinos más cercanos, k-NN}}\label{sec-knn}
@@ -22627,7 +21321,7 @@ El algoritmo define una familia de predictores
 determinada por el número de vecinos y la métrica. La selección de estos
 hiperparámetros se realiza normalmente mediante validación cruzada.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-11}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-10}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -22803,7 +21497,7 @@ desplazarse hacia los vecinos más próximos.
   su interpretabilidad global es limitada.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-11}
+\section*{Errores frecuentes}\label{errores-frecuentes-10}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -22830,7 +21524,7 @@ desplazarse hacia los vecinos más próximos.
   confundir memorizar la muestra con generalizar bien.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-11}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-10}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -22992,7 +21686,7 @@ Se obtiene el siguiente error de validación cruzada:
   Interprete el patrón en términos de sesgo y varianza.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-9}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-8}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -23041,7 +21735,7 @@ Diseñe un análisis con \(k\)-NN que incluya:
   limitaciones prácticas.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-11}
+\section*{Resumen}\label{resumen-10}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -24294,7 +22988,7 @@ Boosting construye árboles secuencialmente, haciendo que cada nuevo
 
 Generalmente utiliza árboles pequeños como aprendices débiles.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-12}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-11}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -24517,7 +23211,7 @@ la predicción es
   menor precisión que algunos ensambles.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-12}
+\section*{Errores frecuentes}\label{errores-frecuentes-11}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -24548,7 +23242,7 @@ la predicción es
   codiciosas.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-12}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-11}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -24706,7 +23400,7 @@ Se tienen tres subárboles:
   Interprete el compromiso sesgo-varianza.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-10}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-9}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -24761,7 +23455,7 @@ Diseñe el análisis incluyendo:
   limitaciones causales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-12}
+\section*{Resumen}\label{resumen-11}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -25555,7 +24249,7 @@ Random Forest no requiere escalamiento, tolera mejor alta dimensión y
 proporciona medidas de importancia. \(k\)-NN depende fuertemente de la
 métrica y de la escala.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-13}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-12}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -25724,7 +24418,7 @@ la predicción es
   extrapolación pobre en regresión.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-13}
+\section*{Errores frecuentes}\label{errores-frecuentes-12}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -25750,7 +24444,7 @@ la predicción es
   preprocesar fuera del ciclo de validación.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-13}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-12}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -25870,7 +24564,7 @@ Viento & 0.12 & 0.12 \\
   Explique por qué no implican causalidad.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-11}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-10}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -25913,7 +24607,7 @@ Diseñe un análisis que incluya:
   limitaciones causales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-13}
+\section*{Resumen}\label{resumen-12}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -26368,7 +25062,7 @@ Las observaciones alejadas del margen no cambian directamente la
 posición del hiperplano óptimo.
 
 \section*{Interpretación
-geométrica}\label{interpretaciuxf3n-geomuxe9trica-3}
+geométrica}\label{interpretaciuxf3n-geomuxe9trica-2}
 \addcontentsline{toc}{section}{Interpretación geométrica}
 
 \markright{Interpretación geométrica}
@@ -27603,7 +26297,7 @@ indica distancia funcional respecto de la frontera.
 Un valor grande sugiere una decisión más alejada del hiperplano, pero no
 constituye una probabilidad calibrada.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-14}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-13}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -27777,7 +26471,7 @@ L_{\text{hinge}}
 1.8.
 \]
 
-\section*{Errores frecuentes}\label{errores-frecuentes-14}
+\section*{Errores frecuentes}\label{errores-frecuentes-13}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -27808,7 +26502,7 @@ L_{\text{hinge}}
   concluir causalidad a partir de la frontera.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-14}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-13}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -27996,7 +26690,7 @@ Se obtienen los siguientes errores de validación:
   Describa un posible patrón de sobreajuste.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-12}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-11}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -28054,7 +26748,7 @@ Diseñe un análisis que incluya:
   limitaciones interpretativas.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-14}
+\section*{Resumen}\label{resumen-13}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -28332,18 +27026,42 @@ no lineal proviene de las funciones de activación.
 
 \end{tcolorbox}
 
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Analogía biológica y computacional}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Las dos figuras siguientes se presentan por separado para destacar con
+claridad la analogía entre la neurona biológica y la neurona artificial.
+En particular, en la neurona artificial todas las entradas del vector de
+características y el sesgo convergen explícitamente al nodo de suma
+ponderada.
+
+\end{tcolorbox}
+
 \begin{figure}
 
 \centering{
 
-\includegraphics[width=0.84\linewidth,height=\textheight,keepaspectratio,alt={Comparación de neurona natural y neurona artificial}]{clasificacion/../estilos/figuras/neurona-natural-artificial.png}
+\includegraphics[width=0.86\linewidth,height=\textheight,keepaspectratio,alt={Diagrama de neurona biológica}]{clasificacion/../estilos/figuras/neurona-biologica.png}
 
 }
 
-\caption{\label{fig-neurona-natural-artificial}La comparación entre
-neurona biológica y neurona artificial muestra con mayor claridad la
-analogía entre recepción de señales, integración y producción de una
-respuesta.}
+\caption{\label{fig-neurona-biologica}Neurona biológica con sus partes
+principales: dendritas, soma, núcleo, axón, vainas de mielina y
+terminales axónicas.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.82\linewidth,height=\textheight,keepaspectratio,alt={Diagrama de neurona artificial}]{clasificacion/../estilos/figuras/neurona-artificial.png}
+
+}
+
+\caption{\label{fig-neurona-artificial}Neurona artificial con entradas
+\(x_1,\dots,x_5\) y sesgo, todas dirigidas al nodo de suma ponderada
+\(z = \sum_{j=1}^{p} w_j x_j + b\), seguida de la función de activación
+y la salida \(\hat y\).}
 
 \end{figure}%
 
@@ -29542,7 +28260,7 @@ puede representar ciertas estructuras con menos unidades.
 La profundidad permite reutilizar composiciones jerárquicas.
 
 \section*{Interpretación
-probabilística}\label{interpretaciuxf3n-probabiluxedstica}
+probabilística}\label{interpretaciuxf3n-probabiluxedstica-1}
 \addcontentsline{toc}{section}{Interpretación probabilística}
 
 \markright{Interpretación probabilística}
@@ -29823,7 +28541,7 @@ arquitecturas especializadas:
   redes generativas.
 \end{itemize}
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-15}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-14}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -30071,7 +28789,7 @@ La clase predicha es la primera.
   optimización no convexa.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-15}
+\section*{Errores frecuentes}\label{errores-frecuentes-14}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -30101,7 +28819,7 @@ La clase predicha es la primera.
   concluir causalidad a partir de pesos o activaciones.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-15}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-14}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -30263,7 +28981,7 @@ Para una neurona sigmoidal con entropía cruzada binaria:
   derive \(\partial L/\partial w_j\).
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-13}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-12}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -30325,7 +29043,7 @@ Diseñe una red neuronal que incluya:
   limitaciones clínicas.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-15}
+\section*{Resumen}\label{resumen-14}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -30357,7 +29075,7 @@ Los fundamentos se apoyan en McCulloch y Pitts (1943), Rosenblatt
 (2016), Glorot y Bengio (2010), He et~al. (2015) y Srivastava et~al.
 (2014).
 
-\part{V. Aprendizaje no supervisado}
+\part{Aprendizaje no supervisado}
 
 \chapter{\texorpdfstring{Análisis de Componentes
 Principales\index{Análisis de componentes principales},
@@ -30543,7 +29261,7 @@ Si se trabaja con datos estandarizados,
 es la matriz de correlación.
 
 \section*{Interpretación
-geométrica}\label{interpretaciuxf3n-geomuxe9trica-4}
+geométrica}\label{interpretaciuxf3n-geomuxe9trica-3}
 \addcontentsline{toc}{section}{Interpretación geométrica}
 
 \markright{Interpretación geométrica}
@@ -31477,7 +30195,7 @@ interpretación.
 En PCA también pueden rotarse componentes, aunque la varianza explicada
 se redistribuye y se modifica la interpretación original.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-16}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-15}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -31711,7 +30429,7 @@ Después se suma la media original:
   puede ocultar variables importantes de baja varianza.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-16}
+\section*{Errores frecuentes}\label{errores-frecuentes-15}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -31741,7 +30459,7 @@ Después se suma la media original:
   usar PCA con variables categóricas sin transformación adecuada.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-16}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-15}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -31905,7 +30623,7 @@ t_1=2.
   Si la media es \((10,5)\), reconstruya la observación original.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-14}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-13}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -31965,7 +30683,7 @@ Diseñe un análisis PCA que incluya:
   limitaciones ambientales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-16}
+\section*{Resumen}\label{resumen-15}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -33170,7 +31888,7 @@ Debe fijarse una semilla aleatoria y reportarse:
   criterio de selección.
 \end{itemize}
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-17}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-16}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -33220,7 +31938,7 @@ Debe fijarse una semilla aleatoria y reportarse:
 \end{Highlighting}
 \end{Shaded}
 
-\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico-2}
+\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico-1}
 \addcontentsline{toc}{section}{Ejemplo numérico}
 
 \markright{Ejemplo numérico}
@@ -33392,7 +32110,7 @@ estabilidad y conocimiento del dominio (Jain 2010).
   no es adecuado directamente para datos categóricos.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-17}
+\section*{Errores frecuentes}\label{errores-frecuentes-16}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -33422,7 +32140,7 @@ estabilidad y conocimiento del dominio (Jain 2010).
   concluir causalidad a partir de grupos.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-17}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-16}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -33577,7 +32295,7 @@ Se obtiene:
   Explique por qué el criterio no es concluyente.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-15}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-14}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -33637,7 +32355,7 @@ Diseñe un análisis que incluya:
   limitaciones ambientales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-17}
+\section*{Resumen}\label{resumen-16}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -34399,7 +33117,7 @@ DBSCAN detecta grupos por densidad y puede identificar ruido. El
 agrupamiento jerárquico produce una jerarquía completa, pero no
 identifica ruido de manera natural.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-18}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-17}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -34455,7 +33173,7 @@ identifica ruido de manera natural.
 \end{Highlighting}
 \end{Shaded}
 
-\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico-3}
+\section*{Ejemplo numérico}\label{ejemplo-numuxe9rico-2}
 \addcontentsline{toc}{section}{Ejemplo numérico}
 
 \markright{Ejemplo numérico}
@@ -34622,7 +33340,7 @@ Entonces
   dificultad con muestras grandes.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-18}
+\section*{Errores frecuentes}\label{errores-frecuentes-17}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -34652,7 +33370,7 @@ Entonces
   inferir causalidad a partir de los grupos.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-18}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-17}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -34729,7 +33447,7 @@ y
 
 Calcule el incremento de Ward.
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-16}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-15}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -34789,7 +33507,7 @@ Incluya:
   limitaciones ambientales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-18}
+\section*{Resumen}\label{resumen-17}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -35726,7 +34444,7 @@ El costo depende de:
 
 Un soporte demasiado bajo puede generar una explosión de resultados.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-19}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-18}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -35888,7 +34606,7 @@ probado.
   dificultad para evaluar utilidad real.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-19}
+\section*{Errores frecuentes}\label{errores-frecuentes-18}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -35918,7 +34636,7 @@ probado.
   confundir coocurrencia con secuencia temporal.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-19}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-18}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -36028,7 +34746,7 @@ Con soporte mínimo 0.4:
   obtenga las reglas con confianza mínima 0.7.
 \end{enumerate}
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-17}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-16}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -36079,7 +34797,7 @@ Incluya:
   limitaciones causales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-19}
+\section*{Resumen}\label{resumen-18}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -36104,7 +34822,7 @@ capítulo}\label{referencias-del-capuxedtulo-19}
 Los fundamentos se apoyan en Agrawal et~al. (1993), Agrawal y Srikant
 (1994), Han et~al. (2000) y Hahsler et~al. (2005).
 
-\part{VI. Temas avanzados}
+\part{Temas avanzados}
 
 \chapter{\texorpdfstring{Teoría de
 generalización\index{Generalización}}{Teoría de generalización}}\label{sec-teoria-generalizacion}
@@ -36580,7 +35298,7 @@ validación anidada}
   Explique por qué una cota puede ser vacía.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-20}
+\section*{Resumen}\label{resumen-19}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -37731,7 +36449,7 @@ Se requiere monitorear:
   calibración.
 \end{itemize}
 
-\section*{Residuos}\label{residuos-2}
+\section*{Residuos}\label{residuos-1}
 \addcontentsline{toc}{section}{Residuos}
 
 \markright{Residuos}
@@ -37927,7 +36645,7 @@ Para pronosticar PM10 pueden utilizarse:
 
 La validación debe simular el uso operativo real.
 
-\section*{Conexión con R}\label{conexiuxf3n-con-r-20}
+\section*{Conexión con R}\label{conexiuxf3n-con-r-19}
 \addcontentsline{toc}{section}{Conexión con R}
 
 \markright{Conexión con R}
@@ -38081,7 +36799,7 @@ automático}\label{ventajas-del-aprendizaje-automuxe1tico}
   extrapolación limitada en árboles.
 \end{enumerate}
 
-\section*{Errores frecuentes}\label{errores-frecuentes-20}
+\section*{Errores frecuentes}\label{errores-frecuentes-19}
 \addcontentsline{toc}{section}{Errores frecuentes}
 
 \markright{Errores frecuentes}
@@ -38111,7 +36829,7 @@ automático}\label{ventajas-del-aprendizaje-automuxe1tico}
   usar variables exógenas futuras desconocidas.
 \end{enumerate}
 
-\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-20}
+\section*{Ejercicios conceptuales}\label{ejercicios-conceptuales-19}
 \addcontentsline{toc}{section}{Ejercicios conceptuales}
 
 \markright{Ejercicios conceptuales}
@@ -38214,7 +36932,7 @@ Diseñe una validación de origen móvil para 60 meses:
 
 Indique las particiones sucesivas.
 
-\section*{Ejercicio aplicado}\label{ejercicio-aplicado-18}
+\section*{Ejercicio aplicado}\label{ejercicio-aplicado-17}
 \addcontentsline{toc}{section}{Ejercicio aplicado}
 
 \markright{Ejercicio aplicado}
@@ -38256,7 +36974,7 @@ Diseñe un sistema para pronosticar PM10 diario que incluya:
   limitaciones ambientales.
 \end{enumerate}
 
-\section*{Resumen}\label{resumen-21}
+\section*{Resumen}\label{resumen-20}
 \addcontentsline{toc}{section}{Resumen}
 
 \markright{Resumen}
@@ -38284,6 +37002,148 @@ capítulo}\label{referencias-del-capuxedtulo-21}
 
 Los fundamentos se apoyan en Box et~al. (2015), Hamilton (1994), Hyndman
 y Athanasopoulos (2021) y Hochreiter y Schmidhuber (1997).
+
+\bookmarksetup{startatroot}
+
+\chapter*{Glosario}\label{glosario}
+\addcontentsline{toc}{chapter}{Glosario}
+
+\markboth{Glosario}{Glosario}
+
+\section*{A--C}\label{ac}
+\addcontentsline{toc}{section}{A--C}
+
+\markright{A--C}
+
+\textbf{ACF:} función de autocorrelación. Mide la correlación entre una
+serie temporal y sus valores rezagados.
+
+\textbf{Algoritmo de aprendizaje:} procedimiento que estima un modelo a
+partir de datos y un criterio de optimización.
+
+\textbf{Aprendizaje no supervisado:} métodos que buscan estructura en
+datos sin utilizar una variable objetivo conocida.
+
+\textbf{Aprendizaje supervisado:} construcción de una función predictiva
+a partir de pares entrada--salida.
+
+\textbf{ARIMA:} familia de modelos autorregresivos integrados de medias
+móviles.
+
+\textbf{Brecha de generalización:} diferencia entre el riesgo esperado y
+el riesgo empírico.
+
+\textbf{Clasificación:} problema de predicción en el que la respuesta
+pertenece a un conjunto finito de categorías.
+
+\textbf{Componente principal:} combinación lineal normalizada de
+variables que maximiza la varianza proyectada.
+
+\textbf{Confianza:} en reglas de asociación, proporción de transacciones
+con el consecuente entre aquellas que contienen el antecedente.
+
+\textbf{Convexidad:} propiedad geométrica que facilita el análisis y la
+optimización de funciones.
+
+\section*{D--H}\label{dh}
+\addcontentsline{toc}{section}{D--H}
+
+\markright{D--H}
+
+\textbf{Dendrograma:} representación gráfica de las fusiones producidas
+por un algoritmo de agrupamiento jerárquico.
+
+\textbf{Descenso por gradiente:} método iterativo que actualiza
+parámetros en la dirección opuesta al gradiente.
+
+\textbf{Dimensión VC:} medida de la capacidad combinatoria de una clase
+de clasificadores.
+
+\textbf{Entropía:} medida de incertidumbre utilizada, entre otros
+contextos, en árboles de decisión.
+
+\textbf{Estacionariedad:} propiedad de un proceso temporal cuyas
+características probabilísticas no cambian con el tiempo.
+
+\textbf{Función de activación:} transformación aplicada a la suma
+ponderada de una neurona artificial.
+
+\textbf{Función de pérdida:} función que cuantifica la discrepancia
+entre una predicción y el valor observado.
+
+\textbf{Generalización:} capacidad de un modelo para mantener un buen
+desempeño en observaciones nuevas.
+
+\textbf{Gradiente:} vector de derivadas parciales de una función
+escalar.
+
+\section*{K--R}\label{kr}
+\addcontentsline{toc}{section}{K--R}
+
+\markright{K--R}
+
+\textbf{K-means:} método de agrupamiento que minimiza la suma de
+cuadrados dentro de los grupos.
+
+\textbf{K-NN:} método basado en las etiquetas o valores de las
+observaciones más cercanas.
+
+\textbf{Kernel:} función que representa productos internos en un espacio
+transformado.
+
+\textbf{Lasso:} regularización basada en la norma (L\_1).
+
+\textbf{Lift:} medida de asociación que compara la frecuencia conjunta
+observada con la esperada bajo independencia.
+
+\textbf{Margen:} distancia entre la frontera de decisión y las
+observaciones críticas en una SVM.
+
+\textbf{Matriz de confusión:} tabla que compara clases reales y clases
+predichas.
+
+\textbf{Neurona artificial:} unidad computacional que aplica una
+activación no lineal a una combinación afín de entradas.
+
+\textbf{PCA:} análisis de componentes principales; técnica de reducción
+de dimensionalidad.
+
+\textbf{Regularización:} modificación del criterio de ajuste para
+controlar la complejidad del modelo.
+
+\textbf{Regresión logística:} modelo probabilístico para clasificación
+que utiliza la función logística.
+
+\textbf{Ridge:} regularización basada en la norma (L\_2).
+
+\textbf{Riesgo empírico:} promedio de la pérdida sobre la muestra
+observada.
+
+\textbf{Riesgo esperado:} esperanza de la pérdida respecto de la
+distribución poblacional.
+
+\section*{S--Z}\label{sz}
+\addcontentsline{toc}{section}{S--Z}
+
+\markright{S--Z}
+
+\textbf{Seudocódigo:} descripción estructurada de un algoritmo
+independiente de un lenguaje de programación particular.
+
+\textbf{Sobreajuste:} adaptación excesiva a los datos de entrenamiento
+que perjudica el desempeño fuera de muestra.
+
+\textbf{Soporte:} frecuencia relativa de aparición de un conjunto de
+elementos en una base de transacciones.
+
+\textbf{SVM:} máquina de vectores de soporte; método que busca una
+frontera de gran margen.
+
+\textbf{Validación cruzada:} procedimiento para estimar el desempeño
+fuera de muestra mediante particiones de los datos.
+
+\textbf{Vector de soporte:} observación que determina la posición de la
+frontera de una SVM.
 
 \bookmarksetup{startatroot}
 
@@ -38624,42 +37484,158 @@ Function»}. \emph{Journal of the American Statistical Association} 58
 
 \bookmarksetup{startatroot}
 
+\chapter*{Índice de figuras}\label{uxedndice-de-figuras}
+\addcontentsline{toc}{chapter}{Índice de figuras}
+
+\markboth{Índice de figuras}{Índice de figuras}
+
+Este índice reúne las principales figuras conceptuales del libro. Pulse
+sobre el número o sobre el título de una figura para ir directamente al
+lugar donde aparece.
+
+\section*{Modelos de regresión}\label{modelos-de-regresiuxf3n-1}
+\addcontentsline{toc}{section}{Modelos de regresión}
+
+\markright{Modelos de regresión}
+
+\begin{itemize}
+\tightlist
+\item
+  Figura~\ref{fig-regresion-lineal-simple} ---
+  \hyperref[fig-regresion-lineal-simple]{Ilustración conceptual de la
+  regresión lineal simple}.
+\item
+  Figura~\ref{fig-regresion-lineal-multiple} ---
+  \hyperref[fig-regresion-lineal-multiple]{Plano de ajuste y residuos en
+  regresión lineal múltiple}.
+\item
+  Figura~\ref{fig-regresion-logistica} ---
+  \hyperref[fig-regresion-logistica]{Curva logística, probabilidad y
+  umbral de decisión}.
+\end{itemize}
+
+\section*{Métodos de
+clasificación}\label{muxe9todos-de-clasificaciuxf3n-1}
+\addcontentsline{toc}{section}{Métodos de clasificación}
+
+\markright{Métodos de clasificación}
+
+\begin{itemize}
+\tightlist
+\item
+  Figura~\ref{fig-knn-frontera} --- \hyperref[fig-knn-frontera]{Frontera
+  de decisión en K-NN}.
+\item
+  Figura~\ref{fig-arbol-esquema} ---
+  \hyperref[fig-arbol-esquema]{Esquema conceptual de un árbol de
+  decisión}.
+\item
+  Figura~\ref{fig-svm-margen} --- \hyperref[fig-svm-margen]{Hiperplano
+  separador y márgenes en una SVM}.
+\item
+  Figura~\ref{fig-neurona-biologica} ---
+  \hyperref[fig-neurona-biologica]{Neurona biológica: estructura general
+  y partes principales}.
+\item
+  Figura~\ref{fig-neurona-artificial} ---
+  \hyperref[fig-neurona-artificial]{Neurona artificial: entradas, suma
+  ponderada, activación y salida}.
+\item
+  Figura~\ref{fig-red-neuronal-arquitectura} ---
+  \hyperref[fig-red-neuronal-arquitectura]{Arquitectura general de una
+  red neuronal multicapa}.
+\end{itemize}
+
+\section*{Aprendizaje no
+supervisado}\label{aprendizaje-no-supervisado-1}
+\addcontentsline{toc}{section}{Aprendizaje no supervisado}
+
+\markright{Aprendizaje no supervisado}
+
+\begin{itemize}
+\tightlist
+\item
+  Figura~\ref{fig-pca-geometria} ---
+  \hyperref[fig-pca-geometria]{Geometría del análisis de componentes
+  principales}.
+\item
+  Figura~\ref{fig-kmeans-centroides} ---
+  \hyperref[fig-kmeans-centroides]{Agrupamiento K-means y centroides}.
+\item
+  Figura~\ref{fig-dendrograma-ward} ---
+  \hyperref[fig-dendrograma-ward]{Dendrograma en agrupamiento
+  jerárquico}.
+\item
+  Figura~\ref{fig-reglas-medidas} ---
+  \hyperref[fig-reglas-medidas]{Soporte, confianza y lift en reglas de
+  asociación}.
+\end{itemize}
+
+\section*{Temas avanzados}\label{temas-avanzados-1}
+\addcontentsline{toc}{section}{Temas avanzados}
+
+\markright{Temas avanzados}
+
+\begin{itemize}
+\tightlist
+\item
+  Figura~\ref{fig-generalizacion-complejidad} ---
+  \hyperref[fig-generalizacion-complejidad]{Complejidad del modelo y
+  generalización}.
+\item
+  Figura~\ref{fig-serie-componentes} ---
+  \hyperref[fig-serie-componentes]{Tendencia y estacionalidad en una
+  serie temporal}.
+\item
+  Figura~\ref{fig-validacion-origen-movil} ---
+  \hyperref[fig-validacion-origen-movil]{Validación temporal con origen
+  móvil}.
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
 \chapter*{Índice temático}\label{uxedndice-temuxe1tico}
 \addcontentsline{toc}{chapter}{Índice temático}
 
 \markboth{Índice temático}{Índice temático}
 
-Este índice resume los conceptos principales del libro y orienta al
-lector hacia el capítulo donde se desarrollan.
+Este índice resume los conceptos principales del libro. Pulse sobre el
+nombre del capítulo para ir directamente a la sección correspondiente.
 
-\section*{A--C}\label{ac}
+\section*{A--C}\label{ac-1}
 \addcontentsline{toc}{section}{A--C}
 
 \markright{A--C}
 
 \begin{itemize}
+\tightlist
 \item
   \textbf{Análisis de componentes principales (PCA):} reducción de
-  dimensionalidad, varianza explicada, componentes ortogonales. Véase el
-  capítulo \textbf{Análisis de Componentes Principales}.
+  dimensionalidad, varianza explicada y componentes ortogonales. Véase
+  \hyperref[sec-pca]{Análisis de Componentes Principales}.
 \item
   \textbf{Árboles de decisión:} entropía, índice de Gini, partición
-  recursiva, poda. Véase el capítulo \textbf{Árboles de decisión}.
-\item
-  \textbf{Clasificación:} regla de Bayes, riesgo de clasificación,
-  frontera de decisión. Véase \textbf{Teoría de clasificación}.
-\item
-  \textbf{Convexidad:} funciones convexas, conjuntos convexos y
-  optimización. Véase \textbf{Cálculo y optimización}.
-\item
-  \textbf{Covarianza y correlación:} estructura de dependencia entre
-  variables. Véase \textbf{Probabilidad y estadística} y \textbf{PCA}.
+  recursiva y poda. Véase \hyperref[sec-arboles-decision]{Árboles de
+  decisión}.
 \item
   \textbf{Brecha de generalización:} diferencia entre riesgo esperado y
-  riesgo empírico. Véase \textbf{Teoría de generalización}.
+  riesgo empírico. Véase \hyperref[sec-teoria-generalizacion]{Teoría de
+  generalización}.
+\item
+  \textbf{Clasificación:} regla de Bayes, riesgo de clasificación y
+  frontera de decisión. Véase \hyperref[sec-teoria-clasificacion]{Teoría
+  matemática de la clasificación}.
+\item
+  \textbf{Convexidad:} funciones convexas, conjuntos convexos y
+  optimización. Véase \hyperref[sec-calculo-optimizacion]{Cálculo
+  multivariable y optimización}.
+\item
+  \textbf{Covarianza y correlación:} estructura de dependencia entre
+  variables. Véanse \hyperref[sec-probabilidad-estadistica]{Probabilidad
+  y estadística} y \hyperref[sec-pca]{PCA}.
 \end{itemize}
 
-\section*{D--H}\label{dh}
+\section*{D--H}\label{dh-1}
 \addcontentsline{toc}{section}{D--H}
 
 \markright{D--H}
@@ -38668,25 +37644,29 @@ lector hacia el capítulo donde se desarrollan.
 \tightlist
 \item
   \textbf{Dendrograma:} representación jerárquica de fusiones entre
-  grupos. Véase \textbf{Agrupamiento jerárquico}.
+  grupos. Véase \hyperref[sec-agrupamiento-jerarquico]{Agrupamiento
+  jerárquico}.
 \item
-  \textbf{Dimensión VC:} capacidad de un conjunto de funciones de
-  clasificación. Véase \textbf{Teoría de generalización}.
+  \textbf{Dimensión VC:} capacidad de una clase de funciones de
+  clasificación. Véase \hyperref[sec-teoria-generalizacion]{Teoría de
+  generalización}.
 \item
   \textbf{Distancia euclidiana y métricas:} base geométrica de varios
-  métodos de aprendizaje. Véase \textbf{K-NN} y \textbf{K-means}.
+  métodos. Véanse \hyperref[sec-knn]{K-NN} y
+  \hyperref[sec-kmeans]{K-means}.
 \item
   \textbf{Dropout:} técnica de regularización en redes neuronales. Véase
-  \textbf{Redes neuronales}.
+  \hyperref[sec-redes-neuronales]{Redes neuronales artificiales}.
 \item
   \textbf{Espacios vectoriales:} base algebraica de regresión, PCA y
-  SVM. Véase \textbf{Álgebra lineal}.
+  SVM. Véase \hyperref[sec-algebra-lineal]{Álgebra lineal}.
 \item
   \textbf{Esperanza matemática:} valor esperado y momentos. Véase
-  \textbf{Probabilidad y estadística}.
+  \hyperref[sec-probabilidad-estadistica]{Probabilidad y estadística}.
 \item
   \textbf{Hessiana:} matriz de segundas derivadas en optimización. Véase
-  \textbf{Cálculo y optimización}.
+  \hyperref[sec-calculo-optimizacion]{Cálculo multivariable y
+  optimización}.
 \end{itemize}
 
 \section*{I--M}\label{im}
@@ -38698,30 +37678,33 @@ lector hacia el capítulo donde se desarrollan.
 \tightlist
 \item
   \textbf{Inferencia y evaluación:} validación cruzada, sesgo, varianza
-  y error de prueba. Véase \textbf{Evaluación de modelos}.
+  y error de prueba. Véase \hyperref[sec-evaluacion-modelos]{Evaluación
+  de modelos}.
 \item
-  \textbf{Kernels:} transformación implícita del espacio para SVM. Véase
-  \textbf{SVM}.
+  \textbf{Kernels:} transformación implícita del espacio. Véase
+  \hyperref[sec-svm]{Máquinas de vectores de soporte}.
 \item
-  \textbf{K-means:} partición en centroides, suma de cuadrados
-  intragrupo, silueta. Véase \textbf{K-means}.
+  \textbf{K-means:} centroides, suma de cuadrados intragrupo y silueta.
+  Véase \hyperref[sec-kmeans]{Agrupamiento mediante K-means}.
 \item
   \textbf{K-NN:} clasificación basada en vecinos cercanos. Véase
-  \textbf{K-NN}.
+  \hyperref[sec-knn]{Vecinos más cercanos, K-NN}.
 \item
   \textbf{Lasso y Ridge:} regularización en modelos lineales. Véase
-  \textbf{Regularización}.
+  \hyperref[sec-regularizacion]{Regularización}.
 \item
   \textbf{Lift:} medida de interés en reglas de asociación. Véase
-  \textbf{Reglas de asociación}.
+  \hyperref[sec-reglas-asociacion]{Reglas de asociación}.
 \item
-  \textbf{Margen:} separación geométrica en SVM. Véase \textbf{SVM}.
+  \textbf{Margen:} separación geométrica en SVM. Véase
+  \hyperref[sec-svm]{Máquinas de vectores de soporte}.
 \item
   \textbf{Matrices y valores propios:} conceptos centrales para modelos
-  lineales y PCA. Véase \textbf{Álgebra lineal}.
+  lineales y PCA. Véase \hyperref[sec-algebra-lineal]{Álgebra lineal}.
 \item
   \textbf{Multicolinealidad:} dependencia lineal entre variables
-  explicativas. Véase \textbf{Regresión lineal múltiple}.
+  explicativas. Véase \hyperref[sec-regresion-lineal-multiple]{Regresión
+  lineal múltiple}.
 \end{itemize}
 
 \section*{N--R}\label{nr}
@@ -38733,47 +37716,53 @@ lector hacia el capítulo donde se desarrollan.
 \tightlist
 \item
   \textbf{Neurona artificial:} suma ponderada, sesgo y activación. Véase
-  \textbf{Redes neuronales}.
+  \hyperref[sec-redes-neuronales]{Redes neuronales artificiales}.
 \item
   \textbf{Odds y logit:} formulación de la regresión logística. Véase
-  \textbf{Regresión logística}.
+  \hyperref[sec-regresion-logistica]{Regresión logística}.
 \item
   \textbf{Origen móvil:} validación cronológica para pronósticos. Véase
-  \textbf{Series de tiempo}.
+  \hyperref[sec-series-tiempo]{Series de tiempo}.
 \item
   \textbf{Optimización:} gradiente, descenso, convexidad y condiciones
-  de optimalidad. Véase \textbf{Cálculo y optimización}.
+  de optimalidad. Véase \hyperref[sec-calculo-optimizacion]{Cálculo
+  multivariable y optimización}.
 \item
   \textbf{PAC:} marco probablemente aproximadamente correcto. Véase
-  \textbf{Teoría de generalización}.
+  \hyperref[sec-teoria-generalizacion]{Teoría de generalización}.
 \item
   \textbf{Pérdida 0-1:} criterio de error en clasificación. Véase
-  \textbf{Teoría de clasificación}.
+  \hyperref[sec-teoria-clasificacion]{Teoría matemática de la
+  clasificación}.
 \item
   \textbf{Probabilidad condicional y Bayes:} base de inferencia y
-  clasificación probabilística. Véase \textbf{Probabilidad y
-  estadística}.
+  clasificación probabilística. Véase
+  \hyperref[sec-probabilidad-estadistica]{Probabilidad y estadística}.
 \item
   \textbf{Random Forest:} ensamble de árboles con bootstrap y selección
-  aleatoria de variables. Véase \textbf{Random Forest}.
+  aleatoria de variables. Véase \hyperref[sec-random-forest]{Random
+  Forest}.
 \item
   \textbf{Reglas de asociación:} soporte, confianza y lift. Véase
-  \textbf{Reglas de asociación}.
+  \hyperref[sec-reglas-asociacion]{Reglas de asociación}.
 \item
-  \textbf{Regresión lineal:} estimación por mínimos cuadrados. Véase
-  \textbf{Regresión lineal simple} y \textbf{Regresión lineal múltiple}.
+  \textbf{Regresión lineal:} estimación por mínimos cuadrados. Véanse
+  \hyperref[sec-regresion-lineal-simple]{Regresión lineal simple} y
+  \hyperref[sec-regresion-lineal-multiple]{Regresión lineal múltiple}.
 \item
   \textbf{Regresión logística:} modelo lineal generalizado para
-  clasificación binaria. Véase \textbf{Regresión logística}.
+  clasificación binaria. Véase
+  \hyperref[sec-regresion-logistica]{Regresión logística}.
 \item
   \textbf{Regularización:} control de complejidad del modelo. Véase
-  \textbf{Regularización}.
+  \hyperref[sec-regularizacion]{Regularización}.
 \item
   \textbf{Riesgo empírico y riesgo esperado:} nociones centrales del
-  aprendizaje supervisado. Véase \textbf{Aprendizaje supervisado}.
+  aprendizaje supervisado. Véase
+  \hyperref[sec-aprendizaje-supervisado]{Aprendizaje supervisado}.
 \end{itemize}
 
-\section*{S--Z}\label{sz}
+\section*{S--Z}\label{sz-1}
 \addcontentsline{toc}{section}{S--Z}
 
 \markright{S--Z}
@@ -38782,26 +37771,66 @@ lector hacia el capítulo donde se desarrollan.
 \tightlist
 \item
   \textbf{Series de tiempo:} dependencia temporal, autocorrelación y
-  predicción. Véase \textbf{Series de tiempo}.
+  predicción. Véase \hyperref[sec-series-tiempo]{Series de tiempo y
+  aprendizaje automático}.
 \item
   \textbf{Silueta:} medida de calidad para agrupamiento. Véase
-  \textbf{K-means}.
+  \hyperref[sec-kmeans]{K-means}.
 \item
   \textbf{Soporte:} frecuencia de aparición en reglas de asociación.
-  Véase \textbf{Reglas de asociación}.
+  Véase \hyperref[sec-reglas-asociacion]{Reglas de asociación}.
 \item
   \textbf{SVM:} margen máximo, vectores de soporte y kernels. Véase
-  \textbf{SVM}.
+  \hyperref[sec-svm]{Máquinas de vectores de soporte}.
 \item
   \textbf{Validación cruzada:} estimación del error fuera de muestra.
-  Véase \textbf{Evaluación de modelos}.
+  Véase \hyperref[sec-evaluacion-modelos]{Evaluación de modelos}.
 \item
   \textbf{Valores singulares:} base del análisis matricial y de PCA.
-  Véase \textbf{Álgebra lineal}.
+  Véase \hyperref[sec-algebra-lineal]{Álgebra lineal}.
 \item
   \textbf{Vectores de soporte:} observaciones críticas que definen la
-  frontera SVM. Véase \textbf{SVM}.
+  frontera SVM. Véase \hyperref[sec-svm]{Máquinas de vectores de
+  soporte}.
 \end{itemize}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Acerca del autor}\label{acerca-del-autor}
+\addcontentsline{toc}{chapter}{Acerca del autor}
+
+\markboth{Acerca del autor}{Acerca del autor}
+
+\textbf{Jesús Gilberto Rodríguez Escobedo} es físico-matemático,
+profesor universitario, consultor y especialista en ciencias de la
+computación e inteligencia artificial.
+
+Su formación académica comprende estudios en Física y Matemáticas en el
+Instituto Politécnico Nacional, un diplomado en Ciencias de la
+Computación en la Fundación Arturo Rosenblueth, estudios de maestría en
+Ciencias Computacionales con especialidad en Inteligencia Artificial en
+el Instituto Tecnológico y de Estudios Superiores de Monterrey, y
+estudios de posgrado en Ingeniería de la Computación.
+
+Ha desarrollado una extensa trayectoria docente en México y Chile,
+impartiendo asignaturas de matemáticas, probabilidad, estadística,
+métodos numéricos, programación, ciencias de la computación,
+inteligencia artificial, minería de datos y aprendizaje automático.
+También ha participado en la dirección y revisión de proyectos de
+titulación y tesis en computación, multimedia, educación e inteligencia
+artificial.
+
+En el ámbito profesional ha desempeñado funciones como consultor, líder
+de proyecto, jefe y gerente de sistemas, director de desarrollo y
+diseñador de soluciones informáticas. Su experiencia incluye sistemas de
+información, desarrollo de software, aplicaciones web, productos
+multimedia y sistemas inteligentes.
+
+Sus intereses académicos y de investigación se concentran en el
+aprendizaje automático, la ciencia de datos, los sistemas tutoriales
+inteligentes, la inteligencia artificial aplicada a la educación y el
+diseño de recursos tecnológicos para favorecer la comprensión de
+conceptos matemáticos y computacionales.
 
 
 

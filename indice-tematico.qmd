@@ -1,61 +1,60 @@
 # Índice temático {.unnumbered}
 
-Este índice resume los conceptos principales del libro y orienta al lector hacia el capítulo donde se desarrollan.
+Este índice resume los conceptos principales del libro. Pulse sobre el nombre del capítulo para ir directamente a la sección correspondiente.
 
 ## A–C {.unnumbered}
 
-- **Análisis de componentes principales (PCA):** reducción de dimensionalidad, varianza explicada, componentes ortogonales. Véase el capítulo **Análisis de Componentes Principales**.
-- **Árboles de decisión:** entropía, índice de Gini, partición recursiva, poda. Véase el capítulo **Árboles de decisión**.
-- **Clasificación:** regla de Bayes, riesgo de clasificación, frontera de decisión. Véase **Teoría de clasificación**.
-- **Convexidad:** funciones convexas, conjuntos convexos y optimización. Véase **Cálculo y optimización**.
-- **Covarianza y correlación:** estructura de dependencia entre variables. Véase **Probabilidad y estadística** y **PCA**.
-
-- **Brecha de generalización:** diferencia entre riesgo esperado y riesgo empírico. Véase **Teoría de generalización**.
+- **Análisis de componentes principales (PCA):** reducción de dimensionalidad, varianza explicada y componentes ortogonales. Véase [Análisis de Componentes Principales](no-supervisado/pca.qmd#sec-pca).
+- **Árboles de decisión:** entropía, índice de Gini, partición recursiva y poda. Véase [Árboles de decisión](clasificacion/arboles-decision.qmd#sec-arboles-decision).
+- **Brecha de generalización:** diferencia entre riesgo esperado y riesgo empírico. Véase [Teoría de generalización](avanzados/teoria-generalizacion.qmd#sec-teoria-generalizacion).
+- **Clasificación:** regla de Bayes, riesgo de clasificación y frontera de decisión. Véase [Teoría matemática de la clasificación](aprendizaje/teoria-clasificacion.qmd#sec-teoria-clasificacion).
+- **Convexidad:** funciones convexas, conjuntos convexos y optimización. Véase [Cálculo multivariable y optimización](fundamentos/calculo-optimizacion.qmd#sec-calculo-optimizacion).
+- **Covarianza y correlación:** estructura de dependencia entre variables. Véanse [Probabilidad y estadística](fundamentos/probabilidad-estadistica.qmd#sec-probabilidad-estadistica) y [PCA](no-supervisado/pca.qmd#sec-pca).
 
 ## D–H {.unnumbered}
 
-- **Dendrograma:** representación jerárquica de fusiones entre grupos. Véase **Agrupamiento jerárquico**.
-- **Dimensión VC:** capacidad de un conjunto de funciones de clasificación. Véase **Teoría de generalización**.
-- **Distancia euclidiana y métricas:** base geométrica de varios métodos de aprendizaje. Véase **K-NN** y **K-means**.
-- **Dropout:** técnica de regularización en redes neuronales. Véase **Redes neuronales**.
-- **Espacios vectoriales:** base algebraica de regresión, PCA y SVM. Véase **Álgebra lineal**.
-- **Esperanza matemática:** valor esperado y momentos. Véase **Probabilidad y estadística**.
-- **Hessiana:** matriz de segundas derivadas en optimización. Véase **Cálculo y optimización**.
+- **Dendrograma:** representación jerárquica de fusiones entre grupos. Véase [Agrupamiento jerárquico](no-supervisado/agrupamiento-jerarquico.qmd#sec-agrupamiento-jerarquico).
+- **Dimensión VC:** capacidad de una clase de funciones de clasificación. Véase [Teoría de generalización](avanzados/teoria-generalizacion.qmd#sec-teoria-generalizacion).
+- **Distancia euclidiana y métricas:** base geométrica de varios métodos. Véanse [K-NN](clasificacion/knn.qmd#sec-knn) y [K-means](no-supervisado/kmeans.qmd#sec-kmeans).
+- **Dropout:** técnica de regularización en redes neuronales. Véase [Redes neuronales artificiales](clasificacion/redes-neuronales.qmd#sec-redes-neuronales).
+- **Espacios vectoriales:** base algebraica de regresión, PCA y SVM. Véase [Álgebra lineal](fundamentos/algebra-lineal.qmd#sec-algebra-lineal).
+- **Esperanza matemática:** valor esperado y momentos. Véase [Probabilidad y estadística](fundamentos/probabilidad-estadistica.qmd#sec-probabilidad-estadistica).
+- **Hessiana:** matriz de segundas derivadas en optimización. Véase [Cálculo multivariable y optimización](fundamentos/calculo-optimizacion.qmd#sec-calculo-optimizacion).
 
 ## I–M {.unnumbered}
 
-- **Inferencia y evaluación:** validación cruzada, sesgo, varianza y error de prueba. Véase **Evaluación de modelos**.
-- **Kernels:** transformación implícita del espacio para SVM. Véase **SVM**.
-- **K-means:** partición en centroides, suma de cuadrados intragrupo, silueta. Véase **K-means**.
-- **K-NN:** clasificación basada en vecinos cercanos. Véase **K-NN**.
-- **Lasso y Ridge:** regularización en modelos lineales. Véase **Regularización**.
-- **Lift:** medida de interés en reglas de asociación. Véase **Reglas de asociación**.
-- **Margen:** separación geométrica en SVM. Véase **SVM**.
-- **Matrices y valores propios:** conceptos centrales para modelos lineales y PCA. Véase **Álgebra lineal**.
-- **Multicolinealidad:** dependencia lineal entre variables explicativas. Véase **Regresión lineal múltiple**.
+- **Inferencia y evaluación:** validación cruzada, sesgo, varianza y error de prueba. Véase [Evaluación de modelos](aprendizaje/evaluacion-modelos.qmd#sec-evaluacion-modelos).
+- **Kernels:** transformación implícita del espacio. Véase [Máquinas de vectores de soporte](clasificacion/svm.qmd#sec-svm).
+- **K-means:** centroides, suma de cuadrados intragrupo y silueta. Véase [Agrupamiento mediante K-means](no-supervisado/kmeans.qmd#sec-kmeans).
+- **K-NN:** clasificación basada en vecinos cercanos. Véase [Vecinos más cercanos, K-NN](clasificacion/knn.qmd#sec-knn).
+- **Lasso y Ridge:** regularización en modelos lineales. Véase [Regularización](aprendizaje/regularizacion.qmd#sec-regularizacion).
+- **Lift:** medida de interés en reglas de asociación. Véase [Reglas de asociación](no-supervisado/reglas-asociacion.qmd#sec-reglas-asociacion).
+- **Margen:** separación geométrica en SVM. Véase [Máquinas de vectores de soporte](clasificacion/svm.qmd#sec-svm).
+- **Matrices y valores propios:** conceptos centrales para modelos lineales y PCA. Véase [Álgebra lineal](fundamentos/algebra-lineal.qmd#sec-algebra-lineal).
+- **Multicolinealidad:** dependencia lineal entre variables explicativas. Véase [Regresión lineal múltiple](regresion/regresion-lineal-multiple.qmd#sec-regresion-lineal-multiple).
 
 ## N–R {.unnumbered}
 
-- **Neurona artificial:** suma ponderada, sesgo y activación. Véase **Redes neuronales**.
-- **Odds y logit:** formulación de la regresión logística. Véase **Regresión logística**.
-- **Origen móvil:** validación cronológica para pronósticos. Véase **Series de tiempo**.
-- **Optimización:** gradiente, descenso, convexidad y condiciones de optimalidad. Véase **Cálculo y optimización**.
-- **PAC:** marco probablemente aproximadamente correcto. Véase **Teoría de generalización**.
-- **Pérdida 0-1:** criterio de error en clasificación. Véase **Teoría de clasificación**.
-- **Probabilidad condicional y Bayes:** base de inferencia y clasificación probabilística. Véase **Probabilidad y estadística**.
-- **Random Forest:** ensamble de árboles con bootstrap y selección aleatoria de variables. Véase **Random Forest**.
-- **Reglas de asociación:** soporte, confianza y lift. Véase **Reglas de asociación**.
-- **Regresión lineal:** estimación por mínimos cuadrados. Véase **Regresión lineal simple** y **Regresión lineal múltiple**.
-- **Regresión logística:** modelo lineal generalizado para clasificación binaria. Véase **Regresión logística**.
-- **Regularización:** control de complejidad del modelo. Véase **Regularización**.
-- **Riesgo empírico y riesgo esperado:** nociones centrales del aprendizaje supervisado. Véase **Aprendizaje supervisado**.
+- **Neurona artificial:** suma ponderada, sesgo y activación. Véase [Redes neuronales artificiales](clasificacion/redes-neuronales.qmd#sec-redes-neuronales).
+- **Odds y logit:** formulación de la regresión logística. Véase [Regresión logística](regresion/regresion-logistica.qmd#sec-regresion-logistica).
+- **Origen móvil:** validación cronológica para pronósticos. Véase [Series de tiempo](avanzados/series-tiempo.qmd#sec-series-tiempo).
+- **Optimización:** gradiente, descenso, convexidad y condiciones de optimalidad. Véase [Cálculo multivariable y optimización](fundamentos/calculo-optimizacion.qmd#sec-calculo-optimizacion).
+- **PAC:** marco probablemente aproximadamente correcto. Véase [Teoría de generalización](avanzados/teoria-generalizacion.qmd#sec-teoria-generalizacion).
+- **Pérdida 0-1:** criterio de error en clasificación. Véase [Teoría matemática de la clasificación](aprendizaje/teoria-clasificacion.qmd#sec-teoria-clasificacion).
+- **Probabilidad condicional y Bayes:** base de inferencia y clasificación probabilística. Véase [Probabilidad y estadística](fundamentos/probabilidad-estadistica.qmd#sec-probabilidad-estadistica).
+- **Random Forest:** ensamble de árboles con bootstrap y selección aleatoria de variables. Véase [Random Forest](clasificacion/random-forest.qmd#sec-random-forest).
+- **Reglas de asociación:** soporte, confianza y lift. Véase [Reglas de asociación](no-supervisado/reglas-asociacion.qmd#sec-reglas-asociacion).
+- **Regresión lineal:** estimación por mínimos cuadrados. Véanse [Regresión lineal simple](regresion/regresion-lineal-simple.qmd#sec-regresion-lineal-simple) y [Regresión lineal múltiple](regresion/regresion-lineal-multiple.qmd#sec-regresion-lineal-multiple).
+- **Regresión logística:** modelo lineal generalizado para clasificación binaria. Véase [Regresión logística](regresion/regresion-logistica.qmd#sec-regresion-logistica).
+- **Regularización:** control de complejidad del modelo. Véase [Regularización](aprendizaje/regularizacion.qmd#sec-regularizacion).
+- **Riesgo empírico y riesgo esperado:** nociones centrales del aprendizaje supervisado. Véase [Aprendizaje supervisado](aprendizaje/aprendizaje-supervisado.qmd#sec-aprendizaje-supervisado).
 
 ## S–Z {.unnumbered}
 
-- **Series de tiempo:** dependencia temporal, autocorrelación y predicción. Véase **Series de tiempo**.
-- **Silueta:** medida de calidad para agrupamiento. Véase **K-means**.
-- **Soporte:** frecuencia de aparición en reglas de asociación. Véase **Reglas de asociación**.
-- **SVM:** margen máximo, vectores de soporte y kernels. Véase **SVM**.
-- **Validación cruzada:** estimación del error fuera de muestra. Véase **Evaluación de modelos**.
-- **Valores singulares:** base del análisis matricial y de PCA. Véase **Álgebra lineal**.
-- **Vectores de soporte:** observaciones críticas que definen la frontera SVM. Véase **SVM**.
+- **Series de tiempo:** dependencia temporal, autocorrelación y predicción. Véase [Series de tiempo y aprendizaje automático](avanzados/series-tiempo.qmd#sec-series-tiempo).
+- **Silueta:** medida de calidad para agrupamiento. Véase [K-means](no-supervisado/kmeans.qmd#sec-kmeans).
+- **Soporte:** frecuencia de aparición en reglas de asociación. Véase [Reglas de asociación](no-supervisado/reglas-asociacion.qmd#sec-reglas-asociacion).
+- **SVM:** margen máximo, vectores de soporte y kernels. Véase [Máquinas de vectores de soporte](clasificacion/svm.qmd#sec-svm).
+- **Validación cruzada:** estimación del error fuera de muestra. Véase [Evaluación de modelos](aprendizaje/evaluacion-modelos.qmd#sec-evaluacion-modelos).
+- **Valores singulares:** base del análisis matricial y de PCA. Véase [Álgebra lineal](fundamentos/algebra-lineal.qmd#sec-algebra-lineal).
+- **Vectores de soporte:** observaciones críticas que definen la frontera SVM. Véase [Máquinas de vectores de soporte](clasificacion/svm.qmd#sec-svm).

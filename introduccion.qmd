@@ -1,4 +1,4 @@
-# Introducción
+# Introducción {.unnumbered}
 
 El aprendizaje automático estudia métodos capaces de construir reglas de predicción, clasificación o descripción a partir de datos. Desde el punto de vista matemático, aprender significa seleccionar una función dentro de una familia de modelos utilizando información contenida en una muestra.
 

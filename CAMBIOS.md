@@ -461,3 +461,126 @@
 - Se corrigió el error LaTeX `Missing $ inserted`.
 - El ejemplo numérico de la cota de Hoeffding ahora utiliza bloques matemáticos `$$ ... $$` compatibles con Quarto y LuaLaTeX.
 - Se conserva la revisión académica de los capítulos 21 y 22.
+
+## Versión 0.38
+
+- Ronda de cierre editorial profesional.
+- Se añadió una página de créditos y forma de citar la obra.
+- Se añadieron agradecimientos.
+- Se incorporó una semblanza profesional del autor.
+- Se añadió un glosario de términos.
+- Se reorganizaron las páginas preliminares y finales.
+- Se agregó una entrada BibTeX para citar el libro.
+- Se añadió una auditoría final para preparar la versión 1.0.
+
+## Versión 0.38.1
+
+- Se desactivó la portada automática generada por Pandoc/Quarto mediante `\renewcommand{\maketitle}{}`.
+- La portada gráfica se inserta como primera página efectiva del PDF.
+- Se eliminó la portada PDF incrustada dentro de `index.qmd`.
+- La sección Bienvenida ahora es visible tanto en HTML como en PDF.
+- Se amplió el texto de bienvenida y sus objetivos generales.
+
+## Versión 0.38.2
+
+- Se corrigió la figura `neurona-natural-artificial.png`.
+- Las flechas de las entradas y del sesgo ahora apuntan claramente al círculo de la neurona artificial.
+
+## Versión 0.39
+
+- Auditoría técnica y editorial integral previa a la versión 1.0.
+- Verificación de estructura, capítulos, imágenes, enlaces, citas, identificadores y seudocódigos.
+- Se añadió una página de licencia y uso académico.
+- Se agregó `AUDITORIA_INTEGRAL_v0.39.md`.
+- Se agregó `RENDER_AUDITORIA_VERSION_039.bat`.
+
+## Versión 0.39.1
+
+- Se eliminó la hoja en blanco anterior a la portada.
+- La portada gráfica sustituye directamente a `\maketitle`.
+- Se eliminaron los números romanos escritos manualmente en los nombres de las partes.
+- Presentación, Introducción y Notación general pasan a ser páginas preliminares sin numeración.
+- Los 22 capítulos académicos quedan numerados correctamente del 1 al 22.
+
+## Versión 0.39.2
+
+- Corrección definitiva del folio vacío anterior a la portada.
+- La portada ya no utiliza el entorno `titlepage`.
+- Eliminación de la página huérfana al final de la Presentación.
+- Preparación de un nuevo render para auditoría visual.
+
+## Versión 0.39.3
+
+- Se añadió una figura ilustrativa de regresión lineal simple al capítulo correspondiente.
+- La nueva figura se integra tanto en la versión web como en el PDF al renderizar el libro.
+
+## Versión 0.40
+
+- Se añadieron figuras conceptuales para regresión lineal múltiple y regresión logística.
+- Se incorporó un Índice de figuras para la versión web y el PDF.
+- El índice de figuras enlaza las principales figuras de regresión, clasificación, aprendizaje no supervisado y temas avanzados.
+
+## Versión 0.40.1
+
+- Se verificó la integración de la figura de regresión lineal múltiple.
+- Se conservan las figuras de KNN, árboles de decisión, SVM, PCA y K-means ya existentes.
+- Se añadió el Índice de figuras al libro web y al PDF.
+
+## Versión 0.40.2
+
+- Se corrigió el error LaTeX `Missing $ inserted`.
+- Las expresiones matemáticas añadidas en las figuras de regresión ahora utilizan `$...$`.
+- Se revisaron las figuras de regresión lineal simple, múltiple y logística.
+
+## Versión 0.40.3
+
+- Se reubicó la figura de regresión lineal simple.
+- La ilustración ahora aparece en la parte del capítulo donde resulta más natural discutir los residuos o errores de regresión.
+- Se mejoró el texto explicativo para relacionar directamente la figura con $e_i = y_i - \hat{y}_i$.
+
+## Versión 0.40.4
+
+- Se corrigió nuevamente la figura `neurona-natural-artificial.png`.
+- Las líneas y flechas del vector de entrada ahora terminan claramente dentro del círculo de la neurona artificial.
+- También se ajustó la flecha del sesgo para que llegue al nodo de suma.
+
+## Versión 0.40.5
+
+- Se corrigió el error LaTeX `Missing $ inserted` en la fórmula de los residuos.
+- La expresión `e_i = y_i - \hat{y}_i` ahora utiliza un bloque matemático `$$ ... $$`.
+- Se normalizaron las expresiones matemáticas del texto asociado a la figura de regresión lineal simple.
+
+## Versión 0.40.6
+
+- Se revisó visualmente el PDF generado.
+- Se corrigió otra vez la figura de la neurona artificial para que las flechas del vector de entrada confluyan claramente hacia el círculo del nodo.
+- La figura de regresión lineal múltiple se reubicó desde el cierre del capítulo hacia la parte donde se explican los residuos.
+- Se añadió una explicación geométrica de residuos en regresión lineal múltiple con la fórmula $e_i = y_i - \hat{y}_i$.
+
+## Versión 0.40.7
+
+- Se eliminó la sección duplicada de interpretación geométrica al final del capítulo de regresión lineal múltiple.
+- La figura de regresión lineal múltiple queda únicamente en la parte donde se explican los residuos.
+- Se mantiene la revisión visual de la figura de la neurona artificial.
+
+## Versión 0.40.8
+
+- Se eliminó definitivamente el bloque duplicado de interpretación geométrica al final del capítulo de regresión lineal múltiple.
+- La figura de regresión lineal múltiple queda solo en la sección vinculada con residuos.
+
+## Versión 0.40.9
+
+- Se activaron hipervínculos internos visibles en el PDF.
+- El contenido general ahora utiliza enlaces sobre títulos y números de página.
+- El índice de figuras enlaza cada figura con su ubicación exacta.
+- El índice temático enlaza cada concepto con el capítulo correspondiente.
+- Se activaron marcadores numerados y navegación interna del PDF.
+
+## Versión 0.41
+
+- Se realizó una revisión visual detallada del capítulo de redes neuronales.
+- Se reemplazó la figura compuesta de comparación por dos figuras separadas: `neurona-biologica.png` y `neurona-artificial.png`.
+- La neurona biológica ya no aparece en la misma línea que la neurona artificial.
+- Se corrigió explícitamente la dirección de todas las flechas del vector de entrada en la figura de la neurona artificial para que converjan al nodo de suma ponderada.
+- Se actualizó el índice de figuras para enlazar por separado ambas ilustraciones.
+- Se prepararon paquetes listos para publicar tanto en desarrollo como en estable.

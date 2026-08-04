@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Regresión logística – Fundamentos Matemáticos del Aprendizaje Automático</title>
+<title>11&nbsp; Regresión logística – Fundamentos Matemáticos del Aprendizaje Automático</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -335,7 +335,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regresion/regresion-lineal-simple.html">III. Modelos de regresión</a></li><li class="breadcrumb-item"><a href="../regresion/regresion-logistica.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión logística</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regresion/regresion-lineal-simple.html">Modelos de regresión</a></li><li class="breadcrumb-item"><a href="../regresion/regresion-logistica.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión logística</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -372,32 +372,50 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../creditos-editoriales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Créditos editoriales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../licencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Licencia y uso académico</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../prefacio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../agradecimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimientos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../presentacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Presentación</span></span></a>
+ <span class="menu-text">Presentación</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduccion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+ <span class="menu-text">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Notación general</span></span></a>
+ <span class="menu-text">Notación general</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">I. Fundamentos matemáticos</span></a>
+ <span class="menu-text">Fundamentos matemáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -406,25 +424,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../fundamentos/conjuntos-funciones.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lenguaje matemático, conjuntos y funciones</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lenguaje matemático, conjuntos y funciones</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../fundamentos/algebra-lineal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Álgebra lineal para aprendizaje automático</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Álgebra lineal para aprendizaje automático</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../fundamentos/probabilidad-estadistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Probabilidad y estadística para aprendizaje automático</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Probabilidad y estadística para aprendizaje automático</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../fundamentos/calculo-optimizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Cálculo multivariable y optimización</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cálculo multivariable y optimización</span></span></a>
   </div>
 </li>
       </ul>
@@ -432,7 +450,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">II. Fundamentos del aprendizaje automático</span></a>
+ <span class="menu-text">Fundamentos del aprendizaje automático</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -441,25 +459,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aprendizaje/aprendizaje-supervisado.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Formulación matemática del aprendizaje supervisado</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Formulación matemática del aprendizaje supervisado</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aprendizaje/teoria-clasificacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Teoría matemática de la clasificación</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teoría matemática de la clasificación</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aprendizaje/evaluacion-modelos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evaluación, validación y selección de modelos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Evaluación, validación y selección de modelos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../aprendizaje/regularizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regularización y control de la complejidad</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regularización y control de la complejidad</span></span></a>
   </div>
 </li>
       </ul>
@@ -467,7 +485,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">III. Modelos de regresión</span></a>
+ <span class="menu-text">Modelos de regresión</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -476,19 +494,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regresion/regresion-lineal-simple.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regresión lineal simple</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regresión lineal simple</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regresion/regresion-lineal-multiple.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regresión lineal múltiple</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Regresión lineal múltiple</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regresion/regresion-logistica.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión logística</span></span></a>
   </div>
 </li>
       </ul>
@@ -496,7 +514,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">IV. Métodos de clasificación</span></a>
+ <span class="menu-text">Métodos de clasificación</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -505,31 +523,31 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../clasificacion/knn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Vecinos más cercanos, k-NN</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Vecinos más cercanos, k-NN</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../clasificacion/arboles-decision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Árboles de decisión</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Árboles de decisión</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../clasificacion/random-forest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Random Forest</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Random Forest</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../clasificacion/svm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Máquinas de vectores de soporte, SVM</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Máquinas de vectores de soporte, SVM</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../clasificacion/redes-neuronales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Redes neuronales artificiales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Redes neuronales artificiales</span></span></a>
   </div>
 </li>
       </ul>
@@ -537,7 +555,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">V. Aprendizaje no supervisado</span></a>
+ <span class="menu-text">Aprendizaje no supervisado</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -546,25 +564,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../no-supervisado/pca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Análisis de Componentes Principales, PCA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Análisis de Componentes Principales, PCA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../no-supervisado/kmeans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Agrupamiento mediante K-means</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Agrupamiento mediante K-means</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../no-supervisado/agrupamiento-jerarquico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Agrupamiento jerárquico</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Agrupamiento jerárquico</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../no-supervisado/reglas-asociacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Reglas de asociación</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reglas de asociación</span></span></a>
   </div>
 </li>
       </ul>
@@ -572,7 +590,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">VI. Temas avanzados</span></a>
+ <span class="menu-text">Temas avanzados</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -581,17 +599,23 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../avanzados/teoria-generalizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Teoría de generalización</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Teoría de generalización</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../avanzados/series-tiempo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Series de tiempo y aprendizaje automático</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Series de tiempo y aprendizaje automático</span></span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glosario</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../referencias.html" class="sidebar-item-text sidebar-link">
@@ -600,8 +624,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../indice-de-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../indice-tematico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice temático</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../acerca-del-autor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acerca del autor</span></a>
   </div>
 </li>
     </ul>
@@ -669,6 +705,7 @@ window.Quarto = {
   <li><a href="#ejercicio-de-razón-de-verosimilitud" id="toc-ejercicio-de-razón-de-verosimilitud" class="nav-link" data-scroll-target="#ejercicio-de-razón-de-verosimilitud">Ejercicio de razón de verosimilitud</a></li>
   <li><a href="#ejercicio-aplicado" id="toc-ejercicio-aplicado" class="nav-link" data-scroll-target="#ejercicio-aplicado">Ejercicio aplicado</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#interpretación-probabilística" id="toc-interpretación-probabilística" class="nav-link" data-scroll-target="#interpretación-probabilística">Interpretación probabilística</a></li>
   <li><a href="#seudocódigo-formal" id="toc-seudocódigo-formal" class="nav-link" data-scroll-target="#seudocódigo-formal">Seudocódigo formal</a></li>
   <li><a href="#referencias-del-capítulo" id="toc-referencias-del-capítulo" class="nav-link" data-scroll-target="#referencias-del-capítulo">Referencias del capítulo</a></li>
   </ul>
@@ -678,9 +715,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regresion/regresion-lineal-simple.html">III. Modelos de regresión</a></li><li class="breadcrumb-item"><a href="../regresion/regresion-logistica.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión logística</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regresion/regresion-lineal-simple.html">Modelos de regresión</a></li><li class="breadcrumb-item"><a href="../regresion/regresion-logistica.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión logística</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="sec-regresion-logistica" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión logística</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar todo el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Ocultar todo el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código fuente</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-regresion-logistica" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión logística</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar todo el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Ocultar todo el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código fuente</a></li></ul></div></div>
 </div>
 
 
@@ -774,7 +811,7 @@ Y_i\mid\mathbf{x}_i
 <section id="función-logística" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="función-logística">Función logística</h2>
 <div id="def-funcion-logistica" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 14.1</strong></span> La función logística se define como</p>
+<p><span class="theorem-title"><strong>Definición 11.1</strong></span> La función logística se define como</p>
 <p><span class="math display">\[
 \sigma(z)
 =
@@ -861,7 +898,7 @@ x_{ip}
 <section id="odds" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="odds">Odds</h2>
 <div id="def-odds" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 14.2</strong></span> Los odds de un evento con probabilidad <span class="math inline">\(\pi\)</span> son</p>
+<p><span class="theorem-title"><strong>Definición 11.2</strong></span> Los odds de un evento con probabilidad <span class="math inline">\(\pi\)</span> son</p>
 <p><span class="math display">\[
 \operatorname{odds}
 =
@@ -877,7 +914,7 @@ x_{ip}
 <section id="logit" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="logit">Logit</h2>
 <div id="def-logit" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 14.3</strong></span> La función logit es</p>
+<p><span class="theorem-title"><strong>Definición 11.3</strong></span> La función logit es</p>
 <p><span class="math display">\[
 \operatorname{logit}(\pi)
 =
@@ -1225,7 +1262,7 @@ G^2\sim\chi^2_q,
 <section id="deviance" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="deviance">Deviance</h2>
 <div id="def-deviance-logistica" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 14.4</strong></span> La deviance es</p>
+<p><span class="theorem-title"><strong>Definición 11.4</strong></span> La deviance es</p>
 <p><span class="math display">\[
 D
 =
@@ -1447,7 +1484,7 @@ r_i^{D}
 <section id="separación-completa" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="separación-completa">Separación completa</h2>
 <div id="def-separacion-completa" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 14.5</strong></span> Existe separación completa cuando una combinación lineal de las variables separa perfectamente las dos clases.</p>
+<p><span class="theorem-title"><strong>Definición 11.5</strong></span> Existe separación completa cuando una combinación lineal de las variables separa perfectamente las dos clases.</p>
 </div>
 <p>En ese caso, algunos coeficientes tienden a infinito y el estimador de máxima verosimilitud no existe como valor finito.</p>
 </section>
@@ -1828,6 +1865,21 @@ SE(\widehat{\beta}_1)=0.20.
 <p>En este capítulo se desarrolló la regresión logística como modelo probabilístico para clasificación binaria.</p>
 <p>Se estudiaron función logística, odds, logit y odds ratios. También se derivaron verosimilitud, log-verosimilitud, gradiente y Hessiana, y se explicó Newton-Raphson mediante IRLS.</p>
 <p>Finalmente, se presentaron inferencia, deviance, pseudo-<span class="math inline">\(R^2\)</span>, predicción, selección de umbral, discriminación, calibración, separación, influencia, regularización y extensión multinomial.</p>
+</section>
+<section id="interpretación-probabilística" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="interpretación-probabilística">Interpretación probabilística</h2>
+<p>La regresión logística transforma una combinación lineal de predictores en una probabilidad mediante la función logística. La decisión de clasificación se obtiene comparando dicha probabilidad con un umbral, usualmente <span class="math inline">\(0.5\)</span>.</p>
+<div id="fig-regresion-logistica" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Curva logística o sigmoide con probabilidad en el eje vertical y frontera de decisión en 0.5">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regresion-logistica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../estilos/figuras/regresion-logistica-ilustracion.png" class="img-fluid figure-img" style="width:82.0%" alt="Curva logística o sigmoide con probabilidad en el eje vertical y frontera de decisión en 0.5">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regresion-logistica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;11.1: Ilustración de la regresión logística mostrando la curva sigmoide, el umbral de decisión y la separación entre las clases 0 y 1.
+</figcaption>
+</figure>
+</div>
+<p>A medida que la combinación lineal <span class="math inline">\(\eta=\beta_0+\beta_1x\)</span> aumenta, la probabilidad <span class="math inline">\(P(Y=1\mid x)\)</span> crece de forma suave desde valores cercanos a 0 hasta valores cercanos a 1.</p>
 </section>
 <section id="seudocódigo-formal" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="seudocódigo-formal">Seudocódigo formal</h2>
@@ -2356,12 +2408,12 @@ James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. <em>An 
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../regresion/regresion-lineal-multiple.html" class="pagination-link" aria-label="Regresión lineal múltiple\index{Regresión lineal múltiple}">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regresión lineal múltiple</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Regresión lineal múltiple</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../clasificacion/knn.html" class="pagination-link" aria-label="Vecinos más cercanos, k-NN\index{K-NN}">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Vecinos más cercanos, k-NN</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Vecinos más cercanos, k-NN</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -3607,37 +3659,45 @@ James, Gareth, Daniela Witten, Trevor Hastie, y Robert Tibshirani. 2021. <em>An 
 <span id="cb3-1242"><a href="#cb3-1242"></a></span>
 <span id="cb3-1243"><a href="#cb3-1243"></a><span class="in">Finalmente, se presentaron inferencia, deviance, pseudo-$R^2$, predicción, selección de umbral, discriminación, calibración, separación, influencia, regularización y extensión multinomial.</span></span>
 <span id="cb3-1244"><a href="#cb3-1244"></a></span>
-<span id="cb3-1245"><a href="#cb3-1245"></a><span class="in">## Seudocódigo formal {.unnumbered}</span></span>
+<span id="cb3-1245"><a href="#cb3-1245"></a><span class="in">## Interpretación probabilística {.unnumbered}</span></span>
 <span id="cb3-1246"><a href="#cb3-1246"></a></span>
-<span id="cb3-1247"><a href="#cb3-1247"></a><span class="in">::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}</span></span>
-<span id="cb3-1248"><a href="#cb3-1248"></a><span class="in">```text</span></span>
-<span id="cb3-1249"><a href="#cb3-1249"></a><span class="in">Algoritmo Regresión-Logística</span></span>
-<span id="cb3-1250"><a href="#cb3-1250"></a><span class="in">Entrada:</span></span>
-<span id="cb3-1251"><a href="#cb3-1251"></a><span class="in">  D = {(x_i, y_i)}_{i=1}^n, con y_i ∈ {0,1}</span></span>
-<span id="cb3-1252"><a href="#cb3-1252"></a><span class="in">Salida:</span></span>
-<span id="cb3-1253"><a href="#cb3-1253"></a><span class="in">  \hatβ y \hat p_i = P(Y_i=1|x_i)</span></span>
+<span id="cb3-1247"><a href="#cb3-1247"></a><span class="in">La regresión logística transforma una combinación lineal de predictores en una probabilidad mediante la función logística. La decisión de clasificación se obtiene comparando dicha probabilidad con un umbral, usualmente $0.5$.</span></span>
+<span id="cb3-1248"><a href="#cb3-1248"></a></span>
+<span id="cb3-1249"><a href="#cb3-1249"></a><span class="in">![Ilustración de la regresión logística mostrando la curva sigmoide, el umbral de decisión y la separación entre las clases 0 y 1.](../estilos/figuras/regresion-logistica-ilustracion.png){#fig-regresion-logistica width=82% fig-alt="Curva logística o sigmoide con probabilidad en el eje vertical y frontera de decisión en 0.5"}</span></span>
+<span id="cb3-1250"><a href="#cb3-1250"></a></span>
+<span id="cb3-1251"><a href="#cb3-1251"></a><span class="in">A medida que la combinación lineal $\eta=\beta_0+\beta_1x$ aumenta, la probabilidad $P(Y=1\mid x)$ crece de forma suave desde valores cercanos a 0 hasta valores cercanos a 1.</span></span>
+<span id="cb3-1252"><a href="#cb3-1252"></a></span>
+<span id="cb3-1253"><a href="#cb3-1253"></a><span class="in">## Seudocódigo formal {.unnumbered}</span></span>
 <span id="cb3-1254"><a href="#cb3-1254"></a></span>
-<span id="cb3-1255"><a href="#cb3-1255"></a><span class="in">1. Inicializar β^{(0)}.</span></span>
-<span id="cb3-1256"><a href="#cb3-1256"></a><span class="in">2. Para t = 0,1,2,... hasta convergencia:</span></span>
-<span id="cb3-1257"><a href="#cb3-1257"></a><span class="in">   a) Calcular</span></span>
-<span id="cb3-1258"><a href="#cb3-1258"></a><span class="in">         η_i^{(t)} = x_i^T β^{(t)},</span></span>
-<span id="cb3-1259"><a href="#cb3-1259"></a><span class="in">         p_i^{(t)} = 1/(1 + e^{-η_i^{(t)}}).</span></span>
-<span id="cb3-1260"><a href="#cb3-1260"></a><span class="in">   b) Calcular el gradiente</span></span>
-<span id="cb3-1261"><a href="#cb3-1261"></a><span class="in">         g^{(t)} = X^T (y - p^{(t)}).</span></span>
-<span id="cb3-1262"><a href="#cb3-1262"></a><span class="in">   c) Calcular la Hessiana</span></span>
-<span id="cb3-1263"><a href="#cb3-1263"></a><span class="in">         H^{(t)} = -X^T W^{(t)} X,</span></span>
-<span id="cb3-1264"><a href="#cb3-1264"></a><span class="in">      donde W^{(t)} = diag(p_i^{(t)}(1-p_i^{(t)})).</span></span>
-<span id="cb3-1265"><a href="#cb3-1265"></a><span class="in">   d) Actualizar por Newton-Raphson/IRLS:</span></span>
-<span id="cb3-1266"><a href="#cb3-1266"></a><span class="in">         β^{(t+1)} = β^{(t)} - [H^{(t)}]^{-1} g^{(t)}.</span></span>
-<span id="cb3-1267"><a href="#cb3-1267"></a><span class="in">3. Definir \hatβ = β^{(t+1)}.</span></span>
-<span id="cb3-1268"><a href="#cb3-1268"></a><span class="in">4. Clasificar mediante</span></span>
-<span id="cb3-1269"><a href="#cb3-1269"></a><span class="in">      \hat y(x)=1 si \hat p(x) ≥ c, y 0 en otro caso.</span></span>
-<span id="cb3-1270"><a href="#cb3-1270"></a><span class="in">```</span></span>
-<span id="cb3-1271"><a href="#cb3-1271"></a>:::</span>
-<span id="cb3-1272"><a href="#cb3-1272"></a></span>
-<span id="cb3-1273"><a href="#cb3-1273"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
-<span id="cb3-1274"><a href="#cb3-1274"></a></span>
-<span id="cb3-1275"><a href="#cb3-1275"></a>Los fundamentos se apoyan en @agresti2013categorical, @hosmer2013applied, @bishop2006pattern y @james2021introduction.</span>
+<span id="cb3-1255"><a href="#cb3-1255"></a><span class="in">::: {.callout-note title="Seudocódigo matemático formal" appearance="default" icon="true"}</span></span>
+<span id="cb3-1256"><a href="#cb3-1256"></a><span class="in">```text</span></span>
+<span id="cb3-1257"><a href="#cb3-1257"></a><span class="in">Algoritmo Regresión-Logística</span></span>
+<span id="cb3-1258"><a href="#cb3-1258"></a><span class="in">Entrada:</span></span>
+<span id="cb3-1259"><a href="#cb3-1259"></a><span class="in">  D = {(x_i, y_i)}_{i=1}^n, con y_i ∈ {0,1}</span></span>
+<span id="cb3-1260"><a href="#cb3-1260"></a><span class="in">Salida:</span></span>
+<span id="cb3-1261"><a href="#cb3-1261"></a><span class="in">  \hatβ y \hat p_i = P(Y_i=1|x_i)</span></span>
+<span id="cb3-1262"><a href="#cb3-1262"></a></span>
+<span id="cb3-1263"><a href="#cb3-1263"></a><span class="in">1. Inicializar β^{(0)}.</span></span>
+<span id="cb3-1264"><a href="#cb3-1264"></a><span class="in">2. Para t = 0,1,2,... hasta convergencia:</span></span>
+<span id="cb3-1265"><a href="#cb3-1265"></a><span class="in">   a) Calcular</span></span>
+<span id="cb3-1266"><a href="#cb3-1266"></a><span class="in">         η_i^{(t)} = x_i^T β^{(t)},</span></span>
+<span id="cb3-1267"><a href="#cb3-1267"></a><span class="in">         p_i^{(t)} = 1/(1 + e^{-η_i^{(t)}}).</span></span>
+<span id="cb3-1268"><a href="#cb3-1268"></a><span class="in">   b) Calcular el gradiente</span></span>
+<span id="cb3-1269"><a href="#cb3-1269"></a><span class="in">         g^{(t)} = X^T (y - p^{(t)}).</span></span>
+<span id="cb3-1270"><a href="#cb3-1270"></a><span class="in">   c) Calcular la Hessiana</span></span>
+<span id="cb3-1271"><a href="#cb3-1271"></a><span class="in">         H^{(t)} = -X^T W^{(t)} X,</span></span>
+<span id="cb3-1272"><a href="#cb3-1272"></a><span class="in">      donde W^{(t)} = diag(p_i^{(t)}(1-p_i^{(t)})).</span></span>
+<span id="cb3-1273"><a href="#cb3-1273"></a><span class="in">   d) Actualizar por Newton-Raphson/IRLS:</span></span>
+<span id="cb3-1274"><a href="#cb3-1274"></a><span class="in">         β^{(t+1)} = β^{(t)} - [H^{(t)}]^{-1} g^{(t)}.</span></span>
+<span id="cb3-1275"><a href="#cb3-1275"></a><span class="in">3. Definir \hatβ = β^{(t+1)}.</span></span>
+<span id="cb3-1276"><a href="#cb3-1276"></a><span class="in">4. Clasificar mediante</span></span>
+<span id="cb3-1277"><a href="#cb3-1277"></a><span class="in">      \hat y(x)=1 si \hat p(x) ≥ c, y 0 en otro caso.</span></span>
+<span id="cb3-1278"><a href="#cb3-1278"></a><span class="in">```</span></span>
+<span id="cb3-1279"><a href="#cb3-1279"></a>:::</span>
+<span id="cb3-1280"><a href="#cb3-1280"></a></span>
+<span id="cb3-1281"><a href="#cb3-1281"></a><span class="fu">## Referencias del capítulo {.unnumbered}</span></span>
+<span id="cb3-1282"><a href="#cb3-1282"></a></span>
+<span id="cb3-1283"><a href="#cb3-1283"></a>Los fundamentos se apoyan en @agresti2013categorical, @hosmer2013applied, @bishop2006pattern y @james2021introduction.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
